@@ -8,6 +8,7 @@ url:         "https://dudeperf3ct.github.io"
 date_format: "%b %-d, %Y"
 header_pages:
  - about.md
+ - sensei.md
  - contact.html
 
 # Google services
