@@ -96,6 +96,7 @@
   width:100%
  }
 }
+
 @media (min-width:52em) {
  .md-col {
   float:left;
@@ -142,6 +143,7 @@
   width:100%
  }
 }
+
 @media (min-width:64em) {
  .lg-col {
   float:left;
@@ -274,6 +276,7 @@
  -ms-flex-order:99999;
  order:99999
 }
+
 @media (min-width:40em) {
  .sm-flex {
   display:-webkit-box;
@@ -282,6 +285,7 @@
   display:flex
  }
 }
+
 @media (min-width:52em) {
  .md-flex {
   display:-webkit-box;
@@ -290,6 +294,7 @@
   display:flex
  }
 }
+
 @media (min-width:64em) {
  .lg-flex {
   display:-webkit-box;
