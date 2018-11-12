@@ -14,4 +14,5 @@ Let's being with the introduction.
 
 ## Introduction
 
-The field of AI has a lot of stories about <span class='red'>it's booms and busts.</span>
+The field of AI has a lot of stories about it's<span class='red'> booms and busts.</span> In last few years, there seems to be 
+an exponential progress. Much of this progress has come from recent advances in the field of "deep learning" in many domains spanning object detection, recognition, segmentation, speech recognition, synthesis and control. It all began one fine summer when Krizhevsky et al (2012) trained a deep convolutional neural network (CNN) that nearly halved the previous state-of-the-art (SOTA) error rate on most challenging benchmark in image classification contest (ImageNet) organized by Stanford Vision Lab.
