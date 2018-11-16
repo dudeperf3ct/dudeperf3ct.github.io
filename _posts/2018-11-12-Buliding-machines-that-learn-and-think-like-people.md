@@ -34,6 +34,11 @@ Although cognitive science has not yet converged on a single account of the mind
  <img src="/images/omniglot_dataset.png" alt="Omniglot Dataset" />
 </p>
 
+Hofstadter argued that the problem of recognizing characters in all of the ways people do -both handwritten and printed -contains most, if not all, of the fundamental challenges of AI. Whether or not this statement is correct, it highlights the surprising complexity that underlies even "simple" human-level concepts like "letters".
+
+<span class='red'>Although neural networks may outperform humans on classification tasks (MNIST, Imagenet), it does not mean that they learn and think in the same way.</span> Atleast two important differences: <span class='green'> people learn from fewer examples and they learn richer representations. </span> Morever, people learn more than how to do pattern recognition: they learn a concept, that is, a model of the class that allows their acquired knowledge to be flexibly applied in new ways. In addition of recognizing new examples, people can also generate new examples, parse a character into its most important parts and relations, and generate new characters given a small set of related characters. These additional abilities come for free along with the acquisition of the underlying concepts. People learn a lot more from a lot less, and capturing these human-level learning abilities in machines is the Characters Challenge. 
+
+The authors reported progress on this challenge using probabilistic program induction [^2], yet aspects of full human congnitive ability remain out of reach. Additional progresss may come by combining deep learning and probabilistic program induction to tackle even richer versions of the Character Challenge.
 
 
 2. Learning to play the Atari game Frostbite
@@ -41,6 +46,11 @@ Although cognitive science has not yet converged on a single account of the mind
 <p align='center'>
  <img src="/images/frostbite.gif" alt="Frostbite" />
 </p>
+
+In Frostbite, players control an agent (Frostbite Bailey) tasked with constructing an igloo within a time limit. The igloo is built piece by piece as the agent jumps on ice floes in water. The challenge is that the ice floes are in constant motion (movig either left or right), and ice floes only contribute to the construction of the igloo if they are visited in an active state (white, rather than blue). The agent may also earn extra point by gathering fish while avoiding a number of fatal hazards (falling in the water, snow geese, polar bears, etc). Success in this game requires a temporally extended plan to ensure the agent can accomplish a sub-goal (such as reaching an ice floe) and then safely proceed to the next sub-goal. Ultimately, once all of the pieces of the igloo are in place, the agent must proceed to the igloo and complete the level before time expires.
+
+Frostbite Challenge, which was one of the control problems tackled by the DQN of Mnih et al [^3]. The DQN learns to play Frostbite by combining a powerful patter recognizer (a deep CNN) and a simple model-free reinforcement learning algorithm (Q-learning) 
+
 
 ---
 
