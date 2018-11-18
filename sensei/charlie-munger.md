@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Charlie Munger
-permalink: /sensei/1/
+permalink: /sensei/charlie-munger/
 tags: charlie munger
 published: true
 ---
