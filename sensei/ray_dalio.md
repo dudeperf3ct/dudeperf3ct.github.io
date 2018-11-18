@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Ray Dalio
-permalink: /sensei/4/
+permalink: /sensei/ray-dalio/
 tags: ray dalio
 published: true
 ---
