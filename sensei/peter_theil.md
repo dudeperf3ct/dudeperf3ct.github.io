@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Peter Thiel
-permalink: /sensei/9/
+permalink: /sensei/peter-theil/
 tags: peter thiel
 published: false
 ---
