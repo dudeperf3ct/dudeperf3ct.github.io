@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Mohnish Pabrai
-permalink: /sensei/5/
+permalink: /sensei/mohnish-pabrai/
 tags: mohnish pabrai
 published: true
 ---
