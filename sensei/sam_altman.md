@@ -15,7 +15,9 @@ published: false
 Altmanism
 ===========================
 
-Take time try lot og things, explore a lot of things. Try to have beginner's mind about what will work and what won't but trust your intuitions and pursue a lot of things as cheaply and quickly as possible then be honest with yourself about what's working well and what's not. And hard part is cut all the stuff that's not working and focus down until you are eventually focused one or two things that are really working.
+Doing anything worthwhile takes a long time and it takes a lot of emotional trauma and if you are not willing to sign up for that, you are not gonna succeed.
+
+Take time try lot of things, explore a lot of things. Try to have beginner's mind about what will work and what won't but trust your intuitions and pursue a lot of things as cheaply and quickly as possible then be honest with yourself about what's working well and what's not. And hard part is cut all the stuff that's not working and focus down until you are eventually focused one or two things that are really working.
 
 My three most pillar in productivity:
  - Make sure to get important things done 
