@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sam Altman
-permalink: /sensei/8/
+permalink: /sensei/sam-altman/
 tags: sam altman
 published: false
 ---
