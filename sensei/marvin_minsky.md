@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Marvin Minksy
-permalink: /sensei/minsky/
+permalink: /sensei/marvin-minsky/
 tags: marvin minsky
 published: false
 ---
