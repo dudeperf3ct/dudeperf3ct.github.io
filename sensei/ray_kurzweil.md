@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Ray Kurzweil
-permalink: /sensei/7/
+permalink: /sensei/ray-kurzweil/
 tags: ray kurzweil
 published: true
 ---
