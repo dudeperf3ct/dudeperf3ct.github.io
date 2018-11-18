@@ -17,6 +17,11 @@ Altmanism
 
 Take time try lot og things, explore a lot of things. Try to have beginner's mind about what will work and what won't but trust your intuitions and pursue a lot of things as cheaply and quickly as possible then be honest with yourself about what's working well and what's not. And hard part is cut all the stuff that's not working and focus down until you are eventually focused one or two things that are really working.
 
+My three most pillar in productivity:
+ - Make sure to get important things done 
+ - Don't waste time on stupid shit
+ - Make a lots of lists 
+
 The best thing I can say is I like to follow my interests, I try to pursue a lot of projects that seem interesting. I realize that most of them will fail and I don't care as long as the one that work really work.
 
 Everytime I make a major investment in the company, I am convinced that it's going to work or atleast like I am prepared to pay for the expected value that I think it's going to work. Convincing yourself otherwise is very hard.
@@ -28,6 +33,8 @@ The things that have taught me lot about business are poker and investing. I str
 Things in life are rarely as risky as they seem. Most people are too much risk averse and so much advice is biased too much towards conservative paths. We are very good at thinking about short-term catastrophic risk and we are very bad thinking about  long-term chronic risk. We worry about nuclear metldown but not like inhaling coal smoke.
 
 I think as you get older, the perspective shift just gets harder and harder and it's invaluable thing to get. Keeping sort of mental flexibility to look at things from fresh perspectives and new angles is most important thing hold on to.
+
+Surrounding yourself with people who will make you more ambitious, more inquisitive, shift your perspective more is really important. Basically all people, almost about 98% people in the world will try to pull you back and say it's crazy, it out there, it's really ambitious.
 
 Quotes
 ===========================
