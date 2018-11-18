@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Howard Marks
-permalink: /sensei/3/
+permalink: /sensei/howard-marks/
 tags: howard marks
 published: true
 ---
