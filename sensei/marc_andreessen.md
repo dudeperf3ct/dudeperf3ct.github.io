@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Marc Andreessen
-permalink: /sensei/10/
+permalink: /sensei/marc-andreessen/
 tags: marc andreessen
 published: false
 ---
