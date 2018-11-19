@@ -38,12 +38,25 @@ I think as you get older, the perspective shift just gets harder and harder and 
 
 Surrounding yourself with people who will make you more ambitious, more inquisitive, shift your perspective more is really important. Basically all people, almost about 98% people in the world will try to pull you back and say it's crazy, it out there, it's really ambitious.
 
+You want to look for intersection of what you good at, what you enjoy and where you can create value for the world. In my experience, if you don't find some intersection of those three it's really hard to have impact.
+
+If you work very hard at early in your career, you get little better at what you work every day, every week, every year and you learn more and meet people and just get work done. There's a compound effect.
+
 Quotes
 ===========================
 
 Minimize your cognitive load from distracting things that don't really matter. 
 
+History belongs to the doers.
+
 Crowd is right "sometimes".
+
+The way things get done in the world are through a combination of focus and personal connection. ~ Charlie Rose
+
+I would like to additional factor of self belief to above qualities.
+
+You have to work harder than most people think you should.
+
 
 Stories
 ===========================
