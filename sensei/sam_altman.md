@@ -46,6 +46,10 @@ My new belief on how long should I hold the stock in best companies is forever. 
 
 I think willing to go, take a risk and make some amount of sacrifice to be able to try impact the world in some way you care about and sooner you get to work on that, better you'll be.
 
+<span class='red'>"Love is better than like."</span> Well, I think there’s a few different reasons for that. One is it objectively seems to be true. If you look at the companies that have gone to become super important and valuable, and shaped the world in a big way, they tend to have fairly fanatical early users. If you think about how you first came across Facebook or Google, it’s very likely because a friend told you how great it was. <span class='red'>Focus on love, not likes.</span>
+
+
+
 Quotes
 ===========================
 
@@ -55,7 +59,11 @@ History belongs to the doers.
 
 People don't stick with products they don’t love.
 
+You  win people over one person at a time.
+
 Crowd is right "sometimes".
+
+ It is easier to start a hard company than an easy company.
 
 The way things get done in the world are through a combination of focus and personal connection. ~ Charlie Rose
 
@@ -64,6 +72,8 @@ I would like to additional factor of self belief to above qualities.
 You have to work harder than most people think you should.
 
 People regret way more things they didn't do then they do.
+
+Startups, once they get big enough, can only grow by word of mouth.
 
 
 Stories
