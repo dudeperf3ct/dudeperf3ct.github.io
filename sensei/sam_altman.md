@@ -42,12 +42,18 @@ You want to look for intersection of what you good at, what you enjoy and where 
 
 If you work very hard at early in your career, you get little better at what you work every day, every week, every year and you learn more and meet people and just get work done. There's a compound effect.
 
+My new belief on how long should I hold the stock in best companies is forever. In a world where people are increasingly focused on tick and quarterly earnings cycle, you should try and go in the other direction. This a great way to generate value and wealth.
+
+I think willing to go, take a risk and make some amount of sacrifice to be able to try impact the world in some way you care about and sooner you get to work on that, better you'll be.
+
 Quotes
 ===========================
 
 Minimize your cognitive load from distracting things that don't really matter. 
 
 History belongs to the doers.
+
+People don't stick with products they don’t love.
 
 Crowd is right "sometimes".
 
@@ -56,6 +62,8 @@ The way things get done in the world are through a combination of focus and pers
 I would like to additional factor of self belief to above qualities.
 
 You have to work harder than most people think you should.
+
+People regret way more things they didn't do then they do.
 
 
 Stories
