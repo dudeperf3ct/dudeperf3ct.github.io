@@ -79,9 +79,11 @@ The challenge of buidling models of human learning and thinking then becomes:
  3. Thinking Fast 
     - Approximate inference in structured models
     - Model-based and model-free reinforcement learning
-
+    
 **In the follow up post, I will explain in-detail each of the ingredients.**
+    
 
+Footnotes
 ---
 
 [^1] :  [Computing Machinery and Intelligence] (https://www.csee.umbc.edu/courses/471/papers/turing.pdf)
