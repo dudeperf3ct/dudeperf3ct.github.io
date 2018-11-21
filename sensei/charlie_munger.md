@@ -49,6 +49,8 @@ Warren and I have not made our way in life by making successful macroeconomic pr
 
 I have rule for politics which has served me well for predictions and that is, "the politicians are never so bad you don't live to want them back".
 
+<span class='grey'>Part of enjoying your life is to see it like it is, face it like it is and adapt to reality as it is whether you like it or not. </span>
+
 My mothers grandfather had a theory which he said over and over to his grandchildren including my mother was that <span class='green'> real opportunites that come to you are few, it's very fortunate life that has just bathed an opportunity all the way. Most people just get a few times when they can make a huge difference by seizing a huge activity and he said when you find one my dear grandchildren seize it boldly and don't do it small.</span> If you take whole history of Berkshire and if you take out the 20 best transactions, our record is a joke. Life is not just bathing you in unlimited opportunites even if you were being able to find them and seize them.
 
 
