@@ -43,6 +43,8 @@ What good does it do to be able to pass a test parroting back to the professor w
 
 Warren and I have not made our way in life by making successful macroeconomic predictions and betting on our conclusions.<span class='red'> Our system is to swim as competently as we can and sometimes the tide will be with us and sometimes it will be against us but by and large we don't bother with trying to predict the tides because we plan to play the game for long time. I recommend to all of you exactly the same attitude.</span>
 
+<span class='blue'>Lord Acton had this law, "Power tends to corrupt, and absolute power corrupts absolutely". Well the Munger version of that is that, "Easy Money courrpts and really easy money tends to corrupt absolutely". </span>
+
 
 
 Quotes
