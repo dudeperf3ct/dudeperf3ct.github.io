@@ -45,6 +45,8 @@ Warren and I have not made our way in life by making successful macroeconomic pr
 
 <span class='blue'>Lord Acton had this law, "Power tends to corrupt, and absolute power corrupts absolutely". Well the Munger version of that is that, "Easy Money courrpts and really easy money tends to corrupt absolutely". </span>
 
+I have rule for politics which has served me well for predictions and that is, "the politicians are never so bad you don't live to want them back".
+
 
 
 Quotes
