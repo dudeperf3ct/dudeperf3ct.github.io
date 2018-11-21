@@ -41,6 +41,8 @@ What good does it do to be able to pass a test parroting back to the professor w
 
 <span class='red'>If you underspend your income all your life and keep learning and collect all bone headaches experience mistakes other people made and avoid them, I would confidentally predict you will do just fine.</span>
 
+Warren and I have not made our way in life by making successful macroeconomic predictions and betting on our conclusions.<span class='red'> Our system is to swim as competently as we can and sometimes the tide will be with us and sometimes it will be against us but by and large we don't bother with trying to predict the tides because we plan to play the game for long time. I recommend to all of you exactly the same attitude.</span>
+
 
 
 Quotes
@@ -56,7 +58,11 @@ You can't really know anything if you just remember isolated facts and try and b
 
 Fortunately it isn’t that tough because 80 or 90 important models will carry about 90% of the freight in making you a worldly wise person. And, of those, only a mere handful really carry very heavy freight.
 
+Generally I have found two things you should never do in your life, <span class='red'> one is never feel sorry for yourself (never ever), and other thing you never want to have is envy. That's the only of the deadly sins, you're never going to have fun at all. Pick one of others! </span>
+
 Always invert.
+
+The best way to get what you want in life is to deserve what you want.
 
 I have been a great actor for so long that I can no longer remember or know what I think about any subject.  ~ Sir Cedric Hardwicke
 
@@ -65,6 +71,8 @@ I would rather deal with the guy with an IQ of 130 who thinks it's 125 than with
 Everything should be made as simple as possible, but not more simple. ~ Albert Einstein
 
 Better be roughly right than be precisely wrong.
+
+Treat the two impostors failures and success the same.
 
 Stories
 ===========================
@@ -82,3 +90,5 @@ Once in the course, I had this guy in Harvard Law Review ahead of me and in an a
 There was Nobel Prize Winner at Stanford, he looked at the investment success of Berkshire Hathaway and he said <span class='red'>it's luck</span>. He said, it's like enough money flipping coins and winning two or three times in a row.
 
 When Shockley was at his craziest, he tried to recruit all these Nobel Laurates to donate the sperm so that the next generation could have the advantage of all this selective breeding and I think it was Muller who said to him, "I think you are barking up the wrong tree. What my sperm has given America is two guitar players. If you want Nobel Laurates, you better look them at immigrant illietrate tailors".
+
+Example of real bad employment market. My uncle Fred graduated from Harvard School of Architecture with great distinction and in 20s he had a very successful architectural practise in Omaha where he did churches, little buildings and houses, where he made 8 or 10 thousand dollars a year which is an enormous amount of money to make from credibly performing architectural profession in the 1920s. When the 30s came, the architectural (building) permits in Omaha would sometimes go down to $30,000 per month for the whole city of Omaha. There was exactly zero work for architects including my distinguished Uncle. So, he moved down to California. In California, he took drafting work at low rates for few architects that still had some work and when it went worse than that he went to County of Los Angeles and in the agony of County, they classified him as laundry man to save money but had him do drafting work which after all was exercising his skill. He didn't think it was beneath him, he coped as best he could. He never complained to anybody and his pay after deductions all through 31, 32, 33, 34 was $108 per month. It wasn't all that bad it seems because he rented his whole house in Glendale at $25 per month. When they created FHA in 1936, he could take a civil service exam which he was first so for rest of his life he was the chief architect for the FHA in Los Angeles. A responsible, interesting and civilization benefiting line of work and he had a long and happy career doing that. <span class='red'>He never got discouraged, he never thought what he had to do was something he should vail about. I never heard him complain about anything.</span>
