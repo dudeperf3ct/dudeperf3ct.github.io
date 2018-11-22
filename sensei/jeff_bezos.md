@@ -15,7 +15,7 @@ published: false
 Bezoism
 ===========================
 
-I live my life in such a way that when in quiet moment of reflection thinking back in my life, I have a few regrets as possible. 
+I live my life in such a way that when in quiet moment of reflection thinking back in my life, I have as few regrets as possible. 
 
 I believe in power of wandering. All of my best decisions in business and in life have been made with heart, intuition, guts, not analysis.
 
