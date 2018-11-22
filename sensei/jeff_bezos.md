@@ -41,6 +41,8 @@ For 21 years whenever we have an all-hands meeting at Amazon I say, "Look, when 
 Quotes
 ===========================
 
+Stock is not the company and the company is not the stock.
+
 
 
 Stories 
@@ -59,6 +61,10 @@ My grandfather created a illusion for me that I was helping him on the ranch whe
 I made my grandmother burst into tears and the way I did it was we were driving on a long road trip and she was a chain smoker. It was around 1974, when there were heavy anti-smoking advertisements on the radio trying to convince people to stop smoking. And one of the advertisments had this figure in it and he said something like, every puff of a cigarette takes so many minutes off from your life. I think it was 2 minutes but I don't know, I can't remember. So, I sat there in backseat on this long car ride and calculated how many years she had taken off of her life and in my 10 year old mind, I had been extremely clever to do this. So, when I was finished with my arithmetic, I proudly announced to her how many years she had taken off of her life and I got a reaction that I did not expect with her bursting into tears. So, my grandfather stopped the car and he took me out of the car and I had no idea what was about to happen because he had never said a cross word to me and I thought, he might actually be angry with me but he wasn't. He took me out so we had our privacy from her and he said these incredible words, <span class='red'> "You are going to figure out one day that it's harder to be kind than clever".</span>
 
 Mackenzie bezos (Jeff Bezos wife) had married this stable guy (Jeff) working on Wall Street and a year after we got married, I went to her and said, "I want to quit my job and move across the country to start this Internet bookstore". And she like everybody that I had explained this to her first question was "What is the Internet?" Even before she asked what's the internet she said, "Great, let's go". When you have such loving and supportive people in life like Mackenzie, my parents, my grandfather, my grandmother, you end up being able to take risk because I think it is one of those things, like somebody's got your back. So, we moved, and Mackenzie did our accounting for like first year, and she did it well, that's what's amazing having no expertise in accounting. She was very talented novelist but not she was not an accountant but she pulled it off. 
+
+I graduated from high school in 1982, there were 750 kids in my graduating class and I love high school. I had so much fun. We lost my library privileges because I laughed too loudly in the library. 
+
+I came across the fact in 1984 nobody has heard about the internet that the world wide web was growing something like 2300% a year. Anything growing that fast is gonna be big. And I looked at that and I said I should come up with a business idea on the internet and let the internet grow around this.
 
 I picked books because there were more items in book category than any other category. So, you could build unviersal selection. There were 3 million books printed in 1994, and largest physical book store had almost 150,000 different titles. And so, I could see how you could make a bookstore online with universal selection, and every book ever printed, and even the out of print ones, it was the original vision for the company and so that's why books.
 
