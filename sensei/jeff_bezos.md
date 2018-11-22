@@ -15,6 +15,10 @@ published: false
 Bezoism
 ===========================
 
+I believe in power of wandering. All of my best decisions in business and in life have been made with heart, intuition, guts, not analysis.
+
+The secret sauce of Amazon, the number one thing that has made Amazon a successful company by far is obsessive, compulsive focus on customer as opposed to obession over the competitor.
+
 The great things about we humans in general is, we are always improving things. Entrepreneurs and inventors, they follow their curosity, their passions and they figure something out and they figure how to make it better and they're never satisified. In my view, you need to harness that energy primarily on your customers instead of on your competitors.
 
 I see the companies, even the young small startups companies, entrepreneurs go awry as they start to pay attention to their competition than they do to their customers.
@@ -32,6 +36,8 @@ The work lige balance has a strict trade-off, if I am happy at home, I come into
 
 For 21 years whenever we have an all-hands meeting at Amazon I say, "Look, when stock is up 30% in month, don't feel 30% smarter. Because when stock is down 30% in a month, it's not going to feel so good to be 30% dumber". I Never spent any time thinking about daily stock price.
 
+
+
 Quotes
 ===========================
 
@@ -41,6 +47,8 @@ Stories
 ===========================
 
 I think, I always wanted to launch a company ever since as a kid, had the idea everytime I look at something, it looks like it could be improved. So, I always had that kind of idea. 
+
+I started at Montessori when I was 2 years old, and teacher complained to my mother that I was too task focused and that she couldn't get me to switch task and she had to just pick up my chair and move me.
 
 I have been pastionate about some things forever. I fell in love with computers in 4th grade. I got very lucky. I got very lucky in my early childhood. We all get gifts, we get certain things in our life that we are very lucky about and one of the most powerful one is who your early role models are. For me, it was my grandfather, also my mom and dad.
 
@@ -63,3 +71,5 @@ In the early on with the kindle, maybe the first year of the kindle or second ye
 When we did customer reviews 20 years ago, some book publishers were not happy because some of the reviews were negative so it was very controversial practise at that time. But we thought it was right and stuck to our guns and had a deep keel to that and didn't change.
 
 I am interested in space because I am passionate about it. I have been studying and thinking about it since I was a 5 year old boy. But that is not why I am pursuing this work. I am pursuing this work because I believe if we don't, we will eventually end up with a civilization of stasis which I find is very demoralizing. I don't want my great grandchildren's great grandchildren to live in a civilization of stasis.
+
+First of all, I was not looking for newspaper. I had no intention of buying it (The Washington Post), had never thought about the idea, had never occured to me. It was never something like childhood dream, nothing. My friend Don Graham, whom I have known for 20 years now, he approached to me through intermediary and wanted to know if I am interested in buying The Post. I sent back word that I would not because I didn't really know anything about newspapers. And Don over series of conversations convinced me that it was unimportant because we inside Washington Post had so much talent that understands newspapers. That wasn't what the problem was, the need was to have somebody who understand internet. And so, that is who it got started. And I did some soul searching and my decision process is again intuition and gut not analysis. The financial situation of  Washington Post in 2013 was very upside down. The problem was that Internet was roding all of the traditional advantages the local newspaper had, all of them. And I said, "You know, is this something I wanna get involved in. If I am going to do it, I am gonna have to put some heart into it, work into it and I decided I would only do that, if I believed it was really important institution."
