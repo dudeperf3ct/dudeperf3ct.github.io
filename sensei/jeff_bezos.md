@@ -15,6 +15,8 @@ published: false
 Bezoism
 ===========================
 
+I live my life in such a way that when in quiet moment of reflection thinking back in my life, I have a few regrets as possible. 
+
 I believe in power of wandering. All of my best decisions in business and in life have been made with heart, intuition, guts, not analysis.
 
 As a senior executive you get paid to make small number of high quality decisions. Your job is not to make 1000s of decisions everyday. Is that worth it if the quality of decisions is low because you are tired, grouchy or any number of things.
