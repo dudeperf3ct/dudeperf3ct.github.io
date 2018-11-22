@@ -31,6 +31,8 @@ When you think of all things you regert when you are 80, it's always the things 
 
 I think that if you stay focused and the more drama there is and everything else, no matter what the drama is, whatever the external distraction is, what your response to it should be to double down on the customers not just satisfying them but delighting them.
 
+I have been asked for years, are we going to open physical stores and I always say yes but only when we have differentiated offer, something that's not me too. If we offer me too product offering, it's not gonna work. We are also not very good at that. Whenever we have tried something that's a me too service, we tend to get beaten. It doesn't work. Our culture is much more about pioneering, inventing, so we have to have something that is different.
+
 My approach to criticisms, what I teach and preach inside Amazon is when you are criticized, first look in the mirror and decide are your critics right? If they are right, change, don't resist.
 
 There are two kind of critics, there are well meaning critics, they are worried it's not gonna work but they do want it to work.
