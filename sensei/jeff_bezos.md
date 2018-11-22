@@ -28,6 +28,10 @@ My approach to criticisms, what I teach and preach inside Amazon is when you are
 There are two kind of critics, there are well meaning critics, they are worried it's not gonna work but they do want it to work.
 There's second kind of critic which is self-interested critic, they come in all shapes and sizes.
 
+The work lige balance has a strict trade-off, if I am happy at home, I come into the office with tremendous energy and if I am happy at work, I come home with tremendous energy. And so, it actually is a circle, it is not a balance. And I think that is worth everybody paying attention to. This work life harmony is what I try to teach young employees and senior executives at Amazon.
+
+For 21 years whenever we have an all-hands meeting at Amazon I say, "Look, when stock is up 30% in month, don't feel 30% smarter. Because when stock is down 30% in a month, it's not going to feel so good to be 30% dumber". I Never spent any time thinking about daily stock price.
+
 Quotes
 ===========================
 
