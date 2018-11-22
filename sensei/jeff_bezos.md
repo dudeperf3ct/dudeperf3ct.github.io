@@ -17,7 +17,11 @@ Bezoism
 
 I believe in power of wandering. All of my best decisions in business and in life have been made with heart, intuition, guts, not analysis.
 
+As a senior executive you get paid to make small number of high quality decisions. Your job is not to make 1000s of decisions everyday. Is that worth it if the quality of decisions is low because you are tired, grouchy or any number of things.
+
 The secret sauce of Amazon, the number one thing that has made Amazon a successful company by far is obsessive, compulsive focus on customer as opposed to obession over the competitor.
+
+I always tell people, you know have a good quarter conference call or something and Wall Street are like good quartely results. People would stop me and say congratulations for the quarter and I say thank you but what I really thinking is that quarter was baked 3 years ago. 
 
 The great things about we humans in general is, we are always improving things. Entrepreneurs and inventors, they follow their curosity, their passions and they figure something out and they figure how to make it better and they're never satisified. In my view, you need to harness that energy primarily on your customers instead of on your competitors.
 
@@ -35,7 +39,6 @@ There's second kind of critic which is self-interested critic, they come in all 
 The work lige balance has a strict trade-off, if I am happy at home, I come into the office with tremendous energy and if I am happy at work, I come home with tremendous energy. And so, it actually is a circle, it is not a balance. And I think that is worth everybody paying attention to. This work life harmony is what I try to teach young employees and senior executives at Amazon.
 
 For 21 years whenever we have an all-hands meeting at Amazon I say, "Look, when stock is up 30% in month, don't feel 30% smarter. Because when stock is down 30% in a month, it's not going to feel so good to be 30% dumber". I Never spent any time thinking about daily stock price.
-
 
 
 Quotes
