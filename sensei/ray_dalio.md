@@ -56,7 +56,7 @@ One thing that I have learned over the years, everything or every effect has a r
 
 The most important thing as you are young is to realize that your success comes from knowing how to deal with your not knowing more than anything you know.
 
-
+You have to have a balanced portfolio. Concentration is a risky thing.
 
 Quotes
 ===========================
