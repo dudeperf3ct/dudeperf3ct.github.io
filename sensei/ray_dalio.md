@@ -50,6 +50,8 @@ In order to be successful in market, you need to be an independent thinker who b
 
 Whenever there is a conflict, I recommend you one level up with the person you are in conflict with or even yourselves, and look and come up with an agreement of how you should be with each other.
 
+The whole approach of learning from painful mistakes and making most out of them and writing principles down. In other words, receipes for how to deal with circumstances, learn the lesson, write those principles down. This is the thing that I would recommend to everybody. I learned also that by able to write them down clearly enough that they be expressed as what were then called equations and now algorithms. That allowed me to make decisions in a very powerful way. That experience was really the turning point.
+
 Quotes
 ===========================
 
