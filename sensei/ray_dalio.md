@@ -40,7 +40,7 @@ Your job is to find it and have the courage to follow it.
 What you think is attainable is just a function of what you know at that moment. 
 Once you start your pursuit paths you never saw before will emerge.
 
-Working for money is a sought-after path. Working for meaning is the rewarding one. 
+<span class='red'>Working for money is a sought-after path. Working for meaning is the rewarding one.</span>
 
 Transcendental meditation is the best gift I would give to anybody.
  
@@ -53,6 +53,10 @@ Whenever there is a conflict, I recommend you one level up with the person you a
 The whole approach of learning from painful mistakes and making most out of them and writing principles down. In other words, recipes for how to deal with circumstances, learn the lesson, write those principles down. This is the thing that I would recommend to everybody. I learned also that by able to write them down clearly enough that they be expressed as what were then called equations and now algorithms. That allowed me to make decisions in a very powerful way. That experience was really the turning point.
 
 One thing that I have learned over the years, everything or every effect has a reason it happen, cause-effect relationhips. And these things happen over and over again. So, whenever I got suprised by something, it was usually because something didn't happen in my lifetime before, but it happend. And what I did is, I went back and started to see that if you start to see everything it's happening over and over again and then you study the cause-effect mechanics behind that, you learn how reality works. And then you can write your principles for dealing with reality which are the recipes essentially for making good decisions.
+
+The most important thing as you are young is to realize that your success comes from knowing how to deal with your not knowing more than anything you know.
+
+
 
 Quotes
 ===========================
