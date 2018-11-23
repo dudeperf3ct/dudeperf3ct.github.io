@@ -50,7 +50,9 @@ In order to be successful in market, you need to be an independent thinker who b
 
 Whenever there is a conflict, I recommend you one level up with the person you are in conflict with or even yourselves, and look and come up with an agreement of how you should be with each other.
 
-The whole approach of learning from painful mistakes and making most out of them and writing principles down. In other words, receipes for how to deal with circumstances, learn the lesson, write those principles down. This is the thing that I would recommend to everybody. I learned also that by able to write them down clearly enough that they be expressed as what were then called equations and now algorithms. That allowed me to make decisions in a very powerful way. That experience was really the turning point.
+The whole approach of learning from painful mistakes and making most out of them and writing principles down. In other words, recipes for how to deal with circumstances, learn the lesson, write those principles down. This is the thing that I would recommend to everybody. I learned also that by able to write them down clearly enough that they be expressed as what were then called equations and now algorithms. That allowed me to make decisions in a very powerful way. That experience was really the turning point.
+
+One thing that I have learned over the years, everything or every effect has a reason it happen, cause-effect relationhips. And these things happen over and over again. So, whenever I got suprised by something, it was usually because something didn't happen in my lifetime before, but it happend. And what I did is, I went back and started to see that if you start to see everything it's happening over and over again and then you study the cause-effect mechanics behind that, you learn how reality works. And then you can write your principles for dealing with reality which are the recipes essentially for making good decisions.
 
 Quotes
 ===========================
@@ -67,5 +69,6 @@ Stories
 ===========================
 
 I formed Bridgewater in 1975. It was a small company. I had done the calculation that American banks that lent to emerging countries a lot more money than those countries are going to be able to pay back. As a result, we were going to have debt defaults and debt crisis. It was a very controversial point of view. I thought we were going to have economic collapse.
-That was the exact bottom of stock market. I could not have been more wrong. Not only I was more wrong, I lost money. I lost money for me, I lost money for my clients. I was so broke, I had to borrow $4000 from my dad to help to take care of my family.
-It was very very painful mistake. But with reflection, I would say it was one the best things that ever happend to me.
+
+That was the exact bottom of stock market. I could not have been more wrong. Not only I was more wrong, I lost money. I lost money for me, I lost money for my clients. I was so broke, I had to borrow $4000 from my dad to help to take care of my family. It was very very painful mistake. But with reflection, I would say it was one the best things that ever happend to me.
+
