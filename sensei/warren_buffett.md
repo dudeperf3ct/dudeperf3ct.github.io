@@ -25,9 +25,13 @@ My dad taught me an important lesson to see <span class='red'>what is in your in
 
 <span class='red'>I have got a terrific partner named Charlie and you cannot find anybody any smarter, any better quality or anything.</span>
 
+I am running Berkshire for those people who are the ones that are going to stay and not the ones that who want to get out. I do not believe in running a company to respond to people that want to sell the stock in the next few months.
+
 As you see larger and larger group making decisions, they get more and more homogenised and I don't think you will get best investment decisions out of a large committee.
 
 I have been drinking 5-12 ounce of cokes a day more or less all my life.
+
+<span class='red'>The main thing to do is to get involve in something you love.</span>
 
 We bet on brains and we bet on people with brains, integrity and energy.
 
@@ -35,9 +39,11 @@ We bet on brains and we bet on people with brains, integrity and energy.
 
 <span class='green'>I would invest in myself as much as I can. That's the best investment one could possibly make. Follow you passion. Whatever turns you on. </span>
 
-Charlie Munger and I have been business partner for 54 years, we have made a lot of decisions on buying bussiness, a lot of decisions on buying stocks, in a converstations that accompained that decisions neither one ever once brought up anything about macro nature. Period. It just isn't doesn't make any difference. I don't know what is going to happen next week or next month or next year, I know what is going to happen 10 or 20 years and why concern myself with things that I can't know and don't understand.
+Charlie Munger and I have been business partner for 54 years, we have made a lot of decisions on buying bussiness, a lot of decisions on buying stocks, in a converstations that accompained that decisions neither one ever once brought up anything about macro nature. Period. It just isn't doesn't make any difference. <span class='red'>I don't know what is going to happen next week or next month or next year, I know what is going to happen 10 or 20 years and why concern myself with things that I can't know and don't understand.</span>
 
 Warren does have bias, a strong one about competence, intelligence and character. Those 3 things are the only things he thinks about.
+
+When people come to me with wonderful bussiness and they do, they talk about selling them to me. My first advice is don't sell them. I mean wonderful bussiness, they are too rare and if you got one in your family keep it unless something forces you to sell. I would say stay private unless you have need to go in public in terms of financing or in terms of solving the problems of ownership within a family that's going in different directions or something.
 
 Quotes
 ===========================
