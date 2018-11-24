@@ -31,8 +31,8 @@ We bet on brains and we bet on people with brains, integrity and energy.
 
 <span class='red'>Have the right heroes.</span>
 
-I would invest in myself as much as I can. That's the best investment one could possibly make.
-Follow you passion. Whatever turns you on.
+<span class='green'>I would invest in myself as much as I can. That's the best investment one could possibly make. Follow you passion. Whatever turns you on. </span>
+
 
 Quotes
 ===========================
@@ -46,6 +46,12 @@ Biggest mistakes are the ones that actually don't show up. They are the mistakes
 The triumphs in life are partly triumphs because you know that everything is not going to be triumph.
 
 I never hung up on mistakes.
+
+If you buy things you do not need, soon you will have to sell things you need.
+
+It takes 20 years to build a reputation and 20 minutes to ruin it.
+
+Great reputation is like virginity, it can preserved but not restored.
 
 
 Stories
