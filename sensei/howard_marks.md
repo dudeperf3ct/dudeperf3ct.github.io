@@ -70,10 +70,16 @@ The investor analogy is that <span class='green'> Great Investors hit the winner
 
 In one of the memos in March 2007 called "The Race to the Bottom", I talked about when people are number one eager to invest and number two not sufficiently risk conscious they do risky things. And when people do risky things, the market becomes a risky place. And that'w why Buffet says, "The less prudence which others conduct their affairs, the greater the prudence with which we must conduct our own affairs".
 
+Exchanging ideas is extremely important and thinking broadly.
+
+We learn a lot from tough times and failures and learn a relatively little from success. You put the money in the market it goes up, what have you learned. Number one it's easy. Number two risk bearing pays. Number three There's nothing to worry about. Those are horrible lessons.
+
+We go through ups and downs, the question is are they random, inconsistent and not study able or there any patterns that recur that we learn to recognize. I think that if there are patterns we should try to recognize them if we try to impose patterns in an area where there are no patterns then that's are folly.
+
 Quotes
 ===========================
 
-History does not repeat itself, it rhymes. ~ Mark Twain
+History does not repeat itself but it does rhymes. ~ Mark Twain
 
 What a wise man does in the beginning, the fool does it in the end.
 
@@ -115,6 +121,8 @@ The less prudence which others conduct their affairs, the greater the prudence w
 
 It's much easier to succeed by playing to ones's stengths, than to fail by trying someone else's.
 
+Experience are what you got when you didn't get what you wanted.
+
 Stories
 ===========================
 
@@ -126,3 +134,5 @@ When I was asked to revise the chapter on debt of the book on Security Analysis 
 Negative Art: The greatness of what you buy doesn't come from what you buy but what you exclude.
 
 Warren Buffett has said that when a memo from Marks arrives, he drops everything to read it.
+
+
