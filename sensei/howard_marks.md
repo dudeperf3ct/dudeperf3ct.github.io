@@ -63,7 +63,10 @@ Number one you have to notice is there are lots of things that can happen so you
 Forecasts which are radically different from the recent past are potentially very valuable if they are correct.
 
 The winning champion tennis player wins by hitting winning shots, the shots that opponent cannot return. The amateur tennis players on the other hand win by not hitting winning shots but by avoiding hitting losers. If we could hit it 20 times, and just get it over the net 20 times, our opponent could do only 19. We believe we could outlast him, we'll out-steady him and eventually he will hit it into the net or out of the court. 
-Loser's game: The game won by people who avoid being losers.
+
+<span class='red'>Loser's game: The game won by people who avoid being losers.</span>
+
+The investor analogy is that <span class='green'> Great Investors hit the winners.</span> They generate results from the unlikeliest of investments because they have the ability to hit winners that others can't.
 
 In one of the memos in March 2007 called "The Race to the Bottom", I talked about when people are number one eager to invest and number two not sufficiently risk conscious they do risky things. And when people do risky things, the market becomes a risky place. And that'w why Buffet says, "The less prudence which others conduct their affairs, the greater the prudence with which we must conduct our own affairs".
 
@@ -110,6 +113,8 @@ For that which a man wishes that he will believe. ~ Demosthenes to Charlie Munge
 
 The less prudence which others conduct their affairs, the greater the prudence with which we must conduct our own affairs. ~ Warren Buffet 
 
+It's much easier to succeed by playing to ones's stengths, than to fail by trying someone else's.
+
 Stories
 ===========================
 
@@ -119,3 +124,5 @@ The reason the book is titled "The most important things" is because I would fin
 
 When I was asked to revise the chapter on debt of the book on Security Analysis by Benjamin Graham and David Dodd for new revised edition in 2005, so while going through the 1940 edition I came across something fascinating. It said that the bond investing is a negative art. What it means, you are not going to be a hero by choosing among the bonds that are going to pay (fixed pay). The only thing that matter is to exclude the one's that don't pay.
 Negative Art: The greatness of what you buy doesn't come from what you buy but what you exclude.
+
+Warren Buffett has said that when a memo from Marks arrives, he drops everything to read it.
