@@ -95,6 +95,8 @@ We go through ups and downs, the question is are they random, inconsistent and n
 
 Imagine if you were a baseball player, you have five trips to the plate and you make out on three of them and you kill yourself. The point is very few like Ted Williams who got two hits on every five hits and he was best in the history. Nobody gets 3 out of 5 or 4 out of 5. It's the same in investing none of us get invited all the time, all we can do is have a better batting average than others.
 
+The greatest thing I was ever taught was back around ’73 or ’74. Somebody said, “I’m going to tell you about the three stages of the bull market. In the first stage, just a few incredibly insightful people understand that there could be improvement. In the second stage, most people recognize that improvement is actually taking place. In the third stage, everybody and his brother believes that things will only get better forever.” 
+
 Quotes
 ===========================
 
@@ -114,7 +116,7 @@ The cautious seldom error or write a great poetry.
 
 The future does not exist. It’s only a range of possibilities. We have to understand that most outcomes will be determined by luck.
 
-You can’t predict. You can prepare.
+You can’t predict. You can prepare. ~ Stolen from an ad for Northwestern Mutual life insurance
 
 Should does not equal will. Lots of things that should happen fail to happen.
 
@@ -134,13 +136,25 @@ There are two types of forecasters : Those who don't know and those who don't kn
 
 If you want to be in top 5% of money managers, you have to be willing to be in the bottom.
 
+It’s not what you buy. It’s what you pay.
+
 For that which a man wishes that he will believe. ~ Demosthenes to Charlie Munger to Howard Marks
+
+Now, just remember, none of this is meant to be easy. Anybody who thinks it’s easy is stupid. ~ Charlie Munger to Howard Marks
 
 The less prudence which others conduct their affairs, the greater the prudence with which we must conduct our own affairs. ~ Warren Buffet 
 
 It's much easier to succeed by playing to ones's stengths, than to fail by trying someone else's.
 
+If you name a price, don’t name a date, and if you name a date, don’t name a price, and then you can’t be wrong. ~ One of Howard's partner
+
+Scared money never wins. ~ Cartoon on the wall in Citibank
+
+Not everything that can be counted counts and not everything that counts can be counted. ~ Maybe Albert Einstein
+
 Experience are what you got when you didn't get what you wanted.
+
+Praise by name, criticize by category. ~ Warren Buffett
 
 Future is not ours to know but ut helps but it helps to know that being wrong is inevitable and normal; not some terrible tragedy; not some awful failing and reasoning;  not even bad luck. In most instances being wrong comes with a franchise of an activity whose outcome depends on an unknown future. ~ Peter  Bernstein
 
@@ -154,11 +168,15 @@ Stories
 
 The story about the kid with marshmallows. There was a psych experiment conducted about 40 years ago where they took bunch of 4-year old kid in the room one at a time with a table, two little spoons, a plate and marshmallows. The kid sat on one stool, the professor on the other. There's a marshmallow, you can have marshmallow but I am going to leave the room for 10 minutes and if when I come back if marshmallow is still there you will get another one. And professor leaves the room and 80% of time the kid eats the marshmallows right away. (It's urban myth but supposedly if they tracked the kids, the ones who waited were found to be more successful).
 
-The reason the book is titled "The most important things" is because I would find myself sitting in my client's office and I would say the most important thing in investing is controlling risk. And then, five minutes later, I would say the most important thing is to buy at low price. And five minutes later, I would say the most important things is to act as contrarian.
+The reason the book is titled "The Most Important Things" is because I would find myself sitting in my client's office and I would say the most important thing in investing is controlling risk. And then, five minutes later, I would say the most important thing is to buy at low price. And five minutes later, I would say the most important things is to act as contrarian.
 
 When I was asked to revise the chapter on debt of the book on Security Analysis by Benjamin Graham and David Dodd for new revised edition in 2005, so while going through the 1940 edition I came across something fascinating. It said that the bond investing is a negative art. What it means, you are not going to be a hero by choosing among the bonds that are going to pay (fixed pay). The only thing that matter is to exclude the one's that don't pay.
 Negative Art: The greatness of what you buy doesn't come from what you buy but what you exclude.
 
 Warren Buffett has said that when a memo from Marks arrives, he drops everything to read it.
+
+The story about why I wrote the book "The Most Important Things". I started writing the memos in 1990; I wrote them for 20 years. I always concluded that I would write a book and pull them together into a philosophy when I retired, and then I got a letter from Warren Buffett in 2010 saying, “If you write a book, I’ll give you a blurb for the jacket.” So that was enough to get me off my ass and get me to do it in real time.
+
+There’s a book out called The Warren Buffett Way, and I was asked to write the foreword for the latest edition, and I wrote something called “What Makes Warren Buffett Warren Buffett?” and I listed the things that characterize him: extremely high IQ, unemotional, great analyst, understands what’s important, looks at the things that are important and figures out their import, ignores the things that are unimportant, and on and on like that. The last one was one of the most important: he’s not afraid of getting fired. He doesn’t have to worry about the interim consequences of error. Most people do.
 
 
