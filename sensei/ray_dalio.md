@@ -58,6 +58,10 @@ The most important thing as you are young is to realize that your success comes 
 
 You have to have a balanced portfolio. Concentration is a risky thing.
 
+People are so hung up on being right, starting their discussion and deriving some sort of satisfaction, if at the end of discussion they were where they began the discussion so that doesn't make any sense because there's not going to be any learning. So, ego plays an important role in that, that's that all the people who feel like they are, "I am good, I have got it". You won't learn if you got it. So, you have to get rid of this ego barrier of "I have got it thing".
+
+Every human being has weakness. If they don't embrace that they are going to continue to encounter that. Ego barrier is the worst thing. Imagine if we were raised differently in schools where everybody said, "We all makes mistakes, we all have weakness. The key is really to understand what your mistakes and weaknesses are so that you can learn from them." I think punishment is horrible concept. Punishment means you have made a mistake and you are punished. Instead of punishment, everytime somebody makes a mistake, you should say the only you need to get out of your punishment is first think what kind of mistake was that. So, if I am in the situation like that again how would I deal with it differently not to make that mistake. So, the learning should come from mistake not the punishment.
+
 Quotes
 ===========================
 
