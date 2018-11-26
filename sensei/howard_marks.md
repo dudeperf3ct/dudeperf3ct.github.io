@@ -144,6 +144,10 @@ Experience are what you got when you didn't get what you wanted.
 
 Future is not ours to know but ut helps but it helps to know that being wrong is inevitable and normal; not some terrible tragedy; not some awful failing and reasoning;  not even bad luck. In most instances being wrong comes with a franchise of an activity whose outcome depends on an unknown future. ~ Peter  Bernstein
 
+Thankful heart is not only the greatest of all the virtues but it the parent of all the other virtues. ~ Marcus Cicero 
+
+We all have a lot to be thankful for and if we are not thankful for it then we are stupid.
+
 
 Stories
 ===========================
