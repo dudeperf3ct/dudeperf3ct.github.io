@@ -62,6 +62,8 @@ People are so hung up on being right, starting their discussion and deriving som
 
 Every human being has weakness. If they don't embrace that they are going to continue to encounter that. Ego barrier is the worst thing. Imagine if we were raised differently in schools where everybody said, "We all makes mistakes, we all have weakness. The key is really to understand what your mistakes and weaknesses are so that you can learn from them." I think punishment is horrible concept. Punishment means you have made a mistake and you are punished. Instead of punishment, everytime somebody makes a mistake, you should say the only you need to get out of your punishment is first think what kind of mistake was that. So, if I am in the situation like that again how would I deal with it differently not to make that mistake. So, the learning should come from mistake not the punishment.
 
+I love relationships. Meaningful work and meaningful relationships are very important to me that's where I am coming from.
+
 Quotes
 ===========================
 
