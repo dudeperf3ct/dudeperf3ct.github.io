@@ -3,7 +3,7 @@ layout: page
 title: Ray Kurzweil
 permalink: /sensei/ray-kurzweil/
 tags: ray kurzweil
-published: true
+published: false
 ---
 <p align='center'>
  <img src="/images/charlie.jpg" alt="Charlie Munger" />
@@ -38,5 +38,9 @@ Life beings at a billion examples.
 Stories
 ===========================
 
-When I went to MIT in mid 1960, in fact I went to MIT as it was so advanced that it had a computer, many colleges didn't have one. It was IBM 7094, it had 32K words of memory. Your smartphone is billions of times powerful and millions of times cheaper many billion timefold in price-performance.
+I came first to MIT in 1952 when I was 14, I became exicted about Artificial Intelligence. It had gotten it's name 6 years earlier in 1956 Dartmouth Conference by Marvin Minsky and John McCarthy. So, I wrote Minsky a letter, there was no email back then and he invited me up. He spent all day with me as if he had nothing else to do. He was consummate educator. AI firld had already bifurcated into two warring camps, the symbolic school which Minsky was associated with and the connectionist school was not widely known. In fact it's still not widely known that Minsky actually invented the neural nets in 1953 but he had become largely negative about it because there was a lot of hype that these giant brains could solve any problem. 
+ 
+When I went to MIT in mid 1960, in fact I went to MIT as it was so advanced that it had a computer, many colleges didn't have one. It was IBM 7094, it had 32K words of memory of 36 bit words to 150K of storage. Thousand of professors and students would share that machine. Your smartphone is billions of times powerful and millions of times cheaper many billion timefold in price-performance.
+
+I have been futurist for long time that was not my primary interest, I wanted to be inventor when I was 5.
 
