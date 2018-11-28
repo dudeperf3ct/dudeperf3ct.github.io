@@ -46,3 +46,15 @@ When I went to MIT in mid 1960, in fact I went to MIT as it was so advanced that
 
 I have been futurist for long time that was not my primary interest, I wanted to be inventor when I was 5.
 
+In 2012, Larry Page read my book and he liked it. So, I met him in Essen for investment in a company that I had started a couple of weeks earlier to develop my ideas commercially because that's how I went about things as a serial entrepreneur.
+
+Larry:  Well, we'll invest but let me give you a better idea why don't you do it here in Google? We have billion pictures of dogs and cats and we got lot of other data and lots of computers and lots of talent, all of which is true. 
+
+Ray : I don't know I just started this company to develop this.
+
+Larry:  Well, we will buy your company.
+
+Ray: How are you going to value a company that hasn't done anything just started a couple of weeks ago?.
+
+Larry: We can value anything.
+
