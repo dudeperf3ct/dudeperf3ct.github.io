@@ -26,7 +26,9 @@ The key to be successful as an inventor in 1980s is timing. Have to be in right 
 
 People intuition about future is linear even though they have seen many examples of exponential progressions. 
 
+Then 65 million years ago, something did happen. There was sudden violent change to the environment, we now call it Cretaceous extinction event. There's been debate what cause it. It was so worldwide phenomenon as it was when dinasours went extinct and almost 75% of all animals and plant species went extinct. That's when mammals overtook their ecological niche so to anthropomorphize biological evolution said to itself this neocortex is pretty good stuff and it began to grow. So, now mammals got bigger, brains got bigger at even faster pace taking larger fraction of their body. The neocortex got bigger even at faster than that and developed these curvatures that are distinctive of a primate brain basically to increase its surface area but if you stretched it out the human neocortex is still a flat structure. It's about the size of table napkin just as thin. It created primates which became dominance in their ecological niche.
 
+Then something else happen 2 million years ago, biological evolution decided to increase the neocortex even further and increase the size of enclosure and basically filled up the frontal cortex with our big skulls with more neocortex.
 
 
 Quotes
