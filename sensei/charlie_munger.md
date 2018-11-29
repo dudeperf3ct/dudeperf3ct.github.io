@@ -21,8 +21,6 @@ The most important word to the investors is <span class='red'> rationality </spa
 
 The safest way to try and get what you want is try and deserve what you want.
 
-I constantly see people rise in life who were not the smartest sometimes not when the most diligent but they are learning machines. They go to bed every night a little wiser than they were when they got up.
-
 <span class='green'>My Berkshire Hathway stock cost me $16 a share and it's not selling for almost $3,00,000 a share.</span> It took a long time and it was a long term investment. And after 50 years sitting there, lo and behold it's work out very well.
 
 Just buy one <span class='red'>great company</span> and get the <span class='red'>right thing at right price </span> and then just sit there.
@@ -33,7 +31,11 @@ Wisdom acquistion is a moral duty. There a collary to this which means you are h
 
 It's not the short time gambling that works, its identifying the long term investments and sticking with it.
 
+It’s waiting that helps you as an investor, and a lot of people just can’t stand to wait. If you didn’t get the deferred-gratification gene, you’ve got to work very hard to overcome that.
+
 <span class='blue'>In my whole life, I haven't succeeded in something I wasn't interested in!</span>
+
+I constantly see people rise in life who are not the smartest, sometimes not even the most diligent, but they are learning machines. They go to bed every night a little wiser than they were when they got up and boy does that help, particularly when you have a long run ahead of you.
 
 You are a disaster if you don't know the edge of your competency.
 
@@ -46,6 +48,8 @@ What good does it do to be able to pass a test parroting back to the professor w
 Warren and I have not made our way in life by making successful macroeconomic predictions and betting on our conclusions.<span class='red'> Our system is to swim as competently as we can and sometimes the tide will be with us and sometimes it will be against us but by and large we don't bother with trying to predict the tides because we plan to play the game for long time. I recommend to all of you exactly the same attitude.</span>
 
 <span class='blue'>Lord Acton had this law, "Power tends to corrupt, and absolute power corrupts absolutely". Well the Munger version of that is that, "Easy Money courrpts and really easy money tends to corrupt absolutely". </span>
+
+Another thing I think should be avoided is extremely intense ideology because it cabbages up one’s mind. When you’re young it’s easy to drift into loyalties and when you announce that you’re a loyal member and you start shouting the orthodox ideology out, what you’re doing is pounding it in, pounding it in, and you’re gradually ruining your mind/
 
 I have rule for politics which has served me well for predictions and that is, "the politicians are never so bad you don't live to want them back".
 
@@ -63,7 +67,7 @@ Never spend more than you can earn.
 
 As civilization came progess only the method of invention, similarly you can progress only when you learn the method of learning.
 
-You can't really know anything if you just remember isolated facts and try and bang 'em back… You've got to have models in your head. You may have noticed students who just try to remember and pound back what is remembered. Well, they fail in school and in life. You've got to hang experience on a latticework (integrated collection) of models in your head.
+You can't really know anything if you just remember isolated facts and try and bang them back. You've got to have models in your head. You may have noticed students who just try to remember and pound back what is remembered. Well, they fail in school and in life. You've got to hang experience on a latticework (integrated collection) of models in your head.
 
 Fortunately it isn’t that tough because 80 or 90 important models will carry about 90% of the freight in making you a worldly wise person. And, of those, only a mere handful really carry very heavy freight.
 
