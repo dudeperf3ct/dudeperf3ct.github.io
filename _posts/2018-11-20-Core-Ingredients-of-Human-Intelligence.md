@@ -24,7 +24,7 @@ Human excel at number of domains including number (numerical and set operations)
 
 The "child as scientist" proposal further views the process of learning itself as also scientist-like, with recent experiments showing the children seek out data to distinguish between hypothese, isolate variables, test causal hypotheses, make use of the data-generating process in drawing conclusions, and learn selectively from others.
 
-### 1.1 Intuitive physics
+#### 1.1 Intuitive physics
 
 Young children have a rich knowledge of intuitive physics. 
 
@@ -59,7 +59,7 @@ Incorporating a physics-engine-based representation could help DQNs learn to pla
 
 <span class='red'>Could neural networks be trained to emulate a general-purpose physics simulator, give the right type and quantity of training data, such as the raw input experienced by child?</span>
 
-### 1.2 Intuitive psychology
+#### 1.2 Intuitive psychology
 
 <span class='red'>In Intuitive psychology important influence is on human learning and thought.</span>
 
@@ -75,3 +75,6 @@ In Frostbite challenge, we discussed how people can learn to play the game extre
 the experienced player appears to avoid them.  We do not need to experience a single example of encountering a bird – and watching the Frostbite Bailey die because of the bird – in order to infer that birds are probably dangerous. It is enough to see that the experienced player’s avoidance behavior is best explained as acting under that belief.
 
 There are several ways that intuitive psychology could be incorporated into contemporary deep learning systems. While the origins of intuitive psychology is still a matter of debate, it is clear that these abilities are early-emerging and play an important role in human learning and thought, as exemplified in the Frostbite challenge and when learning to play novel video games more broadly.
+
+### 2. Learning as rapid model building
+
