@@ -16,11 +16,9 @@ The authors of the paper "Building machines that learn and think like people" pr
 
 In this post, we will go through each of the ingredients proposed by the authors.
 
-[Developmental start-up software](#Developmental start-up software)
-
 The 3 core ingredients are:
  
- 1. [Developmental start-up software](#Developmental start-up software)
+ 1. [Developmental start-up software](#11Developmental start-up software)
     - Intuitive Physics
     - Intuitive Psychology
  2. Learning as rapid model building
