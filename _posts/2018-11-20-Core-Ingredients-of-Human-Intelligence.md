@@ -4,7 +4,7 @@ title:      Core Ingredients of Human Intelligence
 date:       2018-11-20 12:00:00
 summary:    Transform your plain text into static websites and blogs. Simple, static, and blog-aware.
 categories: human intelligence ingredients
-published : false
+published : true
 ---
 
 
