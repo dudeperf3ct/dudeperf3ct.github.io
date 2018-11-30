@@ -32,15 +32,15 @@ Young children have a rich knowledge of intuitive physics.
   <p align='center'>
  <img src="/images/aww.png" alt="Awwwww"/ width="80%">
    </p>
-  <p align='center' style="color:gray, font-size:15px">If you push this truck off the platform and if it doesn't fall and below the age of 6-8 months, babies don't care. They say sure, yeah, why not. After 8 months, they say (show by expression) this can't be, this truck has to fall.
+  <p align='center'><span class='gray'>If you push this truck off the platform and if it doesn't fall and below the age of 2-6 months, babies don't care. They say sure, yeah, why not. After 6 months, they say (show by expression) this can't be, this truck has to fall.</span>
   </p>
   </div>
 
-
-
+At the age 2 months, and possibly earlier, human infants expect inanimate objects to follow principles of persistence, continuity, cohesion and solidity. These expectations guide object segmentation in early infancy, emerging before apperance-based cues such as color, texture, and perceptual goodness. These expectations also go on to guide later learning. 
 
 <p align='center'>
- <img src="/images/early_acquistion_learning.png" alt="Early phases of learning" />
+ <img src="/images/early_acquistion_learning.png" alt="Early phases of learning"  width="80%"/>
 </p>
 
+At around 6 months, infants have already developed different expectations of rigid bodies, soft bodies, and liquids. By their first birthday, infants have gone through several transitions of comprehending basic physical concepts such as intertia, support, containment, and collisions. 
 
