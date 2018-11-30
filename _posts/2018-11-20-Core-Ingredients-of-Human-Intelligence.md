@@ -83,7 +83,7 @@ Pre-verbal infants distinguish among the animate agents and inanimate objects. T
 
 <p align='center'>
 
-[![Hindering](http://img.youtube.com/vi/Z-eU5xZW7cU/3.jpg)](http://www.youtube.com/watch?v=Z-eU5xZW7cU "Intuitive Psycology")
+[![Hindering](http://img.youtube.com/vi/Z-eU5xZW7cU/0.jpg)](http://www.youtube.com/watch?v=Z-eU5xZW7cU "Intuitive Psycology")
 </p>
 Consider for example a scenario in which an agent A is moving towards a box, and an agent B moves in a way that blocks A from reaching the box. Infants and adults are likely to interpret B’s behavior as ‘hindering’.
 
