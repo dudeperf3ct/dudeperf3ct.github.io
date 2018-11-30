@@ -18,7 +18,7 @@ In this post, we will go through each of the ingredients proposed by the authors
 
 The 3 core ingredients are:
  
- 1. [Developmental start-up software](#11developmental-start-up-software)
+ 1. [Developmental start-up software](#1developmental-start-up-software)
     - Intuitive Physics
     - Intuitive Psychology
  2. Learning as rapid model building
@@ -32,7 +32,7 @@ The 3 core ingredients are:
 
 ## 3 Core Ingredients
 
-### 1. Developmental startup-software
+### 1. Developmental start-up software
 
 Human excel at number of domains including number (numerical and set operations), space (geometry and navigation), physics (inanimate objects and mechanics), and psychology (agents and groups). All of these domains may be important augmentations to current machine learning.
 
