@@ -48,5 +48,7 @@ Consider example of, a physics-engine reconstruction of a tower of wodden blocks
 
 
 <p align='center'>
- <img src="/images/IPE.png" alt="Early phases of learning"  width="80%"/>
+ <img src="/images/IPE.png" alt="Intuitive Physics Engine"  width="80%"/>
 </p>
+
+The above simulator-engine provides intuitive physics engine approach to scene understanding where engine takes input through perception, language, memory and other faculties. It then constructs a physical scenewith obects, physical properties, and forces simulates the scene’s development over time and hands the output to other reasoning systems and hands the output to other reasoning systems.
