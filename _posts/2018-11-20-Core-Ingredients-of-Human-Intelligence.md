@@ -30,8 +30,8 @@ Young children have a rich knowledge of intuitive physics.
 
 <p align='center'>
 <figure>
- <img src="/images/aww.png" alt="Awwwww"/>
-  <figcaption style='text-align: center;'>If you push this truck off the platform and if it doesn't fall and below the age of 6-8 months, babies don't care. They say sure, yeah, why not. After 8 months, they say (show by expression) this can't be, this truck has to fall.
+ <img src="/images/aww.png" alt="Awwwww"/ style="width:100px">
+  <figcaption style="text-align: center;">If you push this truck off the platform and if it doesn't fall and below the age of 6-8 months, babies don't care. They say sure, yeah, why not. After 8 months, they say (show by expression) this can't be, this truck has to fall.
   </figcaption>
 </figure>
 </p>
