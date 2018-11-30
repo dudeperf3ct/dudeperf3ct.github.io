@@ -18,7 +18,7 @@ In this post, we will go through each of the ingredients proposed by the authors
 
 The 3 core ingredients are:
  
- 1. [Developmental start-up software](#11Developmental start-up software)
+ 1. [Developmental start-up software](#11developmental-start-up-software)
     - Intuitive Physics
     - Intuitive Psychology
  2. Learning as rapid model building
