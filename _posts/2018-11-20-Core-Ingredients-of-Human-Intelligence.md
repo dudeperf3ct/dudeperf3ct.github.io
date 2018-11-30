@@ -28,13 +28,13 @@ The "child as scientist" proposal further views the process of learning itself a
 
 Young children have a rich knowledge of intuitive physics. 
 
- <div>
+<div>
   <p align='center'>
  <img src="/images/aww.png" alt="Awwwww"/ width="80%">
-   </p>
+  </p>
   <p align='center'><span class='gray'>If you push this truck off the platform and if it doesn't fall and below the age of 2-6 months, babies don't care. They say sure, yeah, why not. After 6 months, they say (show by expression) this can't be, this truck has to fall.</span>
   </p>
-  </div>
+</div>
 
 At the age 2 months, and possibly earlier, human infants expect inanimate objects to follow principles of persistence, continuity, cohesion and solidity. These expectations guide object segmentation in early infancy, emerging before apperance-based cues such as color, texture, and perceptual goodness. These expectations also go on to guide later learning. 
 
@@ -42,5 +42,11 @@ At the age 2 months, and possibly earlier, human infants expect inanimate object
  <img src="/images/early_acquistion_learning.png" alt="Early phases of learning"  width="80%"/>
 </p>
 
-At around 6 months, infants have already developed different expectations of rigid bodies, soft bodies, and liquids. By their first birthday, infants have gone through several transitions of comprehending basic physical concepts such as intertia, support, containment, and collisions. 
+At around 6 months, infants have already developed different expectations of rigid bodies, soft bodies, and liquids. By their first birthday, infants have gone through several transitions of comprehending basic physical concepts such as intertia, support, containment, and collisions. Various methods ranging from decision trees, to cues, to list of rules have tried to model these early physical principles and concepts but there exists "No Free Lunch" theorem.
 
+Consider example of, a physics-engine reconstruction of a tower of wodden blocks from the game Jenga can be used to predict whether and how a tower will fall, finding close quantitaive fits of how adults and infants make these predictions.
+
+
+<p align='center'>
+ <img src="/images/IPE.png" alt="Early phases of learning"  width="80%"/>
+</p>
