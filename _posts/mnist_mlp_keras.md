@@ -1,3 +1,13 @@
+---
+layout:     post
+title:      MLP
+date:       2018-11-20 11:00:00
+summary:    Transform your plain text into static websites and blogs. Simple, static, and blog-aware.
+categories: human intelligence ingredients
+published : true
+---
+
+
 
 # MLP
 
