@@ -82,9 +82,9 @@ Incorporating a physics-engine-based representation could help DQNs learn to pla
 Pre-verbal infants distinguish among the animate agents and inanimate objects. This can be innate or early-present detectors for low-level cues, such as presence of eyes, motion intiated from rest or infants expects agents to act contingently and reciprocally, to have goals, and to take efficient actions towards those goals subject to constraints. Also, infants expect agent to act in a goal-directed, efficient and socially sensitive fashion.
 
 <p align="center">
-<img src="http://img.youtube.com/vi/Z-eU5xZW7cU/0.jpg">
-<a href="http://www.youtube.com/watch?v=Z-eU5xZW7cU"></a>
-</img>
+<a href="http://www.youtube.com/watch?v=Z-eU5xZW7cU">
+<img src="http://img.youtube.com/vi/Z-eU5xZW7cU/0.jpg" />
+</a>
 </p>
 
 Consider for example a scenario in which an agent A is moving towards a box, and an agent B moves in a way that blocks A from reaching the box. Infants and adults are likely to interpret B’s behavior as ‘hindering’.
