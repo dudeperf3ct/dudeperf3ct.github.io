@@ -14,6 +14,22 @@ The first part of this series of blog introduces the problem for human-like inte
 
 The authors of the paper "Building machines that learn and think like people" propose 3 core ingredients needed for human-like learning and thought. Authors believe that integrating them will produce significantly more powerful and more human-like learning and thinking abilities than we currently see in AI systems.
 
+In this post, we will go through each of the ingredients proposed by the authors.
+
+The 3 core ingredients are:
+ 
+ 1. [Developmental start-up software](#Developmental start-up software)
+    - Intuitive Physics
+    - Intuitive Psychology
+ 2. Learning as rapid model building
+    - Compositionality
+    - Causality
+    - Learning-to-learn
+ 3. Thinking Fast 
+    - Approximate inference in structured models
+    - Model-based and model-free reinforcement learning
+
+
 ## 3 Core Ingredients
 
 ### 1. Developmental startup-software
