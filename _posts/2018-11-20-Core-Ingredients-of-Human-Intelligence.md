@@ -19,8 +19,8 @@ In this post, we will go through each of the ingredients proposed by the authors
 The 3 core ingredients are:
  
  1. [Developmental start-up software](#1-developmental-start-up-software)
-    - Intuitive Physics
-    - Intuitive Psychology
+    - [Intuitive Physics](#11-intuitive-physics)
+    - [Intuitive Psychology](#12-intuitive-psychology)
  2. Learning as rapid model building
     - Compositionality
     - Causality
