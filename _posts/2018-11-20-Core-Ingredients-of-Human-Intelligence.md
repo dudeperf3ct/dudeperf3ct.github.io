@@ -83,7 +83,7 @@ Pre-verbal infants distinguish among the animate agents and inanimate objects. T
 
 <p align="center">
 <img src="http://img.youtube.com/vi/Z-eU5xZW7cU/0.jpg">
-<a href="http://www.youtube.com/watch?v=Z-eU5xZW7cU" />
+<a href="http://www.youtube.com/watch?v=Z-eU5xZW7cU"></a>
 </img>
 </p>
 
