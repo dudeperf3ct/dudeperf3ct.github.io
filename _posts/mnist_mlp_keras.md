@@ -204,7 +204,7 @@ $\mathbf{x} : \textrm{Input layer with 784 values} (\mathbf{x_1}, \mathbf{x_2},.
 \mathbf{w\rm\normalsize o} : \textrm {Weights of output layer with 10 values} (\mathbf{w\rm\normalsize o_1}, \mathbf{w\rm\normalsize o_2},....., \mathbf{w\rm\normalsize o_{10}})\\ 
 \mathbf{w\rm\normalsize o_0} : \textrm {bias of output layer} \\ 
 \mathbf{\hat{y}} : \textrm {prediction} \\ 
-\mathbf{y} : \textrm{desired result} \\ $
+\mathbf{y} : \textrm{desired result}$
 
 
 **Forward Pass**
