@@ -28,9 +28,11 @@ The "child as scientist" proposal further views the process of learning itself a
 
 Young children have a rich knowledge of intuitive physics. 
 
- <div align='center'>
+ <div>
+  <p align='center'>
  <img src="/images/aww.png" alt="Awwwww"/ width="80%">
-  <fp align='center'>If you push this truck off the platform and if it doesn't fall and below the age of 6-8 months, babies don't care. They say sure, yeah, why not. After 8 months, they say (show by expression) this can't be, this truck has to fall.
+   </p>
+  <p align='center'>If you push this truck off the platform and if it doesn't fall and below the age of 6-8 months, babies don't care. They say sure, yeah, why not. After 8 months, they say (show by expression) this can't be, this truck has to fall.
   </p>
   </div>
 
