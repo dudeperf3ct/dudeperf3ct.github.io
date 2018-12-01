@@ -4,11 +4,12 @@ title:      Introduction to Multi-Layer Perceptron
 date:       2018-10-10 12:00:00
 summary:    This post will provide an hands-on-tutorial and insight into MLP using MNSIT dataset and Keras and PyTorch frameworks.
 categories: neural-networks, mlp, keras, python, mnist
+published : true
 ---
 
 # MLP
 
-In this notebook, we will go through basics of MLP using MNIST dataset. We will implement this using two popular deep learning frameworks `Keras` and `PyTorch`. 
+In this post, we will go through basics of MLP using MNIST dataset. We will implement this using two popular deep learning frameworks `Keras` and `PyTorch`.
 
 Hey yo, but what is MLP? what is MNIST? 
 
