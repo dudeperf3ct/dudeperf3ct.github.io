@@ -9,11 +9,11 @@ published : true
 
 # MLP
 
-In this post, we will go through basics of MLP using MNIST dataset. We will implement this using two popular deep learning frameworks `Keras` and `PyTorch`.
+In this post, we will go through basics of MLP using MNIST dataset. We will implement this using two popular deep learning frameworks <span class='yellow'>Keras</span> and <span class='orange'>PyTorch</span>.
 
 Hey yo, but what is MLP? what is MNIST? 
 
-Well sit tight and buckle up. I will go through everything in-detail.
+Well sit tight and buckle up. I will go through everything in-detail. :metal:
 
 Feel free to jump anywhere,
 - [Introduction to MLP](#introduction-to-mlp)
