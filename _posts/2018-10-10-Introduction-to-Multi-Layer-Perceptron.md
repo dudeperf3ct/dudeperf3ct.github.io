@@ -16,13 +16,13 @@ Hey yo, but what is MLP? what is MNIST?
 Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
-
+- [Introduction to MLP](#introduction-to-mlp)
 - [Keras](#keras)
-  - Functional 
-  - Sequential (#sequential)
+  - [Functional](#functional-api)
+  - [Sequential](#sequential-api)
 - [PyTorch](#pytorch)
-  - Functional 
-  - Sequential (#sequential)  
+  - [Functional](#functional-api)
+  - [Sequential](#sequential-api)
 
 
 ```python
