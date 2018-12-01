@@ -53,7 +53,7 @@ The [MNIST dataset](http://yann.lecun.com/exdb/mnist/) of handwritten digits has
 
 It is a good database for people who want to try learning techniques and pattern recognition methods on real-world data while spending minimal efforts on preprocessing and formatting. 
 
-Here is one example from dataset
+Here is one example of number 5 from dataset
 
 <p align="center">
 <img src='/images/mnist_mlp_files/mnist_5.png' />
@@ -437,12 +437,13 @@ plt.show()
 ```
 
 
-![Accuracy plots](/images/mnist_mlp_files/mnist_mlp_16_0.png)
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_16_0.png' />
+</p> 
 
-
-
-![Loss plots](/images/mnist_mlp_files/mnist_mlp_16_1.png)
-
+<p align="center">
+<img src='//images/mnist_mlp_files/mnist_mlp_16_1.png' />
+</p> 
 
 
 ```python
@@ -475,8 +476,9 @@ for idx in np.arange(20):
                  color=("green" if preds[idx]==labels[idx] else "red"))
 ```
 
-
-![Test results](/images/mnist_mlp_files/mnist_mlp_18_0.png)
+<p align="center">
+<img src='//images/mnist_mlp_files/mnist_mlp_18_0.png' />
+</p> 
 
 ## Functional API
 
@@ -544,13 +546,13 @@ plt.legend(['train', 'val'], loc='upper left')
 plt.show()
 ```
 
+<p align="center">
+<img src='//images/mnist_mlp_files/mnist_mlp_23_0.png' />
+</p> 
 
-![Accuracy plot](/images/mnist_mlp_files/mnist_mlp_23_0.png "Accuracy plot")
-
-
-
-![Loss plot](/images/mnist_mlp_files/mnist_mlp_23_1.png "Loss plot")
-
+<p align="center">
+<img src='//images/mnist_mlp_files/mnist_mlp_23_1.png' />
+</p> 
 
 
 ```python
@@ -579,8 +581,8 @@ for idx in np.arange(20):
                  color=("green" if preds[idx]==labels[idx] else "red"))
 ```
 
-<span color='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
+<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
 
-<span color='green'>I-know-nothing:</span> Thank you Master.
+<span class='green'>I-know-nothing:</span> Thank you Master.
 
 Happy Learning!
