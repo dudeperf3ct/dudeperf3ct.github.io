@@ -15,6 +15,15 @@ Hey yo, but what is MLP? what is MNIST?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
+Feel free to jump anywhere,
+
+- [Keras](#keras)
+  - Functional 
+  - Sequential (#sequential)
+- [PyTorch](#pytorch)
+  - Functional 
+  - Sequential (#sequential)  
+
 
 ```python
 # load all the required libraries
@@ -171,8 +180,6 @@ for x in range(width):
 
 # Introduction to MLP
 
-
-
 MLP is multi-layer percepton. Perceptron is a single layer neural network and a multi-layer perceptron is called Neural Networks.  
 We have seen the dataset, which consist of [0-9] numbers and images of size 28 x 28 pixels of values in range [0-1] . 
 
@@ -323,6 +330,8 @@ And this is behind the scenes (BTS) of how a `Force of Neural Network` learns.
 
 <span color='red'>Mr.I-know-everything:</span> Now you are in for a treat. As you have learn about what different terms and functions are used to train a neural network. We will dive-in implementation using `Keras saber`. Here backpropogation is already implemented i.e. you only need to design forward pass and loss(or error) function, the framework takes care to backward pass. 
 
+# Keras
+
 ## Sequential API
 
 
@@ -458,6 +467,7 @@ for idx in np.arange(20):
 
 ![Test results](/images/mnist_mlp_files/mnist_mlp_18_0.png)
 
+# PyTorch
 
 ## Functional API
 
