@@ -29,6 +29,7 @@ from keras.layers import Dense, Input                 # dense and input layer fo
 import matplotlib.pyplot as plt             # matplotlib library for plotting
 
 # display plots inline (in notebook itself)
+
 %matplotlib inline                          
 ```
 
@@ -53,16 +54,19 @@ Here is one example from dataset
 # load mnist data
 
 # the data, split between train and validation sets
+
 (train_x, train_y), (test_x, test_y) = mnist.load_data()
 
 #orginally shape (60000, 28, 28) for train and (10000, 28, 28) for test
 #but as we will be using fully connected layers we will flatten
 #the images into 1d array of 784 values instead of (28 x 28) 2d array
+
 train_x = train_x.reshape(60000, 784)
 test_x = test_x.reshape(10000, 784)
 
 # As image is grayscale it has values from [0-255] which we will visualize below
 # convert dtype to float32 and scale the data from [0-255] to [0-1]
+
 train_x = train_x.astype('float32')
 test_x = test_x.astype('float32')
 train_x /= 255
