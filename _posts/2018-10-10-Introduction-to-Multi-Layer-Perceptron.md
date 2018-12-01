@@ -55,6 +55,9 @@ It is a good database for people who want to try learning techniques and pattern
 
 Here is one example from dataset
 
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_5.png' />
+</p>  
 
 
 
@@ -183,13 +186,17 @@ for x in range(width):
 MLP is multi-layer percepton. Perceptron is a single layer neural network and a multi-layer perceptron is called Neural Networks.  
 We have seen the dataset, which consist of [0-9] numbers and images of size 28 x 28 pixels of values in range [0-1] . 
 
-Now, <span color='green'>I-know-nothing</span> being too lazy to find which number is what asks for <span color='red'>I-know-everything</span> apprenticeship to create a Machine Learning Model such that if we pass a grayscale image of size 28 x 28 pixels to the model, it outputs a correct label corresponding to that image. 
+Now, <span class='green'>I-know-nothing</span> being too lazy to find which number is what asks for <span class='red'>I-know-everything</span> apprenticeship to create a Machine Learning Model such that if we pass a grayscale image of size 28 x 28 pixels to the model, it outputs a correct label corresponding to that image. 
+
+<p align="center">
+<img src='/images/mnist_mlp_files/master_student.gif' />
+</p>  
 
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
 <span class='green'>I-know-nothing:</span> Master, how can I create such a intelligent machine to recognize and label given images?
 
-<span color='red'>I-know-everything:</span> Young Padwan, we will use the <span class='dark-gray'> Force of Neural Networks</span> inspired from our brain. Here, let me take you on a journey of one example for example 0. We have 784 pixel values in range  [0-1] describing what zero looks like (pixels bright in the center in shape of 0 and dark like the dark side elsewhere). 0 passes through the network like the one shown below and return 10 values which will help in classfying the image is 0 or 1 or 2 and so on. 
+<span class='red'>I-know-everything:</span> Young Padwan, we will use the <span class='dark-gray'> Force of Neural Networks</span> inspired from our brain. Here, let me take you on a journey of one example for example 0. We have 784 pixel values in range  [0-1] describing what zero looks like (pixels bright in the center in shape of 0 and dark like the dark side elsewhere). 0 passes through the network like the one shown below and return 10 values which will help in classfying the image is 0 or 1 or 2 and so on. 
 
 <span class='green'>I-know-nothing:</span> How will the number decide which image is what label?
 
@@ -197,7 +204,11 @@ Now, <span color='green'>I-know-nothing</span> being too lazy to find which numb
 
 <span class='green'>I-know-nothing:</span> How does the network learn such a magic trick?
 
-<span class='red'>I-know-everything:</span> Young Padwan, you are learning to ask right questions. I will give 2 explainations so listen closely. First let me give you an intutive explaination. The neural networks train themselves  repetitively on data so that they can adjust the weights in each layer of the network to get the final result closer to given label. Now the second explaination in jargon words, as shown in the network we have input layer, hidden layer and output layer. Okay? So, input layer has 784 nodes (neurons) i.e. it accepts 784 values which is exactly our example 0 has. Next node is hidden layer which contains 16 neuron and what are its values? They are randomly initialized. Next is the output layer which has 10 nodes. These are the values which our network gives us after performing special operations which we will then compare to our desired label which is zero in this case.
+<span class='red'>I-know-everything:</span> Young Padwan, you are learning to ask right questions. I will give 2 explainations so listen closely. First let me give you an intuitive explaination. The neural networks train themselves  repetitively on data so that they can adjust the weights in each layer of the network to get the final result closer to given label. Now the second explaination in jargon words, as shown in the network we have input layer, hidden layer and output layer. Okay? So, input layer has 784 nodes (neurons) i.e. it accepts 784 values which is exactly our example 0 has. Next node is hidden layer which contains 16 neuron and what are its values? They are randomly initialized. Next is the output layer which has 10 nodes. These are the values which our network gives us after performing special operations which we will then compare to our desired label which is zero in this case.
+
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_network.png' />
+</p>  
 
 <span class='green'>I-know-nothing:</span> What if network outputs does not match our desired result?
 
@@ -287,17 +298,9 @@ These are called biases. A layer in a neural network without a bias is nothing m
 
 This functon plays an important role in machine learning. This types function are called non-linear functions. By introducing them in our network we introduce non-linearlity, non-linear means that the output cannot be reproduced from a linear combination of the inputs. Another way to think of it is if we don't use a non-linear activation function in the network, no matter how many layers it had, the network would behave just like a single-layer perceptron, because summing these layers would give you just another linear function and most of the problems in real world are non-linear. Non-linearity is needed in activation functions because its aim in a neural network is to produce a nonlinear decision boundary via non-linear combinations of the weight and inputs. To provide a better seperation for higher dimensional data then a simple line seperator using linear function.There are several types of non-linear functions.
 
-   a. Relu Function
-
-   b. Tanh Function
-
-   c. Sigmoid Function
-
-   d. Leaky Relu
-
-   e. ELU
-
-   f. PRelu and [many more](https://en.wikipedia.org/wiki/Activation_function).
+<p align="center">
+<img src='/images/mnist_mlp_files/activations.png' />
+</p>  
    
    
 3. What are we doing in backprop and is it the only way?
@@ -311,6 +314,10 @@ In short, backprop algorithm looks for the minimum value of the error function i
 
 Gradient Descent is like descending a mountain blind folded. And goal is to come down from the mountain to the flat land without assistance. The only assistance you have is a gadget which tells you the height from sea-level. What would be your approach be. You would start to descend in some random direction and then ask the gadget what is the height now. If the gadget tells you that height and it is more than the initial height then you know you started in wrong direction. You change the direction and repeat the process. This way in many iterations finally you successfully descend down.
 
+<p align="center">
+<img src='/images/mnist_mlp_files/gradients.jpg' />
+</p>  
+
 This is what gradient descent does. It tells the model which direction to move to minimize the error. There are different optimizer which tell us how can we find this direction. 
 
    a. Vanilla Gradient
@@ -323,8 +330,12 @@ This is what gradient descent does. It tells the model which direction to move t
    
    e. Nestrov Momentum
 
+<p align="center">
+<img src='/images/mnist_mlp_files/optimizer.gif' />
+</p>  
 
-And this is behind the scenes (BTS) of how a <span class='dark-gray'>`Force of Neural Network`</span> learns.
+
+And this is behind the scenes (BTS) of how a <span class='dark-gray'>Force of Neural Network</span> learns.
 
 <span class='green'>I-know-nothing:</span> Thank you Master, I follow.
 
@@ -568,7 +579,7 @@ for idx in np.arange(20):
                  color=("green" if preds[idx]==labels[idx] else "red"))
 ```
 
-<span color='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span color='dark-gray'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
+<span color='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
 
 <span color='green'>I-know-nothing:</span> Thank you Master.
 
