@@ -18,11 +18,11 @@ Well sit tight and buckle up. I will go through everything in-detail.
 Feel free to jump anywhere,
 - [Introduction to MLP](#introduction-to-mlp)
 - [Keras](#keras)
-  - [Functional](#functional-api)
-  - [Sequential](#sequential-api)
+  - [Functional API](#keras-functional-api)
+  - [Sequential API](#keras-sequential-api)
 - [PyTorch](#pytorch)
-  - [Functional](#functional-api)
-  - [Sequential](#sequential-api)
+  - [Functional API](#pytorch-functional-api)
+  - [Sequential API](#pytorch-sequential-api)
 
 
 ```python
@@ -183,33 +183,33 @@ for x in range(width):
 MLP is multi-layer percepton. Perceptron is a single layer neural network and a multi-layer perceptron is called Neural Networks.  
 We have seen the dataset, which consist of [0-9] numbers and images of size 28 x 28 pixels of values in range [0-1] . 
 
-Now, <font color='green'>Mr.I-know-nothing</font> being too lazy to find which number is what asks for <font color='red'>Mr.I-know-everything</font> apprenticeship to create a Machine Learning Model such that if we pass a grayscale image of size 28 x 28 pixels to the model, it outputs a correct label corresponding to that image. 
+Now, <span color='green'>I-know-nothing</span> being too lazy to find which number is what asks for <span color='red'>I-know-everything</span> apprenticeship to create a Machine Learning Model such that if we pass a grayscale image of size 28 x 28 pixels to the model, it outputs a correct label corresponding to that image. 
 
-<font color='blue'> A long time ago in a galaxy far, far away.... </font> </br>
+<span color='blue'> A long time ago in a galaxy far, far away.... </span>
 
-<font color='green'>Mr.I-know-nothing:</font> Master, how can I create such a intelligent machine to recognize and label given images?
+<span color='green'>I-know-nothing:</span> Master, how can I create such a intelligent machine to recognize and label given images?
 
-<font color='red'>Mr.I-know-everything:</font> Young Padwan, we will use the `Force of Neural Networks` inspired from our brain. Here, let me take you on a journey of one example for example 0. We have 784 pixel values in range  [0-1] describing what zero looks like (pixels bright in the center in shape of 0 and dark like the dark side elsewhere). 0 passes through the network like the one shown below and return 10 values which will help in classfying the image is 0 or 1 or 2 and so on. 
+<span color='red'>I-know-everything:</span> Young Padwan, we will use the <span class='dark-gray'> Force of Neural Networks</span> inspired from our brain. Here, let me take you on a journey of one example for example 0. We have 784 pixel values in range  [0-1] describing what zero looks like (pixels bright in the center in shape of 0 and dark like the dark side elsewhere). 0 passes through the network like the one shown below and return 10 values which will help in classfying the image is 0 or 1 or 2 and so on. 
 
-<font color='green'>Mr.I-know-nothing:</font> How will the number decide which image is what label?
+<span color='green'>I-know-nothing:</span> How will the number decide which image is what label?
 
-<font color='red'>Mr.I-know-everything:</font> If the image passed is 0 (also known as `forward pass`), the network will output array [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]. The first place 1 indicates the image passed is 0.
+<span color='red'>I-know-everything:</span> If the image passed is 0 (also known as `forward pass`), the network will output array [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]. The first place 1 indicates the image passed is 0.
 
-<font color='green'>Mr.I-know-nothing:</font> How does the network learn such a magic trick?
+<span color='green'>I-know-nothing:</span> How does the network learn such a magic trick?
 
-<font color='red'>Mr.I-know-everything:</font> Young Padwan, you are learning to ask right questions. I will give 2 explainations so listen closely. First let me give you an intutive explaination. The neural networks train themselves  repetitively on data so that they can adjust the weights in each layer of the network to get the final result closer to given label. Now the second explaination in jargon words, as shown in the network we have input layer, hidden layer and output layer. Okay? So, input layer has 784 nodes (neurons) i.e. it accepts 784 values which is exactly our example 0 has. Next node is hidden layer which contains 16 neuron and what are its values? They are randomly initialized. Next is the output layer which has 10 nodes. These are the values which our network gives us after performing special operations which we will then compare to our desired label which is zero in this case.
+<span color='red'>I-know-everything:</span> Young Padwan, you are learning to ask right questions. I will give 2 explainations so listen closely. First let me give you an intutive explaination. The neural networks train themselves  repetitively on data so that they can adjust the weights in each layer of the network to get the final result closer to given label. Now the second explaination in jargon words, as shown in the network we have input layer, hidden layer and output layer. Okay? So, input layer has 784 nodes (neurons) i.e. it accepts 784 values which is exactly our example 0 has. Next node is hidden layer which contains 16 neuron and what are its values? They are randomly initialized. Next is the output layer which has 10 nodes. These are the values which our network gives us after performing special operations which we will then compare to our desired label which is zero in this case.
 
-<font color='green'>Mr.I-know-nothing:</font> What if network outputs does not match our desired result?
+<span color='green'>I-know-nothing:</span> What if network outputs does not match our desired result?
 
-<font color='red'>Mr.I-know-everything:</font> That means, our network is stupid (for now). But it learns, it learns from its mistakes. The process by which it learns is backpropogation. So, in `jar jar backpropogation`, in our example desired result was [1, 0, 0, 0, 0, 0, 0, 0, 0, 0] and network outputs [0.24, 0.542, 0.121, 0.32, 0.56, 0.67, 0.213, 0.45, 0.312, 0.98] which in this case is 9 (highest value). So, now network tells its previous layer (also known as `backward pass`), hidden layer hey look you gave me wrong answer 9, see here the right answer was 0 which is called as `loss`. Make necessary changes with help of chain rule to your weights so that when next time you see 0, you will improve the prediction in such a way that output will be also 0.
+<span color='red'>I-know-everything:</span> That means, our network is stupid (for now). But it learns, it learns from its mistakes. The process by which it learns is backpropogation. So, in `jar jar backpropogation`, in our example desired result was [1, 0, 0, 0, 0, 0, 0, 0, 0, 0] and network outputs [0.24, 0.542, 0.121, 0.32, 0.56, 0.67, 0.213, 0.45, 0.312, 0.98] which in this case is 9 (highest value). So, now network tells its previous layer (also known as `backward pass`), hidden layer hey look you gave me wrong answer 9, see here the right answer was 0 which is called as `loss`. Make necessary changes with help of chain rule to your weights so that when next time you see 0, you will improve the prediction in such a way that output will be also 0.
 
-<font color='green'>Mr.I-know-nothing:</font> Does repeating these telling the correct results and correcting the wrong results is what `Force of Neural Networks` all about?
+<span color='green'>I-know-nothing:</span> Does repeating these telling the correct results and correcting the wrong results is what `Force of Neural Networks` all about?
 
-<font color='red'>Mr.I-know-everything:</font> Well, if you put it that way, you are sucking all the fun out of magic. But yes, this is what is called `supervised learning`, where network is supervised to show it direction so that it does not get lost in the woods ([Out of Woods](https://www.youtube.com/watch?v=JLf9q36UsBk)).
+<span color='red'>I-know-everything:</span> Well, if you put it that way, you are sucking all the fun out of magic. But yes, this is what is called `supervised learning`, where network is supervised to show it direction so that it does not get lost in the woods ([Out of Woods](https://www.youtube.com/watch?v=JLf9q36UsBk)).
 
-<font color='green'>Mr.I-know-nothing:</font> This is all intutive understanding with some jargon words. What about real equations? I mean, everywhere I see there are equations. Where are they?
+<span color='green'>I-know-nothing:</span> This is all intutive understanding with some jargon words. What about real equations? I mean, everywhere I see there are equations. Where are they?
 
-<font color='red'>Mr.I-know-everything:</font> They are bit scary but if you insist I will write them for you.
+<span color='red'>I-know-everything:</span> They are bit scary but if you insist I will write them for you.
 
 
 $\mathbf{x} : \textrm{Input layer with 784 values} (\mathbf{x_1}, \mathbf{x_2},..., \mathbf{x_{784}}) \\
@@ -324,11 +324,11 @@ This is what gradient descent does. It tells the model which direction to move t
    e. Nestrov Momentum
 
 
-And this is behind the scenes (BTS) of how a `Force of Neural Network` learns.
+And this is behind the scenes (BTS) of how a <span class='dark-gray'>`Force of Neural Network`</span> learns.
 
-<span color='green'>Mr.I-know-nothing:</span> Thank you Master, I follow.
+<span color='green'>I-know-nothing:</span> Thank you Master, I follow.
 
-<span color='red'>Mr.I-know-everything:</span> Now you are in for a treat. As you have learn about what different terms and functions are used to train a neural network. We will dive-in implementation using `Keras saber`. Here backpropogation is already implemented i.e. you only need to design forward pass and loss(or error) function, the framework takes care to backward pass. 
+<span color='red'>I-know-everything:</span> Now you are in for a treat. As you have learn about what different terms and functions are used to train a neural network. We will dive-in implementation using `Keras saber`. Here backpropogation is already implemented i.e. you only need to design forward pass and loss(or error) function, the framework takes care to backward pass. 
 
 # Keras
 
@@ -466,8 +466,6 @@ for idx in np.arange(20):
 
 
 ![Test results](/images/mnist_mlp_files/mnist_mlp_18_0.png)
-
-# PyTorch
 
 ## Functional API
 
