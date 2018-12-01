@@ -1,9 +1,14 @@
+---
+layout:     post
+title:      Introduction to Multi-Layer Perceptron
+date:       2018-10-10 12:00:00
+summary:    This post will provide an hands-on-tutorial and insight into MLP using MNSIT dataset and Keras and PyTorch frameworks.
+categories: neural-networks, mlp, keras, python, mnist
+---
 
 # MLP
 
 In this notebook, we will go through basics of MLP using MNIST dataset. We will implement this using two popular deep learning frameworks `Keras` and `PyTorch`. 
-
-Here we will use [keras](https://keras.io "Keras's Homepage").
 
 Hey yo, but what is MLP? what is MNIST? 
 
@@ -137,7 +142,7 @@ for idx in np.arange(20):
 ```
 
 
-![png](mnist_mlp_files/mnist_mlp_7_0.png)
+![Sample Images from dataset](images/mnist_mlp_files/mnist_mlp_7_0.png)
 
 
 
@@ -159,7 +164,7 @@ for x in range(width):
 ```
 
 
-![png](mnist_mlp_files/mnist_mlp_8_0.png)
+![Example 0](images/mnist_mlp_files/mnist_mlp_8_0.png)
 
 
 # Introduction to MLP
@@ -312,9 +317,9 @@ This is what gradient descent does. It tells the model which direction to move t
 
 And this is behind the scenes (BTS) of how a `Force of Neural Network` learns.
 
-<font color='green'>Mr.I-know-nothing:</font> Thank you Master, I follow.
+<span color='green'>Mr.I-know-nothing:</span> Thank you Master, I follow.
 
-<font color='red'>Mr.I-know-everything:</font> Now you are in for a treat. As you have learn about what different terms and functions are used to train a neural network. We will dive-in implementation using `Keras saber`. Here backpropogation is already implemented i.e. you only need to design forward pass and loss(or error) function, the framework takes care to backward pass. 
+<span color='red'>Mr.I-know-everything:</span> Now you are in for a treat. As you have learn about what different terms and functions are used to train a neural network. We will dive-in implementation using `Keras saber`. Here backpropogation is already implemented i.e. you only need to design forward pass and loss(or error) function, the framework takes care to backward pass. 
 
 ## Sequential API
 
@@ -410,11 +415,11 @@ plt.show()
 ```
 
 
-![png](mnist_mlp_files/mnist_mlp_16_0.png)
+![Accuracy plots](images/mnist_mlp_files/mnist_mlp_16_0.png)
 
 
 
-![png](mnist_mlp_files/mnist_mlp_16_1.png)
+![Loss plots](images/mnist_mlp_files/mnist_mlp_16_1.png)
 
 
 
@@ -449,7 +454,7 @@ for idx in np.arange(20):
 ```
 
 
-![png](mnist_mlp_files/mnist_mlp_18_0.png)
+![Test results](images/mnist_mlp_files/mnist_mlp_18_0.png)
 
 
 ## Functional API
@@ -519,11 +524,11 @@ plt.show()
 ```
 
 
-![png](mnist_mlp_files/mnist_mlp_23_0.png)
+![Accuracy plot](images/mnist_mlp_files/mnist_mlp_23_0.png)
 
 
 
-![png](mnist_mlp_files/mnist_mlp_23_1.png)
+![Loss plot](images/mnist_mlp_files/mnist_mlp_23_1.png)
 
 
 
@@ -553,13 +558,8 @@ for idx in np.arange(20):
                  color=("green" if preds[idx]==labels[idx] else "red"))
 ```
 
-<font color='red'>Mr.I-know-everything:</font> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about `Force of CNN` and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
+<span color='red'>Mr.I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about `Force of CNN` and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
 
-<font color='green'>Mr.I-know-nothing:</font> Thank you Master.
+<span color='green'>Mr.I-know-nothing:</span> Thank you Master.
 
-Happy Learning!
-
-
-```python
-
-```
+Happy Learning! :tada:
