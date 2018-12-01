@@ -178,7 +178,7 @@ We have seen the dataset, which consist of [0-9] numbers and images of size 28 x
 
 Now, <font color='green'>Mr.I-know-nothing</font> being too lazy to find which number is what asks for <font color='red'>Mr.I-know-everything</font> apprenticeship to create a Machine Learning Model such that if we pass a grayscale image of size 28 x 28 pixels to the model, it outputs a correct label corresponding to that image. 
 
-<font color='blue'> A long time ago in a galaxy far, far away.... </font>
+<font color='blue'> A long time ago in a galaxy far, far away.... </font> </br>
 
 <font color='green'>Mr.I-know-nothing:</font> Master, how can I create such a intelligent machine to recognize and label given images?
 
