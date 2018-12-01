@@ -4,7 +4,7 @@ title:      Introduction to Multi-Layer Perceptron
 date:       2018-10-10 12:00:00
 summary:    This post will provide an hands-on-tutorial and insight into MLP using MNSIT dataset and Keras and PyTorch frameworks.
 categories: nn mlp keras pytorch mnist
-published : true
+published : false
 ---
 
 # MLP
@@ -156,8 +156,9 @@ for idx in np.arange(20):
 ```
 
 
-![Sample Images from dataset](/images/mnist_mlp_files/mnist_mlp_7_0.png)
-
+<p align="center">
+<img src='//images/mnist_mlp_files/mnist_mlp_7_0.png' />
+</p> 
 
 
 ```python
@@ -320,15 +321,21 @@ Gradient Descent is like descending a mountain blind folded. And goal is to come
 
 This is what gradient descent does. It tells the model which direction to move to minimize the error. There are different optimizer which tell us how can we find this direction. 
 
-   a. Vanilla Gradient
+   a. Vanilla Gradient or Gradient Descent
    
    b. Adam
    
-   c. RMS Prop
+   c. RMSprop
    
-   d. SGD
+   d. Stochastic Gradient Descent(SGD)
    
-   e. Nestrov Momentum
+   e. Nestrov Momentum or 
+   
+   f. Nesterov accelerated gradient (NAG)
+   
+   g. Adadelta
+   
+   h. Adagrad
 
 <p align="center">
 <img src='/images/mnist_mlp_files/optimizers.gif' />
