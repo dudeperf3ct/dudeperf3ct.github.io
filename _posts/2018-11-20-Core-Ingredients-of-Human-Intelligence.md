@@ -14,14 +14,14 @@ The first part of this series of blog introduces the problem for human-like inte
 
 The authors of the paper "Building machines that learn and think like people" propose 3 core ingredients needed for human-like learning and thought. Authors believe that integrating them will produce significantly more powerful and more human-like learning and thinking abilities than we currently see in AI systems.
 
-In this post, we will go through each of the ingredients proposed by the authors.
+In this post, we will go through each of the ingredients proposed by the authors and see how each of these ingredients helps in solving the two challenges of Character Challenge and Frostbite Challenge. 
 
 The 3 core ingredients are:
  
  1. [Developmental start-up software](#1-developmental-start-up-software)
     - [Intuitive Physics](#11-intuitive-physics)
     - [Intuitive Psychology](#12-intuitive-psychology)
- 2. Learning as rapid model building
+ 2. [Learning as rapid model building](#2-learning-as-rapid-model-building)
     - Compositionality
     - Causality
     - Learning-to-learn
@@ -85,7 +85,7 @@ Pre-verbal infants distinguish among the animate agents and inanimate objects. T
 <a href="http://www.youtube.com/watch?v=Z-eU5xZW7cU">
 <img src="http://img.youtube.com/vi/Z-eU5xZW7cU/0.jpg" />
 </a>
-<p align="center"><span class='gray'> Video showing intuitive psychology add footnote</span></p>
+<p align="center"><span class='gray'> <b>Video showing intuitive psychology add footnote</b> </span></p>
 </p>
 
 Consider for example a scenario in which an agent A is moving towards a box, and an agent B moves in a way that blocks A from reaching the box. Infants and adults are likely to interpret B’s behavior as ‘hindering’.
@@ -100,3 +100,13 @@ There are several ways that intuitive psychology could be incorporated into cont
 
 ### 2. Learning as rapid model building
 
+
+In recent years, machine learning has found particular success using backpropagation and large data sets to solve difficult pattern recognition problems.  While these algorithms have reached human-level performance on several challenging benchmarks, they are still far from matching human-level learning in other ways.  Deep neural networks often need more data than people do in order to solve the same types of problems, whether it is learning to recognize a new type of object or learning to play a new game.
+
+Children may only need to see a few examples of the concepts hairbrush, pineapple or lightsaber before they largely ‘get it,’ grasping the boundary of the infinite set that defines each concept from the infinite set of all possible objects. Children are far more practiced than adults at learning new concepts – learning roughly nine or ten new words each day after beginning to speak through the end of high school – yet the ability for rapid “one-shot” learning does not disappear in adulthood.  An adult may need to see a single image or movie of a novel two-wheeled vehicle to infer the boundary between this concept and others, allowing him or her to discriminate new examples of that concept from similar looking objects of a different type.
+
+In the context of learning new handwritten  characters or learning to play Frostbite, the MNIST benchmark includes 6000 examples of each handwritten digit, and the DQN of V.Mnih et al. played each Atari video game for approximately 924 hours of unique training experience. In both cases, the algorithms are clearly using information less efficiently than a person learning to perform the same tasks.
+
+Even with just a few examples, people can learn remarkably rich conceptual models. One indicator of richness is the variety of functions that these models support like prediction, action, communication, imagination, explaination, and composition. These abilities are not independent; rather they hang together and interact, coming for free with the acquisition of the underlying concept. In the context of Frostbite, a learner who has acquired the basics of the game could flexibly apply their knowledge to an infinite set of Frostbite variants. The acquired knowledge supports reconfiguration to new tasks and new demands, such as modifying the goals of the game to survive while acquiring as few points as possible, or to efficiently teach the rules to a friend.
+
+What additional ingredients may be needed in order to rapidly learn more powerful and more general-purpose representations?
