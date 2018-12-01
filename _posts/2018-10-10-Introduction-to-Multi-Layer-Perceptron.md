@@ -54,19 +54,16 @@ Here is one example from dataset
 # load mnist data
 
 # the data, split between train and validation sets
-
 (train_x, train_y), (test_x, test_y) = mnist.load_data()
 
 #orginally shape (60000, 28, 28) for train and (10000, 28, 28) for test
 #but as we will be using fully connected layers we will flatten
 #the images into 1d array of 784 values instead of (28 x 28) 2d array
-
 train_x = train_x.reshape(60000, 784)
 test_x = test_x.reshape(10000, 784)
 
 # As image is grayscale it has values from [0-255] which we will visualize below
 # convert dtype to float32 and scale the data from [0-255] to [0-1]
-
 train_x = train_x.astype('float32')
 test_x = test_x.astype('float32')
 train_x /= 255
@@ -147,7 +144,7 @@ for idx in np.arange(20):
 ```
 
 
-![Sample Images from dataset](images/mnist_mlp_files/mnist_mlp_7_0.png)
+![Sample Images from dataset](/images/mnist_mlp_files/mnist_mlp_7_0.png)
 
 
 
@@ -169,7 +166,7 @@ for x in range(width):
 ```
 
 
-![Example 0](images/mnist_mlp_files/mnist_mlp_8_0.png)
+![Example 0](/images/mnist_mlp_files/mnist_mlp_8_0.png)
 
 
 # Introduction to MLP
@@ -420,11 +417,11 @@ plt.show()
 ```
 
 
-![Accuracy plots](images/mnist_mlp_files/mnist_mlp_16_0.png)
+![Accuracy plots](/images/mnist_mlp_files/mnist_mlp_16_0.png)
 
 
 
-![Loss plots](images/mnist_mlp_files/mnist_mlp_16_1.png)
+![Loss plots](/images/mnist_mlp_files/mnist_mlp_16_1.png)
 
 
 
@@ -459,7 +456,7 @@ for idx in np.arange(20):
 ```
 
 
-![Test results](images/mnist_mlp_files/mnist_mlp_18_0.png)
+![Test results](/images/mnist_mlp_files/mnist_mlp_18_0.png)
 
 
 ## Functional API
@@ -529,11 +526,11 @@ plt.show()
 ```
 
 
-![Accuracy plot](images/mnist_mlp_files/mnist_mlp_23_0.png)
+![Accuracy plot](/images/mnist_mlp_files/mnist_mlp_23_0.png "Accuracy plot")
 
 
 
-![Loss plot](images/mnist_mlp_files/mnist_mlp_23_1.png)
+![Loss plot](/images/mnist_mlp_files/mnist_mlp_23_1.png "Loss plot")
 
 
 
