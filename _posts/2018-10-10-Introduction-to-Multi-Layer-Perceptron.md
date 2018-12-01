@@ -568,8 +568,8 @@ for idx in np.arange(20):
                  color=("green" if preds[idx]==labels[idx] else "red"))
 ```
 
-<span color='red'>Mr.I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about `Force of CNN` and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
+<span color='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span color='dark-gray'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
 
-<span color='green'>Mr.I-know-nothing:</span> Thank you Master.
+<span color='green'>I-know-nothing:</span> Thank you Master.
 
 Happy Learning! :tada:
