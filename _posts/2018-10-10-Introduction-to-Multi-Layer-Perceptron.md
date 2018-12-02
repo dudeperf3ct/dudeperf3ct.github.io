@@ -292,6 +292,7 @@ $$
 
 **Backward Pass**
 
+<p align="center">
 <img align="center" src="https://tex.s2cms.ru/svg/%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%20%26%20%3D%20-%20%5Cfrac%20%7B%5Cmathbf%7By_i%7D%7D%7B%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bz%7D%7D%20%26%20%3D%20%0A%5Cbegin%7Bcases%7D%0A%26%20%5Cfrac%20%7B%5Cexp(%5Cmathbf%7Bz%7D_i)%7D%20%7B%5Csum_%7Bk%7D%5E%7Bnclass%7D%20%5Cexp(%5Cmathbf%7Bz%7D_k)%7D%20-%20(%5Cfrac%20%7B%5Cexp(%5Cmathbf%7Bz%7D_i)%7D%20%7B%5Csum_%7Bk%7D%5E%7Bnclass%7D%20%5Cexp(%5Cmathbf%7Bz%7D_k)%7D)%5E2%20%20%20%26i%3Dk%20%20%20%20%5C%5C%0A%26%20(%5Cfrac%20%7Be%5E%7B(%5Cmathbf%7Bz%7D_i)%7De%5E%7B(%5Cmathbf%7Bz%7D_k)%7D%7D%20%7B%5Csum_%7Bk%7D%5E%7Bnclass%7D%20%5Cexp(%5Cmathbf%7Bz%7D_k)%7D)%5E2%20%26%20i%20%5Cne%20k%20%20%20%20%5C%5C%0A%26%20%5Cend%7Bcases%7D%20%5C%5C%0A%26%3D%0A%5Cbegin%7Bcases%7D%0A%5Cmathbf%7B%5Chat%7By_i%7D%7D(1-%5Cmathbf%7B%5Chat%7By_i%7D%7D)%20%20%26i%3Dk%20%20%20%20%5C%5C%0A-%5Cmathbf%7B%5Chat%7By_i%7D%7D%5Cmathbf%7B%5Chat%7By_k%7D%7D%20%26i%20%5Cne%20k%20%20%20%20%5C%5C%0A%5Cend%7Bcases%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20%26%20%3D%20%5Csum_%7Bk%7D%5E%7Bclass%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_k%7D%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_k%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20%5C%5C%0A%26%20%3D%20%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20-%20%5Csum_%7Bi%20%5Cne%20k%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_k%7D%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_k%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20%5C%5C%0A%26%20%3D%20%5Csum_%7Bk%7D%5E%7Bclass%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20%5C%5C%0A%26%20%3D%20-%5Cmathbf%7B%5Chat%7By_i%7D%7D(1-%5Cmathbf%7By_i%7D)%20%2B%20%5Csum_%7Bk%20%5Cne%20i%7D%5Cmathbf%7B%5Chat%7By_k%7D%7D%5Cmathbf%7By_i%7D%20%5C%5C%0A%26%20%3D%20-%5Cmathbf%7B%5Chat%7By_i%7D%7D%20%2B%20%5Cmathbf%7By_i%7D%5Csum_%7Bk%7D%5Cmathbf%7B%5Chat%7By_k%7D%7D%20%5C%5C%0A%26%20%3D%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D%20%5C%5C%0A%5Cend%7Baligned%7D%0A" alt="
 \begin{aligned}
 \frac{\partial E}{\partial \mathbf{\hat{y_i}}} &amp; = - \frac {\mathbf{y_i}}{\mathbf{\hat{y_i}}} \\
@@ -332,6 +333,7 @@ $$
 \end{aligned}
 " />
 
+</p>
 <!--
 $$
 \begin{aligned}
@@ -1389,6 +1391,9 @@ for idx in np.arange(20):
 
 <span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
 
-<span class='green'>I-know-nothing:</span> Thank you Master.
+
+## Further Readings
+
+
 
 Happy Learning!
