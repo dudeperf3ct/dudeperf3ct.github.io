@@ -407,7 +407,7 @@ In short, backprop algorithm looks for the minimum value of the error function i
 Gradient Descent is like descending a mountain blind folded. And goal is to come down from the mountain to the flat land without assistance. The only assistance you have is a gadget which tells you the height from sea-level. What would be your approach be. You would start to descend in some random direction and then ask the gadget what is the height now. If the gadget tells you that height and it is more than the initial height then you know you started in wrong direction. You change the direction and repeat the process. This way in many iterations finally you successfully descend down.
 
 <p align="center">
-<img src='/images/mnist_mlp_files/gradients.png' />
+<img src='/images/mnist_mlp_files/gradients.png' width="70%"/>
 </p>  
 
 This is what gradient descent does. It tells the model which direction to move to minimize the error. There are different optimizer which tell us how can we find this direction. 
