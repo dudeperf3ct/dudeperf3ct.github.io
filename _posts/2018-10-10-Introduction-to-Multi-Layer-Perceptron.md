@@ -2,7 +2,7 @@
 layout:     post
 title:      Introduction to Multi-Layer Perceptron
 date:       2018-10-10 12:00:00
-summary:    This post will provide an hands-on-tutorial and insight into MLP using MNSIT dataset and Keras and PyTorch frameworks.
+summary:    This post will provide an hands-on-tutorial and brief introduction to MLP using MNSIT dataset and Keras and PyTorch frameworks.
 categories: nn mlp keras pytorch mnist
 published : false
 ---
@@ -350,7 +350,7 @@ And this is behind the scenes (BTS) of how a <span class='dark-gray'>Force of Ne
 
 # Keras
 
-## Sequential API
+## Keras Sequential API
 
 
 ```python
@@ -449,7 +449,7 @@ plt.show()
 </p> 
 
 <p align="center">
-<img src='//images/mnist_mlp_files/mnist_mlp_16_1.png' />
+<img src='/images/mnist_mlp_files/mnist_mlp_16_1.png' />
 </p> 
 
 
@@ -484,10 +484,10 @@ for idx in np.arange(20):
 ```
 
 <p align="center">
-<img src='//images/mnist_mlp_files/mnist_mlp_18_0.png' />
+<img src='/images/mnist_mlp_files/mnist_mlp_18_0.png' />
 </p> 
 
-## Functional API
+## Keras Functional API
 
 
 ```python
@@ -587,6 +587,722 @@ for idx in np.arange(20):
     ax.set_title("{} ({})".format(str(preds[idx]), str(labels[idx])),
                  color=("green" if preds[idx]==labels[idx] else "red"))
 ```
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_20_0.png' />
+</p> 
+
+# PyTorch
+
+
+```python
+# load all the required libraries
+import time
+import copy
+import numpy as np                                    # package for computing 
+from torch.utils.data.sampler import SubsetRandomSampler # split dataset
+import torch                                          # import torch
+from torchvision import datasets                      # import dataset from torch
+import torchvision.transforms as transforms           # apply transformations to data
+import torch.nn as nn                                 # neural network modules
+import torch.nn.functional as F                       # functional api
+from torch import optim                               # optimizers
+
+# Detect if we have a GPU available
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+import matplotlib.pyplot as plt             # matplotlib library for plotting
+
+# display plots inline (in notebook itself)
+%matplotlib inline                          
+```
+```python
+# load mnist data
+
+# number of subprocesses to use for data loading
+num_workers = 0
+
+# how many samples per batch to load
+batch_size = 20
+
+# percentage of training set to use as validation
+val_size = 0.2
+
+# convert data to torch.FloatTensor
+transform = transforms.ToTensor()
+
+# choose the training and test datasets
+train_data = datasets.MNIST(root='data', train=True,
+                                   download=True, transform=transform)
+test_data = datasets.MNIST(root='data', train=False,
+                                  download=True, transform=transform)
+
+# obtain training indices that will be used for validation
+num_test = len(test_data)
+indices = list(range(num_test))
+np.random.shuffle(indices)
+split = int(np.floor(val_size * num_test))
+test_idx, val_idx = indices[split:], indices[:split]
+
+# define samplers for obtaining training and validation batches
+test_sampler = SubsetRandomSampler(test_idx)
+val_sampler = SubsetRandomSampler(val_idx)
+
+# prepare data loaders (combine dataset and sampler)
+train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size,
+                                           num_workers=num_workers)
+val_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size,
+                                         sampler=val_sampler, num_workers=num_workers)
+test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size,
+                                          sampler=test_sampler, num_workers=num_workers)
+
+print ('Training samples:', len(train_loader.dataset))
+print ('Validation samples:', len(val_loader.dataset))
+print ('Testing samples:',len(test_loader.dataset))
+
+# Create training and validation dataloaders
+dataloaders_dict = {'train': train_loader, 
+                    'val': val_loader}
+
+```
+
+    Training samples: 60000
+    Validation samples: 10000
+    Testing samples: 10000
+
+## Visualization of data
+
+```python
+import matplotlib.pyplot as plt
+%matplotlib inline
+    
+# obtain one batch of training images
+dataiter = iter(train_loader)
+images, labels = dataiter.next()
+images = images.numpy()
+
+# plot the images in the batch, along with the corresponding labels
+fig = plt.figure(figsize=(25, 4))
+for idx in np.arange(20):
+    ax = fig.add_subplot(2, 20/2, idx+1, xticks=[], yticks=[])
+    ax.imshow(np.squeeze(images[idx]), cmap='gray')
+    # print out the correct label for each image
+    # .item() gets the value contained in a Tensor
+    ax.set_title(str(labels[idx].item()))
+```
+
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_7_1.png' />
+</p> 
+
+```python
+img = np.squeeze(images[1])
+
+fig = plt.figure(figsize = (12,12)) 
+ax = fig.add_subplot(111)
+ax.imshow(img, cmap='gray')
+width, height = img.shape
+thresh = img.max()/2.5
+for x in range(width):
+    for y in range(height):
+        val = round(img[x][y],2) if img[x][y] !=0 else 0
+        ax.annotate(str(val), xy=(y,x),
+                    horizontalalignment='center',
+                    verticalalignment='center',
+                    color='white' if img[x][y]<thresh else 'black')
+```
+
+
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_8_0.png' />
+</p> 
+
+## PyTorch Sequential API
+
+
+```python
+# [0-9] unique labels
+num_classes = 10
+epochs = 5
+```
+
+
+```python
+## Define the NN architecture
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        D_in = 784
+        H = 16
+        D_out = num_classes
+        self.classifier = torch.nn.Sequential(
+            torch.nn.Linear(D_in, H),
+            torch.nn.ReLU(),
+            torch.nn.Linear(H, D_out),
+            torch.nn.LogSoftmax(dim=1)
+        )
+        
+    def forward(self, x):
+        # flatten image input
+        x = x.view(-1, 28 * 28)
+        # 1 hidden layer, with relu activation function
+        x = self.classifier(x)
+        return x
+
+# initialize the NN
+model = Net()
+model = model.to(device)
+print(model)
+```
+
+    Net(
+      (classifier): Sequential(
+        (0): Linear(in_features=784, out_features=16, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=16, out_features=10, bias=True)
+        (3): LogSoftmax()
+      )
+    )
+
+
+
+```python
+# specify loss function
+criterion = nn.NLLLoss()
+
+# specify optimizer
+optimizer = optim.Adam(model.parameters(), lr=1e-3)
+```
+
+
+```python
+def train_model(model, dataloaders, criterion, optimizer, num_epochs):
+    since = time.time()
+
+    history = dict()
+
+    best_model_wts = copy.deepcopy(model.state_dict())
+    best_acc = 0.0
+
+    for epoch in range(num_epochs):
+        print('Epoch {}/{}'.format(epoch, num_epochs - 1))
+        print('-' * 10)
+
+        # Each epoch has a training and validation phase
+        for phase in ['train', 'val']:
+            if phase == 'train':
+                model.train()  # Set model to training mode
+            else:
+                model.eval()   # Set model to evaluate mode
+
+            running_loss = 0.0
+            running_corrects = 0
+
+            # Iterate over data.
+            for inputs, labels in dataloaders[phase]:
+                inputs = inputs.to(device)
+                labels = labels.to(device)
+
+                # zero the parameter gradients
+                optimizer.zero_grad()
+
+                # forward
+                # track history if only in train
+                with torch.set_grad_enabled(phase == 'train'):
+                    # Get model outputs and calculate loss
+
+                    # backward + optimize only if in training phase
+                    if phase == 'train':
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                        loss.backward()
+                        optimizer.step()
+                        
+                    else:
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                    
+                    _, preds = torch.max(outputs, 1)
+
+                # statistics
+                running_loss += loss.item() * inputs.size(0)
+                running_corrects += torch.sum(preds == labels.data)
+
+            epoch_loss = running_loss / (len(dataloaders[phase])*batch_size)
+            epoch_acc = running_corrects.double() / (len(dataloaders[phase])*batch_size)
+
+            print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
+            print (len(dataloaders[phase].dataset))
+
+            # deep copy the model
+            if phase == 'val' and epoch_acc > best_acc:
+                best_acc = epoch_acc
+                best_model_wts = copy.deepcopy(model.state_dict())
+            
+            if phase+'_acc' in history:
+                # append the new number to the existing array at this slot
+                history[phase+'_acc'].append(epoch_acc)
+            else:
+                # create a new array in this slot
+                history[phase+'_acc'] = [epoch_acc]
+            
+            if phase+'_loss' in history:
+                # append the new number to the existing array at this slot
+                history[phase+'_loss'].append(epoch_loss)
+            else:
+                # create a new array in this slot
+                history[phase+'_loss'] = [epoch_loss]            
+
+    time_elapsed = time.time() - since
+    print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
+    print('Best val Acc: {:4f}'.format(best_acc))
+
+    # load best model weights
+    model.load_state_dict(best_model_wts)
+    return model, history
+```
+
+
+```python
+model, history = train_model(model, dataloaders_dict, criterion, optimizer, epochs)
+```
+
+    Epoch 0/4
+    ----------
+    train Loss: 0.4130 Acc: 0.8860
+    60000
+    val Loss: 0.2651 Acc: 0.9215
+    10000
+    Epoch 1/4
+    ----------
+    train Loss: 0.2437 Acc: 0.9299
+    60000
+    val Loss: 0.2316 Acc: 0.9275
+    10000
+    Epoch 2/4
+    ----------
+    train Loss: 0.2067 Acc: 0.9402
+    60000
+    val Loss: 0.2121 Acc: 0.9330
+    10000
+    Epoch 3/4
+    ----------
+    train Loss: 0.1851 Acc: 0.9464
+    60000
+    val Loss: 0.1969 Acc: 0.9395
+    10000
+    Epoch 4/4
+    ----------
+    train Loss: 0.1699 Acc: 0.9512
+    60000
+    val Loss: 0.1891 Acc: 0.9435
+    10000
+    Training complete in 0m 50s
+    Best val Acc: 0.943500
+
+
+
+```python
+plt.plot(history['train_acc'])
+plt.plot(history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+# summarize history for loss
+plt.plot(history['train_loss'])
+plt.plot(history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+```
+
+
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_17_0.png' />
+</p> 
+
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_17_0.png' />
+</p> 
+
+```python
+# initialize lists to monitor test loss and accuracy
+test_loss = 0.0
+class_correct = list(0. for i in range(10))
+class_total = list(0. for i in range(10))
+
+model.eval() # prep model for *evaluation*
+
+for data, target in test_loader:
+    # forward pass: compute predicted outputs by passing inputs to the model
+    output = model(data)
+    # calculate the loss
+    loss = criterion(output, target)
+    # update test loss 
+    test_loss += loss.item()*data.size(0)
+    # convert output probabilities to predicted class
+    _, pred = torch.max(output, 1)
+    # compare predictions to true label
+    correct = np.squeeze(pred.eq(target.data.view_as(pred)))
+    # calculate test accuracy for each object class
+    for i in range(batch_size):
+        label = target.data[i]
+        class_correct[label] += correct[i].item()
+        class_total[label] += 1
+
+# calculate and print avg test loss
+test_loss = test_loss/len(test_loader.dataset)
+print('Test Loss: {:.6f}\n'.format(test_loss))
+
+for i in range(10):
+    if class_total[i] > 0:
+        print('Test Accuracy of %5s: %2d%% (%2d/%2d)' % (
+            str(i), 100 * class_correct[i] / class_total[i],
+            np.sum(class_correct[i]), np.sum(class_total[i])))
+    else:
+        print('Test Accuracy of %5s: N/A (no training examples)' % (classes[i]))
+
+print('\nTest Accuracy (Overall): %2d%% (%2d/%2d)' % (
+    100. * np.sum(class_correct) / np.sum(class_total),
+    np.sum(class_correct), np.sum(class_total)))
+```
+
+    Test Loss: 0.150191
+    
+    Test Accuracy of     0: 97% (760/783)
+    Test Accuracy of     1: 98% (906/919)
+    Test Accuracy of     2: 92% (762/824)
+    Test Accuracy of     3: 89% (721/804)
+    Test Accuracy of     4: 94% (751/793)
+    Test Accuracy of     5: 97% (698/718)
+    Test Accuracy of     6: 93% (730/779)
+    Test Accuracy of     7: 94% (765/806)
+    Test Accuracy of     8: 90% (706/777)
+    Test Accuracy of     9: 92% (740/797)
+    
+    Test Accuracy (Overall): 94% (7539/8000)
+
+
+
+```python
+# obtain one batch of test images
+dataiter = iter(test_loader)
+images, labels = dataiter.next()
+
+# get sample outputs
+output = model(images)
+# convert output probabilities to predicted class
+_, preds = torch.max(output, 1)
+# prep images for display
+images = images.numpy()
+
+# plot the images in the batch, along with predicted and true labels
+fig = plt.figure(figsize=(25, 4))
+for idx in np.arange(20):
+    ax = fig.add_subplot(2, 20/2, idx+1, xticks=[], yticks=[])
+    ax.imshow(np.squeeze(images[idx]), cmap='gray')
+    ax.set_title("{} ({})".format(str(preds[idx].item()), str(labels[idx].item())),
+                 color=("green" if preds[idx]==labels[idx] else "red"))
+```
+
+
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_19_0.png' />
+</p> 
+
+## PyTorch Functional API
+
+
+```python
+# [0-9] unique labels
+num_classes = 10
+epochs = 5
+```
+
+
+```python
+## Define the NN architecture
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.num_hidden1 = 16
+        # linear layer (784 -> 1 hidden node)
+        self.fc1 = nn.Linear(28 * 28, self.num_hidden1)
+        self.output = nn.Linear(self.num_hidden1, num_classes)
+        
+    def forward(self, x):
+        # flatten image input
+        x = x.view(-1, 28 * 28)
+        # 1 hidden layer, with relu activation function
+        x = F.relu(self.fc1(x))
+        x = F.log_softmax(self.output(x), dim=1)
+        return x
+
+# initialize the NN
+model = Net()
+model = model.to(device)
+print(model)
+```
+
+    Net(
+      (fc1): Linear(in_features=784, out_features=16, bias=True)
+      (output): Linear(in_features=16, out_features=10, bias=True)
+    )
+
+
+
+```python
+# specify loss function
+criterion = nn.NLLLoss()
+
+# specify optimizer
+optimizer = optim.Adam(model.parameters(), lr=1e-3)
+```
+
+
+```python
+def train_model(model, dataloaders, criterion, optimizer, num_epochs):
+    since = time.time()
+
+    history = dict()
+
+    best_model_wts = copy.deepcopy(model.state_dict())
+    best_acc = 0.0
+
+    for epoch in range(num_epochs):
+        print('Epoch {}/{}'.format(epoch, num_epochs - 1))
+        print('-' * 10)
+
+        # Each epoch has a training and validation phase
+        for phase in ['train', 'val']:
+            if phase == 'train':
+                model.train()  # Set model to training mode
+            else:
+                model.eval()   # Set model to evaluate mode
+
+            running_loss = 0.0
+            running_corrects = 0
+
+            # Iterate over data.
+            for inputs, labels in dataloaders[phase]:
+                inputs = inputs.to(device)
+                labels = labels.to(device)
+
+                # zero the parameter gradients
+                optimizer.zero_grad()
+
+                # forward
+                # track history if only in train
+                with torch.set_grad_enabled(phase == 'train'):
+                    # Get model outputs and calculate loss
+
+                    # backward + optimize only if in training phase
+                    if phase == 'train':
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                        loss.backward()
+                        optimizer.step()
+                        
+                    else:
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                    
+                    _, preds = torch.max(outputs, 1)
+
+                # statistics
+                running_loss += loss.item() * inputs.size(0)
+                running_corrects += torch.sum(preds == labels.data)
+
+            epoch_loss = running_loss / (len(dataloaders[phase])*batch_size)
+            epoch_acc = running_corrects.double() / (len(dataloaders[phase])*batch_size)
+
+            print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
+            print (len(dataloaders[phase].dataset))
+
+            # deep copy the model
+            if phase == 'val' and epoch_acc > best_acc:
+                best_acc = epoch_acc
+                best_model_wts = copy.deepcopy(model.state_dict())
+            
+            if phase+'_acc' in history:
+                # append the new number to the existing array at this slot
+                history[phase+'_acc'].append(epoch_acc)
+            else:
+                # create a new array in this slot
+                history[phase+'_acc'] = [epoch_acc]
+            
+            if phase+'_loss' in history:
+                # append the new number to the existing array at this slot
+                history[phase+'_loss'].append(epoch_loss)
+            else:
+                # create a new array in this slot
+                history[phase+'_loss'] = [epoch_loss]            
+
+    time_elapsed = time.time() - since
+    print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
+    print('Best val Acc: {:4f}'.format(best_acc))
+
+    # load best model weights
+    model.load_state_dict(best_model_wts)
+    return model, history
+
+```
+
+
+```python
+model, history = train_model(model, dataloaders_dict, criterion, optimizer, epochs)
+```
+
+    Epoch 0/4
+    ----------
+    train Loss: 0.4015 Acc: 0.8915
+    60000
+    val Loss: 0.2860 Acc: 0.9155
+    10000
+    Epoch 1/4
+    ----------
+    train Loss: 0.2460 Acc: 0.9302
+    60000
+    val Loss: 0.2658 Acc: 0.9195
+    10000
+    Epoch 2/4
+    ----------
+    train Loss: 0.2112 Acc: 0.9394
+    60000
+    val Loss: 0.2480 Acc: 0.9230
+    10000
+    Epoch 3/4
+    ----------
+    train Loss: 0.1895 Acc: 0.9458
+    60000
+    val Loss: 0.2399 Acc: 0.9280
+    10000
+    Epoch 4/4
+    ----------
+    train Loss: 0.1748 Acc: 0.9497
+    60000
+    val Loss: 0.2310 Acc: 0.9290
+    10000
+    Training complete in 0m 52s
+    Best val Acc: 0.929000
+
+
+
+```python
+plt.plot(history['train_acc'])
+plt.plot(history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+# summarize history for loss
+plt.plot(history['train_loss'])
+plt.plot(history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+```
+
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_26_0.png' />
+</p> 
+
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_26_1.png' />
+</p> 
+
+
+```python
+# initialize lists to monitor test loss and accuracy
+test_loss = 0.0
+class_correct = list(0. for i in range(10))
+class_total = list(0. for i in range(10))
+
+model.eval() # prep model for *evaluation*
+
+for data, target in test_loader:
+    # forward pass: compute predicted outputs by passing inputs to the model
+    output = model(data)
+    # calculate the loss
+    loss = criterion(output, target)
+    # update test loss 
+    test_loss += loss.item()*data.size(0)
+    # convert output probabilities to predicted class
+    _, pred = torch.max(output, 1)
+    # compare predictions to true label
+    correct = np.squeeze(pred.eq(target.data.view_as(pred)))
+    # calculate test accuracy for each object class
+    for i in range(batch_size):
+        label = target.data[i]
+        class_correct[label] += correct[i].item()
+        class_total[label] += 1
+
+# calculate and print avg test loss
+test_loss = test_loss/len(test_loader.dataset)
+print('Test Loss: {:.6f}\n'.format(test_loss))
+
+for i in range(10):
+    if class_total[i] > 0:
+        print('Test Accuracy of %5s: %2d%% (%2d/%2d)' % (
+            str(i), 100 * class_correct[i] / class_total[i],
+            np.sum(class_correct[i]), np.sum(class_total[i])))
+    else:
+        print('Test Accuracy of %5s: N/A (no training examples)' % (classes[i]))
+
+print('\nTest Accuracy (Overall): %2d%% (%2d/%2d)' % (
+    100. * np.sum(class_correct) / np.sum(class_total),
+    np.sum(class_correct), np.sum(class_total)))
+```
+
+    Test Loss: 0.174892
+    
+    Test Accuracy of     0: 96% (757/783)
+    Test Accuracy of     1: 99% (911/919)
+    Test Accuracy of     2: 90% (748/824)
+    Test Accuracy of     3: 89% (719/804)
+    Test Accuracy of     4: 94% (752/793)
+    Test Accuracy of     5: 97% (697/718)
+    Test Accuracy of     6: 94% (735/779)
+    Test Accuracy of     7: 91% (741/806)
+    Test Accuracy of     8: 84% (654/777)
+    Test Accuracy of     9: 94% (754/797)
+    
+    Test Accuracy (Overall): 93% (7468/8000)
+
+
+
+```python
+# obtain one batch of test images
+dataiter = iter(test_loader)
+images, labels = dataiter.next()
+
+# get sample outputs
+output = model(images)
+# convert output probabilities to predicted class
+_, preds = torch.max(output, 1)
+# prep images for display
+images = images.numpy()
+
+# plot the images in the batch, along with predicted and true labels
+fig = plt.figure(figsize=(25, 4))
+for idx in np.arange(20):
+    ax = fig.add_subplot(2, 20/2, idx+1, xticks=[], yticks=[])
+    ax.imshow(np.squeeze(images[idx]), cmap='gray')
+    ax.set_title("{} ({})".format(str(preds[idx].item()), str(labels[idx].item())),
+                 color=("green" if preds[idx]==labels[idx] else "red"))
+```
+
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_28_0.png' />
+</p> 
+
+
 
 <span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
 
