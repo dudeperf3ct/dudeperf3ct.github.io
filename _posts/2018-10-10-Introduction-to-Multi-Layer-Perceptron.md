@@ -4,7 +4,7 @@ title:      Introduction to Multi-Layer Perceptron
 date:       2018-10-10 12:00:00
 summary:    This post will provide an hands-on-tutorial and brief introduction to MLP using MNSIT dataset and Keras and PyTorch frameworks.
 categories: nn mlp keras pytorch mnist
-published : true
+published : false
 ---
 
 # MLP
@@ -192,6 +192,7 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 
 <p align="center">
 <img src='/images/mnist_mlp_files/master_student.gif' />
+<p align="center"><a href="https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif">Credits</a></p>
 </p>  
 
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
