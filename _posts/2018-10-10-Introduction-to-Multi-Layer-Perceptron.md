@@ -224,6 +224,7 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 
 <span class='red'>I-know-everything:</span> They are bit scary but if you insist I will write them for you.
 
+<p align="center">
 <img align="center" src="https://tex.s2cms.ru/svg/%0A%5Cmathbf%7Bx%7D%20%3A%20%5Ctextrm%7BInput%20layer%20with%20784%20values%7D%20(%5Cmathbf%7Bx_1%7D%2C%20%5Cmathbf%7Bx_2%7D%2C...%2C%20%5Cmathbf%7Bx_%7B784%7D%7D)%20%5C%5C%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i%7D%20%3A%20%5Ctextrm%20%7BWeights%20of%20hidden%20layer%20with%2016%20values%7D%20(%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_1%7D%2C%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_2%7D%2C.....%2C%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_%7B16%7D%7D)%5C%5C%20%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_0%7D%20%3A%20%5Ctextrm%20%7Bbias%20of%20hidden%20layer%7D%20%5C%5C%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o%7D%20%3A%20%5Ctextrm%20%7BWeights%20of%20output%20layer%20with%2010%20values%7D%20(%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_1%7D%2C%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_2%7D%2C.....%2C%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_%7B10%7D%7D)%5C%5C%20%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_0%7D%20%3A%20%5Ctextrm%20%7Bbias%20of%20output%20layer%7D%20%5C%5C%20%0A%5Cmathbf%7B%5Chat%7By%7D%7D%20%3A%20%5Ctextrm%20%7Bprediction%7D%20%5C%5C%20%0A%5Cmathbf%7By%7D%20%3A%20%5Ctextrm%7Bdesired%20result%7D%20%5C%5C%0A" alt="
 \mathbf{x} : \textrm{Input layer with 784 values} (\mathbf{x_1}, \mathbf{x_2},..., \mathbf{x_{784}}) \\
 \mathbf{w\rm\normalsize i} : \textrm {Weights of hidden layer with 16 values} (\mathbf{w\rm\normalsize i_1}, \mathbf{w\rm\normalsize i_2},....., \mathbf{w\rm\normalsize i_{16}})\\ 
@@ -233,6 +234,7 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 \mathbf{\hat{y}} : \textrm {prediction} \\ 
 \mathbf{y} : \textrm{desired result} \\
 " />
+</p>
 
 <!--
 $$
@@ -248,6 +250,7 @@ $$
 
 **Forward Pass**
 
+<p align="center">
 <img align="center" src="https://tex.s2cms.ru/svg/%0A%5Cbegin%7Baligned%7D%0A%5Cmathbf%7Ba%7D%20%26%20%3D%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i%5ET%7D%20%5Cmathbf%7Bx%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_0%7D%20%5C%5C%0A%5Cmathbf%7Bh%7D%20%26%20%3D%20f(%5Cmathbf%7Ba%7D)%20%3D%20f(%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i%5ET%7D%20%5Cmathbf%7Bx%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_0%7D)%20%5C%5C%0A%5Cmathbf%7Bz%7D%20%26%20%3D%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o%5ET%7D%20%5Cmathbf%7Bh%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_0%7D%20%5C%5C%0A%5Cmathbf%7B%5Chat%7By%7D%7D%20%26%20%3D%20softmax(%5Cmathbf%7Bz%7D)%20%5C%5C%0A%5C%5C~%5C%5C%0A%5Ctextrm%7BRelu%20%20Non-linearity%7D%3A%20f(%5Cmathbf%7Bk%7D)%20%26%20%3D%20max(k%2C%200)%20%5C%5C%0A%5Ctextrm%7BSoftmax%20%20Function%7D%3A%20%5Csigma_j(%5Cmathbf%7Bz%7D)%20%20%26%20%3D%20%5Cfrac%20%7B%5Cexp(%5Cmathbf%7Bz%7D_j)%7D%20%7B%5Csum_%7Bk%7D%5E%7Bnclass%7D%20%5Cexp(%5Cmathbf%7Bz%7D_k)%7D%20%5C%5C%0A%5Cend%7Baligned%7D%0A" alt="
 \begin{aligned}
 \mathbf{a} &amp; = \mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0} \\
@@ -259,7 +262,7 @@ $$
 \textrm{Softmax  Function}: \sigma_j(\mathbf{z})  &amp; = \frac {\exp(\mathbf{z}_j)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} \\
 \end{aligned}
 " />
-
+</p>
 <!--
 $$
 \begin{aligned}
@@ -275,13 +278,13 @@ $$
 -->
 
 **Error Function**
-
+<p align="center">
 <img align="center" src="https://tex.s2cms.ru/svg/%0A%5Cbegin%7Baligned%7D%0AE%20%3D%20l(%5Cmathbf%7By%7D%2C%20%5Cmathbf%7B%5Chat%7By%7D%7D)%20%3D%20-%5Csum_%7Bi%7D%5E%7Bnclass%7D%5Cmathbf%7By_i%7Dln%7B%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%0A%5Cend%7Baligned%7D%0A" alt="
 \begin{aligned}
 E = l(\mathbf{y}, \mathbf{\hat{y}}) = -\sum_{i}^{nclass}\mathbf{y_i}ln{\mathbf{\hat{y_i}}}
 \end{aligned}
 " />
-
+</p>
 <!--
 $$
 \begin{aligned}
@@ -314,7 +317,9 @@ $$
 &amp; = \mathbf{\hat{y_i}} - \mathbf{y_i} \\
 \end{aligned}
 " />
+</p>
 
+<p align="center">
 <img align="center" src="https://tex.s2cms.ru/svg/%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_%7Bji%7D%7D%7D%20%26%20%3D%20%5Csum_%7Bi%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_%7Bji%7D%7D%7D%20%5C%5C%0A%26%20%3D%20(%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D)%5Cmathbf%7Bh_j%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_%7B0%7D%7D%7D%20%26%20%3D%20%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20%3D%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%20%26%20%3D%20%5Csum_%7Bi%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%20%5C%5C%0A%26%20%3D%20(%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D)%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_j%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Ba%7D%7D%20%26%20%3D%0A%5Cbegin%7Bcases%7D%0A1%20%20%20%26a%3E0%20%20%20%20%5C%5C%0A0%20%26else%20%20%20%20%5C%5C%0A%5Cend%7Bcases%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_%7Bji%7D%7D%7D%20%26%20%3D%20%5Csum_%7Bi%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Ba%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Ba%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_%7Bji%7D%7D%7D%20%5C%5C%0A%26%20%3D%20(%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D)%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_j%7D%5Cmathbf%7Bx%5Crm%5Cnormalsize%20_j%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_%7B0%7D%7D%7D%26%20%3D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%20%3D%20(%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D)%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_j%7D%20%5C%5C%0A%5Cend%7Baligned%7D%0A" alt="
 \begin{aligned}
 \frac{\partial E}{\partial \mathbf{w\rm\normalsize o_{ji}}} &amp; = \sum_{i}\frac{\partial E}{\partial \mathbf{z_i}}\frac{\partial \mathbf{z_i}}{\partial \mathbf{w\rm\normalsize o_{ji}}} \\
@@ -332,8 +337,8 @@ $$
 \frac{\partial E}{\partial \mathbf{w\rm\normalsize i_{0}}}&amp; =\frac{\partial E}{\partial \mathbf{h_{ji}}} = (\mathbf{\hat{y_i}} - \mathbf{y_i})\mathbf{w\rm\normalsize o_j} \\
 \end{aligned}
 " />
-
 </p>
+
 <!--
 $$
 \begin{aligned}
