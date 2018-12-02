@@ -23,7 +23,7 @@ Feel free to jump anywhere,
 - [PyTorch](#pytorch)
   - [Functional API](#pytorch-functional-api)
   - [Sequential API](#pytorch-sequential-api)
-
+- [Further Reading](#further-reading)
 
 ```python
 # load all the required libraries
@@ -1397,7 +1397,7 @@ for idx in np.arange(20):
 <span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
 
 
-## Further Readings
+# Further Reading
 
 
 
