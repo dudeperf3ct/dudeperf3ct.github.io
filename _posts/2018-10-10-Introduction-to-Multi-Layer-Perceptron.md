@@ -387,7 +387,7 @@ $$
 
 These are called biases. A layer in a neural network without a bias is nothing more than the multiplication of an input vector with a matrix. Using a bias, you’re effectively adding another dimension to your input space.
 
-2. What is the function <img src="https://tex.s2cms.ru/svg/%0Af(%5Cmathbf%7Bh%7D)%0A" alt="f(\mathbf{h})" /> $$"f(\mathbf{h})$$?
+2. What is the function <img src="https://tex.s2cms.ru/svg/%0Af(%5Cmathbf%7Bh%7D)%0A" alt="f(\mathbf{h})" /> $$f(\mathbf{h})$$?
 
 This functon plays an important role in machine learning. This types function are called non-linear functions. By introducing them in our network we introduce non-linearlity, non-linear means that the output cannot be reproduced from a linear combination of the inputs. Another way to think of it is if we don't use a non-linear activation function in the network, no matter how many layers it had, the network would behave just like a single-layer perceptron, because summing these layers would give you just another linear function and most of the problems in real world are non-linear. Non-linearity is needed in activation functions because its aim in a neural network is to produce a nonlinear decision boundary via non-linear combinations of the weight and inputs. To provide a better seperation for higher dimensional data then a simple line seperator using linear function.There are several types of non-linear functions.
 
@@ -434,7 +434,7 @@ This is what gradient descent does. It tells the model which direction to move t
 </p>  
 
 
-And this is behind the scenes (BTS) of how a <span class='dark-gray'>Force of Neural Network</span> learns.
+And this is behind the scenes (BTS) of how a <span class='gray'>Force of Neural Network</span> learns.
 
 <span class='green'>I-know-nothing:</span> Thank you Master, I follow.
 
