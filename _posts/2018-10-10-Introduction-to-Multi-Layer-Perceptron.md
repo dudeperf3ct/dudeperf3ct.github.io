@@ -120,7 +120,7 @@ Since training/test sets were made of website images, our algorithm did not gene
 Before the modern era of big data, it was a common rule in machine learning to use a random 70% / 30% split to form  training and test sets. This practice can work, but it’s a bad idea in more and more applications where the training distribution (website images in our example above) is different from the distribution you ultimately care about (mobile
 phone images).
 
-**Lesson:** `Choose dev and test sets to reflect data you expect to get in the future and want to do well on.`
+**Lesson: Choose dev and test sets to reflect data you expect to get in the future and want to do well on. **
 
 
 
@@ -157,7 +157,7 @@ for idx in np.arange(20):
 
 
 <p align="center">
-<img src='//images/mnist_mlp_files/mnist_mlp_7_0.png' />
+<img src='/images/mnist_mlp_files/mnist_mlp_7_0.png' />
 </p> 
 
 
@@ -179,8 +179,9 @@ for x in range(width):
 ```
 
 
-![Example 0](/images/mnist_mlp_files/mnist_mlp_8_0.png)
-
+<p align="center">
+<img src='/images/mnist_mlp_files/mnist_mlp_8_0.png' />
+</p> 
 
 # Introduction to MLP
 
@@ -223,18 +224,31 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 
 <span class='red'>I-know-everything:</span> They are bit scary but if you insist I will write them for you.
 
-
-$\mathbf{x} : \textrm{Input layer with 784 values} (\mathbf{x_1}, \mathbf{x_2},..., \mathbf{x_{784}}) \\
+<img align="center" src="https://tex.s2cms.ru/svg/%0A%5Cmathbf%7Bx%7D%20%3A%20%5Ctextrm%7BInput%20layer%20with%20784%20values%7D%20(%5Cmathbf%7Bx_1%7D%2C%20%5Cmathbf%7Bx_2%7D%2C...%2C%20%5Cmathbf%7Bx_%7B784%7D%7D)%20%5C%5C%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i%7D%20%3A%20%5Ctextrm%20%7BWeights%20of%20hidden%20layer%20with%2016%20values%7D%20(%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_1%7D%2C%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_2%7D%2C.....%2C%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_%7B16%7D%7D)%5C%5C%20%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_0%7D%20%3A%20%5Ctextrm%20%7Bbias%20of%20hidden%20layer%7D%20%5C%5C%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o%7D%20%3A%20%5Ctextrm%20%7BWeights%20of%20output%20layer%20with%2010%20values%7D%20(%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_1%7D%2C%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_2%7D%2C.....%2C%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_%7B10%7D%7D)%5C%5C%20%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_0%7D%20%3A%20%5Ctextrm%20%7Bbias%20of%20output%20layer%7D%20%5C%5C%20%0A%5Cmathbf%7B%5Chat%7By%7D%7D%20%3A%20%5Ctextrm%20%7Bprediction%7D%20%5C%5C%20%0A%5Cmathbf%7By%7D%20%3A%20%5Ctextrm%7Bdesired%20result%7D%20%5C%5C%0A" alt="
+\mathbf{x} : \textrm{Input layer with 784 values} (\mathbf{x_1}, \mathbf{x_2},..., \mathbf{x_{784}}) \\
 \mathbf{w\rm\normalsize i} : \textrm {Weights of hidden layer with 16 values} (\mathbf{w\rm\normalsize i_1}, \mathbf{w\rm\normalsize i_2},....., \mathbf{w\rm\normalsize i_{16}})\\ 
 \mathbf{w\rm\normalsize i_0} : \textrm {bias of hidden layer} \\
 \mathbf{w\rm\normalsize o} : \textrm {Weights of output layer with 10 values} (\mathbf{w\rm\normalsize o_1}, \mathbf{w\rm\normalsize o_2},....., \mathbf{w\rm\normalsize o_{10}})\\ 
 \mathbf{w\rm\normalsize o_0} : \textrm {bias of output layer} \\ 
 \mathbf{\hat{y}} : \textrm {prediction} \\ 
-\mathbf{y} : \textrm{desired result} \\ $
+\mathbf{y} : \textrm{desired result} \\
+" />
 
+<!--
+$$
+\mathbf{x} : \textrm{Input layer with 784 values} (\mathbf{x_1}, \mathbf{x_2},..., \mathbf{x_{784}}) \\
+\mathbf{w\rm\normalsize i} : \textrm {Weights of hidden layer with 16 values} (\mathbf{w\rm\normalsize i_1}, \mathbf{w\rm\normalsize i_2},....., \mathbf{w\rm\normalsize i_{16}})\\ 
+\mathbf{w\rm\normalsize i_0} : \textrm {bias of hidden layer} \\
+\mathbf{w\rm\normalsize o} : \textrm {Weights of output layer with 10 values} (\mathbf{w\rm\normalsize o_1}, \mathbf{w\rm\normalsize o_2},....., \mathbf{w\rm\normalsize o_{10}})\\ 
+\mathbf{w\rm\normalsize o_0} : \textrm {bias of output layer} \\ 
+\mathbf{\hat{y}} : \textrm {prediction} \\ 
+\mathbf{y} : \textrm{desired result} \\ 
+$$
+-->
 
 **Forward Pass**
 
+<img align="center" src="//tex.s2cms.ru/svg/%0A%5Cbegin%7Baligned%7D%0A%5Cmathbf%7Ba%7D%20%3D%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i%5ET%7D%20%5Cmathbf%7Bx%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_0%7D%20%5C%5C%0A%5Cmathbf%7Bh%7D%20%3D%20f(%5Cmathbf%7Ba%7D)%20%3D%20f(%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i%5ET%7D%20%5Cmathbf%7Bx%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_0%7D)%20%5C%5C%0A%5Cmathbf%7Bz%7D%20%3D%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o%5ET%7D%20%5Cmathbf%7Bh%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_0%7D%20%5C%5C%0A%5Cmathbf%7B%5Chat%7By%7D%7D%20%3D%20softmax(%5Cmathbf%7Bz%7D)%20%5C%5C%0A%5C%5C~%5C%5C%0A%5Ctextrm%7BRelu%20%20Non-linearity%7D%3A%20f(%5Cmathbf%7Bk%7D)%20%3D%20max(k%2C%200)%20%5C%5C%0A%5Ctextrm%7BSoftmax%20%20Function%7D%3A%20%5Csigma_j(%5Cmathbf%7Bz%7D)%20%20%3D%20%5Cfrac%20%7B%5Cexp(%5Cmathbf%7Bz%7D_j)%7D%20%7B%5Csum_%7Bk%7D%5E%7Bnclass%7D%20%5Cexp(%5Cmathbf%7Bz%7D_k)%7D%20%5C%5C%0A%5Cend%7Baligned%7D%0A" alt="
 \begin{aligned}
 \mathbf{a} = \mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0} \\
 \mathbf{h} = f(\mathbf{a}) = f(\mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0}) \\
@@ -244,47 +258,111 @@ $\mathbf{x} : \textrm{Input layer with 784 values} (\mathbf{x_1}, \mathbf{x_2},.
 \textrm{Relu  Non-linearity}: f(\mathbf{k}) = max(k, 0) \\
 \textrm{Softmax  Function}: \sigma_j(\mathbf{z})  = \frac {\exp(\mathbf{z}_j)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} \\
 \end{aligned}
+" />
+
+<!--
+$$
+\begin{aligned}
+\mathbf{a} = \mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0} \\
+\mathbf{h} = f(\mathbf{a}) = f(\mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0}) \\
+\mathbf{z} = \mathbf{w\rm\normalsize o^T} \mathbf{h} + \mathbf{w\rm\normalsize o_0} \\
+\mathbf{\hat{y}} = softmax(\mathbf{z}) \\
+\\~\\
+\textrm{Relu  Non-linearity}: f(\mathbf{k}) = max(k, 0) \\
+\textrm{Softmax  Function}: \sigma_j(\mathbf{z})  = \frac {\exp(\mathbf{z}_j)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} \\
+\end{aligned}
+$$
+-->
 
 **Error Function**
 
+<img align="center" src="https://tex.s2cms.ru/svg/%0A%5Cbegin%7Baligned%7D%0AE%20%3D%20l(%5Cmathbf%7By%7D%2C%20%5Cmathbf%7B%5Chat%7By%7D%7D)%20%3D%20-%5Csum_%7Bi%7D%5E%7Bnclass%7D%5Cmathbf%7By_i%7Dln%7B%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%0A%5Cend%7Baligned%7D%0A" alt="
 \begin{aligned}
 E = l(\mathbf{y}, \mathbf{\hat{y}}) = -\sum_{i}^{nclass}\mathbf{y_i}ln{\mathbf{\hat{y_i}}}
 \end{aligned}
+" />
+
+<!--
+$$
+\begin{aligned}
+E = l(\mathbf{y}, \mathbf{\hat{y}}) = -\sum_{i}^{nclass}\mathbf{y_i}ln{\mathbf{\hat{y_i}}}
+\end{aligned}
+$$
+-->
 
 **Backward Pass**
 
+<img align="center" src="https://tex.s2cms.ru/svg/%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%20%26%20%3D%20-%20%5Cfrac%20%7B%5Cmathbf%7By_i%7D%7D%7B%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bz%7D%7D%20%26%20%3D%20%0A%5Cbegin%7Bcases%7D%0A%26%20%5Cfrac%20%7B%5Cexp(%5Cmathbf%7Bz%7D_i)%7D%20%7B%5Csum_%7Bk%7D%5E%7Bnclass%7D%20%5Cexp(%5Cmathbf%7Bz%7D_k)%7D%20-%20(%5Cfrac%20%7B%5Cexp(%5Cmathbf%7Bz%7D_i)%7D%20%7B%5Csum_%7Bk%7D%5E%7Bnclass%7D%20%5Cexp(%5Cmathbf%7Bz%7D_k)%7D)%5E2%20%20%20%26i%3Dk%20%20%20%20%5C%5C%0A%26%20(%5Cfrac%20%7Be%5E%7B(%5Cmathbf%7Bz%7D_i)%7De%5E%7B(%5Cmathbf%7Bz%7D_k)%7D%7D%20%7B%5Csum_%7Bk%7D%5E%7Bnclass%7D%20%5Cexp(%5Cmathbf%7Bz%7D_k)%7D)%5E2%20%26%20i%20%5Cne%20k%20%20%20%20%5C%5C%0A%26%20%5Cend%7Bcases%7D%20%5C%5C%0A%26%3D%0A%5Cbegin%7Bcases%7D%0A%5Cmathbf%7B%5Chat%7By_i%7D%7D(1-%5Cmathbf%7B%5Chat%7By_i%7D%7D)%20%20%26i%3Dk%20%20%20%20%5C%5C%0A-%5Cmathbf%7B%5Chat%7By_i%7D%7D%5Cmathbf%7B%5Chat%7By_k%7D%7D%20%26i%20%5Cne%20k%20%20%20%20%5C%5C%0A%5Cend%7Bcases%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20%26%20%3D%20%5Csum_%7Bk%7D%5E%7Bclass%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_k%7D%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_k%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20%5C%5C%0A%26%20%3D%20%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20-%20%5Csum_%7Bi%20%5Cne%20k%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_k%7D%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_k%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20%5C%5C%0A%26%20%3D%20%5Csum_%7Bk%7D%5E%7Bclass%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20%5C%5C%0A%26%20%3D%20-%5Cmathbf%7B%5Chat%7By_i%7D%7D(1-%5Cmathbf%7By_i%7D)%20%2B%20%5Csum_%7Bk%20%5Cne%20i%7D%5Cmathbf%7B%5Chat%7By_k%7D%7D%5Cmathbf%7By_i%7D%20%5C%5C%0A%26%20%3D%20-%5Cmathbf%7B%5Chat%7By_i%7D%7D%20%2B%20%5Cmathbf%7By_i%7D%5Csum_%7Bk%7D%5Cmathbf%7B%5Chat%7By_k%7D%7D%20%5C%5C%0A%26%20%3D%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_%7Bji%7D%7D%7D%20%26%20%3D%20%5Csum_%7Bi%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_%7Bji%7D%7D%7D%20%5C%5C%0A%26%20%3D%20(%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D)%5Cmathbf%7Bh_j%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_%7B0%7D%7D%7D%20%26%20%3D%20%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%20%3D%20%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%20%26%20%3D%20%5Csum_%7Bi%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Bz_i%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%20%5C%5C%0A%26%20%3D%20(%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D)%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_j%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Ba%7D%7D%20%26%20%3D%0A%5Cbegin%7Bcases%7D%0A1%20%20%20%26a%3E0%20%20%20%20%5C%5C%0A0%20%26else%20%20%20%20%5C%5C%0A%5Cend%7Bcases%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_%7Bji%7D%7D%7D%20%26%20%3D%20%5Csum_%7Bi%7D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%7B%5Cpartial%20%5Cmathbf%7Ba%7D%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Ba%7D%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_%7Bji%7D%7D%7D%20%5C%5C%0A%26%20%3D%20(%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D)%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_j%7D%5Cmathbf%7Bx%5Crm%5Cnormalsize%20_j%7D%20%5C%5C%0A%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_%7B0%7D%7D%7D%26%20%3D%5Cfrac%7B%5Cpartial%20E%7D%7B%5Cpartial%20%5Cmathbf%7Bh_%7Bji%7D%7D%7D%20%3D%20(%5Cmathbf%7B%5Chat%7By_i%7D%7D%20-%20%5Cmathbf%7By_i%7D)%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_j%7D%20%5C%5C%0A%5Cend%7Baligned%7D%0A" alt="
 \begin{aligned}
-\frac{\partial E}{\partial \mathbf{\hat{y_i}}} = - \frac {\mathbf{y_i}}{\mathbf{\hat{y_i}}} \\
-\frac{\partial \mathbf{\hat{y_i}}}{\partial \mathbf{z}} = 
+\frac{\partial E}{\partial \mathbf{\hat{y_i}}} &amp; = - \frac {\mathbf{y_i}}{\mathbf{\hat{y_i}}} \\
+\frac{\partial \mathbf{\hat{y_i}}}{\partial \mathbf{z}} &amp; = 
 \begin{cases}
-\frac {\exp(\mathbf{z}_i)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} - (\frac {\exp(\mathbf{z}_i)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)})^2   &i=k    \\
-(\frac {e^{(\mathbf{z}_i)}e^{(\mathbf{z}_k)}} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)})^2 &i \ne k    \\
+&amp; \frac {\exp(\mathbf{z}_i)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} - (\frac {\exp(\mathbf{z}_i)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)})^2   &amp;i=k    \\
+&amp; (\frac {e^{(\mathbf{z}_i)}e^{(\mathbf{z}_k)}} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)})^2 &amp; i \ne k    \\
+&amp; \end{cases} \\
+&amp;=
+\begin{cases}
+\mathbf{\hat{y_i}}(1-\mathbf{\hat{y_i}})  &amp;i=k    \\
+-\mathbf{\hat{y_i}}\mathbf{\hat{y_k}} &amp;i \ne k    \\
 \end{cases} \\
+\frac{\partial E}{\partial \mathbf{z_i}} &amp; = \sum_{k}^{class}\frac{\partial E}{\partial \mathbf{\hat{y_k}}}\frac{\partial \mathbf{\hat{y_k}}}{\partial \mathbf{z_i}} \\
+&amp; = \frac{\partial E}{\partial \mathbf{\hat{y_i}}}\frac{\partial \mathbf{\hat{y_i}}}{\partial \mathbf{z_i}} - \sum_{i \ne k}\frac{\partial E}{\partial \mathbf{\hat{y_k}}}\frac{\partial \mathbf{\hat{y_k}}}{\partial \mathbf{z_i}} \\
+&amp; = \sum_{k}^{class}\frac{\partial E}{\partial \mathbf{\hat{y_i}}}\frac{\partial \mathbf{\hat{y_i}}}{\partial \mathbf{z_i}} \\
+&amp; = -\mathbf{\hat{y_i}}(1-\mathbf{y_i}) + \sum_{k \ne i}\mathbf{\hat{y_k}}\mathbf{y_i} \\
+&amp; = -\mathbf{\hat{y_i}} + \mathbf{y_i}\sum_{k}\mathbf{\hat{y_k}} \\
+&amp; = \mathbf{\hat{y_i}} - \mathbf{y_i} \\
+\frac{\partial E}{\partial \mathbf{w\rm\normalsize o_{ji}}} &amp; = \sum_{i}\frac{\partial E}{\partial \mathbf{z_i}}\frac{\partial \mathbf{z_i}}{\partial \mathbf{w\rm\normalsize o_{ji}}} \\
+&amp; = (\mathbf{\hat{y_i}} - \mathbf{y_i})\mathbf{h_j} \\
+\frac{\partial E}{\partial \mathbf{w\rm\normalsize o_{0}}} &amp; = \frac{\partial E}{\partial \mathbf{z_i}} = \mathbf{\hat{y_i}} - \mathbf{y_i} \\
+\frac{\partial E}{\partial \mathbf{h_{ji}}} &amp; = \sum_{i}\frac{\partial E}{\partial \mathbf{z_i}}\frac{\partial \mathbf{z_i}}{\partial \mathbf{h_{ji}}} \\
+&amp; = (\mathbf{\hat{y_i}} - \mathbf{y_i})\mathbf{w\rm\normalsize o_j} \\
+\frac{\partial \mathbf{h_{ji}}}{\partial \mathbf{a}} &amp; =
+\begin{cases}
+1   &amp;a&gt;0    \\
+0 &amp;else    \\
+\end{cases} \\
+\frac{\partial E}{\partial \mathbf{w\rm\normalsize i_{ji}}} &amp; = \sum_{i}\frac{\partial E}{\partial \mathbf{h_{ji}}}\frac{\partial \mathbf{h_{ji}}}{\partial \mathbf{a}}\frac{\partial \mathbf{a}}{\partial \mathbf{w\rm\normalsize i_{ji}}} \\
+&amp; = (\mathbf{\hat{y_i}} - \mathbf{y_i})\mathbf{w\rm\normalsize o_j}\mathbf{x\rm\normalsize _j} \\
+\frac{\partial E}{\partial \mathbf{w\rm\normalsize i_{0}}}&amp; =\frac{\partial E}{\partial \mathbf{h_{ji}}} = (\mathbf{\hat{y_i}} - \mathbf{y_i})\mathbf{w\rm\normalsize o_j} \\
+\end{aligned}
+" />
+
+<!--
+$$
+\begin{aligned}
+\frac{\partial E}{\partial \mathbf{\hat{y_i}}} & = - \frac {\mathbf{y_i}}{\mathbf{\hat{y_i}}} \\
+\frac{\partial \mathbf{\hat{y_i}}}{\partial \mathbf{z}} & = 
+\begin{cases}
+& \frac {\exp(\mathbf{z}_i)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} - (\frac {\exp(\mathbf{z}_i)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)})^2   &i=k    \\
+& (\frac {e^{(\mathbf{z}_i)}e^{(\mathbf{z}_k)}} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)})^2 & i \ne k    \\
+& \end{cases} \\
 &=
 \begin{cases}
 \mathbf{\hat{y_i}}(1-\mathbf{\hat{y_i}})  &i=k    \\
 -\mathbf{\hat{y_i}}\mathbf{\hat{y_k}} &i \ne k    \\
 \end{cases} \\
-\frac{\partial E}{\partial \mathbf{z_i}} = \sum_{k}^{class}\frac{\partial E}{\partial \mathbf{\hat{y_k}}}\frac{\partial \mathbf{\hat{y_k}}}{\partial \mathbf{z_i}} \\
+\frac{\partial E}{\partial \mathbf{z_i}} & = \sum_{k}^{class}\frac{\partial E}{\partial \mathbf{\hat{y_k}}}\frac{\partial \mathbf{\hat{y_k}}}{\partial \mathbf{z_i}} \\
 & = \frac{\partial E}{\partial \mathbf{\hat{y_i}}}\frac{\partial \mathbf{\hat{y_i}}}{\partial \mathbf{z_i}} - \sum_{i \ne k}\frac{\partial E}{\partial \mathbf{\hat{y_k}}}\frac{\partial \mathbf{\hat{y_k}}}{\partial \mathbf{z_i}} \\
 & = \sum_{k}^{class}\frac{\partial E}{\partial \mathbf{\hat{y_i}}}\frac{\partial \mathbf{\hat{y_i}}}{\partial \mathbf{z_i}} \\
 & = -\mathbf{\hat{y_i}}(1-\mathbf{y_i}) + \sum_{k \ne i}\mathbf{\hat{y_k}}\mathbf{y_i} \\
 & = -\mathbf{\hat{y_i}} + \mathbf{y_i}\sum_{k}\mathbf{\hat{y_k}} \\
 & = \mathbf{\hat{y_i}} - \mathbf{y_i} \\
-\frac{\partial E}{\partial \mathbf{w\rm\normalsize o_{ji}}} = \sum_{i}\frac{\partial E}{\partial \mathbf{z_i}}\frac{\partial \mathbf{z_i}}{\partial \mathbf{w\rm\normalsize o_{ji}}} \\
+\frac{\partial E}{\partial \mathbf{w\rm\normalsize o_{ji}}} & = \sum_{i}\frac{\partial E}{\partial \mathbf{z_i}}\frac{\partial \mathbf{z_i}}{\partial \mathbf{w\rm\normalsize o_{ji}}} \\
 & = (\mathbf{\hat{y_i}} - \mathbf{y_i})\mathbf{h_j} \\
-\frac{\partial E}{\partial \mathbf{w\rm\normalsize o_{0}}}=\frac{\partial E}{\partial \mathbf{z_i}} = \mathbf{\hat{y_i}} - \mathbf{y_i} \\
-\frac{\partial E}{\partial \mathbf{h_{ji}}} = \sum_{i}\frac{\partial E}{\partial \mathbf{z_i}}\frac{\partial \mathbf{z_i}}{\partial \mathbf{h_{ji}}} \\
+\frac{\partial E}{\partial \mathbf{w\rm\normalsize o_{0}}} & = \frac{\partial E}{\partial \mathbf{z_i}} = \mathbf{\hat{y_i}} - \mathbf{y_i} \\
+\frac{\partial E}{\partial \mathbf{h_{ji}}} & = \sum_{i}\frac{\partial E}{\partial \mathbf{z_i}}\frac{\partial \mathbf{z_i}}{\partial \mathbf{h_{ji}}} \\
 & = (\mathbf{\hat{y_i}} - \mathbf{y_i})\mathbf{w\rm\normalsize o_j} \\
-\frac{\partial \mathbf{h_{ji}}}{\partial \mathbf{a}} =
+\frac{\partial \mathbf{h_{ji}}}{\partial \mathbf{a}} & =
 \begin{cases}
 1   &a>0    \\
 0 &else    \\
 \end{cases} \\
-\frac{\partial E}{\partial \mathbf{w\rm\normalsize i_{ji}}} = \sum_{i}\frac{\partial E}{\partial \mathbf{h_{ji}}}\frac{\partial \mathbf{h_{ji}}}{\partial \mathbf{a}}\frac{\partial \mathbf{a}}{\partial \mathbf{w\rm\normalsize i_{ji}}} \\
+\frac{\partial E}{\partial \mathbf{w\rm\normalsize i_{ji}}} & = \sum_{i}\frac{\partial E}{\partial \mathbf{h_{ji}}}\frac{\partial \mathbf{h_{ji}}}{\partial \mathbf{a}}\frac{\partial \mathbf{a}}{\partial \mathbf{w\rm\normalsize i_{ji}}} \\
 & = (\mathbf{\hat{y_i}} - \mathbf{y_i})\mathbf{w\rm\normalsize o_j}\mathbf{x\rm\normalsize _j} \\
-\frac{\partial E}{\partial \mathbf{w\rm\normalsize i_{0}}}=\frac{\partial E}{\partial \mathbf{h_{ji}}} = (\mathbf{\hat{y_i}} - \mathbf{y_i})\mathbf{w\rm\normalsize o_j} \\
+\frac{\partial E}{\partial \mathbf{w\rm\normalsize i_{0}}}& =\frac{\partial E}{\partial \mathbf{h_{ji}}} = (\mathbf{\hat{y_i}} - \mathbf{y_i})\mathbf{w\rm\normalsize o_j} \\
 \end{aligned}
+$$
+-->
 
 <span class='red'>I-know-everything:</span> I am sure you got lot of questions now. So, shoot.
 <span class='green'>I-know-nothing:</span> Wow! That's mouthful! What is $\mathbf{w\rm\normalsize i_{0}}$ and $\mathbf{w\rm\normalsize o_{0}}$ ? What is the function $f(\mathbf{h})$ ? What are we doing in backpropogation? Is backpropogation only the way to propogate calculate error?
@@ -554,11 +632,11 @@ plt.show()
 ```
 
 <p align="center">
-<img src='//images/mnist_mlp_files/mnist_mlp_23_0.png' />
+<img src='/images/mnist_mlp_files/mnist_mlp_23_0.png' />
 </p> 
 
 <p align="center">
-<img src='//images/mnist_mlp_files/mnist_mlp_23_1.png' />
+<img src='/images/mnist_mlp_files/mnist_mlp_23_1.png' />
 </p> 
 
 
