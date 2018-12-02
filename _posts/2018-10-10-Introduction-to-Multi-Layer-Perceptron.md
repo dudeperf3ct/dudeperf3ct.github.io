@@ -248,28 +248,28 @@ $$
 
 **Forward Pass**
 
-<img align="center" src="//tex.s2cms.ru/svg/%0A%5Cbegin%7Baligned%7D%0A%5Cmathbf%7Ba%7D%20%3D%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i%5ET%7D%20%5Cmathbf%7Bx%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_0%7D%20%5C%5C%0A%5Cmathbf%7Bh%7D%20%3D%20f(%5Cmathbf%7Ba%7D)%20%3D%20f(%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i%5ET%7D%20%5Cmathbf%7Bx%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_0%7D)%20%5C%5C%0A%5Cmathbf%7Bz%7D%20%3D%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o%5ET%7D%20%5Cmathbf%7Bh%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_0%7D%20%5C%5C%0A%5Cmathbf%7B%5Chat%7By%7D%7D%20%3D%20softmax(%5Cmathbf%7Bz%7D)%20%5C%5C%0A%5C%5C~%5C%5C%0A%5Ctextrm%7BRelu%20%20Non-linearity%7D%3A%20f(%5Cmathbf%7Bk%7D)%20%3D%20max(k%2C%200)%20%5C%5C%0A%5Ctextrm%7BSoftmax%20%20Function%7D%3A%20%5Csigma_j(%5Cmathbf%7Bz%7D)%20%20%3D%20%5Cfrac%20%7B%5Cexp(%5Cmathbf%7Bz%7D_j)%7D%20%7B%5Csum_%7Bk%7D%5E%7Bnclass%7D%20%5Cexp(%5Cmathbf%7Bz%7D_k)%7D%20%5C%5C%0A%5Cend%7Baligned%7D%0A" alt="
+<img align="center" src="https://tex.s2cms.ru/svg/%0A%5Cbegin%7Baligned%7D%0A%5Cmathbf%7Ba%7D%20%26%20%3D%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i%5ET%7D%20%5Cmathbf%7Bx%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_0%7D%20%5C%5C%0A%5Cmathbf%7Bh%7D%20%26%20%3D%20f(%5Cmathbf%7Ba%7D)%20%3D%20f(%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i%5ET%7D%20%5Cmathbf%7Bx%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_0%7D)%20%5C%5C%0A%5Cmathbf%7Bz%7D%20%26%20%3D%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o%5ET%7D%20%5Cmathbf%7Bh%7D%20%2B%20%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_0%7D%20%5C%5C%0A%5Cmathbf%7B%5Chat%7By%7D%7D%20%26%20%3D%20softmax(%5Cmathbf%7Bz%7D)%20%5C%5C%0A%5C%5C~%5C%5C%0A%5Ctextrm%7BRelu%20%20Non-linearity%7D%3A%20f(%5Cmathbf%7Bk%7D)%20%26%20%3D%20max(k%2C%200)%20%5C%5C%0A%5Ctextrm%7BSoftmax%20%20Function%7D%3A%20%5Csigma_j(%5Cmathbf%7Bz%7D)%20%20%26%20%3D%20%5Cfrac%20%7B%5Cexp(%5Cmathbf%7Bz%7D_j)%7D%20%7B%5Csum_%7Bk%7D%5E%7Bnclass%7D%20%5Cexp(%5Cmathbf%7Bz%7D_k)%7D%20%5C%5C%0A%5Cend%7Baligned%7D%0A" alt="
 \begin{aligned}
-\mathbf{a} = \mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0} \\
-\mathbf{h} = f(\mathbf{a}) = f(\mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0}) \\
-\mathbf{z} = \mathbf{w\rm\normalsize o^T} \mathbf{h} + \mathbf{w\rm\normalsize o_0} \\
-\mathbf{\hat{y}} = softmax(\mathbf{z}) \\
+\mathbf{a} &amp; = \mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0} \\
+\mathbf{h} &amp; = f(\mathbf{a}) = f(\mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0}) \\
+\mathbf{z} &amp; = \mathbf{w\rm\normalsize o^T} \mathbf{h} + \mathbf{w\rm\normalsize o_0} \\
+\mathbf{\hat{y}} &amp; = softmax(\mathbf{z}) \\
 \\~\\
-\textrm{Relu  Non-linearity}: f(\mathbf{k}) = max(k, 0) \\
-\textrm{Softmax  Function}: \sigma_j(\mathbf{z})  = \frac {\exp(\mathbf{z}_j)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} \\
+\textrm{Relu  Non-linearity}: f(\mathbf{k}) &amp; = max(k, 0) \\
+\textrm{Softmax  Function}: \sigma_j(\mathbf{z})  &amp; = \frac {\exp(\mathbf{z}_j)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} \\
 \end{aligned}
 " />
 
 <!--
 $$
 \begin{aligned}
-\mathbf{a} = \mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0} \\
-\mathbf{h} = f(\mathbf{a}) = f(\mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0}) \\
-\mathbf{z} = \mathbf{w\rm\normalsize o^T} \mathbf{h} + \mathbf{w\rm\normalsize o_0} \\
-\mathbf{\hat{y}} = softmax(\mathbf{z}) \\
+\mathbf{a} & = \mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0} \\
+\mathbf{h} & = f(\mathbf{a}) = f(\mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0}) \\
+\mathbf{z} & = \mathbf{w\rm\normalsize o^T} \mathbf{h} + \mathbf{w\rm\normalsize o_0} \\
+\mathbf{\hat{y}} & = softmax(\mathbf{z}) \\
 \\~\\
-\textrm{Relu  Non-linearity}: f(\mathbf{k}) = max(k, 0) \\
-\textrm{Softmax  Function}: \sigma_j(\mathbf{z})  = \frac {\exp(\mathbf{z}_j)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} \\
+\textrm{Relu  Non-linearity}: f(\mathbf{k}) & = max(k, 0) \\
+\textrm{Softmax  Function}: \sigma_j(\mathbf{z})  & = \frac {\exp(\mathbf{z}_j)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} \\
 \end{aligned}
 $$
 -->
