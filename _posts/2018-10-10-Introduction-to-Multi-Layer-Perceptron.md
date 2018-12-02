@@ -236,7 +236,7 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 " />
 </p>
 
-<!--
+
 $$
 \mathbf{x} : \textrm{Input layer with 784 values} (\mathbf{x_1}, \mathbf{x_2},..., \mathbf{x_{784}}) \\
 \mathbf{w\rm\normalsize i} : \textrm {Weights of hidden layer with 16 values} (\mathbf{w\rm\normalsize i_1}, \mathbf{w\rm\normalsize i_2},....., \mathbf{w\rm\normalsize i_{16}})\\ 
@@ -246,7 +246,7 @@ $$
 \mathbf{\hat{y}} : \textrm {prediction} \\ 
 \mathbf{y} : \textrm{desired result} \\ 
 $$
--->
+
 
 **Forward Pass**
 
@@ -263,7 +263,7 @@ $$
 \end{aligned}
 " />
 </p>
-<!--
+
 $$
 \begin{aligned}
 \mathbf{a} & = \mathbf{w\rm\normalsize i^T} \mathbf{x} + \mathbf{w\rm\normalsize i_0} \\
@@ -275,7 +275,7 @@ $$
 \textrm{Softmax  Function}: \sigma_j(\mathbf{z})  & = \frac {\exp(\mathbf{z}_j)} {\sum_{k}^{nclass} \exp(\mathbf{z}_k)} \\
 \end{aligned}
 $$
--->
+
 
 **Error Function**
 <p align="center">
@@ -379,15 +379,15 @@ $$
 <span class='red'>I-know-everything:</span> I am sure you got lot of questions now. So, shoot.
 
 <span class='green'>I-know-nothing:</span> Wow! That's mouthful! What is 
-<img src="https://tex.s2cms.ru/svg/%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_%7B0%7D%7D%0A" alt="\mathbf{w\rm\normalsize i_{0}}" /> and <img src="https://tex.s2cms.ru/svg/%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_%7B0%7D%7D%0A" alt="\mathbf{w\rm\normalsize o_{0}}" />? What is the function <img src="https://tex.s2cms.ru/svg/%0Af(%5Cmathbf%7Bh%7D)%0A" alt="f(\mathbf{h})" /> ? What are we doing in backpropogation? Is backpropogation only the way to propogate calculate error?
+$$\mathbf{w\rm\normalsize i_{0}}$$ and $$\mathbf{w\rm\normalsize o_{0}}$$? What is the function $$f(\mathbf{h})$$ ? What are we doing in backpropogation? Is backpropogation only the way to propogate calculate error?
 
 <span class='red'>I-know-everything:</span> Wooh slow down! Okay let me answer one by one.
 
-1. What is <img src="https://tex.s2cms.ru/svg/%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20i_%7B0%7D%7D%0A" alt="\mathbf{w\rm\normalsize i_{0}}" /> and <img src="https://tex.s2cms.ru/svg/%0A%5Cmathbf%7Bw%5Crm%5Cnormalsize%20o_%7B0%7D%7D%0A" alt="\mathbf{w\rm\normalsize o_{0}}" />?
+1. What is $$\mathbf{w\rm\normalsize i_{0}}$$ and $$\mathbf{w\rm\normalsize o_{0}}$$?
 
 These are called biases. A layer in a neural network without a bias is nothing more than the multiplication of an input vector with a matrix. Using a bias, you’re effectively adding another dimension to your input space.
 
-2. What is the function <img src="https://tex.s2cms.ru/svg/%0Af(%5Cmathbf%7Bh%7D)%0A" alt="f(\mathbf{h})" /> $$f(\mathbf{h})$$?
+2. What is the function $$f(\mathbf{h})$$?
 
 This functon plays an important role in machine learning. This types function are called non-linear functions. By introducing them in our network we introduce non-linearlity, non-linear means that the output cannot be reproduced from a linear combination of the inputs. Another way to think of it is if we don't use a non-linear activation function in the network, no matter how many layers it had, the network would behave just like a single-layer perceptron, because summing these layers would give you just another linear function and most of the problems in real world are non-linear. Non-linearity is needed in activation functions because its aim in a neural network is to produce a nonlinear decision boundary via non-linear combinations of the weight and inputs. To provide a better seperation for higher dimensional data then a simple line seperator using linear function.There are several types of non-linear functions.
 
