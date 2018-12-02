@@ -191,7 +191,7 @@ We have seen the dataset, which consist of [0-9] numbers and images of size 28 x
 Now, <span class='green'>I-know-nothing</span> being too lazy to find which number is what asks for <span class='red'>I-know-everything</span> apprenticeship to create a Machine Learning Model such that if we pass a grayscale image of size 28 x 28 pixels to the model, it outputs a correct label corresponding to that image. 
 
 <p align="center">
-<img src='/images/mnist_mlp_files/master_student.gif' />
+<img src='/images/mnist_mlp_files/master_student.gif' alt="Feel the Force"/>
 <p align="center"><a href="https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif">Credits</a></p>
 </p>  
 
