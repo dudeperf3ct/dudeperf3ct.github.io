@@ -22,7 +22,7 @@ The 3 core ingredients are:
     - [Intuitive Physics](#11-intuitive-physics)
     - [Intuitive Psychology](#12-intuitive-psychology)
  2. [Learning as rapid model building](#2-learning-as-rapid-model-building)
-    - Compositionality
+    - Compositionality(#21-compositionality)
     - Causality
     - Learning-to-learn
  3. Thinking Fast 
