@@ -49,7 +49,15 @@ Warren and I have not made our way in life by making successful macroeconomic pr
 
 <span class='blue'>Lord Acton had this law, "Power tends to corrupt, and absolute power corrupts absolutely". Well the Munger version of that is that, "Easy Money courrpts and really easy money tends to corrupt absolutely". </span>
 
-Another thing I think should be avoided is extremely intense ideology because it cabbages up one’s mind. When you’re young it’s easy to drift into loyalties and when you announce that you’re a loyal member and you start shouting the orthodox ideology out, what you’re doing is pounding it in, pounding it in, and you’re gradually ruining your mind/
+The first rule is that you’ve got to have multiple models — because if you just have one or two that you’re using, the nature of human psychology is such that you’ll torture reality so that it fits your models. And the models have to come from multiple disciplines — because all the wisdom of the world is not to be found in one little academic department.
+
+It’s like the old saying, ‘To the man with only a hammer, every problem looks like a nail.’ But that’s a perfectly disastrous way to think and a perfectly disastrous way to operate in the world.
+
+You may say, ‘My God, this is already getting way too tough.’ But, fortunately, it isn’t that tough — because 80 or 90 important models will carry about 90% of the freight in making you a worldly-wise person. And, of those, only a mere handful really carry very heavy freight.
+
+You need a different checklist and different mental models for different companies. I can never make it easy by saying, ‘Here are three things.’ You have to drive it yourself to ingrain it in your head for the rest of your life.
+
+Another thing I think should be avoided is extremely intense ideology because it cabbages up one’s mind. When you’re young it’s easy to drift into loyalties and when you announce that you’re a loyal member and you start shouting the orthodox ideology out, what you’re doing is pounding it in, pounding it in, and you’re gradually ruining your mind.
 
 I have rule for politics which has served me well for predictions and that is, "the politicians are never so bad you don't live to want them back".
 
