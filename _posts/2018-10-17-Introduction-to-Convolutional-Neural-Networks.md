@@ -209,7 +209,7 @@ We have seen the dataset, which consist of [0-9] numbers and images of size 28 x
 
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
-<span class='red'>Mr.I-know-everything:</span> Hello, Young Padwan. As promised we will today look into <span class="light-pink"> Force of CNN </span>. Convolutional Neural Networks are very similar to ordinary Neural Networks from the previous post: they are made up of neurons that have learnable weights and biases. Each neuron receives some inputs, performs a dot product and optionally follows it with a non-linearity. The whole network still has a single differentiable score function: from the raw image pixels on one end to class scores at the other. And they still have a loss function (e.g. SVM/Softmax) (or error function) on the last (fully-connected) layer. So what changes? ConvNet architectures make the explicit assumption that the inputs are images, which allows us to encode certain properties into the architecture. These then make the forward function more efficient to implement and vastly reduce the amount of parameters in the network.
+<span class='red'>I-know-everything:</span> Hello, Young Padwan. As promised we will today look into <span class="light-pink"> Force of CNN </span>. Convolutional Neural Networks are very similar to ordinary Neural Networks from the previous post: they are made up of neurons that have learnable weights and biases. Each neuron receives some inputs, performs a dot product and optionally follows it with a non-linearity. The whole network still has a single differentiable score function: from the raw image pixels on one end to class scores at the other. And they still have a loss function (e.g. SVM/Softmax) (or error function) on the last (fully-connected) layer. So what changes? ConvNet architectures make the explicit assumption that the inputs are images, which allows us to encode certain properties into the architecture. These then make the forward function more efficient to implement and vastly reduce the amount of parameters in the network.
 
 Here, first let me tell you about convolution operation and how it works. 
 
@@ -243,9 +243,9 @@ We apply various filter to original Taj Mahal image and see the results.
 
 So, above examples show how convolution operator works for edge detection, blurring or sharpening the image depending on different kernel values.
 
-<span class='green'>Mr.I-know-nothing:</span> Master, How does convolution operation help us in ConvNet?
+<span class='green'>I-know-nothing:</span> Master, How does convolution operation help us in ConvNet?
 
-<span class='red'>Mr.I-know-everything:</span> Okay, ConvNets take advantage of the fact that input consists of images. The layers of a ConvNet have neurons arranged in 3 dimensions: width, height, depth. (the word depth here refers to the third dimension of an activation volume, not to the depth of a full Neural Network, which can refer to the total number of layers in a network.) For example, consider our example of MNIST where each input is of dimension 28 x 28 x 1 (width, height, depth respectively) or CIFAR-10 (another toy dataset with 10 classes of different categories), the volume has dimensions 32x32x3 (width, height, depth respectively). 
+<span class='red'>I-know-everything:</span> Okay, ConvNets take advantage of the fact that input consists of images. The layers of a ConvNet have neurons arranged in 3 dimensions: width, height, depth. (the word depth here refers to the third dimension of an activation volume, not to the depth of a full Neural Network, which can refer to the total number of layers in a network.) For example, consider our example of MNIST where each input is of dimension 28 x 28 x 1 (width, height, depth respectively) or CIFAR-10 (another toy dataset with 10 classes of different categories), the volume has dimensions 32x32x3 (width, height, depth respectively). 
 
 
 Suppose we apply filter of dimension (5x5x3) to above example of CIFAR-10 with input dimension (32x32x3) it results in output dimesion of (28x28x3) much smaller image than input. Hence, reduction in number of pixels than input.
@@ -321,9 +321,9 @@ Here is cool demo of how convolution filters apply to input. [Conv-demo](https:/
 
 So, now we have full understanding about what convolution filters are in ConvNets and different components of convolution filters.
 
-<span class='green'>Mr.I-know-nothing:</span> Master, does ConvNet consists only of convolution filters?
+<span class='green'>I-know-nothing:</span> Master, does ConvNet consists only of convolution filters?
 
-<span class='red'>Mr.I-know-everything:</span> Excellent, this is where I was headed next. So, ConvNets architecture  consists of following distinct layers --> [INPUT - CONV - RELU - POOL - FC].
+<span class='red'>I-know-everything:</span> Excellent, this is where I was headed next. So, ConvNets architecture  consists of following distinct layers --> [INPUT - CONV - RELU - POOL - FC].
 
 We have seen INPUT, CONV, RELU and FC layer in this and previous post. We will look into POOL layer.
 
@@ -340,9 +340,9 @@ Consider example,
 
 Now, you have full understanding of different layers used in ConvNet and their different components.
 
-<span class='green'>Mr.I-know-nothing:</span> Master, ConvNets consists of applying [CONV - RELU - POOL] operation repeatedly, when are using FC layer?
+<span class='green'>I-know-nothing:</span> Master, ConvNets consists of applying [CONV - RELU - POOL] operation repeatedly, when are using FC layer?
 
-<span class='red'>Mr.I-know-everything:</span> Absolutely, the most common ConvNet architecture follows the pattern:
+<span class='red'>I-know-everything:</span> Absolutely, the most common ConvNet architecture follows the pattern:
  INPUT -> [[CONV -> RELU]*N -> POOL?]*M -> [FC -> RELU]*K -> FC, where the * indicates repetition, and the POOL? indicates an optional pooling layer.
 
 Deep ConvNet consists of repetition of [CONV - RELU - POOL] layers and once sufficient depth is introduced, then we flatten the output of above and connect it with fully connected layer.
@@ -353,9 +353,9 @@ Consider example,
 <img src='/images/mnist_cnn_files/flatten.png' />
 </p>  
 
-<span class='green'>Mr.I-know-nothing:</span> Now I understand what is happening in convolution layers and how a typical ConvNet architecture is. How does training ConvNets work? Does it still consist of forward pass and backward pass? What is the loss function or error function? Does it still use `jar jar backpropogation` for passing error? 
+<span class='green'>I-know-nothing:</span> Now I understand what is happening in convolution layers and how a typical ConvNet architecture is. How does training ConvNets work? Does it still consist of forward pass and backward pass? What is the loss function or error function? Does it still use `jar jar backpropogation` for passing error? 
 
-<span class='red'>Mr.I-know-everything:</span> Those are some excellent question. So, now having explained what ConvNet architectures are we have a model just like one in MLP, we input image to that model, and the model outputs the class the input image belongs to. Training ConvNets is similar, we have a loss function just like in MLP, we use softmax layer to output the probabilities of input belonging to particular class. We do a forward propogation of passing input to ConvNets to calculate the error between output $$\mathbf{y}$$ and target  $$\mathbf{\hat{y}}$$ and backpropogate the error from FC - POOL - RELU - CONV - INPUT. 
+<span class='red'>I-know-everything:</span> Those are some excellent question. So, now having explained what ConvNet architectures are we have a model just like one in MLP, we input image to that model, and the model outputs the class the input image belongs to. Training ConvNets is similar, we have a loss function just like in MLP, we use softmax layer to output the probabilities of input belonging to particular class. We do a forward propogation of passing input to ConvNets to calculate the error between output $$\mathbf{y}$$ and target  $$\mathbf{\hat{y}}$$ and backpropogate the error from FC - POOL - RELU - CONV - INPUT. 
 
 Note: To see, how `jar jar backpropogation` works in ConvNets, have a look [here](https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/).
 
@@ -1562,8 +1562,8 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>Mr.I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the `Power of Transfer Learning`. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as “don’t be a hero”: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googleino to train powerful CNNs, we can do it on our planet too!
+<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the `Power of Transfer Learning`. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as “don’t be a hero”: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googleino to train powerful CNNs, we can do it on our planet too!
 
-<span class='green'>Mr.I-know-nothing:</span> Thank you Master.
+<span class='green'>I-know-nothing:</span> Thank you Master.
 
 Happy Learning!
