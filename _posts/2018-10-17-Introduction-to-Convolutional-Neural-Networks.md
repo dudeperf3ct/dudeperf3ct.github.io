@@ -270,7 +270,7 @@ So, basically a single convolution filter on input consists of these components.
 Consider example,
 
 <p align="center">
-<img src='/images/mnist_cnn_files/convolution_3d.jpg' />
+<img src='/images/mnist_cnn_files/convolution_3d.png' />
 </p>  
 
 Here, input -> (6x6x3), conv filter (F) -> (3x3x3), number of conv filters -> 1, padding (P) -> 0, strides (S) -> 1
@@ -285,7 +285,7 @@ Output dimension = (4 x 4 x number of conv filters) = (4 x 4 x 1)
 Consider an example of number of conv filters -> 2, all other parameters are same
 
 <p align="center">
-<img src='/images/mnist_cnn_files/convolution_3d_2.png' />
+<img src='/images/mnist_cnn_files/convolution_3d_2.jpg' />
 </p>  
 
 Applying our formula for calculating output dimension: O = (6+(2 * 0)-3)/1 + 1 = 4
