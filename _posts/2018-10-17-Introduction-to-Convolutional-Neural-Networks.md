@@ -277,7 +277,7 @@ Here, input -> (6x6x3), conv filter (F) -> (3x3x3), number of conv filters -> 1,
 
 Note: Always remember that depth (number of channels) of input and conv filter have to be same. 
 
-Applying our formula for calculating output dimension: O = (6+(2 * 0)-3)/1 + 1 = 4
+Applying our formula for calculating output dimension: O = (6 + (2 * 0) - 3)/1 + 1 = 4
 
 Output dimension = (4 x 4 x number of conv filters) = (4 x 4 x 1)
 
@@ -288,7 +288,7 @@ Consider an example of number of conv filters -> 2, all other parameters are sam
 <img src='/images/mnist_cnn_files/convolution_3d_2.jpg' />
 </p>  
 
-Applying our formula for calculating output dimension: O = (6+(2 * 0)-3)/1 + 1 = 4
+Applying our formula for calculating output dimension: O = (6 + (2 * 0) - 3)/1 + 1 = 4
 
 Output dimension = (4 x 4 x number of conv filters) = (4 x 4 x 2)
 
@@ -308,6 +308,10 @@ We have seen INPUT, CONV, RELU and FC layer in this and previous post. We will l
 
 POOLING: Pooling functions as a dimension reduction technic. It is also referred to as a downsampling layer. But unlike kernel which reduces all dimensions, pooling keep channel dimension untouched. This reduces the size of the feature maps thus reducing the number of nodes in the future layers which improve efficiency of the model. Basically Pooling outputs a certain statistics for a certain among of input. This introduces a feature stronger than Equivariant representation — Invariant representation. In short, it is used to detect the object regardless of where the object is placed. For e.g., we want our network to output label 2, even if input example of 2 is in far right corner or bottom left corner. There are many types of pooling layer, Max-pooling, Average-pooling, GlobalMaxPooling, GlobalAveragePooling.
 
+<p align="center">
+<img src='/images/mnist_cnn_files/maxpooling.png' />
+</p>  
+
 Consider example,
 
 
@@ -322,6 +326,9 @@ Deep ConvNet consists of repetition of [CONV - RELU - POOL] layers and once suff
 
 Consider example, 
 
+<p align="center">
+<img src='/images/mnist_cnn_files/flatten.png' />
+</p>  
 
 <font color='green'>Mr.I-know-nothing:</font> Now I understand what is happening in convolution layers and how a typical ConvNet architecture is. How does training ConvNets work? Does it still consist of forward pass and backward pass? What is the loss function or error function? Does it still use `jar jar backpropogation` for passing error? 
 
@@ -346,6 +353,9 @@ Read more about both paper and competition: [here](https://qz.com/1307091/the-in
 
 Here is the image showing the error rate from year 2012 to 2018.
 
+<p align="center">
+<img src='/images/mnist_cnn_files/imagenet_progress.png' />
+</p>  
 
 
 We will discuss some of the state of the art architectures.
@@ -401,6 +411,10 @@ At the ILSVRC 2015, the so-called Residual Neural Network (ResNet) by Kaiming He
 </p>  
 
 
+<p align="center">
+<img src='/images/mnist_cnn_files/all_cnns.png' />
+<img src='/images/mnist_cnn_files/imagenet_accuracy.png' />
+</p>  
 
 Oh, and one last thing about how to find parameters of the model?
 
