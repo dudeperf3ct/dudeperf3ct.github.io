@@ -463,11 +463,11 @@ FLATTEN()                          |      (12 x 12 x 64)|   (9216)         |    
 DENSE(128)                         |      (9216)        |   (128)          |    128           | 9216 * 128 = 1179648     |
 DROPOUT()                          |      (128)         |   (128)          |    128           |    0                  |
 DENSE(num_classes=10)              |      (128)         |   (10)           |    10            |    128 * 10 = 1280        |
-       --                          |           --       |          Total   |    87194         | 11999558              |    
+       --                          |           --       |          Total   |    87194         | 1199558              |    
 
 Total Memory ~= 87K * 4 bytes ~= 0.3MB / image (only forward ~ *2 backward pass)  
 
-Total Parameters = 11999558 ~= 1.2M parameters (without biases)
+Total Parameters = 1199558 ~= 1.2M parameters (without biases)
 
 
 Put this in footnotes
