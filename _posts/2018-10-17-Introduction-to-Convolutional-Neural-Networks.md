@@ -8,7 +8,7 @@ published : true
 ---
 
 
-# Introduction to Convolutional Neural Networks
+# CNN
 
 In this notebook, we will go through basics of CNN using MNIST dataset. We will implement this using two popular deep learning frameworks `Keras` and `PyTorch`. 
 
@@ -354,39 +354,51 @@ We will discuss some of the state of the art architectures.
 
 LeNet-5, a pioneering 7-level convolutional network by LeCun et al in 1998. Of these, the best known is the LeNet architecture that was used to read zip codes, digits, etc.
 
-Image
+<p align="center">
+<img src='/images/mnist_cnn_files/lenet.png' />
+</p>  
 
 2. AlexNet
 
 AlexNet contained eight layers; the first five were convolutional layers, some of them followed by max-pooling layers, and the last three were fully connected layers. It used the non-saturating ReLU activation function, which showed improved training performance over tanh and sigmoid. AlexNet was trained for 6 days simultaneously on two Nvidia Geforce GTX 580 GPUs which is the reason for why their network is split into two pipelines.
 
-Image
+<p align="center">
+<img src='/images/mnist_cnn_files/alexnet.png' />
+</p>  
 
 
 3. ZFNet
 
 It achieved a top-5 error rate of 14.8% which is now already half of the prior mentioned non-neural error rate. It was mostly an achievement by tweaking the hyper-parameters of AlexNet while maintaining the same structure. The ILSVRC 2013 winner was a Convolutional Network from Matthew Zeiler and Rob Fergus. 
 
-Image
+<p align="center">
+<img src='/images/mnist_cnn_files/zfnet.png' />
+</p>  
 
 
 4. VGG
 
 VGGNet by Oxford's renowned Visual Geometry Group consists of 16 convolutional layers and is very appealing because of its very uniform architecture. Similar to AlexNet, only 3x3 convolutions, but lots of filters. Trained on 4 GPUs for 2–3 weeks. It is currently the most preferred choice in the community for extracting features from images.
 
-Image
+<p align="center">
+<img src='/images/mnist_cnn_files/vgg.png' />
+</p>  
 
 5. GoogLeNet (Inception v1)
 
 The network used a CNN inspired by LeNet but implemented a novel element which is dubbed an inception module. It used batch normalization, image distortions and RMSprop. This module is based on several very small convolutions in order to drastically reduce the number of parameters. Their architecture consisted of a 22 layer deep CNN but reduced the number of parameters from 60 million (AlexNet) to 4 million. It achieved a top-5 error rate of 6.67%. The winner of the ILSVRC 2014 competition was GoogleNet(a.k.a. Inception V1) from Google.
 
-Image
+<p align="center">
+<img src='/images/mnist_cnn_files/inception.png' />
+</p>  
 
 6. ResNet
 
 At the ILSVRC 2015, the so-called Residual Neural Network (ResNet) by Kaiming He et al at Microsoft Asia Research Group introduced a novel architecture with “skip connections” and features heavy batch normalization. Such skip connections are also known as gated units or gated recurrent units and have a strong similarity to recent successful elements applied in RNNs. Thanks to this technique they were able to train a NN with 152 layers while still having lower complexity than VGGNet. It achieves a top-5 error rate of 3.57% which beats human-level performance.
 
-Image
+<p align="center">
+<img src='/images/mnist_cnn_files/resnet.png' />
+</p>  
 
 
 
@@ -550,13 +562,14 @@ plt.legend(['train', 'val'], loc='upper left')
 plt.show()
 ```
 
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_keras_18_0.png' />
+</p>  
 
-![png](mnist_cnn_keras_files/mnist_cnn_keras_18_0.png)
 
-
-
-![png](mnist_cnn_keras_files/mnist_cnn_keras_18_1.png)
-
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_keras_18_1.png' />
+</p>  
 
 
 ```python
@@ -702,12 +715,13 @@ plt.show()
 ```
 
 
-![png](mnist_cnn_keras_files/mnist_cnn_keras_25_0.png)
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_keras_25_0.png' />
+</p>  
 
-
-
-![png](mnist_cnn_keras_files/mnist_cnn_keras_25_1.png)
-
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_keras_25_1.png' />
+</p>  
 
 
 ```python
@@ -741,8 +755,9 @@ for idx in np.arange(20):
 ```
 
 
-![png](mnist_cnn_keras_files/mnist_cnn_keras_27_0.png)
-
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_keras_27_0.png' />
+</p>  
 
 <font color='red'>Mr.I-know-everything:</font> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the `Power of Transfer Learning`. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as “don’t be a hero”: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googleino to train powerful CNNs, we can do it on our planet too!
 
