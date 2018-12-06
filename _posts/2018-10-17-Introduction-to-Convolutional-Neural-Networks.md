@@ -16,6 +16,21 @@ Hey yo, but what is CNN?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
+Feel free to jump anywhere,
+- [Introduction to CNN](#introduction-to-cnn)
+  - [Kernel](#kernel)
+  - [Strides](#strides)
+  - [Padding](#padding)
+  - [Pooling](#pooling)
+  - [Story](#story)
+- [Keras](#keras)
+  - [Functional API](#keras-functional-api)
+  - [Sequential API](#keras-sequential-api)
+- [PyTorch](#pytorch)
+  - [Functional API](#pytorch-functional-api)
+  - [Sequential API](#pytorch-sequential-api)
+- [Further Reading](#further-reading)
+
 
 ```python
 # load all the required libraries
@@ -626,8 +641,9 @@ for idx in np.arange(20):
                  color=("green" if preds[idx]==labels[idx] else "red"))
 ```
 
-
-![png](mnist_cnn_keras_files/mnist_cnn_keras_20_0.png)
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_keras_20_0.png' />
+</p>  
 
 
 ## Functional API
