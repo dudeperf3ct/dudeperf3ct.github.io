@@ -4,7 +4,7 @@ title:      Introduction to Convolutional Neural Networks
 date:       2018-10-17 12:00:00
 summary:    This post will provide an hands-on-tutorial and brief introduction to CNN using MNSIT dataset and Keras and PyTorch frameworks.
 categories: nn cnn keras pytorch mnist
-published : false
+published : true
 ---
 
 
@@ -132,7 +132,7 @@ for x in range(width):
         ax.annotate(str(val), xy=(y,x),
                     horizontalalignment='center',
                     verticalalignment='center',
-                    color='white' if img[x][y]<thresh else 'black')
+                    class='white' if img[x][y]<thresh else 'black')
 ```
 
 
@@ -207,9 +207,9 @@ CNN is convolution neural networks. What is convolutional? I will explain it fur
 We have seen the dataset, which consist of [0-9] numbers and images of size 28 x 28 pixels of values in range [0-1] . 
 
 
-<font color='blue'> A long time ago in a galaxy far, far away.... </font>
+<span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
-<font color='red'>Mr.I-know-everything:</font> Hello, Young Padwan. As promised we will today look into <span class="light-pink"> Force of CNN </span>. Convolutional Neural Networks are very similar to ordinary Neural Networks from the previous post: they are made up of neurons that have learnable weights and biases. Each neuron receives some inputs, performs a dot product and optionally follows it with a non-linearity. The whole network still has a single differentiable score function: from the raw image pixels on one end to class scores at the other. And they still have a loss function (e.g. SVM/Softmax) (or error function) on the last (fully-connected) layer. So what changes? ConvNet architectures make the explicit assumption that the inputs are images, which allows us to encode certain properties into the architecture. These then make the forward function more efficient to implement and vastly reduce the amount of parameters in the network.
+<span class='red'>Mr.I-know-everything:</span> Hello, Young Padwan. As promised we will today look into <span class="light-pink"> Force of CNN </span>. Convolutional Neural Networks are very similar to ordinary Neural Networks from the previous post: they are made up of neurons that have learnable weights and biases. Each neuron receives some inputs, performs a dot product and optionally follows it with a non-linearity. The whole network still has a single differentiable score function: from the raw image pixels on one end to class scores at the other. And they still have a loss function (e.g. SVM/Softmax) (or error function) on the last (fully-connected) layer. So what changes? ConvNet architectures make the explicit assumption that the inputs are images, which allows us to encode certain properties into the architecture. These then make the forward function more efficient to implement and vastly reduce the amount of parameters in the network.
 
 Here, first let me tell you about convolution operation and how it works. 
 
@@ -243,9 +243,9 @@ We apply various filter to original Taj Mahal image and see the results.
 
 So, above examples show how convolution operator works for edge detection, blurring or sharpening the image depending on different kernel values.
 
-<font color='green'>Mr.I-know-nothing:</font> Master, How does convolution operation help us in ConvNet?
+<span class='green'>Mr.I-know-nothing:</span> Master, How does convolution operation help us in ConvNet?
 
-<font color='red'>Mr.I-know-everything:</font> Okay, ConvNets take advantage of the fact that input consists of images. The layers of a ConvNet have neurons arranged in 3 dimensions: width, height, depth. (the word depth here refers to the third dimension of an activation volume, not to the depth of a full Neural Network, which can refer to the total number of layers in a network.) For example, consider our example of MNIST where each input is of dimension 28 x 28 x 1 (width, height, depth respectively) or CIFAR-10 (another toy dataset with 10 classes of different categories), the volume has dimensions 32x32x3 (width, height, depth respectively). 
+<span class='red'>Mr.I-know-everything:</span> Okay, ConvNets take advantage of the fact that input consists of images. The layers of a ConvNet have neurons arranged in 3 dimensions: width, height, depth. (the word depth here refers to the third dimension of an activation volume, not to the depth of a full Neural Network, which can refer to the total number of layers in a network.) For example, consider our example of MNIST where each input is of dimension 28 x 28 x 1 (width, height, depth respectively) or CIFAR-10 (another toy dataset with 10 classes of different categories), the volume has dimensions 32x32x3 (width, height, depth respectively). 
 
 
 Suppose we apply filter of dimension (5x5x3) to above example of CIFAR-10 with input dimension (32x32x3) it results in output dimesion of (28x28x3) much smaller image than input. Hence, reduction in number of pixels than input.
@@ -321,9 +321,9 @@ Here is cool demo of how convolution filters apply to input. [Conv-demo](https:/
 
 So, now we have full understanding about what convolution filters are in ConvNets and different components of convolution filters.
 
-<font color='green'>Mr.I-know-nothing:</font> Master, does ConvNet consists only of convolution filters?
+<span class='green'>Mr.I-know-nothing:</span> Master, does ConvNet consists only of convolution filters?
 
-<font color='red'>Mr.I-know-everything:</font> Excellent, this is where I was headed next. So, ConvNets architecture  consists of following distinct layers --> [INPUT - CONV - RELU - POOL - FC].
+<span class='red'>Mr.I-know-everything:</span> Excellent, this is where I was headed next. So, ConvNets architecture  consists of following distinct layers --> [INPUT - CONV - RELU - POOL - FC].
 
 We have seen INPUT, CONV, RELU and FC layer in this and previous post. We will look into POOL layer.
 
@@ -340,9 +340,9 @@ Consider example,
 
 Now, you have full understanding of different layers used in ConvNet and their different components.
 
-<font color='green'>Mr.I-know-nothing:</font> Master, ConvNets consists of applying [CONV - RELU - POOL] operation repeatedly, when are using FC layer?
+<span class='green'>Mr.I-know-nothing:</span> Master, ConvNets consists of applying [CONV - RELU - POOL] operation repeatedly, when are using FC layer?
 
-<font color='red'>Mr.I-know-everything:</font> Absolutely, the most common ConvNet architecture follows the pattern:
+<span class='red'>Mr.I-know-everything:</span> Absolutely, the most common ConvNet architecture follows the pattern:
  INPUT -> [[CONV -> RELU]*N -> POOL?]*M -> [FC -> RELU]*K -> FC, where the * indicates repetition, and the POOL? indicates an optional pooling layer.
 
 Deep ConvNet consists of repetition of [CONV - RELU - POOL] layers and once sufficient depth is introduced, then we flatten the output of above and connect it with fully connected layer.
@@ -353,9 +353,9 @@ Consider example,
 <img src='/images/mnist_cnn_files/flatten.png' />
 </p>  
 
-<font color='green'>Mr.I-know-nothing:</font> Now I understand what is happening in convolution layers and how a typical ConvNet architecture is. How does training ConvNets work? Does it still consist of forward pass and backward pass? What is the loss function or error function? Does it still use `jar jar backpropogation` for passing error? 
+<span class='green'>Mr.I-know-nothing:</span> Now I understand what is happening in convolution layers and how a typical ConvNet architecture is. How does training ConvNets work? Does it still consist of forward pass and backward pass? What is the loss function or error function? Does it still use `jar jar backpropogation` for passing error? 
 
-<font color='red'>Mr.I-know-everything:</font> Those are some excellent question. So, now having explained what ConvNet architectures are we have a model just like one in MLP, we input image to that model, and the model outputs the class the input image belongs to. Training ConvNets is similar, we have a loss function just like in MLP, we use softmax layer to output the probabilities of input belonging to particular class. We do a forward propogation of passing input to ConvNets to calculate the error between output $$\mathbf{y}$$ and target  $$\mathbf{\hat{y}}$$ and backpropogate the error from FC - POOL - RELU - CONV - INPUT. 
+<span class='red'>Mr.I-know-everything:</span> Those are some excellent question. So, now having explained what ConvNet architectures are we have a model just like one in MLP, we input image to that model, and the model outputs the class the input image belongs to. Training ConvNets is similar, we have a loss function just like in MLP, we use softmax layer to output the probabilities of input belonging to particular class. We do a forward propogation of passing input to ConvNets to calculate the error between output $$\mathbf{y}$$ and target  $$\mathbf{\hat{y}}$$ and backpropogate the error from FC - POOL - RELU - CONV - INPUT. 
 
 Note: To see, how `jar jar backpropogation` works in ConvNets, have a look [here](https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/).
 
@@ -474,6 +474,7 @@ Put this in footnotes
 A  Comprehensive Survey on Deep Learning Approaches  (https://arxiv.org/pdf/1803.01164.pdf)
 
 
+# Keras
 
 ## Sequential API
 
@@ -638,7 +639,7 @@ for idx in np.arange(20):
     ax = fig.add_subplot(2, 20/2, idx+1, xticks=[], yticks=[])
     ax.imshow(images[idx].reshape((28, 28)), cmap='gray')
     ax.set_title("{} ({})".format(str(preds[idx]), str(labels[idx])),
-                 color=("green" if preds[idx]==labels[idx] else "red"))
+                 class=("green" if preds[idx]==labels[idx] else "red"))
 ```
 
 <p align="center">
@@ -791,16 +792,778 @@ for idx in np.arange(20):
     ax = fig.add_subplot(2, 20/2, idx+1, xticks=[], yticks=[])
     ax.imshow(images[idx].reshape((28, 28)), cmap='gray')
     ax.set_title("{} ({})".format(str(preds[idx]), str(labels[idx])),
-                 color=("green" if preds[idx]==labels[idx] else "red"))
+                 class=("green" if preds[idx]==labels[idx] else "red"))
 ```
-
 
 <p align="center">
 <img src='/images/mnist_cnn_files/mnist_cnn_keras_27_0.png' />
 </p>  
 
-<font color='red'>Mr.I-know-everything:</font> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the `Power of Transfer Learning`. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as “don’t be a hero”: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googleino to train powerful CNNs, we can do it on our planet too!
+# PyTorch
 
-<font color='green'>Mr.I-know-nothing:</font> Thank you Master.
+
+```python
+# load all the required libraries
+import copy
+import time
+import numpy as np                                    # package for computing
+from sklearn.model_selection import train_test_split  # split dataset
+import torch                                          # import keras with tensorflow as backend
+from torchvision import datasets                      # import mnist dataset from keras 
+from torchvision import transforms            # sequential and functional api keras 
+from torch.utils.data.sampler import SubsetRandomSampler
+import torch.nn as nn
+import torch.nn.functional as F
+from torch import optim
+import matplotlib.pyplot as plt             # matplotlib library for plotting
+
+# display plots inline (in notebook itself)
+%matplotlib inline              
+
+# Detect if we have a GPU available
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+print('Training on %s ...'%format(device))
+```
+
+    Training on cpu ...
+
+
+
+```python
+# load mnist data
+
+batch_size = 256
+num_workers = 0
+val_size = 0.2
+
+transform = transforms.Compose([transforms.ToTensor()])
+
+# choose the training and test datasets
+train_data = datasets.MNIST('data', train=True,
+                              download=True, transform=transform)
+test_data = datasets.MNIST('data', train=False,
+                             download=True, transform=transform)
+
+# obtain training indices that will be used for validation
+num_test = len(test_data)
+indices = list(range(num_test))
+np.random.shuffle(indices)
+split = int(np.floor(val_size * num_test))
+test_idx, val_idx = indices[split:], indices[:split]
+
+# define samplers for obtaining training and validation batches
+test_sampler = SubsetRandomSampler(test_idx)
+valid_sampler = SubsetRandomSampler(val_idx)
+
+# prepare data loaders (combine dataset and sampler)
+train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size,
+    num_workers=num_workers)
+val_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, 
+    sampler=valid_sampler, num_workers=num_workers)
+test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, 
+    sampler=test_sampler, num_workers=num_workers)
+
+print('Training samples:', len(train_loader.dataset))
+print ('Validation samples:', len(val_loader.dataset))
+print('Test samples:', len(test_loader.dataset))
+
+# Create training and validation dataloaders
+dataloaders_dict = {'train': train_loader, 
+                    'val': val_loader}
+
+```
+
+    Training samples: 60000
+    Validation samples: 10000
+    Test samples: 10000
+
+## Visualization of data
+
+Enough talk, show me the data!
+
+
+```python
+# helper function to un-normalize and display an image
+def imshow(img):
+    img = img / 2 + 0.5  # unnormalize
+    plt.imshow(np.squeeze(np.transpose(img, (1, 2, 0))), cmap='gray')  # convert from Tensor image
+```
+
+
+```python
+dataiter = iter(train_loader)
+images, labels = dataiter.next()
+images = images.numpy()
+
+# plot the images in the batch, along with the corresponding labels
+fig = plt.figure(figsize=(25, 4))
+#display 20 images
+for idx in np.arange(20):
+    ax = fig.add_subplot(2, 20/2, idx+1, xticks=[], yticks=[])
+    imshow(images[idx])
+    # print out the correct label for each image
+    ax.set_title(str(labels[idx]))
+```
+
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_pytorch_7_0.png' />
+</p>
+
+
+```python
+img = np.squeeze(images[0])
+
+fig = plt.figure(figsize = (12,12)) 
+ax = fig.add_subplot(111)
+ax.imshow(img, cmap='gray')
+width, height = img.shape
+thresh = img.max()/2.5
+for x in range(width):
+    for y in range(height):
+        val = round(img[x][y],2) if img[x][y] !=0 else 0
+        ax.annotate(str(val), xy=(y,x),
+                    horizontalalignment='center',
+                    verticalalignment='center',
+                    class='white' if img[x][y]<thresh else 'black')
+```
+
+
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_pytorch_8_0.png' />
+</p>
+
+## PyTorch Sequential API
+
+
+```python
+# [0-9] unique labels
+num_classes = 10
+epochs = 5
+```
+
+
+```python
+class Flatten(nn.Module):
+    def __init__(self):
+        super(Flatten, self).__init__()
+
+    def forward(self, x):
+        x = x.view(x.size(0), -1)
+        return x
+
+## Define the NN architecture
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        D_in = 784
+        H = 16
+        D_out = num_classes
+        self.classifier = torch.nn.Sequential(
+            nn.Conv2d(1, 32, 3, padding=0),
+            nn.ReLU(),
+            nn.Conv2d(32, 64, 3, padding=0),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),
+            nn.Dropout(p=0.25),
+            Flatten(),
+            nn.Linear(12*12*64, 128),
+            nn.Dropout(p=0.5),
+            nn.Linear(128, num_classes),
+            nn.LogSoftmax(dim=1)
+        )
+        
+    def forward(self, x):
+        
+        # 2 conv layer, with relu activation function
+        x = self.classifier(x)
+        return x
+
+# initialize the NN
+model = Net()
+model = model.to(device)
+print(model)
+```
+
+    Net(
+      (classifier): Sequential(
+        (0): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
+        (3): ReLU()
+        (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+        (5): Dropout(p=0.25)
+        (6): Flatten()
+        (7): Linear(in_features=9216, out_features=128, bias=True)
+        (8): Dropout(p=0.5)
+        (9): Linear(in_features=128, out_features=10, bias=True)
+        (10): LogSoftmax()
+      )
+    )
+
+
+
+```python
+# specify loss function
+criterion = nn.NLLLoss()
+
+# specify optimizer
+optimizer = optim.Adam(model.parameters(), lr=1e-3)
+```
+
+
+```python
+def train_model(model, dataloaders, criterion, optimizer, num_epochs):
+    since = time.time()
+
+    history = dict()
+
+    best_model_wts = copy.deepcopy(model.state_dict())
+    best_acc = 0.0
+
+    for epoch in range(num_epochs):
+        print('Epoch {}/{}'.format(epoch, num_epochs - 1))
+        print('-' * 10)
+
+        # Each epoch has a training and validation phase
+        for phase in ['train', 'val']:
+            if phase == 'train':
+                model.train()  # Set model to training mode
+            else:
+                model.eval()   # Set model to evaluate mode
+
+            running_loss = 0.0
+            running_corrects = 0
+
+            # Iterate over data.
+            for inputs, labels in dataloaders[phase]:
+                inputs = inputs.to(device)
+                labels = labels.to(device)
+
+                # zero the parameter gradients
+                optimizer.zero_grad()
+
+                # forward
+                # track history if only in train
+                with torch.set_grad_enabled(phase == 'train'):
+                    # Get model outputs and calculate loss
+
+                    # backward + optimize only if in training phase
+                    if phase == 'train':
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                        loss.backward()
+                        optimizer.step()
+                        
+                    else:
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                    
+                    _, preds = torch.max(outputs, 1)
+
+                # statistics
+                running_loss += loss.item() * inputs.size(0)
+                running_corrects += torch.sum(preds == labels.data)
+
+            epoch_loss = running_loss / (len(dataloaders[phase])*batch_size)
+            epoch_acc = running_corrects.double() / (len(dataloaders[phase])*batch_size)
+
+            print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
+            print (len(dataloaders[phase].dataset))
+
+            # deep copy the model
+            if phase == 'val' and epoch_acc > best_acc:
+                best_acc = epoch_acc
+                best_model_wts = copy.deepcopy(model.state_dict())
+            
+            if phase+'_acc' in history:
+                # append the new number to the existing array at this slot
+                history[phase+'_acc'].append(epoch_acc)
+            else:
+                # create a new array in this slot
+                history[phase+'_acc'] = [epoch_acc]
+            
+            if phase+'_loss' in history:
+                # append the new number to the existing array at this slot
+                history[phase+'_loss'].append(epoch_loss)
+            else:
+                # create a new array in this slot
+                history[phase+'_loss'] = [epoch_loss]            
+
+    time_elapsed = time.time() - since
+    print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
+    print('Best val Acc: {:4f}'.format(best_acc))
+
+    # load best model weights
+    model.load_state_dict(best_model_wts)
+    return model, history
+```
+
+
+```python
+model, history = train_model(model, dataloaders_dict, criterion, optimizer, epochs)
+```
+
+    Epoch 0/4
+    ----------
+    train Loss: 0.2784 Acc: 0.9134
+    60000
+    val Loss: 0.0574 Acc: 0.9585
+    10000
+    Epoch 1/4
+    ----------
+    train Loss: 0.0819 Acc: 0.9728
+    60000
+    val Loss: 0.0433 Acc: 0.9604
+    10000
+    Epoch 2/4
+    ----------
+    train Loss: 0.0632 Acc: 0.9780
+    60000
+    val Loss: 0.0339 Acc: 0.9634
+    10000
+    Epoch 3/4
+    ----------
+    train Loss: 0.0503 Acc: 0.9820
+    60000
+    val Loss: 0.0359 Acc: 0.9624
+    10000
+    Epoch 4/4
+    ----------
+    train Loss: 0.0432 Acc: 0.9845
+    60000
+    val Loss: 0.0345 Acc: 0.9619
+    10000
+    Training complete in 25m 44s
+    Best val Acc: 0.963379
+
+
+
+```python
+# summarize history for accuracy
+plt.plot(history['train_acc'])
+plt.plot(history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+# summarize history for loss
+plt.plot(history['train_loss'])
+plt.plot(history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+```
+
+
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_pytorch_18_0.png' />
+</p>
+
+
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_pytorch_18_1.png' />
+</p>
+
+
+```python
+# initialize lists to monitor test loss and accuracy
+test_loss = 0.0
+class_correct = list(0. for i in range(10))
+class_total = list(0. for i in range(10))
+
+model.eval() # prep model for *evaluation*
+
+for data, target in test_loader:
+    # forward pass: compute predicted outputs by passing inputs to the model
+    output = model(data)
+    # calculate the loss
+    loss = criterion(output, target)
+    # update test loss 
+    test_loss += loss.item()*data.size(0)
+    # convert output probabilities to predicted class
+    _, pred = torch.max(output, 1)
+    # compare predictions to true label
+    correct = np.squeeze(pred.eq(target.data.view_as(pred)))
+    # calculate test accuracy for each object class
+    for i in range(len(data)):
+        label = target.data[i]
+        class_correct[label] += correct[i].item()
+        class_total[label] += 1
+
+# calculate and print avg test loss
+test_loss = test_loss/len(test_loader.dataset)
+print('Test Loss: {:.6f}\n'.format(test_loss))
+
+for i in range(10):
+    if class_total[i] > 0:
+        print('Test Accuracy of %5s: %2d%% (%2d/%2d)' % (
+            str(i), 100 * class_correct[i] / class_total[i],
+            np.sum(class_correct[i]), np.sum(class_total[i])))
+    else:
+        print('Test Accuracy of %5s: N/A (no training examples)' % (classes[i]))
+
+print('\nTest Accuracy (Overall): %2d%% (%2d/%2d)' % (
+    100. * np.sum(class_correct) / np.sum(class_total),
+    np.sum(class_correct), np.sum(class_total)))
+```
+
+    Test Loss: 0.033183
+    
+    Test Accuracy of     0: 99% (787/790)
+    Test Accuracy of     1: 99% (921/926)
+    Test Accuracy of     2: 99% (803/808)
+    Test Accuracy of     3: 98% (808/820)
+    Test Accuracy of     4: 99% (767/774)
+    Test Accuracy of     5: 98% (706/714)
+    Test Accuracy of     6: 98% (744/754)
+    Test Accuracy of     7: 97% (797/816)
+    Test Accuracy of     8: 98% (772/784)
+    Test Accuracy of     9: 97% (793/814)
+    
+    Test Accuracy (Overall): 98% (7898/8000)
+
+
+
+```python
+# obtain one batch of test images
+dataiter = iter(test_loader)
+images, labels = dataiter.next()
+
+# get sample outputs
+output = model(images)
+# convert output probabilities to predicted class
+_, preds = torch.max(output, 1)
+# prep images for display
+images = images.numpy()
+
+# plot the images in the batch, along with predicted and true labels
+fig = plt.figure(figsize=(25, 4))
+for idx in np.arange(20):
+    ax = fig.add_subplot(2, 20/2, idx+1, xticks=[], yticks=[])
+    ax.imshow(np.squeeze(images[idx]), cmap='gray')
+    ax.set_title("{} ({})".format(str(preds[idx].item()), str(labels[idx].item())),
+                 class=("green" if preds[idx]==labels[idx] else "red"))
+```
+
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_pytorch_20_0.png' />
+</p>
+
+## PyTorch Functional API
+
+
+```python
+# [0-9] unique labels
+num_classes = 10
+epochs = 5
+```
+
+
+```python
+import torch.nn as nn
+import torch.nn.functional as F
+
+# define the CNN architecture
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        # convolutional layer
+        self.conv1 = nn.Conv2d(1, 32, 3, padding=0)
+        self.conv2 = nn.Conv2d(32, 64, 3, padding=0)
+        # max pooling layer
+        self.pool = nn.MaxPool2d(2, 2)
+        self.dropout1 = nn.Dropout(p=0.25)
+        self.dropout2 = nn.Dropout(p=0.5)
+        self.fc1 = nn.Linear(12 * 12 * 64, 128)
+        self.output = nn.Linear(128, num_classes)
+
+    def forward(self, x):
+        # add sequence of convolutional and max pooling layers
+        x = F.relu(self.conv1(x))
+        x = F.relu(self.conv2(x))
+        x = self.pool(x)
+        x = self.dropout1(x)
+        x = x.view(-1, 12 * 12 * 64)
+        x = F.relu(self.fc1(x))
+        x = self.dropout2(x)
+        x = F.log_softmax(self.output(x), dim=1)
+        return x
+
+# create a complete CNN
+model = Net()
+model = model.to(device)
+print(model)
+```
+
+    Net(
+      (conv1): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1))
+      (conv2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (dropout1): Dropout(p=0.25)
+      (dropout2): Dropout(p=0.5)
+      (fc1): Linear(in_features=9216, out_features=128, bias=True)
+      (output): Linear(in_features=128, out_features=10, bias=True)
+    )
+
+
+
+```python
+# specify loss function
+criterion = nn.NLLLoss()
+
+# specify optimizer
+optimizer = optim.Adam(model.parameters(), lr=1e-3)
+```
+
+
+```python
+def train_model(model, dataloaders, criterion, optimizer, num_epochs):
+    since = time.time()
+
+    history = dict()
+
+    best_model_wts = copy.deepcopy(model.state_dict())
+    best_acc = 0.0
+
+    for epoch in range(num_epochs):
+        print('Epoch {}/{}'.format(epoch, num_epochs - 1))
+        print('-' * 10)
+
+        # Each epoch has a training and validation phase
+        for phase in ['train', 'val']:
+            if phase == 'train':
+                model.train()  # Set model to training mode
+            else:
+                model.eval()   # Set model to evaluate mode
+
+            running_loss = 0.0
+            running_corrects = 0
+
+            # Iterate over data.
+            for inputs, labels in dataloaders[phase]:
+                inputs = inputs.to(device)
+                labels = labels.to(device)
+
+                # zero the parameter gradients
+                optimizer.zero_grad()
+
+                # forward
+                # track history if only in train
+                with torch.set_grad_enabled(phase == 'train'):
+                    # Get model outputs and calculate loss
+
+                    # backward + optimize only if in training phase
+                    if phase == 'train':
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                        loss.backward()
+                        optimizer.step()
+                        
+                    else:
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                    
+                    _, preds = torch.max(outputs, 1)
+
+                # statistics
+                running_loss += loss.item() * inputs.size(0)
+                running_corrects += torch.sum(preds == labels.data)
+
+            epoch_loss = running_loss / (len(dataloaders[phase])*batch_size)
+            epoch_acc = running_corrects.double() / (len(dataloaders[phase])*batch_size)
+
+            print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
+            print (len(dataloaders[phase].dataset))
+
+            # deep copy the model
+            if phase == 'val' and epoch_acc > best_acc:
+                best_acc = epoch_acc
+                best_model_wts = copy.deepcopy(model.state_dict())
+            
+            if phase+'_acc' in history:
+                # append the new number to the existing array at this slot
+                history[phase+'_acc'].append(epoch_acc)
+            else:
+                # create a new array in this slot
+                history[phase+'_acc'] = [epoch_acc]
+            
+            if phase+'_loss' in history:
+                # append the new number to the existing array at this slot
+                history[phase+'_loss'].append(epoch_loss)
+            else:
+                # create a new array in this slot
+                history[phase+'_loss'] = [epoch_loss]            
+
+    time_elapsed = time.time() - since
+    print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
+    print('Best val Acc: {:4f}'.format(best_acc))
+
+    # load best model weights
+    model.load_state_dict(best_model_wts)
+    return model, history
+```
+
+
+```python
+model, history = train_model(model, dataloaders_dict, criterion, optimizer, epochs)
+```
+
+    Epoch 0/4
+    ----------
+    train Loss: 0.3591 Acc: 0.8874
+    60000
+    val Loss: 0.0627 Acc: 0.9570
+    10000
+    Epoch 1/4
+    ----------
+    train Loss: 0.1097 Acc: 0.9648
+    60000
+    val Loss: 0.0405 Acc: 0.9653
+    10000
+    Epoch 2/4
+    ----------
+    train Loss: 0.0784 Acc: 0.9739
+    60000
+    val Loss: 0.0335 Acc: 0.9678
+    10000
+    Epoch 3/4
+    ----------
+    train Loss: 0.0649 Acc: 0.9777
+    60000
+    val Loss: 0.0272 Acc: 0.9692
+    10000
+    Epoch 4/4
+    ----------
+    train Loss: 0.0551 Acc: 0.9801
+    60000
+    val Loss: 0.0306 Acc: 0.9678
+    10000
+    Training complete in 25m 56s
+    Best val Acc: 0.969238
+
+
+
+```python
+# summarize history for accuracy
+plt.plot(history['train_acc'])
+plt.plot(history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+# summarize history for loss
+plt.plot(history['train_loss'])
+plt.plot(history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+```
+
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_pytorch_27_0.png' />
+</p>
+
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_pytorch_27_1.png' />
+</p>
+
+
+```python
+# initialize lists to monitor test loss and accuracy
+test_loss = 0.0
+class_correct = list(0. for i in range(10))
+class_total = list(0. for i in range(10))
+
+model.eval() # prep model for *evaluation*
+
+for data, target in test_loader:
+    # forward pass: compute predicted outputs by passing inputs to the model
+    output = model(data)
+    # calculate the loss
+    loss = criterion(output, target)
+    # update test loss 
+    test_loss += loss.item()*data.size(0)
+    # convert output probabilities to predicted class
+    _, pred = torch.max(output, 1)
+    # compare predictions to true label
+    correct = np.squeeze(pred.eq(target.data.view_as(pred)))
+    # calculate test accuracy for each object class
+    for i in range(len(data)):
+        label = target.data[i]
+        class_correct[label] += correct[i].item()
+        class_total[label] += 1
+
+# calculate and print avg test loss
+test_loss = test_loss/len(test_loader.dataset)
+print('Test Loss: {:.6f}\n'.format(test_loss))
+
+for i in range(10):
+    if class_total[i] > 0:
+        print('Test Accuracy of %5s: %2d%% (%2d/%2d)' % (
+            str(i), 100 * class_correct[i] / class_total[i],
+            np.sum(class_correct[i]), np.sum(class_total[i])))
+    else:
+        print('Test Accuracy of %5s: N/A (no training examples)' % (classes[i]))
+
+print('\nTest Accuracy (Overall): %2d%% (%2d/%2d)' % (
+    100. * np.sum(class_correct) / np.sum(class_total),
+    np.sum(class_correct), np.sum(class_total)))
+```
+
+    Test Loss: 0.028171
+    
+    Test Accuracy of     0: 99% (788/790)
+    Test Accuracy of     1: 99% (923/926)
+    Test Accuracy of     2: 99% (802/808)
+    Test Accuracy of     3: 98% (805/820)
+    Test Accuracy of     4: 99% (769/774)
+    Test Accuracy of     5: 99% (709/714)
+    Test Accuracy of     6: 98% (742/754)
+    Test Accuracy of     7: 98% (804/816)
+    Test Accuracy of     8: 98% (772/784)
+    Test Accuracy of     9: 97% (790/814)
+    
+    Test Accuracy (Overall): 98% (7904/8000)
+
+
+
+```python
+# obtain one batch of test images
+dataiter = iter(test_loader)
+images, labels = dataiter.next()
+
+# get sample outputs
+output = model(images)
+# convert output probabilities to predicted class
+_, preds = torch.max(output, 1)
+# prep images for display
+images = images.numpy()
+
+# plot the images in the batch, along with predicted and true labels
+fig = plt.figure(figsize=(25, 4))
+for idx in np.arange(20):
+    ax = fig.add_subplot(2, 20/2, idx+1, xticks=[], yticks=[])
+    ax.imshow(np.squeeze(images[idx]), cmap='gray')
+    ax.set_title("{} ({})".format(str(preds[idx].item()), str(labels[idx].item())),
+                 class=("green" if preds[idx]==labels[idx] else "red"))
+```
+
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_pytorch_29_0.png' />
+</p>
+
+
+
+
+<span class='red'>Mr.I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the `Power of Transfer Learning`. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as “don’t be a hero”: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googleino to train powerful CNNs, we can do it on our planet too!
+
+<span class='green'>Mr.I-know-nothing:</span> Thank you Master.
 
 Happy Learning!
