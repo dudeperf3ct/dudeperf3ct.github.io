@@ -1,16 +1,20 @@
+---
+layout:     post
+title:      Introduction to Convolutional Neural Networks
+date:       2018-10-17 12:00:00
+summary:    This post will provide an hands-on-tutorial and brief introduction to CNN using MNSIT dataset and Keras and PyTorch frameworks.
+categories: nn cnn keras pytorch mnist
+published : true
+---
 
-# CNN
+
+# Introduction to Convolutional Neural Networks
 
 In this notebook, we will go through basics of CNN using MNIST dataset. We will implement this using two popular deep learning frameworks `Keras` and `PyTorch`. 
 
 Hey yo, but what is CNN?
 
 Well sit tight and buckle up. I will go through everything in-detail.
-
-
-```python
-
-```
 
 
 ```python
@@ -56,13 +60,10 @@ print('Test samples and shape:', test_x.shape[0], test_x.shape)
     Training samples and shape: 60000 (60000, 28, 28)
     Test samples and shape: 10000 (10000, 28, 28)
 
-
-# 
+ 
 
 From the previous post, we learned how to split dev and test data.
 Here, we keep the dimensions of the data same.
-
-
 
 
 
@@ -97,8 +98,9 @@ for idx in np.arange(20):
 ```
 
 
-![png](mnist_cnn_keras_files/mnist_cnn_keras_7_0.png)
-
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_keras_7_0.png' />
+</p>  
 
 
 ```python
@@ -119,7 +121,9 @@ for x in range(width):
 ```
 
 
-![png](mnist_cnn_keras_files/mnist_cnn_keras_8_0.png)
+<p align="center">
+<img src='/images/mnist_cnn_files/mnist_cnn_keras_8_0.png' />
+</p>  
 
 
 # Overfitting and Underfitting
@@ -184,9 +188,7 @@ In next post, we will go into plotting learning curves and how to interpret them
 
 # Introduction to CNN
 
-
-
-CNN is convolution neural networks. 
+CNN is convolution neural networks. What is convolutional? I will explain it further and we know quite a bit about neural networks from our previous post on MLP. 
 We have seen the dataset, which consist of [0-9] numbers and images of size 28 x 28 pixels of values in range [0-1] . 
 
 
@@ -196,6 +198,33 @@ We have seen the dataset, which consist of [0-9] numbers and images of size 28 x
 
 Here, first let me tell you about convolution operation and how it works. 
 
+<p align="center">
+<img src='/images/mnist_cnn_files/convolution-example_1.png' />
+</p>  
+
+We apply various filter to original Taj Mahal image and see the results.
+
+<p align="center">
+<img src='/images/mnist_cnn_files/original_taj.jpg' />
+</p> 
+
+### Edge Detect
+<p align="center">
+<img src='/images/mnist_cnn_files/convolution-edge-detect1.png'/>
+<img src='/images/mnist_cnn_files/generic-taj-convmatrix-edge-detect.jpg' />
+</p>  
+
+#### Blur
+<p align="center">
+<img src='/images/mnist_cnn_files/convolution_ex_2_blur.png'/>
+<img src='/images/mnist_cnn_files/generic-taj-convmatrix-blur.jpg' />
+</p>  
+
+#### Sharpen
+<p align="center">
+<img src='/images/mnist_cnn_files/conv_ex_2_sharpen_filter.png'/>
+<img src='/images/mnist_cnn_files/generic-taj-convmatrix-sharpen.jpg'/>
+</p>  
 
 So, above examples show how convolution operator works for edge detection, blurring or sharpening the image depending on different kernel values.
 
@@ -216,34 +245,50 @@ Kernel(F) : The size of kernel used for convolution on input to the filter. For 
 
 Consider example,
 
+<p align="center">
+<img src='/images/mnist_cnn_files/RiverTrain-ImageConvDiagram.png' />
+</p>  
 
 Strides(S) : When the stride is 1 then we move the filters one pixel at a time. When the stride is 2 (or uncommonly 3 or more, though this is rare in practice) then the filters jump 2 pixels at a time as we slide them around. This will produce smaller output volumes spatially.
 
 Consider example,
 
+<p align="center">
+<img src='/images/mnist_cnn_files/strides.gif' />
+</p>  
 
 Padding(P) : Both kernel and stride function as dimension reduction technic. So for each convolution layer, the output dimension will always be smaller than input. However if we want to build a deep convolution network, we don’t want the input size to shrink too fast. A small kernel can partly solve this problem. But in order to maintain certain dimension we need zero padding. The nice feature of zero padding is that it will allow us to control the spatial size of the output volumes. Basically it is adding zero to your input.
 
 Consider example,
 
+<p align="center">
+<img src='/images/mnist_cnn_files/full_padding_no_strides.gif' />
+</p>  
 
 So, basically a single convolution filter on input consists of these components. We can stack many such conv filters if input size is 3 dimensional.
 
 Consider example,
 
+<p align="center">
+<img src='/images/mnist_cnn_files/convolution_3d.jpg' />
+</p>  
 
 Here, input -> (6x6x3), conv filter (F) -> (3x3x3), number of conv filters -> 1, padding (P) -> 0, strides (S) -> 1
 
 Note: Always remember that depth (number of channels) of input and conv filter have to be same. 
 
-Applying our formula for calculating output dimension: O = (6+(2*0)-3)/1 + 1 = 4
+Applying our formula for calculating output dimension: O = (6+(2 * 0)-3)/1 + 1 = 4
 
 Output dimension = (4 x 4 x number of conv filters) = (4 x 4 x 1)
 
 
 Consider an example of number of conv filters -> 2, all other parameters are same
 
-Applying our formula for calculating output dimension: O = (6+(2*0)-3)/1 + 1 = 4
+<p align="center">
+<img src='/images/mnist_cnn_files/convolution_3d_2.png' />
+</p>  
+
+Applying our formula for calculating output dimension: O = (6+(2 * 0)-3)/1 + 1 = 4
 
 Output dimension = (4 x 4 x number of conv filters) = (4 x 4 x 2)
 
