@@ -4,7 +4,7 @@ title:      Introduction to Convolutional Neural Networks
 date:       2018-10-17 12:00:00
 summary:    This post will provide an hands-on-tutorial and brief introduction to CNN using MNSIT dataset and Keras and PyTorch frameworks.
 categories: nn cnn keras pytorch mnist
-published : true
+published : false
 ---
 
 
