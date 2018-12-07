@@ -17,6 +17,7 @@ Hey yo, but what is CNN?
 Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
+- [Overfitting and Underfitting](#overfitting-and-underfitting)
 - [Introduction to CNN](#introduction-to-cnn)
   - [Kernel](#kernel)
   - [Strides](#strides)
@@ -223,7 +224,7 @@ We apply various filter to original Taj Mahal image and see the results.
 <img src='/images/mnist_cnn_files/original_taj.jpg' />
 </p> 
 
-### Edge Detect
+#### Edge Detect
 <p align="center">
 <img src='/images/mnist_cnn_files/convolution-edge-detect1.png'/>
 <img src='/images/mnist_cnn_files/generic-taj-convmatrix-edge-detect.jpg' />
@@ -256,9 +257,9 @@ Simpler way to calculate output dimesion O, given input dimension W and convolut
  
 Now you might ask what's kernel, padding and stride in convolution filters?
 
-#### Kernel(F) 
+#### Kernel 
 
-The size of kernel used for convolution on input to the filter. For e.g. 5x5, 3x3 or 7x7 are popular kernel sizes. It implements element-wise computation across input matrix and outputs the sum. Kernel usually has a size that is much smaller than the original input so that we can take advantage of decrease in memory.
+The size of kernel(F) used for convolution on input to the filter. For e.g. 5x5, 3x3 or 7x7 are popular kernel sizes. It implements element-wise computation across input matrix and outputs the sum. Kernel usually has a size that is much smaller than the original input so that we can take advantage of decrease in memory.
 
 Consider example,
 
@@ -266,9 +267,9 @@ Consider example,
 <img src='/images/mnist_cnn_files/RiverTrain-ImageConvDiagram.png' />
 </p>  
 
-#### Strides(S) 
+#### Strides 
 
-When the stride is 1 then we move the filters one pixel at a time. When the stride is 2 (or uncommonly 3 or more, though this is rare in practice) then the filters jump 2 pixels at a time as we slide them around. This will produce smaller output volumes spatially.
+When the stride(S) is 1 then we move the filters one pixel at a time. When the stride is 2 (or uncommonly 3 or more, though this is rare in practice) then the filters jump 2 pixels at a time as we slide them around. This will produce smaller output volumes spatially.
 
 Consider example,
 
@@ -276,9 +277,9 @@ Consider example,
 <img src='/images/mnist_cnn_files/strides.gif' />
 </p>  
 
-#### Padding(P) 
+#### Padding 
 
-Both kernel and stride function as dimension reduction technic. So for each convolution layer, the output dimension will always be smaller than input. However if we want to build a deep convolution network, we don’t want the input size to shrink too fast. A small kernel can partly solve this problem. But in order to maintain certain dimension we need zero padding. The nice feature of zero padding is that it will allow us to control the spatial size of the output volumes. Basically it is adding zero to your input.
+Both kernel and stride function as dimension reduction technic. So for each convolution layer, the output dimension will always be smaller than input. However if we want to build a deep convolution network, we don’t want the input size to shrink too fast. A small kernel can partly solve this problem. But in order to maintain certain dimension we need zero padding. The nice feature of zero padding(P) is that it will allow us to control the spatial size of the output volumes. Basically it is adding zero to your input.
 
 Consider example,
 
