@@ -71,7 +71,7 @@ My mothers grandfather had a theory which he said over and over to his grandchil
 Quotes
 ===========================
 
-All I Want to Know is Where I’m Going to Die So I’ll Never Go There.
+All I want to know is where I’m going to die so I’ll never go there.
 
 Never spend more than you can earn.
 
@@ -85,6 +85,8 @@ Generally I have found two things you should never do in your life, <span class=
 
 Always invert.
 
+Every missed chance in life was an opportunity to behave well, to learn something.
+
 The best way to get what you want in life is to deserve what you want.
 
 I have been a great actor for so long that I can no longer remember or know what I think about any subject.  ~ Sir Cedric Hardwicke
@@ -93,9 +95,15 @@ I would rather deal with the guy with an IQ of 130 who thinks it's 125 than with
 
 Everything should be made as simple as possible, but not more simple. ~ Albert Einstein
 
+A man who doesn’t learn about history before he was born goes through his life like a child. ~ Cicero
+
 Better be roughly right than be precisely wrong.
 
+If you keep learning all the time you have a huge advantage.
+
 Treat the two impostors failures and success the same.
+
+I always want to just put my head down and adjust. Feeling victimised is a counterproductive way to think as a human being.
 
 Stories
 ===========================
