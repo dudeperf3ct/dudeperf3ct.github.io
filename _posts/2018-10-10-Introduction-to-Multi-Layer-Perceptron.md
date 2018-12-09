@@ -11,7 +11,7 @@ published : false
 
 In this post, we will go through basics of MLP using MNIST dataset. We will implement this using two popular deep learning frameworks <span class='yellow'>Keras</span> and <span class='orange'>PyTorch</span>.
 
-All the codes implemented in Jupyter notebook in Keras PyTorch and Tensorflow. Also contain links to run Google Colab in notebook.
+All the codes implemented in Jupyter notebook in Keras, PyTorch and Tensorflow. Also contains link to run Google Colab in notebook.
 
 Hey yo, but what is MLP? what is MNIST? 
 
