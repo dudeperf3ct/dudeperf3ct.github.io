@@ -1320,7 +1320,7 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching and head onto [Further Reading](#further-reading) section.
+<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures, different datasets like cifar, cats-and-dogs,etc and keep researching and head onto [Further Reading](#further-reading) section.
 
 Happy Learning!
 
@@ -1332,17 +1332,17 @@ Happy Learning!
 
 Adam Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471) and [Part 2](https://medium.com/@ageitgey/machine-learning-is-fun-part-2-a26a10b68df3)
 
-[CS231n Backpropagation, Intuitions](http://cs231n.github.io/optimization-2/)
+[CS231n: Backpropagation, Intuitions](http://cs231n.github.io/optimization-2/)
 
-[CS231n NN Part 1](http://cs231n.github.io/neural-networks-1/)
+[CS231n: NN Part 1](http://cs231n.github.io/neural-networks-1/)
 
-[CS231n NN Part 2](http://cs231n.github.io/neural-networks-2/)
+[CS231n: NN Part 2](http://cs231n.github.io/neural-networks-2/)
 
-[CS231n NN Part 3](http://cs231n.github.io/neural-networks-3/)
+[CS231n: NN Part 3](http://cs231n.github.io/neural-networks-3/)
 
-[CS231n Minimal Neural Network Case Study](http://cs231n.github.io/neural-networks-case-study/)
+[CS231n: Minimal Neural Network Case Study](http://cs231n.github.io/neural-networks-case-study/)
 
-[CS231n Optimization](http://cs231n.github.io/optimization-1/)
+[CS231n: Optimization](http://cs231n.github.io/optimization-1/)
 
 [Yearning Book by Andrew Ng](http://www.mlyearning.org/) Chapters 1 to 7
 
@@ -1367,14 +1367,10 @@ Adam Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/machine-lear
 
 [Star Wars](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
-[Gradient Descent](Andrej Karpathy’s Stanford Course Lecture 3)
+[Gradient Descent](http://bit.ly/2e7pXyx)
 
 [Optimizer gif](http://ruder.io/optimizing-gradient-descent/)
 
 [Activation Functions](http://rasbt.github.io/mlxtend/user_guide/general_concepts/activation-functions/)
 
 [MLP Model](https://towardsdatascience.com/multi-layer-neural-networks-with-sigmoid-function-deep-learning-for-rookies-2-bf464f09eb7f)
-
-
-
-Happy Learning!
