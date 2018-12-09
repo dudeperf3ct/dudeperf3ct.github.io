@@ -1591,7 +1591,7 @@ Happy Learning!
 
 Adam Geitgey's Machine Learning is Fun! [Part 3](https://medium.com/@ageitgey/machine-learning-is-fun-part-3-deep-learning-and-convolutional-neural-networks-f40359318721) and [Part 4](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
 
-
+Backprop in CNN [here](https://becominghuman.ai/back-propagation-in-convolutional-neural-networks-intuition-and-code-714ef1c38199) and [here](https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/)
 
 ---
 
