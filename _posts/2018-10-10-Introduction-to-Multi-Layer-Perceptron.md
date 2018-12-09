@@ -17,6 +17,10 @@ Hey yo, but what is MLP? what is MNIST?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
+<p align="center">
+<img src='/images/mnist_mlp_files/star_wars_hyperspace.gif' />
+</p>  
+
 Feel free to jump anywhere,
 - [Introduction to MLP](#introduction-to-mlp)
 - [Keras](#keras)
@@ -1365,7 +1369,9 @@ Adam Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/machine-lear
 
 # Footnotes and Credits 
 
-[Star Wars](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
+[Hyperspace gif](https://giphy.com/gifs/star-wars-the-force-awakens-ANFmpd8R0SD0Q)
+
+[Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
 [Gradient Descent](http://bit.ly/2e7pXyx)
 
