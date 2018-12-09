@@ -1334,7 +1334,7 @@ Happy Learning!
 
 [Chris Olah's blog on backpropogation](http://colah.github.io/posts/2015-08-Backprop/)
 
-Adam Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471) and [Part 2](https://medium.com/@ageitgey/machine-learning-is-fun-part-2-a26a10b68df3)
+Adam Geitgey's Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471) and [Part 2](https://medium.com/@ageitgey/machine-learning-is-fun-part-2-a26a10b68df3)
 
 [CS231n: Backpropagation, Intuitions](http://cs231n.github.io/optimization-2/)
 
