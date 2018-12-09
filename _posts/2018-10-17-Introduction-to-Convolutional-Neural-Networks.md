@@ -16,6 +16,11 @@ Hey yo, but what is CNN?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
+<p align="center">
+<img src='/images/mnist_cnn_files/hyperspace_2.gif' />
+</p>  
+
+
 Feel free to jump anywhere,
 - [Overfitting and Underfitting](#overfitting-and-underfitting)
 - [Introduction to CNN](#introduction-to-cnn)
@@ -31,6 +36,7 @@ Feel free to jump anywhere,
   - [Functional API](#pytorch-functional-api)
   - [Sequential API](#pytorch-sequential-api)
 - [Further Reading](#further-reading)
+- [Footnotes and Credits](#footnotes-and-credits)
 
 
 ```python
@@ -1569,7 +1575,24 @@ for idx in np.arange(20):
 
 Happy Learning!
 
+---
 
 # Further Reading
 
+[CS231n Winter 2016](https://www.youtube.com/watch?v=NfnWJUyUJYU&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC) Lectures 7 and 8
 
+[Chris Olah's blog Understanding Convolutions](colah.github.io/posts/2014-07-Understanding-Convolutions/)
+
+[Conv Nets: A Modular Perspective](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
+
+[Yearning book by Andrew Ng](http://www.mlyearning.org/) Chapters 20 to 24 
+
+[CS231n: Convolutional Neural Networks](http://cs231n.github.io/convolutional-networks/)
+
+Adam Geitgey's Machine Learning is Fun! [Part 3](https://medium.com/@ageitgey/machine-learning-is-fun-part-3-deep-learning-and-convolutional-neural-networks-f40359318721) and [Part 4](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
+
+
+
+---
+
+# Footnotes and Credits
