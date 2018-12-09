@@ -12,6 +12,8 @@ published : false
 
 In this notebook, we will go through basics of CNN using MNIST dataset. We will implement this using two popular deep learning frameworks `Keras` and `PyTorch`. 
 
+All the codes implemented in Jupyter notebook in Keras, PyTorch, Tensorflow and fastai. Also contains link to run Google Colab in notebook.
+
 Hey yo, but what is CNN?
 
 Well sit tight and buckle up. I will go through everything in-detail.
