@@ -11,9 +11,11 @@ published : false
 
 In this post, we will go through basics of MLP using MNIST dataset. We will implement this using two popular deep learning frameworks <span class='yellow'>Keras</span> and <span class='orange'>PyTorch</span>.
 
+All the codes implemented in Jupyter notebook in Keras PyTorch and Tensorflow. Also contain links to run Google Colab in notebook.
+
 Hey yo, but what is MLP? what is MNIST? 
 
-Well sit tight and buckle up. I will go through everything in-detail. :metal:
+Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 - [Introduction to MLP](#introduction-to-mlp)
@@ -24,6 +26,7 @@ Feel free to jump anywhere,
   - [Functional API](#pytorch-functional-api)
   - [Sequential API](#pytorch-sequential-api)
 - [Further Reading](#further-reading)
+- [Footnotes and Credits](#footnotes-and-credits)
 
 ```python
 # load all the required libraries
@@ -322,7 +325,7 @@ This functon plays an important role in machine learning. This types function ar
 While designing a Neural Network, in the beginning, we initialize weights with some random values or any variable for that fact. So, it’s not necessary that whatever weight values we have selected will be correct, or it fits our model the best. Okay, fine, we have selected some weight values in the beginning, but our model output is way different than our actual output i.e. the error value is huge.
 
 Now, how will you reduce the error?
-Basically, what we need to do, we need to somehow explain the model to change the parameters (weights), such that error becomes minimum.That means, we need to train our model. One way to train our model is through Backpropagation but it is not the only way. There is another method called Synthetic Gradient designed by the Jedi Council. We will visit them later. If you are curious, look them up [here](https://iamtrask.github.io/2017/03/21/synthetic-gradients/) and [here](https://www.youtube.com/watch?v=1z_Gv98-mkQ)
+Basically, what we need to do, we need to somehow explain the model to change the parameters (weights), such that error becomes minimum.That means, we need to train our model. One way to train our model is through Backpropagation but it is not the only way. There is another method called Synthetic Gradient designed by the Jedi Council of DeepMind. We will visit them later. If you are curious, look them up [here](https://iamtrask.github.io/2017/03/21/synthetic-gradients/) and [here](https://www.youtube.com/watch?v=1z_Gv98-mkQ)
 
 In short, backprop algorithm looks for the minimum value of the error function in weight space using a technique called gradient descent. The weights that minimize the error function is then considered to be a solution to the learning problem. 
 
@@ -1317,10 +1320,60 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching.
+<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures and keep researching and head onto [Further Reading](#further-reading) section.
 
+Happy Learning!
+
+---
 
 # Further Reading
+
+[Chris Olah's blog on backpropogation](http://colah.github.io/posts/2015-08-Backprop/)
+
+Adam Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471) and [Part 2](https://medium.com/@ageitgey/machine-learning-is-fun-part-2-a26a10b68df3)
+
+[CS231n Backpropagation, Intuitions](http://cs231n.github.io/optimization-2/)
+
+[CS231n NN Part 1](http://cs231n.github.io/neural-networks-1/)
+
+[CS231n NN Part 2](http://cs231n.github.io/neural-networks-2/)
+
+[CS231n NN Part 3](http://cs231n.github.io/neural-networks-3/)
+
+[CS231n Minimal Neural Network Case Study](http://cs231n.github.io/neural-networks-case-study/)
+
+[CS231n Optimization](http://cs231n.github.io/optimization-1/)
+
+[Yearning Book by Andrew Ng](http://www.mlyearning.org/) Chapters 1 to 7
+
+[CS231n Winter 2016](https://www.youtube.com/watch?v=NfnWJUyUJYU&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC) Lectures 1 to 7
+
+[Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html) Chapters 1 and 2
+
+[Notes on Backpropagation](https://www.ics.uci.edu/~pjsadows/notes.pdf)
+
+[Neural Networks, Manifolds, and Topology](http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/)
+
+[The Matrix Calculus You Need For Deep Learning](https://explained.ai/matrix-calculus/index.html)
+
+[An overview of gradient descent optimization algorithms](http://ruder.io/optimizing-gradient-descent/)
+
+[Single-Layer Neural Networks and Gradient Descent](https://sebastianraschka.com/Articles/2015_singlelayer_neurons.html)
+
+
+---
+
+# Footnotes and Credits 
+
+[Star Wars](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
+
+[Gradient Descent](Andrej Karpathy’s Stanford Course Lecture 3)
+
+[Optimizer gif](http://ruder.io/optimizing-gradient-descent/)
+
+[Activation Functions](http://rasbt.github.io/mlxtend/user_guide/general_concepts/activation-functions/)
+
+[MLP Model](https://towardsdatascience.com/multi-layer-neural-networks-with-sigmoid-function-deep-learning-for-rookies-2-bf464f09eb7f)
 
 
 
