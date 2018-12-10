@@ -167,8 +167,10 @@ Back to cats, suppose we want to build a cat classifier that has 5% error rate. 
 If we have error rate of 15% (or 85% accuracy) on training set, but target error rate is 5% (or 95% accuracy), then the first problem to solve is to improve algorithm's performance on training set. 
 
 Suppose as above that algorithm has 16% error (84% accuracy) on the dev set. We break the 16% error into two components:
+
  - First, the algorithm’s error rate on the training set. In this example, it is 15%. We think of this as the algorithm’s `bias`.
  - Second, how much worse the algorithm does on the dev (or test) set than the training set. In this example, it does 1% worse on the dev set than the training set. We think of this as the algorithm’s `variance`.
+ 
  
 Training       |   Dev          | Bias(=Training error)| Variance(=Dev-Training) |  Known as        | Also Known as  |
 -------------- | -------------- | --------------       | --------------          | --------------   |--------------  |
@@ -178,10 +180,12 @@ Training       |   Dev          | Bias(=Training error)| Variance(=Dev-Training)
 We estimate the bias as 15%, and variance as 15%. This classifier has **high bias** and **high variance** : It is doing poorly on the training set, and therefore has high bias, and its performance on the dev set is even worse, so it also has high variance.
 
 **Optimal Rate**: The “ideal” error rate—that is, one achievable by an “optimal” classifier—is nearly 0% not always.
-Also known as **unavoidable bias** or **Bayes error rate**.
+Also known as **Unavoidable bias** or **Bayes error rate**.
 
 Suppose that we are building a speech recognition system, and find that 14% of the audio clips have so much background noise or are so unintelligible that even a human cannot recognize what was said. In this case, even the most “optimal” speech recognition system might have error around 14%.
+
 Suppose,
+
  - Training error = 15% and Dev error = 30%, if optimal error = 14%
 
 The training set performance is already close to the optimal error rate of 14%. Thus, there is not much room for improvement in terms of bias or in terms of training set performance. However, this algorithm is not generalizing well to the dev set; thus there is ample room for improvement in the errors due to variance.
@@ -199,16 +203,16 @@ A training error of 15% leaves much room for improvement. This suggests bias-red
 2. Addressing bias improves its performance on the training set
 3. Addressing variance help algorithm to generalize better from the training set to dev/test set.
 
-Too many terminologies introduced, lets walk through them
+Too many terminologies introduced, lets walk through them :
 
-- (Training - Dev) error high ==> High variance ==> Overfitting ==> Add more data to training set
-- Training error high     ==> High bias    ===> Underfitting ==> Make model more complex
-- Bayes error ==> Optimal Rate  ==> Unavoidable bias
-- (Training - Bayes) error ===> Avoidable bias
-- Bias = Optimal error rate (“unavoidable bias”) + Avoidable bias
+- (Training - Dev) error high --> High variance --> Overfitting --> Add more data to training set
+- Training error high   --> High bias --> Underfitting --> Make model more complex
+- Bayes error --> Optimal Rate  --> Unavoidable bias
+- (Training - Bayes) error --> Avoidable bias
+- Total Bias = Optimal error rate (“unavoidable bias”) + Avoidable bias
 
 
-In next post, we will go into plotting learning curves and how to interpret them. Stay tuned!
+In next post, we will go into plotting learning curves, how to interpret them and ways to tackle. Stay tuned!
 
 # Introduction to CNN
 
@@ -478,9 +482,6 @@ Total Memory ~= 87K * 4 bytes ~= 0.3MB / image (only forward ~ *2 backward pass)
 
 Total Parameters = 1199558 ~= 1.2M parameters (without biases)
 
-
-Put this in footnotes
-A  Comprehensive Survey on Deep Learning Approaches  (https://arxiv.org/pdf/1803.01164.pdf)
 
 
 # Keras
@@ -1571,7 +1572,7 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the `Power of Transfer Learning`. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as **“don’t be a hero”**: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googleino to train powerful CNNs, we can do it on our planet too!
+<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the `Power of Transfer Learning` and `Power to Visualize CNN`. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as **“don’t be a hero”**: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googlion to train powerful CNNs, we can do it on our planet too!
 
 <span class='green'>I-know-nothing:</span> Thank you Master.
 
@@ -1595,6 +1596,13 @@ Adam Geitgey's Machine Learning is Fun! [Part 3](https://medium.com/@ageitgey/ma
 
 Backprop in CNN [here](https://becominghuman.ai/back-propagation-in-convolutional-neural-networks-intuition-and-code-714ef1c38199) and [here](https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/)
 
+[A Comprehensive Survey on Deep Learning Approaches](https://arxiv.org/pdf/1803.01164.pdf)
+
+
 ---
 
 # Footnotes and Credits
+
+
+
+[All architectures LeNet, AlexNet, etc](https://medium.com/@sidereal/cnns-architectures-lenet-alexnet-vgg-googlenet-resnet-and-more-666091488df5)
