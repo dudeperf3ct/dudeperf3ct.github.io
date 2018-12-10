@@ -373,7 +373,7 @@ Deep ConvNet consists of repetition of [CONV - RELU - POOL] layers and once suff
 Consider example, 
 
 <p align="center">
-<img src='/images/mnist_cnn_files/flatten.png' />
+<img src='/images/mnist_cnn_files/flatten.png' width='70%'/>
 </p>  
 
 <span class='green'>I-know-nothing:</span> Now I understand what is happening in convolution layers and how a typical ConvNet architecture is. How does training ConvNets work? Does it still consist of forward pass and backward pass? What is the loss function or error function? Does it still use `jar jar backpropogation` for passing error? 
