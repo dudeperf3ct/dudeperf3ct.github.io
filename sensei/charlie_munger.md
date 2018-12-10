@@ -59,6 +59,8 @@ You need a different checklist and different mental models for different compani
 
 Another thing I think should be avoided is extremely intense ideology because it cabbages up one’s mind. When you’re young it’s easy to drift into loyalties and when you announce that you’re a loyal member and you start shouting the orthodox ideology out, what you’re doing is pounding it in, pounding it in, and you’re gradually ruining your mind.
 
+<span class='red'>Well, the first rule is that you can’t really know anything if you just remember isolated facts and try and bang ’em back. If the facts don’t hang together on a latticework of theory, you don’t have them in a usable form. You’ve got to have models in your head. And you’ve got to array your experience both vicarious and direct on this latticework of models. You may have noticed students who just try to remember and pound back what is remembered. Well, they fail in school and in life. You’ve got to hang experience on a latticework of models in your head.</span>
+
 I have rule for politics which has served me well for predictions and that is, "the politicians are never so bad you don't live to want them back".
 
 Invert, always invert: Turn a situation or problem upside down. Look at it backward. What happens if all our plans go wrong? Where don't we want to go, and how do you get there? Instead of looking for success, make a list of how to fail instead--through sloth, envy, resentment, self-pity, entitlement, all the mental habits of self-defeat. Avoid these qualities and you will succeed. Tell me where I'm going to die so I don't go there.
