@@ -1364,6 +1364,7 @@ Adam Geitgey's Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/ma
 
 [Single-Layer Neural Networks and Gradient Descent](https://sebastianraschka.com/Articles/2015_singlelayer_neurons.html)
 
+[The Unreasonable Reputation of Neural Networks](http://thinkingmachines.mit.edu/blog/unreasonable-reputation-neural-networks)
 
 ---
 
