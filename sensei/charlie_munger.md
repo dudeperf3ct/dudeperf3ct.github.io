@@ -67,6 +67,7 @@ Invert, always invert: Turn a situation or problem upside down. Look at it backw
 
 My mothers grandfather had a theory which he said over and over to his grandchildren including my mother was that <span class='green'> real opportunites that come to you are few, it's very fortunate life that has just bathed an opportunity all the way. Most people just get a few times when they can make a huge difference by seizing a huge activity and he said when you find one my dear grandchildren seize it boldly and don't do it small.</span> If you take whole history of Berkshire and if you take out the 20 best transactions, our record is a joke. Life is not just bathing you in unlimited opportunites even if you were being able to find them and seize them.
 
+If you are going to live a long time, you have to keep learning. What you formerly knew is never enough. So, <span class='red'>if you don't learn constantly, revise your conclusions and get better ones, you are like one-legged man in ass-kicking contest.</span>
 
 Quotes
 ===========================
