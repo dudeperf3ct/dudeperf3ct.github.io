@@ -25,6 +25,8 @@ My dad taught me an important lesson to see <span class='red'>what is in your in
 
 <span class='red'>I have got a terrific partner named Charlie and you cannot find anybody any smarter, any better quality or anything.</span>
 
+I think if you run into a few great teachers and they really change the way you see the world to some degree, you know you are lucky and you can find them in academia as well as ordinary life. I have been extraordinarly lucky and having great teachers including Charlie who has been a wonderful teacher. Any place you can find somebody that gives you insight into things you didn't understand before, makes you a better person that you would have been before, that's very lucky and you want to make most of it. Any situtaion make most of it.
+
 I am running Berkshire for those people who are the ones that are going to stay and not the ones that who want to get out. I do not believe in running a company to respond to people that want to sell the stock in the next few months.
 
 As you see larger and larger group making decisions, they get more and more homogenised and I don't think you will get best investment decisions out of a large committee.
