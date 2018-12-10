@@ -179,6 +179,11 @@ Training       |   Dev          | Bias(=Training error)| Variance(=Dev-Training)
 
 We estimate the bias as 15%, and variance as 15%. This classifier has **high bias** and **high variance** : It is doing poorly on the training set, and therefore has high bias, and its performance on the dev set is even worse, so it also has high variance.
 
+<p align="center">
+<img src='/images/mnist_cnn_files/partitions-underfitting-vs-overfitting-regression-via-polynomial-degree.png' />
+</p>  
+
+
 **Optimal Rate**: The “ideal” error rate—that is, one achievable by an “optimal” classifier—is nearly 0% not always.
 Also known as **Unavoidable bias** or **Bayes error rate**.
 
@@ -210,6 +215,11 @@ Too many terminologies introduced, lets walk through them :
 - Bayes error --> Optimal Rate  --> Unavoidable bias
 - (Training - Bayes) error --> Avoidable bias
 - Total Bias = Optimal error rate (“unavoidable bias”) + Avoidable bias
+
+<p align="center">
+<img src='/images/mnist_cnn_files/bias_variance.png' />
+</p>  
+
 
 
 In next post, we will go into plotting learning curves, how to interpret them and ways to tackle. Stay tuned!
@@ -319,7 +329,7 @@ Output dimension = (4 x 4 x number of conv filters) = (4 x 4 x 1)
 Consider an example of number of conv filters -> 2, all other parameters are same
 
 <p align="center">
-<img src='/images/mnist_cnn_files/convolution_3d_2.jpg' />
+<img src='/images/mnist_cnn_files/Convolution_3d_2.jpg' />
 </p>  
 
 Applying our formula for calculating output dimension: O = (6 + (2 * 0) - 3)/1 + 1 = 4
