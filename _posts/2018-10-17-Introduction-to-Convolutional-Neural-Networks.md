@@ -10,7 +10,7 @@ published : true
 
 # CNN
 
-In this notebook, we will go through basics of CNN using MNIST dataset. We will implement this using two popular deep learning frameworks `Keras` and `PyTorch`. 
+In this notebook, we will go through basics of CNN using MNIST dataset. We will implement this using two popular deep learning frameworks <span class='yellow'>Keras</span> and <span class='orange'>PyTorch</span>. 
 
 All the codes implemented in Jupyter notebook in Keras, PyTorch, Tensorflow and fastai. Also contains link to run Google Colab in notebook.
 
@@ -156,7 +156,7 @@ Suppose your training, dev and test sets all come from the same distribution. Th
 
 Even though having more data can’t hurt, unfortunately it doesn’t always help.
 
-Before understanding overfitting and underfitting, let's dive into `bias` and `variance`. There are two major sources of error in machine learning: bias and variance. Understanding them will help you decide whether adding data, as well as other tactics to improve performance, are a good use of time. 
+Before understanding overfitting and underfitting, let's dive into <span class='orange'>bias</span> and <span color='yellow'>variance<span class='orange'>. There are two major sources of error in machine learning: bias and variance. Understanding them will help you decide whether adding data, as well as other tactics to improve performance, are a good use of time. 
 
 
 
@@ -168,8 +168,8 @@ If we have error rate of 15% (or 85% accuracy) on training set, but target error
 
 Suppose as above that algorithm has 16% error (84% accuracy) on the dev set. We break the 16% error into two components:
 
- - First, the algorithm’s error rate on the training set. In this example, it is 15%. We think of this as the algorithm’s `bias`.
- - Second, how much worse the algorithm does on the dev (or test) set than the training set. In this example, it does 1% worse on the dev set than the training set. We think of this as the algorithm’s `variance`.
+ - First, the algorithm’s error rate on the training set. In this example, it is 15%. We think of this as the algorithm’s <span class='orange'>bias</span>.
+ - Second, how much worse the algorithm does on the dev (or test) set than the training set. In this example, it does 1% worse on the dev set than the training set. We think of this as the algorithm’s <span class='yellow'>variance</span>.
  
  
 Training       |   Dev          | Bias(=Training error)| Variance(=Dev-Training) |  Known as        | Also Known as  |
@@ -236,7 +236,7 @@ We have seen the dataset, which consist of [0-9] numbers and images of size 28 x
 <img src='/images/mnist_cnn_files/master_student.gif' />
 </p>  
 
-<span class='red'>I-know-everything:</span> Hello, Young Padwan. As promised we will today look into <span class="light-pink"> Force of CNN </span>. Convolutional Neural Networks are very similar to ordinary Neural Networks from the previous post: they are made up of neurons that have learnable weights and biases. Each neuron receives some inputs, performs a dot product and optionally follows it with a non-linearity. The whole network still has a single differentiable score function: from the raw image pixels on one end to class scores at the other. And they still have a loss function (e.g. SVM/Softmax) (or error function) on the last (fully-connected) layer. So what changes? ConvNet architectures make the explicit assumption that the inputs are images, which allows us to encode certain properties into the architecture. These then make the forward function more efficient to implement and vastly reduce the amount of parameters in the network.
+<span class='red'>I-know-everything:</span> Hello, Young Padwan. As promised we will today look into <span class="purple"> Force of CNN </span>. Convolutional Neural Networks are very similar to ordinary Neural Networks from the previous post: they are made up of neurons that have learnable weights and biases. Each neuron receives some inputs, performs a dot product and optionally follows it with a non-linearity. The whole network still has a single differentiable score function: from the raw image pixels on one end to class scores at the other. And they still have a loss function (e.g. SVM/Softmax) (or error function) on the last (fully-connected) layer. So what changes? ConvNet architectures make the explicit assumption that the inputs are images, which allows us to encode certain properties into the architecture. These then make the forward function more efficient to implement and vastly reduce the amount of parameters in the network.
 
 Here, first let me tell you about convolution operation and how it works. 
 
@@ -1585,7 +1585,7 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the <span color='purple'>Power of Transfer Learning</span> and <span color='purple'>Power to Visualize CNN</span>. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as **“don’t be a hero”**: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googlion to train powerful CNNs, we can do it on our planet too!
+<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the <span class='purple'>Power of Transfer Learning</span> and <span class='purple'>Power to Visualize CNN</span>. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as **“don’t be a hero”**: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googlion to train powerful CNNs, we can do it on our planet too!
 
 <span class='green'>I-know-nothing:</span> Thank you Master.
 
