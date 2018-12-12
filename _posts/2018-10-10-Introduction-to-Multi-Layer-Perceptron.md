@@ -362,7 +362,7 @@ This is what gradient descent does. It tells the model which direction to move t
 </p>  
 
 
-And this is behind the scenes (BTS) of how a <span class='gray'>Force of Neural Network</span> learns.
+And this is behind the scenes (BTS) of how a <span class='purple'>Force of Neural Network</span> learns.
 
 <span class='green'>I-know-nothing:</span> Thank you Master, I follow.
 
