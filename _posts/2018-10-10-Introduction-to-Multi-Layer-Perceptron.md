@@ -311,11 +311,11 @@ $$
 
 <span class='red'>I-know-everything:</span> Wooh slow down! Okay let's answer it one by one.
 
-1. What is $$\mathbf{w\rm\normalsize i_{0}}$$ and $$\mathbf{w\rm\normalsize o_{0}}$$?
+    - What is $$\mathbf{w\rm\normalsize i_{0}}$$ and $$\mathbf{w\rm\normalsize o_{0}}$$?
 
 These are called biases. A layer in a neural network without a bias is nothing more than the multiplication of an input vector with a matrix. Using a bias, you’re effectively adding another dimension to your input space.
 
-2. What is the function $$f(\mathbf{h})$$?
+    - What is the function $$f(\mathbf{h})$$?
 
 This functon plays an important role in machine learning. This types function are called non-linear functions. By introducing them in our network we introduce non-linearlity, non-linear means that the output cannot be reproduced from a linear combination of the inputs. Another way to think of it is if we don't use a non-linear activation function in the network, no matter how many layers it had, the network would behave just like a single-layer perceptron, because summing these layers would give you just another linear function and most of the problems in real world are non-linear. Non-linearity is needed in activation functions because its aim in a neural network is to produce a nonlinear decision boundary via non-linear combinations of the weight and inputs. To provide a better seperation for higher dimensional data then a simple line seperator using linear function.There are several types of non-linear functions.
 
@@ -324,7 +324,7 @@ This functon plays an important role in machine learning. This types function ar
 </p>  
    
    
-3. What are we doing in backprop and is it the only way?
+    - What are we doing in backprop and is it the only way?
 
 While designing a Neural Network, in the beginning, we initialize weights with some random values or any variable for that fact. So, it’s not necessary that whatever weight values we have selected will be correct, or it fits our model the best. Okay, fine, we have selected some weight values in the beginning, but our model output is way different than our actual output i.e. the error value is huge.
 
