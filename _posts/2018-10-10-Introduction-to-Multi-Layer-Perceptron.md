@@ -4,7 +4,7 @@ title:      Introduction to Multi-Layer Perceptron
 date:       2018-10-10 12:00:00
 summary:    This post will provide an hands-on-tutorial and brief introduction to MLP using MNSIT dataset and Keras and PyTorch frameworks.
 categories: nn mlp keras pytorch mnist
-published : false
+published : true
 ---
 
 # MLP
