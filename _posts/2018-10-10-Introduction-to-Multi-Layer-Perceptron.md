@@ -206,11 +206,11 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 
 <span class='green'>I-know-nothing:</span> Master, how can I create such a intelligent machine to recognize and label given images?
 
-<span class='red'>I-know-everything:</span> Young Padwan, we will use the <span class='dark-gray'> Force of Neural Networks</span> inspired from our brain. Here, let me take you on a journey of one example for example 0. We have 784 pixel values in range  [0-1] describing what zero looks like (pixels bright in the center in shape of 0 and dark like the dark side elsewhere). 0 passes through the network like the one shown below and return 10 values which will help in classfying the image is 0 or 1 or 2 and so on. 
+<span class='red'>I-know-everything:</span> Young Padwan, we will use the <span class='purple'> Force of Neural Networks</span> inspired from our brain. Here, let me take you on a journey of one example for example 0. We have 784 pixel values in range  [0-1] describing what zero looks like (pixels bright in the center in shape of 0 and dark like the dark side elsewhere). 0 passes through the network like the one shown below and return 10 values which will help in classfying the image is 0 or 1 or 2 and so on. 
 
 <span class='green'>I-know-nothing:</span> How will the number decide which image is what label?
 
-<span class='red'>I-know-everything:</span> If the image passed is 0 (also known as `forward pass`), the network will output array [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]. The first place 1 indicates the image passed is 0.
+<span class='red'>I-know-everything:</span> If the image passed is 0 (also known as <span class='orange'>forward pass</span>), the network will output array [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]. The first place 1 indicates the image passed is 0.
 
 <span class='green'>I-know-nothing:</span> How does the network learn such a magic trick?
 
@@ -222,11 +222,11 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 
 <span class='green'>I-know-nothing:</span> What if network outputs does not match our desired result?
 
-<span class='red'>I-know-everything:</span> That means, our network is stupid (for now). But it learns, it learns from its mistakes. The process by which it learns is backpropogation. So, in `jar jar backpropogation`, in our example desired result was [1, 0, 0, 0, 0, 0, 0, 0, 0, 0] and network outputs [0.24, 0.542, 0.121, 0.32, 0.56, 0.67, 0.213, 0.45, 0.312, 0.98] which in this case is 9 (highest value). So, now network tells its previous layer (also known as `backward pass`), hidden layer hey look you gave me wrong answer 9, see here the right answer was 0 which is called as `loss`. Make necessary changes with help of chain rule to your weights so that when next time you see 0, you will improve the prediction in such a way that output will be also 0.
+<span class='red'>I-know-everything:</span> That means, our network is stupid (for now). But it learns, it learns from its mistakes. The process by which it learns is backpropogation. So, in <span class='saddlebrown'>jar jar backpropogation</span>, in our example desired result was [1, 0, 0, 0, 0, 0, 0, 0, 0, 0] and network outputs [0.24, 0.542, 0.121, 0.32, 0.56, 0.67, 0.213, 0.45, 0.312, 0.98] which in this case is 9 (highest value). So, now network tells its previous layer (also known as <span class='yellow'>backward pass</span>), hidden layer hey look you gave me wrong answer 9, see here the right answer was 0 which is called as <span class='orange'>loss</span>. Make necessary changes with help of chain rule to your weights so that when next time you see 0, you will improve the prediction in such a way that output will be also 0.
 
-<span class='green'>I-know-nothing:</span> Does repeating these telling the correct results and correcting the wrong results is what <span class='dark-gray'>Force of Neural Networks</span> all about?
+<span class='green'>I-know-nothing:</span> Does repeating these telling the correct results and correcting the wrong results is what <span class='purple'>Force of Neural Networks</span> all about?
 
-<span class='red'>I-know-everything:</span> Well, if you put it that way, you are sucking all the fun out of magic. But yes, this is what is called `supervised learning`, where network is supervised to show it direction so that it does not get lost in the woods ([Out of Woods](https://www.youtube.com/watch?v=JLf9q36UsBk)).
+<span class='red'>I-know-everything:</span> Well, if you put it that way, you are sucking all the fun out of magic. But yes, this is what is called <span class='orange'>supervised learning</span>, where network is supervised to show it direction so that it does not get lost in the woods ([Out of Woods](https://www.youtube.com/watch?v=JLf9q36UsBk)).
 
 <span class='green'>I-know-nothing:</span> This is all intutive understanding with some jargon words. What about real equations? I mean, everywhere I see there are equations. Where are they?
 
@@ -1324,7 +1324,7 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across `overfitting` and `underfiting`. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='light-pink'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures, different datasets like cifar, cats-and-dogs,etc and keep researching and head onto [Further Reading](#further-reading) section.
+<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across <span class='orange'>overfitting</span> and <span class='yellow'>underfiting</span>. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='purple'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures, different datasets like cifar, cats-and-dogs, etc and keep researching and head onto [Further Reading](#further-reading) section.
 
 Happy Learning!
 
