@@ -109,7 +109,7 @@ We usually define
  - Dev (development) or val (validation) set - which you use to tune parameters, select features, and make other decisions regarding learning algorithms or model. Sometimes also called out as hold-out cross validation set 
  - Test set - which you use to evaluate the performance of algorithm, but not to make any decisions regarding what the model or learning algorithm or parameters to use.
  
-The `dev` and `test` set allow us to quickly see how well our model is doing.
+The <span class='orange'>dev</span> and <span class='yellow'>test</span> set allow us to quickly see how well our model is doing.
  
 ### Cat Classifier 
  
@@ -127,7 +127,7 @@ Since training/test sets were made of website images, our algorithm did not gene
 Before the modern era of big data, it was a common rule in machine learning to use a random 70% / 30% split to form  training and test sets. This practice can work, but it’s a bad idea in more and more applications where the training distribution (website images in our example above) is different from the distribution you ultimately care about (mobile
 phone images).
 
-**Lesson: Choose dev and test sets to reflect data you expect to get in the future and want to do well on. **
+**Lesson: Choose dev and test sets to reflect data you expect to get in the future and want to do well on.**
 
 
 
