@@ -30,7 +30,7 @@ Feel free to jump anywhere,
   - [Strides](#strides)
   - [Padding](#padding)
   - [Pooling](#pooling)
-  - [Story](#story)
+  - [Story of CNN](#story)
 - [Keras](#keras)
   - [Functional API](#keras-functional-api)
   - [Sequential API](#keras-sequential-api)
@@ -1585,7 +1585,7 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the `Power of Transfer Learning` and `Power to Visualize CNN`. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as **“don’t be a hero”**: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googlion to train powerful CNNs, we can do it on our planet too!
+<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the <span color='purple'>Power of Transfer Learning</span> and <span color='purple'>Power to Visualize CNN</span>. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as **“don’t be a hero”**: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googlion to train powerful CNNs, we can do it on our planet too!
 
 <span class='green'>I-know-nothing:</span> Thank you Master.
 
@@ -1594,11 +1594,19 @@ Happy Learning!
 ### Note: Caveats on terminology
 
 Googlion - Google
+
 Force of CNN - CNN
+
 Power of Transfer Learning - Transfer Learning
+
 neuron - unit
+
+Power of Visualize CNN - Visualize CNN
+
 non-linearity - activity function
+
 (linear transform + non-linearity) - layer
+
 ConvNets - Convolution Neural Networks
 
 
