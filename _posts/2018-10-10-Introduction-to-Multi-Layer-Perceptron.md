@@ -1366,6 +1366,8 @@ Adam Geitgey's Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/ma
 
 [The Unreasonable Reputation of Neural Networks](http://thinkingmachines.mit.edu/blog/unreasonable-reputation-neural-networks)
 
+[Back-propagation - Math Simplified](https://github.com/DebPanigrahi/Machine-Learning/blob/master/back_prop.ipynb)
+
 ---
 
 # Footnotes and Credits 
