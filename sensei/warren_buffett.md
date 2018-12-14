@@ -21,6 +21,8 @@ Rule of Investing: You want to be greedy when others are fearful and fearful whe
 
 Newspaper Action: How will the managers(taking decisions) feel about any action if they knew it was to be written up the next day in their local paper read by the family, neighbours, friends written by a smart but unfriendly kind of reporter? If it passes that test, it's okay. If anything is close to line, it's out.
 
+<span class='purple'>I could improve your ultimate financial welfare by giving you a ticket with only twenty slots in it so that you had twenty punches — representing all the investments that you got to make in a lifetime. And once you’d punched through the card, you couldn’t make any more investments at all. Under those rules, you’d really think carefully about what you did, and you’d be forced to load up on what you’d really thought about. So you’d do so much better.</span>
+
 My dad taught me an important lesson to see <span class='red'>what is in your inner scorecard that your outer scorecard.</span>
 
 <span class='red'>I have got a terrific partner named Charlie and you cannot find anybody any smarter, any better quality or anything.</span>
