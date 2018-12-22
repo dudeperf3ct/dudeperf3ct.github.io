@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Introduction to Multi-Layer Perceptron
+title:      Force of Multi-Layer Perceptron
 date:       2018-10-10 12:00:00
 summary:    This post will provide an hands-on-tutorial and brief introduction to MLP using MNSIT dataset and Keras and PyTorch frameworks.
 categories: nn mlp keras pytorch mnist
@@ -23,6 +23,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 - [Introduction to MLP](#introduction-to-mlp)
+- [Recap](#recap)
 - [Keras](#keras)
   - [Functional API](#keras-functional-api)
   - [Sequential API](#keras-sequential-api)
@@ -367,6 +368,17 @@ And this is behind the scenes (BTS) of how a <span class='purple'>Force of Neura
 <span class='green'>I-know-nothing:</span> Thank you Master, I follow.
 
 <span class='red'>I-know-everything:</span> Now you are in for a treat. As you have learn about what different terms and functions are used to train a neural network. We will dive-in implementation using <span class='yellow'>Keras saber</span>. Here backpropogation is already implemented i.e. you only need to design forward pass and loss(or error) function, the framework does the heavy lifting to calculate backward pass. 
+
+### Recap
+
+- We looked into what is MLP
+- What are different layers in MLP
+- What is forward propogation and backward propogation(pass)
+- What is meant by training a neural network or in this case MLP
+- How does neural network learn to classify images
+- Different types of activation functions and role of non-linear functions like ReLu, Sigmoid, etc
+- Different types of optimization algorithms required to train NN and need for optimizers
+
 
 # Keras
 
@@ -1324,7 +1336,7 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an MLP. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across <span class='orange'>overfitting</span> and <span class='yellow'>underfiting</span>. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='purple'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures, different datasets like cifar, cats-and-dogs, etc and keep researching and head onto [Further Reading](#further-reading) section.
+<span class='red'>I-know-everything:</span> Young Padwan, now you possess the <span class='purple'>Force of MLP</span>. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across <span class='orange'>overfitting</span> and <span class='yellow'>underfiting</span>. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='purple'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures, different datasets like cifar, cats-and-dogs, etc and keep researching and head onto [Further Reading](#further-reading) section.
 
 Happy Learning!
 
