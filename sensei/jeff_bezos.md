@@ -3,10 +3,10 @@ layout: page
 title: Jeff Bezos
 permalink: /sensei/jeff-bezos/
 tags: jeff bezos
-published: false
+published: true
 ---
 <p align='center'>
- <img src="/images/charlie.jpg" alt="Charlie Munger" />
+ <img src="/images/senseis/jeff.jpg" alt="Jeff Bezos" width="70%"/>
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. <span class='red'>Happy Learning!</span>
@@ -15,7 +15,7 @@ published: false
 Bezoism
 ===========================
 
-I live my life in such a way that when in quiet moment of reflection thinking back in my life, I have as few regrets as possible. 
+<span class='purple'>I live my life in such a way that when in quiet moment of reflection thinking back in my life, I have as few regrets as possible.</span> 
 
 I believe in power of wandering. All of my best decisions in business and in life have been made with heart, intuition, guts, not analysis.
 
@@ -29,7 +29,7 @@ The great things about we humans in general is, we are always improving things. 
 
 I see the companies, even the young small startups companies, entrepreneurs go awry as they start to pay attention to their competition than they do to their customers.
 
-When you think of all things you regert when you are 80, it's always the things that you did not do. They are acts of omission.
+<span class='green'>When you think of all things you regert when you are 80, it's always the things that you did not do. They are acts of omission.</span>
 
 I think that if you stay focused and the more drama there is and everything else, no matter what the drama is, whatever the external distraction is, what your response to it should be to double down on the customers not just satisfying them but delighting them.
 
@@ -42,7 +42,7 @@ There's second kind of critic which is self-interested critic, they come in all 
 
 The work lige balance has a strict trade-off, if I am happy at home, I come into the office with tremendous energy and if I am happy at work, I come home with tremendous energy. And so, it actually is a circle, it is not a balance. And I think that is worth everybody paying attention to. This work life harmony is what I try to teach young employees and senior executives at Amazon.
 
-For 21 years whenever we have an all-hands meeting at Amazon I say, "Look, when stock is up 30% in month, don't feel 30% smarter. Because when stock is down 30% in a month, it's not going to feel so good to be 30% dumber". I Never spent any time thinking about daily stock price.
+<span class='red'>For 21 years whenever we have an all-hands meeting at Amazon I say, "Look, when stock is up 30% in month, don't feel 30% smarter. Because when stock is down 30% in a month, it's not going to feel so good to be 30% dumber". I never spent any time thinking about daily stock price.</span>
 
 
 Quotes
