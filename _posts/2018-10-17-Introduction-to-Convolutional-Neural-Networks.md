@@ -14,7 +14,7 @@ In this notebook, we will go through basics of CNN using MNIST dataset. We will 
 
 All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/CNN/mnist_cnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/CNN/mnist_cnn_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/CNN/mnist_cnn_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/CNN/mnist_cnn_fastai.ipynb).  
 
-*All codes are replicated and can be run on Google Colab (link provided in notebook).*
+*All codes can be replicated and run on Google Colab (link provided in notebook).*
 
 Hey yo, but what is CNN?
 
@@ -157,13 +157,20 @@ for x in range(width):
 
 Suppose your training, dev and test sets all come from the same distribution. Then you should always try to get more training data, since that can only improve performance, right? 
 
+<p align="center">
+<img src='/images/mnist_cnn_files/machine_learning.png' />
+</p>  
+
 Even though having more data can’t hurt, unfortunately it doesn’t always help.
 
 Before understanding overfitting and underfitting, let's dive into <span class='orange'>bias</span> and <span color='yellow'>variance<span class='orange'>. There are two major sources of error in machine learning: bias and variance. Understanding them will help you decide whether adding data, as well as other tactics to improve performance, are a good use of time. 
 
 
-
 ## Cat Classifier
+
+<p align="center">
+<img src='/images/mnist_cnn_files/cat_meme.png' />
+</p>  
 
 Back to cats, suppose we want to build a cat classifier that has 5% error rate. Training error is at 15% and dev set error is at 16%. In this case, adding more data will make training harder for algorithm to do well on training set.
 
@@ -353,7 +360,7 @@ So, now we have full understanding about what convolution filters are in ConvNet
 
 <span class='green'>I-know-nothing:</span> Master, does ConvNet consists only of convolution filters?
 
-<span class='red'>I-know-everything:</span> Excellent, this is where I was headed next. So, ConvNets architecture  consists of following distinct layers --> [INPUT - CONV - RELU - POOL - FC].
+<span class='red'>I-know-everything:</span> Excellent, this is where I was headed next. So, ConvNets architecture  consists of following distinct layers -> **[INPUT - CONV - RELU - POOL - FC]**.
 
 We have seen INPUT, CONV, RELU and FC layer in this and previous post. We will look into POOL layer.
 
@@ -373,12 +380,12 @@ Now, you have full understanding of different layers used in ConvNet and their d
 <span class='green'>I-know-nothing:</span> Master, ConvNets consists of applying [CONV - RELU - POOL] operation repeatedly, when are using FC layer?
 
 <span class='red'>I-know-everything:</span> Absolutely, the most common ConvNet architecture follows the pattern:
- INPUT -> [[CONV -> RELU]*N -> POOL?]*M -> [FC -> RELU]*K -> FC, where the * indicates repetition, and the POOL? indicates an optional pooling layer. 
+ **INPUT -> [[CONV -> RELU]*N -> POOL?]*M -> [FC -> RELU]*K -> FC** , where the * indicates repetition, and the POOL? indicates an optional pooling layer. 
 
 This can be illustrated in the example below.
 
 <p align="center">
-<img src='/images/mnist_cnn_files/tesla_cnn.png' />
+<img src='/images/mnist_cnn_files/tesla_cnn.png' width='70%'/>
 </p>  
 
 
@@ -411,7 +418,7 @@ In 2006, again Hinton's [paper](http://www.cs.toronto.edu/~hinton/absps/cbpweb.p
 In 2012, [seminal paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) by Alex Krizhevsky and Ilya Sutskever with Geoffrey Hinton (again) proposed AlexNet architecture which was used to classify 1000 categories and 1.2 million images in a competition organized by Stanford AI group, called [seminal competition](http://www.image-net.org/) ImageNet with efforts from Fe-Fe-Li, many graduate students and Mechanical Turk. AlexNet contained eight layers; the first five were convolutional layers, some of them followed by max-pooling layers, and the last three were fully connected layers. It used the non-saturating ReLU activation function, which showed improved training performance over tanh and sigmoid. The network achieved a top-5 error of 15.3%, more than 10.8% points lower than that of the runner up. In 2012, AlexNet significantly outperformed all the prior competitors and won the challenge by reducing the top-5 error from 26% to 15.3%.  Suddenly people started to pay attention, not just within the AI community but across the technology industry as a whole. This result change course of community, and this competition and result sky-rocketed in very cool architectures eventually surpassing human performance at classifying 1.2 million images into 1000 categories.
 
 <p align="center">
-<img src='/images/mnist_cnn_files/imagenet.png' />
+<img src='/images/mnist_cnn_files/imagenet.png' width='70%'/>
 </p>  
 
 
@@ -519,7 +526,7 @@ Total Parameters = 1199558 ~= 1.2M parameters (without biases)
 - Typical architecture of ConvNets
 - Background story related to field of deep learning
 - Different amazing architectures that took part in Imagenet competition
-- How to calculate number of parameters and size of model
+- How to calculate number of parameters and size of model in CNN
 
 ---
 
@@ -1646,7 +1653,7 @@ ConvNets - Convolution Neural Networks
 
 [Chris Olah's blog Understanding Convolutions](colah.github.io/posts/2014-07-Understanding-Convolutions/)
 
-[Conv Nets: A Modular Perspective](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
+[ConvNets: A Modular Perspective](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
 
 [Yearning book by Andrew Ng](http://www.mlyearning.org/) Chapters 20 to 24 
 
@@ -1658,6 +1665,11 @@ Backprop in CNN [here](https://becominghuman.ai/back-propagation-in-convolutiona
 
 [A Comprehensive Survey on Deep Learning Approaches](https://arxiv.org/pdf/1803.01164.pdf)
 
+[Batch Normalization](https://arxiv.org/pdf/1502.03167.pdf)
+
+[How Batch Normalization Helps?](https://arxiv.org/abs/1805.11604)
+
+[Dropout](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf)
 
 ---
 
@@ -1670,6 +1682,8 @@ Backprop in CNN [here](https://becominghuman.ai/back-propagation-in-convolutiona
 [Taj Mahal and all matrix and transformed image](https://docs.gimp.org/2.8/en/plug-in-convmatrix.html)
 
 [Convolution 3d and Maxpool](https://mc.ai/deeplearning-overview-of-convolution-neural-network/)
+
+[XKCD Comic](https://xkcd.com/1838/)
 
 [Flatten Layer](https://towardsdatascience.com/convolutional-neural-networks-from-the-ground-up-c67bb41454e1)
 
