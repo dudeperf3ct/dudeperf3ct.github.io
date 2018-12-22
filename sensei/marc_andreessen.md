@@ -19,7 +19,7 @@ Hollywood is very unlike the Valley. Probably the biggest difference is in the v
 
 The way modern venture captial firms work is kind of strange and interesting. So, we inbound 2000 pitches per year from qualified referred entrepreneurs. So, lot of it about meeting and trying to survive the tsunami.
 
-<span class='red'>I have a little simulation of Peter Thiel…He lives on my shoulder right here. I argue with him all day long.</span>
+<span class='red'>I have a little simulation of Peter Thiel. He lives on my shoulder right here. I argue with him all day long.</span>
 
 You want to kind of construct a model of how they think and be able to be very objective and fair — where you can think things through from their standpoint. Then you have your own view on things. Then you try to run through in your head what you know of them and say, OK, here are the conclusions that they would reach. If you put enough time into that, you start to be able to have these conversations with yourself. People might look at you funny while it’s happening, but you get to engage in this dialogue.
 
