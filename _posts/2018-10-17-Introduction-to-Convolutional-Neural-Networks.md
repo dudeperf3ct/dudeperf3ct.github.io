@@ -3,7 +3,7 @@ layout:     post
 title:      Introduction to Convolutional Neural Networks
 date:       2018-10-17 12:00:00
 summary:    This post will provide an hands-on-tutorial and brief introduction to CNN using MNSIT dataset and Keras and PyTorch frameworks.
-categories: nn cnn keras pytorch mnist
+categories: cnn mnist
 published : false
 ---
 
@@ -12,7 +12,9 @@ published : false
 
 In this notebook, we will go through basics of CNN using MNIST dataset. We will implement this using two popular deep learning frameworks <span class='yellow'>Keras</span> and <span class='orange'>PyTorch</span>. 
 
-All the codes implemented in Jupyter notebook in Keras, PyTorch, Tensorflow and fastai. Also contains link to run Google Colab in notebook.
+All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/CNN/mnist_cnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/CNN/mnist_cnn_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/CNN/mnist_cnn_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/CNN/mnist_cnn_fastai.ipynb).  
+
+*All codes are replicated and can be run on Google Colab (link provided in notebook).*
 
 Hey yo, but what is CNN?
 
@@ -31,6 +33,7 @@ Feel free to jump anywhere,
   - [Padding](#padding)
   - [Pooling](#pooling)
   - [Story of CNN](#story)
+- [Recap](#recap)
 - [Keras](#keras)
   - [Functional API](#keras-functional-api)
   - [Sequential API](#keras-sequential-api)
@@ -370,7 +373,14 @@ Now, you have full understanding of different layers used in ConvNet and their d
 <span class='green'>I-know-nothing:</span> Master, ConvNets consists of applying [CONV - RELU - POOL] operation repeatedly, when are using FC layer?
 
 <span class='red'>I-know-everything:</span> Absolutely, the most common ConvNet architecture follows the pattern:
- INPUT -> [[CONV -> RELU]*N -> POOL?]*M -> [FC -> RELU]*K -> FC, where the * indicates repetition, and the POOL? indicates an optional pooling layer.
+ INPUT -> [[CONV -> RELU]*N -> POOL?]*M -> [FC -> RELU]*K -> FC, where the * indicates repetition, and the POOL? indicates an optional pooling layer. 
+
+This can be illustrated in the example below.
+
+<p align="center">
+<img src='/images/mnist_cnn_files/tesla_cnn.png' />
+</p>  
+
 
 Deep ConvNet consists of repetition of [CONV - RELU - POOL] layers and once sufficient depth is introduced, then we flatten the output of above and connect it with fully connected layer.
 
@@ -399,6 +409,11 @@ In the year 1994, one of the very first convolutional neural networks, and what 
 In 2006, again Hinton's [paper](http://www.cs.toronto.edu/~hinton/absps/cbpweb.pdf), reinvigorated research in deep learning and used Restricted Boltzmann machines(RBM) and showed how model trained using backpropogation from scratch. In 2010s [paper](http://www.cs.toronto.edu/~gdahl/papers/DRAFT_DBN4LVCSR-TransASLP.pdf), there were really big results were neural network really worked very well than Kernels, SVMs and so on. specifically in the area of speech recognition, the neural network gave them huge improvement when swapped with HMM (Hidden Markov Models) and GMMs (Gaussian Mixture Models). This was the first time neural networks gave a large improvement indicating that neural networks work.
 
 In 2012, [seminal paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) by Alex Krizhevsky and Ilya Sutskever with Geoffrey Hinton (again) proposed AlexNet architecture which was used to classify 1000 categories and 1.2 million images in a competition organized by Stanford AI group, called [seminal competition](http://www.image-net.org/) ImageNet with efforts from Fe-Fe-Li, many graduate students and Mechanical Turk. AlexNet contained eight layers; the first five were convolutional layers, some of them followed by max-pooling layers, and the last three were fully connected layers. It used the non-saturating ReLU activation function, which showed improved training performance over tanh and sigmoid. The network achieved a top-5 error of 15.3%, more than 10.8% points lower than that of the runner up. In 2012, AlexNet significantly outperformed all the prior competitors and won the challenge by reducing the top-5 error from 26% to 15.3%.  Suddenly people started to pay attention, not just within the AI community but across the technology industry as a whole. This result change course of community, and this competition and result sky-rocketed in very cool architectures eventually surpassing human performance at classifying 1.2 million images into 1000 categories.
+
+<p align="center">
+<img src='/images/mnist_cnn_files/imagenet.png' />
+</p>  
+
 
 Read more about both paper and competition: [here](https://qz.com/1307091/the-inside-story-of-how-ai-got-good-enough-to-dominate-silicon-valley/) and [here](https://qz.com/1034972/the-data-that-changed-the-direction-of-ai-research-and-possibly-the-world/).
 
@@ -495,7 +510,18 @@ Total Memory ~= 87K * 4 bytes ~= 0.3MB / image (only forward ~ *2 backward pass)
 
 Total Parameters = 1199558 ~= 1.2M parameters (without biases)
 
+## Recap
 
+- We looked into what is CNN and what are convolution operators and different operators
+- How convolution operator performs on 3d image and its output
+- What are kernels, padding and strides in convolution filters
+- Different layers in ConvNet i.e. ReLu, Pool (Maxpooling, AveragePooling), FC (fully connected or dense layers)
+- Typical architecture of ConvNets
+- Background story related to field of deep learning
+- Different amazing architectures that took part in Imagenet competition
+- How to calculate number of parameters and size of model
+
+---
 
 # Keras
 
