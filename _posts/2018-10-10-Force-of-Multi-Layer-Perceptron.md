@@ -20,7 +20,7 @@ Hey yo, but what is MLP? what is MNIST?
 Well sit tight and buckle up. I will go through everything in-detail.
 
 <p align="center">
-<img src='/images/mnist_mlp_files/star_wars_hyperspace.gif' />
+<img src='/images/mnist_mlp_files/neural-networks-neural.jpg' />
 </p>  
 
 Feel free to jump anywhere,
@@ -235,6 +235,11 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 
 <span class='red'>I-know-everything:</span> They are bit scary but if you insist I will write them for you.
 
+<p align="center">
+<img src='/images/mnist_mlp_files/brace_yourself.jpg' />
+</p> 
+
+
 $$
 \mathbf{x} : \textrm{Input layer with 784 values} (\mathbf{x_1}, \mathbf{x_2},..., \mathbf{x_{784}}) \\
 \mathbf{w\rm\normalsize i} : \textrm {Weights of hidden layer with 16 values} (\mathbf{w\rm\normalsize i_1}, \mathbf{w\rm\normalsize i_2},....., \mathbf{w\rm\normalsize i_{16}})\\ 
@@ -381,6 +386,7 @@ And this is behind the scenes (BTS) of how a <span class='purple'>Force of Neura
 - Different types of activation functions and role of non-linear functions like ReLu, Sigmoid, etc
 - Different types of optimization algorithms required to train NN and need for optimizers
 
+---
 
 # Keras
 
@@ -1385,8 +1391,6 @@ Adam Geitgey's Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/ma
 ---
 
 # Footnotes and Credits 
-
-[Hyperspace gif](https://giphy.com/gifs/star-wars-the-force-awakens-ANFmpd8R0SD0Q)
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
