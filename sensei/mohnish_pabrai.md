@@ -6,7 +6,7 @@ tags: mohnish pabrai
 published: true
 ---
 <p align='center'>
- <img src="/images/senseis/mohnish.jpg" alt="Mohnish Pabrai" />
+ <img src="/images/senseis/mohnish.jpg" alt="Mohnish Pabrai" width="70%"/>
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often.
