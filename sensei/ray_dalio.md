@@ -6,7 +6,7 @@ tags: ray dalio
 published: true
 ---
 <p align='center'>
- <img src="/images/senseis/ray.jpeg" alt="Ray Dalio" />
+ <img src="/images/senseis/ray.jpeg" alt="Ray Dalio" width="70%" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often.
