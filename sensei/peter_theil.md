@@ -3,10 +3,10 @@ layout: page
 title: Peter Thiel
 permalink: /sensei/peter-theil/
 tags: peter thiel
-published: false
+published: true
 ---
 <p align='center'>
- <img src="/images/charlie.jpg" alt="Charlie Munger" />
+ <img src="/images/senseis/peter_theil.jpg" alt="Peter Theil" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. There is lesson in everything. <span class='red'>Happy Learning!</span>
@@ -29,6 +29,9 @@ Everyone's aware, everyone is constantly taling about how much how risky things 
 Quotes
 ===========================
 
+Creating value isn't enough - you also need to capture some of the value you create.
+
+Education is a bubble in a classic sense. To call something a bubble, it must be overpriced, and there must be an intense belief in it. 
 
 
 
