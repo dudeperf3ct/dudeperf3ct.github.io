@@ -27,7 +27,7 @@ Here is my version.
 
 (_Suddenly a voice alarms_) Hello Cypher, I am noticing an unusual spike in your heart rate. Cypher wakes up startled by the voice walks to the mirror. Sensing his motion a guiding light directs Cypher to the mirror. Stepping in front of mirror full body check-up, he commands. The voice immediately responds the artificial heart has run its course boss, it's time to replace. Cypher removes his artificial heart replaces it with the new. Mirror screen shows time until next replacement ~ 50 years, a detailed report of all functioning organs, potential diseases likely to occur, those prevented and precautions being taken by molecular "_smart bombs_" circulating inside the body, nanoparticles, the size of molecules, that seek out cancer cells and destroy them years before they become a problem. All data glowing in front of him. All his veins, arteries, entire body, everything scanned and mapped in an explorable holographic model to examine from any angle.
 
-Finding a relief, Cypher walking downstairs towards kitchen tells Friday (his personal intelligent and conscious assistant) to prepare the breakfast. The usual he says but Friday has prepared something special. Cypher questioned from finding his "Macallan 65" drink enquiries Friday what's the special occasion? 
+Finding a relief, Cypher walking downstairs towards kitchen tells Friday (his personal intelligent and conscious assistant) to prepare the breakfast. The usual he says but Friday has prepared something special. Cypher questioned from finding his celebratory "*Macallan 65*" drink enquiries Friday, what's the special occasion? 
 
 Friday……….  Image Source: Marvel Wiki
 
