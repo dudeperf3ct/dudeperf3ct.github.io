@@ -6,7 +6,7 @@ tags: howard marks
 published: true
 ---
 <p align='center'>
- <img src="/images/howard.jpg" alt="Howard Marks" />
+ <img src="/images/senseis/howard.jpg" alt="Howard Marks" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often.
