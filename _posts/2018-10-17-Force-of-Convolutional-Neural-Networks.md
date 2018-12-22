@@ -169,7 +169,7 @@ Before understanding overfitting and underfitting, let's dive into <span class='
 ## Cat Classifier
 
 <p align="center">
-<img src='/images/mnist_cnn_files/cat_meme.png' />
+<img src='/images/mnist_cnn_files/cat_meme.jpg' />
 </p>  
 
 Back to cats, suppose we want to build a cat classifier that has 5% error rate. Training error is at 15% and dev set error is at 16%. In this case, adding more data will make training harder for algorithm to do well on training set.
