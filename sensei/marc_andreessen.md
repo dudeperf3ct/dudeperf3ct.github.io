@@ -3,10 +3,10 @@ layout: page
 title: Marc Andreessen
 permalink: /sensei/marc-andreessen/
 tags: marc andreessen
-published: false
+published: true
 ---
 <p align='center'>
- <img src="/images/charlie.jpg" alt="Charlie Munger" />
+ <img src="/images/marc.jpg" alt="Marc Andreessen" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. There is lesson in everything. <span class='red'>Happy Learning!</span>
