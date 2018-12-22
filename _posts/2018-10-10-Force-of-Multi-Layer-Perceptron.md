@@ -11,7 +11,7 @@ published : false
 
 In this post, we will go through basics of MLP using MNIST dataset. We will implement this using two popular deep learning frameworks <span class='yellow'>Keras</span> and <span class='orange'>PyTorch</span>.
 
-All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/MLP/mnist_mlp_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/MLP/mnist_mlp_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/MLP/mnist_mlp_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/MLP/mnist_mlp_fastai.ipynb).  
+All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_fastai.ipynb).  
 
 *All codes are replicated and can be run on Google Colab (link provided in notebook).*
 
