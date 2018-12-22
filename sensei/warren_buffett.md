@@ -6,7 +6,7 @@ tags: warren buffett
 published: true
 ---
 <p align='center'>
- <img src="/images/warren.jpg" alt="Warren Buffett" />
+ <img src="/images/senseis/warren.jpg" alt="Warren Buffett" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. This is going to be a very long long collection full with wisdom. <span class='red'>Happy Learning!</span> 
