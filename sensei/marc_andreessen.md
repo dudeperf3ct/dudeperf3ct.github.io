@@ -19,11 +19,11 @@ Hollywood is very unlike the Valley. Probably the biggest difference is in the v
 
 The way modern venture captial firms work is kind of strange and interesting. So, we inbound 2000 pitches per year from qualified referred entrepreneurs. So, lot of it about meeting and trying to survive the tsunami.
 
-I have a little simulation of Peter Thiel…He lives on my shoulder right here. I argue with him all day long.
+<span class='red'>I have a little simulation of Peter Thiel…He lives on my shoulder right here. I argue with him all day long.</span>
 
 You want to kind of construct a model of how they think and be able to be very objective and fair — where you can think things through from their standpoint. Then you have your own view on things. Then you try to run through in your head what you know of them and say, OK, here are the conclusions that they would reach. If you put enough time into that, you start to be able to have these conversations with yourself. People might look at you funny while it’s happening, but you get to engage in this dialogue.
 
-The three people in valley who I do that most often in Peter Thiel, Elon Musk and Larry Page. They are the most audacious people who have worked in Silicon Valley
+<span class='purple'>The three people in valley who I do that most often in Peter Thiel, Elon Musk and Larry Page. They are the most audacious people who have worked in Silicon Valley.</span>
 
 Venture captial is a funny business. There are two mistakes you can make in venture capital. The first one is mistake by commission where I make a decision, I invest in a company and I lose all my money. It's the mistake most of people make and think about. The second is the mistake of omission which is Mark Zuckeberg walks in door at venture captial firm XYZ in 2004, this idea is ridiculous, friendster proved it couldn't work, so he was told by a lot of people. In venture capital business, every highly successful VC has made mistakes of omission, really big ones, of companies that they had the chance to invest in, they should’ve invested in, they didn’t invest in.
 
