@@ -13,15 +13,21 @@ published: false
 
 >"If it takes 200 years to achieve artificial intelligence and then finally there's a textbook that explains how it's done, the hardest part of that textbook to write will be the part that explains why people didn't think of it 200 years ago." ~John McCarthy
 
-Futuristic enough? Image Source: Deviantart
+<p align="center">
+<img src='/images/story/cyberpunk_4.jpg' />
+<p align="center">Futuristic enough? Image Source: <a href="https://www.deviantart.com/jedgraph/art/Jupiter-colony-321556321">Deviantart</a></p>
+</p>  
 
-The topic of essay "Envision the year 2118: What will become reality that is not possible today?" was part of Mindfire Mission-2 application.
+
+The topic of essay "Envision the year 2118: What will become reality that is not possible today?" was part of [Mindfire Mission-2](http://www.mindfire.global/) application.
+
 The word count of the essay is limited to 1000.
+
 Here is my version.
 
 ---
 
-*This is a video excerpt of a typical day from a journal of individual named "Cypher" passed on to me by a gentleman named John Titor. This story is narrated by me by going through all his notes and the journey of his life as described in the diary. I have chosen this particular date to narrate his story.*
+*This is a video excerpt of a typical day from a journal of individual named "Cypher" passed on to me by a gentleman named [John Titor](http://johntitor.com/Pages/Story.html). This story is narrated by me by going through all his notes and the journey of his life as described in the diary. I have chosen this particular date to narrate his story.*
 
 **September 30th, 2188 (Enceladus, a moon of the Saturn)**
 
@@ -29,7 +35,10 @@ Here is my version.
 
 Finding a relief, Cypher walking downstairs towards kitchen tells Friday (his personal intelligent and conscious assistant) to prepare the breakfast. The usual he says but Friday has prepared something special. Cypher questioned from finding his celebratory "*Macallan 65*" drink enquiries Friday, what's the special occasion? 
 
-Friday……….  Image Source: Marvel Wiki
+<p align="center">
+<img src='/images/story/friday.jpeg' />
+<p align="center">Friday......? Image Source: <a href="http://marvel.wikia.com/wiki/File:Friday_%28Earth-616%29_from_Invincible_Iron_Man_Vol_3_1_001.jpg">Marvel Wiki</a></p>
+</p>  
 
 Friday replies, "_Happy 124th Birthday, Boss_". Cypher realizes he forgot about it amid all the chaos caused early in the morning, looks at his ageless body wondering what it was like 100 years ago, how far we have come and laughs at the imaginary (but realistic) looking holographic image of Friday sitting in front of him. Friday interrupts with a breaking news, "Boss, the first colony has been established on 'Proxima Cen b'. That's a terrific achievement! The most important after having reverse engineered the brain completely", and continues, I have thanked all the wishes and sent each of them a copy of your favourite novel "Hitchhiker's guide to the galaxy" and here is your schedule for today. Rejoicing about the achievement, Cypher thinks about the checklist he has, "_Types of Civilization by Michio Kaku_" , Type II down, next is Type III (controls the power of an entire galaxy), thinking we really have come a long way!
 
