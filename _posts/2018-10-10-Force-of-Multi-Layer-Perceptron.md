@@ -213,15 +213,15 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 
 <span class='green'>I-know-nothing:</span> Master, how can I create such a intelligent machine to recognize and label given images?
 
-<span class='red'>I-know-everything:</span> Young Padwan, we will use the <span class='purple'> Force of Neural Networks</span> inspired from our brain. Here, let me take you on a journey of one example for example 0. We have 784 pixel values in range  [0-1] describing what zero looks like (pixels bright in the center in shape of 0 and dark like the dark side elsewhere). 0 passes through the network like the one shown below and return 10 values which will help in classfying the image is 0 or 1 or 2 and so on. 
+<span class='red'>I-know-everything:</span> Young Padwan, we will use the <span class='purple'> Force of Neural Networks</span> inspired from our brain. Here, let me take you on a journey of one example for example 0. We have 784 pixel values in range  [0-1] describing what zero looks like (pixels bright in the center in shape of 0 and dark like the dark side elsewhere). Have a look at 0 example above. 0 passes through the network like the one shown below and return 10 values which will help in classfying the image is 0 or 1 or 2 and so on. 
 
-<span class='green'>I-know-nothing:</span> How will the number decide which image is what label?
+<span class='green'>I-know-nothing:</span> How will the network decide which image is what label?
 
-<span class='red'>I-know-everything:</span> If the image passed is 0 (also known as <span class='orange'>forward pass</span>), the network will output array [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]. The first place 1 indicates the image passed is 0.
+<span class='red'>I-know-everything:</span> If the image passed is 0 (also known as <span class='orange'>forward pass</span>), the network will output array [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]. The first place 1 indicates the image passed is 0, hence label 0.
 
 <span class='green'>I-know-nothing:</span> How does the network learn such a magic trick?
 
-<span class='red'>I-know-everything:</span> Young Padwan, you are learning to ask right questions. I will give 2 explainations so listen closely. First let me give you an intuitive explaination. The neural networks train themselves  repetitively on data so that they can adjust the weights in each layer of the network to get the final result closer to given label. Now the second explaination in jargon words, as shown in the network we have input layer, hidden layer and output layer. Okay? So, input layer has 784 nodes (neurons) i.e. it accepts 784 values which is exactly our example 0 has. Next node is hidden layer which contains 16 neuron and what are its values? They are randomly initialized. Next is the output layer which has 10 nodes. These are the values which our network gives us after performing special operations which we will then compare to our desired label which is zero in this case.
+<span class='red'>I-know-everything:</span> Young Padwan, you are learning to ask right questions. I will give 2 explainations so listen closely. First let me give you an intuitive explaination. The neural networks train themselves  repetitively on data so that they can adjust the weights in each layer of the network to get the final result closer to given label by minimizing loss function. Now the second explaination in jargon words, as shown in the network we have input layer, hidden layer and output layer. Okay? So, input layer has 784 nodes (neurons) i.e. it accepts 784 values which is exactly what our example 0 has. Next node is hidden layer which contains 16 neuron and what are its values? They are randomly initialized. This random intialization also plays a critical role, we can't just set all values to 0 or very high values as they can get us into trouble like vanishing gradient or exploding gradients. We will explore this term more in our LSTM post. There are many initialization techniques like [He initialization](https://arxiv.org/abs/1502.01852), [Xavier initialization](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf), etc. Next is the output layer which has 10 nodes. These are the values which our network gives us after performing special operations which then we will compare to our desired label which is zero in this case. 
 
 <p align="center">
 <img src='/images/mnist_mlp_files/mnist_network.png' />
@@ -229,9 +229,13 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 
 <span class='green'>I-know-nothing:</span> What if network outputs does not match our desired result?
 
-<span class='red'>I-know-everything:</span> That means, our network is stupid (for now). But it learns, it learns from its mistakes. The process by which it learns is backpropogation. So, in <span class='saddlebrown'>jar jar backpropogation</span>, in our example desired result was [1, 0, 0, 0, 0, 0, 0, 0, 0, 0] and network outputs [0.24, 0.542, 0.121, 0.32, 0.56, 0.67, 0.213, 0.45, 0.312, 0.98] which in this case is 9 (highest value). So, now network tells its previous layer (also known as <span class='yellow'>backward pass</span>), hidden layer hey look you gave me wrong answer 9, see here the right answer was 0 which is called as <span class='orange'>loss</span>. Make necessary changes with help of chain rule to your weights so that when next time you see 0, you will improve the prediction in such a way that output will be also 0.
+<span class='red'>I-know-everything:</span> That means, our network is stupid (for now). But it learns, it learns from its mistakes. The process by which it learns is backpropogation. So, in <span class='saddlebrown'>jar jar backpropogation</span>, in our example desired result was [1, 0, 0, 0, 0, 0, 0, 0, 0, 0] and network outputs [0.24, 0.542, 0.121, 0.32, 0.56, 0.67, 0.213, 0.45, 0.312, 0.98] which in this case is 9 (highest value). So, now network tells its previous layer (process also known as <span class='yellow'>backward pass</span>), hidden layer hey look you gave me wrong answer 9, see here the right answer was 0 which is called as <span class='orange'>loss</span>. Make necessary changes with help of chain rule to your weights so that when next time you see 0, you will improve the prediction in such a way that output will be correct label 0.
 
-<span class='green'>I-know-nothing:</span> Does repeating these telling the correct results and correcting the wrong results is what <span class='purple'>Force of Neural Networks</span> all about?
+<p align="center">
+<img src='/images/mnist_mlp_files/forward_backward.png' />
+</p> 
+
+<span class='green'>I-know-nothing:</span> Does repeating these telling, the correct results and correcting the wrong results is what <span class='purple'>Force of Neural Networks</span> all about?
 
 <span class='red'>I-know-everything:</span> Well, if you put it that way, you are sucking all the fun out of magic. But yes, this is what is called <span class='orange'>supervised learning</span>, where network is supervised to show it direction so that it does not get lost in the woods ([Out of Woods](https://www.youtube.com/watch?v=JLf9q36UsBk)).
 
@@ -316,6 +320,23 @@ $$
 \end{aligned}
 $$
 
+Here is how all the equations of matrix multiplications pan out for our example. 
+
+Input (i) -> (784 x 1)         ,*784 neurons*
+Hidden Layer (w) -> (16 x 784) , *16 neurons*
+Output Layer (o) -> (10 x 16)  , *10 neurons*
+Bias hidden (bh) -> (16 x 1)
+Bias output (bo) -> (10 x 1)
+
+h = matrix_mulitiplication(w, i) + bh  -> resulting dimension (16 x 1)
+y_ = matrix_mulitiplication(o, h) + bo -> resulting dimension (10 x 1)
+y_ = softmax(y_)                       -> same dimension (10 x 1) just squashing everything between 0 and 1 such that all 10 values sum upto value 1.
+
+Here we get our predicted output y_ which is compared with correct y through Loss function L, to get error.
+
+Error (E) = Loss_Function(y, y_)
+
+This Error (E) is the backpropogated from output layer through hidden layer to input layer.
 
 <span class='red'>I-know-everything:</span> I am sure you got lot of questions now. So, shoot.
 
@@ -329,7 +350,7 @@ These are called biases. A layer in a neural network without a bias is nothing m
 
 - What is the function $$f(\mathbf{h})$$?
 
-This functon plays an important role in machine learning. This types function are called non-linear functions. By introducing them in our network we introduce non-linearlity, non-linear means that the output cannot be reproduced from a linear combination of the inputs. Another way to think of it is if we don't use a non-linear activation function in the network, no matter how many layers it had, the network would behave just like a single-layer perceptron, because summing these layers would give you just another linear function and most of the problems in real world are non-linear. Non-linearity is needed in activation functions because its aim in a neural network is to produce a nonlinear decision boundary via non-linear combinations of the weight and inputs. To provide a better seperation for higher dimensional data then a simple line seperator using linear function.There are several types of non-linear functions.
+This functon plays an important role in machine learning. This types function are called non-linear functions. By introducing them in our network we introduce non-linearlity, non-linear means that the output cannot be reproduced from a linear combination of the inputs. Another way to think of it is if we don't use a non-linear activation function in the network, no matter how many layers it had, the network would behave just like a single-layer perceptron, because summing these layers would give you just another linear function and most of the problems in real world are non-linear. Non-linearity is needed in activation functions because its aim in a neural network is to produce a nonlinear decision boundary via non-linear combinations of the weight and inputs. To provide a better seperation for higher dimensional data then a simple line seperator using linear function. There are several types of non-linear functions.
 
 <p align="center">
 <img src='/images/mnist_mlp_files/activations.png' />
@@ -341,7 +362,8 @@ This functon plays an important role in machine learning. This types function ar
 While designing a Neural Network, in the beginning, we initialize weights with some random values or any variable for that fact. So, it’s not necessary that whatever weight values we have selected will be correct, or it fits our model the best. Okay, fine, we have selected some weight values in the beginning, but our model output is way different than our actual output i.e. the error value is huge.
 
 Now, how will you reduce the error?
-Basically, what we need to do, we need to somehow explain the model to change the parameters (weights), such that error becomes minimum.That means, we need to train our model. One way to train our model is through Backpropagation but it is not the only way. There is another method called Synthetic Gradient designed by the Jedi Council of DeepMind. We will visit them later. If you are curious, look them up [here](https://iamtrask.github.io/2017/03/21/synthetic-gradients/) and [here](https://www.youtube.com/watch?v=1z_Gv98-mkQ).
+
+Basically, what we need to do, we need to somehow explain the model to change the parameters (weights), such that error becomes minimum. That means, we need to train our model. One way to train our model is through Backpropagation but it is not the only way. There is another method called Synthetic Gradient designed by the Jedi Council of DeepMind. We will visit them later. If you are curious, look them up [here](https://iamtrask.github.io/2017/03/21/synthetic-gradients/) and [here](https://www.youtube.com/watch?v=1z_Gv98-mkQ).
 
 In short, backprop algorithm looks for the minimum value of the error function in weight space using a technique called gradient descent. The weights that minimize the error function is then considered to be a solution to the learning problem. 
 
@@ -361,13 +383,11 @@ This is what gradient descent does. It tells the model which direction to move t
    
    d. Stochastic Gradient Descent(SGD)
    
-   e. Nestrov Momentum or 
+   e. Nesterov accelerated gradient (NAG)
    
-   f. Nesterov accelerated gradient (NAG)
+   f. Adadelta
    
-   g. Adadelta
-   
-   h. Adagrad
+   g. Adagrad
 
 <p align="center">
 <img src='/images/mnist_mlp_files/optimizers.gif' />
@@ -378,17 +398,19 @@ And this is behind the scenes (BTS) of how a <span class='purple'>Force of Neura
 
 <span class='green'>I-know-nothing:</span> Thank you Master, I follow.
 
-<span class='red'>I-know-everything:</span> Now you are in for a treat. As you have learn about what different terms and functions are used to train a neural network. We will dive-in implementation using <span class='yellow'>Keras saber</span>. Here backpropogation is already implemented i.e. you only need to design forward pass and loss(or error) function, the framework does the heavy lifting to calculate backward pass. 
+<span class='red'>I-know-everything:</span> Now you are in for a treat. As you have learn about what different terms and functions are used to train a neural network. We will dive-in implementation using <span class='yellow'>Keras</span>. Here backpropogation is already implemented i.e. you only need to design forward pass and loss(or error) function, the framework does the heavy lifting to calculate backward pass and propogate it to all layers. 
 
 ### Recap
 
 - We looked into what is MLP
 - What are different layers in MLP
-- What is forward propogation and backward propogation(pass)
+- What is forward propogation and backward propogation(pass) and how each of them work
 - What is meant by training a neural network or in this case MLP
 - How does neural network learn to classify images
+- Scary backprop equations, loss function and role of biases
 - Different types of activation functions and role of non-linear functions like ReLu, Sigmoid, etc
-- Different types of optimization algorithms required to train NN and need for optimizers
+- Role of optimizers
+- Different types of optimization algorithms required to train NN
 
 ---
 
@@ -1392,6 +1414,8 @@ Adam Geitgey's Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/ma
 
 [Back-propagation - Math Simplified](https://github.com/DebPanigrahi/Machine-Learning/blob/master/back_prop.ipynb)
 
+[All you need is a good INIT](https://arxiv.org/pdf/1511.06422.pdf)
+
 ---
 
 # Footnotes and Credits 
@@ -1405,3 +1429,5 @@ Adam Geitgey's Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/ma
 [Activation Functions](http://rasbt.github.io/mlxtend/user_guide/general_concepts/activation-functions/)
 
 [MLP Model](https://towardsdatascience.com/multi-layer-neural-networks-with-sigmoid-function-deep-learning-for-rookies-2-bf464f09eb7f)
+
+[Forward and Backprop figure](https://www.jeremyjordan.me/neural-networks-training/)
