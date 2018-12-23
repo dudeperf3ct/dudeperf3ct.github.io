@@ -232,7 +232,7 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 <span class='red'>I-know-everything:</span> That means, our network is stupid (for now). But it learns, it learns from its mistakes. The process by which it learns is backpropogation. So, in <span class='saddlebrown'>jar jar backpropogation</span>, in our example desired result was [1, 0, 0, 0, 0, 0, 0, 0, 0, 0] and network outputs [0.24, 0.542, 0.121, 0.32, 0.56, 0.67, 0.213, 0.45, 0.312, 0.98] which in this case is 9 (highest value). So, now network tells its previous layer (process also known as <span class='yellow'>backward pass</span>), hidden layer hey look you gave me wrong answer 9, see here the right answer was 0 which is called as <span class='orange'>loss</span>. Make necessary changes with help of chain rule to your weights so that when next time you see 0, you will improve the prediction in such a way that output will be correct label 0.
 
 <p align="center">
-<img src='/images/mnist_mlp_files/forward_backprop.png' />
+<img src='/images/mnist_mlp_files/forward_and_backprop.png' />
 </p> 
 
 <span class='green'>I-know-nothing:</span> Does repeating these telling, the correct results and correcting the wrong results is what <span class='purple'>Force of Neural Networks</span> all about?
