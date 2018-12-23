@@ -119,6 +119,10 @@ The <span class='orange'>dev</span> and <span class='yellow'>test</span> set all
 Consider a scenario where we are building cat classifier (cats really, why not!). We run a mobile app, and users are
 uploading pictures of many different things to the app. 
 
+<p align="center">
+<img src='/images/mnist_mlp_files/cat.jpg' />
+</p>  
+
 We collect a large training set by downloading pictures of cats (positive examples) and non-cats (negative examples) off of different websites. We split the dataset 70% / 30% into training and test sets. Using this data, we build a cat detector that works well on the
 training and test sets. But when we deploy this classifier into the mobile app, we find that the performance is
 really poor!
