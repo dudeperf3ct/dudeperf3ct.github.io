@@ -1376,7 +1376,25 @@ for idx in np.arange(20):
 
 <span class='red'>I-know-everything:</span> Young Padwan, now you possess the <span class='purple'>Force of MLP</span>. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across <span class='orange'>overfitting</span> and <span class='yellow'>underfiting</span>. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='purple'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures, different datasets like cifar, cats-and-dogs, etc and keep researching and head onto [Further Reading](#further-reading) section.
 
-Happy Learning!
+<span class='orange'>Happy Learning!</span>
+
+---
+
+### Note: Caveats on terminology
+
+Jedi Council of DeepMind - DeepMind
+
+Force of NN- NN
+
+Force of MLP - MLP
+
+neuron - unit
+
+non-linearity - activity function
+
+(linear transform + non-linearity) - layer
+
+Force of CNN - CNN
 
 ---
 
