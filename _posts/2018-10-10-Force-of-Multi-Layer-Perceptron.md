@@ -235,6 +235,10 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 <img src='/images/mnist_mlp_files/forward_and_backprop.png' />
 </p> 
 
+<p align="center">
+<img src='/images/mnist_mlp_files/backprop.png' />
+</p> 
+
 <span class='green'>I-know-nothing:</span> Does repeating these telling, the correct results and correcting the wrong results is what <span class='purple'>Force of Neural Networks</span> all about?
 
 <span class='red'>I-know-everything:</span> Well, if you put it that way, you are sucking all the fun out of magic. But yes, this is what is called <span class='orange'>supervised learning</span>, where network is supervised to show it direction so that it does not get lost in the woods ([Out of Woods](https://www.youtube.com/watch?v=JLf9q36UsBk)).
