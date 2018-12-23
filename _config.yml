@@ -1,5 +1,5 @@
 # Site settings
-title:       Something Something blog
+title:       Home
 email:       your_email@example.com
 author:      dudeperf3ct
 description: "Blah ba ba blah blah...."
@@ -7,9 +7,7 @@ baseurl:     ""
 url:         "https://dudeperf3ct.github.io"
 date_format: "%b %-d, %Y"
 header_pages:
- - about.md
  - sensei.html
- - books.html
 
 # Google services
 google_verification:
