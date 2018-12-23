@@ -21,7 +21,7 @@ Hey yo, but what is CNN?
 Well sit tight and buckle up. I will go through everything in-detail.
 
 <p align="center">
-<img src='/images/mnist_cnn_files/hyperspace_2.gif' />
+<img src='/images/mnist_cnn_files/conv_networks.jpg' />
 </p>  
 
 
@@ -163,7 +163,7 @@ Suppose your training, dev and test sets all come from the same distribution. Th
 
 Even though having more data can’t hurt, unfortunately it doesn’t always help.
 
-Before understanding overfitting and underfitting, let's dive into <span class='orange'>bias</span> and <span color='yellow'>variance<span class='orange'>. There are two major sources of error in machine learning: bias and variance. Understanding them will help you decide whether adding data, as well as other tactics to improve performance, are a good use of time. 
+Before understanding overfitting and underfitting, let's dive into <span class='orange'>bias</span> and <span color='yellow'>variance<span class='orange'>. There are two major sources of error in machine learning: bias and variance. Understanding them will help you decide whether adding data, as well as other tactics to improve performance are a good use of time. 
 
 
 ## Cat Classifier
@@ -230,15 +230,12 @@ Too many terminologies introduced, lets walk through them :
 <img src='/images/mnist_cnn_files/bias_variance.png' />
 </p>  
 
-
-
 In next post, we will go into plotting learning curves, how to interpret them and ways to tackle. Stay tuned!
 
 # Introduction to CNN
 
-CNN is convolution neural networks. What is convolutional? I will explain it further and we know quite a bit about neural networks from our previous post on MLP. 
+CNN is convolution neural networks. What is convolution? I will explain it further and we know quite a bit about neural networks from our previous post on MLP. 
 We have seen the dataset, which consist of [0-9] numbers and images of size 28 x 28 pixels of values in range [0-1] . 
-
 
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
@@ -280,12 +277,13 @@ We apply various filter to original Taj Mahal image and see the results.
 
 So, above examples show how convolution operator works for edge detection, blurring or sharpening the image depending on different kernel values.
 
+Want to play more, have a look at this [amazing post](http://setosa.io/ev/image-kernels/) on setosa.io blog.
+
 <span class='green'>I-know-nothing:</span> Master, How does convolution operation help us in ConvNet?
 
-<span class='red'>I-know-everything:</span> Okay, ConvNets take advantage of the fact that input consists of images. The layers of a ConvNet have neurons arranged in 3 dimensions: width, height, depth. (the word depth here refers to the third dimension of an activation volume, not to the depth of a full Neural Network, which can refer to the total number of layers in a network.) For example, consider our example of MNIST where each input is of dimension 28 x 28 x 1 (width, height, depth respectively) or CIFAR-10 (another toy dataset with 10 classes of different categories), the volume has dimensions 32x32x3 (width, height, depth respectively). 
+<span class='red'>I-know-everything:</span> Okay, ConvNets take advantage of the fact that input consists of images. The layers of a ConvNet have neurons arranged in 3 dimensions: width, height, depth (or channels). (the word depth here refers to the third dimension of an activation volume, not to the depth of a full Neural Network, which can refer to the total number of layers in a network.) For example, consider our example of MNIST where each input is of dimension 28 x 28 x 1 (width, height, depth respectively) or CIFAR-10 (another toy dataset with 10 classes of different categories), the volume has dimensions 32x32x3 (width, height, depth respectively). 
 
-
-Suppose we apply filter of dimension (5x5x3) to above example of CIFAR-10 with input dimension (32x32x3) it results in output dimesion of (28x28x3) much smaller image than input. Hence, reduction in number of pixels than input.
+Suppose we apply filter of dimension (5x5x3) to above example of CIFAR-10 with input dimension (32x32x3), it results in output dimesion of (28x28x3) much smaller image than input. Hence, reduction in number of pixels than input.
 
 Simpler way to calculate output dimesion O, given input dimension W and convolution filters kernel size F, padding P, and stride size S.
 
@@ -315,7 +313,7 @@ Consider example,
 
 #### Padding 
 
-Both kernel and stride function as dimension reduction technic. So for each convolution layer, the output dimension will always be smaller than input. However if we want to build a deep convolution network, we don’t want the input size to shrink too fast. A small kernel can partly solve this problem. But in order to maintain certain dimension we need zero padding. The nice feature of zero padding(P) is that it will allow us to control the spatial size of the output volumes. Basically it is adding zero to your input.
+Both kernel and stride function as dimension reduction technic. So for each convolution layer, the output dimension will always be smaller than input. However if we want to build a deep convolution network, we don’t want the input size to shrink too fast. A small kernel can partly solve this problem. But in order to maintain certain dimension we need zero padding. The nice feature of zero padding(P) is that it will allow us to control the spatial size of the output volumes. Basically it is adding zero border to your input.
 
 Consider example,
 
@@ -333,7 +331,7 @@ Consider example,
 
 Here, input -> (6x6x3), conv filter (F) -> (3x3x3), number of conv filters -> 1, padding (P) -> 0, strides (S) -> 1
 
-Note: Always remember that depth (number of channels) of input and conv filter have to be same. 
+**Note: Always remember that depth (number of channels) of input and conv filter have to be same.**
 
 Applying our formula for calculating output dimension: O = (6 + (2 * 0) - 3)/1 + 1 = 4
 
@@ -360,20 +358,19 @@ So, now we have full understanding about what convolution filters are in ConvNet
 
 <span class='green'>I-know-nothing:</span> Master, does ConvNet consists only of convolution filters?
 
-<span class='red'>I-know-everything:</span> Excellent, this is where I was headed next. So, ConvNets architecture  consists of following distinct layers -> **[INPUT - CONV - RELU - POOL - FC]**.
+<span class='red'>I-know-everything:</span> Excellent, this is where I was headed next. So, ConvNets architecture consists of following distinct layers -> **[INPUT - CONV - RELU - POOL - FC]**.
 
 We have seen INPUT, CONV, RELU and FC layer in this and previous post. We will look into POOL layer.
 
 #### POOLING
 
-Pooling functions as a dimension reduction technic. It is also referred to as a downsampling layer. But unlike kernel which reduces all dimensions, pooling keep channel dimension untouched. This reduces the size of the feature maps thus reducing the number of nodes in the future layers which improve efficiency of the model. Basically Pooling outputs a certain statistics for a certain among of input. This introduces a feature stronger than Equivariant representation — Invariant representation. In short, it is used to detect the object regardless of where the object is placed. For e.g., we want our network to output label 2, even if input example of 2 is in far right corner or bottom left corner. There are many types of pooling layer, Max-pooling, Average-pooling, GlobalMaxPooling, GlobalAveragePooling.
+Pooling functions as a dimension reduction technic. It is also referred to as a downsampling layer. But unlike kernel which reduces all dimensions, pooling keep channel dimension untouched. This reduces the size of the feature maps thus reducing the number of nodes in the future layers which improve efficiency of the model. Basically, pooling outputs a certain statistics for a certain among of input. This introduces a feature stronger than Equivariant representation — Invariant representation. In short, it is used to detect the object regardless of where the object is placed. For e.g., we want our network to output label 2, even if input example of 2 is in far right corner or bottom left corner. There are many types of pooling layer, Max-pooling, Average-pooling, GlobalMaxPooling, GlobalAveragePooling.
 
 <p align="center">
 <img src='/images/mnist_cnn_files/maxpooling.png' />
 </p>  
 
 Consider example,
-
 
 Now, you have full understanding of different layers used in ConvNet and their different components.
 
@@ -389,7 +386,7 @@ This can be illustrated in the example below.
 </p>  
 
 
-Deep ConvNet consists of repetition of [CONV - RELU - POOL] layers and once sufficient depth is introduced, then we flatten the output of above and connect it with fully connected layer.
+Deep ConvNet consists of repetition of [CONV - RELU - POOL] layers and once sufficient depth is introduced, then we flatten the output of above and connect it with fully connected layer. This fully connected layer is connect with another fully connect layer to predict desired number of classes.
 
 Consider example, 
 
@@ -399,9 +396,9 @@ Consider example,
 
 <span class='green'>I-know-nothing:</span> Now I understand what is happening in convolution layers and how a typical ConvNet architecture is. How does training ConvNets work? Does it still consist of forward pass and backward pass? What is the loss function or error function? Does it still use <span class=''>jar jar backpropogation</span> for passing error? 
 
-<span class='red'>I-know-everything:</span> Those are some excellent question. So, now having explained what ConvNet architectures are we have a model just like one in MLP, we input image to that model, and the model outputs the class the input image belongs to. Training ConvNets is similar, we have a loss function just like in MLP, we use softmax layer to output the probabilities of input belonging to particular class. We do a forward propogation of passing input to ConvNets to calculate the error between output $$\mathbf{y}$$ and target  $$\mathbf{\hat{y}}$$ and backpropogate the error from FC - POOL - RELU - CONV - INPUT. 
+<span class='red'>I-know-everything:</span> Those are some excellent question. So, now having explained what ConvNet architectures are we have a model just like one in MLP, we input image to that model, and the model outputs the class the input image belongs to. Training ConvNets is similar, we have a loss function just like in MLP, we use softmax layer to output the probabilities of input belonging to particular class. We do a forward propogation of passing input to ConvNets to calculate the error between output $$\mathbf{y}$$ and target  $$\mathbf{\hat{y}}$$ and backpropogate the error from [FC - POOL - RELU - CONV - INPUT]. 
 
-Note: To see, how `jar jar backpropogation` works in ConvNets, have a look [here](https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/).
+Note: To see, how <span class='saddle brown'>jar jar backpropogation</span> works in ConvNets, have a look [here](https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/).
 
 This is how a typical training ConvNets looks like.
 
@@ -411,11 +408,11 @@ Now let me digress a bit and take you back to story of where convnets got their 
 
 In 1957, Mark I Perceptron by Frank Rosenblatt was the first implementation of the perceptron algorithm. Back then, Frank Rosenblatt used step function as activation function and as we know that step function is non-differentiable, the alogrithm did not learn effectively. There was no concept of backpropogation back then. In 1960s, Widrow and Hoff stacked these perceptrons into multi-layer network still no backpropogation. In 1980, Fukushima proposed neocognitron, a hierarchical, multi-layered artificial neural network which was used for handwritten character recognition and other pattern recognition tasks, and served as the inspiration for convolutional neural networks. Next boost came in around 1986, there was this influential paper that basically is the first time we see backpropogation like rules in seminal paper by Rumelhart, Hinton and Williams, when they were playing with mulit-layer perceptron. The only problem was the deep layer network were not very scalable, training would get stuck and backprop was not working well for these very deep networks.
 
-In the year 1994, one of the very first convolutional neural networks, and what propelled the field of Deep Learning. This pioneering work by Master Yann LeCun was named LeNet5 after many previous successful iterations since they year 1988. In the years from 1998 to 2010 neural network were in incubation. Most people did not notice their increasing power, while many other researchers slowly progressed. In 2010 Dan Claudiu Ciresan and Jurgen Schmidhuber published one of the very fist implementations of [GPU Neural nets](https://arxiv.org/abs/1003.0358). This implementation had both forward and backward implemented on a a NVIDIA GTX 280 graphic processor of an up to 9 layers neural network.
+In the year 1994, one of the very first convolutional neural networks, and what propelled the field of Deep Learning. This pioneering work by Master Yann LeCun was named LeNet5 after many previous successful iterations since they year 1988. In the years from 1998 to 2010 neural network were in incubation. Most people did not notice their increasing power, while many other researchers slowly progressed. In 2010, Dan Claudiu Ciresan and Jurgen Schmidhuber published one of the very fist implementations of [GPU Neural nets](https://arxiv.org/abs/1003.0358). This implementation had both forward and backward implemented on a a NVIDIA GTX 280 graphic processor of an up to 9 layers neural network.
 
 In 2006, again Hinton's [paper](http://www.cs.toronto.edu/~hinton/absps/cbpweb.pdf), reinvigorated research in deep learning and used Restricted Boltzmann machines(RBM) and showed how model trained using backpropogation from scratch. In 2010s [paper](http://www.cs.toronto.edu/~gdahl/papers/DRAFT_DBN4LVCSR-TransASLP.pdf), there were really big results were neural network really worked very well than Kernels, SVMs and so on. specifically in the area of speech recognition, the neural network gave them huge improvement when swapped with HMM (Hidden Markov Models) and GMMs (Gaussian Mixture Models). This was the first time neural networks gave a large improvement indicating that neural networks work.
 
-In 2012, [seminal paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) by Alex Krizhevsky and Ilya Sutskever with Geoffrey Hinton (again) proposed AlexNet architecture which was used to classify 1000 categories and 1.2 million images in a competition organized by Stanford AI group, called [seminal competition](http://www.image-net.org/) ImageNet with efforts from Fe-Fe-Li, many graduate students and Mechanical Turk. AlexNet contained eight layers; the first five were convolutional layers, some of them followed by max-pooling layers, and the last three were fully connected layers. It used the non-saturating ReLU activation function, which showed improved training performance over tanh and sigmoid. The network achieved a top-5 error of 15.3%, more than 10.8% points lower than that of the runner up. In 2012, AlexNet significantly outperformed all the prior competitors and won the challenge by reducing the top-5 error from 26% to 15.3%.  Suddenly people started to pay attention, not just within the AI community but across the technology industry as a whole. This result change course of community, and this competition and result sky-rocketed in very cool architectures eventually surpassing human performance at classifying 1.2 million images into 1000 categories.
+In 2012, [seminal paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) by Alex Krizhevsky and Ilya Sutskever with Geoffrey Hinton (again) proposed AlexNet architecture which was used to classify 1000 categories and 1.2 million images in a competition organized by Stanford AI group, called [seminal competition](http://www.image-net.org/) ImageNet with efforts from Fe-Fe-Li, many graduate students and Mechanical Turk. AlexNet contained eight layers; the first five were convolutional layers, some of them followed by max-pooling layers, and the last three were fully connected layers. It used the non-saturating ReLU activation function, which showed improved training performance over tanh and sigmoid. The network achieved a top-5 error of 15.3%, more than 10.8% points lower than that of the runner up. In 2012, AlexNet significantly outperformed all the prior competitors and won the challenge by reducing the top-5 error from 26% to 15.3%. Suddenly people started to pay attention, not just within the AI community but across the technology industry as a whole. This result change course of community, and this competition and result sky-rocketed in very cool architectures eventually surpassing human performance at classifying 1.2 million images into 1000 categories.
 
 <p align="center">
 <img src='/images/mnist_cnn_files/imagenet.png' width='70%'/>
@@ -425,7 +422,7 @@ In 2012, [seminal paper](https://papers.nips.cc/paper/4824-imagenet-classificati
 Read more about both paper and competition: [here](https://qz.com/1307091/the-inside-story-of-how-ai-got-good-enough-to-dominate-silicon-valley/) and [here](https://qz.com/1034972/the-data-that-changed-the-direction-of-ai-research-and-possibly-the-world/).
 
 
-Here is the image showing the error rate from year 2012 to 2018.
+Here is the illustration showing the error rate from year 2012 to 2018.
 
 <p align="center">
 <img src='/images/mnist_cnn_files/imagenet_progress.png' />
@@ -462,7 +459,7 @@ It achieved a top-5 error rate of 14.8% which is now already half of the prior m
 
 - VGG
 
-VGGNet by Oxford's renowned Visual Geometry Group consists of 16 convolutional layers and is very appealing because of its very uniform architecture. Similar to AlexNet, only 3x3 convolutions, but lots of filters. Trained on 4 GPUs for 2–3 weeks. It is currently the most preferred choice in the community for extracting features from images.
+[VGGNet](https://arxiv.org/pdf/1409.1556.pdf) by Oxford's renowned Visual Geometry Group consists of 16 convolutional layers and is very appealing because of its very uniform architecture. Similar to AlexNet, only 3x3 convolutions, but lots of filters. Trained on 4 GPUs for 2–3 weeks. It is currently the most preferred choice in the community for extracting features from images.
 
 <p align="center">
 <img src='/images/mnist_cnn_files/vgg.png' />
@@ -478,7 +475,7 @@ The network used a CNN inspired by LeNet but implemented a novel element which i
 
 - ResNet
 
-At the ILSVRC 2015, the so-called Residual Neural Network (ResNet) by Kaiming He et al at Microsoft Asia Research Group introduced a novel architecture with “skip connections” and features heavy batch normalization. Such skip connections are also known as gated units or gated recurrent units and have a strong similarity to recent successful elements applied in RNNs. Thanks to this technique they were able to train a NN with 152 layers while still having lower complexity than VGGNet. It achieves a top-5 error rate of 3.57% which beats human-level performance.
+At the ILSVRC 2015, the so-called Residual Neural Network (ResNet) by [Kaiming He et al at](https://arxiv.org/abs/1512.03385) Microsoft Asia Research Group introduced a novel architecture with “skip connections” and features heavy batch normalization. Such skip connections are also known as gated units or gated recurrent units and have a strong similarity to recent successful elements applied in RNNs. Thanks to this technique they were able to train a NN with 152 layers while still having lower complexity than VGGNet. It achieves a top-5 error rate of 3.57% which beats human-level performance.
 
 <p align="center">
 <img src='/images/mnist_cnn_files/resnet.png' />
@@ -521,7 +518,7 @@ Total Parameters = 1199558 ~= 1.2M parameters (without biases)
 
 - We looked into what is CNN and what are convolution operators and different operators
 - How convolution operator performs on 3d image and its output
-- What are kernels, padding and strides in convolution filters
+- What are kernels, padding and strides in convolution filters and the formula to calculate output dimension of any layer
 - Different layers in ConvNet i.e. ReLu, Pool (Maxpooling, AveragePooling), FC (fully connected or dense layers)
 - Typical architecture of ConvNets
 - Background story related to field of deep learning
@@ -1618,11 +1615,11 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the <span class='purple'>Power of Transfer Learning</span> and <span class='purple'>Power to Visualize CNN</span>. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as **“don’t be a hero”**: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." So, we don't need be on Googlion to train powerful CNNs, we can do it on our planet too!
+<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the <span class='purple'>Power of Transfer Learning</span> and <span class='purple'>Power to Visualize CNN</span>. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as **“don’t be a hero”**: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." *So, we don't need be on Googlion to train powerful CNNs, we can do it on our planet too!*
 
 <span class='green'>I-know-nothing:</span> Thank you Master.
 
-<span class='pink'>Happy Learning!</span>
+<span class='orange'>Happy Learning!</span>
 
 ---
 
@@ -1671,11 +1668,21 @@ Backprop in CNN [here](https://becominghuman.ai/back-propagation-in-convolutiona
 
 [Dropout](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf)
 
+[Inception](https://arxiv.org/abs/1409.4842)
+
+[ResNet](https://arxiv.org/pdf/1512.03385.pdf)
+
+[VGG](https://arxiv.org/pdf/1409.1556.pdf)
+
+[AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
+
+[SqueezeNet](https://arxiv.org/abs/1602.07360)
+
+[SENet](https://arxiv.org/abs/1709.01507)
+
 ---
 
 # Footnotes and Credits
-
-[Star Wars Hyperspace](https://giphy.com/gifs/star-wars-gif-the-force-awakens-YWSBjiiG51Ek0)
 
 [Star Wars](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
