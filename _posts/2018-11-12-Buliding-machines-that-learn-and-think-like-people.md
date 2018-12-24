@@ -7,7 +7,7 @@ categories: agi ml
 published: false
 ---
 
-The title itself should sufficient enough to spoil the fun about what the post is all about.
+<span class='saddlebrown'>The title itself should sufficient enough to spoil the fun about what the post is all about.</span>
 
 This will be a first post, a part of series of posts reviewing the paper.
 
@@ -15,14 +15,14 @@ Let's being with the introduction.
 
 ## Introduction
 
-The field of AI has a lot of stories about it's<span class='red'> booms and busts.</span> In last few years, there seems to be 
-an exponential progress. Much of this progress has come from recent advances in the field of "deep learning" in many domains spanning object detection, recognition, segmentation, speech recognition, synthesis and control. It all began one summer when Krizhevsky et al (2012) trained a deep convolutional neural network (CNN) that nearly halved the previous state-of-the-art (SOTA) error rate on most challenging benchmark in image classification contest (ImageNet) organized by Stanford Vision Lab. The media have covered many of the recent achievements of neural networks, often expressing the view that neural networks have achieved this recent success by virtue of their brain-like computation and, therefore, their ability to emulate human learning and human cognition. <span class='red'>But the question is have they?</span> How far can relatively generic neural networks bring us towards the goal of building more human-like learning and thinking machines?
+<span class='red'>The field of AI has a lot of stories about it's booms and busts.</span> In last few years, there seems to be 
+an exponential progress. Much of this progress has come from recent advances in the field of "deep learning" in many domains spanning object detection, recognition, segmentation, speech recognition, synthesis and control. It all began one summer when Krizhevsky et al (2012) trained a deep convolutional neural network (CNN) that nearly halved the previous state-of-the-art (SOTA) error rate on most challenging benchmark in image classification contest (ImageNet) organized by Stanford Vision Lab. The media have covered many of the recent achievements of neural networks, often expressing the view that neural networks have achieved this recent success by virtue of their brain-like computation and, therefore, their ability to emulate human learning and human cognition. <span class='red'>But the question is, have they?</span> How far can relatively generic neural networks bring us towards the goal of building more human-like learning and thinking machines?
 
 The authors riding this wave of exictment examine "what it means for a machine to learn like a person".<span class='green'>The goal of this paper is to propose a set of core ingredients for building more human-like learning and thinking machines.</span> 
 
 ### Cognitive and neural inspiration in AI
 
-The questions of whether and how AI should relate to human congnitive psychology is older than the terms *artificial intelligence* and *cognitive psychology*. Alan Turing pictured the child's mind as notebook with "rather little mechanism and lot of blank sheets" and the mind of a child-machine as filling the notebook by responding to rewards and punishments, similar to reinforcement learning. Alan Turing suspected that it was easier to build and educate a child-machine than try to fully capture adult human cognition.[^1]
+The questions of whether and how AI should relate to human congnitive psychology is older than the terms *artificial intelligence* and *cognitive psychology*. Alan Turing pictured the child's mind as notebook with "rather little mechanism and lot of blank sheets" and the mind of a child-machine as filling the notebook by responding to rewards and punishments, similar to reinforcement learning. <span class='green'>Alan Turing suspected that it was easier to build and educate a child-machine than try to fully capture adult human cognition.[^1]</span>
 
 Although cognitive science has not yet converged on a single account of the mind or intelligence, the claim that a mind is a collection of general-purpose neural networks with a few intial constraints is rather extreme in a contemporary congnitive science. The authors propose two challenge problems from machine learning and AI : 
 
@@ -49,13 +49,13 @@ In Frostbite, players control an agent (Frostbite Bailey) tasked with constructi
 
 Frostbite Challenge, which was one of the control problems tackled by the *DQN* of Mnih et al [^3]. The DQN learns to play Frostbite by combining a powerful pattern recognizer (a deep CNN) and a simple model-free reinforcement learning algorithm (Q-learning). Basically, taking the inputs by stacking images of last 4 frames (avoid temporal limitation) pass it through CNN to producing the output of action to take given the input. DQN uses techniques like experience replay (to avoid correlation) and seperate target Q-network to stabilise the performance. The DQN learns to map frames of pixels to a policy over small set of actions, and both mapping and policy are trained to optimize for long-term cumulative reward (the game score). 
 
-DQN may be learning to play Frostbite in a very different way than people do. One difference in amount of experience required to learning. In Minh et al [^3], the DQN was compared with professional gamer who received approximately 2 hours of practice on each of 49 Atari games (although gamer had prior experience with some of the games). The DQN was trained on 200 million frames from each of games, which equals to approximately 924 hours of game time (about 38 days) or almost 500 times as much experience as the human recieved. 
+<span class='blue'>DQN may be learning to play Frostbite in a very different way than people do.</span> One difference in amount of experience required to learning. In Minh et al [^3], the DQN was compared with professional gamer who received approximately 2 hours of practice on each of 49 Atari games (although gamer had prior experience with some of the games). The DQN was trained on 200 million frames from each of games, which equals to approximately 924 hours of game time (about 38 days) or almost 500 times as much experience as the human recieved. 
 
 ### Problems in two challenges
 
-One may argue that, "It is not that DQN and people are solving same task differently. They may be better seen as solving different tasks. Human learners -unlike DQN and many other deep learning systems -approach new problems armed with extensive prior experience. The human is encountering one in a years-long string of problems, with rich overlapping structure. Human as a result often have important domain-specific knowledge for these tasks, even before they begin. The DQN is starting completely from scratch." Humans, after playing just a small number of games over a saon of minutes, can understand the game and its goal well enough to perform better than deep networks do after almost a thousand hours of experience. Even more impressively, people understand enough to invent or accept new goals, generalize over changes to the input, and explain the game to others.
+One may argue that, "It is not that DQN and people are solving same task differently. They may be better seen as solving different tasks. Human learners -unlike DQN and many other deep learning systems -approach new problems armed with extensive prior experience. The human is encountering one in a years-long string of problems, with rich overlapping structure. Human as a result often have important domain-specific knowledge for these tasks, even before they begin. The DQN is starting completely from scratch." Humans, after playing just a small number of games over a span of minutes, can understand the game and its goal well enough to perform better than deep networks do after almost a thousand hours of experience. Even more impressively, <span class='orange'>people understand enough to invent or accept new goals, generalize over changes to the input, and explain the game to others.</span>
 
-The challenge of buidling models of human learning and thinking then becomes: 
+The challenge of buidling models of human learning and thinking then becomes:<br>
  - How do we bring to bear rich prior knowledge to learn new tasks and solve new problems so quickly?
  - What form does that prior knowledge take, and how is it constructed, from some combination of inbuilt capacities and previous experiences?
  - Why are people different? 
@@ -65,7 +65,7 @@ The challenge of buidling models of human learning and thinking then becomes:
  
  Authors propose 3 core ingredients as one way to answer the problems questioned in above two challenges.
  
- The 3 core ingredients are:
+ <span class='green'>The 3 core ingredients are:</span>
  
  1. Developmental start-up software
     - Intuitive Physics
@@ -78,8 +78,9 @@ The challenge of buidling models of human learning and thinking then becomes:
     - Approximate inference in structured models
     - Model-based and model-free reinforcement learning
     
-**In the follow up post, I will explain in-detail each of the ingredients.**
+**In the follow up post, we will go through each of the ingredients in-detail.**
     
+<span class='orange'> Happy Learning! </span>
 
 Footnotes
 ---
