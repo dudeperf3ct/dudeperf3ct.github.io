@@ -4,7 +4,7 @@ title:      A Short Story
 date:       2018-09-30 07:09:21
 summary:    This is a very short story of a typical day in Year 2118.
 categories: short-story agi
-published: false
+published: true
 ---
 
 ---
