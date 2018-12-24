@@ -64,10 +64,10 @@ Frostbite Challenge, which was one of the control problems tackled by the *DQN* 
 One may argue that,<span class='purple'> "It is not that DQN and people are solving same task differently. They may be better seen as solving different tasks. Human learners -unlike DQN and many other deep learning systems -approach new problems armed with extensive prior experience. The human is encountering one in a years-long string of problems, with rich overlapping structure. Human as a result often have important domain-specific knowledge for these tasks, even before they begin. The DQN is starting completely from scratch." </span> Humans, after playing just a small number of games over a span of minutes, can understand the game and its goal well enough to perform better than deep networks do after almost a thousand hours of experience. Even more impressively, <span class='orange'>people understand enough to invent or accept new goals, generalize over changes to the input, and explain the game to others.</span>
 
 The challenge of buidling models of human learning and thinking then becomes:<br>
- - How do we bring to bear rich prior knowledge to learn new tasks and solve new problems so quickly?
- - What form does that prior knowledge take, and how is it constructed, from some combination of inbuilt capacities and previous experiences?
- - Why are people different? 
- - What core ingredients of human intelligence might the DQN and other machine learning methods be missing?
+ - <span class='saddlebrown'>How do we bring to bear rich prior knowledge to learn new tasks and solve new problems so quickly?</span>
+ - <span class='saddlebrown'>What form does that prior knowledge take, and how is it constructed, from some combination of inbuilt capacities and previous experiences?</span>
+ - <span class='saddlebrown'>Why are people different?</span>
+ - <span class='saddlebrown'>What core ingredients of human intelligence might the DQN and other machine learning methods be missing?</span>
 
 ### Core ingredients of human intelligence
  
