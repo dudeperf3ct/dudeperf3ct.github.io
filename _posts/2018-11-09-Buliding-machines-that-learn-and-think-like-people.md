@@ -13,6 +13,13 @@ This will be a first post, a part of series of posts reviewing [the paper](https
 
 Let's being with the introduction.
 
+Feel free to jump anywhere,
+ - [Introduction](#introduction)
+ - [Cognitive and neural inspiration in AI](#cognitive-and-neural-inspiration-in-ai)
+ - [Problems in two challenges](#problems-in-two-challenges)
+ - [Core ingredients of human intelligence](#core-ingredients-of-human-intelligence)
+
+
 ## Introduction
 
 <span class='red'>The field of AI has a lot of stories about it's booms and busts.</span> In last few years, there seems to be 
@@ -60,8 +67,8 @@ The challenge of buidling models of human learning and thinking then becomes:<br
  - What form does that prior knowledge take, and how is it constructed, from some combination of inbuilt capacities and previous experiences?
  - Why are people different? 
  - What core ingredients of human intelligence might the DQN and other machine learning methods be missing?
- 
- ### Core ingredients of human intelligence
+
+### Core ingredients of human intelligence
  
  Authors propose 3 core ingredients as one way to answer the problems questioned in above two challenges.
  
@@ -85,9 +92,9 @@ The challenge of buidling models of human learning and thinking then becomes:<br
 Footnotes
 ---
 
-[^1]:  [Computing Machinery and Intelligence](https://www.csee.umbc.edu/courses/471/papers/turing.pdf)
+[^1]: [Computing Machinery and Intelligence](https://www.csee.umbc.edu/courses/471/papers/turing.pdf)
 
 [^2]: [Human-level concept learning through probabilistic program induction](http://web.mit.edu/cocosci/Papers/Science-2015-Lake-1332-8.pdf)
 
-[^3]:  [Human level control through deep reinforcement learning](https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf)
+[^3]: [Human level control through deep reinforcement learning](https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf)
 
