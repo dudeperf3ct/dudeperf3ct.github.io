@@ -2,7 +2,7 @@
 layout:     post
 title:      Force of Multi-Layer Perceptron
 date:       2018-10-08 12:00:00
-summary:    This post will provide an hands-on-tutorial and brief introduction to MLP using MNSIT dataset along with the implementation in Keras and PyTorch frameworks.
+summary:    This post will provide brief introduction to MLP using MNSIT dataset along with the implementation in Keras and PyTorch frameworks.
 categories: mlp mnist
 published : true
 ---
