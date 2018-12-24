@@ -18,6 +18,7 @@ Feel free to jump anywhere,
  - [Cognitive and neural inspiration in AI](#cognitive-and-neural-inspiration-in-ai)
  - [Problems in two challenges](#problems-in-two-challenges)
  - [Core ingredients of human intelligence](#core-ingredients-of-human-intelligence)
+ - [Footnotes](#footnotes)
 
 
 ## Introduction
