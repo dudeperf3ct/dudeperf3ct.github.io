@@ -398,7 +398,7 @@ Consider example,
 
 <span class='red'>I-know-everything:</span> Those are some excellent question. So, now having explained what ConvNet architectures are we have a model just like one in MLP, we input image to that model, and the model outputs the class the input image belongs to. Training ConvNets is similar, we have a loss function just like in MLP, we use softmax layer to output the probabilities of input belonging to particular class. We do a forward propogation of passing input to ConvNets to calculate the error between output $$\mathbf{y}$$ and target  $$\mathbf{\hat{y}}$$ and backpropogate the error from [FC - POOL - RELU - CONV - INPUT]. 
 
-Note: To see, how <span class='saddle brown'>jar jar backpropogation</span> works in ConvNets, have a look [here](https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/).
+Note: To see, how <span class='saddlebrown'>jar jar backpropogation</span> works in ConvNets, have a look [here](https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/).
 
 This is how a typical training ConvNets looks like.
 
@@ -467,7 +467,7 @@ It achieved a top-5 error rate of 14.8% which is now already half of the prior m
 
 - GoogLeNet (Inception v1)
 
-The network used a CNN inspired by LeNet but implemented a novel element which is dubbed an inception module. It used batch normalization, image distortions and RMSprop. This module is based on several very small convolutions in order to drastically reduce the number of parameters. Their architecture consisted of a 22 layer deep CNN but reduced the number of parameters from 60 million (AlexNet) to 4 million. It achieved a top-5 error rate of 6.67%. The winner of the ILSVRC 2014 competition was GoogleNet(a.k.a. Inception V1) from Google.
+The network used a CNN inspired by LeNet but implemented a novel element which is dubbed an inception module. It used batch normalization, image distortions and RMSprop. This module is based on several very small convolutions in order to drastically reduce the number of parameters. Their architecture consisted of a 22 layer deep CNN but reduced the number of parameters from 60 million (AlexNet) to 4 million. It achieved a top-5 error rate of 6.67%. The winner of the ILSVRC 2014 competition was [GoogleNet(a.k.a. Inception V1)](https://arxiv.org/abs/1409.4842) from Google.
 
 <p align="center">
 <img src='/images/mnist_cnn_files/inception.png' />
