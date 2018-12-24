@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      Force of Multi-Layer Perceptron
-date:       2018-10-10 12:00:00
-summary:    This post will provide an hands-on-tutorial and brief introduction to MLP using MNSIT dataset and Keras and PyTorch frameworks.
+date:       2018-10-08 12:00:00
+summary:    This post will provide an hands-on-tutorial and brief introduction to MLP using MNSIT dataset and implementation in Keras and PyTorch frameworks.
 categories: mlp mnist
-published : false
+published : true
 ---
 
 # MLP
@@ -13,7 +13,7 @@ In this post, we will go through basics of MLP using MNIST dataset. We will impl
 
 All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_fastai.ipynb).  
 
-*All codes can be replicated and run on Google Colab (link provided in notebook).*
+*All codes can be run on Google Colab (link provided in notebook).*
 
 Hey yo, but what is MLP? what is MNIST? 
 
