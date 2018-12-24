@@ -57,7 +57,7 @@ In Frostbite, players control an agent (Frostbite Bailey) tasked with constructi
 
 Frostbite Challenge, which was one of the control problems tackled by the *DQN* of Mnih et al[^3]. The DQN learns to play Frostbite by combining a powerful pattern recognizer (a deep CNN) and a simple model-free reinforcement learning algorithm (Q-learning). Basically, taking the inputs by stacking images of last 4 frames (avoid temporal limitation) pass it through CNN to producing the output of action to take given the input. DQN uses techniques like experience replay (to avoid correlation) and seperate target Q-network to stabilise the performance. The DQN learns to map frames of pixels to a policy over small set of actions, and both mapping and policy are trained to optimize for long-term cumulative reward (the game score). 
 
-<span class='blue'>DQN may be learning to play Frostbite in a very different way than people do.</span> One difference in amount of experience required to learning. In Minh et al[^3], the DQN was compared with professional gamer who received approximately 2 hours of practice on each of 49 Atari games (although gamer had prior experience with some of the games). The DQN was trained on 200 million frames from each of games, which equals to approximately 924 hours of game time (about 38 days) or almost 500 times as much experience as the human recieved. 
+<span class='blue'>DQN may be learning to play Frostbite in a very different way than people do.</span> One difference in amount of experience required to learning. In Minh et al, the DQN was compared with professional gamer who received approximately 2 hours of practice on each of 49 Atari games (although gamer had prior experience with some of the games). The DQN was trained on 200 million frames from each of games, which equals to approximately 924 hours of game time (about 38 days) or almost 500 times as much experience as the human recieved. 
 
 ### Problems in two challenges
 
@@ -76,15 +76,15 @@ The challenge of buidling models of human learning and thinking then becomes:<br
  <span class='green'>The 3 core ingredients are:</span>
  
  1. <span class='red'>Developmental start-up software</span>
-    - Intuitive Physics
-    - Intuitive Psychology
+    - <span class='saddlebrown'>Intuitive Physics</span>
+    - <span class='saddlebrown'>Intuitive Psychology</span>
  2. <span class='red'>Learning as rapid model building</span>
-    - Compositionality
-    - Causality
-    - Learning-to-learn
+    - <span class='saddlebrown'>Compositionality</span>
+    - <span class='saddlebrown'>Causality</span>
+    - <span class='saddlebrown'>Learning-to-learn</span>
  3. <span class='red'>Thinking Fast</span>
-    - Approximate inference in structured models
-    - Model-based and model-free reinforcement learning
+    - <span class='saddlebrown'>Approximate inference in structured models</span>
+    - <span class='saddlebrown'>Model-based and model-free reinforcement learning</span>
     
 **In the follow up post, we will go through each of the ingredients in-detail.**
     
