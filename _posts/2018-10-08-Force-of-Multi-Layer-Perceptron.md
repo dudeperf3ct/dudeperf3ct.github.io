@@ -1390,6 +1390,8 @@ Force of MLP - MLP
 
 neuron - unit
 
+jar jar backpropogation - backpropogation
+
 non-linearity - activity function
 
 (linear transform + non-linearity) - layer
