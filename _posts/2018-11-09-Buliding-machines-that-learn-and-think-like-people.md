@@ -3,7 +3,7 @@ layout:     post
 title:      Building machines that learn and think like people
 date:       2018-11-09 12:32:18
 summary:    Review of the paper [building machines that learn and think like people](https://arxiv.org/pdf/1604.00289.pdf)
-categories: agi review-paper
+categories: agi paper-review
 published: true
 ---
 
@@ -61,7 +61,7 @@ The challenge of buidling models of human learning and thinking then becomes:<br
  - Why are people different? 
  - What core ingredients of human intelligence might the DQN and other machine learning methods be missing?
  
- ### 3 Core ingredients of human intelligence
+ ### Core ingredients of human intelligence
  
  Authors propose 3 core ingredients as one way to answer the problems questioned in above two challenges.
  
@@ -85,9 +85,9 @@ The challenge of buidling models of human learning and thinking then becomes:<br
 Footnotes
 ---
 
-[^1] :  [Computing Machinery and Intelligence](https://www.csee.umbc.edu/courses/471/papers/turing.pdf)
+[^1]:  [Computing Machinery and Intelligence](https://www.csee.umbc.edu/courses/471/papers/turing.pdf)
 
-[^2] : [Human-level concept learning through probabilistic program induction](http://web.mit.edu/cocosci/Papers/Science-2015-Lake-1332-8.pdf)
+[^2]: [Human-level concept learning through probabilistic program induction](http://web.mit.edu/cocosci/Papers/Science-2015-Lake-1332-8.pdf)
 
-[^3] :  [Human level control through deep reinforcement learning](https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf)
+[^3]:  [Human level control through deep reinforcement learning](https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf)
 
