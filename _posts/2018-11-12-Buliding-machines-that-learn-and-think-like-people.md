@@ -3,8 +3,8 @@ layout:     post
 title:      Building machines that learn and think like people
 date:       2018-09-11 12:32:18
 summary:    Review of the paper building machines that learn and think like people
-categories: agi ml
-published: false
+categories: agi review-paper
+published: true
 ---
 
 <span class='saddlebrown'>The title itself should sufficient enough to spoil the fun about what the post is all about.</span>
