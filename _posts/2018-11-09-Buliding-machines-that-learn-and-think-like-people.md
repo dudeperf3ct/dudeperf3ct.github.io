@@ -85,9 +85,9 @@ The challenge of buidling models of human learning and thinking then becomes:<br
 Footnotes
 ---
 
-[^1] :  [Computing Machinery and Intelligence] (https://www.csee.umbc.edu/courses/471/papers/turing.pdf)
+[^1] :  [Computing Machinery and Intelligence](https://www.csee.umbc.edu/courses/471/papers/turing.pdf)
 
-[^2] : [Human-level concept learning through probabilistic program induction] (http://web.mit.edu/cocosci/Papers/Science-2015-Lake-1332-8.pdf)
+[^2] : [Human-level concept learning through probabilistic program induction](http://web.mit.edu/cocosci/Papers/Science-2015-Lake-1332-8.pdf)
 
-[^3] :  [Human level control through deep reinforcement learning] (https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf)
+[^3] :  [Human level control through deep reinforcement learning](https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf)
 
