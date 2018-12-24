@@ -18,7 +18,7 @@ Let's being with the introduction.
 <span class='red'>The field of AI has a lot of stories about it's booms and busts.</span> In last few years, there seems to be 
 an exponential progress. Much of this progress has come from recent advances in the field of "deep learning" in many domains spanning object detection, recognition, segmentation, speech recognition, synthesis and control. It all began one summer when Krizhevsky et al (2012) trained a deep convolutional neural network (CNN) that nearly halved the previous state-of-the-art (SOTA) error rate on most challenging benchmark in image classification contest (ImageNet) organized by Stanford Vision Lab. The media have covered many of the recent achievements of neural networks, often expressing the view that neural networks have achieved this recent success by virtue of their brain-like computation and, therefore, their ability to emulate human learning and human cognition. <span class='red'>But the question is, have they?</span> How far can relatively generic neural networks bring us towards the goal of building more human-like learning and thinking machines?
 
-The authors riding this wave of exictment examine "what it means for a machine to learn like a person".<span class='green'>The goal of this paper is to propose a set of core ingredients for building more human-like learning and thinking machines.</span> 
+The authors riding this wave of exictment examine "what it means for a machine to learn like a person".<span class='red'>The goal of this paper is to propose a set of core ingredients for building more human-like learning and thinking machines.</span> 
 
 ### Cognitive and neural inspiration in AI
 
@@ -36,7 +36,7 @@ Hofstadter argued that the problem of recognizing characters in all of the ways 
 
 Character Challenge is tackled by using deep CNN or one-shot learning.<span class='red'>Although neural networks may outperform humans on classification tasks (MNIST, Imagenet), it does not mean that they learn and think in the same way.</span> Atleast two important differences: <span class='green'> people learn from fewer examples and they learn richer representations. </span> Morever, people learn more than how to do pattern recognition: they learn a concept, that is, a model of the class that allows their acquired knowledge to be flexibly applied in new ways. In addition of recognizing new examples, people can also generate new examples, parse a character into its most important parts and relations, and generate new characters given a small set of related characters. These additional abilities come for free along with the acquisition of the underlying concepts. People learn a lot more from a lot less, and capturing these human-level learning abilities in machines is the Characters Challenge. 
 
-The authors reported progress on this challenge using probabilistic program induction [^2], yet aspects of full human congnitive ability remain out of reach. Additional progresss may come by combining deep learning and probabilistic program induction to tackle even richer versions of the Character Challenge.
+The authors reported progress on this challenge using probabilistic program induction[^2], yet aspects of full human congnitive ability remain out of reach. Additional progresss may come by combining deep learning and probabilistic program induction to tackle even richer versions of the Character Challenge.
 
 
 **2. Learning to play the Atari game Frostbite**
@@ -67,14 +67,14 @@ The challenge of buidling models of human learning and thinking then becomes:<br
  
  <span class='green'>The 3 core ingredients are:</span>
  
- 1. Developmental start-up software
+ 1. <span class='red'>Developmental start-up software</span>
     - Intuitive Physics
     - Intuitive Psychology
- 2. Learning as rapid model building
+ 2. <span class='red'>Learning as rapid model building</span>
     - Compositionality
     - Causality
     - Learning-to-learn
- 3. Thinking Fast 
+ 3. <span class='red'>Thinking Fast</span>
     - Approximate inference in structured models
     - Model-based and model-free reinforcement learning
     
