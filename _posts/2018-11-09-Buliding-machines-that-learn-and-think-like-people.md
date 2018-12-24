@@ -2,14 +2,14 @@
 layout:     post
 title:      Building machines that learn and think like people
 date:       2018-11-09 12:32:18
-summary:    Review of the paper [building machines that learn and think like people](https://arxiv.org/pdf/1604.00289.pdf)
+summary:    Review of the paper building machines that learn and think like people.
 categories: agi paper-review
 published: true
 ---
 
 <span class='saddlebrown'>The title itself should sufficient enough to spoil the fun about what the post is all about.</span>
 
-This will be a first post, a part of series of posts reviewing [the paper](https://arxiv.org/pdf/1604.00289.pdf).
+This will be a first post, a part of series of posts reviewing [the paper](https://cims.nyu.edu/~brenden/LakeEtAl2017BBS.pdf).
 
 Let's being with the introduction.
 
@@ -47,9 +47,9 @@ The authors reported progress on this challenge using probabilistic program indu
 
 In Frostbite, players control an agent (Frostbite Bailey) tasked with constructing an igloo within a time limit. The igloo is built piece by piece as the agent jumps on ice floes in water. The challenge is that the ice floes are in constant motion (movig either left or right), and ice floes only contribute to the construction of the igloo if they are visited in an active state (white, rather than blue). The agent may also earn extra point by gathering fish while avoiding a number of fatal hazards (falling in the water, snow geese, polar bears, etc). Success in this game requires a temporally extended plan to ensure the agent can accomplish a sub-goal (such as reaching an ice floe) and then safely proceed to the next sub-goal. Ultimately, once all of the pieces of the igloo are in place, the agent must proceed to the igloo and complete the level before time expires.
 
-Frostbite Challenge, which was one of the control problems tackled by the *DQN* of Mnih et al [^3]. The DQN learns to play Frostbite by combining a powerful pattern recognizer (a deep CNN) and a simple model-free reinforcement learning algorithm (Q-learning). Basically, taking the inputs by stacking images of last 4 frames (avoid temporal limitation) pass it through CNN to producing the output of action to take given the input. DQN uses techniques like experience replay (to avoid correlation) and seperate target Q-network to stabilise the performance. The DQN learns to map frames of pixels to a policy over small set of actions, and both mapping and policy are trained to optimize for long-term cumulative reward (the game score). 
+Frostbite Challenge, which was one of the control problems tackled by the *DQN* of Mnih et al[^3]. The DQN learns to play Frostbite by combining a powerful pattern recognizer (a deep CNN) and a simple model-free reinforcement learning algorithm (Q-learning). Basically, taking the inputs by stacking images of last 4 frames (avoid temporal limitation) pass it through CNN to producing the output of action to take given the input. DQN uses techniques like experience replay (to avoid correlation) and seperate target Q-network to stabilise the performance. The DQN learns to map frames of pixels to a policy over small set of actions, and both mapping and policy are trained to optimize for long-term cumulative reward (the game score). 
 
-<span class='blue'>DQN may be learning to play Frostbite in a very different way than people do.</span> One difference in amount of experience required to learning. In Minh et al [^3], the DQN was compared with professional gamer who received approximately 2 hours of practice on each of 49 Atari games (although gamer had prior experience with some of the games). The DQN was trained on 200 million frames from each of games, which equals to approximately 924 hours of game time (about 38 days) or almost 500 times as much experience as the human recieved. 
+<span class='blue'>DQN may be learning to play Frostbite in a very different way than people do.</span> One difference in amount of experience required to learning. In Minh et al[^3], the DQN was compared with professional gamer who received approximately 2 hours of practice on each of 49 Atari games (although gamer had prior experience with some of the games). The DQN was trained on 200 million frames from each of games, which equals to approximately 924 hours of game time (about 38 days) or almost 500 times as much experience as the human recieved. 
 
 ### Problems in two challenges
 
