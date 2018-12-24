@@ -2,9 +2,9 @@
 layout:     post
 title:      Force of Convolutional Neural Networks
 date:       2018-10-17 12:00:00
-summary:    This post will provide an hands-on-tutorial and brief introduction to CNN using MNSIT dataset and Keras and PyTorch frameworks.
+summary:    This post will provide an hands-on-tutorial and brief introduction to CNN using MNSIT dataset and implementation in Keras and PyTorch frameworks. Here the links for notebooks: [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_fastai.ipynb).
 categories: cnn mnist
-published : false
+published : true
 ---
 
 
@@ -14,7 +14,7 @@ In this notebook, we will go through basics of CNN using MNIST dataset. We will 
 
 All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_fastai.ipynb).  
 
-*All codes can be replicated and run on Google Colab (link provided in notebook).*
+*All codes can be run on Google Colab (link provided in notebook).*
 
 Hey yo, but what is CNN?
 
