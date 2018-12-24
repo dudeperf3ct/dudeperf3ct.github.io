@@ -11,7 +11,7 @@ published: true
 
 # Envision the year 2118: What impossible reality will become reality?
 
->"If it takes 200 years to achieve artificial intelligence and then finally there's a textbook that explains how it's done, the hardest part of that textbook to write will be the part that explains why people didn't think of it 200 years ago." ~John McCarthy
+> <span class='red'>"If it takes 200 years to achieve artificial intelligence and then finally there's a textbook that explains how it's done, the hardest part of that textbook to write will be the part that explains why people didn't think of it 200 years ago."</span> ~John McCarthy
 
 <p align="center">
 <img src='/images/story/cyberpunk_4.jpg' />
@@ -51,8 +51,8 @@ Upon reaching the earth and taking precautionary measures, to avoid the deadly U
 >"Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces the entire world, stimulating progress, giving birth to evolution" ~ Albert Einstein
 >>(Friday adds --Apparently she is a fan of his work-- !)
 
-*As Bruno Bettelheim has observed in On the Uses of Enchantment, "If we hope to live not just from moment to moment, but in the true consciousness of our existence, then our greatest need and most difficult achievement is to find meaning in our lives."
-After a long tired day, tiring for his brain, not his body, he wonders what is the true purpose of his life.*
+<span class='purple'>*As Bruno Bettelheim has observed in On the Uses of Enchantment, "If we hope to live not just from moment to moment, but in the true consciousness of our existence, then our greatest need and most difficult achievement is to find meaning in our lives."
+After a long tired day, tiring for his brain, not his body, he wonders what is the true purpose of his life.* </span>
 
 **Happy Birthday! ~ From Friday**
 
