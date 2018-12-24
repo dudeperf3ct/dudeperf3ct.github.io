@@ -2,14 +2,14 @@
 layout:     post
 title:      Building machines that learn and think like people
 date:       2018-11-09 12:32:18
-summary:    Review of the paper building machines that learn and think like people
+summary:    Review of the paper [building machines that learn and think like people](https://arxiv.org/pdf/1604.00289.pdf)
 categories: agi review-paper
 published: true
 ---
 
 <span class='saddlebrown'>The title itself should sufficient enough to spoil the fun about what the post is all about.</span>
 
-This will be a first post, a part of series of posts reviewing the paper.
+This will be a first post, a part of series of posts reviewing [the paper](https://arxiv.org/pdf/1604.00289.pdf).
 
 Let's being with the introduction.
 
