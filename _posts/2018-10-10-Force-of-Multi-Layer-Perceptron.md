@@ -11,9 +11,9 @@ published : true
 
 In this post, we will go through basics of MLP using MNIST dataset. We will implement this using two popular deep learning frameworks <span class='yellow'>Keras</span> and <span class='orange'>PyTorch</span>.
 
-All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_fastai.ipynb).  
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/MLP/mnist_mlp_fastai.ipynb).  
 
-*All codes can be run on Google Colab (link provided in notebook).*
+> *All codes can be run on Google Colab (link provided in notebook).*
 
 Hey yo, but what is MLP? what is MNIST? 
 
@@ -326,15 +326,15 @@ $$
 
 Here is how all the equations of matrix multiplications pan out for our example. 
 
-Input (i) -> (784 x 1)         ,*784 neurons*
-Hidden Layer (w) -> (16 x 784) , *16 neurons*
-Output Layer (o) -> (10 x 16)  , *10 neurons*
-Bias hidden (bh) -> (16 x 1)
-Bias output (bo) -> (10 x 1)
+Input (i) -> (784 x 1)         -> *784 neurons* <br>
+Hidden Layer (w) -> (16 x 784) -> *16 neurons* <br>
+Output Layer (o) -> (10 x 16)  -> *10 neurons* <br>
+Bias hidden (bh) -> (16 x 1) <br>
+Bias output (bo) -> (10 x 1) <br>
 
-h = matrix_mulitiplication(w, i) + bh  -> resulting dimension (16 x 1)
-y_ = matrix_mulitiplication(o, h) + bo -> resulting dimension (10 x 1)
-y_ = softmax(y_)                       -> same dimension (10 x 1) just squashing everything between 0 and 1 such that all 10 values sum upto value 1.
+h = matrix_mulitiplication(w, i) + bh  -> resulting dimension (16 x 1) <br>
+y_ = matrix_mulitiplication(o, h) + bo -> resulting dimension (10 x 1) <br>
+y_ = softmax(y_)                       -> same dimension (10 x 1) just squashing everything between 0 and 1 such that all 10 values sum upto value 1.<br>
 
 Here we get our predicted output y_ which is compared with correct y through Loss function L, to get error.
 
