@@ -2,7 +2,7 @@
 layout:     post
 title:      Force of Convolutional Neural Networks
 date:       2018-10-17 12:00:00
-summary:    This post will provide an hands-on-tutorial and brief introduction to CNN using MNSIT dataset and implementation in Keras and PyTorch frameworks. Here the links for notebooks: [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_fastai.ipynb).
+summary:    This post will provide an hands-on-tutorial and brief introduction to CNN using MNSIT dataset and implementation in Keras and PyTorch frameworks.
 categories: cnn mnist
 published : true
 ---
