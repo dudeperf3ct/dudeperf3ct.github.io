@@ -1633,6 +1633,8 @@ Power of Transfer Learning - Transfer Learning
 
 neuron - unit
 
+jar jar backpropogation - backpropogation 
+
 Power of Visualize CNN - Visualize CNN
 
 non-linearity - activity function
