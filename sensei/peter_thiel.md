@@ -11,6 +11,10 @@ published: true
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. There is lesson in everything. <span class='red'>Happy Learning!</span>
 
+Feel free to jump anywhere,
+- [Theilism](#thielism)
+- [Quotes](#quotes)
+- [Stories](#stories)
 
 Theilism
 ===========================
