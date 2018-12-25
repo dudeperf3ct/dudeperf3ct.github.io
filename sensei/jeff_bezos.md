@@ -11,6 +11,10 @@ published: true
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. <span class='red'>Happy Learning!</span>
 
+Feel free to jump anywhere,
+- [Bezoism](#bezoism)
+- [Quotes](#quotes)
+- [Stories](#stories)
 
 Bezoism
 ===========================
