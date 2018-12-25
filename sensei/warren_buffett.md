@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Warren Buffet
+title: Warren Buffett
 permalink: /sensei/warren-buffett/
 tags: warren buffett
 published: true
@@ -11,8 +11,12 @@ published: true
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. This is going to be a very long long collection full with wisdom. <span class='red'>Happy Learning!</span> 
 
+Feel free to jump anywhere,
+- [Buffettism](#buffettism)
+- [Quotes](#quotes)
+- [Stories](#stories)
 
-Buffetism
+Buffettism
 ===========================
 
 We have all the money we need. We would like to have more but we can afford to lose money. <span class='red'>We can't afford to lose reputation, not a shred of reputation.</span>
