@@ -11,6 +11,10 @@ published: true
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often.
 
+Feel free to jump anywhere,
+- [Marksism](#marksism)
+- [Quotes](#quotes)
+- [Stories](#stories)
 
 Marksism
 ===========================
