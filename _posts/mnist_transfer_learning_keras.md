@@ -1,89 +1,38 @@
+---
+layout:     post
+title:      Force of Convolutional Neural Networks
+date:       2018-10-17 12:00:00
+summary:    This post will provide an brief introduction to Transfer Learning using Dogs vs Cats Redux dataset from Kaggle along with the implementation in Keras framework.
+categories: transfer learning catsvsdogs
+published : false
+---
 
 
-```python
-# import shutil 
-# shutil.rmtree('data/catsvsdogs')
-```
+# CNN
 
-# Transfer Learning
+In this notebook, we will go through basics of CNN using [Cats vs Dogs Redux](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) dataset. We will implement this using one of the popular deep learning framework <span class='yellow'>Keras</span> . 
 
-In this notebook, we will go through basics of Transfer Learning and what a CNN visualizes when we pass image to model. We will implement this using two popular deep learning frameworks `Keras` and `PyTorch`. 
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_fastai.ipynb).  
+
+> *All codes can be run on Google Colab (link provided in notebook).*
 
 Hey yo, but what is Transfer Learning?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
-# Getting Data
+-insert transfer learning meme-
 
+Feel free to jump anywhere,
+- [Learning Curves](#learning-curves)
+- [Introduction to Transfer Learning](#introduction-to-transfer-learning)
+- [Recap](#recap)
+- [Keras](#keras)
+- [Further Reading](#further-reading)
+- [Footnotes and Credits](#footnotes-and-credits)
 
-The cats vs dogs dataset isn't available on keras library. You can download it from Kaggle however. Let's see how to do this by using the Kaggle API as it's going to be pretty useful to you if you want to join a competition or use other Kaggle datasets later on.
+Getting a data from kaggle using Kaggle API is a little tricky part, once done whole road is clear to play with data. For brevity, I will leave that part in notebooks and suppose that all data is downloaded.
 
-First, install the Kaggle API by uncommenting the following line and executing it, or by executing it in your terminal.
-
-
-```python
-!pip install --upgrade kaggle
-```
-
-
-
-Then you need to upload your credentials from Kaggle on your instance. Login to kaggle and click on your profile picture on the top left corner, then 'My account'. Scroll down until you find a button named 'Create New API Token' and click on it. This will trigger the download of a file named 'kaggle.json'.
-
-Upload this file to the directory this notebook is running in, by clicking "Upload" on your main Jupyter page, then uncomment and execute the next two commands (or run them in a terminal).
-
-
-
-```python
-! mkdir -p ~/.kaggle/
-! mv kaggle.json ~/.kaggle/
-```
-
-You're all set to download the data from [Dogs vs. Cats Redux: Kernels Edition](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) competition. You first need to go to its main page and accept its rules, and run the two cells below (uncomment the shell commands to download and unzip the data). If you get a 403 forbidden error it means you haven't accepted the competition rules yet (you have to go to the competition page, click on Rules tab, and then scroll to the bottom to find the accept button).
-
-
-
-```python
-! kaggle competitions download -c dogs-vs-cats-redux-kernels-edition -p 'data/catsvsdogs'
-```
-
-
-```python
-path = 'data/catsvsdogs/'
-
-! unzip -q -n {path}/train.zip -d {path}
-! unzip -q -n {path}/test.zip -d {path}
-```
-
-
-```python
-train_path = 'data/catsvsdogs/train/'
-val_path = 'data/catsvsdogs/val/'
-test_path = 'data/catsvsdogs/test/'
-train_cats_dir = f'{train_path}cats/'
-train_dogs_dir = f'{train_path}dogs/'
-val_cats_dir = f'{val_path}cats/'
-val_dogs_dir = f'{val_path}dogs/'
-```
-
-
-```python
-import matplotlib.pyplot as plt
-import numpy as np
-import os
-from PIL import Image
-%matplotlib inline
-```
-
-
-```python
-print ('Training set images', len(os.listdir(train_path)))
-print ('Test set images', len(os.listdir(test_path)))
-```
-
-    Training set images 2
-    Test set images 12500
-
-
+The dataset once unzipped we get the data in following directory structure.
 
 data/
     train/
@@ -98,26 +47,6 @@ data/
         002.jpg
         ...
 
-
-
-```python
-train_imgs = os.listdir(train_path)
-train_cats_dir = f'{train_path}cats/'
-train_dogs_dir = f'{train_path}dogs/'
-os.makedirs(train_cats_dir)
-os.makedirs(train_dogs_dir)
-print ('[INFO] Train Folder for dogs and cats created....')
-
-print ('[INFO] Moving train images to dogs and cats folders....')
-for img in tqdm(train_imgs):
-    ex = img.split('.')
-    new_img = ex[0]+ex[1]+'.'+ex[2]
-    if ex[0] == 'dog':
-        os.rename(f'{train_path}{img}', f'{train_dogs_dir}{new_img}')
-    else:
-        os.rename(f'{train_path}{img}', f'{train_cats_dir}{new_img}')   
-print ('[INFO] Moving images from train to cats and dogs complete... ')   
-```
 
 
 
@@ -137,43 +66,6 @@ data/
         003.jpg
         004.jpg
         ...
-
-
-```python
-# create validation set from 20% of training set sampled randomly
-
-val_path = 'data/catsvsdogs/val/'
-train_cat_imgs = os.listdir(train_cats_dir)
-train_dog_imgs = os.listdir(train_dogs_dir)
-os.makedirs(val_path)
-print ('[INFO] Val Folder created....')
-val_cats_dir = f'{val_path}cats/'
-val_dogs_dir = f'{val_path}dogs/'
-os.makedirs(val_cats_dir)
-os.makedirs(val_dogs_dir)
-print ('[INFO] Val Folder for dogs and cats created....')
-
-print ('[INFO] Random sample 20% of cats from train to val...')
-val_size = 0.2
-trn_cat_imgs = os.listdir(train_cats_dir)
-val_cat_len = int(len(trn_cat_imgs) * 0.2)
-val_cat_imgs = random.sample(trn_cat_imgs, val_cat_len)
-
-for img in tqdm(val_cat_imgs):
-    os.rename(f'{train_cats_dir}{img}', f'{val_cats_dir}{img}')  
-print ('[INFO] Moving images from train cat to val cat complete...')   
-
-print ('[INFO] Random sample 20% of dogs from train to val...')
-val_size = 0.2
-trn_dog_imgs = os.listdir(train_dogs_dir)
-val_dog_len = int(len(trn_dog_imgs) * 0.2)
-val_dog_imgs = random.sample(trn_dog_imgs, val_dog_len)
-
-for img in tqdm(val_dog_imgs):
-    os.rename(f'{train_dogs_dir}{img}', f'{val_dogs_dir}{img}')  
-print ('[INFO] Moving images from train dog to val dog complete... ')   
-
-```
 
 
 ```python
@@ -249,7 +141,6 @@ Let's recap what we had from our previous discussion on bias and variance.
 
 Back to cats, suppose we run the algorithm using different training set sizes. For example, if you have 1,000 examples, we train separate copies of the algorithm on 100, 200, 300, ..., 1000 examples. Following are the different learning curves, where desired performance(green) along with dev(red) error and train(blue) error are plotted against the number of training examples.
 
-
 Consider this learning curve,
 
 high_variance_bias.png
@@ -258,8 +149,6 @@ Is this plot indicating, high bias, high variance or both?
 
 The training error is very close to desired performance, indicating avoidable bias is very low. The training(blue) error curve is relatively low, and dev(red) error is much higher than training error. Thus, the bias is small, but variance is large. As from recap above, adding more training data will help close gap between training and dev error and help reduce high variance.
 
-
-
 Consider this curve,
 
 significant_variance_bias.png
@@ -267,7 +156,6 @@ significant_variance_bias.png
 Is this plot indicating, high bias, high variance or both?
 
 This time, training error is large, as it is much higher than desired performance. There is significant avoidable bias. The dev error is also much larger than training error. This indicated we have significant bias and significant variance in our plot. We will use the ways to avoid both variance and bias.
-
 
 
 Consider this curve,
@@ -913,51 +801,87 @@ for idx in np.arange(20):
 
 We will implement some of them below
 
-Happy Learning!
+<span class='orange'>Happy Learning!</span>
 
-## Visualize Activations
+---
 
+### Note: Caveats on terminology
 
-```python
+Googlion - Google
 
-```
+Force of CNN - CNN
 
+Power of Transfer Learning - Transfer Learning
 
-```python
+neuron - unit
 
-```
+jar jar backpropogation - backpropogation 
 
+Power of Visualize CNN - Visualize CNN
 
-```python
-view_layer(model, x, "block1_conv1")
-```
+non-linearity - activity function
 
+(linear transform + non-linearity) - layer
 
-```python
-view_layer(model, x, "block3_conv1")
-```
-
-
-```python
-view_layer(model, x, "block5_conv1")
-```
+ConvNets - Convolution Neural Networks
 
 
-```python
+---
 
-```
+# Further Reading
 
+[CS231n Winter 2016](https://www.youtube.com/watch?v=NfnWJUyUJYU&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC) Lectures 7 and 8
 
-```python
+[Chris Olah's blog Understanding Convolutions](colah.github.io/posts/2014-07-Understanding-Convolutions/)
 
-```
+[ConvNets: A Modular Perspective](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
 
+[Yearning book by Andrew Ng](http://www.mlyearning.org/) Chapters 20 to 24 
 
-```python
+[CS231n: Convolutional Neural Networks](http://cs231n.github.io/convolutional-networks/)
 
-```
+Adam Geitgey's Machine Learning is Fun! [Part 3](https://medium.com/@ageitgey/machine-learning-is-fun-part-3-deep-learning-and-convolutional-neural-networks-f40359318721) and [Part 4](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
 
+Backprop in CNN [here](https://becominghuman.ai/back-propagation-in-convolutional-neural-networks-intuition-and-code-714ef1c38199) and [here](https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/)
 
-```python
+[A Comprehensive Survey on Deep Learning Approaches](https://arxiv.org/pdf/1803.01164.pdf)
 
-```
+[Batch Normalization](https://arxiv.org/pdf/1502.03167.pdf)
+
+[How Batch Normalization Helps?](https://arxiv.org/abs/1805.11604)
+
+[Dropout](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf)
+
+[Inception](https://arxiv.org/abs/1409.4842)
+
+[ResNet](https://arxiv.org/pdf/1512.03385.pdf)
+
+[VGG](https://arxiv.org/pdf/1409.1556.pdf)
+
+[AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
+
+[SqueezeNet](https://arxiv.org/abs/1602.07360)
+
+[SENet](https://arxiv.org/abs/1709.01507)
+
+---
+
+# Footnotes and Credits
+
+[Star Wars](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
+
+[Taj Mahal and all matrix and transformed image](https://docs.gimp.org/2.8/en/plug-in-convmatrix.html)
+
+[Convolution 3d and Maxpool](https://mc.ai/deeplearning-overview-of-convolution-neural-network/)
+
+[XKCD Comic](https://xkcd.com/1838/)
+
+[Flatten Layer](https://towardsdatascience.com/convolutional-neural-networks-from-the-ground-up-c67bb41454e1)
+
+[Pooling and Strides gif](https://github.com/vdumoulin/conv_arithmetic)
+
+[All architectures LeNet, AlexNet, etc](https://medium.com/@sidereal/cnns-architectures-lenet-alexnet-vgg-googlenet-resnet-and-more-666091488df5)
+
+[Imagenet Error rate](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/ImageNet_error_rate_history_%28just_systems%29.svg/220px-ImageNet_error_rate_history_%28just_systems%29.svg.png)
+
+[Imagenet architecture graphics](https://cdn-images-1.medium.com/max/800/1*ZqkLRkMU2ObOQWIHLBg8sw.png)
