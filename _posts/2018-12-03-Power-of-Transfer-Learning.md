@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Force of Convolutional Neural Networks
-date:       2018-10-17 12:00:00
+title:      Power of Transfer Learning
+date:       2018-12-03 12:00:00
 summary:    This post will provide an brief introduction to Transfer Learning using Dogs vs Cats Redux dataset from Kaggle along with the implementation in Keras framework.
 categories: transfer learning catsvsdogs
 published : false
@@ -30,6 +30,12 @@ Feel free to jump anywhere,
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
+# Dogs cs Cats Redux dataset
+
+
+
+# Data Preprocessing
+
 Getting a data from kaggle using Kaggle API is a little tricky part, once done whole road is clear to play with data. For brevity, I will leave that part in notebooks and suppose that all data is downloaded.
 
 The dataset once unzipped we get the data in following directory structure.
@@ -48,7 +54,7 @@ data/
         ...
 
 
-
+We will convert the above directory structure into this structure for ease of data training
 
 data/
     train/
@@ -139,7 +145,7 @@ Let's recap what we had from our previous discussion on bias and variance.
 
 ## Cat Classifier
 
-Back to cats, suppose we run the algorithm using different training set sizes. For example, if you have 1,000 examples, we train separate copies of the algorithm on 100, 200, 300, ..., 1000 examples. Following are the different learning curves, where desired performance(green) along with dev(red) error and train(blue) error are plotted against the number of training examples.
+Cats again! Suppose we run the algorithm using different training set sizes. For example, if you have 1,000 examples, we train separate copies of the algorithm on 100, 200, 300, ..., 1000 examples. Following are the different learning curves, where desired performance(green) along with dev(red) error and train(blue) error are plotted against the number of training examples.
 
 Consider this learning curve,
 
@@ -790,7 +796,7 @@ for idx in np.arange(20):
 ![png](mnist_transfer_learning_keras_files/mnist_transfer_learning_keras_44_0.png)
 
 
-<font color='red'>Mr.I-know-everything:</font> Young Padwan, now that you have seen how Transfer Learning works, we will visualize layers in CNN and see what parts of image are they looking at. Visualization layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
+<font color='red'>Mr.I-know-everything:</font> Young Padwan, now that you have seen how Transfer Learning works, in next post we will visualize layers in CNN and see what parts of image are they looking at. Visualization layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
 
 - Gradient visualization
 - Smooth grad
@@ -798,8 +804,6 @@ for idx in np.arange(20):
 - Inverted image representations
 - Deep dream
 - Class specific image generation
-
-We will implement some of them below
 
 <span class='orange'>Happy Learning!</span>
 
@@ -830,58 +834,10 @@ ConvNets - Convolution Neural Networks
 
 # Further Reading
 
-[CS231n Winter 2016](https://www.youtube.com/watch?v=NfnWJUyUJYU&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC) Lectures 7 and 8
 
-[Chris Olah's blog Understanding Convolutions](colah.github.io/posts/2014-07-Understanding-Convolutions/)
-
-[ConvNets: A Modular Perspective](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
-
-[Yearning book by Andrew Ng](http://www.mlyearning.org/) Chapters 20 to 24 
-
-[CS231n: Convolutional Neural Networks](http://cs231n.github.io/convolutional-networks/)
-
-Adam Geitgey's Machine Learning is Fun! [Part 3](https://medium.com/@ageitgey/machine-learning-is-fun-part-3-deep-learning-and-convolutional-neural-networks-f40359318721) and [Part 4](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
-
-Backprop in CNN [here](https://becominghuman.ai/back-propagation-in-convolutional-neural-networks-intuition-and-code-714ef1c38199) and [here](https://www.jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/)
-
-[A Comprehensive Survey on Deep Learning Approaches](https://arxiv.org/pdf/1803.01164.pdf)
-
-[Batch Normalization](https://arxiv.org/pdf/1502.03167.pdf)
-
-[How Batch Normalization Helps?](https://arxiv.org/abs/1805.11604)
-
-[Dropout](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf)
-
-[Inception](https://arxiv.org/abs/1409.4842)
-
-[ResNet](https://arxiv.org/pdf/1512.03385.pdf)
-
-[VGG](https://arxiv.org/pdf/1409.1556.pdf)
-
-[AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
-
-[SqueezeNet](https://arxiv.org/abs/1602.07360)
-
-[SENet](https://arxiv.org/abs/1709.01507)
 
 ---
 
 # Footnotes and Credits
 
-[Star Wars](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
-
-[Taj Mahal and all matrix and transformed image](https://docs.gimp.org/2.8/en/plug-in-convmatrix.html)
-
-[Convolution 3d and Maxpool](https://mc.ai/deeplearning-overview-of-convolution-neural-network/)
-
-[XKCD Comic](https://xkcd.com/1838/)
-
-[Flatten Layer](https://towardsdatascience.com/convolutional-neural-networks-from-the-ground-up-c67bb41454e1)
-
-[Pooling and Strides gif](https://github.com/vdumoulin/conv_arithmetic)
-
-[All architectures LeNet, AlexNet, etc](https://medium.com/@sidereal/cnns-architectures-lenet-alexnet-vgg-googlenet-resnet-and-more-666091488df5)
-
-[Imagenet Error rate](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/ImageNet_error_rate_history_%28just_systems%29.svg/220px-ImageNet_error_rate_history_%28just_systems%29.svg.png)
-
-[Imagenet architecture graphics](https://cdn-images-1.medium.com/max/800/1*ZqkLRkMU2ObOQWIHLBg8sw.png)
+[
