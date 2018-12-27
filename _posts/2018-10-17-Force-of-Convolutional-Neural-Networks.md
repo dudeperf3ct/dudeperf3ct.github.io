@@ -1664,6 +1664,8 @@ Backprop in CNN [here](https://becominghuman.ai/back-propagation-in-convolutiona
 
 [A Comprehensive Survey on Deep Learning Approaches](https://arxiv.org/pdf/1803.01164.pdf)
 
+Training CNN in your browser [ConvNetJS Demos](https://cs.stanford.edu/people/karpathy/convnetjs/index.html)
+
 [Batch Normalization](https://arxiv.org/pdf/1502.03167.pdf)
 
 [How Batch Normalization Helps?](https://arxiv.org/abs/1805.11604)
