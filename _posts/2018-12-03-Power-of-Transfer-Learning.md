@@ -2,7 +2,7 @@
 layout:     post
 title:      Power of Transfer Learning
 date:       2018-12-03 12:00:00
-summary:    This post will provide an brief introduction to Transfer Learning using Dogs vs Cats Redux dataset from Kaggle along with the implementation in Keras framework.
+summary:    This post will provide an brief introduction to Transfer Learning using Dogs vs Cats Redux Competition dataset from Kaggle along with the implementation in Keras framework.
 categories: transfer learning catsvsdogs
 published : false
 ---
@@ -10,7 +10,7 @@ published : false
 
 # CNN
 
-In this notebook, we will go through basics of CNN using [Cats vs Dogs Redux](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) dataset. We will implement this using one of the popular deep learning framework <span class='yellow'>Keras</span> . 
+In this notebook, we will go through basics of CNN using [Cats vs Dogs Redux](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) Competition dataset from kaggle. We will implement this using one of the popular deep learning framework <span class='yellow'>Keras</span> . 
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_fastai.ipynb).  
 
@@ -30,9 +30,11 @@ Feel free to jump anywhere,
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
-# Dogs cs Cats Redux dataset
+# Dogs vs Cats Redux dataset
 
+The train folder contains 25,000 images of dogs and cats. Each image in this folder has the label as part of the filename. The test folder contains 12,500 images, named according to a numeric id. For each image in the test set, you should predict a probability that the image is a dog (1 = dog, 0 = cat).
 
+cats_dogs.png
 
 # Data Preprocessing
 
@@ -54,7 +56,7 @@ data/
         ...
 
 
-We will convert the above directory structure into this structure for ease of data training
+We will convert the above directory structure into this structure for ease of data processing.
 
 data/
     train/
@@ -87,7 +89,7 @@ print ('Test set images', len(os.listdir(test_path)))
 
 ## Visualization of data
 
-Enough talk, show me the data!
+Enough talk, show me the cats and dogs!
 
 
 ```python
@@ -226,7 +228,7 @@ These techniques are also mentioned in avoidable bias.
 
 
 
-In next post, we will go into plotting learning curves and how to interpret them. Stay tuned!
+In next post, we will discuss about various regularization techniques and when and how to use them. Stay tuned!
 
 # Introduction to Transfer Learning
 
