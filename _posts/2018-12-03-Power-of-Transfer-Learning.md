@@ -45,7 +45,7 @@ The dataset once unzipped we get the data in following directory structure.
 data/<br>
 &nbsp;&nbsp;    train/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;        dog001.jpg<br>
-&nbsp;&nbsp;&nbsp;&nbsp;       dog002.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;        dog002.jpg<br>
 &nbsp;&nbsp;&nbsp;&nbsp;        ...<br>
 &nbsp;&nbsp;&nbsp;&nbsp;        cat001.jpg<br>
 &nbsp;&nbsp;&nbsp;&nbsp;        cat002.jpg<br>
@@ -58,22 +58,21 @@ data/<br>
 
 We will convert the above directory structure into this structure for ease of data processing.
 
-data/
-    train/
-        dogs/
-            dog001.jpg
-            dog002.jpg
-            ...
-        cats/
-            cat001.jpg
-            cat002.jpg
-            ...
-    test/
-        001.jpg
-        002.jpg
-        003.jpg
-        004.jpg
-        ...
+data/<br>
+&nbsp;&nbsp;    train/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;         dogs/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             dog001.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             dog002.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             ...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;         cats/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             cat001.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             cat002.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             ...<br>
+&nbsp;&nbsp;    test/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;         001.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;         002.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;         003.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;         ...<br>
 
 
 ```python
