@@ -35,7 +35,7 @@ Feel free to jump anywhere,
 The train folder contains 25,000 images of dogs and cats. Each image in this folder has the label as part of the filename. The test folder contains 12,500 images, named according to a numeric id. For each image in the test set, the task is to predict a probability that the image is a dog (1 = dog, 0 = cat).
 
 <p align="center">
-<img src='/images/transfer_learning_files/cats_dogs.png' />
+<img src='/images/transfer_learning_files/cats_dogs.jpg' />
 </p>
 
 
@@ -291,12 +291,17 @@ In next post, we will discuss about various regularization techniques and when a
 
 <span class='red'>I-know-everything:</span> Yo, apperentice. This time you will experience the <span class="purple"> Power of Transfer Learning</span>. Transfer Learning is a technique where you take a pretrained model trained on large dataset and transfer the learned knowledge to another model with small dataset but some what similar to large dataset for classification. For e.g. if we consider Imagenet dataset which contains 1.2 million images and 1000 categories, in that there are 24 different categories of dogs and 16 different categories of cats. So, we can transfer the learned features of cats and dogs from model trained on Imagenet dataset to our new model which contains 25,000 images of dogs and cats in training set.
 
-traditional_ml_setup.png
+
+<p align="center">
+<img src='/images/transfer_learning_files/traditional_ml_setup.png' />
+</p>
 http://ruder.io/transfer-learning/
 
-transfer_learning_steup.png
 
-transfer_learning_1.png
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_1.png' />
+</p>
+
 credits: https://medium.com/the-official-integrate-ai-blog/transfer-learning-explained-7d275c1e34e2
 
 
@@ -339,7 +344,7 @@ As we observe in above pictures, different layers correspond or activate to diff
 In short, here is how CNN learns.
 
 <p align="center">
-<img src='/images/transfer_learning_files/layers_cnn.png' />
+<img src='/images/transfer_learning_files/layers_cnn.jpg' />
 </p>
 
 credits: https://stats.stackexchange.com/questions/146413/why-convolutional-neural-networks-belong-to-deep-learning
@@ -356,7 +361,11 @@ When an image of face of human is passed through CNN, the initial layers learn t
 
 3. Higher asymptote. The converged skill of the trained model is better than it otherwise would be.
 
-Three-ways-in-which-transfer-might-improve-learning.png
+
+<p align="center">
+<img src='/images/transfer_learning_files/Three-ways-in-which-transfer-might-improve-learning.png' />
+</p>
+
 credits: https://machinelearningmastery.com/transfer-learning-for-deep-learning/
 
 On some problems where you may not have very much data, transfer learning can enable you to develop skillful models that you simply could not develop in the absence of transfer learning.
