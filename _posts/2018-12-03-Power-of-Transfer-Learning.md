@@ -293,13 +293,13 @@ In next post, we will discuss about various regularization techniques and when a
 
 
 <p align="center">
-<img src='/images/transfer_learning_files/traditional_ml_setup.png' />
+<img src='/images/transfer_learning_files/traditional_ml_setup.png' width="60%"/>
 </p>
 http://ruder.io/transfer-learning/
 
 
 <p align="center">
-<img src='/images/transfer_learning_files/transfer_learning_1.png' />
+<img src='/images/transfer_learning_files/transfer_learning_1.png' width="60%"/>
 </p>
 
 credits: https://medium.com/the-official-integrate-ai-blog/transfer-learning-explained-7d275c1e34e2
@@ -310,7 +310,7 @@ credits: https://medium.com/the-official-integrate-ai-blog/transfer-learning-exp
 <span class='red'>I-know-everything:</span> Okay, let's take a step back and go over our learning from <span class='purple'>Force of CNN</span>. First, we saw what a convolution operator is, how different kernels or the numbers i n matrix give differnet results when applied to an image such as edge detector, blurring, sharpening, etc. After that, we visited different functions and looked at their properties and role in CNN, e.g. kernel, pooling, strides. We saw CNN consists of multiple CONV-RELU-POOL layers, followed by FC layers like the one shown below.
 
 <p align="center">
-<img src='/images/transfer_learning_files/tesla_cs231n.png' />
+<img src='/images/transfer_learning_files/tesla_cnn.png' width="70%"/>
 </p>
 
 We saw how the training a CNN is similar to MLP. It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans. <span class='saddlebrown'>What is going on insides these layers to them such better classifiers?</span>
@@ -363,7 +363,7 @@ When an image of face of human is passed through CNN, the initial layers learn t
 
 
 <p align="center">
-<img src='/images/transfer_learning_files/Three-ways-in-which-transfer-might-improve-learning.png' />
+<img src='/images/transfer_learning_files/Three-ways-in-which-transfer-might-improve-learning.png' width="70%"/>
 </p>
 
 credits: https://machinelearningmastery.com/transfer-learning-for-deep-learning/
@@ -1037,7 +1037,7 @@ skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), nor
 ```
 
 <p align="center">
-<img src='/images/transfer_learning_files/transfer_learning_keras_40_0.png' />
+<img src='/images/transfer_learning_files/transfer_learning_keras_40_1.png' />
 </p>
 
 
