@@ -116,7 +116,7 @@ for idx in np.arange(10):
 
 
 <p align="center">
-<img src='/images/transfer_learning_files/transfer_learning_keras_19_0.png' />
+<img src='/images/transfer_learning_files/transfer_learning_keras_26_0.png' />
 </p>
 
 
@@ -133,7 +133,7 @@ for idx in np.arange(10):
 
 
 <p align="center">
-<img src='/images/transfer_learning_files/transfer_learning_keras_20_0.png' />
+<img src='/images/transfer_learning_files/transfer_learning_keras_27_0.png' />
 </p>
 
 
