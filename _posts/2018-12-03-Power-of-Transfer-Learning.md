@@ -241,17 +241,7 @@ Suppose a ML in a setting where the training and the dev/test distributions are 
 
 If the model generalizes well to new data drawn from the same distribution as the training set, but not to data drawn from the dev/test set distribution. We call this problem <span class='orange'>data mismatch</span> , since it is because the training set data is a poor match for the dev/test set data.
 
-For example, in our cat classification problem following problem shows data mismatch.
-
-Humans i.e. Optimal Bayes error ~ 0% error
-
-Training set error = 1% error
-
-Data drawn from the same distribution as the training set that the algorithm has not seen  = 1.5%
-
-Dev set error = 10%
-
-This next illustration explains clearly the data mismatch problem.
+This illustration explains clearly the data mismatch problem.
 
 <p align="center">
 <img src='/images/transfer_learning_files/data_mismatch.png' />
@@ -316,7 +306,7 @@ credits: https://medium.com/the-official-integrate-ai-blog/transfer-learning-exp
 We saw how the training a CNN is similar to MLP. It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans. <span class='saddlebrown'>What is going on insides these layers to them such better classifiers?</span>
 
 <p align="center">
-<img src='/images/transfer_learning_files/visualize_cnn.png' />
+<img src='/images/transfer_learning_files/visualize_cnn.png' width="60%"/>
 </p>
 
 credits: http://cs231n.stanford.edu/slides/winter1516_lecture7.pdf
@@ -363,7 +353,7 @@ When an image of face of human is passed through CNN, the initial layers learn t
 
 
 <p align="center">
-<img src='/images/transfer_learning_files/Three-ways-in-which-transfer-might-improve-learning.png' width="70%"/>
+<img src='/images/transfer_learning_files/Three-ways-in-which-transfer-might-improve-learning.png' width="60%"/>
 </p>
 
 credits: https://machinelearningmastery.com/transfer-learning-for-deep-learning/
