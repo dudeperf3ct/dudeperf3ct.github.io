@@ -115,8 +115,9 @@ for idx in np.arange(10):
 ```
 
 
-![png](mnist_transfer_learning_files/mnist_transfer_learning_keras_19_0.png)
-
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_19_0.png' />
+</p>
 
 
 ```python
@@ -307,7 +308,7 @@ credits: https://medium.com/the-official-integrate-ai-blog/transfer-learning-exp
 <img src='/images/transfer_learning_files/tesla_cs231n.png' />
 </p>
 
-We saw how the training a CNN is similar to MLP. It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans. What is going on insides these layers to them such better classifiers?
+We saw how the training a CNN is similar to MLP. It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans. <span class='saddlebrown'>What is going on insides these layers to them such better classifiers?</span>
 
 <p align="center">
 <img src='/images/transfer_learning_files/visualize_cnn.png' />
@@ -350,7 +351,9 @@ When an image of face of human is passed through CNN, the initial layers learn t
 <span class='red'>I-know-everything:</span> Glad you asked. Transfer learning is an optimization, a shortcut to saving time or getting better performance. There are tthree possible benefits to look for when using transfer learning:
 
 1. Higher start. The initial skill (before refining the model) on the source model is higher than it otherwise would be.
+
 2. Higher slope. The rate of improvement of skill during training of the source model is steeper than it otherwise would be.
+
 3. Higher asymptote. The converged skill of the trained model is better than it otherwise would be.
 
 Three-ways-in-which-transfer-might-improve-learning.png
