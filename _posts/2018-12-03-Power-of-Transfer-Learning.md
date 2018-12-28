@@ -34,7 +34,10 @@ Feel free to jump anywhere,
 
 The train folder contains 25,000 images of dogs and cats. Each image in this folder has the label as part of the filename. The test folder contains 12,500 images, named according to a numeric id. For each image in the test set, the task is to predict a probability that the image is a dog (1 = dog, 0 = cat).
 
-cats_dogs.png
+<p align="center">
+<img src='/images/transfer_learning_files/cats_dogs.png' />
+</p>
+
 
 # Data Preprocessing
 
@@ -112,7 +115,7 @@ for idx in np.arange(10):
 ```
 
 
-![png](mnist_transfer_learning_keras_files/mnist_transfer_learning_keras_19_0.png)
+![png](mnist_transfer_learning_files/mnist_transfer_learning_keras_19_0.png)
 
 
 
@@ -128,7 +131,9 @@ for idx in np.arange(10):
 ```
 
 
-![png](mnist_transfer_learning_keras_files/mnist_transfer_learning_keras_20_0.png)
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_20_0.png' />
+</p>
 
 
 # Learning curves
@@ -151,6 +156,10 @@ Cats again! Suppose we run the algorithm using different training set sizes. For
 Consider this learning curve,
 
 high_variance_bias.png
+<p align="center">
+<img src='/images/transfer_learning_files/high_bias_or_variance.png' />
+</p>
+
 
 Is this plot indicating, high bias, high variance or both?
 
@@ -159,6 +168,10 @@ The training error is very close to desired performance, indicating avoidable bi
 Consider this curve,
 
 significant_variance_bias.png
+<p align="center">
+<img src='/images/transfer_learning_files/significant_variance_bias.png' />
+</p>
+
 
 Is this plot indicating, high bias, high variance or both?
 
@@ -199,7 +212,6 @@ This will reduce avoidable bias, but increase variance.
 
 This technique can affect both bias and variance.
 
-
 #### Techniques to reduce variance
 
 1. Add more training data
@@ -224,16 +236,55 @@ These techniques are also mentioned in avoidable bias.
 
 ### Data Mismatch
 
+Suppose a ML in a setting where the training and the dev/test distributions are different. Say, the training set contains Internet images + Mobile images, and the dev/test sets contain only Mobile images.
 
+If the model generalizes well to new data drawn from the same distribution as the training set, but not to data drawn from the dev/test set distribution. We call this problem <span class='orange'>data mismatch</span> , since it is because the training set data is a poor match for the dev/test set data.
 
+For example, in our cat classification problem following problem shows data mismatch.
+
+Humans i.e. Optimal Bayes error ~ 0% error
+
+Training set error = 1% error
+
+Data drawn from the same distribution as the training set that the algorithm has not seen  = 1.5%
+
+Dev set error = 10%
+
+This next illustration explains clearly the data mismatch problem.
+
+<p align="center">
+<img src='/images/transfer_learning_files/data_mismatch.png' />
+</p>
+
+- Training set
+
+This is the data that the algorithm will learn from (e.g., Internet images + Mobile images). This does not have to be drawn from the same distribution as what we really care about (the dev/test set distribution).
+
+- Training dev set
+
+This data is drawn from the same distribution as the training set (e.g.,Internet images + Mobile images). This is usually smaller than the training set; it only needs to be large enough to evaluate and track the progress of our learning algorithm.
+
+- Dev set 
+
+This is drawn from the same distribution as the test set, and it reflects the distribution of data that we ultimately care about doing well on. (E.g., mobile images.)
+
+- Test set
+
+This is drawn from the same distribution as the dev set. (E.g., mobile images.)
+
+### Techniques to resolve data mismatch problem
+
+1. Try to understand what properties of the data differ between the training and the dev set distributions.
+
+2. Try to find more training data that better matches the dev set examples that your algorithm has trouble with.
 
 In next post, we will discuss about various regularization techniques and when and how to use them. Stay tuned!
 
 # Introduction to Transfer Learning
 
-
-
-
+<p align="center">
+<img src='/images/transfer_learning_files/master_student.gif' />
+</p>
 
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
@@ -252,22 +303,33 @@ credits: https://medium.com/the-official-integrate-ai-blog/transfer-learning-exp
 
 <span class='red'>I-know-everything:</span> Okay, let's take a step back and go over our learning from <span class='purple'>Force of CNN</span>. First, we saw what a convolution operator is, how different kernels or the numbers i n matrix give differnet results when applied to an image such as edge detector, blurring, sharpening, etc. After that, we visited different functions and looked at their properties and role in CNN, e.g. kernel, pooling, strides. We saw CNN consists of multiple CONV-RELU-POOL layers, followed by FC layers like the one shown below.
 
-tesla_cs231n.png
+<p align="center">
+<img src='/images/transfer_learning_files/tesla_cs231n.png' />
+</p>
 
 We saw how the training a CNN is similar to MLP. It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans. What is going on insides these layers to them such better classifiers?
 
-visualize_cnn.png
-http://cs231n.stanford.edu/slides/winter1516_lecture7.pdf
+<p align="center">
+<img src='/images/transfer_learning_files/visualize_cnn.png' />
+</p>
+
+credits: http://cs231n.stanford.edu/slides/winter1516_lecture7.pdf
 
 Many details of how these models works is still a mystery (black-box), but Zeiler and Fergus showed in their excellent [paper](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf) on Visualizaing and Understanding Convolution Neural Networks, that lower convolutional layers capture low-level image features, e.g. edges, while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features.
 
 The final fully-connected layers are generally assumed to capture information that is relevant for solving the respective task, e.g. AlexNet's fully-connected layers would indicate which features are relevant to classify an image into one of 1000 object categories.
 
-layer1_layer2
+<p align="center">
+<img src='/images/transfer_learning_files/layer1_layer2.png' />
+</p>
 
-layer3
+<p align="center">
+<img src='/images/transfer_learning_files/layer3.png' />
+</p>
 
-layer4_layer5
+<p align="center">
+<img src='/images/transfer_learning_files/layer4_layer5.png' />
+</p>
 
 credits: https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf
 
@@ -275,8 +337,11 @@ As we observe in above pictures, different layers correspond or activate to diff
 
 In short, here is how CNN learns.
 
-layers_cnn.jpg
-https://stats.stackexchange.com/questions/146413/why-convolutional-neural-networks-belong-to-deep-learning
+<p align="center">
+<img src='/images/transfer_learning_files/layers_cnn.png' />
+</p>
+
+credits: https://stats.stackexchange.com/questions/146413/why-convolutional-neural-networks-belong-to-deep-learning
 
 When an image of face of human is passed through CNN, the initial layers learn to identify simple features like nose, eyes, ears, etc. As we move up the architecture, the higher layers will combine simple features into more complex feature and finally dense layers at the top of the network will combine very high level features and produce classification predictions.
 
@@ -329,12 +394,11 @@ Since the dataset is very large, we may expect that we can afford to train a Con
 
 So, my Young Padwan, you have now the full <span class='purple'>Power of Transfer Learning </span> and we will implement it below. <span class='orange'> And always remember the wise words spoken by Master Andrej Karpathy, "Don't be a hero. Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch."</span>
 
-Next, we will focus on <span class='purple'> Power to Visualize CNN </span>.
+In next post, we will focus on <span class='purple'> Power to Visualize CNN </span>.
 
-By now you must have a concrete ideas about when to use Sequential and Functional API of any framework. So, we will stick to one such API in our implementation.
+By now you must have a concrete ideas about when to use Sequential and Functional API of any framework. So, we will stick to one such API in our implementation and adding implementation of both frameworks will take a lot of scrolling. Let's avoid that and use one framework.
 
-
-## Keras
+# Keras
 
 
 ```
@@ -346,11 +410,6 @@ print ('Test set images', len(os.listdir(test_path)))
     Training set images 20000
     Validation set images 5000
     Test set images 12500
-
-
-
-# Keras
-
 
 ```
 # load all the required libraries
@@ -451,7 +510,7 @@ print(train_labels[:5], train_labels_enc[:5])
 
 ## Visualization of data
 
-Enough talk, show me the data!
+Enough talk, show me the cats and dogs!
 
 
 ```
@@ -475,7 +534,9 @@ for idx in np.arange(10):
 ```
 
 
-![png](transfer_learning_keras_files/transfer_learning_keras_26_0.png)
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_26_0.png' />
+</p>
 
 
 
@@ -490,8 +551,9 @@ for idx in np.arange(10):
     # print out the correct label for each image
 ```
 
-
-![png](transfer_learning_keras_files/transfer_learning_keras_27_0.png)
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_27_0.png' />
+</p>
 
 
 ### ConvNet as feature extractor
@@ -859,12 +921,14 @@ plt.legend(['train', 'val'], loc='upper left')
 plt.show()
 ```
 
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_34_0.png' />
+</p>
 
-![png](transfer_learning_keras_files/transfer_learning_keras_34_0.png)
 
-
-
-![png](transfer_learning_keras_files/transfer_learning_keras_34_1.png)
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_34_1.png' />
+</p>
 
 
 
@@ -895,7 +959,9 @@ for idx in np.arange(20):
 ```
 
 
-![png](transfer_learning_keras_files/transfer_learning_keras_36_0.png)
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_36_0.png' />
+</p>
 
 
 
@@ -937,7 +1003,9 @@ for idx in np.arange(20):
 ```
 
 
-![png](transfer_learning_keras_files/transfer_learning_keras_38_0.png)
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_38_0.png' />
+</p>
 
 
 
@@ -956,15 +1024,9 @@ import scikitplot as skplt
 skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), normalize=False)
 ```
 
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f27c9b8c518>
-
-
-
-
-![png](transfer_learning_keras_files/transfer_learning_keras_40_1.png)
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_40_0.png' />
+</p>
 
 
 
@@ -1144,12 +1206,14 @@ plt.legend(['train', 'val'], loc='upper left')
 plt.show()
 ```
 
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_46_0.png' />
+</p>
 
-![png](transfer_learning_keras_files/transfer_learning_keras_46_0.png)
 
-
-
-![png](transfer_learning_keras_files/transfer_learning_keras_46_1.png)
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_46_1.png' />
+</p>
 
 
 
@@ -1180,7 +1244,9 @@ for idx in np.arange(20):
 ```
 
 
-![png](transfer_learning_keras_files/transfer_learning_keras_48_0.png)
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_48_0.png' />
+</p>
 
 
 
@@ -1226,9 +1292,9 @@ for idx in np.arange(20):
                  color=("green" if preds[idx]==labels[idx] else "red"))
 ```
 
-
-![png](transfer_learning_keras_files/transfer_learning_keras_51_0.png)
-
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_51_0.png' />
+</p>
 
 
 ```
@@ -1246,16 +1312,12 @@ import scikitplot as skplt
 skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), normalize=False)
 ```
 
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_keras_53_1.png' />
+</p>
 
 
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f27cab16c88>
-
-
-
-
-![png](transfer_learning_keras_files/transfer_learning_keras_53_1.png)
-<font color='red'>Mr.I-know-everything:</font> Young Padwan, now that you have seen how Transfer Learning works, in next post we will visualize layers in CNN and see what parts of image are they looking at. Visualization layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
+<font color='red'>I-know-everything:</font> Young Padwan, now that you have seen how Transfer Learning works, in next post we will visualize layers in CNN and see what parts of image are they looking at. Visualization layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
 
 - Gradient visualization
 - Smooth grad
@@ -1270,21 +1332,10 @@ skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), nor
 
 ### Note: Caveats on terminology
 
-Googlion - Google
-
-Force of CNN - CNN
 
 Power of Transfer Learning - Transfer Learning
 
-neuron - unit
-
-jar jar backpropogation - backpropogation 
-
 Power of Visualize CNN - Visualize CNN
-
-non-linearity - activity function
-
-(linear transform + non-linearity) - layer
 
 ConvNets - Convolution Neural Networks
 
@@ -1299,4 +1350,4 @@ ConvNets - Convolution Neural Networks
 
 # Footnotes and Credits
 
-[
+
