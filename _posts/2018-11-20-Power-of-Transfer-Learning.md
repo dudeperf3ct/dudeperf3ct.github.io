@@ -4,7 +4,7 @@ title:      Power of Transfer Learning
 date:       2018-11-20 12:00:00
 summary:    This post will provide an brief introduction to Transfer Learning using Dogs vs Cats Redux Competition dataset from Kaggle along with the implementation in Keras framework.
 categories: transfer learning catsvsdogs
-published : false
+published : true
 ---
 
 
@@ -147,7 +147,7 @@ for idx in np.arange(10):
 
 # Learning curves
 
-Lets dive into interpreting learning different curves to understand and ways to avoid underfitting-overfitting or bias-variance tradeoff. There is some sort of tug of war between bias and variance, if we reduce bias error that leads to increase in variance error.
+Lets dive into interpreting learning different curves to understand and ways to avoid underfitting-overfitting or bias-variance tradeoff. There is some sort of tug of war between bias and variance, if we reduce bias error that leads to increase in variance error and vice-versa.
 
 Let's recap what we had from our previous discussion on bias and variance.
 
@@ -160,6 +160,10 @@ Let's recap what we had from our previous discussion on bias and variance.
 
 ## Cat Classifier
 
+<p align="center">
+<img src='/images/transfer_learning_files/cats_meme.jpg' />
+</p>
+
 Cats again! Suppose we run the algorithm using different training set sizes. For example, if you have 1,000 examples, we train separate copies of the algorithm on 100, 200, 300, ..., 1000 examples. Following are the different learning curves, where desired performance(green) along with dev(red) error and train(blue) error are plotted against the number of training examples.
 
 Consider this learning curve,
@@ -169,7 +173,7 @@ Consider this learning curve,
 </p>
 
 
-Is this plot indicating, high bias, high variance or both?
+**Is this plot indicating, high bias, high variance or both?**
 
 The training error is very close to desired performance, indicating avoidable bias is very low. The training(blue) error curve is relatively low, and dev(red) error is much higher than training error. Thus, the bias is small, but variance is large. As from recap above, adding more training data will help close gap between training and dev error and help reduce high variance.
 
@@ -180,7 +184,7 @@ Consider this curve,
 </p>
 
 
-Is this plot indicating, high bias, high variance or both?
+**Is this plot indicating, high bias, high variance or both?**
 
 This time, training error is large, as it is much higher than desired performance. There is significant avoidable bias. The dev error is also much larger than training error. This indicated we have significant bias and significant variance in our plot. We will use the ways to avoid both variance and bias.
 
@@ -191,7 +195,7 @@ Consider this curve,
 <img src='/images/transfer_learning_files/high_avoidable_bias.png' width="60%"/>
 </p>
 
-Is this plot indicating, high bias, high variance or both?
+**Is this plot indicating, high bias, high variance or both?**
 
 The training error is much higher than desired performance. This indicates it has high avoidable bias. The gap between training and dev error curves is small, indicating small variance.
 
@@ -255,19 +259,19 @@ This illustration explains clearly the data mismatch problem.
 <img src='/images/transfer_learning_files/data_mismatch.png' />
 </p>
 
-- Training set
+- **Training set**
 
 This is the data that the algorithm will learn from (e.g., Internet images + Mobile images). This does not have to be drawn from the same distribution as what we really care about (the dev/test set distribution).
 
-- Training dev set
+- **Training dev set**
 
 This data is drawn from the same distribution as the training set (e.g.,Internet images + Mobile images). This is usually smaller than the training set; it only needs to be large enough to evaluate and track the progress of our learning algorithm.
 
-- Dev set 
+- **Dev set** 
 
 This is drawn from the same distribution as the test set, and it reflects the distribution of data that we ultimately care about doing well on. (E.g., mobile images.)
 
-- Test set
+- **Test set**
 
 This is drawn from the same distribution as the dev set. (E.g., mobile images.)
 
@@ -277,7 +281,7 @@ This is drawn from the same distribution as the dev set. (E.g., mobile images.)
 
 2. <span class='saddlebrown'>Try to find more training data that better matches the dev set examples that your algorithm has trouble with.</span>
 
-In next post, we will discuss about various regularization techniques and when and how to use them. Stay tuned!
+*In next post, we will discuss about various regularization techniques and when and how to use them. Stay tuned!*
 
 # Introduction to Transfer Learning
 
@@ -345,11 +349,11 @@ When an image of face of human is passed through CNN, the initial layers learn t
 
 <span class='red'>I-know-everything:</span> Glad you asked. *Transfer learning is an optimization, a shortcut to saving time or getting better performance.* There are three possible benefits to look for when using transfer learning:
 
-1. Higher start. The initial skill (before refining the model) on the source model is higher than it otherwise would be.
+1. **Higher start:** The initial skill (before refining the model) on the source model is higher than it otherwise would be.
 
-2. Higher slope. The rate of improvement of skill during training of the source model is steeper than it otherwise would be.
+2. **Higher slope:** The rate of improvement of skill during training of the source model is steeper than it otherwise would be.
 
-3. Higher asymptote. The converged skill of the trained model is better than it otherwise would be.
+3. **Higher asymptote:** The converged skill of the trained model is better than it otherwise would be.
 
 
 <p align="center">
@@ -360,7 +364,7 @@ On some problems where you may not have very much data, transfer learning can en
 
 For a new classification task, we can simply use the off-the-shelf features of a state-of-the-art CNN pre-trained on ImageNet and train a new model on these extracted features.
 
-Taking the example of our dataset, where pretrained model has already seen bunch of cats and dogs from Imagenet dataset and now the model is somewhat adept to know difference between cats and dogs and many other different things from Imagenet dataset. So, if we just train the pretrain model with our new dataset of just cats and dogs, the model has already learned how different breeds of dogs and cats looks like. Building on these knowledge of what pretrained model has learned, transferring these to a new model, it learns to classify the new dataset very quickly.
+Taking the example of our dataset, where pretrained model has already seen bunch of cats and dogs from Imagenet dataset and now the model is somewhat adept to know difference between cats and dogs and many other different things from Imagenet dataset. So, if we just train the pretrain model with our new dataset of just cats and dogs, the model has already learned how different breeds of dogs and cats looks like. Building on these knowledge of what pretrained model has learned, transferring these to a new model, it learns to classify the images in new dataset very quickly.
 
 <p align="center">
 <img src='/images/transfer_learning_files/transfer_learning.png' width="60%"/>
