@@ -1418,7 +1418,7 @@ Adam Geitgey's Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/ma
 
 [CS231n: Optimization](http://cs231n.github.io/optimization-1/)
 
-[Yearning Book by Andrew Ng](http://www.mlyearning.org/) Chapters 1 to 7
+[Yearning Book by Andrew Ng](http://www.mlyearning.org/) Chapters 1 to 3
 
 [CS231n Winter 2016](https://www.youtube.com/watch?v=NfnWJUyUJYU&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC) Lectures 1 to 7
 
