@@ -426,7 +426,7 @@ By now you must have a concrete ideas about when to use Sequential and Functiona
 # Keras
 
 
-```
+```python
 # load all the required libraries
 
 import random
@@ -449,7 +449,7 @@ np.random.seed(42)
 
 
 
-```
+```python
 # # use small subset of train, val and test
 
 train_cats = os.listdir(train_cats_dir)
@@ -479,7 +479,7 @@ IMG_DIM = (224, 224)
 ```
 
 
-```
+```python
 train_X = [train_cats_dir+cats for cats in train_cats]
 train_X = train_X + [train_dogs_dir+dogs for dogs in train_dogs]
 train_imgs = [img_to_array(load_img(img, target_size=IMG_DIM)) for img in train_X]
@@ -509,7 +509,7 @@ print ('Testing shape:', test_imgs.shape)
 
 
 
-```
+```python
 # encode text category labels
 from sklearn.preprocessing import LabelEncoder
 
@@ -529,7 +529,7 @@ print(train_labels[:5], train_labels_enc[:5])
 Enough talk, show me the cats and dogs!
 
 
-```
+```python
 def preprocess_img(img, ax, label, train_dir):
     im = Image.open(os.path.join(train_dir, img))
     size = im.size
@@ -538,7 +538,7 @@ def preprocess_img(img, ax, label, train_dir):
 ```
 
 
-```
+```python
 train_x = os.listdir(train_cats_dir)
 # plot the images in the batch, along with the corresponding labels
 fig = plt.figure(figsize=(25, 10))
@@ -556,7 +556,7 @@ for idx in np.arange(10):
 
 
 
-```
+```python
 train_x = os.listdir(train_dogs_dir)
 # plot the images in the batch, along with the corresponding labels
 fig = plt.figure(figsize=(25, 10))
@@ -575,7 +575,7 @@ for idx in np.arange(10):
 ### ConvNet as feature extractor
 
 
-```
+```python
 # [0-9] unique labels
 batch_size = 50
 num_classes = 2
@@ -604,7 +604,7 @@ val_generator = val_datagen.flow(val_imgs, val_labels_enc, batch_size=16)
 ```
 
 
-```
+```python
 def pretrained_models(name):
     
     if name == 'VGG16':
@@ -767,7 +767,7 @@ pd.DataFrame(layers, columns=['Layer Name', 'Layer Trainable'])
 
 
 
-```
+```python
 input_shape = vgg_model.output_shape[1]
 
 model = Sequential()
@@ -807,7 +807,7 @@ model.summary()
 
 
 
-```
+```python
 history = model.fit_generator(train_generator, 
                               steps_per_epoch=50, 
                               epochs=epochs,
@@ -1046,7 +1046,7 @@ skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), nor
 
 
 
-```
+```python
 model.save('bottleneck-features.h5')
 ```
 
@@ -1266,7 +1266,7 @@ for idx in np.arange(20):
 
 
 
-```
+```python
 model.save('finetune.h5')
 ```
 
