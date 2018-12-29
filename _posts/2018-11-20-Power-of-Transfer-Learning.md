@@ -4,7 +4,7 @@ title:      Power of Transfer Learning
 date:       2018-11-20 12:00:00
 summary:    This post will provide an brief introduction to Transfer Learning using Dogs vs Cats Redux Competition dataset from Kaggle along with the implementation in Keras framework.
 categories: transfer learning catsvsdogs
-published : false
+published : true
 ---
 
 
@@ -12,7 +12,7 @@ published : false
 
 In this notebook, we will go through basics of Transfer Learning using [Cats vs Dogs Redux](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) Competition dataset from kaggle. We will implement this using one of the popular deep learning framework <span class='yellow'>Keras</span> . 
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_pytorch.ipynb), and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_fastai.ipynb).  
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_pytorch.ipynb), and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_fastai.ipynb).  
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
