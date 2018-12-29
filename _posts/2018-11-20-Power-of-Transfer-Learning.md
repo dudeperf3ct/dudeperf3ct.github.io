@@ -205,41 +205,41 @@ The training error is much higher than desired performance. This indicates it ha
 
 #### Techniques to reduce avoidable bias
 
-1. Increase model size (number of neurons/layers)
+1. <span class='saddlebrown'>Increase model size (number of neurons/layers)</span>
 
 This technique reduces bias by fitting training set better. If variance increases, we can use regularization to minimize the effect of increase in variance.
 
-2. Modify input features based on insights from error analysis
+2. <span class='saddlebrown'>Modify input features based on insights from error analysis</span>
 
 Create additional features that help the algorithm eliminate a particular category of errors.These new features could help with both bias and variance.
 
-3. Reduce or eliminate regularization (L2 regularization, L1 regularization, dropout)
+3. <span class='saddlebrown'>Reduce or eliminate regularization (L2 regularization, L1 regularization, dropout)</span>
 
 This will reduce avoidable bias, but increase variance.
 
-4. Modify model architecture (such as neural network architecture)
+4. <span class='saddlebrown'>Modify model architecture (such as neural network architecture)</span>
 
 This technique can affect both bias and variance.
 
 #### Techniques to reduce variance
 
-1. Add more training data
+1. <span class='saddlebrown'>Add more training data</span>
 
 This is the simplest and most reliable way to address variance, so long as you have access to significantly more data and enough computational power to process the data.
 
-2. Add regularization (L2 regularization, L1 regularization, dropout)
+2. <span class='saddlebrown'>Add regularization (L2 regularization, L1 regularization, dropout)</span>
 
 This technique reduces variance but increases bias.
 
-3. Add early stopping (i.e., stop gradient descent early based on dev set error)
+3. <span class='saddlebrown'>Add early stopping (i.e., stop gradient descent early based on dev set error)</span>
 
 This technique reduces variance but increases bias.
 
-4. Feature selection to decrease number/type of input features
+4. <span class='saddlebrown'>Feature selection to decrease number/type of input features</span>
 
 This technique might help with variance problems, but it might also increase bias. Reducing the number of features slightly (say going from 1,000 features to 900) is unlikely to have a huge effect on bias. Reducing it significantly (say going from 1,000 features to 100—a 10x reduction) is more likely to have a significant effect, so long as you are not excluding too many useful features. In modern deep learning, when data is plentiful, there has been a shift away from feature selection, and we are now more likely to give all the features we have to the algorithm and let the algorithm sort out which ones to use based on the data. But when your training set is small, feature selection can be very useful.
 
-5. Modify model architecture and modify input features
+5. <span class='saddlebrown'>Modify model architecture and modify input features</span>
 
 These techniques are also mentioned in avoidable bias.
 
@@ -273,9 +273,9 @@ This is drawn from the same distribution as the dev set. (E.g., mobile images.)
 
 ### Techniques to resolve data mismatch problem
 
-1. Try to understand what properties of the data differ between the training and the dev set distributions.
+1. <span class='saddlebrown'>Try to understand what properties of the data differ between the training and the dev set distributions.</span>
 
-2. Try to find more training data that better matches the dev set examples that your algorithm has trouble with.
+2. <span class='saddlebrown'>Try to find more training data that better matches the dev set examples that your algorithm has trouble with.</span>
 
 In next post, we will discuss about various regularization techniques and when and how to use them. Stay tuned!
 
@@ -288,7 +288,7 @@ In next post, we will discuss about various regularization techniques and when a
 </p>
 
 
-<span class='red'>I-know-everything:</span> Yo, my fellow apperentice. This time you will experience the <span class="purple"> Power of Transfer Learning</span>. Transfer Learning is a technique where you take a pretrained model trained on large dataset and transfer the learned knowledge to another model with small dataset but some what similar to large dataset for classification. For e.g. if we consider Imagenet dataset which contains 1.2 million images and 1000 categories, in that there are 24 different categories of dogs and 16 different categories of cats. So, we can transfer the learned features of cats and dogs from model trained on Imagenet dataset to our new model which contains 25,000 images of dogs and cats in training set.
+<span class='red'>I-know-everything:</span> Yo, my fellow apperentice. This time you will experience the <span class="purple"> Power of Transfer Learning</span>. Transfer Learning is a technique where you take a pretrained model trained on large dataset and transfer the learned knowledge to another model with small dataset but some what similar to large dataset for task of classification. For e.g. if we consider Imagenet dataset which contains 1.2 million images and 1000 categories, in that there are 24 different categories of dogs and 16 different categories of cats. So, we can transfer the learned features of cats and dogs from model trained on Imagenet dataset to our new model which contains 25,000 images of dogs and cats in training set.
 
 
 <p align="center">
@@ -308,7 +308,7 @@ In next post, we will discuss about various regularization techniques and when a
 <img src='/images/transfer_learning_files/tesla_cnn.png' width="60%"/>
 </p>
 
-We saw how the training a [CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/) is similar to [MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/). It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans. <span class='saddlebrown'>What is going on insides these layers to them such better classifiers?</span>
+We saw how the training a [CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/) is similar to [MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/). It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. *The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans.* <span class='saddlebrown'>What is going on insides these layers to make them such better classifiers?</span>
 
 <p align="center">
 <img src='/images/transfer_learning_files/visualize_cnn.png' width="60%"/>
@@ -331,7 +331,7 @@ The final fully-connected layers are generally assumed to capture information th
 </p>
 
 
-As we observe in above pictures, different layers correspond or activate to different features in the images. For e.g., Layer 3 activates for different textures, Layer 2 activates for different edges and circles, similarly, Layer 5 activates for faces of humans, animals also, they learn to identify text in the image on their own.
+As we observe in above pictures, different layers correspond or activate to different features in the images. For e.g., Layer 3 activates for different textures, Layer 2 activates for different edges and circles, similarly, Layer 5 activates for faces of humans, animals also, they learn to identify text in the image on their own. 
 
 In short, here is how CNN learns.
 
@@ -343,7 +343,7 @@ When an image of face of human is passed through CNN, the initial layers learn t
 
 <span class='green'>I-know-nothing:</span> Now I understand what goes behind the scenes of CNN model. So, how can these features help us in training our model?
 
-<span class='red'>I-know-everything:</span> Glad you asked. Transfer learning is an optimization, a shortcut to saving time or getting better performance. There are tthree possible benefits to look for when using transfer learning:
+<span class='red'>I-know-everything:</span> Glad you asked. *Transfer learning is an optimization, a shortcut to saving time or getting better performance.* There are three possible benefits to look for when using transfer learning:
 
 1. Higher start. The initial skill (before refining the model) on the source model is higher than it otherwise would be.
 
@@ -360,7 +360,7 @@ On some problems where you may not have very much data, transfer learning can en
 
 For a new classification task, we can simply use the off-the-shelf features of a state-of-the-art CNN pre-trained on ImageNet and train a new model on these extracted features.
 
-Taking the example of our dataset, where pretrained model has already seen bunch of cats and dogs from Imagenet dataset and now the model is somewhat adept to know difference between cats and dogs and many other different things from Imagenet dataset. So, if we just train the pretrain model with our new dataset of just cats and dogs, the model has already learned how different types of dogs and cats looks like. Building on these knowledge of pretrained model, new model learns to classify the new dataset very quickly.
+Taking the example of our dataset, where pretrained model has already seen bunch of cats and dogs from Imagenet dataset and now the model is somewhat adept to know difference between cats and dogs and many other different things from Imagenet dataset. So, if we just train the pretrain model with our new dataset of just cats and dogs, the model has already learned how different breeds of dogs and cats looks like. Building on these knowledge of what pretrained model has learned, transferring these to a new model, it learns to classify the new dataset very quickly.
 
 <p align="center">
 <img src='/images/transfer_learning_files/transfer_learning.png' width="60%"/>
@@ -374,7 +374,7 @@ There are 2 major Transfer Learning scenarios:
 
 Take a ConvNet pretrained on ImageNet, remove the last fully-connected layer (this layer’s outputs are the 1000 class scores for a different task like ImageNet), then treat the rest of the ConvNet as a fixed feature extractor for the new dataset. For eg, in AlexNet, this would compute a 4096-D vector for every image that contains the activations of the hidden layer immediately before the classifier. We call these features <span class='orange'>CNN codes</span>. Once you extract the 4096-D codes for all images, train a linear classifier (e.g. Linear SVM or Softmax classifier) for the new dataset.
 
-In our case of dogs and cats dataset, we will leverage any of the pretrained architectures mentioned in our previous post on CNN, and use them as base model for transfer learning. We will remove the final layer and insert a new hidden layers with desired number of classes for classification as per our new dataset. (or, also we could add multiple different number if hidden layers in between this pretrained model and our output classes) This is one type of transfer learning we can leverage without having to design new architecture and having to worry if it will even work for such smaller dataset(our cats and dogs dataset). This technique surprisingly gives amazing results in such less time and less compute power than the model trained from scratch will will takes hours and days of compute power to achieve similar or better results.
+In our case of dogs and cats dataset, we will leverage any of the pretrained architectures mentioned in our [previous post](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/#story) on CNN, and use them as base model for transfer learning. We will remove the final layer and insert a new hidden layers with desired number of classes for classification as per our new dataset. (or, also we could add multiple different number if hidden layers in between this pretrained model and our output classes) This is one type of transfer learning we can leverage without having to design new architecture and having to worry if it will even work for such smaller dataset(our cats and dogs dataset) or amount of regularization or number of layers or number of neurons in each layer, etc and training on it from scratch. This technique surprisingly gives amazing results in such less time and less compute power than the model trained from scratch will take hours or days of compute power to achieve similar or better results.
 
 2. Finetuning the ConvNet
 
@@ -402,7 +402,7 @@ Since the data is small, it is likely best to only train a linear classifier. Si
 
 Since the dataset is very large, we may expect that we can afford to train a ConvNet from scratch. However, in practice it is very often still beneficial to initialize with weights from a pretrained model. In this case, we would have enough data and confidence to fine-tune through the entire network.
 
-So, my Young Padwan, you have now the full <span class='purple'>Power of Transfer Learning </span> and we will implement it below. <span class='orange'> And always remember the wise words spoken by Master Andrej Karpathy, "Don't be a hero. Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch."</span> Indeed transfer learning is your go to learning technique whenever images are inputs as long as we have some CoNvnet model pretrained on significantly larger dataset which somewhat resemebles or supersets our desired dataset. The performance boost and training time saved by using transfer learning is amazing and must be one of the first methods resorted when inputs are images.
+So, my Young Padwan, you have now the full <span class='purple'>Power of Transfer Learning </span> and we will implement it below. <span class='orange'> And always remember the wise words spoken by Master Andrej Karpathy, "Don't be a hero. Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch."</span> Indeed transfer learning is your go to learning technique whenever images are inputs as long as we have some ConvNet model pretrained on significantly larger dataset which somewhat resemebles or supersets our desired dataset. The performance boost and training time saved by using transfer learning is amazing and must be one of the first methods resorted when inputs are images.
 
 In next post, we will focus on <span class='purple'>Power to Visualize CNN</span>.
 
@@ -413,9 +413,9 @@ By now you must have a concrete ideas about when to use Sequential and Functiona
 - Firstly, we recapped what a CNN is and how a CNN is trained.
 - Next, we introduce what is transfer learning which led us to thinking about what a CNN learns.
 - We looked at what the different layers in CNN learns and how we can leverage the same learning by transfer that knowledge to similar tasks.
-- We looked at different ways to perform transfer learning and how transferring the knowledge helps faster learning. Primarily the two types of transferring learning include, first convnet as feature extractor where a pretrained model (models trained on Imagenet or any bigger dataset) is taken as base model and the last layer in case of Imagenet contains FC layer of 1000 units(neurons) for classifying input image in 1000 categories is cut off(removed) and replaced with our desired number of units(neurons or number of classes) and while training all the layers are frozen except the last layer inserted, and whole model is trained for our new dataset with desired number of classes. And second include, finetuning where we take above architecture and unfreeze some of layers in above frozen layers in pretrained model and retrain the model with same dataset to get new improved performance(better than previous feature extractor).
+- We looked at different ways to perform transfer learning and how transferring the knowledge helps faster learning. Primarily the two types of transferring learning include, first convnet as feature extractor where a pretrained model (models trained on Imagenet or any bigger datasets) is taken as base model and the last layer in case of Imagenet contains FC layer of 1000 units(neurons) for classifying input image in 1000 categories is cut off(removed) and replaced with our desired number of units(neurons or number of classes) and while training all the layers are frozen except the last layer inserted, and whole model is trained for our new dataset with desired number of classes. And second include, finetuning where we take above architecture and unfreeze some of layers in above frozen layers in pretrained model and retrain the model with same dataset to get new improved performance(better than previous feature extractor).
 - We looked into different ways to fine-tune a pretrained model and when to fine-tune depending on type of dataset.
-- We concluded that transfer learning saves a lot of time and energy(electricity unless you got Googlion planet to cover your bills) and is one of the best techniques out there to provide state of the art image classification.
+- We concluded that transfer learning saves a lot of time and energy(electricity unless you are on Googlion planet, to cover your bills) and is one of the best techniques out there to provide state of the art image classification.
 
 ---
 
@@ -426,6 +426,7 @@ By now you must have a concrete ideas about when to use Sequential and Functiona
 # load all the required libraries
 
 import random
+import numpy as np
 from tqdm import tqdm
 from sklearn.model_selection import train_test_split  # split dataset
 import keras                                          # import keras with tensorflow as backend
@@ -1328,7 +1329,7 @@ skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), nor
 </p>
 
 
-<font color='red'>I-know-everything:</font> Young Padwan, now that you have seen how Transfer Learning works, in next post we will visualize layers in CNN and see what parts of image are they looking at. Visualization layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
+<font color='red'>I-know-everything:</font> Young Padwan, now that you have seen how Transfer Learning works. The applications of using this approach are limitless, play with everything you can using these pretrained models. In next post, we will visualize layers in CNN and see what parts of image are they looking at. Visualization of layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
 
 - Gradient visualization
 - Smooth grad
@@ -1352,6 +1353,8 @@ ConvNets - Convolution Neural Networks
 
 neurons - unit
 
+Googlion planet - Google
+
 ---
 
 # Further Reading
@@ -1359,6 +1362,16 @@ neurons - unit
 [Sebastian Ruder's blog on Transfer Learning](http://ruder.io/transfer-learning/)
 
 [Visualizaing and Understanding Convolution Neural Networks](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf)
+
+[Yearning Book by Andrew Ng](http://www.mlyearning.org/) Chapters 8 to 13
+
+[CS231n Winter 2016](https://www.youtube.com/watch?v=NfnWJUyUJYU&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC) Lectures 8 to 12
+
+[CS231n Transfer Learning](http://cs231n.github.io/transfer-learning/)
+
+[Fastforward Labs blog](https://blog.fastforwardlabs.com/2018/09/17/deep-learning-is-easy-an-introduction-to-transfer-learning.html)
+
+[Deep Learning on Steroids with the Power of Knowledge Transfer!](https://towardsdatascience.com/a-comprehensive-hands-on-guide-to-transfer-learning-with-real-world-applications-in-deep-learning-212bf3b2f27a)
 
 ---
 
