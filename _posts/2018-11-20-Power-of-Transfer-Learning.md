@@ -918,7 +918,7 @@ history = model.fit_generator(train_generator,
 
 
 
-```
+```python
 # summarize history for accuracy
 plt.plot(history.history['acc'])
 plt.plot(history.history['val_acc'])
@@ -948,7 +948,7 @@ plt.show()
 
 
 
-```
+```python
 test_predictions = model.predict_on_batch(test_imgs/225.)
 print (test_predictions.shape)
 ```
@@ -957,7 +957,7 @@ print (test_predictions.shape)
 
 
 
-```
+```python
 # obtain one batch of test images
 images, predict = test_imgs, test_predictions
 
@@ -981,7 +981,7 @@ for idx in np.arange(20):
 
 
 
-```
+```python
 v_datagen = ImageDataGenerator(rescale=1./255)
 val_generator = val_datagen.flow(val_imgs, val_labels_enc, batch_size=batch_size)
 img, lbl = val_generator.next()
@@ -1000,7 +1000,7 @@ print (v_predictions[:5], lbl[:5])
 
 
 
-```
+```python
 # obtain one batch of test images
 images, predict = img, lbl
 
@@ -1025,7 +1025,7 @@ for idx in np.arange(20):
 
 
 
-```
+```python
 val_preds = model.predict(val_imgs, batch_size=batch_size)
 print (val_preds.shape, val_labels_enc.shape)
 ```
@@ -1034,7 +1034,7 @@ print (val_preds.shape, val_labels_enc.shape)
 
 
 
-```
+```python
 import scikitplot as skplt
 
 skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), normalize=False)
@@ -1053,7 +1053,7 @@ model.save('bottleneck-features.h5')
 ### Fine tuning
 
 
-```
+```python
 for i, layer in enumerate(vgg_model.layers):
     print (i, layer.name, layer.trainable)
     
@@ -1090,7 +1090,7 @@ for i, layer in enumerate(model.layers):
 
 
 
-```
+```python
 # we chose to train the top 1 convolution block, i.e. we will freeze
 # the first 15 layers and unfreeze the rest:
 for layer in vgg_model.layers[:11]:
@@ -1152,7 +1152,7 @@ print (model.summary())
 
 
 
-```
+```python
 history = model.fit_generator(train_generator, 
                               steps_per_epoch=50, 
                               epochs=20,
@@ -1203,7 +1203,7 @@ history = model.fit_generator(train_generator,
 
 
 
-```
+```python
 # summarize history for accuracy
 plt.plot(history.history['acc'])
 plt.plot(history.history['val_acc'])
@@ -1233,7 +1233,7 @@ plt.show()
 
 
 
-```
+```python
 test_predictions = model.predict_on_batch(test_imgs)
 print (test_predictions.shape)
 ```
@@ -1242,7 +1242,7 @@ print (test_predictions.shape)
 
 
 
-```
+```python
 # obtain one batch of test images
 images, predict = test_imgs, test_predictions
 
@@ -1271,7 +1271,7 @@ model.save('finetune.h5')
 ```
 
 
-```
+```python
 v_datagen = ImageDataGenerator(rescale=1./255)
 val_generator = val_datagen.flow(val_imgs, val_labels_enc, batch_size=batch_size)
 img, lbl = val_generator.next()
@@ -1290,7 +1290,7 @@ print (v_predictions[:5], lbl[:5])
 
 
 
-```
+```python
 # obtain one batch of test images
 images, predict = img, lbl
 
@@ -1313,7 +1313,7 @@ for idx in np.arange(20):
 </p>
 
 
-```
+```python
 val_preds = model.predict(val_imgs, batch_size=batch_size)
 print (val_preds.shape, val_labels_enc.shape)
 ```
@@ -1322,7 +1322,7 @@ print (val_preds.shape, val_labels_enc.shape)
 
 
 
-```
+```python
 import scikitplot as skplt
 
 skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), normalize=False)
@@ -1333,7 +1333,7 @@ skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), nor
 </p>
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now that you have seen how Transfer Learning works. The applications of using this approach are limitless, play with everything you can using these pretrained models. In next post, we will visualize layers in CNN and see what parts of image are they looking at. Visualization of layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
+<span class='red'>I-know-everything:</span> Young Padwan, now that you have seen how Transfer Learning works. **The applications of using this approach are limitless, play with everything you can using these pretrained models.** In next post, we will visualize layers in CNN and see what parts of image are they looking at. Visualization of layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
 
 - Gradient visualization
 - Smooth grad
