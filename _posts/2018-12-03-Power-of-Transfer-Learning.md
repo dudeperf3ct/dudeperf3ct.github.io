@@ -336,7 +336,7 @@ In short, here is how CNN learns.
 
 <p align="center">
 <img src='/images/transfer_learning_files/layers_cnn.jpg' />
-<img src='/images/transfer_learning_files/faces_cnn.jpeg' />
+<img src='/images/transfer_learning_files/faces_cnn.jpg' />
 </p>
 
 When an image of face of human is passed through CNN, the initial layers learn to identify simple features like nose, eyes, ears, etc. As we move up the architecture, the higher layers will combine simple features into more complex feature and finally dense layers at the top of the network will combine very high level features and produce classification predictions.
@@ -363,7 +363,7 @@ For a new classification task, we can simply use the off-the-shelf features of a
 Taking the example of our dataset, where pretrained model has already seen bunch of cats and dogs from Imagenet dataset and now the model is somewhat adept to know difference between cats and dogs and many other different things from Imagenet dataset. So, if we just train the pretrain model with our new dataset of just cats and dogs, the model has already learned how different types of dogs and cats looks like. Building on these knowledge of pretrained model, new model learns to classify the new dataset very quickly.
 
 <p align="center">
-<img src='/images/transfer_learning_files/transfer_learning.jpg' />
+<img src='/images/transfer_learning_files/transfer_learning.png' />
 </p>
 
 ### 2 Major Transfer Learning scenarios
