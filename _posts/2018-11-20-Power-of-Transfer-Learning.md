@@ -587,7 +587,7 @@ input_shape = (img_width, img_height, 3)
 ```
 
 
-```
+```python
 train_datagen = ImageDataGenerator(rescale=1./255, 
                                    zoom_range=0.3, 
                                    rotation_range=50,
