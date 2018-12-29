@@ -165,7 +165,7 @@ Cats again! Suppose we run the algorithm using different training set sizes. For
 Consider this learning curve,
 
 <p align="center">
-<img src='/images/transfer_learning_files/high_bias_or_variance.png' />
+<img src='/images/transfer_learning_files/high_bias_or_variance.png' width="60%"/>
 </p>
 
 
@@ -176,7 +176,7 @@ The training error is very close to desired performance, indicating avoidable bi
 Consider this curve,
 
 <p align="center">
-<img src='/images/transfer_learning_files/significant_variance_bias.png' />
+<img src='/images/transfer_learning_files/significant_bias_and_variance.png' width="60%"/>
 </p>
 
 
@@ -188,7 +188,7 @@ This time, training error is large, as it is much higher than desired performanc
 Consider this curve,
 
 <p align="center">
-<img src='/images/transfer_learning_files/high_avoidable_bias.png' />
+<img src='/images/transfer_learning_files/high_avoidable_bias.png' width="60%"/>
 </p>
 
 Is this plot indicating, high bias, high variance or both?
@@ -363,7 +363,7 @@ For a new classification task, we can simply use the off-the-shelf features of a
 Taking the example of our dataset, where pretrained model has already seen bunch of cats and dogs from Imagenet dataset and now the model is somewhat adept to know difference between cats and dogs and many other different things from Imagenet dataset. So, if we just train the pretrain model with our new dataset of just cats and dogs, the model has already learned how different types of dogs and cats looks like. Building on these knowledge of pretrained model, new model learns to classify the new dataset very quickly.
 
 <p align="center">
-<img src='/images/transfer_learning_files/transfer_learning.png' />
+<img src='/images/transfer_learning_files/transfer_learning.png' width="60%"/>
 </p>
 
 ### 2 Major Transfer Learning scenarios
