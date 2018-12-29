@@ -209,41 +209,41 @@ The training error is much higher than desired performance. This indicates it ha
 
 #### Techniques to reduce avoidable bias
 
-1. <span class='saddlebrown'>Increase model size (number of neurons/layers)</span>
+- <span class='saddlebrown'>Increase model size (number of neurons/layers)</span>
 
 This technique reduces bias by fitting training set better. If variance increases, we can use regularization to minimize the effect of increase in variance.
 
-2. <span class='saddlebrown'>Modify input features based on insights from error analysis</span>
+- <span class='saddlebrown'>Modify input features based on insights from error analysis</span>
 
 Create additional features that help the algorithm eliminate a particular category of errors.These new features could help with both bias and variance.
 
-3. <span class='saddlebrown'>Reduce or eliminate regularization (L2 regularization, L1 regularization, dropout)</span>
+- <span class='saddlebrown'>Reduce or eliminate regularization (L2 regularization, L1 regularization, dropout)</span>
 
 This will reduce avoidable bias, but increase variance.
 
-4. <span class='saddlebrown'>Modify model architecture (such as neural network architecture)</span>
+- <span class='saddlebrown'>Modify model architecture (such as neural network architecture)</span>
 
 This technique can affect both bias and variance.
 
 #### Techniques to reduce variance
 
-1. <span class='saddlebrown'>Add more training data</span>
+- <span class='saddlebrown'>Add more training data</span>
 
 This is the simplest and most reliable way to address variance, so long as you have access to significantly more data and enough computational power to process the data.
 
-2. <span class='saddlebrown'>Add regularization (L2 regularization, L1 regularization, dropout)</span>
+- <span class='saddlebrown'>Add regularization (L2 regularization, L1 regularization, dropout)</span>
 
 This technique reduces variance but increases bias.
 
-3. <span class='saddlebrown'>Add early stopping (i.e., stop gradient descent early based on dev set error)</span>
+- <span class='saddlebrown'>Add early stopping (i.e., stop gradient descent early based on dev set error)</span>
 
 This technique reduces variance but increases bias.
 
-4. <span class='saddlebrown'>Feature selection to decrease number/type of input features</span>
+- <span class='saddlebrown'>Feature selection to decrease number/type of input features</span>
 
 This technique might help with variance problems, but it might also increase bias. Reducing the number of features slightly (say going from 1,000 features to 900) is unlikely to have a huge effect on bias. Reducing it significantly (say going from 1,000 features to 100—a 10x reduction) is more likely to have a significant effect, so long as you are not excluding too many useful features. In modern deep learning, when data is plentiful, there has been a shift away from feature selection, and we are now more likely to give all the features we have to the algorithm and let the algorithm sort out which ones to use based on the data. But when your training set is small, feature selection can be very useful.
 
-5. <span class='saddlebrown'>Modify model architecture and modify input features</span>
+- <span class='saddlebrown'>Modify model architecture and modify input features</span>
 
 These techniques are also mentioned in avoidable bias.
 
@@ -374,13 +374,13 @@ Taking the example of our dataset, where pretrained model has already seen bunch
 
 There are 2 major Transfer Learning scenarios:
 
-1. ConvNet as fixed feature extractor
+- <span class='red'>ConvNet as fixed feature extractor</span> 
 
 Take a ConvNet pretrained on ImageNet, remove the last fully-connected layer (this layer’s outputs are the 1000 class scores for a different task like ImageNet), then treat the rest of the ConvNet as a fixed feature extractor for the new dataset. For eg, in AlexNet, this would compute a 4096-D vector for every image that contains the activations of the hidden layer immediately before the classifier. We call these features <span class='orange'>CNN codes</span>. Once you extract the 4096-D codes for all images, train a linear classifier (e.g. Linear SVM or Softmax classifier) for the new dataset.
 
 In our case of dogs and cats dataset, we will leverage any of the pretrained architectures mentioned in our [previous post](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/#story) on CNN, and use them as base model for transfer learning. We will remove the final layer and insert a new hidden layers with desired number of classes for classification as per our new dataset. (or, also we could add multiple different number if hidden layers in between this pretrained model and our output classes) This is one type of transfer learning we can leverage without having to design new architecture and having to worry if it will even work for such smaller dataset(our cats and dogs dataset) or amount of regularization or number of layers or number of neurons in each layer, etc and training on it from scratch. This technique surprisingly gives amazing results in such less time and less compute power than the model trained from scratch will take hours or days of compute power to achieve similar or better results.
 
-2. Finetuning the ConvNet
+- <span class='red'>Finetuning the ConvNet</span> 
 
 The second strategy is to not only replace and retrain the classifier on top of the ConvNet on the new dataset, but to also fine-tune the weights of the pretrained network by continuing the backpropagation. It is possible to fine-tune all the layers of the ConvNet, or it’s possible to keep some of the earlier layers fixed (due to overfitting concerns) and only fine-tune some higher-level portion of the network. This is motivated by the observation that the earlier features of a ConvNet contain more generic features (e.g. edge detectors or color blob detectors) that should be useful to many tasks, but later layers of the ConvNet becomes progressively more specific to the details of the classes contained in the original dataset. In case of ImageNet for example, which contains many dog breeds, a significant portion of the representational power of the ConvNet may be devoted to features that are specific to differentiating between dog breeds.
 
@@ -390,19 +390,19 @@ In our case of dataset, we can use any of pretrained architectures and fine-tune
 
 This is a function of several factors, but the two most important ones are the size of the new dataset (small or big), and its similarity to the original dataset (e.g. ImageNet-like in terms of the content of images and the classes, or very different, such as microscope images). Keeping in mind that ConvNet features are more generic in early layers and more original-dataset-specific in later layers, here are some common rules of thumb for navigating the 4 major scenarios:
 
-1. New dataset is small and similar to original dataset
+- <span class='saddlebrown'>New dataset is small and similar to original dataset</span> 
 
 Since the data is small, it is not a good idea to fine-tune the ConvNet due to overfitting concerns. Since the data is similar to the original data, we expect higher-level features in the ConvNet to be relevant to this dataset as well. Hence, the best idea might be to train a linear classifier on the CNN codes.
 
-2. New dataset is large and similar to the original dataset. 
+- <span class='saddlebrown'>New dataset is large and similar to the original dataset</span> 
 
 Since we have more data, we can have more confidence that we won’t overfit if we were to try to fine-tune through the full network.
     
-3. New dataset is small but very different from the original dataset. 
+- <span class='saddlebrown'>New dataset is small but very different from the original dataset</span>  
 
 Since the data is small, it is likely best to only train a linear classifier. Since the dataset is very different, it might not be best to train the classifier form the top of the network, which contains more dataset-specific features. Instead, it might work better to train the SVM classifier from activations somewhere earlier in the network.
 
-4. New dataset is large and very different from the original dataset. 
+- <span class='saddlebrown'>New dataset is large and very different from the original dataset</span> 
 
 Since the dataset is very large, we may expect that we can afford to train a ConvNet from scratch. However, in practice it is very often still beneficial to initialize with weights from a pretrained model. In this case, we would have enough data and confidence to fine-tune through the entire network.
 
