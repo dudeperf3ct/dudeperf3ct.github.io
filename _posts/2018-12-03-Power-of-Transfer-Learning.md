@@ -281,17 +281,18 @@ In next post, we will discuss about various regularization techniques and when a
 
 # Introduction to Transfer Learning
 
+<span class='blue'> A long time ago in a galaxy far, far away.... </span>
+
 <p align="center">
 <img src='/images/transfer_learning_files/master_student.gif' />
 </p>
 
-<span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
 <span class='red'>I-know-everything:</span> Yo, my fellow apperentice. This time you will experience the <span class="purple"> Power of Transfer Learning</span>. Transfer Learning is a technique where you take a pretrained model trained on large dataset and transfer the learned knowledge to another model with small dataset but some what similar to large dataset for classification. For e.g. if we consider Imagenet dataset which contains 1.2 million images and 1000 categories, in that there are 24 different categories of dogs and 16 different categories of cats. So, we can transfer the learned features of cats and dogs from model trained on Imagenet dataset to our new model which contains 25,000 images of dogs and cats in training set.
 
 
 <p align="center">
-<img src='/images/transfer_learning_files/traditional_ml_setup.png' width="60%"/>
+<img src='/images/transfer_learning_files/traditional_ml_setup.png' width="50%"/>
 </p>
 
 
@@ -304,7 +305,7 @@ In next post, we will discuss about various regularization techniques and when a
 <span class='red'>I-know-everything:</span> Okay, let's take a step back and go over our learning from <span class='purple'>Force of CNN</span>. First, we saw what a convolution operator is, how different kernels or the numbers i n matrix give differnet results when applied to an image such as edge detector, blurring, sharpening, etc. After that, we visited different functions and looked at their properties and role in CNN, e.g. kernel, pooling, strides. We saw CNN consists of multiple CONV-RELU-POOL layers, followed by FC layers like the one shown below.
 
 <p align="center">
-<img src='/images/transfer_learning_files/tesla_cnn.png' width="70%"/>
+<img src='/images/transfer_learning_files/tesla_cnn.png' width="60%"/>
 </p>
 
 We saw how the training a [CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/) is similar to [MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/). It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans. <span class='saddlebrown'>What is going on insides these layers to them such better classifiers?</span>
@@ -334,9 +335,8 @@ As we observe in above pictures, different layers correspond or activate to diff
 
 In short, here is how CNN learns.
 
-<p align="center">
-<img src='/images/transfer_learning_files/layers_cnn.jpg' />
-<img src='/images/transfer_learning_files/faces_cnn.jpg' />
+<p float="left">
+  <img src='/images/transfer_learning_files/layers_cnn.jpg' width="60%"/><img src='/images/transfer_learning_files/faces_cnn.jpg' width="40%"/>
 </p>
 
 When an image of face of human is passed through CNN, the initial layers learn to identify simple features like nose, eyes, ears, etc. As we move up the architecture, the higher layers will combine simple features into more complex feature and finally dense layers at the top of the network will combine very high level features and produce classification predictions.
