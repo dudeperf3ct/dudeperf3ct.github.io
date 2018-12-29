@@ -20,7 +20,9 @@ Hey yo, but what is Transfer Learning?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
--insert transfer learning meme-
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning_meme.jpeg' />
+</p>
 
 Feel free to jump anywhere,
 - [Learning Curves](#learning-curves)
@@ -49,6 +51,7 @@ Getting a data from kaggle using Kaggle API is a little tricky part, once done w
 
 The dataset once unzipped we get the data in following directory structure.
 
+<span class='blue'>
 data/<br>
 &nbsp;&nbsp;    train/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;        dog001.jpg<br>
@@ -61,10 +64,11 @@ data/<br>
  &nbsp;&nbsp;&nbsp;&nbsp;       001.jpg<br>
  &nbsp;&nbsp;&nbsp;&nbsp;       002.jpg<br>
  &nbsp;&nbsp;&nbsp;&nbsp;       ...<br>
-
+</span>
 
 We will convert the above directory structure into this structure for ease of data processing.
 
+<span class='blue'>
 data/<br>
 &nbsp;&nbsp;    train/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;         dogs/<br>
@@ -80,7 +84,7 @@ data/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;         002.jpg<br>
 &nbsp;&nbsp;&nbsp;&nbsp;         003.jpg<br>
 &nbsp;&nbsp;&nbsp;&nbsp;         ...<br>
-
+</span>
 
 ```python
 print ('Training set images', len(os.listdir(train_cats_dir))+len(os.listdir(train_dogs_dir)))
@@ -303,7 +307,7 @@ In next post, we will discuss about various regularization techniques and when a
 <img src='/images/transfer_learning_files/tesla_cnn.png' width="70%"/>
 </p>
 
-We saw how the training a CNN is similar to MLP. It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans. <span class='saddlebrown'>What is going on insides these layers to them such better classifiers?</span>
+We saw how the training a [CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/) is similar to [MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/). It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans. <span class='saddlebrown'>What is going on insides these layers to them such better classifiers?</span>
 
 <p align="center">
 <img src='/images/transfer_learning_files/visualize_cnn.png' width="60%"/>
@@ -332,6 +336,7 @@ In short, here is how CNN learns.
 
 <p align="center">
 <img src='/images/transfer_learning_files/layers_cnn.jpg' />
+<img src='/images/transfer_learning_files/faces_cnn.jpeg' />
 </p>
 
 When an image of face of human is passed through CNN, the initial layers learn to identify simple features like nose, eyes, ears, etc. As we move up the architecture, the higher layers will combine simple features into more complex feature and finally dense layers at the top of the network will combine very high level features and produce classification predictions.
@@ -356,6 +361,10 @@ On some problems where you may not have very much data, transfer learning can en
 For a new classification task, we can simply use the off-the-shelf features of a state-of-the-art CNN pre-trained on ImageNet and train a new model on these extracted features.
 
 Taking the example of our dataset, where pretrained model has already seen bunch of cats and dogs from Imagenet dataset and now the model is somewhat adept to know difference between cats and dogs and many other different things from Imagenet dataset. So, if we just train the pretrain model with our new dataset of just cats and dogs, the model has already learned how different types of dogs and cats looks like. Building on these knowledge of pretrained model, new model learns to classify the new dataset very quickly.
+
+<p align="center">
+<img src='/images/transfer_learning_files/transfer_learning.jpg' />
+</p>
 
 ### 2 Major Transfer Learning scenarios
 
@@ -393,8 +402,7 @@ Since the data is small, it is likely best to only train a linear classifier. Si
 
 Since the dataset is very large, we may expect that we can afford to train a ConvNet from scratch. However, in practice it is very often still beneficial to initialize with weights from a pretrained model. In this case, we would have enough data and confidence to fine-tune through the entire network.
 
-
-So, my Young Padwan, you have now the full <span class='purple'>Power of Transfer Learning </span> and we will implement it below. <span class='orange'> And always remember the wise words spoken by Master Andrej Karpathy, "Don't be a hero. Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch."</span> Indeed transfer learning is your go to learning technique whenever images are inputs as long as we have some CoNvnet model pretrained on significantly larger dataset which somewhat resemebles or supersets our desired dataset. The performance boost and training time saved by using transfer learning is amazing and must be one of the first methods resorted.
+So, my Young Padwan, you have now the full <span class='purple'>Power of Transfer Learning </span> and we will implement it below. <span class='orange'> And always remember the wise words spoken by Master Andrej Karpathy, "Don't be a hero. Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch."</span> Indeed transfer learning is your go to learning technique whenever images are inputs as long as we have some CoNvnet model pretrained on significantly larger dataset which somewhat resemebles or supersets our desired dataset. The performance boost and training time saved by using transfer learning is amazing and must be one of the first methods resorted when inputs are images.
 
 In next post, we will focus on <span class='purple'>Power to Visualize CNN</span>.
 
@@ -1363,6 +1371,8 @@ neurons - unit
 [Cat and Dog image](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data)
 
 [Transfer Learning graphic](https://medium.com/the-official-integrate-ai-blog/transfer-learning-explained-7d275c1e34e2)
+
+[Faces CNN layers](https://indico.io/blog/exploring-computer-vision-convolutional-neural-nets/)
 
 [3 ways in which learning is imporved by transfer](https://machinelearningmastery.com/transfer-learning-for-deep-learning/)
 
