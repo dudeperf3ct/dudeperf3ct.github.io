@@ -1379,6 +1379,8 @@ Googlion planet - Google
 
 [Kaggle Dataset for Cats and Dogs](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data)
 
+[Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
+
 [Traditional ML setup](http://ruder.io/transfer-learning/)
 
 [Cat and Dog image](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data)
