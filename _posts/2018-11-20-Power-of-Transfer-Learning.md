@@ -1333,7 +1333,7 @@ skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), nor
 </p>
 
 
-<font color='red'>I-know-everything:</font> Young Padwan, now that you have seen how Transfer Learning works. The applications of using this approach are limitless, play with everything you can using these pretrained models. In next post, we will visualize layers in CNN and see what parts of image are they looking at. Visualization of layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
+<span class='red'>I-know-everything:</span> Young Padwan, now that you have seen how Transfer Learning works. The applications of using this approach are limitless, play with everything you can using these pretrained models. In next post, we will visualize layers in CNN and see what parts of image are they looking at. Visualization of layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
 
 - Gradient visualization
 - Smooth grad
