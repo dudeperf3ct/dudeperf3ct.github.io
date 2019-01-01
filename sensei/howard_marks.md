@@ -47,6 +47,8 @@ Why can't people beat the market? Because the market's pretty efficient. And the
 
 It is our job as contrarians to catch falling knives, hopefully with care and skill. That’s why the concept of intrinsic value is so important. If we hold a view of value that enables us to buy when everyone else is selling – and if our view turns out to be right – that’s the route to the greatest rewards earned with the least risk.
 
+<span class='red'>The goal is to buy low and sell high.</span> I think that an understanding of cycles allows you to understand when we’re high and when we’re low, and the key in understanding that is to understand why we’re high and why we’re low.
+
 We can make excellent investment decisions on the basis of present observations, with no need to make guesses about the future. If great investors like Marks, Buffett, Munger, Lynch etc. can’t make macro forecasts, do you think economists can? If you do believe they can, “Where are the economists’ yachts?"
 
 The first lesson I learnt at Wharton was you can't tell the quality of decisions from its outcome.
