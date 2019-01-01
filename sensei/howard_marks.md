@@ -150,7 +150,7 @@ It’s not what you buy. It’s what you pay.
 
 For that which a man wishes that he will believe. ~ Demosthenes to Charlie Munger to Howard Marks
 
-Now, just remember, none of this is meant to be easy. Anybody who thinks it’s easy is stupid. ~ Charlie Munger to Howard Marks
+Now, just remember, none of investing is meant to be easy. Anybody who thinks it’s easy is stupid. ~ Charlie Munger to Howard Marks
 
 The less prudence which others conduct their affairs, the greater the prudence with which we must conduct our own affairs. ~ Warren Buffet 
 
