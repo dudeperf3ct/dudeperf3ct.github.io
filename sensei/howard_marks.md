@@ -103,6 +103,8 @@ Imagine if you were a baseball player, you have five trips to the plate and you 
 
 The greatest thing I was ever taught was back around ’73 or ’74. Somebody said, “I’m going to tell you about the three stages of the bull market. In the first stage, just a few incredibly insightful people understand that there could be improvement. In the second stage, most people recognize that improvement is actually taking place. In the third stage, everybody and his brother believes that things will only get better forever.” 
 
+Investing is the only place where people buy less when things go on sale, and I think this is really important for investors and especially new investors to realize. Even Buffet says, “I like hamburgers. And when the hamburgers go on sale, I eat more hamburgers.” 
+
 Quotes
 ===========================
 
@@ -113,6 +115,8 @@ What a wise man does in the beginning, the fool does it in the end.
 Being too far ahead of your time is indistinguishable from being wrong.
 
 Move forward but with caution.
+
+Perfect is the enemy of good.
 
 It's not what you don't know that gets into trouble, it's what you know for certain that just ain't true. ~ Mark Twain
 
