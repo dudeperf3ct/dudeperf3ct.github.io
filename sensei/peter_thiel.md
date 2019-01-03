@@ -6,17 +6,17 @@ tags: peter thiel
 published: true
 ---
 <p align='center'>
- <img src="/images/senseis/peter.jpg" alt="Peter Theil" width="70%"/>
+ <img src="/images/senseis/peter.jpg" alt="Peter Thiel" width="70%"/>
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. There is lesson in everything. <span class='red'>Happy Learning!</span>
 
 Feel free to jump anywhere,
-- [Theilism](#thielism)
+- [Thielism](#thielism)
 - [Quotes](#quotes)
 - [Stories](#stories)
 
-Theilism
+Thielism
 ===========================
 
 Every moment in the history of technology and science happens once. The next Mark Zuckerberg will not be starting social networking site, the next Larry Page will not be starting search engine and next Bill Gates will not be starting operating system.
