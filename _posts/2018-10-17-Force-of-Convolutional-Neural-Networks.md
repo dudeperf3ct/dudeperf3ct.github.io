@@ -1654,7 +1654,9 @@ ConvNets - Convolution Neural Networks
 
 [ConvNets: A Modular Perspective](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
 
-[Yearning book by Andrew Ng](http://www.mlyearning.org/) Chapters 4 to 7 
+[Yearning book by Andrew Ng](http://www.mlyearning.org/) Chapters 4 to 7
+
+[Very Cool Explaination by Ars Technica](https://arstechnica.com/science/2018/12/how-computers-got-shockingly-good-at-recognizing-images/)
 
 [CS231n: Convolutional Neural Networks](http://cs231n.github.io/convolutional-networks/)
 
