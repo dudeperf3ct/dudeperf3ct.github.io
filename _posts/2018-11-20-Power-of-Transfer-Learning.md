@@ -66,7 +66,7 @@ data/<br>
  &nbsp;&nbsp;&nbsp;&nbsp;       ...<br>
 </span>
 
-We will convert the above directory structure into this structure for ease of data processing.
+We will convert the above directory structure into this structure for ease of data processing. Also, split the training data into train and validation sets.
 
 <span class='blue'>
 data/<br>
@@ -78,6 +78,15 @@ data/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;         cats/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             cat001.jpg<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             cat002.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             ...<br>
+&nbsp;&nbsp;    val/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;         dogs/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             dog121.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             dog112.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             ...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;         cats/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             cat111.jpg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             cat102.jpg<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             ...<br>
 &nbsp;&nbsp;    test/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;         001.jpg<br>
