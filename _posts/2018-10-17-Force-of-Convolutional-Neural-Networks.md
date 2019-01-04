@@ -425,7 +425,7 @@ Read more about both paper and competition: [here](https://qz.com/1307091/the-in
 Here is the illustration showing the error rate from year 2012 to 2018.
 
 <p align="center">
-<img src='/images/mnist_cnn_files/imagenet_progress.png' />
+<img src='/images/mnist_cnn_files/imagenet_progress.png' width="70%"/>
 </p>  
 
 
@@ -1702,6 +1702,6 @@ Training CNN in your browser [ConvNetJS Demos](https://cs.stanford.edu/people/ka
 
 [All architectures LeNet, AlexNet, etc](https://medium.com/@sidereal/cnns-architectures-lenet-alexnet-vgg-googlenet-resnet-and-more-666091488df5)
 
-[Imagenet Error rate](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/ImageNet_error_rate_history_%28just_systems%29.svg/220px-ImageNet_error_rate_history_%28just_systems%29.svg.png)
+[Imagenet Error rate](https://cdn.arstechnica.net/wp-content/uploads/2018/10/Screen-Shot-2018-10-12-at-4.24.35-PM.png)
 
 [Imagenet architecture graphics](https://cdn-images-1.medium.com/max/800/1*ZqkLRkMU2ObOQWIHLBg8sw.png)
