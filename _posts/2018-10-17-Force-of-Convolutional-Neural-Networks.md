@@ -422,7 +422,7 @@ In 2012, [seminal paper](https://papers.nips.cc/paper/4824-imagenet-classificati
 Read more about both paper and competition: [here](https://qz.com/1307091/the-inside-story-of-how-ai-got-good-enough-to-dominate-silicon-valley/) and [here](https://qz.com/1034972/the-data-that-changed-the-direction-of-ai-research-and-possibly-the-world/).
 
 
-Here is the illustration showing the error rate from year 2012 to 2018.
+Here is the illustration showing the error rate from year 2010 to 2017.
 
 <p align="center">
 <img src='/images/mnist_cnn_files/imagenet_progress.png' width="70%"/>
