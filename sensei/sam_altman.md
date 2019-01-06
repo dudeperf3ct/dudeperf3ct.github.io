@@ -20,15 +20,15 @@ Doing anything worthwhile takes a long time and it takes a lot of emotional trau
 Take time try lot of things, explore a lot of things. Try to have beginner's mind about what will work and what won't but trust your intuitions and pursue a lot of things as cheaply and quickly as possible then be honest with yourself about what's working well and what's not. And hard part is cut all the stuff that's not working and focus down until you are eventually focused one or two things that are really working.
 
 My three most pillar in productivity:
- - Make sure to get important things done 
- - Don't waste time on stupid shit
- - Make a lots of lists 
+ - <span class='saddlebrown'>Make sure to get important things done </span>
+ - <span class='saddlebrown'>Don't waste time on stupid shit </span>
+ - <span class='saddlebrown'>Make a lots of lists </span>
 
-The best thing I can say is I like to follow my interests, I try to pursue a lot of projects that seem interesting. I realize that most of them will fail and I don't care as long as the one that work really work.
+<span class='red'>The best thing I can say is I like to follow my interests, I try to pursue a lot of projects that seem interesting. I realize that most of them will fail and I don't care as long as the one that work really work.</span>
 
 Everytime I make a major investment in the company, I am convinced that it's going to work or atleast like I am prepared to pay for the expected value that I think it's going to work. Convincing yourself otherwise is very hard.
 
-The best thing in investing is you get to be wrong a lot many times very frequently and you learn that's okay as long as magnitude of success is pays for all of failures.
+<span class='purple'>The best thing in investing is you get to be wrong a lot many times very frequently and you learn that's okay as long as magnitude of success is pays for all of failures.</span>
 
 The things that have taught me lot about business are poker and investing. I strongly recommend poker for understanding the world of psychology and risk.
 
@@ -42,11 +42,13 @@ You want to look for intersection of what you good at, what you enjoy and where 
 
 If you work very hard at early in your career, you get little better at what you work every day, every week, every year and you learn more and meet people and just get work done. There's a compound effect.
 
-My new belief on how long should I hold the stock in best companies is forever. In a world where people are increasingly focused on tick and quarterly earnings cycle, you should try and go in the other direction. This a great way to generate value and wealth.
+<span class='saddlebrown'>My new belief on how long should I hold the stock in best companies is forever.</span> In a world where people are increasingly focused on tick and quarterly earnings cycle, you should try and go in the other direction. This a great way to generate value and wealth.
 
 I think willing to go, take a risk and make some amount of sacrifice to be able to try impact the world in some way you care about and sooner you get to work on that, better you'll be.
 
 <span class='red'>"Love is better than like."</span> Well, I think there’s a few different reasons for that. One is it objectively seems to be true. If you look at the companies that have gone to become super important and valuable, and shaped the world in a big way, they tend to have fairly fanatical early users. If you think about how you first came across Facebook or Google, it’s very likely because a friend told you how great it was. <span class='red'>Focus on love, not likes.</span>
+
+<span class='blue'>The role of the CEO is basically to figure out and decide what the company should do and then make sure it does that. Many CEOs try to outsource those things.</span>
 
 
 
@@ -74,6 +76,8 @@ You have to work harder than most people think you should.
 People regret way more things they didn't do then they do.
 
 Startups, once they get big enough, can only grow by word of mouth.
+
+I think the job is 5% that and 95% making sure that it happens.
 
 
 Stories
