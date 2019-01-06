@@ -46,11 +46,13 @@ If you work very hard at early in your career, you get little better at what you
 
 I think willing to go, take a risk and make some amount of sacrifice to be able to try impact the world in some way you care about and sooner you get to work on that, better you'll be.
 
+<span class='blue'>The point that I always try to make is that it’s important to do very small amounts of that. Less is more.</span>If you look at the most successful founders, they’re not the ones that are on the circuit.
+
 <span class='red'>"Love is better than like."</span> Well, I think there’s a few different reasons for that. One is it objectively seems to be true. If you look at the companies that have gone to become super important and valuable, and shaped the world in a big way, they tend to have fairly fanatical early users. If you think about how you first came across Facebook or Google, it’s very likely because a friend told you how great it was. <span class='red'>Focus on love, not likes.</span>
 
 <span class='blue'>The role of the CEO is basically to figure out and decide what the company should do and then make sure it does that. Many CEOs try to outsource those things.</span>
 
-
+<span class='red'>The hard part of getting users and getting revenue is that it means spending your time building stuff and talking to users—and the implication is you should do nothing else.</span>
 
 Quotes
 ===========================
@@ -65,7 +67,9 @@ You  win people over one person at a time.
 
 Crowd is right "sometimes".
 
- It is easier to start a hard company than an easy company.
+It is easier to start a hard company than an easy company.
+ 
+You have to get really good at saying no.
 
 The way things get done in the world are through a combination of focus and personal connection. ~ Charlie Rose
 
@@ -76,6 +80,8 @@ You have to work harder than most people think you should.
 People regret way more things they didn't do then they do.
 
 Startups, once they get big enough, can only grow by word of mouth.
+
+People always say that the CEO’s job is not to run out of money, and what they usually mean by that is fundraising. But the other way you can do that is to make money.
 
 I think the job is 5% that and 95% making sure that it happens.
 
