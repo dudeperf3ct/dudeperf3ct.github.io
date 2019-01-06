@@ -21,7 +21,7 @@ Marcism
 
 Hollywood is very unlike the Valley. Probably the biggest difference is in the valley if you say that somebody's startup is just all a story and no substance, it's very offensive things to say. In Hollywood, they take that as a huge compliment because the whole point is to tell a great story. The other main difference is, the people in Valley think their life is harder or it's harder to start the companies or it's hard to compete for the business. Hollywood is much more difficult. It's actually more hardcore competitive, even compared to vicious business environment.
 
-The way modern venture captial firms work is kind of strange and interesting. So, we inbound 2000 pitches per year from qualified referred entrepreneurs. So, lot of it about meeting and trying to survive the tsunami.
+<span class='purple'>The way modern venture captial firms work is kind of strange and interesting. So, we inbound 2000 pitches per year from qualified referred entrepreneurs. So, lot of it about meeting and trying to survive the tsunami.</span>
 
 <span class='red'>I have a little simulation of Peter Thiel. He lives on my shoulder right here. I argue with him all day long.</span>
 
@@ -53,6 +53,9 @@ The view of venture philosophy is sort of forget whether or not it will work, as
 
 One of the things you see crystal clearly in VC is how much competition emerges whenever anything works. <span class='red'>Every single time we say, “Oh, this startup is unique. There’s some unique product here and there’s not going to be competition,” invariably six months later there are 20 venture-backed competitors doing the exact same thing.</span> And so at some point, if the early  guys don’t get to the other 95% of the market, somebody else is going to go take it away. And whoever has 95% of the market, number one they’re going to get all the value. All the investment returns, all the employee compensation flows to that company. And then number two, that company then accretes resources so they can work backward. In a lot of cases, they end up buying the company that got the early adopters for a small percentage of their equity, and then they just take the whole thing.
 
+<span class='red'>I’m really on the Jeff Bezos program on structure of teams, the two-pizza team thing. Jeff Bezos favors product innovation teams with five to seven people—no more than can be fed with two pizzas. I think hierarchies kill innovation for the most part. You need original thinking and speed of execution, and it’s really hard to get that in anything other than a small-team format, in my view.</span>
+
+
 Quotes
 ===========================
 
@@ -73,6 +76,8 @@ Capital is abundant but opportunties are scarce.
 What you don’t do can hurt you more than what you actually do.
 
 The most extreme mistakes in Berkshire’s history have been mistakes of omission. We saw it, but didn’t act on it. They’re huge mistakes — we’ve lost billions. And we keep doing it. We’re getting better at it. We never get over it. There are two types of mistakes: 1) doing nothing, what Warren calls “sucking my thumb” and 2) buying with an eyedropper things we should be buying a lot of.  ~ Charlie Munger
+
+What I’ve always found is this: <span class='purple'>give me a great product picker and a great architect, and I’ll give you a great product.</span>
 
 
 Stories
