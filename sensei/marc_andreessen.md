@@ -49,6 +49,10 @@ Most of the good ideas are already kind of obvious. And by the way, they probabl
 
 The view of venture philosophy is sort of forget whether or not it will work, ask the question about what if it did work and then push that question out as far as you can.
 
+<span class='saddlebrown'>If you don’t start layering in HR once you’ve passed 50 people on your way to 150, something is going to go badly wrong.</span>
+
+One of the things you see crystal clearly in VC is how much competition emerges whenever anything works. <span class='red'>Every single time we say, “Oh, this startup is unique. There’s some unique product here and there’s not going to be competition,” invariably six months later there are 20 venture-backed competitors doing the exact same thing.</span> And so at some point, if the early  guys don’t get to the other 95% of the market, somebody else is going to go take it away. And whoever has 95% of the market, number one they’re going to get all the value. All the investment returns, all the employee compensation flows to that company. And then number two, that company then accretes resources so they can work backward. In a lot of cases, they end up buying the company that got the early adopters for a small percentage of their equity, and then they just take the whole thing.
+
 Quotes
 ===========================
 
@@ -59,6 +63,8 @@ Change in economy is happening all the time.
 The goal isn’t to be perfect but rather to be a great success.
 
 Taking ego out of ideas is a very hard thing to do.
+
+If you don’t keep innovating – your product will go stale. And somebody will come out with a better product and displace you.
 
 You have to be ruthlessly open-minded and constantly willing to reexamine your assumptions. You have to take the ego out of ideas, which is a very hard thing to do.
 
