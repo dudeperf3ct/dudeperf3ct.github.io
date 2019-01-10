@@ -124,18 +124,22 @@ In this approach, we look at different filter from our model. From our above arc
 Well, this black and white isn't telling much. Let's apply mask, to our original image we apply these output as mask.
 
 
-And voila! Wow! We get some amazing results. We confirm our claim from previous post on transfer learning that, that lower convolutional layers capture low-level image features, e.g. edges, while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features. We see that this is indeed the case. We see that there are some filters which look for whiskers of dog, some on left eye, etc.
+And voila! Wow! We get some amazing results. We confirm our claim from previous post on transfer learning that, that lower convolutional layers capture low-level image features, e.g. edges, while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features. We see that this is indeed the case. We see that there are some filters which look for whiskers of dog, some on left eye, eyes and nose detector and also ears, etc.
 
 - Visualize inputs that maximize the activation of the filters in different layers of the model
 
-In this approach, we take our trained model and reconstruct the inputs that maximize the activation of filters in different layers of the model. 
-
-
-- Gradient Ascent into Image Space
+In this approach, we take our trained model and reconstruct the inputs that maximize the activation of filters in different layers of the model. W 
 
 
 
 - Grad CAM
+
+
+
+
+
+- An input that maximizes a specific class
+
 
 
 
