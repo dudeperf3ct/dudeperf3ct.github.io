@@ -247,13 +247,25 @@ neurons - unit
 
 # Further Reading
 
+Best Visualizations ever! on [distill.pub](https://distill.pub/)
+
+Must Read! [Feature Visualization](https://distill.pub/2017/feature-visualization/)
+
+Must Read! [The Building Blocks of Interpretability](https://distill.pub/2018/building-blocks/)
+
+Must Read! [Feature-wise transformations](https://distill.pub/2018/feature-wise-transformations/)
+
 [Visualizaing and Understanding Convolution Neural Networks](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf)
 
 [Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps](https://arxiv.org/abs/1312.6034)
 
-[Grad CAM](https://arxiv.org/pdf/1610.02391.pdf)
+[Guided Backprop](https://arxiv.org/pdf/1412.6806.pdf)
+
+[Grad CAM and Guided Grad CAM](https://arxiv.org/pdf/1610.02391.pdf)
 
 [CS231n Spring 2017 Lecture 11] 
+
+Amazing [PAIR Code Saliency](https://pair-code.github.io/saliency/)
 
 [Qure.ai blog on Visualizations](http://blog.qure.ai/notes/deep-learning-visualization-gradient-based-methods)
 
