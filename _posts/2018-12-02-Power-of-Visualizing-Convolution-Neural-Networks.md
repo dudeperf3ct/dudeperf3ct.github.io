@@ -210,8 +210,7 @@ Here is our result,
 
 Grad-CAM, uses the gradients of any target concept (say logits for ‘dog’), flowing into the final convolutional layer to produce a coarse localization map highlighting the important regions in the image for predicting the concept. Given an image and a class of interest (‘dog’) as input, we forward propagate the image through the CNN part of the model and then through task-specific computations to obtain a raw score for the category. The gradients are set to zero for all classes except the desired class (dog), which is set to 1. This signal is then backpropagated to the rectified convolutional feature maps of interest, which we combine to compute the coarse Grad-CAM localization (blue heatmap) which represents where the model has to look to make the particular decision. Here is the illustration from [original paper](https://arxiv.org/pdf/1610.02391.pdf).
 
-
-Here is our result,
+Here is the result,
 
 <p align="center">
 <img src='/images/visualize_cnn_files/doggie.png' width="20%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="20%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="20%"/>
@@ -221,7 +220,7 @@ Here is our result,
 <img src='/images/visualize_cnn_files/grad_cam_dog.png' width="20%"/><img src='/images/visualize_cnn_files/grad_cam_newdog.png' width="20%"/><img src='/images/visualize_cnn_files/grad_cam_newcat.png' width="20%"/>
 </p>
 
-Amazing right? It tells us exactly what region in the input image it has looked at to make the decision of predicting particular class.
+<span class='purple'>Amazing right? It tells us exactly what region in the input image it has looked at to make the decision of predicting particular class.</span>
 
 
 ### Guided Grad CAM
@@ -237,7 +236,7 @@ Combining Guided Backprop and Grad CAM from above gives Guided Grad-CAM, which g
 </p>
 
 
-- An input that maximizes a specific class
+### An input that maximizes a specific class
 
 In this method, we take random noise and with choosing a particular class either cat or dog, we construct an input from random noise such that it gives near perfect accurate prediction of chosen class. 
 
@@ -275,7 +274,7 @@ Here is the excerpt from the [blog](https://ai.googleblog.com/2015/06/inceptioni
 
 > If we choose higher-level layers, which identify more sophisticated features in images, complex features or even whole objects tend to emerge. Again, we just start with an existing image and give it to our neural net. We ask the network: “Whatever you see there, I want more of it!” This creates a feedback loop: if a cloud looks a little bit like a bird, the network will make it look more like a bird. This in turn will make the network recognize the bird even more strongly on the next pass and so forth, until a highly detailed bird appears, seemingly out of nowhere.
 
-Here is our input image
+Here is sample input image,
 
 <p align="center">
 <img src='/images/visualize_cnn_files/cinque_terre.jpg' width="60%"/>
