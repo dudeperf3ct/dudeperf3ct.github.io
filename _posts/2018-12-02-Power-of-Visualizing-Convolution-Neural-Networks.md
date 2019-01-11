@@ -227,7 +227,7 @@ Fchollet on keras blog explains,
 
 This is certainly the coolest technique. It's like our neural network is dreaming. In usual CNN training what we do is adjust the network's weight to agree more with the image. But here, we instead adjust the image to agree more with the network. If we adjust the image like this, adjusting the pixels a bit at a time and then repeating, then we would actually start to see dogs in the photo, even if there weren't dogs there to begin with! In other words, instead of forcing the network to generate pictures of dogs or other specific objects, we let the network create more of whatever it saw in the image.
 
-Here is the excerpt from the blog 
+Here is the excerpt from the [blog](https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html)
 
 > Instead of exactly prescribing which feature we want the network to amplify, we can also let the network make that decision. In this case we simply feed the network an arbitrary image or photo and let the network analyze the picture. We then pick a layer and ask the network to enhance whatever it detected. Each layer of the network deals with features at a different level of abstraction, so the complexity of features we generate depends on which layer we choose to enhance. For example, lower layers tend to produce strokes or simple ornament-like patterns, because those layers are sensitive to basic features such as edges and their orientations.
 
@@ -236,8 +236,11 @@ Here is the excerpt from the blog
 Here is our input image
 
 
-If we 
+This is the output we obtain, 
 
+
+We can see lots of dogs in this image. For more hallucinations, check this [results](https://photos.google.com/share/AF1QipPX0SCl7OzWilt9LnuQliattX4OUCj_8EP65_cTVnBmS1jnYgsGQAieQUc1VQWdgQ?key=aVBxWjhwSzg2RjJWLWRuVFBBZEN1d205bUdEMnhB)
+.  
 
 
 - t-SNE Visualization
