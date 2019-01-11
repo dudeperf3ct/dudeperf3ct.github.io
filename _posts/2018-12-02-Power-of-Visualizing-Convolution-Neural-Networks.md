@@ -115,9 +115,11 @@ _________________________________________________________________
 ```
 So, it's VGG16 with last fully connected removed with addition of new FC layers along with dropout.
 
-To start with visualization, we will take a random sample image from our cats and dogs dataset graciously provided by Kaggle. How does this one look?
+To start with visualization, we will take a random sample image from our cats and dogs dataset graciously provided by Kaggle. How does these ones look?
 
-doggie.png
+<p align="center">
+<img src='/images/visualize_cnn_files/doggie.png' width="50%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="50%"/>
+</p>
 
 So, we will performs all sorts of not evil experiments of this dog and using our trained model from transfer learning, we will look at various techniques used for visualizing CNNs.
 
@@ -182,7 +184,10 @@ This is one of the simplest of techniques where measure the relative importance 
 
 This method is lot like the one above with the only difference was how to handle the backpropagation of gradients through non-linear layers like ReLU. GuidedBackprop, suppressed the flow of gradients through neurons wherein either of input or incoming gradients were negative. Also, Guided Backpropagation visualizations were generally less noisy. The following illustrations explains clearly this phenomenon. 
 
-guided_backprop.png
+<p align="center">
+<img src='/images/visualize_cnn_files/guided_gradcam.png' width="60%"/>
+<p align="center">block5_conv3</p>
+</p
 
 Here is our result,
 
@@ -199,6 +204,10 @@ Grad-CAM, uses the gradients of any target concept (say logits for ‘dog’), f
 Here is our result,
 
 <p align="center">
+<img src='/images/visualize_cnn_files/doggie.png' width="30%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="30%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="30%"/>
+</p>
+
+<p align="center">
 <img src='/images/visualize_cnn_files/grad_cam_dog.png' width="30%"/><img src='/images/visualize_cnn_files/grad_cam_newdog.png' width="30%"/><img src='/images/visualize_cnn_files/grad_cam_newcat.png' width="30%"/>
 </p>
 
@@ -208,6 +217,10 @@ Amazing right? It tells us exactly what region in the input image it has looked 
 - Guided Grad CAM
 
 Combining Guided Backprop and Grad CAM from above gives Guided Grad-CAM, which gives high-resolution class-discriminative visualizations. It's just pointwise multiplication of above two results.
+
+<p align="center">
+<img src='/images/visualize_cnn_files/doggie.png' width="30%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="30%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="30%"/>
+</p>
 
 <p align="center">
 <img src='/images/visualize_cnn_files/guided_gradcam_dog.png' width="30%"/><img src='/images/visualize_cnn_files/guided_gradcam_newdog.png' width="30%"/><img src='/images/visualize_cnn_files/guided_gradcam_newcat.png' width="30%"/>
@@ -262,7 +275,7 @@ Here is our input image
 This is the output we obtain, 
 
 <p align="center">
-<img src='/images/visualize_cnn_files/cinque_terre_deepdream.jpg' width="60%"/>
+<img src='/images/visualize_cnn_files/cinque_terre_deepdream.png' width="60%"/>
 <p align="center"> Deep Dream Cinque Terre </a> </p>
 </p>
 
