@@ -45,7 +45,7 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span> Today will be the exiciting topic of peeking inside of the black box of CNNs and look at what they see. So, to recap, from our previous posts we saw what a CNN is, wherein we trained CNN and looked at different architectures. Next, we moved to transfer learning. There we learned what an amazing technique transfer learning is! Different ways of transfer learning and how and why transfer learning is providing such a boost. In that topic, we introduced to this notion of CNN as black box, where we really can't tell as to what is that network is looking at while training or predicting and how such amazing CNN learn to classify 1000 categories of 1.2 million images better than humans. So, today we will look behind the scenes of working of CNNs and this will involve looking at lots of pictures.
+<span class='red'>I-know-everything:</span> Today will be the exiciting topic of peeking inside of the black box of CNNs and look at what they see. So, to recap, from our previous posts we saw what a CNN is, wherein we trained CNN and looked at different architectures. Next, we moved to transfer learning. There we learned what an amazing technique transfer learning is! Different ways of transfer learning and how and why transfer learning is providing such a boost. In that topic, we introduced to this notion of CNN as black box, where we really can't tell as to what is that network is looking at while training or predicting and how such amazing CNN learn to classify 1000 categories of 1.2 million images better than humans. So, today we will look behind the scenes of working of CNNs and this will involve looking at lots of pictures. Be warned!
 
 <span class='green'>I-know-nothing:</span> I am ready!
 
@@ -131,6 +131,14 @@ And voila! Wow! We get some amazing results. We confirm our claim from previous 
 In this approach, we take our trained model and reconstruct the inputs that maximize the activation of filters in different layers of the model. W 
 
 
+- Backprop
+
+
+
+- Guided Backprop
+
+
+
 
 - Grad CAM
 
@@ -139,6 +147,7 @@ In this approach, we take our trained model and reconstruct the inputs that maxi
 
 
 - An input that maximizes a specific class
+
 
 
 
