@@ -45,7 +45,7 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span> Today will be the exiciting topic of peeking inside of the black box of CNNs and look at what they see. So, to recap, from our previous posts we saw what a CNN is, wherein we trained CNN and looked at different architectures. Next, we moved to transfer learning. There we learned what an amazing technique transfer learning is! Different ways of transfer learning and how and why transfer learning is providing such a boost. In that topic, we introduced to this notion of CNN as black box, where we really can't tell as to what is that network is looking at while training or predicting and how such amazing CNN learn to classify 1000 categories of 1.2 million images better than humans. So, today we will look behind the scenes of working of CNNs and this will involve looking at lots of pictures. Be warned!
+<span class='red'>I-know-everything:</span> Today will be the exiciting topic of peeking inside of the black box of CNNs and look at what they see. So, to recap, from our previous posts we saw what a CNN is, wherein we trained CNN and looked at different architectures. Next, we moved to transfer learning. There we learned what an amazing technique transfer learning is! Different ways of transfer learning and how and why transfer learning is providing such a boost. In that topic, we introduced to this notion of CNN as black box, where we really can't tell as to what is that network is looking at while training or predicting and how such amazing CNN learn to classify 1000 categories of 1.2 million images better than humans. So, today we will look behind the scenes of working of CNNs and this will involve looking at lots of pictures.
 
 <span class='green'>I-know-nothing:</span> I am ready!
 
@@ -138,19 +138,28 @@ In this approach, we look at different filter from our model. From our above arc
 </p>
 
 
-Well, this black and white isn't telling much. Let's apply mask, to our original image we apply these output as mask.
+Well, this black and white isn't telling much. Let's apply these as a mask to our original image.
 
 <p align="center">
 <img src='/images/visualize_cnn_files/conv1_layer1_edge_detector.png' width="25%"/><img src='/images/visualize_cnn_files/conv5_layer1_eyes_nose.png' width="25%"/><img src='/images/visualize_cnn_files/conv5_layer3_ears.png' width="25%"/><img src='/images/visualize_cnn_files/conv5_layer3_nose_whiskers.png' width="25%"/>
 </p>
 
 
-And voila! Wow! We get some amazing results. We confirm our claim from previous post on transfer learning that, that lower convolutional layers capture low-level image features, e.g. edges, while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features. We see that this is indeed the case. We see that there are some filters which look for whiskers of dog, some on left eye, eyes and nose detector and also ears, etc.
+And voila! Wow! We get some amazing results. We confirm our claim from previous post on transfer learning, that the lower convolutional layers capture low-level image features, e.g. edges, while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features. We see that this is indeed the case. We see that there are some neurons in the filters which look for whiskers and nose of dog, some on left eye, eyes and nose detector and also ears, etc.
 
 - Visualize inputs that maximize the activation of the filters in different layers of the model
 
 In this approach, we take our trained model and reconstruct the inputs that maximize the activation of filters in different layers of the model. W 
 
+<p align="center">
+<img src='/images/visualize_cnn_files/block1_conv1.png' width="50%"/><p align="center">Block 1 Conv 1</p><img src='/images/visualize_cnn_files/block2_conv1.png' width="50%"/><p align="center">Block 2 Conv 1</p>
+</p>
+<p align="center">
+<img src='/images/visualize_cnn_files/block3_conv1.png' width="50%"/><p align="center">Block 3 Conv 1</p><img src='/images/visualize_cnn_files/block4_conv1.png' width="50%"/><p align="center">Block 4 Conv 1</p>
+</p>
+<p align="center">
+<img src='/images/visualize_cnn_files/block5_conv1.png' width="50%"/><p align="center">Block 5 Conv 1</p><img src='/images/visualize_cnn_files/block5_conv3.png' width="50%"/><p align="center">Block 5 Conv 3</p>
+</p>
 
 - Vanilla Backprop
 
