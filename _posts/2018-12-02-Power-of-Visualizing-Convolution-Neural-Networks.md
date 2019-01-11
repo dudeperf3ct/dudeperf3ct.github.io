@@ -186,13 +186,14 @@ This method is lot like the one above with the only difference was how to handle
 
 <p align="center">
 <img src='/images/visualize_cnn_files/guided_gradcam.png' width="30%"/>
-<p align="center"><a href="https://arxiv.org/pdf/1610.02391.pdf">Image Credit </a></p>
+<p align="center"><a href="https://arxiv.org/pdf/1610.02391.pdf">Image Credits</a></p>
 </p>
 
 Here is our result,
 
 <p align="center">
-<img src='/images/visualize_cnn_files/guided_backprop_dog.png' width="30%"/><img src='/images/visualize_cnn_files/guided_backprop_catdog.png' width="30%"/>
+<img src='/images/visualize_cnn_files/guided_backprop_dog.png' width="30%"/>
+<p align="center">Guided Backprop of only dog image</p>
 </p>
 
 
@@ -350,7 +351,7 @@ Amazing [PAIR Code Saliency](https://pair-code.github.io/saliency/) Example
 
 Tanks story sources and great length of discussion  Here: [1](https://www.gwern.net/Tanks) [2](https://www.jefftk.com/p/detecting-tanks) and [3](https://neil.fraser.name/writing/tank/) 
 
-[Guided Grad CAM](https://arxiv.org/pdf/1610.02391.pdf)
+[Guided Grad CAM](https://arxiv.org/pdf/1610.02391.pdf) and [Cat and Dog Image](https://arxiv.org/pdf/1610.02391.pdf)
 
 [Cinque Terre Image](https://commons.wikimedia.org/w/index.php?curid=32998590)
 
