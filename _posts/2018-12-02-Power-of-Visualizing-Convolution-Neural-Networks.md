@@ -152,13 +152,13 @@ And voila! Wow! We get some amazing results. We confirm our claim from previous 
 In this approach, we take our trained model and reconstruct the inputs that maximize the activation of filters in different layers of the model. W 
 
 <p align="center">
-<img src='/images/visualize_cnn_files/block1_conv1.png' width="30%"/><img src='/images/visualize_cnn_files/block2_conv1.png' width="30%"/><p align="center">Block 1 Conv 1 Block 2 Conv 1</p>
+<img src='/images/visualize_cnn_files/block1_conv1.png' width="30%"/><img src='/images/visualize_cnn_files/block2_conv1.png' width="30%"/>
 </p>
 <p align="center">
-<img src='/images/visualize_cnn_files/block3_conv1.png' width="30%"/><p align="center">Block 3 Conv 1</p><img src='/images/visualize_cnn_files/block4_conv1.png' width="30%"/><p align="center">Block 4 Conv 1</p>
+<img src='/images/visualize_cnn_files/block3_conv1.png' width="30%"/><img src='/images/visualize_cnn_files/block4_conv1.png' width="30%"/>
 </p>
 <p align="center">
-<img src='/images/visualize_cnn_files/block5_conv1.png' width="30%"/><p align="center">Block 5 Conv 1</p><img src='/images/visualize_cnn_files/block5_conv3.png' width="30%"/><p align="center">Block 5 Conv 3</p>
+<img src='/images/visualize_cnn_files/block5_conv1.png' width="30%"/><img src='/images/visualize_cnn_files/block5_conv3.png' width="30%"/>
 </p>
 
 - Vanilla Backprop
