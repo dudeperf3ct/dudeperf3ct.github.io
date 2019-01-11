@@ -26,6 +26,15 @@ Feel free to jump anywhere,
 
 - [Introduction to Visualizing CNN](#introduction-to-visualizing-cnn)
   - [Story](#story)
+  - [Visualizing Activations](#visualizing-activations)
+  - [Visualize inputs that maximize the activation of the filters in different layers of the model](#visualize-inputs-that-maximize-the-activation-of-the-filters-in-different-layers-of-the-model)
+  - [Vanilla Backprop](#vanilla-backprop)
+  - [Guided Backprop](#guided-backprop)
+  - [Grad CAM](#grad-cam)
+  - [Guided Grad CAM](#guided-grad-cam)
+  - [An input that maximizes a specific class](#an-input-that-maximizes-a-specific-class)
+  - [Deep Dream](#deep-dream)
+  - [t-SNE Visualization](#t-sne-visualization)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -123,7 +132,7 @@ To start with visualization, we will take a random sample image from our cats an
 
 So, we will performs all sorts of not evil experiments of this dog and using our trained model from transfer learning, we will look at various techniques used for visualizing CNNs.
 
-- Visualizing Activations
+### Visualizing Activations
 
 In this approach, we look at different filter from our model. From our above architecture, we look at <span class='orange'>block1_conv1</span>, <span class='orange'>block2_conv1</span>, <span class='orange'>block3_conv1</span>, <span class='orange'>block4_conv1</span>, <span class='orange'>block5_conv1</span> and <span class='orange'>block5_conv3</span> layers(filters). In each layer, some neurons will remain dark while others will light up as they respond to different patterns in the image.
 
@@ -154,7 +163,7 @@ Well, this black and white isn't telling much. Let's apply these as a mask to ou
 
 And voila! Wow! We get some amazing results. We see that there are some neurons in the filters which look for whiskers and nose of dog, some on left eye, eyes and nose detector and also ears, etc.
 
-- Visualize inputs that maximize the activation of the filters in different layers of the model
+### Visualize inputs that maximize the activation of the filters in different layers of the model
 
 In this approach, we take our trained model and reconstruct the images that maximize the activation of filters in different layers of the model. The reasoning behind this idea is that a pattern to which the unit is responding maximally could be a good first-order representation of what a unit is doing. One simple way of doing this is to find, for a given unit, the input sample(s) (from either the training or the test set) that give rise to the highest activation of the unit. Here, we take our model and layer name for which pattern is to be discerned. Next, we compute the gradient of input image(random noise) with respect to loss function which maximises the activation of provided layer name. We perform a gradient ascent in the input space with regard to our filter activation loss. This along with some tricks like normalizing input, we get beautiful pattern of what pattern that layer activates most for. We could use the same code to display what sorts of input maximizes each filter in each layer. As there are 100s of filters in some layer, we choose the ones with highest activation to form a grid of 8x8.
 
@@ -170,7 +179,7 @@ In this approach, we take our trained model and reconstruct the images that maxi
 
 We get to see some interesting patterns. The first layers basically just encode direction and color. These direction and color filters then get combined into basic grid and spot textures. These textures gradually get combined into increasingly complex patterns. In the highest layers (block5_conv2, block5_conv3) we start to recognize textures. We confirm our claim from previous post on transfer learning, that the lower convolutional layers capture low-level image features, e.g. edges, while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features. We see that this is indeed the case. 
 
-- Vanilla Backprop
+### Vanilla Backprop
 
 This is one of the simplest of techniques where measure the relative importance of input features by calculating the gradient of the output decision with respect to those input features. It simply means that we use the techniques used above like loss function and calculate the gradients of last layer with respect to model input. The image will we somewhat indiscernible but it shows us what part of image it focuses on to make the output decision.
 
@@ -180,7 +189,7 @@ This is one of the simplest of techniques where measure the relative importance 
 </p>
 
 
-- Guided Backprop
+### Guided Backprop
 
 This method is lot like the one above with the only difference was how to handle the backpropagation of gradients through non-linear layers like ReLU. GuidedBackprop, suppressed the flow of gradients through neurons wherein either of input or incoming gradients were negative. Also, Guided Backpropagation visualizations were generally less noisy. The following illustrations explains clearly this phenomenon. 
 
@@ -197,7 +206,7 @@ Here is our result,
 </p>
 
 
-- Grad CAM
+### Grad CAM
 
 Grad-CAM, uses the gradients of any target concept (say logits for ‘dog’), flowing into the final convolutional layer to produce a coarse localization map highlighting the important regions in the image for predicting the concept. Given an image and a class of interest (‘dog’) as input, we forward propagate the image through the CNN part of the model and then through task-specific computations to obtain a raw score for the category. The gradients are set to zero for all classes except the desired class (dog), which is set to 1. This signal is then backpropagated to the rectified convolutional feature maps of interest, which we combine to compute the coarse Grad-CAM localization (blue heatmap) which represents where the model has to look to make the particular decision. Here is the illustration from [original paper](https://arxiv.org/pdf/1610.02391.pdf).
 
@@ -215,7 +224,7 @@ Here is our result,
 Amazing right? It tells us exactly what region in the input image it has looked at to make the decision of predicting particular class.
 
 
-- Guided Grad CAM
+### Guided Grad CAM
 
 Combining Guided Backprop and Grad CAM from above gives Guided Grad-CAM, which gives high-resolution class-discriminative visualizations. It's just pointwise multiplication of above two results.
 
@@ -256,7 +265,7 @@ Fchollet on keras blog explains,
 
 > So our convnet's notion of a dog looks nothing like a dog --at best, the only resemblance is at the level of local textures (ears, maybe whiskers or nose). Does it mean that convnets are bad tools? Of course not, they serve their purpose just fine. What it means is that we should refrain from our natural tendency to anthropomorphize them and believe that they "understand", say, the concept of dog, or the appearance of a magpie, just because they are able to classify these objects with high accuracy. They don't, at least not to any any extent that would make sense to us humans. <span class='blue'>So what do they really "understand"? Two things: first, they understand a decomposition of their visual input space as a hierarchical-modular network of convolution filters, and second, they understand a probabilitistic mapping between certain combinations of these filters and a set of arbitrary labels.</span> Naturally, this does not qualify as "seeing" in any human sense, and from a scientific perspective it certainly doesn't mean that we somehow solved computer vision at this point.
 
-- Deep Dream
+### Deep Dream
 
 This is certainly the coolest technique. It's like our neural network is dreaming. In usual CNN training what we do is adjust the network's weight to agree more with the image. But here, we instead adjust the image to agree more with the network. If we adjust the image like this, adjusting the pixels a bit at a time and then repeating, then we would actually start to see dogs in the photo, even if there weren't dogs there to begin with! In other words, instead of forcing the network to generate pictures of dogs or other specific objects, we let the network create more of whatever it saw in the image.
 
@@ -285,7 +294,7 @@ We can see lots of dogs in this image. For more hallucinations, check this [resu
 .  
 
 
-- t-SNE Visualization
+### t-SNE Visualization
 
 We will randomly sample 100 images from training set and use penultimate layer as predictor and visualize these 100 images in embedding projector by Tensorflow.
 
