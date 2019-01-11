@@ -172,7 +172,7 @@ This is one of the simplest of techniques where measure the relative importance 
 
 - Guided Backprop
 
-This method is lot like the one above with the only difference was how to handle the backpropagation of gradients through non-linear layers like ReLU. GuidedBackprop, suppressed the flow of gradients through neurons wherein either of input or incoming gradients were negative. The following illustrations explains clearly this phenomenon.
+This method is lot like the one above with the only difference was how to handle the backpropagation of gradients through non-linear layers like ReLU. GuidedBackprop, suppressed the flow of gradients through neurons wherein either of input or incoming gradients were negative. Also, Guided Backpropagation visualizations were generally less noisy. The following illustrations explains clearly this phenomenon. 
 
 guided_backprop.png
 
@@ -183,27 +183,50 @@ Here is our result,
 
 - Grad CAM
 
-Grad-CAM, uses the gradients of any target concept (say logits for ‘dog’), flowing into the final convolutional layer to produce a coarse localization map highlighting the important regions in the image for predicting the concept.
+Grad-CAM, uses the gradients of any target concept (say logits for ‘dog’), flowing into the final convolutional layer to produce a coarse localization map highlighting the important regions in the image for predicting the concept. Given an image and a class of interest (‘dog’) as input, we forward propagate the image through the CNN part of the model and then through task-specific computations to obtain a raw score for the category. The gradients are set to zero for all classes except the desired class (dog), which is set to 1. This signal is then backpropagated to the rectified convolutional feature maps of interest, which we combine to compute the coarse Grad-CAM localization (blue heatmap) which represents where the model has to look to make the particular decision. Here is the illustration from [original paper](https://arxiv.org/pdf/1610.02391.pdf).
+
+
+Here is our result,
+
+
+Amazing right? It tells us exactly what region in the input image it has looked at to make the decision of predicting particular class.
 
 
 - Guided Grad CAM
 
+Combining Guided Backprop and Grad CAM from above gives Guided Grad-CAM, which gives high-resolution class-discriminative visualizations. It's just pointwise multiplication of above two results.
 
 
 
 
 - An input that maximizes a specific class
 
+In this method, we take random noise and with choosing a particular class either cat or dog, we construct an input from random noise such that it gives near perfect accurate prediction of chosen class. 
+
+Here is the noise,
+
+
+This is what we obtain as an image.
+
+
+This is the output predictions when we pass the image through our model. It is almost certain 99.99% sure that this is dog.(Haha! Well, I don't see how this is a dog.) 
 
 ```python
 array([[1.7701734e-07, 9.9999988e-01]], dtype=float32)
 ```
+Fchollet on keras blog explains,
+
+> So our convnet's notion of a dog looks nothing like a dog --at best, the only resemblance is at the level of local textures (ears, maybe a whisker). Does it mean that convnets are bad tools? Of course not, they serve their purpose just fine. What it means is that we should refrain from our natural tendency to anthropomorphize them and believe that they "understand", say, the concept of dog, or the appearance of a magpie, just because they are able to classify these objects with high accuracy. They don't, at least not to any any extent that would make sense to us humans. <span class='blue'>So what do they really "understand"? Two things: first, they understand a decomposition of their visual input space as a hierarchical-modular network of convolution filters, and second, they understand a probabilitistic mapping between certain combinations of these filters and a set of arbitrary labels.</span> Naturally, this does not qualify as "seeing" in any human sense, and from a scientific perspective it certainly doesn't mean that we somehow solved computer vision at this point
 
 - Deep Dream
 
+This is certainly the coolest technique. It's like our neural network is dreaming.
 
 
 
+- t-SNE Visualization
+
+We will randomly sample 100 images from training set and use penultimate layer as predictor and  
 
 <span class='orange'>Happy Learning!</span>
 
@@ -226,9 +249,21 @@ neurons - unit
 
 [Visualizaing and Understanding Convolution Neural Networks](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf)
 
+[Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps](https://arxiv.org/abs/1312.6034)
+
 [Grad CAM](https://arxiv.org/pdf/1610.02391.pdf)
 
 [CS231n Spring 2017 Lecture 11] 
+
+[Qure.ai blog on Visualizations](http://blog.qure.ai/notes/deep-learning-visualization-gradient-based-methods)
+
+[Visualizing Higher-Layer Features of a Deep Network](https://www.researchgate.net/publication/265022827_Visualizing_Higher-Layer_Features_of_a_Deep_Network)
+
+[Deep Dream blog by Google](https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html)
+
+[Amazing keras blog on ConvNet Visualization](https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html)
+
+[Want to get high?](https://photos.google.com/share/AF1QipPX0SCl7OzWilt9LnuQliattX4OUCj_8EP65_cTVnBmS1jnYgsGQAieQUc1VQWdgQ?key=aVBxWjhwSzg2RjJWLWRuVFBBZEN1d205bUdEMnhB)
 
 ---
 
