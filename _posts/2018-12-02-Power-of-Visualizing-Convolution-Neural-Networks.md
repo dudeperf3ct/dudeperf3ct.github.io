@@ -204,11 +204,11 @@ Grad-CAM, uses the gradients of any target concept (say logits for ‘dog’), f
 Here is our result,
 
 <p align="center">
-<img src='/images/visualize_cnn_files/doggie.png' width="30%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="30%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="30%"/>
+<img src='/images/visualize_cnn_files/doggie.png' width="20%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="20%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="20%"/>
 </p>
 
 <p align="center">
-<img src='/images/visualize_cnn_files/grad_cam_dog.png' width="30%"/><img src='/images/visualize_cnn_files/grad_cam_newdog.png' width="30%"/><img src='/images/visualize_cnn_files/grad_cam_newcat.png' width="30%"/>
+<img src='/images/visualize_cnn_files/grad_cam_dog.png' width="20%"/><img src='/images/visualize_cnn_files/grad_cam_newdog.png' width="20%"/><img src='/images/visualize_cnn_files/grad_cam_newcat.png' width="20%"/>
 </p>
 
 Amazing right? It tells us exactly what region in the input image it has looked at to make the decision of predicting particular class.
@@ -219,11 +219,11 @@ Amazing right? It tells us exactly what region in the input image it has looked 
 Combining Guided Backprop and Grad CAM from above gives Guided Grad-CAM, which gives high-resolution class-discriminative visualizations. It's just pointwise multiplication of above two results.
 
 <p align="center">
-<img src='/images/visualize_cnn_files/doggie.png' width="30%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="30%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="30%"/>
+<img src='/images/visualize_cnn_files/doggie.png' width="20%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="20%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="20%"/>
 </p>
 
 <p align="center">
-<img src='/images/visualize_cnn_files/guided_gradcam_dog.png' width="30%"/><img src='/images/visualize_cnn_files/guided_gradcam_newdog.png' width="30%"/><img src='/images/visualize_cnn_files/guided_gradcam_newcat.png' width="30%"/>
+<img src='/images/visualize_cnn_files/guided_gradcam_dog.png' width="20%"/><img src='/images/visualize_cnn_files/guided_gradcam_newdog.png' width="20%"/><img src='/images/visualize_cnn_files/guided_gradcam_newcat.png' width="20%"/>
 </p>
 
 
