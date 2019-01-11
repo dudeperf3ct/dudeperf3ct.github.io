@@ -127,7 +127,7 @@ In this approach, we look at different filter from our model. From our above arc
 <p align="center">
 <img src='/images/visualize_cnn_files/conv3_layer1.png' width="60%"/>
 <p align="center">block3_conv1</p>
-</p
+</p>
 <p align="center">
 <img src='/images/visualize_cnn_files/conv5_layer1.png' width="60%"/>
 <p align="center">block5_conv1</p>
