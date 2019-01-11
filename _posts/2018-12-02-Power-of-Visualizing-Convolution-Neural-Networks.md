@@ -45,7 +45,7 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span> Today will be the exiciting topic of peeking inside of the black box of CNNs and look at what they see. So, to recap, from our previous posts we saw what a CNN is, wherein we trained CNN and looked at different architectures. Next, we moved to transfer learning. There we learned what an amazing technique transfer learning is! Different ways of transfer learning and how and why transfer learning is providing such a boost. In that topic, we introduced to this notion of CNN as black box, where we really can't tell as to what is that network is looking at while training or predicting and how such amazing CNN learn to classify 1000 categories of 1.2 million images better than humans. So, today we will look behind the scenes of working of CNNs and this will involve looking at lots of pictures.
+<span class='red'>I-know-everything:</span> Today will be the exiciting topic of peeking inside of the black box of CNNs and look at what they see. So, to recap, from our previous posts we saw what a CNN is, wherein we trained CNN and looked at different architectures. Next, we moved to transfer learning. There we learned what an amazing technique transfer learning is! Different ways of transfer learning and how and why transfer learning is providing such a boost. In that topic, we introduced to this notion of CNN as black box, where we really can't tell as to what is that network is looking at while training or predicting and how such amazing CNN learn to classify 1000 categories of 1.2 million images better than humans. So, today we will look behind the scenes of working of CNNs and this will involve looking at lots of pictures. Before that let me tell you a story, once upon a time US Army wanted to use neural networks to automatically detect camouflaged enemy tanks. The dataset that reasearchers collected comprised of 50 photos of camouflaged tanks in trees, and 50 photos of trees without tanks. Using standard techniques of supervisied learning, the reasearchers trained a neural network on the given dataset and achieved an output "yes" for the 50 photos of camouflaged tanks, and output "no" for the 50 photos of forest. The researchers handed the finished work to the Pentagon, which soon handed it back, complaining that in their own tests the neural network did no better than chance at discriminating photos. It turned out that in the researchers' dataset, photos of camouflaged tanks had been taken on cloudy days, while photos of plain forest had been taken on sunny days. The neural network had learned to distinguish cloudy days from sunny days, instead of distinguishing camouflaged tanks from empty forest. Haha! The military was now the proud owner of a multi-million dollar mainframe computer that could tell you if it was sunny or not.
 
 <span class='green'>I-know-nothing:</span> I am ready!
 
@@ -224,5 +224,7 @@ Googlion planet - Google
 [Kaggle Dataset for Cats and Dogs](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data)
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
+
+Tanks story sources and great length of discussion [1](https://www.gwern.net/Tanks) [2](https://www.jefftk.com/p/detecting-tanks) and [3](https://neil.fraser.name/writing/tank/) 
 
 
