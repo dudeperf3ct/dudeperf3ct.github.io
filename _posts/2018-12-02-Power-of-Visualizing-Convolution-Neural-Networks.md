@@ -234,7 +234,7 @@ In this method, we take random noise and with choosing a particular class either
 Here is the noise,
 
 <p align="center">
-<img src='/images/visualize_cnn_files/noise.png' width="60%"  height="500px"/>
+<img src='/images/visualize_cnn_files/noise.png' width="30%"/>
 <p align="center"> Noise </p>
 </p>
 
@@ -242,7 +242,7 @@ Here is the noise,
 This is what we obtain as an image.
 
 <p align="center">
-<img src='/images/visualize_cnn_files/class_maximization.png' width="60%"  height="300px"/>
+<img src='/images/visualize_cnn_files/class_maximization.png' width="30%"/>
 <p align="center"> Noise </p>
 </p>
 
