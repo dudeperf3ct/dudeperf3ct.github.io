@@ -8,7 +8,7 @@ published : false
 ---
 
 
-# Transfer Learning
+# Visualizing CNN
 
 In this notebook, we will try to answer the question "What CNN sees?" using [Cats vs Dogs Redux](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) Competition dataset from kaggle. We will implement this using one of the popular deep learning framework <span class='yellow'>Keras</span> . 
 
@@ -121,13 +121,13 @@ So, we will performs all sorts of not evil experiments of this dog and using our
 In this approach, we look at different filter from our model. From our above architecture, we look at <span class='orange'>block1_conv1</span>, <span class='orange'>block2_conv1</span>, <span class='orange'>block3_conv1</span>, <span class='orange'>block4_conv1</span>, <span class='orange'>block5_conv1</span> and <span class='orange'>block5_conv3</span> layers(filters).
 
 <p align="center">
-<img src='/images/visualize_cnn_files/conv1_layer1.png'/>
+<img src='/images/visualize_cnn_files/conv1_layer1.png' width="60%"/>
 <p align="center">block1_conv1</p>
-<img src='/images/visualize_cnn_files/conv3_layer1.png'/>
+<img src='/images/visualize_cnn_files/conv3_layer1.png' width="60%"/>
 <p align="center">block3_conv1</p>
-<img src='/images/visualize_cnn_files/conv5_layer1.png'/>
+<img src='/images/visualize_cnn_files/conv5_layer1.png' width="60%"/>
 <p align="center">block5_conv1</p>
-<img src='/images/visualize_cnn_files/conv5_layer3.png'/>
+<img src='/images/visualize_cnn_files/conv5_layer3.png' width="60%"/>
 <p align="center">block5_conv3</p>
 </p>
 
@@ -136,13 +136,10 @@ Well, this black and white isn't telling much. Let's apply mask, to our original
 
 
 <p align="center">
-<img src='/images/visualize_cnn_files/conv1_layer1_edge_detector.png'/>
+<img src='/images/visualize_cnn_files/conv1_layer1_edge_detector.png' width="25%"/><img src='/images/visualize_cnn_files/conv5_layer1_eyes_nose.png' width="25%"/><img src='/images/visualize_cnn_files/conv5_layer3_ears.png' width="25%"/><img src='/images/visualize_cnn_files/conv5_layer3_nose_whiskers.png' width="25%"/>
 <p align="center">Edge Detector</p>
-<img src='/images/visualize_cnn_files/conv5_layer1_eyes_nose.png'/>
 <p align="center">Eyes and nose Detector</p>
-<img src='/images/visualize_cnn_files/conv5_layer3_ears.png'/>
 <p align="center">Ear Detector</p>
-<img src='/images/visualize_cnn_files/conv5_layer3_nose_whiskers.png'/>
 <p align="center">Nose and whiskers Detector</p>
 </p>
 
