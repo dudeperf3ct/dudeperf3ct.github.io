@@ -185,7 +185,7 @@ This is one of the simplest of techniques where measure the relative importance 
 This method is lot like the one above with the only difference was how to handle the backpropagation of gradients through non-linear layers like ReLU. GuidedBackprop, suppressed the flow of gradients through neurons wherein either of input or incoming gradients were negative. Also, Guided Backpropagation visualizations were generally less noisy. The following illustrations explains clearly this phenomenon. 
 
 <p align="center">
-<img src='/images/visualize_cnn_files/guided_gradcam.png' width="30%"/>
+<img src='/images/visualize_cnn_files/guided_gradcam.png' width="60%"/>
 <p align="center"><a href="https://arxiv.org/pdf/1610.02391.pdf">Image Credits</a></p>
 </p>
 
