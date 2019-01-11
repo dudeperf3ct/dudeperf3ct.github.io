@@ -128,7 +128,7 @@ In this approach, we look at different filter from our model. From our above arc
 <img src='/images/visualize_cnn_files/conv3_layer1.png' width="60%"/>
 <p align="center">block3_conv1</p>
 </p
-<p align="center">>
+<p align="center">
 <img src='/images/visualize_cnn_files/conv5_layer1.png' width="60%"/>
 <p align="center">block5_conv1</p>
 </p>
@@ -140,10 +140,8 @@ In this approach, we look at different filter from our model. From our above arc
 
 Well, this black and white isn't telling much. Let's apply mask, to our original image we apply these output as mask.
 
-
 <p align="center">
 <img src='/images/visualize_cnn_files/conv1_layer1_edge_detector.png' width="25%"/><img src='/images/visualize_cnn_files/conv5_layer1_eyes_nose.png' width="25%"/><img src='/images/visualize_cnn_files/conv5_layer3_ears.png' width="25%"/><img src='/images/visualize_cnn_files/conv5_layer3_nose_whiskers.png' width="25%"/>
-<p align="center">Edge Detector Eyes and nose Detector Ear Detector Nose and whiskers Detector</p>
 </p>
 
 
