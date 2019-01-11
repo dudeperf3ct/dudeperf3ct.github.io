@@ -172,7 +172,10 @@ We get to see some interesting patterns. The first layers basically just encode 
 
 This is one of the simplest of techniques where measure the relative importance of input features by calculating the gradient of the output decision with respect to those input features. It simply means that we use the techniques used above like loss function and calculate the gradients of last layer with respect to model input. The image will we somewhat indiscernible but it shows us what part of image it focuses on to make the output decision.
 
-
+<p align="center">
+<img src='/images/visualize_cnn_files/backprop_dog.png' width="50%"/>
+<p align="center"> Vanilla Backprop </p>
+</p>
 
 
 - Guided Backprop
@@ -183,7 +186,9 @@ guided_backprop.png
 
 Here is our result,
 
-
+<p align="center">
+<img src='/images/visualize_cnn_files/guided_backprop_dog.png' width="50%"/><img src='/images/visualize_cnn_files/guided_backprop_catdog.png' width="50%"/>
+</p>
 
 
 - Grad CAM
@@ -193,6 +198,9 @@ Grad-CAM, uses the gradients of any target concept (say logits for ‘dog’), f
 
 Here is our result,
 
+<p align="center">
+<img src='/images/visualize_cnn_files/grad_cam_dog.png' width="30%"/><img src='/images/visualize_cnn_files/grad_cam_newdog.png' width="30%"/><img src='/images/visualize_cnn_files/grad_cam_newcat.png' width="30%"/>
+</p>
 
 Amazing right? It tells us exactly what region in the input image it has looked at to make the decision of predicting particular class.
 
@@ -201,7 +209,9 @@ Amazing right? It tells us exactly what region in the input image it has looked 
 
 Combining Guided Backprop and Grad CAM from above gives Guided Grad-CAM, which gives high-resolution class-discriminative visualizations. It's just pointwise multiplication of above two results.
 
-
+<p align="center">
+<img src='/images/visualize_cnn_files/guided_gradcam_dog.png' width="30%"/><img src='/images/visualize_cnn_files/guided_gradcam_newdog.png' width="30%"/><img src='/images/visualize_cnn_files/guided_gradcam_newcat.png' width="30%"/>
+</p>
 
 
 - An input that maximizes a specific class
@@ -210,9 +220,18 @@ In this method, we take random noise and with choosing a particular class either
 
 Here is the noise,
 
+<p align="center">
+<img src='/images/visualize_cnn_files/noise.png' width="60%"/>
+<p align="center"> Noise </p>
+</p>
+
 
 This is what we obtain as an image.
 
+<p align="center">
+<img src='/images/visualize_cnn_files/class_maximization.png' width="60%"/>
+<p align="center"> Noise </p>
+</p>
 
 This is the output predictions when we pass the image through our model. It is almost certain 99.99% sure that this is dog.(Haha! Well, I don't see how this is a dog.) 
 
@@ -235,8 +254,17 @@ Here is the excerpt from the [blog](https://ai.googleblog.com/2015/06/inceptioni
 
 Here is our input image
 
+<p align="center">
+<img src='/images/visualize_cnn_files/cinque_terre.jpg' width="60%"/>
+<p align="center"> <a href="https://commons.wikimedia.org/w/index.php?curid=32998590"> Cinque Terre Credits </a> </p>
+</p>
 
 This is the output we obtain, 
+
+<p align="center">
+<img src='/images/visualize_cnn_files/cinque_terre_deepdream.jpg' width="60%"/>
+<p align="center"> Deep Dream Cinque Terre </a> </p>
+</p>
 
 
 We can see lots of dogs in this image. For more hallucinations, check this [results](https://photos.google.com/share/AF1QipPX0SCl7OzWilt9LnuQliattX4OUCj_8EP65_cTVnBmS1jnYgsGQAieQUc1VQWdgQ?key=aVBxWjhwSzg2RjJWLWRuVFBBZEN1d205bUdEMnhB)
@@ -309,4 +337,5 @@ Amazing [PAIR Code Saliency](https://pair-code.github.io/saliency/) Example
 
 Tanks story sources and great length of discussion  Here: [1](https://www.gwern.net/Tanks) [2](https://www.jefftk.com/p/detecting-tanks) and [3](https://neil.fraser.name/writing/tank/) 
 
+[Cinque Terre Image](https://commons.wikimedia.org/w/index.php?curid=32998590)
 
