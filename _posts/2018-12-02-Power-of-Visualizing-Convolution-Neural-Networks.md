@@ -165,16 +165,25 @@ We get to see some interesting patterns. The first layers basically just encode 
 
 - Vanilla Backprop
 
+This is one of the simplest of techniques where measure the relative importance of input features by calculating the gradient of the output decision with respect to those input features. It simply means that we use the techniques used above like loss function and calculate the gradients of last layer with respect to model input. The image will we somewhat indiscernible but it shows us what part of image it focuses on to make the output decision.
+
+
 
 
 - Guided Backprop
+
+This method is lot like the one above with the only difference was how to handle the backpropagation of gradients through non-linear layers like ReLU. GuidedBackprop, suppressed the flow of gradients through neurons wherein either of input or incoming gradients were negative. The following illustrations explains clearly this phenomenon.
+
+guided_backprop.png
+
+Here is our result,
 
 
 
 
 - Grad CAM
 
-
+Grad-CAM, uses the gradients of any target concept (say logits for ‘dog’), flowing into the final convolutional layer to produce a coarse localization map highlighting the important regions in the image for predicting the concept.
 
 
 - Guided Grad CAM
@@ -186,8 +195,9 @@ We get to see some interesting patterns. The first layers basically just encode 
 - An input that maximizes a specific class
 
 
-
-
+```python
+array([[1.7701734e-07, 9.9999988e-01]], dtype=float32)
+```
 
 - Deep Dream
 
@@ -210,14 +220,15 @@ ConvNets - Convolution Neural Networks
 
 neurons - unit
 
-Googlion planet - Google
-
 ---
 
 # Further Reading
 
 [Visualizaing and Understanding Convolution Neural Networks](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf)
 
+[Grad CAM](https://arxiv.org/pdf/1610.02391.pdf)
+
+[CS231n Spring 2017 Lecture 11] 
 
 ---
 
