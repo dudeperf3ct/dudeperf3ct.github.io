@@ -120,8 +120,20 @@ So, we will performs all sorts of not evil experiments of this dog and using our
 
 In this approach, we look at different filter from our model. From our above architecture, we look at <span class='orange'>block1_conv1</span>, <span class='orange'>block2_conv1</span>, <span class='orange'>block3_conv1</span>, <span class='orange'>block4_conv1</span>, <span class='orange'>block5_conv1</span> and <span class='orange'>block5_conv3</span> layers(filters).
 
+<p align="center">
+<img src='/images/visualize_cnn_files/conv1_layer1.png'/>
+<img src='/images/visualize_cnn_files/conv3_layer1.png'/>
+<img src='/images/visualize_cnn_files/conv5_layer1.png'/>
+<img src='/images/visualize_cnn_files/conv5_layer3.png'/>
+</p>
+
 
 Well, this black and white isn't telling much. Let's apply mask, to our original image we apply these output as mask.
+
+
+<p align="center">
+<img src='/images/transfer_learning_files/master_student.gif' />
+</p>
 
 
 And voila! Wow! We get some amazing results. We confirm our claim from previous post on transfer learning that, that lower convolutional layers capture low-level image features, e.g. edges, while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features. We see that this is indeed the case. We see that there are some filters which look for whiskers of dog, some on left eye, eyes and nose detector and also ears, etc.
@@ -131,7 +143,7 @@ And voila! Wow! We get some amazing results. We confirm our claim from previous 
 In this approach, we take our trained model and reconstruct the inputs that maximize the activation of filters in different layers of the model. W 
 
 
-- Backprop
+- Vanilla Backprop
 
 
 
@@ -141,6 +153,11 @@ In this approach, we take our trained model and reconstruct the inputs that maxi
 
 
 - Grad CAM
+
+
+
+
+- Guided Grad CAM
 
 
 
