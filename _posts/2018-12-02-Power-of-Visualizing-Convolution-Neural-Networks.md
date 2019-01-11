@@ -24,6 +24,8 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 
+- [Introduction to Visualizing CNN](#introduction-to-visualizing-cnn)
+  - [Story](#story)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -45,7 +47,10 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span> Today will be the exiciting topic of peeking inside of the black box of CNNs and look at what they see. So, to recap, from our previous posts we saw what a CNN is, wherein we trained CNN and looked at different architectures. Next, we moved to transfer learning. There we learned what an amazing technique transfer learning is! Different ways of transfer learning and how and why transfer learning is providing such a boost. In that topic, we introduced to this notion of CNN as black box, where we really can't tell as to what is that network is looking at while training or predicting and how such amazing CNN learn to classify 1000 categories of 1.2 million images better than humans. So, today we will look behind the scenes of working of CNNs and this will involve looking at lots of pictures. Before that let me tell you a story, once upon a time US Army wanted to use neural networks to automatically detect camouflaged enemy tanks. The dataset that reasearchers collected comprised of 50 photos of camouflaged tanks in trees, and 50 photos of trees without tanks. Using standard techniques of supervisied learning, the reasearchers trained a neural network on the given dataset and achieved an output "yes" for the 50 photos of camouflaged tanks, and output "no" for the 50 photos of forest. The researchers handed the finished work to the Pentagon, which soon handed it back, complaining that in their own tests the neural network did no better than chance at discriminating photos. It turned out that in the researchers' dataset, photos of camouflaged tanks had been taken on cloudy days, while photos of plain forest had been taken on sunny days. The neural network had learned to distinguish cloudy days from sunny days, instead of distinguishing camouflaged tanks from empty forest. Haha! <span class='purple'>The military was now the proud owner of a multi-million dollar mainframe computer that could tell you if it was sunny or not.</span> How much of this urban legend is true or false is compiled in this [blog](https://www.gwern.net/Tanks). Whether happened or not, it sure is a cautionary tale to remind us, to look deep into how neural networks comes to particular conclusion. Along with trust, comes a duty to verify!
+<span class='red'>I-know-everything:</span> Today will be the exiciting topic of peeking inside of the black box of CNNs and look at what they see. So, to recap, from our previous posts we saw what a CNN is, wherein we trained CNN and looked at different architectures. Next, we moved to transfer learning. There we learned what an amazing technique transfer learning is! Different ways of transfer learning and how and why transfer learning is providing such a boost. In that topic, we introduced to this notion of CNN as black box, where we really can't tell as to what is that network is looking at while training or predicting and how such amazing CNN learn to classify 1000 categories of 1.2 million images better than humans. So, today we will look behind the scenes of working of CNNs and this will involve looking at lots of pictures. 
+
+### Story
+Before that let me tell you a story, once upon a time US Army wanted to use neural networks to automatically detect camouflaged enemy tanks. The dataset that reasearchers collected comprised of 50 photos of camouflaged tanks in trees, and 50 photos of trees without tanks. Using standard techniques of supervisied learning, the reasearchers trained a neural network on the given dataset and achieved an output "yes" for the 50 photos of camouflaged tanks, and output "no" for the 50 photos of forest. The researchers handed the finished work to the Pentagon, which soon handed it back, complaining that in their own tests the neural network did no better than chance at discriminating photos. It turned out that in the researchers' dataset, photos of camouflaged tanks had been taken on cloudy days, while photos of plain forest had been taken on sunny days. The neural network had learned to distinguish cloudy days from sunny days, instead of distinguishing camouflaged tanks from empty forest. Haha! <span class='purple'>The military was now the proud owner of a multi-million dollar mainframe computer that could tell you if it was sunny or not.</span> How much of this urban legend is true or false is compiled in this [blog](https://www.gwern.net/Tanks). Whether happened or not, it sure is a cautionary tale to remind us, to look deep into how neural networks comes to particular conclusion. Along with trust, comes a duty to verify!
 
 <span class='green'>I-know-nothing:</span> Ayye Master, I am ready!
 
@@ -265,7 +270,7 @@ Must Read! [Feature-wise transformations](https://distill.pub/2018/feature-wise-
 
 [CS231n Spring 2017 Lecture 11] 
 
-Amazing [PAIR Code Saliency](https://pair-code.github.io/saliency/)
+Amazing [PAIR Code Saliency](https://pair-code.github.io/saliency/) Example
 
 [Qure.ai blog on Visualizations](http://blog.qure.ai/notes/deep-learning-visualization-gradient-based-methods)
 
