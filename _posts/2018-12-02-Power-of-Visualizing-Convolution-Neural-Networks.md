@@ -118,7 +118,7 @@ So, it's VGG16 with last fully connected removed with addition of new FC layers 
 To start with visualization, we will take a random sample image from our cats and dogs dataset graciously provided by Kaggle. How does these ones look?
 
 <p align="center">
-<img src='/images/visualize_cnn_files/doggie.png' width="50%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="50%"/>
+<img src='/images/visualize_cnn_files/doggie.png' width="60%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="60%"/>
 </p>
 
 So, we will performs all sorts of not evil experiments of this dog and using our trained model from transfer learning, we will look at various techniques used for visualizing CNNs.
@@ -175,7 +175,7 @@ We get to see some interesting patterns. The first layers basically just encode 
 This is one of the simplest of techniques where measure the relative importance of input features by calculating the gradient of the output decision with respect to those input features. It simply means that we use the techniques used above like loss function and calculate the gradients of last layer with respect to model input. The image will we somewhat indiscernible but it shows us what part of image it focuses on to make the output decision.
 
 <p align="center">
-<img src='/images/visualize_cnn_files/backprop_dog.png' width="50%"/>
+<img src='/images/visualize_cnn_files/backprop_dog.png' width="60%"/>
 <p align="center"> Vanilla Backprop </p>
 </p>
 
@@ -192,7 +192,7 @@ This method is lot like the one above with the only difference was how to handle
 Here is our result,
 
 <p align="center">
-<img src='/images/visualize_cnn_files/guided_backprop_dog.png' width="50%"/><img src='/images/visualize_cnn_files/guided_backprop_catdog.png' width="50%"/>
+<img src='/images/visualize_cnn_files/guided_backprop_dog.png' width="60%"/><img src='/images/visualize_cnn_files/guided_backprop_catdog.png' width="60%"/>
 </p>
 
 
