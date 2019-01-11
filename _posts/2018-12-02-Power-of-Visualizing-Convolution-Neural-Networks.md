@@ -225,7 +225,13 @@ Fchollet on keras blog explains,
 
 - Deep Dream
 
-This is certainly the coolest technique. It's like our neural network is dreaming.
+This is certainly the coolest technique. It's like our neural network is dreaming. In usual CNN training what we do is adjust the network's weight to agree more with the image. But here, we instead adjust the image to agree more with the network. If we adjust the image like this, adjusting the pixels a bit at a time and then repeating, then we would actually start to see dogs in the photo, even if there weren't dogs there to begin with! In other words, instead of forcing the network to generate pictures of dogs or other specific objects, we let the network create more of whatever it saw in the image.
+
+Here is the excerpt from the blog 
+
+> Instead of exactly prescribing which feature we want the network to amplify, we can also let the network make that decision. In this case we simply feed the network an arbitrary image or photo and let the network analyze the picture. We then pick a layer and ask the network to enhance whatever it detected. Each layer of the network deals with features at a different level of abstraction, so the complexity of features we generate depends on which layer we choose to enhance. For example, lower layers tend to produce strokes or simple ornament-like patterns, because those layers are sensitive to basic features such as edges and their orientations.
+
+> If we choose higher-level layers, which identify more sophisticated features in images, complex features or even whole objects tend to emerge. Again, we just start with an existing image and give it to our neural net. We ask the network: “Whatever you see there, I want more of it!” This creates a feedback loop: if a cloud looks a little bit like a bird, the network will make it look more like a bird. This in turn will make the network recognize the bird even more strongly on the next pass and so forth, until a highly detailed bird appears, seemingly out of nowhere.
 
 Here is our input image
 
