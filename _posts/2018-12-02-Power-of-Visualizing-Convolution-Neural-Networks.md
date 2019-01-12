@@ -127,7 +127,7 @@ Before that let me tell you a story, once upon a time US Army wanted to use neur
 ```
 So, it's VGG16 with last fully connected removed with addition of new FC layers along with dropout.
 
-To start with visualization, we will take a random sample image from our cats and dogs dataset graciously provided by Kaggle. How does these ones look?
+To start with visualization, we will take a random sample image from our cats and dogs dataset graciously provided by Kaggle. How does these look?
 
 <p align="center">
 <img src='/images/visualize_cnn_files/doggie.png' width="30%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="30%"/>
