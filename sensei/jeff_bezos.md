@@ -54,6 +54,7 @@ Quotes
 
 Stock is not the company and the company is not the stock.
 
+If you’re good at course correcting, being wrong may be less costly than you think.
 
 
 Stories 
