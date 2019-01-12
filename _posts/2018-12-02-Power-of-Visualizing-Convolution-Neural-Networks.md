@@ -285,20 +285,20 @@ This is the output we obtain,
 
 <p align="center">
 <img src='/images/visualize_cnn_files/cinque_terre_deepdream.png' width="60%"/>
-<p align="center"> Deep Dream Cinque Terre </a> </p>
+<p align="center"> Deep Dream Cinque Terre </p>
 </p>
 
 
-We can see lots of dogs in this image. For more hallucinations, check this [results](https://photos.google.com/share/AF1QipPX0SCl7OzWilt9LnuQliattX4OUCj_8EP65_cTVnBmS1jnYgsGQAieQUc1VQWdgQ?key=aVBxWjhwSzg2RjJWLWRuVFBBZEN1d205bUdEMnhB)
+We can see lots of dogs in this image. For more deep dreaming, check this [results](https://photos.google.com/share/AF1QipPX0SCl7OzWilt9LnuQliattX4OUCj_8EP65_cTVnBmS1jnYgsGQAieQUc1VQWdgQ?key=aVBxWjhwSzg2RjJWLWRuVFBBZEN1d205bUdEMnhB)
 .  
 
 
 ### t-SNE Visualization
 
-We will randomly sample 100 images from training set and use penultimate layer as predictor and visualize these 100 images in embedding projector by Tensorflow.
+We randomly sample 100 images from training set and use penultimate layer as predictor and visualize these 100 images in embedding projector by Tensorflow. We can visualize these emeddings on the projector along with labels.
 
 
-There are other implementations we haven't looked at like occlusion
+What we saw above are gradient-based algorithms, there are also perturbation based techniques and Relevance score based to visualize and interpret the decisions made by deep learning models. The perturbation based techniques include [heatmap via occlusion](https://arxiv.org/abs/1509.06321), [integrated gradients](https://arxiv.org/abs/1703.01365), [super-pixel perturbation](https://arxiv.org/abs/1602.04938), etc. 
 
 <span class='orange'>Happy Learning!</span>
 
@@ -327,6 +327,8 @@ Must Read! [The Building Blocks of Interpretability](https://distill.pub/2018/bu
 
 Must Read! [Feature-wise transformations](https://distill.pub/2018/feature-wise-transformations/)
 
+[“Why Should I Trust You?” Explaining the Predictions of Any Classifier](https://arxiv.org/pdf/1602.04938.pdf)
+
 [Visualizaing and Understanding Convolution Neural Networks](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf)
 
 [Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps](https://arxiv.org/abs/1312.6034)
@@ -334,6 +336,8 @@ Must Read! [Feature-wise transformations](https://distill.pub/2018/feature-wise-
 [Guided Backprop](https://arxiv.org/pdf/1412.6806.pdf)
 
 [Grad CAM and Guided Grad CAM](https://arxiv.org/pdf/1610.02391.pdf)
+
+[Integrated Gradients](https://arxiv.org/abs/1703.01365)
 
 [CS231n Spring 2017 Lecture 11] 
 
