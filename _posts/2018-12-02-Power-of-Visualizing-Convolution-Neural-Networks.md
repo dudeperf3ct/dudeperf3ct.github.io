@@ -45,14 +45,23 @@ Feel free to jump anywhere,
 
 Regualarizations, is that another one of the fancy names to look cooler? After introducing the bias and variance, overfitting and underfitting, ways of interpreting learning curves, now comes the time put all these pieces together. We learned to interpret if our model is overfitting or underfitting from learning curves in our last post on [Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/). So, now we will look into ways of how to handle these anomalies. First, why to use regularizations? All along in machine learning, we tried to make an algorithm that does good not only on training data, but also on new inputs i.e. to generalize data other than training or unseen data.
 
-If you suspect the model is overfitting (high variance), we call in regularization to rescue. We looked other ways we can do, like adding more data, which is not always the case as it can be expensive to get more data, and so on. So, adding regularization often helps in reducing overfitting (reduce variance). 
+Michael Neilsen explains clearly the relation between parameters in model and generalizability,
+
+> Models with a large number of free parameters can describe an amazingly wide range of phenomena. Even if such a model agrees well with the available data, that doesn't make it a good model. It may just mean there's enough freedom in the model that it can describe almost any data set of the given size, without capturing any genuine insights into the underlying phenomenon. When that happens the model will work well for the existing data, but will fail to generalize to new situations. The true test of a model is its ability to make predictions in situations it hasn't been exposed to before.
+
+If you suspect the model is overfitting (high variance), we call in regularization to rescue. We looked other ways we can do, like adding more data, which is not always the case as it can be expensive to get more data, and so on. So, adding regularization often helps in reducing overfitting (reduce variance). Good regularizers reduces variance significantly while not overly increasing bias.
 
 Here we will dive deep into two well-know regularizers ($$L^1$$ and $$L^2$$) and in next post discuss the remaining ones.
 
 $$L^2$$ regularization: This regularization goes by many names, **Ridge regression**, **Tikhonov regularization**, **Weight Decay** or **Fobenius Norm** (used in different contexts). This method imposes a penalty by adding a regularization term $$\Omega(\theta) = \lambda ||\mathbf{w}||^2$$ to the objective(loss) function. Here, $$\lambda$$ is the regularization parameter. It is the hyperparameter whose value is optimized for better results. The penalty tends to drive all the weights to smaller values.
 
+From Michael Neilsen on $$L^2$$ regularization, 
+> Intuitively, the effect of regularization is to make it so the network prefers to learn small weights, all other things being equal. Large weights will only be allowed if they considerably improve the first part of the cost (loss or objective) function. Put another way, regularization can be viewed as a way of compromising between finding small weights and minimizing the original cost function. The relative importance of the two elements of the compromise depends on the value of $$\lambda$$: when $$\lambda$$ is small we prefer to minimize the original cost function, but when $$\lambda$$ is large we prefer small weights.
 
-The key difference between these techniques is that Lasso shrinks the less important feature’s coefficient to zero thus, removing some feature altogether. So, this works well for feature selection in case we have a huge number of features.
+$$L^1$$ regularization: This regularization goes by one other name, **LASSO regression** (least absolute shrinkage
+and selection operator). This method imposes a penalty by adding a regularization term $$\Omega(\theta) = \lambda ||\mathbf{w}||$$ to the objective(loss) function. Here, $$\lambda$$ is the regularization parameter. It is the hyperparameter whose value is optimized for better results. The penalty tends to drive some weights to exactly zero (introducing sparsity in the model), while allowing some weights to be big. The key difference between these techniques is that LASSO shrinks the less important feature’s coefficient to zero thus, removing some feature altogether. So, this works well for feature selection in case we have a huge number of features.
+
+
 
 *In next post, we will discuss about various regularization techniques and when and how to use them. Stay tuned!*
 
@@ -326,6 +335,8 @@ Power of Visualize CNN - Visualize CNN
 ConvNets - Convolution Neural Networks
 
 neurons - unit
+
+cost function - loss or objective function
 
 ---
 
