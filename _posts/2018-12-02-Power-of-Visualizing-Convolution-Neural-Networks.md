@@ -43,7 +43,7 @@ Feel free to jump anywhere,
 
 # Regularizations
 
-
+Regualarizations, is that another on of the fancy names to look cooler? 
 
 *In next post, we will discuss about various regularization techniques and when and how to use them. Stay tuned!*
 
