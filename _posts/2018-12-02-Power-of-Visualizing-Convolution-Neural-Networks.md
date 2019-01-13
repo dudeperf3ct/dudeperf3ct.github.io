@@ -47,8 +47,12 @@ Regualarizations, is that another one of the fancy names to look cooler? After i
 
 If you suspect the model is overfitting (high variance), we call in regularization to rescue. We looked other ways we can do, like adding more data, which is not always the case as it can be expensive to get more data, and so on. So, adding regularization often helps in reducing overfitting (reduce variance). 
 
-$L^2$ regularization
+Here we will dive deep into two well-know regularizers ($$L^1$$ and $$L^2$$) and in next post discuss the remaining ones.
 
+$$L^2$$ regularization: This regularization goes by many names, **Ridge regression**, **Tikhonov regularization**, **Weight Decay** or **Fobenius Norm** (used in different contexts). This method imposes a penalty by adding a regularization term $$\Omega(\theta) = \lambda ||\mathbf{w}||^2$$ to the objective(loss) function. Here, $$\lambda$$ is the regularization parameter. It is the hyperparameter whose value is optimized for better results. The penalty tends to drive all the weights to smaller values.
+
+
+The key difference between these techniques is that Lasso shrinks the less important feature’s coefficient to zero thus, removing some feature altogether. So, this works well for feature selection in case we have a huge number of features.
 
 *In next post, we will discuss about various regularization techniques and when and how to use them. Stay tuned!*
 
