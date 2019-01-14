@@ -26,6 +26,9 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 - [Learning Curves](#learning-curves)
+  - [Techniques to reduce avoidable bias](#techniques-to-reduce-avoidable-bias)
+  - [Techniques to reduce variance](#techniques-to-reduce-variance)
+  - [Data Mismatch](#data-mismatch)
 - [Introduction to Transfer Learning](#introduction-to-transfer-learning)
   - [Transfer Learning scenarios](#2-major-transfer-learning-scenarios)
   - [When and how to finetune?](#next-question-would-be-when-and-how-to-fine-tune?)
