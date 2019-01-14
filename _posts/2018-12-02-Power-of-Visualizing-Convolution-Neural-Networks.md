@@ -14,7 +14,7 @@ In this notebook, we will try to answer the question "What CNN sees?" using [Cat
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Vis%20CNN/vis_cnn_keras.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Vis%20CNN/vis_cnn_fastai.ipynb).  
 
-> *All codes can be run on Google Colab (link provided in notebook).* [Awesome Tensorflow Library](https://github.com/PAIR-code/saliency/blob/master/Examples.ipynb) by PAIR Initiative, [Lucid](https://github.com/tensorflow/lucid) by Tensorflow, [Keras Vis Library](https://raghakot.github.io/keras-vis/) and [PyTorch](https://github.com/utkuozbulak/pytorch-cnn-visualizations). Try to use libraries instead of writing from scratch. Not that it is bad practise. But try to stand on the the shoulder of giants. 
+> *All codes can be run on Google Colab (link provided in notebook).* [Awesome Tensorflow Library](https://github.com/PAIR-code/saliency/blob/master/Examples.ipynb) by PAIR Initiative, [Lucid](https://github.com/tensorflow/lucid) by Tensorflow, [Keras Vis Library](https://raghakot.github.io/keras-vis/) and [PyTorch](https://github.com/utkuozbulak/pytorch-cnn-visualizations). Try to use libraries instead of writing all the code from scratch. Not that it is bad practise. But we can see the same thing by standing on the the shoulder of giants (less work!). 
 
 Hey yo, but how to see what a CNN sees?
 
