@@ -258,6 +258,8 @@ In this approach, we take our trained model and reconstruct the images that maxi
 <img src='/images/visualize_cnn_files/block5_conv1.png' width="30%"/><img src='/images/visualize_cnn_files/block5_conv3.png' width="30%"/>
 </p>
 
+[Here](https://imgur.com/a/dGLMrK5) are high-res quality images of above visualizations.
+
 We get to see some interesting patterns. The first layers basically just encode direction and color. These direction and color filters then get combined into basic grid and spot textures. These textures gradually get combined into increasingly complex patterns. In the highest layers (block5_conv2, block5_conv3) we start to recognize textures. We confirm our claim from previous post on transfer learning, that the lower convolutional layers capture low-level image features, e.g. edges, while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features. We see that this is indeed the case. 
 
 ### Vanilla Backprop
