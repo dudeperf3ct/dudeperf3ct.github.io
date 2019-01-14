@@ -12,9 +12,9 @@ published : false
 
 In this notebook, we will try to answer the question "What CNN sees?" using [Cats vs Dogs Redux](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) Competition dataset from kaggle. We will implement this using one of the popular deep learning framework <span class='yellow'>Keras</span> . 
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_pytorch.ipynb), and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_fastai.ipynb).  
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Vis%20CNN/vis_cnn_keras.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Vis%20CNN/vis_cnn_fastai.ipynb).  
 
-> *All codes can be run on Google Colab (link provided in notebook).* [Awesome Tensorflow Library](https://github.com/PAIR-code/saliency/blob/master/Examples.ipynb) by PAIR Initiative, [Lucid](https://github.com/tensorflow/lucid) by Tensorflow and [Keras Vis Library](https://raghakot.github.io/keras-vis/). Try to use libraries instead of writing from scratch. Not that it is bad practise. But try to stand on the the shoulder of giants. 
+> *All codes can be run on Google Colab (link provided in notebook).* [Awesome Tensorflow Library](https://github.com/PAIR-code/saliency/blob/master/Examples.ipynb) by PAIR Initiative, [Lucid](https://github.com/tensorflow/lucid) by Tensorflow, [Keras Vis Library](https://raghakot.github.io/keras-vis/) and [PyTorch](https://github.com/utkuozbulak/pytorch-cnn-visualizations). Try to use libraries instead of writing from scratch. Not that it is bad practise. But try to stand on the the shoulder of giants. 
 
 Hey yo, but how to see what a CNN sees?
 
@@ -47,17 +47,18 @@ Feel free to jump anywhere,
 
 # Regularization
 
-Regualarization, is that another one of the fancy names to look cooler? After introducing the bias and variance, overfitting and underfitting, ways of interpreting learning curves, now comes the time put all these pieces together. We learned to interpret if our model is overfitting or underfitting from learning curves in our last post on [Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/). So, now we will look into ways of how to handle these anomalies. First, why to use regularizations? All along in machine learning, we tried to make an algorithm that does good not only on training data, but also on new inputs i.e. to generalize data other than training or the unseen data.
-
-Michael Neilsen explains clearly the relation between parameters in model and generalizability,
-
-> Models with a large number of free parameters can describe an amazingly wide range of phenomena. Even if such a model agrees well with the available data, that doesn't make it a good model. It may just mean there's enough freedom in the model that it can describe almost any data set of the given size, without capturing any genuine insights into the underlying phenomenon. When that happens the model will work well for the existing data, but will fail to generalize to new situations. The true test of a model is its ability to make predictions in situations it hasn't been exposed to before.
+Regualarization, is that another one of the fancy names, to look cooler? After introducing the bias and variance, overfitting and underfitting, ways of interpreting learning curves, now comes the time put all these pieces together. We learned to interpret if our model is overfitting or underfitting from learning curves in our last post on [Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/). So, now we will look into ways of how to handle these anomalies. First, why to use regularizations? All along in machine learning, we tried to make an algorithm that does good not only on training data, but also on new inputs i.e. to generalize data other than training or the unseen data.
 
 If you suspect the model is overfitting (high variance), we call in regularization to rescue. We looked other ways we can do, like adding more data, which is not always the case as it can be expensive to get more data, and so on. So, adding regularization often helps in reducing overfitting (reduce variance). Good regularizers reduces variance significantly while not overly increasing bias.
+
 
 <p align="center">
 <img src='/images/visualize_cnn_files/overfitting.jpg' />
 </p>
+
+Michael Neilsen explains clearly the relation between parameters in model and generalizability,
+
+> Models with a large number of free parameters can describe an amazingly wide range of phenomena. Even if such a model agrees well with the available data, that doesn't make it a good model. It may just mean there's enough freedom in the model that it can describe almost any data set of the given size, without capturing any genuine insights into the underlying phenomenon. When that happens the model will work well for the existing data, but will fail to generalize to new situations. The true test of a model is its ability to make predictions in situations it hasn't been exposed to before.
 
 Here we will dive deep into two well-know regularizers ($$L^1$$ and $$L^2$$) and in next post discuss the remaining ones.
 
@@ -71,13 +72,13 @@ and selection operator). This method imposes a penalty by adding a regularizatio
 
 ### Why does Regularization Work?
 
-Now, the answer question which follows, is why? Why does it work? Consider an example below,
+Now, the answer question which follows what is, is why? Why does it work? Consider an example below,
 
 <p align="center">
 <img src='/images/visualize_cnn_files/just_right.png'/>
 </p>
 
-Our goal is to build a model that lets us predict $$\mathbf{y}$$ as function of $$\mathbf{x}$$. First we will fit a polynomial model and then look into case of fitting neural networks. As there are 5 points in graph above, which means we can find a unique 4th-order polynomial $$\mathbf{y}=\mathbf{a_0}+\mathbf{a_1}\mathbf{x_1}+…+mathbf{a_4}\mathbf{x_4}$$ which fits the data exactly as shown in the graph(rightmost). But we can also get a good fit using the quadratic model $$\mathbf{y}=\mathbf{a_0}+\mathbf{a_1}\mathbf{x_1}+mathbf{a_2}\mathbf{x_2}$$, as shown in graph(middle).
+Our goal is to build a model that lets us predict $$\mathbf{y}$$ as function of $$\mathbf{x}$$. First we will fit a polynomial model and then look into case of fitting neural networks. As there are 5 points in graph above, which means we can find a unique 4th-order polynomial $$\mathbf{y}=\mathbf{a_0}+\mathbf{a_1}\mathbf{x_1}+…+\mathbf{a_4}\mathbf{x_4}$$ which fits the data exactly as shown in the graph(rightmost). But we can also get a good fit using the quadratic model $$\mathbf{y}=\mathbf{a_0}+\mathbf{a_1}\mathbf{x_1}+mathbf{a_2}\mathbf{x_2}$$, as shown in graph(middle).
 
 Now question is **Which of these is the better model? Which is more likely to be true? And which model is more likely to generalize well to other examples of the same underlying real-world phenomenon?**
 
@@ -104,7 +105,7 @@ Weight regularization is generic technique. It can be used with all types neural
 
 - Standardize Input Data
 
-It is generally good practice to update input variables to have the same scale. When input variables have different scales, the scale of the weights of the network will, in turn, vary accordingly. This introduces a problem when using weight regularization because the absolute or squared values of the weights must be added for use in the penalty.This problem can be addressed by either normalizing or standardizing input variables.
+It is generally good practice to update input variables to have the same scale. When input variables have different scales, the scale of the weights of the network will, in turn, vary accordingly. This introduces a problem when using weight regularization because the absolute or squared values of the weights must be added for use in the penalty. This problem can be addressed by either normalizing or standardizing input variables.
 
 - Use Larger Network
 
@@ -133,14 +134,14 @@ The use of weight regularization may allow more elaborate training schemes. For 
 </p>
 
 
-<span class='red'>I-know-everything:</span> Today will be the exiciting topic of peeking inside of the black box of CNNs and look at what they see. So, to recap, from our previous posts we saw what a CNN is, wherein we trained CNN and looked at different architectures. Next, we moved to transfer learning. There we learned what an amazing technique transfer learning is! Different ways of transfer learning and how and why transfer learning is providing such a boost. In that topic, we introduced to this notion of CNN as black box, where we really can't tell as to what is that network is looking at while training or predicting and how such amazing CNN learn to classify 1000 categories of 1.2 million images better than humans. So, today we will look behind the scenes of working of CNNs and this will involve looking at lots of pictures. 
+<span class='red'>I-know-everything:</span> Today will be the exiciting topic of peeking inside of the black box of CNNs and look at what they see. So, to recap, from our previous posts we saw what a CNN is, wherein we trained CNN and looked at different architectures. Next, we moved to transfer learning. There we learned what an amazing technique transfer learning is! Different ways of transfer learning and how and why transfer learning provides such a boost. In that topic, we introduced to this notion of CNN as black box, where we really can't tell as to what is that network is looking at while training or predicting and how such amazing CNN learn to classify 1000 categories of 1.2 million images better than humans. So, today we will look behind the scenes of working of CNNs and this will involve looking at lots of pictures. 
 
 ### Story
 Before that let me tell you a story, once upon a time US Army wanted to use neural networks to automatically detect camouflaged enemy tanks. The dataset that reasearchers collected comprised of 50 photos of camouflaged tanks in trees, and 50 photos of trees without tanks. Using standard techniques of supervisied learning, the reasearchers trained a neural network on the given dataset and achieved an output "yes" for the 50 photos of camouflaged tanks, and output "no" for the 50 photos of forest. The researchers handed the finished work to the Pentagon, which soon handed it back, complaining that in their own tests the neural network did no better than chance at discriminating photos. It turned out that in the researchers' dataset, photos of camouflaged tanks had been taken on cloudy days, while photos of plain forest had been taken on sunny days. The neural network had learned to distinguish cloudy days from sunny days, instead of distinguishing camouflaged tanks from empty forest. Haha! <span class='purple'>The military was now the proud owner of a multi-million dollar mainframe computer that could tell you if it was sunny or not.</span> How much of this urban legend is true or false is compiled in this [blog](https://www.gwern.net/Tanks). Whether happened or not, it sure is a cautionary tale to remind us, to look deep into how neural networks comes to particular conclusion. <span class='saddlebrown'>Trust, but verfify!</span>
 
 <span class='green'>I-know-nothing:</span> Ayye Master, I am ready!
 
-<span class='red'>I-know-everything:</span> Before jumping to lots of image, let's look at architecture that was used in training our model.
+<span class='red'>I-know-everything:</span> Before jumping to lots of image, let's look at the architecture that was used in training our model.
 
 ```python
   _________________________________________________________________
@@ -210,7 +211,7 @@ To start with visualization, we will take a random sample image from our cats an
 <img src='/images/visualize_cnn_files/doggie.png' width="30%"/><img src='/images/visualize_cnn_files/cat_dog.png' width="30%"/>
 </p>
 
-So, we will performs all sorts of not evil experiments of this dog and using our trained model from transfer learning, we will look at various techniques used for visualizing CNNs.
+So, we will perform all sorts of not evil experiments on this dog and cats images, using our trained model from transfer learning, we will look at various techniques used for visualizing CNNs.
 
 ### Visualizing Activations
 
@@ -241,7 +242,7 @@ Well, this black and white isn't telling much. Let's apply these as a mask to ou
 </p>
 
 
-And voila! Wow! We get some amazing results. We see that there are some neurons in the filters which look for whiskers and nose of dog, some on left eye, eyes and nose detector and also ears, etc.
+And voila! Wow! We get some amazing results. We see that there are some individual neurons in the filters which look for whiskers and nose of dog, some on left eye, eyes and nose detector and also ears, etc.
 
 ### Visualize inputs that maximize the activation of the filters in different layers of the model
 
@@ -261,7 +262,7 @@ We get to see some interesting patterns. The first layers basically just encode 
 
 ### Vanilla Backprop
 
-This is one of the simplest of techniques where measure the relative importance of input features by calculating the gradient of the output decision with respect to those input features. It simply means that we use the techniques used above like loss function and calculate the gradients of last layer with respect to model input. The image will we somewhat indiscernible but it shows us what part of image it focuses on to make the output decision.
+This is one of the simplest of techniques where we measure the relative importance of input features by calculating the gradient of the output decision with respect to those input features. It simply means that we use the techniques used above like loss function and calculate the gradients of last layer with respect to model input. The image will we somewhat indiscernible but it shows us what part of image it focuses on to make the output decision.
 
 <p align="center">
 <img src='/images/visualize_cnn_files/backprop_dog.png' width="30%"/>
@@ -271,7 +272,7 @@ This is one of the simplest of techniques where measure the relative importance 
 
 ### Guided Backprop
 
-This method is lot like the one above with the only difference was how to handle the backpropagation of gradients through non-linear layers like ReLU. GuidedBackprop, suppressed the flow of gradients through neurons wherein either of input or incoming gradients were negative. Also, Guided Backpropagation visualizations were generally less noisy. The following illustrations explains clearly this phenomenon. 
+This method is lot like the one above with the only difference was how to handle the backpropagation of gradients through non-linear layers like ReLU. GuidedBackprop, suppressed the flow of gradients through neurons wherein either of input or incoming gradients were negative. Also, Guided Backpropagation visualizations are generally less noisy. The following illustrations explains clearly this phenomenon. 
 
 <p align="center">
 <img src='/images/visualize_cnn_files/guided_gradcam.png'/>
@@ -331,7 +332,6 @@ Here is the noise,
 <img src='/images/visualize_cnn_files/noise.png' width="30%"/>
 <p align="center"> Noise </p>
 </p>
-
 
 This is what we obtain as an image.
 
@@ -397,7 +397,9 @@ We convert the predictons of the penultimate layer from 512 dimension to 2 dimen
 It shows a clear seperation boundary between the classes of cats and dogs and also shows some missclassified data points.
 
 
-What we saw above are gradient-based algorithms, there are also perturbation based techniques and Relevance score based to visualize and interpret the decisions made by deep learning models. The perturbation based techniques include [heatmap via occlusion](https://arxiv.org/abs/1509.06321), [integrated gradients](https://arxiv.org/abs/1703.01365), [super-pixel perturbation](https://arxiv.org/abs/1602.04938), etc. 
+What we saw above are gradient-based (optimization-based) algorithms, there are also perturbation based techniques and Relevance score based to visualize and interpret the decisions made by deep learning models. The perturbation based techniques include [heatmap via occlusion](https://arxiv.org/abs/1509.06321), [integrated gradients](https://arxiv.org/abs/1703.01365), [super-pixel perturbation](https://arxiv.org/abs/1602.04938), etc. 
+
+What a fun ride through the internals of models! Next, we experience the <span class='purple'>Magic of Style Transfer</span>. You will be suprised what we can achieve with this technique.
 
 <span class='orange'>Happy Learning!</span>
 
@@ -440,9 +442,11 @@ Must Read! [Feature-wise transformations](https://distill.pub/2018/feature-wise-
 
 [Integrated Gradients](https://arxiv.org/abs/1703.01365)
 
-[CS231n Spring 2017 Lecture 11] 
+[CS231n Spring 2017 Lecture 11](https://www.youtube.com/watch?v=6wcs6szJWMY&index=13&t=3940s&list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq)
 
 Amazing [PAIR Code Saliency](https://pair-code.github.io/saliency/) Example
+
+[Tensorflow Lucid Notebooks](https://github.com/tensorflow/lucid#notebooks)
 
 [Qure.ai blog on Visualizations](http://blog.qure.ai/notes/deep-learning-visualization-gradient-based-methods)
 
