@@ -74,7 +74,7 @@ and selection operator). This method imposes a penalty by adding a regularizatio
 Now, the answer question which follows, is why? Why does it work? Consider an example below,
 
 <p align="center">
-<img src='/images/visualize_cnn_files/just_right.jpg'/>
+<img src='/images/visualize_cnn_files/just_right.png'/>
 </p>
 
 Our goal is to build a model that lets us predict $$\mathbf{y}$$ as function of $$\mathbf{x}$$. First we will fit a polynomial model and then look into case of fitting neural networks. As there are 5 points in graph above, which means we can find a unique 4th-order polynomial $$\mathbf{y}=\mathbf{a_0}+\mathbf{a_1}\mathbf{x_1}+…+mathbf{a_4}\mathbf{x_4}$$ which fits the data exactly as shown in the graph(rightmost). But we can also get a good fit using the quadratic model $$\mathbf{y}=\mathbf{a_0}+\mathbf{a_1}\mathbf{x_1}+mathbf{a_2}\mathbf{x_2}$$, as shown in graph(middle).
