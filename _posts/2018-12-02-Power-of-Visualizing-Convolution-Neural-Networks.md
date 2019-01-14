@@ -61,6 +61,32 @@ From Michael Neilsen on $$L^2$$ regularization,
 $$L^1$$ regularization: This regularization goes by one other name, **LASSO regression** (least absolute shrinkage
 and selection operator). This method imposes a penalty by adding a regularization term $$\Omega(\theta) = \lambda ||\mathbf{w}||$$ to the objective(loss) function. Here, $$\lambda$$ is the regularization parameter. It is the hyperparameter whose value is optimized for better results. The penalty tends to drive some weights to exactly zero (introducing sparsity in the model), while allowing some weights to be big. The key difference between these techniques is that LASSO shrinks the less important feature’s coefficient to zero thus, removing some feature altogether. So, this works well for feature selection in case we have a huge number of features.
 
+### Tips for using Weight Regularization
+
+- Use with All Network Types
+
+Weight regularization is generic technique. It can be used with all types neural networks we saw uptil now, MLP, CNN, LSTM and RNN (which we will address in later posts).
+
+- Standardize Input Data
+
+It is generally good practice to update input variables to have the same scale. When input variables have different scales, the scale of the weights of the network will, in turn, vary accordingly. This introduces a problem when using weight regularization because the absolute or squared values of the weights must be added for use in the penalty.This problem can be addressed by either normalizing or standardizing input variables.
+
+- Use Larger Network
+
+It is common for larger networks (more layers or more nodes) to more easily overfit the training data. When using weight regularization, it is possible to use larger networks with less risk of overfitting. A good configuration strategy may be to start with larger networks and use weight decay.
+
+- Grid Search Parameters
+
+It is common to use small values for the regularization hyperparameter that controls the contribution of each weight to the penalty. Perhaps start by testing values on a log scale, such as 0.1, 0.001, and 0.0001. Then use a grid search at the order of magnitude that shows the most promise.
+
+- Use L1 + L2 Together
+
+Rather than trying to choose between L1 and L2 penalties, use both. Modern and effective linear regression methods such as the Elastic Net use both L1 and L2 penalties at the same time and this can be a useful approach to try. This gives you both the nuance of L2 and the sparsity encouraged by L1.
+
+- Use on a Trained Network
+
+The use of weight regularization may allow more elaborate training schemes. For example, a model may be fit on training data first without any regularization, then updated later with the use of a weight penalty to reduce the size of the weights of the already well-performing model.
+
 
 
 *In next post, we will discuss about various regularization techniques and when and how to use them. Stay tuned!*
