@@ -14,7 +14,7 @@ In this notebook, we will try to answer the question "What CNN sees?" using [Cat
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_pytorch.ipynb), and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_fastai.ipynb).  
 
-> *All codes can be run on Google Colab (link provided in notebook).* [Tensorflow implementation](https://github.com/PAIR-code/saliency/blob/master/Examples.ipynb) by PAIR Initiative.
+> *All codes can be run on Google Colab (link provided in notebook).* [Awesome Tensorflow Library](https://github.com/PAIR-code/saliency/blob/master/Examples.ipynb) by PAIR Initiative and [Keras Vis Library](https://raghakot.github.io/keras-vis/). Try to use libraries instead of scratch. Not that it is bad practise. But look by standing on the the shoulder of giants. 
 
 Hey yo, but how to see what a CNN sees?
 
@@ -70,7 +70,7 @@ and selection operator). This method imposes a penalty by adding a regularizatio
 Now, the answer question which follows, is why? Why does it work? Consider an example below,
 
 <p align="center">
-<img src='/images/transfer_learning_files/just_right.jpg' />
+<img src='/images/transfer_learning_files/just_right.jpg'/>
 </p>
 
 Our goal is to build a model that lets us predict $$\mathbf{y}$$ as function of $$\mathbf{x}$$. First we will fit a polynomial model and then look into case of fitting neural networks. As there are 5 points in graph above, which means we can find a unique 4th-order polynomial $$\mathbf{y}=\mathbf{a_0}+\mathbf{a_1}\mathbf{x_1}+…+mathbf{a_4}\mathbf{x_4}$$ which fits the data exactly as shown in the graph(rightmost). But we can also get a good fit using the quadratic model $$\mathbf{y}=\mathbf{a_0}+\mathbf{a_1}\mathbf{x_1}+mathbf{a_2}\mathbf{x_2}$$, as shown in graph(middle).
@@ -83,8 +83,13 @@ It's not a priori possible to say which of these two possibilities is correct. (
 
 And so while the 4th order model works perfectly for these particular data points, the model will fail to generalize to other data points, and the noisy 2nd order model will have greater predictive power.
 
-> Let's see what this point of view means for neural networks. Suppose our network mostly has small weights, as will tend to happen in a regularized network. The smallness of the weights means that the behaviour of the network won't change too much if we change a few random inputs here and there. That makes it difficult for a regularized network to learn the effects of local noise in the data. Think of it as a way of making it so single pieces of evidence don't matter too much to the output of the network. Instead, a regularized network learns to respond to types of evidence which are seen often across the training set. By contrast, a network with large weights may change its behaviour quite a bit in response to small changes in the input. And so an unregularized network can use large weights to learn a complex model that carries a lot of information about the noise in the training data. In a nutshell, regularized networks are constrained to build relatively simple models based on patterns seen often in the training data, and are resistant to learning peculiarities of the noise in the training data. The hope is that this will force our networks to do real learning about the phenomenon at hand, and to generalize better from what they learn.
+> Let's see what this point of view means for neural networks. Suppose our network mostly has small weights, as will tend to happen in a regularized network. The smallness of the weights means that the behaviour of the network won't change too much if we change a few random inputs here and there. That makes it difficult for a regularized network to learn the effects of local noise in the data. Think of it as a way of making it so single pieces of evidence don't matter too much to the output of the network. Instead, a regularized network learns to respond to types of evidence which are seen often across the training set. By contrast, a network with large weights may change its behaviour quite a bit in response to small changes in the input. And so an unregularized network can use large weights to learn a complex model that carries a lot of information about the noise in the training data. <span class='purple'>In a nutshell, regularized networks are constrained to build relatively simple models based on patterns seen often in the training data, and are resistant to learning peculiarities of the noise in the training data. The hope is that this will force our networks to do real learning about the phenomenon at hand, and to generalize better from what they learn.</span>
 
+Michael Neilsen explains in his book concludes that, <span class='red'>"Regularization may give us a computational magic wand that helps our networks generalize better, but it doesn't give us a principled understanding of how generalization works, nor of what the best approach is."</span>
+
+Here is an example from the book to understand the above statement,
+
+> A network with 100 hidden neurons has nearly 80,000 parameters. We have only 50,000 images in our MNSIT training data. It's like trying to fit an 80,000th degree polynomial to 50,000 data points. By all rights, our network should overfit terribly. And yet, as we saw earlier, such a network actually does a pretty good job generalizing. Why is that the case? It's not well understood. It has been conjectured  that "the dynamics of gradient descent learning in multilayer nets has a 'self-regularization' effect". This is exceptionally fortunate, but it's also somewhat disquieting that we don't understand why it's the case. <span class='purple'>In the meantime, we will adopt the pragmatic approach and use regularization whenever we can. Our neural networks will be the better for it.</span>
 
 
 ### Tips for using Weight Regularization
