@@ -20,7 +20,9 @@ Hey yo, but how to see what a CNN sees?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
---insert meme keanu reeves
+<p align="center">
+<img src='/images/visualize_cnn_files/keanu_meme.jpg' />
+</p>
 
 Feel free to jump anywhere,
 
