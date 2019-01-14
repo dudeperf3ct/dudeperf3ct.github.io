@@ -52,7 +52,7 @@ Michael Neilsen explains clearly the relation between parameters in model and ge
 If you suspect the model is overfitting (high variance), we call in regularization to rescue. We looked other ways we can do, like adding more data, which is not always the case as it can be expensive to get more data, and so on. So, adding regularization often helps in reducing overfitting (reduce variance). Good regularizers reduces variance significantly while not overly increasing bias.
 
 <p align="center">
-<img src='/images/transfer_learning_files/overfitting.jpg' />
+<img src='/images/visualize_cnn_files/overfitting.jpg' />
 </p>
 
 Here we will dive deep into two well-know regularizers ($$L^1$$ and $$L^2$$) and in next post discuss the remaining ones.
@@ -70,7 +70,7 @@ and selection operator). This method imposes a penalty by adding a regularizatio
 Now, the answer question which follows, is why? Why does it work? Consider an example below,
 
 <p align="center">
-<img src='/images/transfer_learning_files/just_right.jpg'/>
+<img src='/images/visualize_cnn_files/just_right.jpg'/>
 </p>
 
 Our goal is to build a model that lets us predict $$\mathbf{y}$$ as function of $$\mathbf{x}$$. First we will fit a polynomial model and then look into case of fitting neural networks. As there are 5 points in graph above, which means we can find a unique 4th-order polynomial $$\mathbf{y}=\mathbf{a_0}+\mathbf{a_1}\mathbf{x_1}+…+mathbf{a_4}\mathbf{x_4}$$ which fits the data exactly as shown in the graph(rightmost). But we can also get a good fit using the quadratic model $$\mathbf{y}=\mathbf{a_0}+\mathbf{a_1}\mathbf{x_1}+mathbf{a_2}\mathbf{x_2}$$, as shown in graph(middle).
@@ -287,7 +287,7 @@ Here is our result,
 Grad-CAM, uses the gradients of any target concept (say logits for ‘dog’), flowing into the final convolutional layer to produce a coarse localization map highlighting the important regions in the image for predicting the concept. Given an image and a class of interest (‘dog’) as input, we forward propagate the image through the CNN part of the model and then through task-specific computations to obtain a raw score for the category. The gradients are set to zero for all classes except the desired class (dog), which is set to 1. This signal is then backpropagated to the rectified convolutional feature maps of interest, which we combine to compute the coarse Grad-CAM localization (blue heatmap) which represents where the model has to look to make the particular decision. Here is the illustration from [original paper](https://arxiv.org/pdf/1610.02391.pdf).
 
 <p align="center">
-<img src='/images/transfer_learning_files/guided_gradcam.png'/>
+<img src='/images/visualize_cnn_files/guided_gradcam.png'/>
 <p align="center"><a href="https://arxiv.org/pdf/1610.02391.pdf">Image Credits</a></p> 
 </p>
 
