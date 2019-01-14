@@ -4,7 +4,7 @@ title:      Power of Visualizing Convolution Neural Networks
 date:       2018-12-02 12:00:00
 summary:    This post will provide an brief introduction to visualize trained CNN through transfer learning using Dogs vs Cats Redux Competition dataset from Kaggle.
 categories: visualize cnn catsvsdogs
-published : false
+published : true
 ---
 
 
