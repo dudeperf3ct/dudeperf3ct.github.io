@@ -14,7 +14,7 @@ In this notebook, we will try to answer the question "What CNN sees?" using [Cat
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_pytorch.ipynb), and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Transfer%20Learning/transfer_learning_fastai.ipynb).  
 
-> *All codes can be run on Google Colab (link provided in notebook).* [Awesome Tensorflow Library](https://github.com/PAIR-code/saliency/blob/master/Examples.ipynb) by PAIR Initiative and [Keras Vis Library](https://raghakot.github.io/keras-vis/). Try to use libraries instead of scratch. Not that it is bad practise. But look by standing on the the shoulder of giants. 
+> *All codes can be run on Google Colab (link provided in notebook).* [Awesome Tensorflow Library](https://github.com/PAIR-code/saliency/blob/master/Examples.ipynb) by PAIR Initiative, [Lucid](https://github.com/tensorflow/lucid) and [Keras Vis Library](https://raghakot.github.io/keras-vis/). Try to use libraries instead of scratch. Not that it is bad practise. But look by standing on the the shoulder of giants. 
 
 Hey yo, but how to see what a CNN sees?
 
