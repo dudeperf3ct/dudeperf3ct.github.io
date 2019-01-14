@@ -374,7 +374,7 @@ This is the output we obtain,
 </p>
 
 
-We can see lots of dogs in this image. For more deep dreaming, check this [results](https://photos.google.com/share/AF1QipPX0SCl7OzWilt9LnuQliattX4OUCj_8EP65_cTVnBmS1jnYgsGQAieQUc1VQWdgQ?key=aVBxWjhwSzg2RjJWLWRuVFBBZEN1d205bUdEMnhB)
+We can see lots of dogs in this image. For more deep dreaming, check these [results](https://photos.google.com/share/AF1QipPX0SCl7OzWilt9LnuQliattX4OUCj_8EP65_cTVnBmS1jnYgsGQAieQUc1VQWdgQ?key=aVBxWjhwSzg2RjJWLWRuVFBBZEN1d205bUdEMnhB)
 .  
 
 
@@ -382,7 +382,7 @@ We can see lots of dogs in this image. For more deep dreaming, check this [resul
 
 We randomly sample 100 images from training set and use penultimate layer as predictor and visualize these 100 images in [embedding projector](http://projector.tensorflow.org/) by Tensorflow. We can visualize these emeddings on the projector along with labels.
 
-We convert the predictons of the penultimate layer from 512 dimension to 2 dimension using [t-SNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html) and plot using corresponding labels. We get following plots for Perplexity of 15 and 25.
+We convert the predictons of the penultimate layer from 512 dimension to 2 dimension using [t-SNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html) and plot using corresponding labels. We get the following plots for Perplexity of 15 and 25.
 
 <p align="center">
 <img src='/images/visualize_cnn_files/tsne_15.png' width="60%"/>
@@ -394,7 +394,7 @@ We convert the predictons of the penultimate layer from 512 dimension to 2 dimen
 <p align="center"> Perplexity 25 </p>
 </p>
 
-It shows a clear seperation boundary between the classes of cats and dogs and also shows some missclassified data points.
+<span class='orange'>It shows a clear seperation boundary between the classes of cats and dogs and also shows some missclassified data points.</span>
 
 
 What we saw above are gradient-based (optimization-based) algorithms, there are also perturbation based techniques and Relevance score based to visualize and interpret the decisions made by deep learning models. The perturbation based techniques include [heatmap via occlusion](https://arxiv.org/abs/1509.06321), [integrated gradients](https://arxiv.org/abs/1703.01365), [super-pixel perturbation](https://arxiv.org/abs/1602.04938), etc. 
