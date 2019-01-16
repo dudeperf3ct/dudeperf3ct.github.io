@@ -26,11 +26,11 @@ Dalioism
 
 The things we are striving for are just the bait. Struggling to get them is what forces us to evolve.
 The hardest step in bringing an idea to life―breaking it into five substeps.
- - Goals: Know your goals and run after them.
- - Problems: Encounter the problems that stand in the way of getting to your goals.
- - Diagnosis: Diagnose problems to get at their root causes. Don’t jump to solutions.
- - Design: Design a plan to eliminate the problems.
- - Do It: Execute those designs. Pushing yourself to do what’s necessary to reach your goal.
+ - <span class='saddlebrown'>Goals</span>: Know your goals and run after them.
+ - <span class='saddlebrown'>Problems</span> : Encounter the problems that stand in the way of getting to your goals.
+ - <span class='saddlebrown'>Diagnosis</span>: Diagnose problems to get at their root causes. Don’t jump to solutions.
+ - <span class='saddlebrown'>Design</span>: Design a plan to eliminate the problems.
+ - <span class='saddlebrown'>Do It</span>: Execute those designs. Pushing yourself to do what’s necessary to reach your goal.
 
 The key to our(Bridgewater Associates) success is the idea of meritocratic way in which there is meaningful work and meaningful relationships through radical truth and radical transperancy so we could have thoughtful disagreements and we could get pass this disagreements and to then move on.
 
@@ -39,20 +39,32 @@ To have an idea meritocracy:
 2. Have thoughtful agreement
 3. Abide by the agreed-upon ways of getting past disappointments
 
-Never rule out a goal because you think it’s unattainable.<span class='red'> Be audacious </span>. There is always a best possible path. 
+<span class='red'> Never rule out a goal because you think it’s unattainable.Be audacious </span>. There is always a best possible path. 
 Your job is to find it and have the courage to follow it. 
 What you think is attainable is just a function of what you know at that moment. 
 Once you start your pursuit paths you never saw before will emerge.
 
 <span class='red'>Working for money is a sought-after path. Working for meaning is the rewarding one.</span>
 
-Transcendental meditation is the best gift I would give to anybody.
+<span class='purple'>Transcendental meditation is the best gift I would give to anybody.</span>
  
 An epic-sized failure flips the world right-side up: It propels you to lose interest in money, job titles, and material goods, and to desire meaning and happiness instead.
 
 In order to be successful in market, you need to be an independent thinker who bets against the consensus.
 
 Whenever there is a conflict, I recommend you one level up with the person you are in conflict with or even yourselves, and look and come up with an agreement of how you should be with each other.
+
+9 common-sense rules for getting the most out of meetings :
+
+1. <span class='saddlebrown'>Make it clear who is directing the meeting and who it is meant to serve.</span>
+2. <span class='saddlebrown'>Make clear what type of communication you are going to have in light of the objectives and priorities.</span>
+3. <span class='saddlebrown'>Lead the discussion by being assertive and open-minded.</span>
+4. <span class='saddlebrown'>Watch out for “topic slip.”</span>
+5. <span class='saddlebrown'>Enforce the logic of conversations.</span>
+6. <span class='saddlebrown'>Be careful not to lose personal responsibility via group decision making.</span>
+7. <span class='saddlebrown'>Utilize the “two-minute rule” to avoid persistent interruptions.</span>
+8. <span class='saddlebrown'>Watch out for assertive “fast talkers.”</span>
+9. <span class='saddlebrown'>Achieve completion in conversations.</span>
 
 The whole approach of learning from painful mistakes and making most out of them and writing principles down. In other words, recipes for how to deal with circumstances, learn the lesson, write those principles down. This is the thing that I would recommend to everybody. I learned also that by able to write them down clearly enough that they be expressed as what were then called equations and now algorithms. That allowed me to make decisions in a very powerful way. That experience was really the turning point.
 
