@@ -51,7 +51,16 @@ Researchers such as Renée Baillargeon of the University of Illinois and Elizabe
 
 child_learning.gif
 
-In the case of our challenges, learning to play Frostbite, incorporating a physics-enginer-based representation could help DQNs learn to play games such as Frostbite in a faster and more general way, whether the phyiscs knowledge is capture implicitly in a neural network or more explicity in a simulator. It can also reduce the need of larger datasets and retraining if objects like birds, fish,e etc are slightly modified in their behavior, reward structure or apearance. For e.g. when a new object type such as a bear is introduced, in later levels of Frostbite, a network endowed with intuitive physics would also have an easier time adding this object type to its knowledge.
+> What are the prospects for embedding or acquiring this kind of intuitive physics in deep learning systems? 
+
+A paper from FAIR, [PhysNet](https://arxiv.org/abs/1603.01312) shows an exiciting step in this direction. PhysNet trains a deep convnet to predict the stability of block towers from simulated images of two, three and foir cubical blocks stacked vertically. Result is, PhysNet impressively generalizes to simple real images of block towers, matching human performance on these images, also exceeding human performance on synthetic images. Problem is, PhysNet requires extensive training - between 10,000 to 20,000 scenes - to learn judgments for single task (will tower fall?). In contraty, people require far less experience to perform any particular task, and can generalize to many variations in the scene with no retraining required. Now, question is <span class='saddlebrown'>Could PhysNet capture this flexibility, without explicitly simulating the casual interactions between objects in 3-D?
+ 
+> Could neural networks be trained to emulate a general-purpose physics simulator, given the right type and quantity
+of training data, such as the raw input experienced by a child? 
+
+For  deep  networks  trained  on  physics-related  data,  it  remains  to  be  seen  whether  higher  layers will encode objects, general physical properties, forces and approximately Newtonian dynamics.  Consider for example a network that learns to predict the trajectories of several balls bouncing in a box. If this network has actually learned something like Newtonian mechanics, then it should be able to generalize to interestingly different scenarios – at a minimum different numbers of differently shaped objects, bouncing in boxes of different shapes and sizes and orientations with respect to gravity, not to mention more severe generalization tests. 
+
+In the case of our challenges, learning to play Frostbite, incorporating a physics-engine-based representation could help DQNs learn to play games such as Frostbite in a faster and more general way, whether the phyiscs knowledge is capture implicitly in a neural network or more explicity in a simulator. It can also reduce the need of larger datasets and retraining if objects like birds, fish,e etc are slightly modified in their behavior, reward structure or apearance. For e.g. when a new object type such as a bear is introduced, in later levels of Frostbite, a network endowed with intuitive physics would also have an easier time adding this object type to its knowledge.
 
 
 #### 1.2 Intuitive psychology
@@ -65,3 +74,10 @@ In the case of our challenges, learning to play Frostbite, incorporating a physi
 #### 2.1 Compositionality
 
 
+
+
+## Credits
+
+Thinking baby
+
+Gif
