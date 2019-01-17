@@ -67,6 +67,9 @@ In the case of our challenges, learning to play Frostbite, incorporating a physi
 
 For babies and young children, the most important knowledge of all is knowledge of other people. 
 
+One possibility is that intuitive psychology is simples cues. Consider, for example, a scenario in which an agent A (with some books to place in the cabinet) is moving towards the cabinet, an agent B. As the cabinet's door is closed, the infants and adults may interpret this behaviour as "hindering" as door that comes in way of agent A in completing the task(placing books in cabinet). Now the infant interprets the intention of agent A's act of reptitive bumping into the door as a hinderance and helps the agent A in completing the task.
+
+
 child_learning.gif
 
 
