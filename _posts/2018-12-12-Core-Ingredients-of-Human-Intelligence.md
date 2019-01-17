@@ -48,6 +48,10 @@ The "child as scientist" proposal further views the process of learning itself a
 
 
 
+### 2. Learning as rapid model building
+
+
+
 #### 2.1 Compositionality
 
 
