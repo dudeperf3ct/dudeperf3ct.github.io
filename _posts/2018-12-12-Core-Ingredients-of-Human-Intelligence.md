@@ -95,7 +95,16 @@ The authors of this paper developed an algorithm using [Bayesian Program Learnin
 
 Compositionality is the classic idea that new representations can be constructed through the combination of primitive elements.  Compositionality is also at the core of productivity: an infinite number of representations can be constructed from a finite set of primitives, just as the mind can think an infinite number of thoughts, utter or understand an infinite number of sentences,  or learn new concepts from a seemingly infinite space of possibilities. 
 
+> Deep neural networks have at least a limited notion of compositionality.
 
+compotional image
+
+In our challenge of learning handwritten characters, handwritten characters are inherently compositional, where the parts are pen strokes and relations describe how these strokes connect to each other. BPL modeled these parts using an additional layer of compositionality, where parts are complex movements created from simpler sub-part movements. New characters can be constructed by combining parts, sub-parts, and relations in novel ways.
+
+In another challenge of learning to play Frostbite, a scene in the game is composition of various object types, including birds, fish, bear, igloo, ice floes, etc. Many repetitions of the same objects are present at different locations in the scene, and thus representing each as an identical instance of the same object with the same properties is important for efficient representation and quick learning of the game. Further, new levels may contain different numbers and combinations of objects, where a compositional representation of objects – using intuitive physics and intuitive psychology as glue – would aid in
+making these crucial generalization.
+
+#### 2.2 Causality
 
 
 
