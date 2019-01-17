@@ -34,9 +34,9 @@ The 3 core ingredients are:
 
 ### 1. Developmental start-up software
 
--babies_think.jpeg
+In TED Talk by Alison Gopnik on "[What do babies think?](https://www.ted.com/talks/alison_gopnik_what_do_babies_think)", If you'd asked people this 30 years ago, most people, including psychologists, would have said that this baby was irrational, illogical, egocentric -- that he couldn't take the perspective of another person or understand the cause and effect. In last 20 years, developmental science has completely overturned that picture. So, in some ways, we think that this baby's thinking is like the thinking of the most brilliant scientists."
 
-> In TED Talk by Alison Gopnik on "[What do babies think?](https://www.ted.com/talks/alison_gopnik_what_do_babies_think)", If you'd asked people this 30 years ago, most people, including psychologists, would have said that this baby was irrational, illogical, egocentric -- that he couldn't take the perspective of another person or understand the cause and effect. In last 20 years, developmental science has completely overturned that picture. So, in some ways, we think that this baby's thinking is like the thinking of the most brilliant scientists."
+-babies_think.jpeg
 
 Babies and young children are like scientists. Scientists do stastical analysis while babies and young children do experiements and draw conclusions. Grown-ups think in terms of a goal — planning, acting and doing to make things happen or accomplish the goal. Babies don't have that narrow, goal-directed approach to the world. They're open to all the information that will tell them something new. 
 
@@ -86,9 +86,15 @@ Even with just a few examples, people can learn remarkably rich conceptual model
 
 > What additional ingredients may be needed in order to rapidly learn more powerful and more general-purpose representations?
 
+The authors of this paper developed an algorithm using [Bayesian Program Learning (BPL)](http://web.mit.edu/cocosci/Papers/Science-2015-Lake-1332-8.pdf) that represents concepts as simple stochastic programs – structured procedures that generate new example of a concept when executed. These programs allow the model to express causal knowledge about how the raw data are formed, and the probabilistic semantics allow the model to handle noise and perform creative tasks. Structure sharing across concepts is accomplished by the compositional reuse of stochastic primitives that can combine in new ways to create new concepts. <span class='red'>Here, describing learning as “rapid model building” refers to the fact that BPL constructs generative models (lower-level programs) that produce tokens of a concept.</span>
+
+> Learning models of this form allows BPL to perform a challenging one-shot classification task at human level performance and to outperform current deep learning models such as convolutional networks.
 
 
 #### 2.1 Compositionality
+
+Compositionality is the classic idea that new representations can be constructed through the combination of primitive elements.  Compositionality is also at the core of productivity: an infinite number of representations can be constructed from a finite set of primitives, just as the mind can think an infinite number of thoughts, utter or understand an infinite number of sentences,  or learn new concepts from a seemingly infinite space of possibilities. 
+
 
 
 
