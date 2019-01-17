@@ -147,7 +147,23 @@ Until now we looked at various ways of how we can squeeze the data to extract ri
 
 #### 3.1 Approximate inference in structured models
 
+There are two contrasting methods, Hirearhical Bayesian models programs over probablistic programs which have model with theory-like structures and rich causal representation of the world but face a challenge in ways for efficient inference, on other hand, deep learning methods have less of causal models and intuitive theories but thanks to Moore's Law (or Huang's Law), they provide efficient inference speeds. We humans have this little brain weighing 3 pounds on average consuming only 20 W to perform all activities. 
 
+> When hypothesis space is vast, and only a few hypotheses are consistent with the data, how can good models be discovered without exhaustive search?
+
+In Frostbite, while playing people may discover some "Aha!" moments: e.g. they will learn that jumping on ice floes casues them to change the color, that in turn causes an igloo to be constructed piece-by-piece, that birds are reponsible for losing points, and fish gains points. These little fragments of a "Frostbite theory" are assembled to form a causal understanding of the game relatively quickly. Similarly, motor programs can be used to infer how people draw a new character.
+
+#### 3.2 Model-based and model-free reinforcement learning
+
+The DQN used in Atari game solving is a simple form of model-free RL in deep neural networks that allows for fast selection of actions. Model-free learning is however not the whole picture. Considerable evidence suggests that the brain also has a model-based learning system, responsible for building a “cognitive map” of the environment and using it to plan action sequences for more complex tasks. 
+
+Model-based planning an essential ingredient of human intelligence, enabling flexible adaptation to new tasks and goals; it is where all of the rich model-building abilities discussed in the previous sections earn their value as guides to action.
+
+> A marriage of flexibility and efficiency might be achievable if we use the human reinforcement learning systems as guidance.
+
+In Frostbite Challenge, if we bring various design variants except for reward functions, a competent Frostbite player can easily shift behaviour appropriately, with little or no additional learning, and model-based planning approach in which environment model can be modularly combined with arbitary new reward functions and then deployed immediately for planning can be an effective solution.
+
+Intrinsic motivation also plays an important role in human learning and behavior. While much of the previous discussion assumes the standard view of behavior as seeking to maximize reward and minimize punishment, all externally provided rewards are   reinterpreted according to the “internal value” of the agent, which may depend on the current goal and mental state. There may also be an intrinsic drive to reduce uncertainty and construct models of the environment, closely related to learning-to-learn and multi-task learning. Deep reinforcement learning is only just starting to address intrinsically motivated learning
 
 
 ## Footnotes and Credits
