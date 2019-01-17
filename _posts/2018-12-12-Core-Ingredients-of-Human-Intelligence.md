@@ -53,7 +53,7 @@ surprised by car baby.jpg
 
 > What are the prospects for embedding or acquiring this kind of intuitive physics in deep learning systems? 
 
-A paper from FAIR, [PhysNet](https://arxiv.org/abs/1603.01312) shows an exiciting step in this direction. PhysNet trains a deep convnet to predict the stability of block towers from simulated images of two, three and foir cubical blocks stacked vertically. Result is, PhysNet impressively generalizes to simple real images of block towers, matching human performance on these images, also exceeding human performance on synthetic images. Problem is, PhysNet requires extensive training - between 10,000 to 20,000 scenes - to learn judgments for single task (will tower fall?). In contraty, people require far less experience to perform any particular task, and can generalize to many variations in the scene with no retraining required. Now, question is <span class='saddlebrown'>Could PhysNet capture this flexibility, without explicitly simulating the casual interactions between objects in 3-D?
+A paper from FAIR, [PhysNet](https://arxiv.org/abs/1603.01312) shows an exiciting step in this direction. PhysNet trains a deep convnet to predict the stability of block towers from simulated images of two, three and foir cubical blocks stacked vertically. Result is, PhysNet impressively generalizes to simple real images of block towers, matching human performance on these images, also exceeding human performance on synthetic images. Problem is, PhysNet requires extensive training - between 10,000 to 20,000 scenes - to learn judgments for single task (will tower fall?). In contraty, people require far less experience to perform any particular task, and can generalize to many variations in the scene with no retraining required. Now, question is <span class='saddlebrown'>Could PhysNet capture this flexibility, without explicitly simulating the causal interactions between objects in 3-D?
  
 > Could neural networks be trained to emulate a general-purpose physics simulator, given the right type and quantity
 of training data, such as the raw input experienced by a child? 
@@ -125,8 +125,15 @@ A causal model of Frostbite would have to be more complex, gluing together objec
 
 #### 2.3 Learning to learn
 
+> If deep neural networks could adopt compositional, hierarchical, and causal representations, we expect they might benefit more from learning-to-learn.
 
+In Character Challenge, 
 
+In the Frostbite Challenge, people seem to transfer knowledge at multiple levels, from low-level perception to high-level strategy. Most basically, people parse the game environment into objects, types of objects (compositionality) and causal relations between them (causality). People understand that games like this one, has goal (maybe complete the game, look for easter eggs, etc) and based on prior knowledge, complete the goal by interacting with the game environment and with help of these learning achieve the goals. Deep reinforcement learning systems for playing Atari achieved quite a success by transfer learning, but they still have not come close to learning as quickly as humans.
+
+> In sum, the interaction between representation and previous experience may be key to building machines that learn as fast as people do. 
+
+A deep learning system trained on many video games may not, by itself, be enough to learn new games as quickly as people do.  Yet if such a system aims to learn compositionally structured causal models of a each game – built on a foundation of intuitive physics and psychology – it could transfer knowledge more efficiently and thereby learn new games much more quickly.
 
 ## Credits
 
