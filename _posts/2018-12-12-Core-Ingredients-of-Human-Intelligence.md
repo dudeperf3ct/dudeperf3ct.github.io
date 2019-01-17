@@ -105,7 +105,12 @@ In another challenge of learning to play Frostbite, a scene in the game is compo
 
 #### 2.2 Causality
 
-Causal knowledge has been shown to influence how people learn new concepts; providing a learner with different types of causal knowledge changes how they learn and generalize.
+Causal knowledge has been shown to influence how people learn new concepts; providing a learner with different types of causal knowledge changes how they learn and generalize. 
+
+
+A causal model of Frostbite would have to be more complex, gluing together object representations and explaining their interactions with intuitive physics and intuitive psychology, much like the game engine that generates the game dynamics and ultimately the frames of pixel images.
+
+In Characters Challenge, the way people learn to write a novel handwritten character influences perception and categorization.  By incorporating additional causal, compositional, and hierarchical structure, in sequential generative neural networks, the network could lead to a more computationally efficient and neurally grounded variant of the BPL model of handwritten character.
 
 
 ## Credits
