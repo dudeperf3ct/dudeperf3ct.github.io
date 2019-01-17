@@ -166,6 +166,13 @@ In Frostbite Challenge, if we bring various design variants except for reward fu
 Intrinsic motivation also plays an important role in human learning and behavior. While much of the previous discussion assumes the standard view of behavior as seeking to maximize reward and minimize punishment, all externally provided rewards are   reinterpreted according to the “internal value” of the agent, which may depend on the current goal and mental state. There may also be an intrinsic drive to reduce uncertainty and construct models of the environment, closely related to learning-to-learn and multi-task learning. Deep reinforcement learning is only just starting to address intrinsically motivated learning
 
 
+Phew! We explored the core ingredients proposed by author to build human-like machines. We looked at different algorithms and how some meet either of the ingredients but not all. The road to building such machines is definitely a hard and challenging one. (remember hard, not impossible!) We looked into how deep learning should tackle various learning tasks with few training data as people need, and also evaluate models on a range of human-like generalizations across multiple tasks.
+
+In next blog on the series, I will go through some of responses peer commentary and what extra ingredients are required that authors missed out on. It will be fun. Stay tuned!
+
+
+<span class='orange'>Happy Learning!</span>
+
 ## Footnotes and Credits
 
 Thinking baby
