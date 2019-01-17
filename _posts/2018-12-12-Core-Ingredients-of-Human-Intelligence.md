@@ -36,7 +36,7 @@ The 3 core ingredients are:
 
 -babies_think.jpeg
 
-> In TED Talk by Alison Gopnik on "[What do babies think?]"(https://www.ted.com/talks/alison_gopnik_what_do_babies_think), "What is going in this baby's mind? If you'd asked people this 30 years ago, most people, including psychologists, would have said that this baby was irrational, illogical, egocentric -- that he couldn't take the perspective of another person or understand the cause and effect. In last 20 years, developmental science has completely overturned that picture. So, in some ways, we think that this baby's thinking is like the thinking of the most brilliant scientists."
+> In TED Talk by Alison Gopnik on "[What do babies think?](https://www.ted.com/talks/alison_gopnik_what_do_babies_think)", "What is going in this baby's mind? If you'd asked people this 30 years ago, most people, including psychologists, would have said that this baby was irrational, illogical, egocentric -- that he couldn't take the perspective of another person or understand the cause and effect. In last 20 years, developmental science has completely overturned that picture. So, in some ways, we think that this baby's thinking is like the thinking of the most brilliant scientists."
 
 Babies and young children are like scientists. Scientists do stastical analysis while babies and young children do experiements and draw conclusions. Grown-ups think in terms of a goal — planning, acting and doing to make things happen or accomplish the goal. Babies don't have that narrow, goal-directed approach to the world. They're open to all the information that will tell them something new. 
 
