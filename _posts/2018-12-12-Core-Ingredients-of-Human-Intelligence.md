@@ -65,18 +65,23 @@ In the case of our challenges, learning to play Frostbite, incorporating a physi
 
 #### 1.2 Intuitive psychology
 
-For babies and young children, the most important knowledge of all is knowledge of other people. 
+For babies and young children, the most important knowledge of all is knowledge of other people. In one experiment, an  experimenter showed 14- and 18-month-olds a bowl of raw broccoli and a bowl of goldfish crackers and then tasted some of each, 
+making either a disgusted face or a happy face. Then she put her hand out and asked, “Could you give me some?” The 18-month-olds gave her broccoli when she acted as if she liked it, even though they would not choose it for themselves. (The 14-month-olds always gave her crackers.) So even at this very young age, children are not completely egocentric — they can take the perspective of another person, at least in a simple way. By age four, their understanding of every day psychology is even more refined. They can explain, for instance, if a person is acting oddly because he believes something that is not true.
 
-One possibility is that intuitive psychology is simples cues. Consider, for example, a scenario in which an agent A (with some books to place in the cabinet) is moving towards the cabinet, an agent B. As the cabinet's door is closed, the infants and adults may interpret this behaviour as "hindering" as door that comes in way of agent A in completing the task(placing books in cabinet). Now the infant interprets the intention of agent A's act of reptitive bumping into the door as a hinderance and helps the agent A in completing the task.
-
+Consider, for example, a scenario in which an agent A (with some books to place in the cabinet) is moving towards the cabinet, an agent B. As the cabinet's door is closed, the infants and adults may interpret this behaviour as "hindering" as door that comes in way of agent A in completing the task(placing books in cabinet). Now the infant interprets the intention of agent A's act of reptitive bumping into the door as a hinderance and helps the agent A in completing the task.
 
 child_learning.gif
 
+> Could neural networks be trained to provide full formal account of intuitive psychological reasoning, given the right type and quantity of training data? 
+
+Similar to the intuitive physics domain, it is possible that with a tremendous number of training trajectories in a variety of
+scenarios, deep learning techniques could approximate the reasoning found in infancy even without learning anything about goal-directed or social-directed behavior more generally. But this is also unlikely to resemble how humans learn, understand, and apply intuitive psychology unless the concepts are genuine. In the same way that altering the setting of a scene or the target of inference in a physics-related task may be difficult to generalize without an understanding of objects, altering the setting of an agent or their goals and beliefs is difficult to reason about without understanding intuitive psychology.
 
 In our challenge of playing Frostbite, we learned how people can learn to play quickly by watching an experienced player play for just a few minutes. Here, intuitive pyschology lets us infer the beliefs, desires, and intentions of the experienced player. For e.g. player can learn that birds are to be avioded from seeing how the experienced player appears to avoid them.
 
 
 ### 2. Learning as rapid model building
+
 
 
 
