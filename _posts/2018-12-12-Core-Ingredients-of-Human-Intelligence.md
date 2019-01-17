@@ -101,8 +101,7 @@ compotional image
 
 In our Character challenge, handwritten characters are inherently compositional, where the parts are pen strokes and relations describe how these strokes connect to each other. BPL modeled these parts using an additional layer of compositionality, where parts are complex movements created from simpler sub-part movements. New characters can be constructed by combining parts, sub-parts, and relations in novel ways.
 
-In another challenge of learning to play Frostbite, a scene in the game is composition of various object types, including birds, fish, bear, igloo, ice floes, etc. Many repetitions of the same objects are present at different locations in the scene, and thus representing each as an identical instance of the same object with the same properties is important for efficient representation and quick learning of the game. Further, new levels may contain different numbers and combinations of objects, where a compositional representation of objects – using intuitive physics and intuitive psychology as glue – would aid in
-making these crucial generalization.
+In another challenge of learning to play Frostbite, a scene in the game is composition of various object types, including birds, fish, bear, igloo, ice floes, etc. Many repetitions of the same objects are present at different locations in the scene, and thus representing each as an identical instance of the same object with the same properties is important for efficient representation and quick learning of the game. Further, new levels may contain different numbers and combinations of objects, where a compositional representation of objects – using intuitive physics and intuitive psychology as glue – would aid in making these crucial generalization.
 
 #### 2.2 Causality
 
