@@ -12,7 +12,7 @@ published : false
 
 The [first part](https://dudeperf3ct.github.io/agi/paper-review/2018/11/09/Buliding-machines-that-learn-and-think-like-people/) of this series of blog introduces the problem for human-like intelligence.
 
-The authors of the paper "Building machines that learn and think like people" propose 3 core ingredients needed for human-like learning and thought. Authors believe that integrating them will produce significantly more powerful and more human-like learning and thinking abilities than we currently see in AI systems.
+The authors of the paper "[Building machines that learn and think like people](https://cims.nyu.edu/~brenden/LakeEtAl2017BBS.pdf)" propose 3 core ingredients needed for human-like learning and thought. Authors believe that integrating them will produce significantly more powerful and more human-like learning and thinking abilities than we currently see in AI systems.
 
 In second post, we will go through each of the ingredients proposed by the authors and see how each of these ingredients helps in solving the two challenges of Character Challenge and Frostbite Challenge. 
 
@@ -52,7 +52,10 @@ One such study done by Fei Xu at University of California, Berkeley, shows how e
 
 Researchers such as Renée Baillargeon of the University of Illinois and Elizabeth S. Spelke of Harvard University found that infants understand fundamental physical relations such as movement trajectories, gravity and containment. They look longer at a toy car appearing to pass through a solid wall than at events that fit basic principles of everyday physics. By the time they are three or four, children have elementary ideas about biology and a first understanding of growth, inheritance and illness. This early biological understanding reveals that children go beyond superficial perceptual appearances when they reason about objects. 
 
-surprised by car baby.jpg
+<p align = "center">
+<img src = "/images/core-ingredients/baby-watches-truck.gif" /> 
+<p align = "center"> Ahhhhh.... </p>
+</p>
 
 > What are the prospects for embedding or acquiring this kind of intuitive physics in deep learning systems? 
 
@@ -186,6 +189,10 @@ In next blog on the series, I will go through some of peer commentary and what e
 
 ## Footnotes and Credits
 
-Thinking baby
+[Thinking baby](https://imgflip.com/memetemplate/46233408/thinking-baby)
 
-Gif
+[Helping baby](https://www.youtube.com/watch?v=Z-eU5xZW7cU)
+
+[Baby watches truck gif](https://www.npr.org/sections/ed/2015/04/02/396812961/why-babies-love-and-learn-from-magic-tricks)
+
+[Causal, Composition and Image Caption Graphics](https://cims.nyu.edu/~brenden/LakeEtAl2017BBS.pdf)
