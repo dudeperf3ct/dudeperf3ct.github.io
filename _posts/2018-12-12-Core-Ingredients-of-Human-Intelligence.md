@@ -125,9 +125,12 @@ A causal model of Frostbite would have to be more complex, gluing together objec
 
 #### 2.3 Learning to learn
 
+A champion Jeopardy program cannot hold a conversation, and an expert helicopter controller for aerobatics cannot navigate in new, simple situations such as locating, navigating to, and hovering over a fire to put it out. In contrast, a human can act and adapt intelligently to a wide variety of new, unseen situations. How can we enable our artificial agents to acquire such versatility? In meta learning (learning-to-learn), aim is to build versatile agents that can continually learn a wide variety of tasks throughout their lifetimes. 
+
 > If deep neural networks could adopt compositional, hierarchical, and causal representations, we expect they might benefit more from learning-to-learn.
 
-In Character Challenge, 
+In Character Challenge, the neural network approach require much more pretraining than people or BPL approach. BPL transfers readily to new concepts because it learns about object parts, sub-parts, and relations, capturing learning about what each
+concept is like and what concepts are like in general. It is crucial that learning-to-learn occurs at multiple levels of the hierarchical generative process. We cannot be sure how people get to the knowledge they have in this domain, but the authors think this is how it works in BPL, and think in people it might be similar.
 
 In the Frostbite Challenge, people seem to transfer knowledge at multiple levels, from low-level perception to high-level strategy. Most basically, people parse the game environment into objects, types of objects (compositionality) and causal relations between them (causality). People understand that games like this one, has goal (maybe complete the game, look for easter eggs, etc) and based on prior knowledge, complete the goal by interacting with the game environment and with help of these learning achieve the goals. Deep reinforcement learning systems for playing Atari achieved quite a success by transfer learning, but they still have not come close to learning as quickly as humans.
 
