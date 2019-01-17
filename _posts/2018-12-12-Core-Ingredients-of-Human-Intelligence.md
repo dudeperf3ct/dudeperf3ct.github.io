@@ -2,7 +2,7 @@
 layout:     post
 title:      Core Ingredients of Human Intelligence
 date:       2018-12-12 12:00:00
-summary:    Transform your plain text into static websites and blogs. Simple, static, and blog-aware.
+summary:    In this post, we will go through each of the ingredients proposed by the authors and see how each of these ingredients helps in solving the two challenges of Character Challenge and Frostbite Challenge. 
 categories: human intelligence ingredients
 published : false
 ---
@@ -82,6 +82,9 @@ In our challenge of playing Frostbite, we learned how people can learn to play q
 
 ### 2. Learning as rapid model building
 
+Even with just a few examples, people can learn remarkably rich conceptual models. One indicator of richness is the variety of functions that these models support. <span class='pink'>Beyond classification, concepts support prediction, action, communication, imagination, explaination and composition. These abilities are not independent; rather they hand together and interact, coming free with the acquisition of the underlying concept. Children (and adults) have a great capacity for ‘one-shot’ learning – a few examples of a hairbrush, pineapple, or lightsaber</span> and a child understands the category, “grasping the boundary of the infinite set that defines each concept from the infinite set of all possible objects.” <span class='pink'>On the contrary, neural networks are notoriously data hungry. This suggests that the algorithms underlying neural networks are using the information less efficiently than a person learning to perform similar tasks.</span>
+
+> What additional ingredients may be needed in order to rapidly learn more powerful and more general-purpose representations?
 
 
 
