@@ -49,7 +49,7 @@ One such study done by Fei Xu at University of California, Berkeley, shows how e
 
 Researchers such as Renée Baillargeon of the University of Illinois and Elizabeth S. Spelke of Harvard University found that infants understand fundamental physical relations such as movement trajectories, gravity and containment. They look longer at a toy car appearing to pass through a solid wall than at events that fit basic principles of everyday physics. By the time they are three or four, children have elementary ideas about biology and a first understanding of growth, inheritance and illness. This early biological understanding reveals that children go beyond superficial perceptual appearances when they reason about objects. 
 
-child_learning.gif
+surprised by car baby.jpg
 
 > What are the prospects for embedding or acquiring this kind of intuitive physics in deep learning systems? 
 
@@ -65,6 +65,12 @@ In the case of our challenges, learning to play Frostbite, incorporating a physi
 
 #### 1.2 Intuitive psychology
 
+For babies and young children, the most important knowledge of all is knowledge of other people. 
+
+child_learning.gif
+
+
+In our challenge of playing Frostbite, we learned how people can learn to play quickly by watching an experienced player play for just a few minutes. Here, intuitive pyschology lets us infer the beliefs, desires, and intentions of the experienced player. For e.g. player can learn that birds are to be avioded from seeing how the experienced player appears to avoid them.
 
 
 ### 2. Learning as rapid model building
