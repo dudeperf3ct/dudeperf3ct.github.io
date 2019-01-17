@@ -125,6 +125,8 @@ A causal model of Frostbite would have to be more complex, gluing together objec
 
 #### 2.3 Learning to learn
 
+Learning-to-learn is closely related to the machine learning notions of “transfer learning”, “multi-task learning” or “representation learning.”  These terms refer to ways that learning a new task (or a new concept) can be accelerated through previous or parallel learning of other related tasks (or other related concepts). 
+
 A champion Jeopardy program cannot hold a conversation, and an expert helicopter controller for aerobatics cannot navigate in new, simple situations such as locating, navigating to, and hovering over a fire to put it out. In contrast, a human can act and adapt intelligently to a wide variety of new, unseen situations. How can we enable our artificial agents to acquire such versatility? In meta learning (learning-to-learn), aim is to build versatile agents that can continually learn a wide variety of tasks throughout their lifetimes. 
 
 > If deep neural networks could adopt compositional, hierarchical, and causal representations, we expect they might benefit more from learning-to-learn.
@@ -138,7 +140,17 @@ In the Frostbite Challenge, people seem to transfer knowledge at multiple levels
 
 A deep learning system trained on many video games may not, by itself, be enough to learn new games as quickly as people do.  Yet if such a system aims to learn compositionally structured causal models of a each game – built on a foundation of intuitive physics and psychology – it could transfer knowledge more efficiently and thereby learn new games much more quickly.
 
-## Credits
+
+### 3. Thinking Fast
+
+Until now we looked at various ways of how we can squeeze the data to extract rich concepts. But to achieve human-like learning abilities, there is another aspect of time taken to obtain the results or prediction (inference). The speed of perception and thought - the amount of time required to understand a scene, think a thought, or choose an action in humans is so quick. So, to build successful human-like machine, we need to have models that rival humans in inference speed.  
+
+#### 3.1 Approximate inference in structured models
+
+
+
+
+## Footnotes and Credits
 
 Thinking baby
 
