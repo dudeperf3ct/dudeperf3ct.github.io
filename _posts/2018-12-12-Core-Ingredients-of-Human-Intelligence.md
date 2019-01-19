@@ -2,7 +2,7 @@
 layout:     post
 title:      Core Ingredients of Human Intelligence
 date:       2018-12-12 12:00:00
-summary:    In this post, we will go through each of the ingredients proposed by the authors and see how each of these ingredients helps in solving the two challenges of Character Challenge and Frostbite Challenge. 
+summary:    In this post, we will go through each of the ingredients proposed by the authors of paper "Building machines that learn and think like people" and see how each of these ingredients helps in solving the two challenges of Character Challenge and Frostbite Challenge. 
 categories: human intelligence ingredients
 published : true
 ---
