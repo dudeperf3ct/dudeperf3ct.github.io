@@ -484,3 +484,10 @@ Tanks story sources and great length of discussion  Here: [1](https://www.gwern.
 
 [Overfitting Example](https://stats.stackexchange.com/questions/292283/general-question-regarding-over-fitting-vs-complexity-of-models)
 
+---
+**NOTE**
+
+I can be reached at <imdudeperf3ct@gmail.com>. All ears for feedback and constructive criticism!
+
+---
+
