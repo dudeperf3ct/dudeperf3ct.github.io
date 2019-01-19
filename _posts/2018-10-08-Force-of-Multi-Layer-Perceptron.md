@@ -1374,7 +1374,7 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now you possess the <span class='purple'>Force of MLP</span>. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across <span class='orange'>overfitting</span> and <span class='yellow'>underfiting</span>. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='purple'>Force of CNN</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures, different datasets like cifar, cats-and-dogs, etc and keep researching and head onto [Further Reading](#further-reading) section.
+<span class='red'>I-know-everything:</span> Young Padwan, now you possess the <span class='purple'>Force of MLP</span>. Now knock yourself and experiement with different number of layers. Also, watch for training and validation loss as hint if model is moving in right direction. There you will come across <span class='orange'>overfitting</span> and <span class='yellow'>underfiting</span>. So, be sure to watch them and we will discuss about them in detail in next time where you will learn about <span class='purple'>[Force of CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/)</span> and how they can further give us best model (Yes, better than MLP). Until next time, try different architectures, different datasets like cifar, cats-and-dogs, etc and keep researching and head onto [Further Reading](#further-reading) section.
 
 <span class='orange'>Happy Learning!</span>
 
@@ -1455,3 +1455,10 @@ Adam Geitgey's Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/ma
 [MLP Model](https://towardsdatascience.com/multi-layer-neural-networks-with-sigmoid-function-deep-learning-for-rookies-2-bf464f09eb7f)
 
 [Forward and Backprop figure](https://www.jeremyjordan.me/neural-networks-training/)
+
+---
+**NOTE**
+
+I can be reached at <imdudeperf3ct@gmail.com>. All ears for feedback and constructive criticism!
+
+---
