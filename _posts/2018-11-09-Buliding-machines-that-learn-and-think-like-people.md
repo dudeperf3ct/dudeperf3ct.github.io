@@ -99,3 +99,11 @@ Footnotes
 
 [^3]: [Human level control through deep reinforcement learning](https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf)
 
+---
+**NOTE**
+
+Questions, comments, other feedback? E-mail [the author](mailto:imdudeperf3ct@gmail.com)
+
+
+---
+
