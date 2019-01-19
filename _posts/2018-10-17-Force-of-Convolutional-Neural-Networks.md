@@ -1711,6 +1711,6 @@ Training CNN in your browser [ConvNetJS Demos](https://cs.stanford.edu/people/ka
 ---
 **NOTE**
 
-I can be reached at <imdudeperf3ct@gmail.com>. All ears for feedback and constructive criticism!
+Questions, comments, other feedback? E-mail [the author](mailto:imdudeperf3ct@gmail.com)
 
 ---
