@@ -1615,7 +1615,7 @@ for idx in np.arange(20):
 
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the <span class='purple'>Power of Transfer Learning</span> and <span class='purple'>Power to Visualize CNN</span>. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as **“don’t be a hero”**: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." *So, we don't need be on Googlion to train powerful CNNs, we can do it on our planet too!*
+<span class='red'>I-know-everything:</span> Young Padwan, now you have the same power as me to train an CNN. Now knock yourself and experiement with different number of layers. Also, try to experiement with different architectures and observe the overfitting and underfitting. In next post, we will go over the <span class='purple'>[Power of Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/)</span> and <span class='purple'>[Power to Visualize CNN](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/)</span>. Master Karpathy says, "If you’re feeling a bit of a fatigue in thinking about the architectural decisions, you’ll be pleased to know that in 90% or more of applications you should not have to worry about these. I like to summarize this point as **“don’t be a hero”**: Instead of rolling your own architecture for a problem, you should look at whatever architecture currently works best on ImageNet, download a pretrained model and finetune it on your data. You should rarely ever have to train a ConvNet from scratch or design one from scratch." *So, we don't need be on Googlion to train powerful CNNs, we can do it on our planet too!*
 
 <span class='green'>I-know-nothing:</span> Thank you Master.
 
@@ -1707,3 +1707,10 @@ Training CNN in your browser [ConvNetJS Demos](https://cs.stanford.edu/people/ka
 [Imagenet Error rate](https://cdn.arstechnica.net/wp-content/uploads/2018/10/Screen-Shot-2018-10-12-at-4.24.35-PM.png)
 
 [Imagenet architecture graphics](https://cdn-images-1.medium.com/max/800/1*ZqkLRkMU2ObOQWIHLBg8sw.png)
+
+---
+**NOTE**
+
+I can be reached at <imdudeperf3ct@gmail.com>. All ears for feedback and constructive criticism!
+
+---
