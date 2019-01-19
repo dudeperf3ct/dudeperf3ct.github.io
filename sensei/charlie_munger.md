@@ -29,12 +29,11 @@ The safest way to try and get what you want is try and deserve what you want.
 
 Just buy one <span class='red'>great company</span> and get the <span class='red'>right thing at right price </span> and then just sit there.
 
-<span class='purple'> I always like it when somebody who's attracted to me agrees with me. Therefore, I got very fond memories of Phil Fischer. <span class='orange'>The basic idea was that it was hard to find good stocks and find good investments and you want to be in good investments and therefore you just find few of them that you know a lot about and concentrate on those. Seem to me it was obviously good idea and it's proven to be an obviously good idea and yet 98% of investing world doesn't follow it.</span> 
-
+<span class='purple'> I always like it when somebody who's attracted to me agrees with me. Therefore, I got very fond memories of Phil Fischer. The basic idea was that it was hard to find good stocks and find good investments and you want to be in good investments and therefore you just find few of them that you know a lot about and concentrate on those. Seem to me it was obviously good idea and it's proven to be an obviously good idea and yet 98% of investing world doesn't follow it.</span> 
 
 <span class='blue'>If you figure out the people you really want to be with and work for and you tell them so and why, it is likely to cause a favourable result.</span>
 
-Wisdom acquistion is a moral duty. There a collary to this which means you are hooked to life time learning.
+Wisdom acquistion is a moral duty. There a corollary to this which means you are hooked to life time learning.
 
 It's not the short time gambling that works, its identifying the long term investments and sticking with it.
 
