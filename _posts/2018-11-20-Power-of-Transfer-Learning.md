@@ -1345,7 +1345,7 @@ skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), nor
 </p>
 
 
-<span class='red'>I-know-everything:</span> Young Padwan, now that you have seen how Transfer Learning works. **The applications of using this approach are limitless, play with everything you can using these pretrained models.** In next post, we will visualize layers in CNN and see what parts of image are they looking at. Visualization of layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
+<span class='red'>I-know-everything:</span> Young Padwan, now that you have seen how Transfer Learning works. **The applications of using this approach are limitless, play with everything you can using these pretrained models.** In [next post](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/), we will visualize layers in CNN and see what parts of image are they looking at. Visualization of layers in CNN plays a crucial role in seeing what is going inside the black box of CNN. Some of the popular visualization techniques include:
 
 - Gradient visualization
 - Smooth grad
@@ -1412,3 +1412,10 @@ Googlion planet - Google
 [Different examples of layers in CNN](https://stats.stackexchange.com/questions/146413/why-convolutional-neural-networks-belong-to-deep-learning)
 
 [Visualize layers in CNN](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf)
+
+---
+**NOTE**
+
+I can be reached at <imdudeperf3ct@gmail.com>. All ears for feedback and constructive criticism!
+
+---
