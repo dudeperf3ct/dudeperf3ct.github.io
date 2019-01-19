@@ -487,7 +487,8 @@ Tanks story sources and great length of discussion  Here: [1](https://www.gwern.
 ---
 **NOTE**
 
-I can be reached at <imdudeperf3ct@gmail.com>. All ears for feedback and constructive criticism!
+Questions, comments, other feedback? E-mail [the author](mailto:imdudeperf3ct@gmail.com)
+
 
 ---
 
