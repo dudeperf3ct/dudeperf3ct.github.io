@@ -86,7 +86,7 @@ The challenge of buidling models of human learning and thinking then becomes:<br
     - <span class='saddlebrown'>Approximate inference in structured models</span>
     - <span class='saddlebrown'>Model-based and model-free reinforcement learning</span>
     
-**In the follow up post, we will go through each of the ingredients in-detail.**
+**In the [follow up post](https://dudeperf3ct.github.io/human/intelligence/ingredients/2018/12/12/Core-Ingredients-of-Human-Intelligence/), we will go through each of the ingredients in-detail.**
     
 <span class='orange'> Happy Learning! </span>
 
