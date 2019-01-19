@@ -4,7 +4,7 @@ title:      Core Ingredients of Human Intelligence
 date:       2018-12-12 12:00:00
 summary:    In this post, we will go through each of the ingredients proposed by the authors and see how each of these ingredients helps in solving the two challenges of Character Challenge and Frostbite Challenge. 
 categories: human intelligence ingredients
-published : false
+published : true
 ---
 
 
@@ -41,16 +41,16 @@ In TED Talk by Alison Gopnik on "[What do babies think?](https://www.ted.com/tal
 <p align = "center"> Guess, What am I thinking? </p>
 </p>
 
-Babies and young children are like scientists. Scientists do stastical analysis while babies and young children do experiements and draw conclusions. Grown-ups think in terms of a goal — planning, acting and doing to make things happen or accomplish the goal. Babies don't have that narrow, goal-directed approach to the world. They're open to all the information that will tell them something new. 
+<span class='red'>Babies and young children are like scientists. Scientists do stastical analysis while babies and young children do experiements and draw conclusions.</span> Grown-ups think in terms of a goal — planning, acting and doing to make things happen or accomplish the goal. Babies don't have that narrow, goal-directed approach to the world. They're open to all the information that will tell them something new. 
 
 > The "child as scientist" proposal further views the process of learning itself as also scientist-like, with recent experiments showing the children seek out data to distinguish between hypothese, isolate variables, test causal hypotheses, make use of the data-generating process in drawing conclusions, and learn selectively from others.
 
-One such study done by Fei Xu at University of California, Berkeley, shows how even babies can understand the relation between a statistical sample and a population. 8-month old babies were shown box full of mixed ping-pong balls: for instance, 80% white and 20% red. The experimenter would then take out 5 balls, at random. The babies were more surprised (that is, looked longer and more intently at the scene) when the experimenter pulled four red balls and one white one out of the box -- an improbable outcome -- than when she pulled out four white balls and one red one.
+One such study done by Fei Xu at University of California, Berkeley[^1], shows how even babies can understand the relation between a statistical sample and a population. 8-month old babies were shown box full of mixed ping-pong balls: for instance, 80% white and 20% red. The experimenter would then take out 5 balls, at random. The babies were more surprised (that is, looked longer and more intently at the scene) when the experimenter pulled four red balls and one white one out of the box -- an improbable outcome -- than when she pulled out four white balls and one red one.
 
 
 #### 1.1 Intuitive physics
 
-Researchers such as Renée Baillargeon of the University of Illinois and Elizabeth S. Spelke of Harvard University found that infants understand fundamental physical relations such as movement trajectories, gravity and containment. They look longer at a toy car appearing to pass through a solid wall than at events that fit basic principles of everyday physics. By the time they are three or four, children have elementary ideas about biology and a first understanding of growth, inheritance and illness. This early biological understanding reveals that children go beyond superficial perceptual appearances when they reason about objects. 
+Researchers such as Renée Baillargeon of the University of Illinois and Elizabeth S. Spelke of Harvard University[^1] found that infants understand fundamental physical relations such as movement trajectories, gravity and containment. They look longer at a toy car appearing to pass through a solid wall than at events that fit basic principles of everyday physics. By the time they are three or four, children have elementary ideas about biology and a first understanding of growth, inheritance and illness. This early biological understanding reveals that children go beyond superficial perceptual appearances when they reason about objects. 
 
 <p align = "center">
 <img src = "/images/core_ingredients/baby-watches-truck.gif" width="60%"/> 
@@ -64,17 +64,17 @@ A paper from FAIR, [PhysNet](https://arxiv.org/abs/1603.01312) shows an exicitin
 > Could neural networks be trained to emulate a general-purpose physics simulator, given the right type and quantity
 of training data, such as the raw input experienced by a child? 
 
-For  deep  networks  trained  on  physics-related  data,  it  remains  to  be  seen  whether  higher  layers will encode objects, general physical properties, forces and approximately Newtonian dynamics.  Consider for example a network that learns to predict the trajectories of several balls bouncing in a box. If this network has actually learned something like Newtonian mechanics, then it should be able to generalize to interestingly different scenarios – at a minimum different numbers of differently shaped objects, bouncing in boxes of different shapes and sizes and orientations with respect to gravity, not to mention more severe generalization tests. 
+<span class='orange'>For deep networks trained on physics-related data, it remains to be seen whether higher layers will encode objects, general physical properties, forces and approximately Newtonian dynamics.</span> Consider for example a network that learns to predict the trajectories of several balls bouncing in a box. If this network has actually learned something like Newtonian mechanics, then it should be able to generalize to interestingly different scenarios – at a minimum different numbers of differently shaped objects, bouncing in boxes of different shapes and sizes and orientations with respect to gravity, not to mention more severe generalization tests. 
 
-In the case of our challenges, learning to play Frostbite, incorporating a physics-engine-based representation could help DQNs learn to play games such as Frostbite in a faster and more general way, whether the phyiscs knowledge is capture implicitly in a neural network or more explicity in a simulator. It can also reduce the need of larger datasets and retraining if objects like birds, fish,e etc are slightly modified in their behavior, reward structure or apearance. For e.g. when a new object type such as a bear is introduced, in later levels of Frostbite, a network endowed with intuitive physics would also have an easier time adding this object type to its knowledge.
+In the case of our challenges, learning to play Frostbite, incorporating a physics-engine-based representation could help DQNs learn to play games such as Frostbite in a faster and more general way, whether the phyiscs knowledge is capture implicitly in a neural network or more explicity in a simulator. It can also reduce the need of larger datasets and retraining if objects like birds, fish, etc are slightly modified in their behavior, reward structure or apearance. For e.g. when a new object type such as a bear is introduced, in later levels of Frostbite, a network endowed with intuitive physics would also have an easier time adding this object type to its knowledge.
 
 
 #### 1.2 Intuitive psychology
 
-For babies and young children, the most important knowledge of all is knowledge of other people. In one experiment, an  experimenter showed 14- and 18-month-olds a bowl of raw broccoli and a bowl of goldfish crackers and then tasted some of each, 
+For babies and young children, the most important knowledge of all is knowledge of other people. In one experiment[^1], an  experimenter showed 14- and 18-month-olds a bowl of raw broccoli and a bowl of goldfish crackers and then tasted some of each, 
 making either a disgusted face or a happy face. Then she put her hand out and asked, “Could you give me some?” The 18-month-olds gave her broccoli when she acted as if she liked it, even though they would not choose it for themselves. (The 14-month-olds always gave her crackers.) So even at this very young age, children are not completely egocentric — they can take the perspective of another person, at least in a simple way. By age four, their understanding of every day psychology is even more refined. They can explain, for instance, if a person is acting oddly because he believes something that is not true.
 
-Consider, for example, a scenario in which an agent A (with some books to place in the cabinet) is moving towards the cabinet, an agent B. As the cabinet's door is closed, the infants and adults may interpret this behaviour as "hindering" as door that comes in way of agent A in completing the task(placing books in cabinet). Now the infant interprets the intention of agent A's act of reptitive bumping into the door as a hinderance and helps the agent A in completing the task.
+Consider, for example, a scenario in which an agent A (with some books to place in the cabinet) is moving towards the cabinet, an agent B and the cabinet's door is closed, the infants and adults may interpret this behaviour as "hindering" as the closed door that comes in way of agent A in completing the task or goal(placing books in cabinet). Now the infant interprets the intention of agent A's act of repetitive bumping into the door and helps the agent A in completing the task.
 
 <p align = "center">
 <img src = "/images/core_ingredients/child_learning.gif" /> 
@@ -90,7 +90,7 @@ In our challenge of playing Frostbite, we learned how people can learn to play q
 
 ### 2. Learning as rapid model building
 
-Even with just a few examples, people can learn remarkably rich conceptual models. One indicator of richness is the variety of functions that these models support. <span class='pink'>Beyond classification, concepts support prediction, action, communication, imagination, explaination and composition. These abilities are not independent; rather they hand together and interact, coming free with the acquisition of the underlying concept. Children (and adults) have a great capacity for ‘one-shot’ learning – a few examples of a hairbrush, pineapple, or lightsaber</span> and a child understands the category, “grasping the boundary of the infinite set that defines each concept from the infinite set of all possible objects.” <span class='pink'>On the contrary, neural networks are notoriously data hungry. This suggests that the algorithms underlying neural networks are using the information less efficiently than a person learning to perform similar tasks.</span>
+Even with just a few examples, people can learn remarkably rich conceptual models. One indicator of richness is the variety of functions that these models support. <span class='purple'>Beyond classification, concepts support prediction, action, communication, imagination, explaination and composition. These abilities are not independent; rather they hand together and interact, coming free with the acquisition of the underlying concept. Children (and adults) have a great capacity for ‘one-shot’ learning – a few examples of a hairbrush, pineapple, or lightsaber</span> and a child understands the category, “grasping the boundary of the infinite set that defines each concept from the infinite set of all possible objects.” <span class='red'>On the contrary, neural networks are notoriously data hungry. This suggests that the algorithms underlying neural networks are using the information less efficiently than a person learning to perform similar tasks.</span>
 
 > What additional ingredients may be needed in order to rapidly learn more powerful and more general-purpose representations?
 
@@ -122,8 +122,7 @@ upon and integrating the ingredients of intuitive physics, intuitive psychology,
 <img src = "/images/core_ingredients/causal.png" /> 
 </p>
 
-Here, BPL model generates new examples from just one example of a new concept. An example image of a new concept is shown
-above each pair of grids.  One grid was generated by 9 people and the other is 9 samples from the BPL model.  Which grid in each pair (A or B) was generated by the machine? Answers(by row 1, 2, 1, 1) add footnote here
+Here, BPL model generates new examples from just one example of a new concept. An example image of a new concept is shown. One grid was generated by 9 people and the other is 9 samples from the BPL model. *Which grid in each pair (A or B) was generated by the machine?*[^2]
 
 <p align = "center">
 <img src = "/images/core_ingredients/image_caption.png" width="60%"/> 
@@ -161,11 +160,11 @@ Until now we looked at various ways of how we can squeeze the data to extract ri
 
 #### 3.1 Approximate inference in structured models
 
-There are two contrasting methods, Hirearhical Bayesian models programs over probablistic programs which have model with theory-like structures and rich causal representation of the world but face a challenge in ways for efficient inference, on other hand, deep learning methods have less of causal models and intuitive theories but thanks to Moore's Law (or Huang's Law), they provide efficient inference speeds. We humans have this little brain weighing 3 pounds on average consuming only 20 W to perform all activities. 
+There are two contrasting methods, Hirearhical Bayesian models programs over probablistic programs which have model with theory-like structures and rich causal representation of the world but face a challenge in ways for efficient inference, on other hand, deep learning methods have less of causal models and intuitive theories but thanks to Moore's Law (or Huang's Law), they provide efficient inference speeds. We humans have this little brain weighing 3 pounds on average consuming only 20 W to perform all activities.
 
 > When hypothesis space is vast, and only a few hypotheses are consistent with the data, how can good models be discovered without exhaustive search?
 
-In Frostbite, while playing people may discover some "Aha!" moments: e.g. they will learn that jumping on ice floes casues them to change the color, that in turn causes an igloo to be constructed piece-by-piece, that birds are reponsible for losing points, and fish gains points. These little fragments of a "Frostbite theory" are assembled to form a causal understanding of the game relatively quickly. Similarly, motor programs can be used to infer how people draw a new character.
+In Frostbite, while playing people may discover some "Aha!" moments: e.g. they will learn that jumping on ice floes causes them to change the color, that in turn causes an igloo to be constructed piece-by-piece, that birds are reponsible for losing points, and fish gains points. These little fragments of a "Frostbite theory" are assembled to form a causal understanding of the game relatively quickly. Similarly, motor programs can be used to infer how people draw a new character.
 
 #### 3.2 Model-based and model-free reinforcement learning
 
@@ -182,12 +181,13 @@ Intrinsic motivation also plays an important role in human learning and behavior
 
 Phew! We explored the core ingredients proposed by author to build human-like machines. We looked at different algorithms and how some meet either of the ingredients but not all. The road to building such machines is definitely a hard and challenging one. (remember hard, not impossible!) We looked into how deep learning should tackle various learning tasks with few training data as people need, and also evaluate models on a range of human-like generalizations across multiple tasks.
 
-In next blog on the series, I will go through some of peer commentary and what extra ingredients are required that authors missed out. It will be fun. Stay tuned!
+**In next blog on the series, I will go through some of peer commentary and what extra ingredients are required that authors missed out.**
 
 
 <span class='orange'>Happy Learning!</span>
 
-## Footnotes and Credits
+Footnotes and Credits
+---
 
 [Thinking baby](https://imgflip.com/memetemplate/46233408/thinking-baby)
 
@@ -196,3 +196,7 @@ In next blog on the series, I will go through some of peer commentary and what e
 [Baby watches truck gif](https://www.npr.org/sections/ed/2015/04/02/396812961/why-babies-love-and-learn-from-magic-tricks)
 
 [Causal, Composition and Image Caption Graphics](https://cims.nyu.edu/~brenden/LakeEtAl2017BBS.pdf)
+
+[^1]: [How Babies Think?](http://alisongopnik.com/Papers_Alison/sciam-Gopnik.pdf)
+
+[^2]: Answers(by row 1, 2, 1, 1)
