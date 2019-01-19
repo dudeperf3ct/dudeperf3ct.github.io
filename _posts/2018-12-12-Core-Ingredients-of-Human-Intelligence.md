@@ -199,3 +199,12 @@ Footnotes and Credits
 [^1]: [How Babies Think?](http://alisongopnik.com/Papers_Alison/sciam-Gopnik.pdf)
 
 [^2]: Answers(by row 1, 2, 1, 1)
+
+
+---
+**NOTE**
+
+Questions, comments, other feedback? E-mail [the author](mailto:imdudeperf3ct@gmail.com)
+
+
+---
