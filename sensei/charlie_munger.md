@@ -25,7 +25,11 @@ The most important word to the investors is <span class='red'> rationality </spa
 
 The safest way to try and get what you want is try and deserve what you want.
 
+You have to keep learning if you want to be good investor.
+
 <span class='green'>My Berkshire Hathway stock cost me $16 a share and it's not selling for almost $3,00,000 a share.</span> It took a long time and it was a long term investment. And after 50 years sitting there, lo and behold it's work out very well.
+
+A great company will earn more and more while you're just sitting and doing nothing. A mediocre company won't do that. So you  are harnessing long range force that will help you. It's just very important. These mediocre companies that are around will cost a lot of agony and very modest profits. You do fine, it goes up a little, you have to sell, you have to find another and it's all a lot of work.
 
 Just buy one <span class='red'>great company</span> and get the <span class='red'>right thing at right price </span> and then just sit there.
 
@@ -113,6 +117,12 @@ If you keep learning all the time you have a huge advantage.
 Treat the two impostors failures and success the same.
 
 I always want to just put my head down and adjust. Feeling victimised is a counterproductive way to think as a human being.
+
+In short term, stock market is gambling machine, but in long-term it's a weighing machine. ~ Ben Graham
+
+You change your mind when the facts change.
+
+I like the long-term investors who figure out something is going to work over the long term.
 
 Stories
 ===========================
