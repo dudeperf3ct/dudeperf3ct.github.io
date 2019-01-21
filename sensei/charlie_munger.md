@@ -19,7 +19,7 @@ Feel free to jump anywhere,
 Mungerism
 ===========================
 
-<span class='red'>Basically Mungers have 3 stocks Berkshire, Costco and investment in Li Lu's parternship</span>. 3 things well along my 95 years. You don't need to own lot many stocks to get rich.
+<span class='red'>Basically Mungers have 3 stocks Berkshire, Costco and investment in Li Lu's parternship</span>. 3 things well along in my 95 years. You don't need to own lot many stocks to get rich.
 
 The most important word to the investors is <span class='red'> rationality </span>.
 
