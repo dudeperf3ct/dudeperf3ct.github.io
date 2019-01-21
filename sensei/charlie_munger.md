@@ -53,7 +53,7 @@ What good does it do to be able to pass a test parroting back to the professor w
 
 Warren and I have not made our way in life by making successful macroeconomic predictions and betting on our conclusions.<span class='red'> Our system is to swim as competently as we can and sometimes the tide will be with us and sometimes it will be against us but by and large we don't bother with trying to predict the tides because we plan to play the game for long time. I recommend to all of you exactly the same attitude.</span>
 
-<span class='blue'>Lord Acton had this law, "Power tends to corrupt, and absolute power corrupts absolutely". Well the Munger version of that is that, "Easy Money courrpts and really easy money tends to corrupt absolutely". </span>
+<span class='blue'>Lord Acton had this law, "Power tends to corrupt, and absolute power corrupts absolutely". Well the Munger version of that is that, "Easy money courrpts and really easy money tends to corrupt absolutely". </span>
 
 The first rule is that you’ve got to have multiple models — because if you just have one or two that you’re using, the nature of human psychology is such that you’ll torture reality so that it fits your models. And the models have to come from multiple disciplines — because all the wisdom of the world is not to be found in one little academic department.
 
