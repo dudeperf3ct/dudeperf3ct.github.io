@@ -16,13 +16,11 @@ In this notebook, we will try to answer the question "What CNN sees?" using [Cat
 
 > *All codes can be run on Google Colab (link provided in notebook).* [Awesome Tensorflow Library](https://github.com/PAIR-code/saliency/blob/master/Examples.ipynb) by PAIR Initiative, [Lucid](https://github.com/tensorflow/lucid) by Tensorflow, [Keras Vis Library](https://raghakot.github.io/keras-vis/) and [PyTorch](https://github.com/utkuozbulak/pytorch-cnn-visualizations). Try to use libraries instead of writing all the code from scratch. Not that it is bad practise. But we can see the same thing by standing on the the shoulder of giants (less work!). 
 
-Hey yo, but how to see what a CNN sees?
+Hey yo, but how?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
-<p align="center">
-<img src='/images/visualize_cnn_files/keanu_meme.jpg' />
-</p>
+-meme
 
 Feel free to jump anywhere,
 - [Regularization](#regularization)
