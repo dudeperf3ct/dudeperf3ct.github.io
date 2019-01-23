@@ -146,6 +146,17 @@ cost function - loss or objective function
 
 # Further Reading
 
+[A Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1508.06576.pdf)
+
+[Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://cs.stanford.edu/people/jcjohns/papers/eccv16/JohnsonECCV16.pdf)
+
+[A Learned Representation for Artistic Style](https://arxiv.org/pdf/1610.07629.pdf)
+
+[Exploring the structure of a real-time, arbitrary neural artistic stylization network](https://arxiv.org/pdf/1705.06830.pdf)
+
+[Artistic Style Transfer](https://harishnarayanan.org/writing/artistic-style-transfer/)
+
+[PyImageSearch: Neural Style Transfer OpenCV](https://www.pyimagesearch.com/2018/08/27/neural-style-transfer-with-opencv/)
 
 
 ---
