@@ -10,11 +10,11 @@ published : false
 
 # Neural Style Transfer
 
-In this notebook, we will try to answer the question "What CNN sees?" using [Cats vs Dogs Redux](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) Competition dataset from kaggle. We will implement this using one of the popular deep learning framework <span class='yellow'>Keras</span> . 
+In this notebook, we will try to answer the question "What CNN sees?"
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Vis%20CNN/vis_cnn_keras.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Vis%20CNN/vis_cnn_fastai.ipynb).  
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_pytorch.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_fastai.ipynb).  
 
-> *All codes can be run on Google Colab (link provided in notebook).* [Awesome Tensorflow Library](https://github.com/PAIR-code/saliency/blob/master/Examples.ipynb) by PAIR Initiative, [Lucid](https://github.com/tensorflow/lucid) by Tensorflow, [Keras Vis Library](https://raghakot.github.io/keras-vis/) and [PyTorch](https://github.com/utkuozbulak/pytorch-cnn-visualizations). Try to use libraries instead of writing all the code from scratch. Not that it is bad practise. But we can see the same thing by standing on the the shoulder of giants (less work!). 
+> *All codes can be run on Google Colab (link provided in notebook).*
 
 Hey yo, but how?
 
