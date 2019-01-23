@@ -37,7 +37,7 @@ Feel free to jump anywhere,
 
 *In next post, we will discuss about other regularization techniques and when and how to use them. Stay tuned!*
 
-# Introduction to Visualizing CNN
+# Introduction to Neural Style Transfer
 
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
@@ -46,7 +46,13 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span> 
+<span class='red'>I-know-everything:</span> Today we will do something creative. We will paint (*not literally*). To do this we will use two of our old powers, [Power of Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/) and [Force of CNNs](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/). I hope you have practised your powers well enough! In [previous post](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/#deep-dream), we encountered how neural networks were dreaming (hallucinating). 
+
+<span class='red'>I-know-nothing:</span> Does this mean we will paint as good as Master Picasso?
+
+<span class='red'>I-know-everything:</span> Haha, I will let you be the judge of that. It's fascinating how this works and the results we obtain. Moving 
+
+
 
 
 
