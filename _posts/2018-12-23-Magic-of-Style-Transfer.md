@@ -56,7 +56,7 @@ Feel free to jump anywhere,
 
 The [excellent paper](https://arxiv.org/pdf/1508.06576.pdf) in 2015 by Gatys et al proposed a neural algorithm to creates artistic images of high perceptual quality. Let's breakdown how the algorithm creates high quality results. 
 
-Consider two images, one called content image($$\mathbf{c}$$) and other called style image($$\mathbf{s}$$). The challenge is to grab the styles of style image and grab the content of content image and cut & paste both of them together to get a combined generated image($$\mathbf{G}$$).
+Consider two images, one called content image($$\mathbf{C}$$) and other called style image($$\mathbf{S}$$). The challenge is to grab the styles of style image and grab the content of content image and cut & paste both of them together to get a combined generated image($$\mathbf{G}$$).
 
 -sample_style_transfer
 
