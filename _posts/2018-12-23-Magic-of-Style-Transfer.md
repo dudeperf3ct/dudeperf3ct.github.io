@@ -10,7 +10,7 @@ published : false
 
 # Neural Style Transfer
 
-In this notebook, we will try to answer the question "What CNN sees?"
+In this notebook, we will try to answer the question "Can we paint as good as Master Picasso?"
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_pytorch.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_fastai.ipynb).  
 
@@ -50,10 +50,21 @@ Feel free to jump anywhere,
 
 <span class='red'>I-know-nothing:</span> Does this mean we will paint as good as Master Picasso?
 
-<span class='red'>I-know-everything:</span> Haha, I will let you be the judge of that. It's fascinating how this works and the results we obtain. Moving 
+<span class='red'>I-know-everything:</span> Haha, I will let you be the judge of that. It's fascinating how this works and the results we obtain. I will directly start with multiple ways of how we can achieve such startling results.
+
+### Artistic Style Transfer 
+
+The [excellent paper](https://arxiv.org/pdf/1508.06576.pdf) in 2015 by Gatys et al proposed a neural algorithm to creates artistic images of high perceptual quality. Let's breakdown how the algorithm creates high quality results. 
+
+Consider two images, one called content image($$\mathbf{c}$$) and other called style image($$\mathbf{s}$$). The challenge is to grab the styles of style image and grab the content of content image and cut & paste both of them together to get a combined generated image($$\mathbf{G}$$).
+
+-sample_style_transfer
+
+So, from above example, we see that content of content image(left one) is present in combined image(right one). We also see the styles and textures from style image(middle one) to be present in combined image. *Isn't it amazing?*
 
 
 
+### Feed-forward Style Transfer
 
 
 <span class='orange'>Happy Learning!</span>
