@@ -77,6 +77,11 @@ $$
 \end{aligned}
 $$
 
+$$\alpha$$ and $$\beta$$ are numbers that control how much we want to emphasize the content relative to style.
+
+
+
+
 ### Feed-forward Style Transfer
 
 
