@@ -24,8 +24,6 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 - [Regularization](#regularization)
-  - [Why does Regularization Work?](#why-does-regularization-work?)
-  - [Tips for using Weight Regularization](#tips-for-using-weight-regularization)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -61,6 +59,8 @@ Consider two images, one called content image($$\mathbf{C}$$) and other called s
 -sample_style_transfer
 
 So, from above example, we see that content of content image(left one) is present in combined image(right one). We also see the styles and textures from style image(middle one) to be present in combined image. *Isn't it amazing?*
+
+Now, the question appears how can we extract only content from content image and styles and textures from style image? 
 
 
 
