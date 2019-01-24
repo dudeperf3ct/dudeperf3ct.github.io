@@ -310,9 +310,11 @@ cost function - loss or objective function
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
-[Cat](https://www.yooying.com/p/1941588927056054965_1044254472)
+[City Cat](https://www.yooying.com/p/1941588927056054965_1044254472)
 
-[Lake](https://www.yooying.com/p/1921170375916530754)
+[House Lake](https://www.yooying.com/p/1921170375916530754)
+
+[Mountain Cat](https://www.reddit.com/r/photoshopbattles/comments/ajgkus/psbattle_the_mountain_cat_of_uvpdots/)
 
 ---
 **NOTE**
