@@ -170,10 +170,9 @@ Here are some of the results,
 
 --johnson et al results
 
-### 
+### Arbitrary neural artistic stylization network
 
-We can spot one drawback from above method. We have to create seperate models for each style image. Is there any method where we take any content and any style and produce the styled version of that content image?
-
+We can spot one drawback from above method. We have to create seperate models for each style image. Is there any method to allow real-time stylization using any content/style image pair?
 
 
 
