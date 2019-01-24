@@ -69,6 +69,13 @@ $$\mathcal{L}_{content}(\mathbf{C}, \mathbf{G}) = 0$$ which means we have a loss
 
 $$\mathcal{L}_{style}(\mathbf{S}, \mathbf{G}) = 0$$ which tells how close in style two input images are to one another.
 
+This style and content transfer problem is to find an image $$\mathbf{G}$$  that differs as little as possible in terms of content from the content image  $$\mathbf{C}$$ , while simultaneously differing as little as possible in terms of style from the style image $$\mathbf{S}$$. In other words, we’d like to simultaneously minimise both the style and content losses.
+
+$$
+\begin{aligned}
+\mathcal{L}_{total} = \alpha \mathcal{L}_{content} + \beta \mathcal{L}_{style}
+\end{aligned}
+$$
 
 ### Feed-forward Style Transfer
 
