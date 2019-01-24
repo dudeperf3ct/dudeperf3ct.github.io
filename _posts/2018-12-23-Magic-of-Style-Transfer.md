@@ -33,6 +33,14 @@ Feel free to jump anywhere,
 # Regularization
 
 
+### Batch Normalization
+
+### Dropout
+
+### Data Augmentation
+
+### Early Stopping
+
 *In next post, we will discuss about other regularization techniques and when and how to use them. Stay tuned!*
 
 # Introduction to Neural Style Transfer
@@ -150,7 +158,7 @@ The paper, titled [Perceptual Losses for Real-Time Style Transfer and Super-Reso
 
 Architecture above, contains Image Transform Network and Loss Network.
 
-- Image Transformation Network
+- Image Transformation Network (ITN)
 
 The architecture of Image Transfer Net as proposed by Johnson et al is shown in the diagram below.
 
@@ -162,9 +170,9 @@ It consists of 3 layers of Conv and ReLU non-linearity, 5 residual blocks, 3 tra
 
 The loss network is used to calculate a loss between our generated output image and our desired content and style images. We calculate loss in the same way as the previous method, by evaluating the content representation of $$\mathbf{C}$$ and the style representation of $$\mathbf{S}$$ and taking the distance between these and the content and style representations of our output image $$\mathbf{P}$$. These representations are calculated using pretrained VGG16 network.
 
-The training regime consists of a input of content image batch, where ITN transforms it into pastiche images, computes losses using pretrained VGG16 as done above, and calls backward on the final loss to update the ITN parameters. The loss network remains fixed during the training process. In their paper, Johnson et. al trained their network on the [Microsoft COCO dataset](http://mscoco.org/) - which is an object recognition dataset of 80,000 different images.
+The training regime consists of a input of content image batch, where ITN transforms it into pastiche images, loss network computes losses using pretrained VGG16 as done above, and calls backward on the final loss to update the ITN parameters. The loss network remains fixed during the training process. In their paper, Johnson et. al trained their network on the [Microsoft COCO dataset](http://mscoco.org/) - which is an object recognition dataset of 80,000 different images.
 
-After training, generating style transfer for any content image takes less than 5 seconds to produced a styled version of given content image. This methods is very fast and efficient than the one above as there is no retraining involved.
+After training, *generating style transfer for any content image takes less than 5 seconds* to produce a styled version of given content image. This methods is very fast and efficient than the one above as there is no retraining involved.
 
 Here are some of the results,
 
@@ -172,10 +180,46 @@ Here are some of the results,
 
 ### Arbitrary neural artistic stylization network
 
-We can spot one drawback from above method. We have to create seperate models for each style image. Is there any method to allow real-time stylization using any content/style image pair?
+We can spot one drawback from above method. We have to create seperate style transfer model for each new style image. Is there any method to allow real-time stylization using any content/style image pair? In other words, can we make a truly arbitrary neural style transfer network?
+
+There are two methods:
+
+1. The [work](https://arxiv.org/pdf/1703.06868.pdf) from Cornell University, proposed a new way to a simple yet effective approach to real time arbitrary style transfer without the restriction to a pre-defined set of style.
+
+Authors propose a novel adaptive instance normalization (AdaIN) layer that aligns the mean and variance of the content features with those of the style features. Given a content input and a style input, AdaIN simply adjusts the mean and variance of the content input to match those of the style input.
+
+The intuitive explaination of AdaIN from paper,
+
+> Let us consider a feature channel that detects brushstrokes of a certain style. A style image with this kind of strokes will produce a high average activation for this feature. The output produced by AdaIN will have the same high average activation for this feature, while preserving the spatial structure of the content image.
+
+adaIN architecture
+
+
+Style Transfer Network T takes a content image $$\mathbf{c}$$ and an arbitart style image $$\mathbf{s}$$ as inputs, it produces an output image that recombines the content of former and style of later. In encoder-decoder architecture, encoder $$\mathbf{f}$$ which is fixed to first few layers (up to relu4_1) of pretrained VGG19 model. After enconding content and style images in features space, we feed both feature  maps  to  an  AdaIN  layer  that  aligns  the mean and variance of the content feature maps to those of the style feature maps, producing the target feature maps $$\mathbf{t}$$ and a randomly initialized decoder is trained to map back $$\mathbf{t}$$ to image space, generating stylized image.
 
 
 
+Here are some of the results from the paper on never seen style and content images,
+
+
+adain output
+
+
+
+2. [The work](https://arxiv.org/pdf/1705.06830.pdf) done at Google Brain where they overcome the drawback from approach 1 where the model can cover only a limited number of styles and cannot generalize well to an unseen style.
+
+Arbitarty-style-transfer google
+
+The  style  prediction  network P(·) predicts  an  embedding  vector $$\vec{S}$$ from an input style image,  which supplies a set of normalization constants for the style transfer network. The style transfer network transforms the photograph into a stylized representation. The content and style losses are derived from the distance in representational space of the VGG image classification network.
+
+Here are some of the results borrowed from the paper,
+
+arbitary-style-transfer-result
+
+This methods generalizes fairly to unobserved styles and content images.
+
+
+Random Fact: [Elmyr de Hory](http://www.intenttodeceive.org/forger-profiles/elmyr-de-hory/) gained world-wide fame by forging thousands of pieces of artwork and selling them to art dealers and museums.
 
 
 
@@ -203,6 +247,8 @@ cost function - loss or objective function
 [A Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1508.06576.pdf)
 
 [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://cs.stanford.edu/people/jcjohns/papers/eccv16/JohnsonECCV16.pdf)
+
+[Supplementary Material for Forward-feed network](https://cs.stanford.edu/people/jcjohns/papers/eccv16/JohnsonECCV16Supplementary.pdf)
 
 [Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization](https://arxiv.org/pdf/1703.06868.pdf)
 
