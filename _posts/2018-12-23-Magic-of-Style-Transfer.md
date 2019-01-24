@@ -164,7 +164,19 @@ The loss network is used to calculate a loss between our generated output image 
 
 The training regime consists of a input of content image batch, where ITN transforms it into pastiche images, computes losses using pretrained VGG16 as done above, and calls backward on the final loss to update the ITN parameters. The loss network remains fixed during the training process. In their paper, Johnson et. al trained their network on the [Microsoft COCO dataset](http://mscoco.org/) - which is an object recognition dataset of 80,000 different images.
 
-After training, generating style transfer for any content image takes less than 5 seconds to produced a styled version of given content image. This methods is very fast and efficient than the one above 
+After training, generating style transfer for any content image takes less than 5 seconds to produced a styled version of given content image. This methods is very fast and efficient than the one above as there is no retraining involved.
+
+Here are some of the results,
+
+--johnson et al results
+
+### 
+
+We can spot one drawback from above method. We have to create seperate models for each style image. Is there any method where we take any content and any style and produce the styled version of that content image?
+
+
+
+
 
 
 
@@ -192,6 +204,8 @@ cost function - loss or objective function
 [A Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1508.06576.pdf)
 
 [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://cs.stanford.edu/people/jcjohns/papers/eccv16/JohnsonECCV16.pdf)
+
+[Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization](https://arxiv.org/pdf/1703.06868.pdf)
 
 [A Learned Representation for Artistic Style](https://arxiv.org/pdf/1610.07629.pdf)
 
