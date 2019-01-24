@@ -40,13 +40,25 @@ Feel free to jump anywhere,
 
 # Regularization
 
-In our previous post to introduction to regularization, we explained why regularization is necessary and gave a brief account of two techniques $$\mathbf{L}_{1}$$ and $$\mathbf{L}_{2}$$ regularizations. We will give a short introduction to remaining techniques.
+In our previous post to introduction to regularization, we explained why regularization is necessary and gave a brief account of two techniques $$L^{1}$$ and $$L^{2}$$ regularizations. We will give a short introduction to remaining techniques. Regualarization techniques are used to control overfitting of the neural network models.
 
 ### Batch Normalization
 
 
 ### Dropout
 
+The key idea is to randomly drop units (along with their connections) from the neural network during training. By dropping a unit out means temporarily removing it from the network, along with all its incoming and outgoing connection as shown below. The choice of which units to drop is random. 
+
+<p align="center">
+<img src='/images/style_transfer/dropout' width="60%"/>
+</p>
+
+It helps reducing interdependent learning amongst the neurons.
+
+
+<p align="center">
+<img src='/images/style_transfer/dropout_effect' width="60%"/>
+</p>
 
 ### Data Augmentation
 
@@ -298,6 +310,11 @@ cost function - loss or objective function
 [Artistic Style Transfer](https://harishnarayanan.org/writing/artistic-style-transfer/)
 
 [PyImageSearch: Neural Style Transfer OpenCV](https://www.pyimagesearch.com/2018/08/27/neural-style-transfer-with-opencv/)
+
+[Dropout](http://jmlr.org/papers/volume15/srivastava14a.old/srivastava14a.pdf)
+
+[Tips for using Dropout](https://machinelearningmastery.com/dropout-regularization-deep-learning-models-keras/)
+
 
 
 ---
