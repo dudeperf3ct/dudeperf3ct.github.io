@@ -40,16 +40,24 @@ Feel free to jump anywhere,
 
 # Regularization
 
+In our previous post to introduction to regularization, we explained why regularization is necessary and gave a brief account of two techniques $$\mathbf{L}_{1}$$ and $$\mathbf{L}_{2}$$ regularizations. We will give a short introduction to remaining techniques.
 
 ### Batch Normalization
 
+
 ### Dropout
+
 
 ### Data Augmentation
 
+
 ### Early Stopping
 
-*In next post, we will discuss about other regularization techniques and when and how to use them. Stay tuned!*
+
+
+This is by no means only the techniques used in regualarization. There are other methods like which also helps in regualarization which are not covered here.
+
+*In next post, we will discuss some loss functions and where to use them. Stay tuned!*
 
 # Introduction to Neural Style Transfer
 
