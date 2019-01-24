@@ -87,7 +87,7 @@ So, from above example, we see that content of content image(left one) is presen
 Now, the question appears how can we extract only content from content image and styles and textures from style image? Extract, this is where we saw CNNs excel at. We saw in our post on [Visualizing CNNs](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/) that different layers extract different patterns like first layers in CNNs extract edges, second layers textures and as we go deep into further layers, high semantic concepts like faces, cars, text, etc are learned. Using these knowledge, we can see that we can use initial layers in CNN to extract styles and the content comes from high layers of CNN. In example below, we can see that if we reconstruct the original image from deeper layers we still preserve the high-level content of the original but lose the exact pixel information.
 
 <p align="center">
-<img src='/images/style_transfer/image_reconstruction.png' width="60%"/>
+<img src='/images/style_transfer/image_reconstruction.png' width="80%"/>
 </p>
 
 
@@ -107,9 +107,6 @@ $$
 
 $$\alpha$$ and $$\beta$$ are numbers that control how much we want to emphasize the content relative to style.
 
-<p align="center">
-<img src='/images/style_transfer/gatys_loss.png' width="60%" />
-</p>
 
 This took us back to MNIST where we had a loss function defined, and then we ran optimizer to minimize the loss. Similarly, Style Transfer is essentially an optimization problem where we minimize $$\mathcal{L}_{total}$$ function. We still haven't figured out as to what these respective loss functions represent(or are defined). To extract various features we use pretrained VGG16 as our base model (there is no standard as to which architecture to prefer). Here is the architecture,
 
@@ -167,7 +164,7 @@ $$
 
 
 <p align="center">
-<img src='/images/style_transfer/image_generation.gif' width="60%" />
+<img src='/images/style_transfer/image_generation.gif' width="80%" />
 </p>
 
 All pieces are in place. We run [L-BFS](https://en.wikipedia.org/wiki/Limited-memory_BFGS) or Adam Optimizer (L-BFS is preferred) as an optimizer to minimize the loss function. Et voilà !  the results, 
@@ -247,7 +244,7 @@ Here are some of the results from the paper on never seen style and content imag
 2. [The work](https://arxiv.org/pdf/1705.06830.pdf) done at Google Brain where they overcome the drawback from approach 1 where the model can cover only a limited number of styles and cannot generalize well to an unseen style.
 
 <p align="center">
-<img src='/images/style_transfer/arbitary_style_transfer.png' width="60%" />
+<img src='/images/style_transfer/arbitary_style_transfer.png' width="80%" />
 </p>
 
 The  style  prediction  network P(·) predicts  an  embedding  vector $$\vec{S}$$ from an input style image,  which supplies a set of normalization constants for the style transfer network. The style transfer network transforms the photograph into a stylized representation. The content and style losses are derived from the distance in representational space of the VGG image classification network.
