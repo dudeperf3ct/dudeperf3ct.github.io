@@ -187,6 +187,8 @@ cost function - loss or objective function
 
 [Cat](https://www.yooying.com/p/1941588927056054965_1044254472)
 
+[Lake](https://www.yooying.com/p/1921170375916530754)
+
 ---
 **NOTE**
 
