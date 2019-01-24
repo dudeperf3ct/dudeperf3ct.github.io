@@ -78,7 +78,10 @@ So, from above example, we see that content of content image(left one) is presen
 
 Now, the question appears how can we extract only content from content image and styles and textures from style image? Extract, this is where we saw CNNs excel at. We saw in our post on [Visualizing CNNs](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/) that different layers extract different patterns like first layers in CNNs extract edges, second layers textures and as we go deep into further layers, high semantic concepts like faces, cars, text, etc are learned. Using these knowledge, we can see that we can use initial layers in CNN to extract styles and the content comes from high layers of CNN. In example below, we can see that if we reconstruct the original image from deeper layers we still preserve the high-level content of the original but lose the exact pixel information.
 
---image_reconstruction.png
+<p align="center">
+<img src='/images/style_transfer/image_reconstruction.png' />
+</p>
+
 
 So, now we got general idea about how using pretrained CNNs can help in extracting patterns, textures and content. But how can we construct new image comprising of these two different representations? This question can be phrased in this way: how can we construct new image such that the content does not differ much from content image and also the new generated image does not differ much in style and texture of style image. Now, the question can be easily solved by creating two loss function: **content loss** ($$\mathcal{L}_{content}$$) and **style loss** ($$\mathcal{L}_{style}$$).
 
@@ -96,9 +99,15 @@ $$
 
 $$\alpha$$ and $$\beta$$ are numbers that control how much we want to emphasize the content relative to style.
 
+<p align="center">
+<img src='/images/style_transfer/gatys_loss.png' />
+</p>
+
 This took us back to MNIST where we had a loss function defined, and then we ran optimizer to minimize the loss. Similarly, Style Transfer is essentially an optimization problem where we minimize $$\mathcal{L}_{total}$$ function. We still haven't figured out as to what these respective loss functions represent(or are defined). To extract various features we use pretrained VGG16 as our base model (there is no standard as to which architecture to prefer). Here is the architecture,
 
---vgg16
+<p align="center">
+<img src='/images/style_transfer/vgg16.png' />
+</p>
 
 - Content Loss($$\mathcal{L}_{content}$$)
 
@@ -122,7 +131,9 @@ $$
 \end{aligned}
 $$
 
---gram_matrix.png
+<p align="center">
+<img src='/images/style_transfer/gram_matrix.png' />
+</p>
 
 If we had two images whose feature maps at a given layer produced the same Gram matrix we would expect both images to have the same style, but not necessarily the same content.
 
@@ -146,7 +157,10 @@ $$
 \end{aligned}
 $$
 
-image_generation.gif
+
+<p align="center">
+<img src='/images/style_transfer/image_generation.gif' />
+</p>
 
 All pieces are in place. We run [L-BFS](https://en.wikipedia.org/wiki/Limited-memory_BFGS) or Adam Optimizer (L-BFS is preferred) as an optimizer to minimize the loss function. Et voilà !  the results, 
 
@@ -162,7 +176,9 @@ The drawback from above approach, other than computuationally expensive is that 
 
 The paper, titled [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://cs.stanford.edu/people/jcjohns/papers/eccv16/JohnsonECCV16.pdf) by Johnson et. al, shows that it is possible to train a neural network to apply a single style to any given content image with a single forward pass through the network in real-time and transform any given content image into a styled version. 
 
---fast_style_transfer.png
+<p align="center">
+<img src='/images/style_transfer/fast_style_transfer.png' />
+</p>
 
 Architecture above, contains Image Transform Network and Loss Network.
 
@@ -170,7 +186,9 @@ Architecture above, contains Image Transform Network and Loss Network.
 
 The architecture of Image Transfer Net as proposed by Johnson et al is shown in the diagram below.
 
---image_transform_net
+<p align="center">
+<img src='/images/style_transfer/image_transform_network.png' />
+</p>
 
 It consists of 3 layers of Conv and ReLU non-linearity, 5 residual blocks, 3 transpose convolutional layers and finally a non-linear tanh layer which produces an output image.
 
@@ -179,6 +197,10 @@ It consists of 3 layers of Conv and ReLU non-linearity, 5 residual blocks, 3 tra
 The loss network is used to calculate a loss between our generated output image and our desired content and style images. We calculate loss in the same way as the previous method, by evaluating the content representation of $$\mathbf{C}$$ and the style representation of $$\mathbf{S}$$ and taking the distance between these and the content and style representations of our output image $$\mathbf{P}$$. These representations are calculated using pretrained VGG16 network.
 
 The training regime consists of a input of content image batch, where ITN transforms it into pastiche images, loss network computes losses using pretrained VGG16 as done above, and calls backward on the final loss to update the ITN parameters. The loss network remains fixed during the training process. In their paper, Johnson et. al trained their network on the [Microsoft COCO dataset](http://mscoco.org/) - which is an object recognition dataset of 80,000 different images.
+
+<p align="center">
+<img src='/images/style_transfer/fast_style_transform.png' />
+</p>
 
 After training, *generating style transfer for any content image takes less than 5 seconds* to produce a styled version of given content image. This methods is very fast and efficient than the one above as there is no retraining involved.
 
@@ -200,29 +222,33 @@ The intuitive explaination of AdaIN from paper,
 
 > Let us consider a feature channel that detects brushstrokes of a certain style. A style image with this kind of strokes will produce a high average activation for this feature. The output produced by AdaIN will have the same high average activation for this feature, while preserving the spatial structure of the content image.
 
-adaIN architecture
+<p align="center">
+<img src='/images/style_transfer/adaIN.jpg' />
+</p>
 
 
 Style Transfer Network T takes a content image $$\mathbf{c}$$ and an arbitart style image $$\mathbf{s}$$ as inputs, it produces an output image that recombines the content of former and style of later. In encoder-decoder architecture, encoder $$\mathbf{f}$$ which is fixed to first few layers (up to relu4_1) of pretrained VGG19 model. After enconding content and style images in features space, we feed both feature  maps  to  an  AdaIN  layer  that  aligns  the mean and variance of the content feature maps to those of the style feature maps, producing the target feature maps $$\mathbf{t}$$ and a randomly initialized decoder is trained to map back $$\mathbf{t}$$ to image space, generating stylized image.
 
-
-
 Here are some of the results from the paper on never seen style and content images,
 
-
-adain output
-
+<p align="center">
+<img src='/images/style_transfer/adaIn_output.png' />
+</p>
 
 
 2. [The work](https://arxiv.org/pdf/1705.06830.pdf) done at Google Brain where they overcome the drawback from approach 1 where the model can cover only a limited number of styles and cannot generalize well to an unseen style.
 
-Arbitarty-style-transfer google
+<p align="center">
+<img src='/images/style_transfer/arbitary_style_transfer.png' />
+</p>
 
 The  style  prediction  network P(·) predicts  an  embedding  vector $$\vec{S}$$ from an input style image,  which supplies a set of normalization constants for the style transfer network. The style transfer network transforms the photograph into a stylized representation. The content and style losses are derived from the distance in representational space of the VGG image classification network.
 
 Here are some of the results borrowed from the paper,
 
-arbitary-style-transfer-result
+<p align="center">
+<img src='/images/style_transfer/arbitary_style_transfer_result.png' />
+</p>
 
 This methods generalizes fairly to unobserved styles and content images.
 
