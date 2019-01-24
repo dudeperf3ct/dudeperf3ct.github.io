@@ -62,8 +62,7 @@ So, from above example, we see that content of content image(left one) is presen
 
 Now, the question appears how can we extract only content from content image and styles and textures from style image? Extract, this is where we saw CNNs excel at. We saw in our post on [Visualizing CNNs](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/) that different layers extract different patterns like first layers in CNNs extract edges, second layers textures and as we go deep into further layers, high semantic concepts like faces, cars, text, etc are learned. Using these knowledge, we can see that we can use initial layers in CNN to extract styles and the content comes from high layers of CNN. In example below, we can see that if we reconstruct the original image from deeper layers we still preserve the high-level content of the original but lose the exact pixel information.
 
--banana relu image from Johnson et al paper
-
+--image_reconstruction.png
 
 So, now we got general idea about how using pretrained CNNs can help in extracting patterns, textures and content. But how can we construct new image comprising of these two different representations? This question can be phrased in this way: how can we construct new image such that the content does not differ much from content image and also the new generated image does not differ much in style and texture of style image. Now, the question can be easily solved by creating two loss function: **content loss** ($$\mathcal{L}_{content}$$) and **style loss** ($$\mathcal{L}_{style}$$).
 
@@ -127,9 +126,11 @@ Now final loss function $$\mathcal{L}_{total}$$
 
 $$
 \begin{aligned}
-\mathcal{L}_{total} = \alpha \mathcal{L}_{content} + \beta \mathcal{L}_{style} + \gamma \mathcal{L}_{tv} 
+\mathcal{L}_{total} = \alpha \mathcal{L}_{content} + \beta \mathcal{L}_{style} + \gamma \mathcal{L}_{TV} 
 \end{aligned}
 $$
+
+image_generation.gif
 
 All pieces are in place. We run [L-BFS](https://en.wikipedia.org/wiki/Limited-memory_BFGS) or Adam Optimizer (L-BFS is preferred) as an optimizer to minimize the loss function. Et voilà !  the results, 
 
@@ -138,9 +139,32 @@ All pieces are in place. We run [L-BFS](https://en.wikipedia.org/wiki/Limited-me
 
 
 
+
 ### Feed-forward Style Transfer
 
-The drawback from above approach, other than more compute time is that for every new pastiche image to be generated we need to input two images 
+The drawback from above approach, other than computuationally expensive is that we can style only one image at a time. For every other image we have to run the algorithm again.  
+
+The paper, titled [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://cs.stanford.edu/people/jcjohns/papers/eccv16/JohnsonECCV16.pdf) by Johnson et. al, shows that it is possible to train a neural network to apply a single style to any given content image with a single forward pass through the network in real-time and transform any given content image into a styled version. 
+
+--fast_style_transfer.png
+
+Architecture above, contains Image Transform Network and Loss Network.
+
+- Image Transformation Network
+
+The architecture of Image Transfer Net as proposed by Johnson et al is shown in the diagram below.
+
+--image_transform_net
+
+It consists of 3 layers of Conv and ReLU non-linearity, 5 residual blocks, 3 transpose convolutional layers and finally a non-linear tanh layer which produces an output image.
+
+- Loss Network
+
+The loss network is used to calculate a loss between our generated output image and our desired content and style images. We calculate loss in the same way as the previous method, by evaluating the content representation of $$\mathbf{C}$$ and the style representation of $$\mathbf{S}$$ and taking the distance between these and the content and style representations of our output image $$\mathbf{P}$$. These representations are calculated using pretrained VGG16 network.
+
+The training regime consists of a input of content image batch, where ITN transforms it into pastiche images, computes losses using pretrained VGG16 as done above, and calls backward on the final loss to update the ITN parameters. The loss network remains fixed during the training process. In their paper, Johnson et. al trained their network on the [Microsoft COCO dataset](http://mscoco.org/) - which is an object recognition dataset of 80,000 different images.
+
+After training, generating style transfer for any content image takes less than 5 seconds to produced a styled version of given content image. This methods is very fast and efficient than the one above 
 
 
 
