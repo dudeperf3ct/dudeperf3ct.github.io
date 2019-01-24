@@ -24,6 +24,14 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 - [Regularization](#regularization)
+  - [Batch Normalization](#batch-normalization)
+  - [Dropout](#dropout)
+  - [Data Augmentation](#data-augmentation)
+  - [Early Stopping](#early-stopping)
+- [Introduction to Neural Style Transfer](#introduction-to-neural-style-transfer)
+  - [Artistic Style Transfer](#artistic-style-transfer)
+  - [Feed-forward Style Transfer](#feed-forward-style-transfer)
+  - [Arbitrary neural artistic stylization network](#arbitrary-neural-artistic-stylization-network)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
