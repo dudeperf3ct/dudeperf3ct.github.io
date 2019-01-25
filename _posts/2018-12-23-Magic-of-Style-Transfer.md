@@ -200,8 +200,14 @@ $$
 <img src='/images/style_transfer/image_generation.gif' width="80%" />
 </p>
 
-All pieces are in place. We run [L-BFS](https://en.wikipedia.org/wiki/Limited-memory_BFGS) or Adam Optimizer (L-BFS is preferred) as an optimizer to minimize the loss function. Et voilà !  the results, 
+All pieces are in place. We run [L-BFS](https://en.wikipedia.org/wiki/Limited-memory_BFGS) or Adam Optimizer (L-BFS is preferred) as an optimizer to minimize the loss function. 
 
+Et voilà !  the results, 
+
+
+<p align="center">
+<img src='/images/style_transfer/content/cat.jpg' width="35%"/><img src='/images/style_transfer/content/lake.jpg' width="35%"/><img src='/images/style_transfer/content/mountain_cat.jpg' width="35%"/>
+</p>
 
 --results
 
