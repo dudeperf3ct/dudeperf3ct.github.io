@@ -68,7 +68,7 @@ It helps reducing interdependent learning amongst the neurons. Heuristically, wh
 <img src='/images/style_transfer/dropout_effect.png' width="60%"/>
 </p>
 
-Curious Readers: [Did you know?]()
+Curious Readers: [Did you know?](https://raw.githubusercontent.com/dudeperf3ct/dudeperf3ct.github.io/master/images/style_transfer/dropout_paper.png?token=AKPtOvWA9jXskz_ajvvIa0C5FdTJHUFmks5cVCb2wA%3D%3D)
 
 ### Data Augmentation
 
