@@ -206,7 +206,7 @@ Et voilà !  the results,
 
 
 <p align="center">
-<img src='/images/style_transfer/content/cat.jpg' width="35%"/><img src='/images/style_transfer/content/lake.jpg' width="35%"/><img src='/images/style_transfer/content/mountain_cat.jpg' width="35%"/>
+<img src='/images/style_transfer/content/cat.jpg' width="33%"/><img src='/images/style_transfer/content/lake.jpg' width="33%"/><img src='/images/style_transfer/content/mountain_cat.jpg' width="33%"/>
 </p>
 
 --results
