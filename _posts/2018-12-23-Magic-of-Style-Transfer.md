@@ -44,20 +44,28 @@ In our previous post to introduction to regularization, we explained why regular
 
 ### Batch Normalization
 
+We have seen that normalizing input features, aka feature scaling can speed up the training. But once the normalized input is fed to the deep network, as each layer is affected by parameters in all the input layer, even a small change in the network parameter is amplified and leads to the input distribution being changed in the internal layers of the network. This is known as internal covariance shift. Batch Normalization is an idea introduced by (Ioffe & Szegedy)[https://arxiv.org/pdf/1502.03167v3.pdf] of normalizing activations of every fully connected and convolution layer with unit standard deviation and zero mean during training, as a part of the network architecture itself. The goal of Batch Normalization is to achieve a stable distribution of activation values throughout training. It allows us to use much higher learning rates and be less careful about network initialization. It also makes neural networks more robust and can very easily help in training deep networks.
+
+<p align="center">
+<img src='/images/style_transfer/batch_norm.png' width="60%"/>
+</p>
+
+It is implemented as a layer (with trainable parameters) and normalizes the activations of the previous layer. Backpropagation allows the network to learn if they want the activations to be normalized and upto what extent. In practise, batch norm is inserted immediately after fully connected or convolutional layers and before nonlinearities. It effectively reduces the internal covariance shift in deep networks. 
+
 
 ### Dropout
 
 The key idea is to randomly drop units (along with their connections) from the neural network during training. By dropping a unit out means temporarily removing it from the network, along with all its incoming and outgoing connection as shown below. The choice of which units to drop is random. 
 
 <p align="center">
-<img src='/images/style_transfer/dropout' width="60%"/>
+<img src='/images/style_transfer/dropout.png' width="60%"/>
 </p>
 
-It helps reducing interdependent learning amongst the neurons.
+It helps reducing interdependent learning amongst the neurons. While training, dropout is implemented by only keeping a neuron active with some probability p (a hyperparameter), or setting it to zero otherwise. During testing there is no dropout applied, with the interpretation of evaluating an averaged prediction across the exponentially-sized ensemble of all sub-networks 
 
 
 <p align="center">
-<img src='/images/style_transfer/dropout_effect' width="60%"/>
+<img src='/images/style_transfer/dropout_effect.png' width="60%"/>
 </p>
 
 ### Data Augmentation
@@ -310,6 +318,8 @@ cost function - loss or objective function
 [Artistic Style Transfer](https://harishnarayanan.org/writing/artistic-style-transfer/)
 
 [PyImageSearch: Neural Style Transfer OpenCV](https://www.pyimagesearch.com/2018/08/27/neural-style-transfer-with-opencv/)
+
+[Batch Normalization](https://arxiv.org/pdf/1502.03167v3.pdf)
 
 [Dropout](http://jmlr.org/papers/volume15/srivastava14a.old/srivastava14a.pdf)
 
