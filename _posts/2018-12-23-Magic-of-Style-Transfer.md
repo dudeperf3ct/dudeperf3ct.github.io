@@ -44,14 +44,15 @@ In our previous post to introduction to regularization, we explained why regular
 
 ### Batch Normalization
 
-We have seen that normalizing input features, aka feature scaling can speed up the training. But once the normalized input is fed to the deep network, as each layer is affected by parameters in all the input layer, even a small change in the network parameter is amplified and leads to the input distribution being changed in the internal layers of the network. This is known as internal covariance shift. Batch Normalization is an idea introduced by (Ioffe & Szegedy)[https://arxiv.org/pdf/1502.03167v3.pdf] of normalizing activations of every fully connected and convolution layer with unit standard deviation and zero mean during training, as a part of the network architecture itself. The goal of Batch Normalization is to achieve a stable distribution of activation values throughout training. It allows us to use much higher learning rates and be less careful about network initialization. It also makes neural networks more robust and can very easily help in training deep networks.
+We have seen that normalizing input features, aka feature scaling can speed up the training. But once the normalized input is fed to the deep network, as each layer is affected by parameters in all the input layer, even a small change in the network parameter is amplified and leads to the input distribution being changed in the internal layers of the network. This is known as internal covariance shift. Batch Normalization is an idea introduced in excellent [paper]([https://arxiv.org/pdf/1502.03167v3.pdf]) by (Ioffe & Szegedy) of normalizing activations of every fully connected and convolution layer with unit standard deviation and zero mean during training, as a part of the network architecture itself. Batch Normalization makes the distribution more stable of activation values throughout training and reduces the internal covariance shift in deep networks. It allows us to use much higher learning rates and be less careful about network initialization. It also makes neural networks more robust and can very easily help in training deep networks.
 
 <p align="center">
 <img src='/images/style_transfer/batch_norm.png' width="60%"/>
 </p>
 
-It is implemented as a layer (with trainable parameters) and normalizes the activations of the previous layer. Backpropagation allows the network to learn if they want the activations to be normalized and upto what extent. In practise, batch norm is inserted immediately after fully connected or convolutional layers and before nonlinearities. It effectively reduces the internal covariance shift in deep networks. 
+It is implemented as a layer (with trainable parameters) and normalizes the activations of the previous layer. Backpropagation allows the network to learn if they want the activations to be normalized and upto what extent. In practise, batch norm is inserted immediately after fully connected or convolutional layers and before nonlinearities.
 
+More curious audience: [Check this paper](https://arxiv.org/pdf/1805.11604.pdf)
 
 ### Dropout
 
@@ -61,23 +62,35 @@ The key idea is to randomly drop units (along with their connections) from the n
 <img src='/images/style_transfer/dropout.png' width="60%"/>
 </p>
 
-It helps reducing interdependent learning amongst the neurons. While training, dropout is implemented by only keeping a neuron active with some probability p (a hyperparameter), or setting it to zero otherwise. During testing there is no dropout applied, with the interpretation of evaluating an averaged prediction across the exponentially-sized ensemble of all sub-networks 
-
+It helps reducing interdependent learning amongst the neurons. Heuristically, when we dropout different sets of neurons, it's rather like we're training different neural networks. And so the dropout procedure is like averaging the effects of a very large number of different networks. While training, dropout is implemented by only keeping a neuron active with some probability p (a hyperparameter), or setting it to zero otherwise. During testing there is no dropout applied.
 
 <p align="center">
 <img src='/images/style_transfer/dropout_effect.png' width="60%"/>
 </p>
 
+Curious Readers: [Did you know?]()
+
 ### Data Augmentation
 
+The best way to make a machine learning model generalize better is to train it on more data. Of course, in practice, the amount of data we have is limited. One way to get around this problem is to create fake data and add it to the training set. *With more data, come greater capacity of model to learn examples from.*
+
+<p align="center">
+<img src='/images/style_transfer/dog_augmentation.jpg' width="60%"/>
+</p>
+
+The general principle is to expand the training data by applying operations that reflect real-world variation. There are many ways to augment the data like random crop, center crop, scale, resize, color normalization, contrast, brightness, random zoom, horizontal flip, vertical flip, adding gaussian noise, etc. We are making our neural network more robust to different kinds of real-world scenarios that can occur other than our ideal dataset. One must be careful not to apply transformations that would change the correct class. For example, optical character recognition tasks require recognizing the dfference between “b” and “d” and the dfference between “6” and “9,” so horizontal ﬂips and 180 degree rotations are not appropriate ways of augmenting datasets for these tasks.
 
 ### Early Stopping
 
+The idea of Early Stopping is very simple yet effective. Conisder below training and validation graph, let us measure the performance of our model on a separate validation dataset during the training iterations. We may then observe that, despite constant score improvements on the training data, the model's performance on the validation dataset would only improve during the first stage of training, reach an optimum at some point and then turn to getting worse with further iterations. It thus seems reasonable to stop training at the point when the minimal validation error is achieved. Training the model any further only leads to overfitting. Early stopping actually more explicitly limiting the complexity of the final model.
 
+<p align="center">
+<img src='/images/style_transfer/early_stopping.png' width="60%"/>
+</p>
 
-This is by no means only the techniques used in regualarization. There are other methods like which also helps in regualarization which are not covered here.
+This means we can obtain a model with better validation set error (and thus, hopefully better test set error) by returning to the parameter setting at the point in time with the lowest validation set error. Every time the error on the validation set improves, we store a copy of the model parameters. When the training algorithm terminates, we return these parameters, rather than the latest parameters. The algorithm terminates when no parameters have improved over the best recorded validation error for some pre-speciﬁed number of iterations.
 
-*In next post, we will discuss some loss functions and where to use them. Stay tuned!*
+*In next post, we will discuss some popular loss functions and where are they used. Stay tuned!*
 
 # Introduction to Neural Style Transfer
 
@@ -321,6 +334,8 @@ cost function - loss or objective function
 
 [Batch Normalization](https://arxiv.org/pdf/1502.03167v3.pdf)
 
+[How Does Batch Normalization Help Optimization?](https://arxiv.org/pdf/1805.11604.pdf)
+
 [Dropout](http://jmlr.org/papers/volume15/srivastava14a.old/srivastava14a.pdf)
 
 [Tips for using Dropout](https://machinelearningmastery.com/dropout-regularization-deep-learning-models-keras/)
@@ -334,11 +349,20 @@ cost function - loss or objective function
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
+[Batch Norm Algorithm](https://arxiv.org/pdf/1502.03167v3.pdf)
+
+[Dropout Image](http://jmlr.org/papers/volume15/srivastava14a.old/srivastava14a.pdf)
+
+[Early Stopping](http://fouryears.eu/2017/12/06/the-mystery-of-early-stopping/)
+
+[Dog Data Augmentation](https://dieswaytoofast.blogspot.com/2018/06/data-augmentation-whatsthat.html)
+
 [City Cat](https://www.yooying.com/p/1941588927056054965_1044254472)
 
 [House Lake](https://www.yooying.com/p/1921170375916530754)
 
 [Mountain Cat](https://www.reddit.com/r/photoshopbattles/comments/ajgkus/psbattle_the_mountain_cat_of_uvpdots/)
+
 
 ---
 **NOTE**
