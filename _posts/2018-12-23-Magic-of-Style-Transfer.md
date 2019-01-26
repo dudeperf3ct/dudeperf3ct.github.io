@@ -133,7 +133,7 @@ $$\mathcal{L}_{content}(\mathbf{C}, \mathbf{P}) = 0$$ which means we have a loss
 
 $$\mathcal{L}_{style}(\mathbf{S}, \mathbf{P}) = 0$$ which tells how close in style two input images are to one another.
 
-This style and content transfer problem is to find an image $$\mathbf{P}$$ that differs as little as possible in terms of content from the content image $$\mathbf{C}$$, while simultaneously differing as little as possible in terms of style from the style image $$\mathbf{S}$$. In other words, <span class='saddlebrown'> we’d like to simultaneously minimize both the style and content losses.</spam>
+This style and content transfer problem is to find an image $$\mathbf{P}$$ that differs as little as possible in terms of content from the content image $$\mathbf{C}$$, while simultaneously differing as little as possible in terms of style from the style image $$\mathbf{S}$$. In other words, <span class='saddlebrown'> we’d like to simultaneously minimize both the style and content losses.</span>
 
 $$
 \begin{aligned}
@@ -143,7 +143,7 @@ $$
 
 $$\alpha$$ and $$\beta$$ are numbers that control how much we want to emphasize the content relative to style.
 
-This shows similiarity to MNIST where we had a loss function defined, and then we ran optimizer to minimize the loss function. Similarly, Style Transfer is essentially an optimization problem where we minimize $$\mathcal{L}_{total}$$ loss function. We still haven't figured out as to what these respective loss functions represent(or are defined). To extract various features we use pretrained VGG16 as our base model (there is no standard as to which architecture to prefer). Here is the architecture,
+This shows similiarity to MNIST where we had a loss function defined, and then we ran optimizer to minimize the loss function. Similarly, <span class='blue'>Style Transfer is essentially an optimization problem where we minimize $$\mathcal{L}_{total}$$ loss function.</span> We still haven't figured out as to what these respective loss functions represent(or are defined). To extract various features we use pretrained VGG16 as our base model (there is no standard as to which architecture to prefer). Here is the architecture,
 
 <p align="center">
 <img src='/images/style_transfer/vgg16.png' />
@@ -212,11 +212,11 @@ Et voilà ! the results,
 <img src='/images/style_transfer/grid_2.jpg' /> 
 </p>
 
-
+[High res results](https://github.com/dudeperf3ct/DL_notebooks/tree/master/Style%20Transfer/results).
 
 ### Feed-forward Style Transfer
 
-<span class='red'>The drawback from above approach, other than being computuationally expensive is that we can style only one image at a time. For every other image pair (content, style) we have to run the algorithm again.</span>
+<span class='red'>The drawback from above approach, other than being computuationally expensive is that we can style only one image at a time. For every other image pair (content, style), to produce styled image we have to run the algorithm again.</span>
 
 The paper, titled [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://cs.stanford.edu/people/jcjohns/papers/eccv16/JohnsonECCV16.pdf) by Johnson et al, shows that it is possible to train a neural network to apply a single style to any given content image with a single forward pass through the network in real-time.
 
@@ -246,13 +246,15 @@ The training regime consists of a input of content image batch, where ITN transf
 <img src='/images/style_transfer/fast_style_transform.png' width="60%" />
 </p>
 
-After training, *generating style transfer for any content image takes less than 5 seconds* to produce a styled version of given content image. This methods is very fast and efficient than the one above as there is no retraining involved.
+After training, *generating style transfer for any content image takes less than 5 seconds* to produce a styled version of given content image. This method is very fast and efficient than the one above as there is no retraining involved.
 
 Here are some of the results,
 
 <p align="center">
 <img src='/images/style_transfer/grid_3.jpg' /> 
 </p>
+
+[High-res results](https://github.com/dudeperf3ct/DL_notebooks/tree/master/Style%20Transfer/results)
 
 ### Arbitrary neural artistic stylization network
 
@@ -262,7 +264,7 @@ There are two methods:
 
 - The [work](https://arxiv.org/pdf/1703.06868.pdf) from Cornell University, proposed a new way to a simple yet effective approach to real time arbitrary style transfer without the restriction to a pre-defined set of style.
 
-Authors propose a novel adaptive instance normalization (AdaIN) layer that aligns the mean and variance of the content features with those of the style features. Given a content input and a style input, AdaIN simply adjusts the mean and variance of the content input to match those of the style input.
+Authors propose a novel <span class='purple'>adaptive instance normalization (AdaIN)</span> layer that aligns the mean and variance of the content features with those of the style features. Given a content input and a style input, AdaIN simply adjusts the mean and variance of the content input to match those of the style input.
 
 The intuitive explaination of AdaIN from paper,
 
@@ -282,7 +284,7 @@ Here are some of the results from the paper on never seen style and content imag
 </p>
 
 
-- [The work](https://arxiv.org/pdf/1705.06830.pdf) done at Google Brain where they overcome the drawback from approach 1 where the model can cover only a limited number of styles and cannot generalize well to an unseen style.
+- [The work](https://arxiv.org/pdf/1705.06830.pdf) done at Google Brain where <span class='red'>they overcome the drawback from above approach where the model can cover only a limited number of styles and cannot generalize well to an unseen style.</span>
 
 <p align="center">
 <img src='/images/style_transfer/arbitary_style_transfer.png' width="80%" />
