@@ -102,9 +102,9 @@ This means we can obtain a model with better validation set error (and thus, hop
 </p>
 
 
-<span class='red'>I-know-everything:</span> Today we will do something creative. We will paint (*not literally*). To do this we will make use of two of our old powers (*Feel the power, Apperentice*), [Power of Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/) and [Force of CNNs](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/). I hope you have practised with your powers well enough! Alos, in [previous post](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/#deep-dream), we encountered how CNN networks were dreaming (hallucinating) and what are they looking at and how they learn. 
+<span class='red'>I-know-everything:</span> Today we will do something creative. We will paint (*not literally*). To do this we will make use of two of our old powers (*Feel the power, Apperentice*), [Power of Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/) and [Force of CNNs](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/). I hope you have practised with your powers well enough! Also, in [previous post](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/#deep-dream), we encountered how CNN networks were dreaming (hallucinating) and what are they looking at and how they learn. 
 
-<span class='red'>I-know-nothing:</span> Does this mean we will paint as good as Master Picasso?
+<span class='green'>I-know-nothing:</span> Does this mean that we will paint as good as Master Picasso?
 
 <span class='red'>I-know-everything:</span> Haha, I will let you be the judge of that. It's fascinating how these algorithms work and the results they produce. I will directly start with multiple ways of how we can achieve such startling results.
 
