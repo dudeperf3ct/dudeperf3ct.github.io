@@ -20,7 +20,9 @@ Hey yo, but how?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
--meme
+<p align="center">
+<img src='/images/style_transfer/meme.jpg'/>
+</p>
 
 Feel free to jump anywhere,
 - [Regularization](#regularization)
