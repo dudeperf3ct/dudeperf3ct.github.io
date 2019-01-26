@@ -39,22 +39,21 @@ Feel free to jump anywhere,
 
 
 
-
 # Regularization
 
-In our previous post to introduction to regularization, we explained why regularization is necessary and gave a brief account of two techniques $$L^{1}$$ and $$L^{2}$$ regularizations. We will give a short introduction to remaining techniques. Regualarization techniques are used to control overfitting of the neural network models.
+In our [previous post](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/#regularization) to introduction to regularization, we explained why regularization is necessary and gave a brief account of two techniques, $$L^{1}$$ and $$L^{2}$$ regularizations. We will give a short introduction to remaining techniques. Regualarization techniques are used to control overfitting of the neural network models.
 
 ### Batch Normalization
 
-We have seen that normalizing input features, aka feature scaling can speed up the training. But once the normalized input is fed to the deep network, as each layer is affected by parameters in all the input layer, even a small change in the network parameter is amplified and leads to the input distribution being changed in the internal layers of the network. This is known as internal covariance shift. Batch Normalization is an idea introduced in excellent [paper]([https://arxiv.org/pdf/1502.03167v3.pdf]) by (Ioffe & Szegedy) of normalizing activations of every fully connected and convolution layer with unit standard deviation and zero mean during training, as a part of the network architecture itself. Batch Normalization makes the distribution more stable of activation values throughout training and reduces the internal covariance shift in deep networks. It allows us to use much higher learning rates and be less careful about network initialization. It also makes neural networks more robust and can very easily help in training deep networks.
+We have seen that normalizing input features, aka feature scaling can speed up the training. But once the normalized input is fed to the deep network, as each layer is affected by parameters in all the input layer, even a small change in the network parameter is amplified and leads to the input distribution being changed in the internal layers of the network. This is known as internal covariance shift. Batch Normalization is an idea introduced in excellent [paper](https://arxiv.org/pdf/1502.03167v3.pdf) by (Ioffe & Szegedy) of normalizing activations of every fully connected and convolution layer with unit standard deviation and zero mean during training, as a part of the network architecture itself. Batch Normalization makes the distribution more stable of activation values throughout training and reduces the internal covariance shift in deep networks. It allows us to use much higher learning rates and be less careful about network initialization. It also makes neural networks more robust and can very easily help in training deep networks.
 
 <p align="center">
 <img src='/images/style_transfer/batch_norm.png' width="60%"/>
 </p>
 
-It is implemented as a layer (with trainable parameters) and normalizes the activations of the previous layer. Backpropagation allows the network to learn if they want the activations to be normalized and upto what extent. In practise, batch norm is inserted immediately after fully connected or convolutional layers and before nonlinearities.
+It is implemented as a layer (with trainable parameters) and normalizes the activations of the previous layer. Backpropagation allows the network to learn if they want the activations to be normalized and upto what extent. In practice, batch norm is inserted immediately after fully connected or convolutional layers and before nonlinearities.
 
-More curious audience: [Check this paper](https://arxiv.org/pdf/1805.11604.pdf)
+More curious audience: [Check this recent paper on Batchnorm](https://arxiv.org/pdf/1805.11604.pdf)
 
 ### Dropout
 
@@ -80,11 +79,11 @@ The best way to make a machine learning model generalize better is to train it o
 <img src='/images/style_transfer/dog_augmentation.jpg' width="60%"/>
 </p>
 
-The general principle is to expand the training data by applying operations that reflect real-world variation. There are many ways to augment the data like random crop, center crop, scale, resize, color normalization, contrast, brightness, random zoom, horizontal flip, vertical flip, adding gaussian noise, etc. We are making our neural network more robust to different kinds of real-world scenarios that can occur other than our ideal dataset. One must be careful not to apply transformations that would change the correct class. For example, optical character recognition tasks require recognizing the dfference between “b” and “d” and the dfference between “6” and “9,” so horizontal ﬂips and 180 degree rotations are not appropriate ways of augmenting datasets for these tasks.
+The general principle is to expand the training data by applying operations that reflect real-world variation. There are many ways to augment the data like random crop, center crop, scale, resize, color normalization, contrast, brightness, random zoom, horizontal flip, vertical flip, adding gaussian noise, etc. We are making our neural network more robust to different kinds of real-world scenarios that can occur other than our ideal dataset. One must be careful not to apply transformations that would change the correct class. For example, optical character recognition tasks require recognizing the difference between “b” and “d” and the dfference between “6” and “9,” so horizontal flips and 180 degree rotations are not appropriate ways of augmenting datasets for these tasks.
 
 ### Early Stopping
 
-The idea of Early Stopping is very simple yet effective. Conisder below training and validation graph, let us measure the performance of our model on a separate validation dataset during the training iterations. We may then observe that, despite constant score improvements on the training data, the model's performance on the validation dataset would only improve during the first stage of training, reach an optimum at some point and then turn to getting worse with further iterations. It thus seems reasonable to stop training at the point when the minimal validation error is achieved. Training the model any further only leads to overfitting. Early stopping actually more explicitly limiting the complexity of the final model.
+The idea of Early Stopping is very simple yet effective. Consider below training and validation graph, let us measure the performance of our model on a separate validation dataset during the training iterations. We may then observe that, despite constant score improvements on the training data, the model's performance on the validation dataset would only improve during the first stage of training, reach an optimum at some point and then turn to getting worse with further iterations. It thus seems reasonable to stop training at the point when the minimal validation error is achieved. Training the model any further only leads to overfitting. Early stopping actually more explicitly limiting the complexity of the final model.
 
 <p align="center">
 <img src='/images/style_transfer/early_stopping.png' width="60%"/>
@@ -107,7 +106,7 @@ This means we can obtain a model with better validation set error (and thus, hop
 
 <span class='red'>I-know-nothing:</span> Does this mean we will paint as good as Master Picasso?
 
-<span class='red'>I-know-everything:</span> Haha, I will let you be the judge of that. It's fascinating how this works and the results we obtain. I will directly start with multiple ways of how we can achieve such startling results.
+<span class='red'>I-know-everything:</span> Haha, I will let you be the judge of that. It's fascinating how these algorithms work and the results we obtain. I will directly start with multiple ways of how we can achieve such startling results.
 
 ### Artistic Style Transfer 
 
@@ -115,7 +114,9 @@ The [excellent paper](https://arxiv.org/pdf/1508.06576.pdf) in 2015 by Gatys et 
 
 Consider two images, one called content image($$\mathbf{C}$$) and other called style image($$\mathbf{S}$$). The challenge is to grab the styles of style image and grab the content of content image and cut & paste both of them together to get a combined pastiche image($$\mathbf{P}$$).
 
--sample_style_transfer
+<p align="center">
+<img src='/images/style_transfer/sample_style_transfer.jpeg' width="60%"/>
+</p>
 
 So, from above example, we see that content of content image(left one) is present in combined image(right one). We also see the styles and textures from style image(middle one) to be present in combined image. *Isn't it amazing?*
 
@@ -364,6 +365,8 @@ cost function - loss or objective function
 [Early Stopping](http://fouryears.eu/2017/12/06/the-mystery-of-early-stopping/)
 
 [Dog Data Augmentation](https://dieswaytoofast.blogspot.com/2018/06/data-augmentation-whatsthat.html)
+
+[Sample style transfer example of dog](https://towardsdatascience.com/artistic-style-transfer-b7566a216431)
 
 [City Cat](https://www.yooying.com/p/1941588927056054965_1044254472)
 
