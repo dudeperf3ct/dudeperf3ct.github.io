@@ -45,7 +45,7 @@ In our [previous post](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/20
 
 ### Batch Normalization
 
-We have seen that normalizing input features, aka feature scaling can speed up the training. But once the normalized input is fed to the deep network, as each layer is affected by parameters in all the input layer, even a small change in the network parameter is amplified and leads to the input distribution being changed in the internal layers of the network. This is known as <span class='purple'>internal covariance shift</span>. Batch Normalization is an idea introduced in excellent [paper](https://arxiv.org/pdf/1502.03167v3.pdf) by (Ioffe & Szegedy) of normalizing activations of every fully connected and convolution layer with unit standard deviation and zero mean during training, as a part of the network architecture itself. Batch Normalization makes the distribution more stable of activation values throughout training and reduces the internal covariance shift in deep networks. It allows us to use much higher learning rates and be less careful about network initialization. It also makes neural networks more robust and can very easily help in training deep networks.
+We have seen that normalizing input features, aka feature scaling can speed up the training. But once the normalized input is fed to the deep network, as each layer is affected by parameters in all the input layer, even a small change in the network parameter is amplified and leads to the input distribution being changed in the internal layers of the network. This is known as <span class='purple'>internal covariance shift</span>. Batch Normalization is an idea introduced in excellent [paper](https://arxiv.org/pdf/1502.03167v3.pdf) by (Ioffe & Szegedy) of normalizing activations of every fully connected and convolution layer with unit standard deviation and zero mean during training, as a part of the network architecture itself. <span class='red'>Batch Normalization makes the distribution more stable of activation values throughout training and reduces the internal covariance shift in deep networks. It allows us to use much higher learning rates and be less careful about network initialization. It also makes neural networks more robust and can very easily help in training deep networks.</span>
 
 <p align="center">
 <img src='/images/style_transfer/batch_norm.png' width="60%"/>
@@ -57,7 +57,7 @@ More curious audience: [Check this recent paper on Batchnorm](https://arxiv.org/
 
 ### Dropout
 
-The key idea is to randomly drop units (along with their connections) from the neural network during training. By dropping a unit out means temporarily removing it from the network, along with all its incoming and outgoing connection as shown below. The choice of which units to drop is random. 
+<span class='red'>The key idea is to randomly drop units (along with their connections) from the neural network during training. By dropping a unit out means temporarily removing it from the network, along with all its incoming and outgoing connection as shown below. The choice of which units to drop is random.</span>
 
 <p align="center">
 <img src='/images/style_transfer/dropout.png' width="60%"/>
@@ -79,11 +79,11 @@ The best way to make a machine learning model generalize better is to train it o
 <img src='/images/style_transfer/dog_augmentation.jpg' width="60%"/>
 </p>
 
-The general principle is to expand the training data by applying operations that reflect real-world variation. There are many ways to augment the data like random crop, center crop, scale, resize, color normalization, contrast, brightness, random zoom, horizontal flip, vertical flip, adding gaussian noise, etc. We are making our neural network more robust to different kinds of real-world scenarios that can occur other than our ideal dataset. One must be careful not to apply transformations that would change the correct class. For example, optical character recognition tasks require recognizing the difference between “b” and “d” and the difference between “6” and “9,” so horizontal flips and 180 degree rotations are not appropriate ways of augmenting datasets for these tasks.
+The general principle is to expand the training data by applying operations that reflect real-world variation. <span class='red'> There are many ways to augment the data like random crop, center crop, scale, resize, color normalization, contrast, brightness, random zoom, horizontal flip, vertical flip, adding gaussian noise, etc. <>/span We are making our neural network more robust to different kinds of real-world scenarios that can occur other than our ideal dataset. One must be careful not to apply transformations that would change the correct class. For example, optical character recognition tasks require recognizing the difference between “b” and “d” and the difference between “6” and “9,” so horizontal flips and 180 degree rotations are not appropriate ways of augmenting datasets for these tasks.
 
 ### Early Stopping
 
-The idea of Early Stopping is very simple yet effective. Consider below training and validation graph, let us measure the performance of our model on a separate validation dataset during the training iterations. We may then observe that, despite constant score improvements on the training data, the model's performance on the validation dataset would only improve during the first stage of training, reach an optimum at some point and then turn to getting worse with further iterations. It thus seems reasonable to stop training at the point when the minimal validation error is achieved. Training the model any further only leads to overfitting. Early stopping actually more explicitly limits the complexity of the final model.
+The idea of Early Stopping is very simple yet effective. Consider below training and validation graph, let us measure the performance of our model on a separate validation dataset during the training iterations. <span class='red'> We may then observe that, despite constant score improvements on the training data, the model's performance on the validation dataset would only improve during the first stage of training, reach an optimum at some point and then turn to getting worse with further iterations. It thus seems reasonable to stop training at the point when the minimal validation error is achieved. </span> Training the model any further only leads to overfitting. Early stopping actually more explicitly limits the complexity of the final model.
 
 <p align="center">
 <img src='/images/style_transfer/early_stopping.png' width="60%"/>
@@ -112,13 +112,13 @@ This means we can obtain a model with better validation set error (and thus, hop
 
 The [excellent paper](https://arxiv.org/pdf/1508.06576.pdf) in 2015 by Gatys et al proposed a neural algorithm that creates artistic images of high perceptual quality. Let's breakdown how the algorithm creates high quality results. 
 
-Consider two images, one called content image($$\mathbf{C}$$) and other called style image($$\mathbf{S}$$). The challenge is to grab the styles of style image and grab the content of content image and cut & paste both of them together to get a combined pastiche image($$\mathbf{P}$$).
+Consider two images, one called content image ($$\mathbf{C}$$) and other called style image ($$\mathbf{S}$$). The challenge is to grab the styles of style image and grab the content of content image and cut & paste both of them together to get a combined pastiche image ($$\mathbf{P}$$).
 
 <p align="center">
 <img src='/images/style_transfer/sample_style_transfer.jpeg' width="70%"/>
 </p>
 
-So, from above example, we see that content of content image(left one) is present in combined image(right one). We also see the styles and textures from style image(middle one) to be present in combined image. *Isn't it amazing?*
+So, from above example, we see that content of content image (left one) is present in combined image (right one). We also see the styles and textures from style image (middle one) to be present in combined image. *Isn't it amazing?*
 
 Now, the question appears <span class='purple'>how can we extract only content from content image and styles and textures from style image?</span> Extract, this is where we saw CNNs excel at. We saw in our post on [Visualizing CNNs](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/) that different layers extract different patterns like first layers in CNNs extract edges, second layers textures and as we go deep into further layers, high semantic concepts like faces, cars, text, etc are learned. Using these knowledge, we can see that we can use initial layers in CNN to extract styles and the content from high layers of CNN. In example below, we can see that if we reconstruct the original image from deeper layers we still preserve the high-level content of the original but lose the exact pixel information.
 
@@ -127,7 +127,7 @@ Now, the question appears <span class='purple'>how can we extract only content f
 </p>
 
 
-So, now we got general idea about how using pretrained CNNs can help in extracting patterns, textures and content. But <span class='red'>how can we construct new image comprising of these two different representations?</span> This question can be phrased in this way: <span class='blue'>how can we construct new image such that it's content does not differ much from content image and also the new generated image's style does not differ much in style and texture of style image.</span> Now, the question can be easily solved by creating two loss function: **content loss** ($$\mathcal{L}_{content}$$) and **style loss** ($$\mathcal{L}_{style}$$).
+So, now we got general idea about how using pretrained CNNs can help in extracting patterns, textures and content. But <span class='red'>how can we construct new image comprising of these two different representations?</span> This question can be phrased as: <span class='blue'>how can we construct new image such that it's content does not differ much from content image and also the new generated image's style does not differ much in style and texture of style image.</span> Now, the question can be easily solved by creating two loss function: **content loss** ($$\mathcal{L}_{content}$$) and **style loss** ($$\mathcal{L}_{style}$$).
 
 $$\mathcal{L}_{content}(\mathbf{C}, \mathbf{P}) = 0$$ which means we have a loss function which tends to 0 when it's two input images (C and G) are very close to each other in terms of content, and grows as content deviate.
 
@@ -149,7 +149,7 @@ This shows similiarity to MNIST where we had a loss function defined, and then w
 <img src='/images/style_transfer/vgg16.png' />
 </p>
 
-- Content Loss($$\mathcal{L}_{content}$$)
+- <span class='blue'>Content Loss</span>($$\mathcal{L}_{content}$$)
 
 Content Loss is  the (scaled, squared) Euclidean distance between feature representations of the content and combination images. Given a chosen content layer $$\ell$$, let $$\mathbf{F}^\ell$$ be the feature map of our content image $$\mathbf{C}$$ and $$\mathbf{H}^\ell$$ the feature map of our generated pastiche image $$\mathbf{P}$$. The content loss the will be,
 
@@ -161,7 +161,7 @@ $$
 
 When the content representation of $$\mathbf{C}$$ and $$\mathbf{P}$$ are exactly the same this loss becomes 0.
 
-- Style Loss($$\mathcal{L}_{style}$$)
+- <span class='blue'>Style Loss</span>($$\mathcal{L}_{style}$$)
 
 This loss function is bit tricky. First we define something called Gram Matrix ($$\mathbf{G}$$). Gram Matrix extracts a representation of style by looking at the spatial correlation of the values within a given feature map. If the feature map is a matrix $$\mathbf{F}$$, then each entry in the Gram matrix $$\mathbf{G}$$ can be given by, 
 
@@ -260,13 +260,13 @@ Here are some of the results,
 
 There are two methods:
 
-1. The [work](https://arxiv.org/pdf/1703.06868.pdf) from Cornell University, proposed a new way to a simple yet effective approach to real time arbitrary style transfer without the restriction to a pre-defined set of style.
+- The [work](https://arxiv.org/pdf/1703.06868.pdf) from Cornell University, proposed a new way to a simple yet effective approach to real time arbitrary style transfer without the restriction to a pre-defined set of style.
 
 Authors propose a novel adaptive instance normalization (AdaIN) layer that aligns the mean and variance of the content features with those of the style features. Given a content input and a style input, AdaIN simply adjusts the mean and variance of the content input to match those of the style input.
 
 The intuitive explaination of AdaIN from paper,
 
-> Let us consider a feature channel that detects brushstrokes of a certain style. A style image with this kind of strokes will produce a high average activation for this feature. The output produced by AdaIN will have the same high average activation for this feature, while preserving the spatial structure of the content image.
+Let us consider a feature channel that detects brushstrokes of a certain style. A style image with this kind of strokes will produce a high average activation for this feature. The output produced by AdaIN will have the same high average activation for this feature, while preserving the spatial structure of the content image.
 
 <p align="center">
 <img src='/images/style_transfer/adaIN.jpg' width="60%" />
@@ -282,7 +282,7 @@ Here are some of the results from the paper on never seen style and content imag
 </p>
 
 
-2. [The work](https://arxiv.org/pdf/1705.06830.pdf) done at Google Brain where they overcome the drawback from approach 1 where the model can cover only a limited number of styles and cannot generalize well to an unseen style.
+- [The work](https://arxiv.org/pdf/1705.06830.pdf) done at Google Brain where they overcome the drawback from approach 1 where the model can cover only a limited number of styles and cannot generalize well to an unseen style.
 
 <p align="center">
 <img src='/images/style_transfer/arbitary_style_transfer.png' width="80%" />
@@ -302,7 +302,7 @@ This methods generalizes fairly to unobserved styles and content images.
 Random Fact: [Elmyr de Hory](http://www.intenttodeceive.org/forger-profiles/elmyr-de-hory/) gained world-wide fame by forging thousands of pieces of artwork and selling them to art dealers and museums.
 
 
-*So young padwan, wasn't it truly magical?* <span class='purple'> Magic of Style Transfer </span>. Similarly, in next post we will work on another cool application of <span class='purple'> Mystery of Object Detection </span>.
+*So young padwan, wasn't it truly magical?* <span class='purple'> Magic of Style Transfer </span>. Similarly, in next post we will work on another cool application, <span class='purple'> Mystery of Object Detection </span>.
 
 <span class='orange'>Happy Learning!</span>
 
