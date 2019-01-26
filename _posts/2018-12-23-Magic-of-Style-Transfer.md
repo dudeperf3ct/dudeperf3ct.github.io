@@ -73,13 +73,13 @@ Curious Readers: [Did you know?](https://raw.githubusercontent.com/dudeperf3ct/d
 
 ### Data Augmentation
 
-The best way to make a machine learning model generalize better is to train it on more data. Of course, <span class='saddlebrown'>in practice, the amount of data we have is limited. One way to get around this problem is to create fake data and add it to the training set.</span> *With more data, come greater capacity of model to learn examples from.*
+The best way to make a machine learning model generalize better is to train it on more data. Of course, <span class='red'>in practice, the amount of data we have is limited. One way to get around this problem is to create fake data and add it to the training set.</span> *With more data, come greater capacity of model to learn examples from.*
 
 <p align="center">
 <img src='/images/style_transfer/dog_augmentation.jpg' width="60%"/>
 </p>
 
-The general principle is to expand the training data by applying operations that reflect real-world variation. <span class='red'> There are many ways to augment the data like random crop, center crop, scale, resize, color normalization, contrast, brightness, random zoom, horizontal flip, vertical flip, adding gaussian noise, etc. <>/span We are making our neural network more robust to different kinds of real-world scenarios that can occur other than our ideal dataset. One must be careful not to apply transformations that would change the correct class. For example, optical character recognition tasks require recognizing the difference between “b” and “d” and the difference between “6” and “9,” so horizontal flips and 180 degree rotations are not appropriate ways of augmenting datasets for these tasks.
+The general principle is to expand the training data by applying operations that reflect real-world variation. <span class='red'> There are many ways to augment the data like random crop, center crop, scale, resize, color normalization, contrast, brightness, random zoom, horizontal flip, vertical flip, adding gaussian noise, etc. </span> We are making our neural network more robust to different kinds of real-world scenarios that can occur other than our ideal dataset. One must be careful not to apply transformations that would change the correct class. For example, optical character recognition tasks require recognizing the difference between “b” and “d” and the difference between “6” and “9,” so horizontal flips and 180 degree rotations are not appropriate ways of augmenting datasets for these tasks.
 
 ### Early Stopping
 
@@ -149,7 +149,7 @@ This shows similiarity to MNIST where we had a loss function defined, and then w
 <img src='/images/style_transfer/vgg16.png' />
 </p>
 
-- <span class='blue'>Content Loss</span>($$\mathcal{L}_{content}$$)
+- <span class='orange'>Content Loss</span>($$\mathcal{L}_{content}$$)
 
 Content Loss is  the (scaled, squared) Euclidean distance between feature representations of the content and combination images. Given a chosen content layer $$\ell$$, let $$\mathbf{F}^\ell$$ be the feature map of our content image $$\mathbf{C}$$ and $$\mathbf{H}^\ell$$ the feature map of our generated pastiche image $$\mathbf{P}$$. The content loss the will be,
 
@@ -161,7 +161,7 @@ $$
 
 When the content representation of $$\mathbf{C}$$ and $$\mathbf{P}$$ are exactly the same this loss becomes 0.
 
-- <span class='blue'>Style Loss</span>($$\mathcal{L}_{style}$$)
+- <span class='orange'>Style Loss</span>($$\mathcal{L}_{style}$$)
 
 This loss function is bit tricky. First we define something called Gram Matrix ($$\mathbf{G}$$). Gram Matrix extracts a representation of style by looking at the spatial correlation of the values within a given feature map. If the feature map is a matrix $$\mathbf{F}$$, then each entry in the Gram matrix $$\mathbf{G}$$ can be given by, 
 
@@ -185,7 +185,7 @@ $$
 \end{aligned}
 $$
 
-- Total variation loss
+- <span class='orange'>Total variation loss</span>($$\mathcal{L}_{TV}$$)
 
 If you were to solve the optimisation problem with only the two loss terms we’ve introduced so far (style and content), we find that the output is quite noisy. We thus add another term, called the [total variation loss](http://arxiv.org/abs/1412.0035) (a regularisation term) that encourages spatial smoothness.
 
@@ -218,7 +218,7 @@ Et voilà ! the results,
 
 <span class='red'>The drawback from above approach, other than being computuationally expensive is that we can style only one image at a time. For every other image pair (content, style) we have to run the algorithm again.</span>
 
-The paper, titled [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://cs.stanford.edu/people/jcjohns/papers/eccv16/JohnsonECCV16.pdf) by Johnson et. al, shows that it is possible to train a neural network to apply a single style to any given content image with a single forward pass through the network in real-time.
+The paper, titled [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://cs.stanford.edu/people/jcjohns/papers/eccv16/JohnsonECCV16.pdf) by Johnson et al, shows that it is possible to train a neural network to apply a single style to any given content image with a single forward pass through the network in real-time.
 
 <p align="center">
 <img src='/images/style_transfer/fast_style_transfer.png'  width="60%"/>
@@ -226,7 +226,7 @@ The paper, titled [Perceptual Losses for Real-Time Style Transfer and Super-Reso
 
 Architecture above, contains Image Transform Network and Loss Network.
 
-- Image Transformation Network (ITN)
+- <span class='orange'>Image Transformation Network (ITN) </span>
 
 The architecture of Image Transfer Net as proposed by Johnson et al is shown in the diagram below.
 
@@ -236,7 +236,7 @@ The architecture of Image Transfer Net as proposed by Johnson et al is shown in 
 
 It consists of 3 layers of Conv and ReLU non-linearity, 5 residual blocks, 3 transpose convolutional layers and finally a non-linear tanh layer which produces an output image.
 
-- Loss Network
+- <span class='orange'>Loss Network</span>
 
 The loss network is used to calculate a loss between our generated output image and our desired content and style images. We calculate loss in the same way as the previous method, by evaluating the content representation of $$\mathbf{C}$$ and the style representation of $$\mathbf{S}$$ and taking the distance between these and the content and style representations of our output image $$\mathbf{P}$$. These representations are calculated using pretrained VGG16 network.
 
@@ -314,6 +314,8 @@ Random Fact: [Elmyr de Hory](http://www.intenttodeceive.org/forger-profiles/elmy
 Power of Transfer Learning - Transfer Learning
 
 Power of Visualize CNN - Visualize CNN
+
+Master Picasso - Pablo Picasso
 
 Magic of Style Transfer - Neural Style Transfer
 
