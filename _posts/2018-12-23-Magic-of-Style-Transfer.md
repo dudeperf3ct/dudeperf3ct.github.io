@@ -206,11 +206,9 @@ Et voilà !  the results,
 
 
 <p align="center">
-<img src='/images/style_transfer/content/cat.jpg' width="33%"/><img src='/images/style_transfer/content/lake.jpg' width="33%"/><img src='/images/style_transfer/content/mountain_cat.jpg' width="33%"/>
+<img src='/images/style_transfer/grid_1.jpg' /> 
+<img src='/images/style_transfer/grid_2.jpg' /> 
 </p>
-
---results
-
 
 
 
@@ -250,7 +248,9 @@ After training, *generating style transfer for any content image takes less than
 
 Here are some of the results,
 
---johnson et al results
+<p align="center">
+<img src='/images/style_transfer/grid_3.jpg' /> 
+</p>
 
 ### Arbitrary neural artistic stylization network
 
