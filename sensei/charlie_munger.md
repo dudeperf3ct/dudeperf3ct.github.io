@@ -19,6 +19,12 @@ Feel free to jump anywhere,
 Mungerism
 ===========================
 
+Three Rules for a Career by Charlie Munger
+1. <span class='blue'>Don’t sell anything you wouldn’t buy yourself</span>
+2. <span class='blue'>Don’t work for anyone you don’t respect</span>
+3. <span class='blue'>Work only with people you enjoy</span>
+
+
 <span class='red'>Basically Mungers have 3 stocks Berkshire, Costco and investment in Li Lu's parternship</span>. 3 things well along in my 95 years. You don't need to own lot many stocks to get rich.
 
 The most important word to the investors is <span class='red'> rationality </span>.
