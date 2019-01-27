@@ -78,7 +78,7 @@ I love a sale (cheap companies), just try me out!
 
 Fear is incredibly contagious. Confidence comes back through the door one at a time.
 
-
+If you don't find a way to make money while you sleep, you will work until you die.
 
 Stories
 ===========================
