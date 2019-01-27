@@ -87,6 +87,8 @@ My mothers grandfather had a theory which he said over and over to his grandchil
 
 If you are going to live a long time, you have to keep learning. What you formerly knew is never enough. So, <span class='red'>if you don't learn constantly, revise your conclusions and get better ones, you are like one-legged man in ass-kicking contest.</span>
 
+When I urge a multidisciplinary approach I’m really asking you to ignore jurisdictional boundaries. And the world isn’t organized that way. It discourages the jumping of jurisdictional boundaries. Big bureaucratic businesses discourage it. And, of course, academia itself discourages it. All I can say there is that, in that respect, academia is horribly wrong and dysfunctional. And some of the worst dysfunctions in businesses come from the fact that they balkanize reality into little individual departments with territoriality and turf protection and so forth. So <span class='purple'>if you want to be a good thinker, you must develop a mind that can jump the jurisdictional boundaries.</span>
+
 Quotes
 ===========================
 
