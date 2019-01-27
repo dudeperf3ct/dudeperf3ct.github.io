@@ -89,6 +89,8 @@ If you are going to live a long time, you have to keep learning. What you former
 
 When I urge a multidisciplinary approach I’m really asking you to ignore jurisdictional boundaries. And the world isn’t organized that way. It discourages the jumping of jurisdictional boundaries. Big bureaucratic businesses discourage it. And, of course, academia itself discourages it. All I can say there is that, in that respect, academia is horribly wrong and dysfunctional. And some of the worst dysfunctions in businesses come from the fact that they balkanize reality into little individual departments with territoriality and turf protection and so forth. So <span class='purple'>if you want to be a good thinker, you must develop a mind that can jump the jurisdictional boundaries.</span>
 
+<span class='saddlebrown'>Since your academic structure by and large, doesn’t encourage minds jumping jurisdictional boundaries, you’re at a disadvantage because, in that one sense, even though academia’s very useful to you, you’ve been mistaught. So if our professors won’t give you an appropriate multidisciplinary approach – if each wants to overuse his own models and under use the important models in other disciplines – you can correct that folly yourself. You can reach out and grasp the model that better solves the overall problem. All you have to do is know it and develop the right mental habits. And it’s kind of fun to sit there and outthink people who are way smarter than you are because you’ve trained yourself to be more objective and multidisciplinary. Furthermore, there’s a lot of money in it – as I can testify from my own personal experience.</span>
+
 Quotes
 ===========================
 
