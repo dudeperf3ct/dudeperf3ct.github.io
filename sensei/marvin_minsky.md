@@ -20,6 +20,7 @@ Minksyism
 Quotes
 ===========================
 
+Religion is a sort of science that doesn't use evidence, and in fact kills people who try to get it.
 
 
 Stories
