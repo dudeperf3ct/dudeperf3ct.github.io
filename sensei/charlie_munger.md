@@ -11,6 +11,8 @@ published: true
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. There is lesson in everything. <span class='red'>Happy Learning!</span>
 
+> <span class='purple'>Worldly wisdom is mostly very, very simple. And what I’m urging on you is not that hard to do if you have the will to plow through and do it. And the rewards are awesome – absolutely awesome.</span>
+
 Feel free to jump anywhere,
 - [Mungerism](#mungerism)
 - [Quotes](#quotes)
