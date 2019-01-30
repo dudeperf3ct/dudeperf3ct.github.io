@@ -26,6 +26,7 @@ Three Rules for a Career by Charlie Munger
 2. <span class='blue'>Don’t work for anyone you don’t respect</span>
 3. <span class='blue'>Work only with people you enjoy</span>
 
+I think it’s a huge mistake not to absorb elementary worldly wisdom if you’re capable of doing it because it makes you better able to serve others, it makes you better able to serve yourself, and it makes life more fun.
 
 <span class='red'>Basically Mungers have 3 stocks Berkshire, Costco and investment in Li Lu's parternship</span>. 3 things well along in my 95 years. You don't need to own lot many stocks to get rich.
 
