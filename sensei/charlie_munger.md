@@ -137,6 +137,8 @@ You change your mind when the facts change.
 
 I like the long-term investors who figure out something is going to work over the long term.
 
+All the wisdom in the world is not to be found in one little academic department. That would be a disastrous way to think and operate.
+
 Stories
 ===========================
 
