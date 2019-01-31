@@ -53,6 +53,8 @@ Warren does have bias, a strong one about competence, intelligence and character
 
 When people come to me with wonderful bussiness and they do, they talk about selling them to me. My first advice is don't sell them. I mean wonderful bussiness, they are too rare and if you got one in your family keep it unless something forces you to sell. I would say stay private unless you have need to go in public in terms of financing or in terms of solving the problems of ownership within a family that's going in different directions or something.
 
+<span class='purple'>I don't try to predict markets. I don't try to predict business. I just try to adapt what comes along.</span>
+
 Quotes
 ===========================
 
