@@ -70,6 +70,8 @@ The triumphs in life are partly triumphs because you know that everything is not
 
 I never hung up on mistakes.
 
+Confidence comes one at a time, but fear is instantaneous.
+
 If you buy things you do not need, soon you will have to sell things you need.
 
 It takes 20 years to build a reputation and 20 minutes to ruin it.
