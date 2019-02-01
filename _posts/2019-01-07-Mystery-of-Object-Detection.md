@@ -139,7 +139,7 @@ $$
 \end{aligned}
 $$
 
-There are also other loss functions like Focal Loss(which we define in our RetinaNet), SVM Loss(Hinge), KL Divergence, Huber Loss etc.
+There are also other loss functions like Focal Loss(which we define in RetinaNet), SVM Loss(Hinge), KL Divergence, Huber Loss etc.
 
 *In next post, we will discuss some popular loss functions and where are they used. Stay tuned!*
 
