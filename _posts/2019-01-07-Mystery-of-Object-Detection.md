@@ -47,7 +47,7 @@ Feel free to jump anywhere,
 
 # Loss Functions
 
-Loss functions are the heart of deep learning algorithms (*in case you are wondering, backprop the soul*). Loss functions tells the model how good the model is at particular task. Depending on the problem to solve, almost all model aim to minimize the loss. Also, did you notice one thing in particular about loss functions and non-linear functions, they are all "differentiable functions". Yes, we may also call deep learning as "differentiable programming". As there is "No Free Lunch" theorem in machine learning, which states that no one particular model can solve all the problems. Similarly, there is also no one particular loss function which when minimized(or maximize) will solve any task. If we make any changes to our model in hope(hyperparameters) of creating better model, loss function will tell if we’re getting better model than previous model trained. If predictions of the model are totally off, loss function will output a higher number. If they’re pretty good, it’ll output a lower number. Designing loss functions to solve our particular task is one of the critical steps in deep learning, if we choose a poor error(loss) function and obtain unsatisfactory results, the fault is ours for badly specifying the goal of the search.
+Loss functions are the heart of deep learning algorithms (*in case you are wondering, backprop the soul*). Loss functions tells the model how good the model is at particular task. Depending on the problem to solve, almost all model aim to minimize the loss. Also, did you notice one thing in particular about loss functions and non-linear functions, they are all "differentiable functions". Yes, we may also call deep learning as "differentiable programming". As there is "No Free Lunch" theorem in machine learning, which states that no one particular model can solve all the problems. Similarly, there is also no one particular loss function which when minimized(or maximize) will solve any task. If we make any changes to our model in hope(trying different hyperparameters) of creating better model, loss function will tell if we’re getting better model than previous model trained. If predictions of the model are totally off, loss function will output a higher number. If they’re pretty good, it’ll output a lower number. Designing loss functions to solve our particular task is one of the critical steps in deep learning, if we choose a poor error(loss) function and obtain unsatisfactory results, the fault is ours for badly specifying the goal of the search.
 
 Loss function is defined in [Deep Learning book](https://www.deeplearningbook.org/contents/ml.html) as, 
 
@@ -70,23 +70,22 @@ Information theory view
 Probabilistic View
 
 
-
 There are two different types of cross entropy functions depeding on number of classes to classify into.
 
 - Binary Cross Entropy
 
-As name suggests, there will be binary(two) classes. If we have two classes to classify our images into, then we use binary cross entropy. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. Binary cross entropy can be forumlated as, 
+As name suggests, there will be binary(two) classes. If we have two classes to classify our images into, then we use binary cross entropy. Cross entropy loss penalizes heavily the predictions that are confident but wrong. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For m example, binary cross entropy can be forumlated as, 
 
 $$
 \begin{aligned}
-\mathbf{L_{bce}} = - (\mathbf{y}\log_{}{\mathbf{\hat{y}}} + (1-\mathbf{y})\log_{}{(1-\mathbf{\hat{y}})})
+\mathbf{L_{bce}} = - \frac{1}{m}\sum_{i=1}^{m}(\mathbf{y_{i}}\log_{}{\mathbf{\hat{y}_{i}}} + (1-\mathbf{y}_{i})\log_{}{(1-\mathbf{\hat{y}_{i}})})
 \end{aligned}
 $$
 
 
 - Multi-class Classification
 
-As name suggests, if there are more than two classes that we want our images to be classified into, then we use multi-class classification error function. It is used as a loss function in neural networks which have softmax activations in the output layer. For classifying into C classes, where C > 2, multi-class classification is given by,  
+As name suggests, if there are more than two classes that we want our images to be classified into, then we use multi-class classification error function. It is used as a loss function in neural networks which have softmax activations in the output layer. The model outputs the probability the example belonging to each class. For classifying into C classes, where C > 2, multi-class classification is given by,  
 
 $$
 \begin{aligned}
@@ -121,7 +120,7 @@ $$
 
 - Root Mean Squared Error(RMSE)
 
-Root mean square error will be just taking root of above \mathbf{L_{mse}}.
+Root mean square error will be just taking root of above \mathbf{L_{mse}}. The MSE penalizes large errors more strongly and therefore is very sensitive to outliers. To avoid this, we usually use the squared root version.
 
 $$
 \begin{aligned}
@@ -129,7 +128,7 @@ $$
 \end{aligned}
 $$
 
-There are also other loss functions like Focal Loss(which we define in our RetinaNet), 
+There are also other loss functions like Focal Loss(which we define in our RetinaNet), SVM Loss, KL Divergence, etc.
 
 *In next post, we will discuss some popular loss functions and where are they used. Stay tuned!*
 
@@ -168,6 +167,8 @@ loss function - cost, error or objective function
 [Some Thoughts About The Design Of Loss Functions](https://www.ine.pt/revstat/pdf/rs070102.pdf)
 
 [A More General Robust Loss Function](https://arxiv.org/abs/1701.03077)
+
+[Loss Functions](http://cs231n.github.io/linear-classify/)
 
 ---
 
