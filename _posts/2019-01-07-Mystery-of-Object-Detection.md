@@ -10,7 +10,8 @@ published : false
 
 # Object Detection
 
-In this notebook, we will try to answer the question "Can we paint as good as Master Picasso?"
+In this notebook, 
+
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_pytorch.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_fastai.ipynb).  
 
@@ -46,12 +47,32 @@ Feel free to jump anywhere,
 
 # Loss Functions
 
-Loss functions are the heart of deep learning algorithms (*in case you are wondering, backprop the soul*). 
+Loss functions are the heart of deep learning algorithms (*in case you are wondering, backprop the soul*). Loss functions tells the model how good the model is at particular task. Depending on the problem to solve, almost all model aim to minimize the loss. Also, did you notice one thing in particular about loss functions and non-linear functions, they are all "differentiable functions". Yes, we may also call deep learning as "differentiable programming". As there is "No Free Lunch" theorem in machine learning, which states that no one particular model can solve all the problems. Similarly, there is also no one particular loss function which when minimized(or maximize) will solve any task. If we make any changes to our model in hope(hyperparameters) of creating better model, loss function will tell if we’re getting better model than previous model trained. Designing loss functions to solve our particular task is one of the critical steps in deep learning, if we choose a poor error(loss) function and obtain unsatisfactory results, the fault is ours for badly specifying the goal of the search.
+
+Loss function is defined in [Deep Learning book](https://www.deeplearningbook.org/contents/ml.html) as, 
+
+> The function we want to minimize or maximize is called the objective function or criterion. When we are minimizing it, we may also call it the cost function, loss function, or error function.
+
+There are lots many loss functions. But, broadly we can classify loss functions into two categories.
 
 **Classification Loss**
 
+As the name suggests, this loss will help with any task which requires classification. We are given k categories and our job is to make sure our model is good job in classifying x number of examples in k categories. An example is, we are given 1.2 million images of 1000 different categories, and our task it to classify each given image into it's 1000 categories.  
+
+- Cross Entropy Loss
+
+
 
 **Regression Loss**
+
+
+
+- Mean Squared Error
+
+
+
+- Mean Absolute Error
+
 
 
 *In next post, we will discuss some popular loss functions and where are they used. Stay tuned!*
@@ -76,21 +97,13 @@ Loss functions are the heart of deep learning algorithms (*in case you are wonde
 ### Note: Caveats on terminology
 
 
-Power of Transfer Learning - Transfer Learning
-
-Power of Visualize CNN - Visualize CNN
-
-Master Picasso - Pablo Picasso
-
-Magic of Style Transfer - Neural Style Transfer
-
 Mystery of Object Detection - Object Detection
 
 ConvNets - Convolution Neural Networks
 
 neurons - unit
 
-cost function - loss or objective function
+loss function - cost, error or objective function
 
 ---
 
