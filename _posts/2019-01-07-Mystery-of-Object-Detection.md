@@ -61,19 +61,44 @@ As the name suggests, this loss will help with any task which requires classific
 
 - Cross Entropy Loss
 
+Cross-entropy loss is often simply referred to as “cross-entropy,” “logarithmic loss,” “logistic loss,” or “log loss” for short. 
+There are two interpretation of cross entropy. One through information theory and other through probabilistic view. 
 
 
 **Regression Loss**
 
 
-
 - Mean Squared Error
 
+These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For m training example, mse loss can be forumlated as, 
 
+$$
+\begin{aligned}
+\mathbf{L_{mse}} = \frac{1}{m}\sum_{i=0}^{m} (\mathbf{y_{i}} - \mathbf{\hat{y}_{i}})^2
+\end{aligned}
+$$
 
 - Mean Absolute Error
 
+Similar to one above, this loss takes absolute error difference between target and predicted output.
 
+$$
+\begin{aligned}
+\mathbf{L_{mae}} = \frac{1}{m}\sum_{i=0}^{m} |\mathbf{y_{i}} - \mathbf{\hat{y}_{i}}|
+\end{aligned}
+$$
+
+- Root Mean Squared Error
+
+Root mean square error will be just taking root of above \mathbf{L_{mse}}.
+
+$$
+\begin{aligned}
+\mathbf{L_{rmse}} = \sqrt{\frac{1}{m}\sum_{i=0}^{m} (\mathbf{y_{i}} - \mathbf{\hat{y}_{i}})^2}
+\end{aligned}
+$$
+
+There are also other loss functions like Focal Loss(which we define in our RetinaNet), 
 
 *In next post, we will discuss some popular loss functions and where are they used. Stay tuned!*
 
