@@ -47,7 +47,7 @@ Feel free to jump anywhere,
 
 # Loss Functions
 
-Loss functions are the heart of deep learning algorithms (*in case you are wondering, backprop the soul*). Loss functions tells the model how good the model is at particular task. Depending on the problem to solve, almost all model aim to minimize the loss. Also, did you notice one thing in particular about loss functions and non-linear functions, they are all "differentiable functions". Yes, we may also call deep learning as "differentiable programming". As there is "No Free Lunch" theorem in machine learning, which states that no one particular model can solve all the problems. Similarly, there is also no one particular loss function which when minimized(or maximize) will solve any task. If we make any changes to our model in hope(hyperparameters) of creating better model, loss function will tell if we’re getting better model than previous model trained. Designing loss functions to solve our particular task is one of the critical steps in deep learning, if we choose a poor error(loss) function and obtain unsatisfactory results, the fault is ours for badly specifying the goal of the search.
+Loss functions are the heart of deep learning algorithms (*in case you are wondering, backprop the soul*). Loss functions tells the model how good the model is at particular task. Depending on the problem to solve, almost all model aim to minimize the loss. Also, did you notice one thing in particular about loss functions and non-linear functions, they are all "differentiable functions". Yes, we may also call deep learning as "differentiable programming". As there is "No Free Lunch" theorem in machine learning, which states that no one particular model can solve all the problems. Similarly, there is also no one particular loss function which when minimized(or maximize) will solve any task. If we make any changes to our model in hope(hyperparameters) of creating better model, loss function will tell if we’re getting better model than previous model trained. If predictions of the model are totally off, loss function will output a higher number. If they’re pretty good, it’ll output a lower number. Designing loss functions to solve our particular task is one of the critical steps in deep learning, if we choose a poor error(loss) function and obtain unsatisfactory results, the fault is ours for badly specifying the goal of the search.
 
 Loss function is defined in [Deep Learning book](https://www.deeplearningbook.org/contents/ml.html) as, 
 
@@ -96,11 +96,11 @@ $$
 
 **Regression Loss**
 
+In regression, model outputs a number. This number is then compared with our expected value to get a measure of error. For example, we wanted to predict the prices of houses in the neighbourhood. So, we give our model different features(like number of bedrooms, number of bathrooms, area, etc) and ask the model to output the price of house.
 
+- Mean Squared Error(MSE)
 
-- Mean Squared Error
-
-These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For m training example, mse loss can be forumlated as, 
+These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. It’s only concerned with the average magnitude of error irrespective of their direction. However, due to squaring, predictions which are far away from actual values are penalized heavily in comparison to less deviated predictions. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For m training example, mse loss can be forumlated as, 
 
 $$
 \begin{aligned}
@@ -108,9 +108,9 @@ $$
 \end{aligned}
 $$
 
-- Mean Absolute Error
+- Mean Absolute Error(MAE)
 
-Similar to one above, this loss takes absolute error difference between target and predicted output.
+Similar to one above, this loss takes absolute error difference between target and predicted output. Like MSE, this as well measures the magnitude of error without considering their direction. The difference is MAE is more robust to outliers since it does not make use of square.
 
 $$
 \begin{aligned}
@@ -118,7 +118,7 @@ $$
 \end{aligned}
 $$
 
-- Root Mean Squared Error
+- Root Mean Squared Error(RMSE)
 
 Root mean square error will be just taking root of above \mathbf{L_{mse}}.
 
@@ -164,7 +164,9 @@ loss function - cost, error or objective function
 
 # Further Reading
 
+[Some Thoughts About The Design Of Loss Functions](https://www.ine.pt/revstat/pdf/rs070102.pdf)
 
+[A More General Robust Loss Function](https://arxiv.org/abs/1701.03077)
 
 ---
 
