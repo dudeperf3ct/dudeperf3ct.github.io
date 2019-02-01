@@ -59,7 +59,7 @@ There are lots many loss functions. But, broadly we can classify loss functions 
 
 As the name suggests, this loss will help with any task which requires classification. We are given k categories and our job is to make sure our model is good job in classifying x number of examples in k categories. An example is, we are given 1.2 million images of 1000 different categories, and our task it to classify each given image into it's 1000 categories.  
 
-- Cross Entropy Loss
+Cross Entropy Loss
 
 Cross-entropy loss is often simply referred to as “cross-entropy,” “logarithmic loss,” “logistic loss,” or “log loss” for short. 
 There are two interpretation of cross entropy. One through information theory and other through probabilistic view. 
@@ -70,22 +70,23 @@ Information theory view
 Probabilistic View
 
 
+
 There are two different types of cross entropy functions depeding on number of classes to classify into.
 
-Binary Cross Entropy
+- Binary Cross Entropy
 
 As name suggests, there will be binary(two) classes. If we have two classes to classify our images into, then we use binary cross entropy. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. Binary cross entropy can be forumlated as, 
 
 $$
 \begin{aligned}
-\mathbf{L_{bce}} = - (\mathbf{y}\log_{}{\mathbf{\hat{y}}} + \mathbf{(1-y)}\log_{}{(1-\mathbf{\hat{y}})})
+\mathbf{L_{bce}} = - (\mathbf{y}\log_{}{\mathbf{\hat{y}}} + (1-\mathbf{y})\log_{}{(1-\mathbf{\hat{y}})})
 \end{aligned}
 $$
 
 
-Multi-class Classification
+- Multi-class Classification
 
-As name suggests, if there are more than two classes that we want our images to be classified into, then we use multi-class classification error function. For classifying into C classes, where C > 2, multi-class classification is given by,  
+As name suggests, if there are more than two classes that we want our images to be classified into, then we use multi-class classification error function. It is used as a loss function in neural networks which have softmax activations in the output layer. For classifying into C classes, where C > 2, multi-class classification is given by,  
 
 $$
 \begin{aligned}
