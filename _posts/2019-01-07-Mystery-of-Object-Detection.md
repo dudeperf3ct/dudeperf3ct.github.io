@@ -66,19 +66,30 @@ There are two interpretation of cross entropy. One through information theory an
 
 Information theory view
 
+The entropy rate of a data source means the average number of bits per symbol needed to encode it without any loss of information. Entropy of probability distribution p is given by $$H(p)  = -\sum_{i}^{}p(i)\log_{2}{p(i)}$$. Let p be the true distrubtion and q be the predicted distribution over our labels, then cross entropy of both distribution is defined as. $$H(p, q)  = -\sum_{i}^{}p(i)\log_{2}{q(i)}$$. It looks like pretty similar to equation of entropy above but instead of computing log of true probability, we compute log of predicted probability distribution.
+
+The cross-entropy compares the model’s prediction with the label which is the true probability distribution. Cross entropy will grow large if predicted probability for true class is close to zero. But it goes down as the prediction gets more and more accurate. It becomes zero if the prediction is perfect i.e. our predicted distribution is equal to true distribution. KL Divergence(relative entropy) is the extra bit which exceeds if we remove entropy from cross entropy.
+
+
+Aurélien Géron explains amazingly how entropy, cross entropy and KL Divergence pieces are connected in this [video](https://www.youtube.com/watch?v=ErfnhcEV1O8).
 
 Probabilistic View
 
+The output obtained from last softmax(or sigmoid for binary class) layer of the model can be interpreted as normalized class probabilities and we are therefore minimizing the negative log likelihood of the correct class or we are performing Maximum Likelihood Estimation (MLE). 
 
-There are two different types of cross entropy functions depeding on number of classes to classify into.
+For example consider we get an output of [0.1, 0.5, 0.4] (cat, dog, mouse) where the actual or expected output is [1, 0, 0] i.e. it is a cat. But our model predicted that given input has only 10% probability of being a cat, 50% probability of being dog and 40% of chance being a mouse. This being a multi-class classification, we can calculate the cross entropy using the formula for $$\mathbf{L_{mce}}$$ below. 
 
-- Binary Cross Entropy
+Another example for binary class can be as follows. The models outputs [0.4, 0.6] (cat, dog) whereas the input image is a cat i.e. actual output is [1, 0]. Now, we can use $$\mathbf{L_{bce}}$$ from below to calculate the loss and backpropgate the error and tell the model to correct its weight so as to get the output correct next time.
 
-As name suggests, there will be binary(two) classes. If we have two classes to classify our images into, then we use binary cross entropy. Cross entropy loss penalizes heavily the predictions that are confident but wrong. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For m example, binary cross entropy can be forumlated as, 
+There are two different types of cross entropy functions depending on number of classes to classify into.
+
+- Binary Classification
+
+As name suggests, there will be binary(two) classes. If we have two classes to classify our images into, then we use binary cross entropy. Cross entropy loss penalizes heavily the predictions that are confident but wrong. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For M example, binary cross entropy can be forumlated as, 
 
 $$
 \begin{aligned}
-\mathbf{L_{bce}} = - \frac{1}{m}\sum_{i=1}^{m}(\mathbf{y_{i}}\log_{}{\mathbf{\hat{y}_{i}}} + (1-\mathbf{y}_{i})\log_{}{(1-\mathbf{\hat{y}_{i}})})
+\mathbf{L_{bce}} = - \frac{1}{M}\sum_{i=1}^{M}(\mathbf{y_{i}}\log_{}{\mathbf{\hat{y}_{i}}} + (1-\mathbf{y}_{i})\log_{}{(1-\mathbf{\hat{y}_{i}})})
 \end{aligned}
 $$
 
@@ -89,7 +100,7 @@ As name suggests, if there are more than two classes that we want our images to 
 
 $$
 \begin{aligned}
-\mathbf{L_{mce}} = - \sum_{c=1}^{C}(\mathbf{y_c}\log_{}{\mathbf{\hat{y}_c}})
+\mathbf{L_{mce}} = - \sum_{c=1}^{C}(\mathbf{y_c}\ln{\mathbf{\hat{y}_c}})
 \end{aligned}
 $$
 
@@ -100,11 +111,11 @@ In regression, model outputs a number. This number is then compared with our exp
 
 - Mean Squared Error(MSE)
 
-These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. It’s only concerned with the average magnitude of error irrespective of their direction. However, due to squaring, predictions which are far away from actual values are penalized heavily in comparison to less deviated predictions. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For m training example, mse loss can be forumlated as, 
+These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. It’s only concerned with the average magnitude of error irrespective of their direction. However, due to squaring, predictions which are far away from actual values are penalized heavily in comparison to less deviated predictions. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For M training example, mse loss can be forumlated as, 
 
 $$
 \begin{aligned}
-\mathbf{L_{mse}} = \frac{1}{m}\sum_{i=0}^{m} (\mathbf{y_{i}} - \mathbf{\hat{y}_{i}})^2
+\mathbf{L_{mse}} = \frac{1}{M}\sum_{i=0}^{M} (\mathbf{y_{i}} - \mathbf{\hat{y}_{i}})^2
 \end{aligned}
 $$
 
@@ -114,7 +125,7 @@ Similar to one above, this loss takes absolute error difference between target a
 
 $$
 \begin{aligned}
-\mathbf{L_{mae}} = \frac{1}{m}\sum_{i=0}^{m} |\mathbf{y_{i}} - \mathbf{\hat{y}_{i}}|
+\mathbf{L_{mae}} = \frac{1}{M}\sum_{i=0}^{M} |\mathbf{y_{i}} - \mathbf{\hat{y}_{i}}|
 \end{aligned}
 $$
 
@@ -124,11 +135,11 @@ Root mean square error will be just taking root of above \mathbf{L_{mse}}. The M
 
 $$
 \begin{aligned}
-\mathbf{L_{rmse}} = \sqrt{\frac{1}{m}\sum_{i=0}^{m} (\mathbf{y_{i}} - \mathbf{\hat{y}_{i}})^2}
+\mathbf{L_{rmse}} = \sqrt{\frac{1}{M}\sum_{i=0}^{M} (\mathbf{y_{i}} - \mathbf{\hat{y}_{i}})^2}
 \end{aligned}
 $$
 
-There are also other loss functions like Focal Loss(which we define in our RetinaNet), SVM Loss, KL Divergence, etc.
+There are also other loss functions like Focal Loss(which we define in our RetinaNet), SVM Loss(Hinge), KL Divergence, Huber Loss etc.
 
 *In next post, we will discuss some popular loss functions and where are they used. Stay tuned!*
 
