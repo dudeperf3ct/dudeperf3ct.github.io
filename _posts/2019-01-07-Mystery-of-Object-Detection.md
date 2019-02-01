@@ -64,8 +64,38 @@ As the name suggests, this loss will help with any task which requires classific
 Cross-entropy loss is often simply referred to as “cross-entropy,” “logarithmic loss,” “logistic loss,” or “log loss” for short. 
 There are two interpretation of cross entropy. One through information theory and other through probabilistic view. 
 
+Information theory view
+
+
+Probabilistic View
+
+
+There are two different types of cross entropy functions depeding on number of classes to classify into.
+
+Binary Cross Entropy
+
+As name suggests, there will be binary(two) classes. If we have two classes to classify our images into, then we use binary cross entropy. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. Binary cross entropy can be forumlated as, 
+
+$$
+\begin{aligned}
+\mathbf{L_{bce}} = - (\mathbf{y}\log_{}{\mathbf{\hat{y}}} + \mathbf{(1-y)}\log_{}{(1-\mathbf{\hat{y}})})
+\end{aligned}
+$$
+
+
+Multi-class Classification
+
+As name suggests, if there are more than two classes that we want our images to be classified into, then we use multi-class classification error function. For classifying into C classes, where C > 2, multi-class classification is given by,  
+
+$$
+\begin{aligned}
+\mathbf{L_{mce}} = - \sum_{c=1}^{C}(\mathbf{y_c}\log_{}{\mathbf{\hat{y}_c}})
+\end{aligned}
+$$
+
 
 **Regression Loss**
+
 
 
 - Mean Squared Error
