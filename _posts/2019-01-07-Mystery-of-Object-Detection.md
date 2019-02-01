@@ -24,13 +24,35 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 - [Loss Functions](#loss-functions)
+  - [Classification Loss](#classification-loss)
+  - [Regression Loss](#regression-loss)
 - [Introduction to Object Detection](#introduction-to-object-detection)
+  - [Viola-Jones](#viola-jones)
+  - [R-CNN](#r-cnn)
+  - [Fast R-CNN](#fast-r-cnn)
+  - [Faster R-CNN](#faster-r-cnn)
+  - [R-FCN](#r-fnn)
+  - [SSD](#ssd)
+  - [YOLO](#yolo)
+  - [RetinaNet](#retinanet)
+  - [Backbones](#backbones)
+   - [MobileNet](#mobilenet)
+   - [FPN](#fpn)
+   - [ResNet](#resnet)
+   - [ResNext](#resnext)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
-
 # Loss Functions
+
+Loss functions are the heart of deep learning algorithms (*in case you are wondering, backprop the soul*). 
+
+**Classification Loss**
+
+
+**Regression Loss**
+
 
 *In next post, we will discuss some popular loss functions and where are they used. Stay tuned!*
 
