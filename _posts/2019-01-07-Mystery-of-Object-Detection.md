@@ -156,6 +156,51 @@ There are also other loss functions like Focal Loss(which we define in RetinaNet
 
 <span class='green'>I-know-nothing:</span> 
 
+<span class='red'>I-know-everything:</span> 
+
+
+Now, that you have understood what we are doing in object detection. Let's look at some of the algorithms we can use to create such cool object detectors. *I mean very cool.*
+
+## Viola Jones Detector
+
+In early 2000s, deep learning where in their infancy or deep learning where not everything, in [this paper](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf) Viola and Jones proposed a machine learning approach for visual object detection which is capable of processing images extremely rapidly and achieving high detection rates. The algorithm consisted of 3 important parts, integral images which consisted of calculating about 60,,000 image features, AdaBoost classifier, a boosting process which is collection of weak classifier and cascading, where more complex classifier are cascaded in a chain. Intutivley, they created a chain of suppose 3 classifier, where each sub-window classifies it as a "face or not a face". Those sub-windows which are not intially rejected get passed on to next classifier and so no. If any classifier rejects sub-window, no further processing is involved. So, it was a degenerate decision classifier. This process allowed quick selection of faces and discarding backgrounds very quickly. 
+
+For example, in below classifier, 1 feature classifier achieves 100% detection rate with 50% false positive rate, 2 feature classifier with 100% detection rate and 40% false positive rate(20% cumulative) and 20 feature classifier achieve 100% detection rate with 10% false positive rate(2% cumulative).
+
+-viola_jones.png
+
+Here are some results,
+
+-viola_jones_result.png
+
+The real-time detector ran at 15 frames per second on a conventional 700 MHz Intel Pentium III.
+
+For further, take a look at cool explaination by Dr. Mike Pound on [Viola -Jones Algorithm](https://www.youtube.com/watch?v=uEJ71VlUmMQ) on Computerphile.
+
+
+## Overfeat 
+
+One of the first deep learning approach using ConvNets was developed by LeCunn et al in architecture called [Overfeat](https://arxiv.org/pdf/1312.6229.pdf). They provide integrated approach to object detection, recognition and localization with a single ConvNet.
+
+
+
+
+## R-CNN
+
+
+
+## Fast R-CNN
+
+
+
+## Faster R-CNN
+
+
+## R-FCN
+
+
+
+
 <span class='orange'>Happy Learning!</span>
 
 ---
@@ -180,6 +225,8 @@ loss function - cost, error or objective function
 [A More General Robust Loss Function](https://arxiv.org/abs/1701.03077)
 
 [Loss Functions](http://cs231n.github.io/linear-classify/)
+
+[Viola ](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf)
 
 ---
 
