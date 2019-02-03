@@ -192,7 +192,7 @@ various aspect ratios of the predicted bounding boxes shows that the network is 
 
 ## R-CNN
 
-
+Introduction for using CNN for object detection gave rise to whole new networks and kept pushing the boundary of state-of-the-art detectors. 
 
 
 
@@ -201,6 +201,7 @@ various aspect ratios of the predicted bounding boxes shows that the network is 
 
 
 ## Faster R-CNN
+
 
 
 ## R-FCN
@@ -236,6 +237,9 @@ loss function - cost, error or objective function
 [Viola Jones Algorithm paper](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf)
 
 [OverFeat](https://arxiv.org/pdf/1312.6229.pdf)
+
+[R-CNN](https://arxiv.org/abs/1311.2524)
+
 
 ---
 
