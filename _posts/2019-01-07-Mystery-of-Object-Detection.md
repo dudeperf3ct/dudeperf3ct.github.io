@@ -345,7 +345,7 @@ The last convolutional layer of  produces a bank of $$k^2$$ position-sensitive s
 
 When ROI pooling, (C+1) feature maps with size of $$k^2$$ are produced, i.e. $$k^2(C+1)$$. The pooling is done in the sense that they are pooled with the same area and the same color in the figure. Average voting is performed to generate (C+1) 1d-vector. And finally softmax is performed on the vector.
 
-Consider for example following example, 
+Consider for example following example of R-FCN detecting a baby, 
 
 -rfcn_roi.png
 
@@ -356,11 +356,12 @@ As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example a
 
 ### Advantages over Faster R-CNN
 
-- The result is achieved at a test-time speed of 170ms per image.
+- The result is achieved at a test-time speed of 170ms per image. Faster than Faster R-CNN.
 - Comparable detection quality (mAP) to Faster R-CNN
 
 ## SSD
 
+[](https://arxiv.org/pdf/1512.02325.pdf)
 
 
 ## YOLO
@@ -421,7 +422,7 @@ loss function - cost, error or objective function
 
 [R-FCN](https://arxiv.org/pdf/1605.06409.pdf)
 
-[SSD]()
+[SSD](https://arxiv.org/pdf/1512.02325.pdf)
 
 YOLO [v1]() [v2]() [v3]()
 
