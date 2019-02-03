@@ -277,8 +277,8 @@ RPN were introduce to replace slow selective search which proposes region propos
 - First, the picture goes through conv layers and feature maps are extracted
 - Then a sliding window is used in RPN for each location over the feature map
 - For each location, k (k=9) anchor boxes are used (3 scales of 128, 256 and 512, and 3 aspect ratios of 1:1, 1:2, 2:1) for generating region proposals
-- A cls layer outputs 2k scores whether there is object or not for k boxes
-- A reg layer outputs 4k for the coordinates (box center coordinates, width and height) of k boxes
+- A classification layer outputs 2k scores whether there is object or not for k boxes
+- A regression layer outputs 4k for the coordinates (box center coordinates, width and height) of k boxes
 - With a size of W×H feature map, there are WHk anchors in total.
 
 
@@ -315,17 +315,55 @@ Then, it uses two different fully-connected layers for each of the different obj
 
 - Two different networks(*Can we combine everything in single network?*)
 - Four loss functions to optimize (2 for RPN and 2 for Fast R-CNN)
+- Fully connected layers increase the parameters in network due to which inference time takes toll.(*Can we get rid of dense layers?*)
 
 Results from pretrained model using tensorflow Object Detection API using Faster R-CNN with Resnet pretrained model,
 
 
 
-
 ## R-FCN
 
+[R-FCN](https://arxiv.org/pdf/1605.06409.pdf) uses region-based, fully convolutional networks based approach for object detection where almost all computation shared on the entire image. He et al propose a solution of using "position-sensitive score maps" which takes into account both translation invariance for image classification (wherever the object is in image) and translation variance for drawing boxes around the classified object i.e. object detection. Essentially, these score maps are convolutional feature maps that have been trained to recognize certain parts of each object. Let's analyse the steps used in the algorithm:
+
+- Run a backbone network (here, ResNet-101) over input image
+- Add FCN to generate score banks of size $$k^2(C+1)$$ where $$k^2$$ represents the number of relative positions to divide an object (e.g. $$3^2$$ for a 3 by 3 grid) and C+1 representing the number of classes plus the background.
+- Run a fully convolutional region proposal network (RPN) to generate regions of interest (RoI’s)
+- For each RoI, divide it into the same $$k^2$$ “bins” or subregions as the score maps
+- For each bin, check the score bank to see if that bin matches the corresponding position of some object. This process is repeated for each class
+- Once each of the $$k^2$$ bins has an “object match” value for each class, average the bins to get a single score per class
+- Classify the RoI with a softmax over the remaining C+1 dimensional vector
+
+
+-rfcn.png
+
+### Position-sensitive score maps
+
+Consider for example following example, 
+
+
+-rfcn_roi.png
+
+
+### Advantages over Faster R-CNN
+
+- The result is achieved at a test-time speed of 170ms per image.
+
+
+## SSD
 
 
 
+## YOLO
+
+
+
+
+## RetinaNet
+
+
+## Backbones
+
+- MobileNet
 
 
 
