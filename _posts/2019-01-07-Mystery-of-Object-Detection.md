@@ -181,7 +181,7 @@ For further, take a look at cool explaination by Dr. Mike Pound on [Viola -Jones
 
 ## OverFeat 
 
-One of the first deep learning approach using ConvNets was developed by LeCunn et al in architecture called [Overfeat](https://arxiv.org/pdf/1312.6229.pdf). They provide integrated approach to object detection, recognition and localization with a single ConvNet. As we have discussed before, in this algorithm there are two parts of network, classification and localization. The classification network(Overfeat architecture) is trained on Imagenet classifying object into one of 1000 categories. The classifier layers of classification network is replaced by regression network which predicts object bounding box at each spatial location and scale.
+One of the first deep learning approach using ConvNets was developed by LeCunn et al in architecture called [Overfeat](https://arxiv.org/pdf/1312.6229.pdf). They provide integrated approach to object detection, recognition and localization with a single ConvNet. As we have discussed before, in this algorithm there are two parts of network, classification and localization. The classification network(Overfeat architecture) is trained on Imagenet classifying object into one of 1000 categories. The classifier layers of classification network is replaced by regression network which predicts object bounding box at each spatial location and scale. In OverFeat, the region-wise features come from a sliding window of one aspect ratio over a scale pyramid. These features are used to simultaneously determine the location and category of objects. On the 200-class ILSVRC2013 detection dataset, OverFeat achieved mean average precision (mAP) of 24.3%. 
 
 The working of algorithm can be explained by an example shown below.
 
@@ -192,19 +192,100 @@ various aspect ratios of the predicted bounding boxes shows that the network is 
 
 ## R-CNN
 
-Introduction for using CNN for object detection gave rise to whole new networks and kept pushing the boundary of state-of-the-art detectors. 
+Introduction for using CNN for object detection gave rise to whole new networks and kept pushing the boundary of state-of-the-art detectors. Quickly after OverFeat, Grishick et al proposed a method where they used selective search to extract 2000 regions which they called "region proposals" (regions with high probability of containing objects). Hence the name, Regions with CNN features, [R-CNN](https://arxiv.org/pdf/1311.2524.pdf). They perform classification and regression on these 2000 region proposals. This result improved the previous result set by Overfeat on ILSVRC2013 detection dataset of 24.3% to 31.4%, an astounding 30% improvement. Let's analyse the steps used in the algorithm:
+
+- Extract possible objects using a region proposal method (the most popular one being Selective Search).
+- Extract features from each region using a CNN.
+- Classify each region with SVMs.
+
+-rcnn.jpg
+
+### Selective Search
+
+The sliding window based approach used a window (grid of size say 7 x 7) which scans across the whole image and send that to classifier to classify if it is an object or not a object. Then there are various aspect ratio to be considered inside an image as different object can have different sizes. So, classifying for each location becomes extremely slow. But what if somehow someone provided us with 2000 potentially object containing regions regardless of their relative sizes and then our only job is to classify and localize based on these 2000 region proposals.
+
+--selective search
+
+Here come the role of selective search, which use an [hierarchical grouping algorithm](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf#algocf.1) which uses a greedy algorithm to iteratively group regions together. This selective search is used in R-CNN to generate 2000 Region Proposals which are then passed to classifier network. 
+
+The classifier network is AlexNet Network which acts as a feature extractor. For each proposal, a 4096-dimensional vector is computed which are then fed into SVM to classify the presence of the object within that candidate region proposal. This 4096-D vector also fed in a linear regressor to adapt the shapes of the bounding box for a region proposal and thus reduce localization errors.
+
+-rcnn_region_proposal
+
+### Problems in R-CNN
+
+- It takes a lot of time to generate 2000 proposals for each image.(*Can we propose a new algorithm to replace these fixed proposals?*)
+- Real time object detection requires 47 seconds (*not cool*).
+- The selective search algorithm is a fixed algorithm. Therefore, no learning is happening at that stage. This could lead to the generation of bad candidate region proposals.(*Can we propose a new algorithm which is not fixed?*)
+- Training requires multiple stages of processing, where first ConvNet are finetuned to produce 4096-D vector. SVM uses these features to classify and in third stage bounding regressor are learned from feature vectors.(*Could we somehow achieve classification and localization in parallel?*)
+
+### Training
+
+Training routine consists of classifying object into N classes
+
+Typical training routine in all object detection algorithm consists of calculating Intersection Over Union(IOU). We will discuss about it below.
+
+### Intersection Over Union (IOU)
 
 
 
 ## Fast R-CNN
 
+To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf)  which employs  several  innovations to improve training and testing speed while also increasing detection accuracy. Let's analyse the steps used in the algorithm:
 
+- An input is entire image and a set of object proposals. 
+- The network first processes the whole image with several convolutional (conv) and max pooling layers to produce a conv feature map. 
+- For each object proposal a region of interest (RoI) pooling layer extracts a fixed-length feature vector from the feature map. - Each feature vector is fed into a sequence of fully connected (fc) layers that finally branch into two sibling output layers: one that produces softmax probability estimates over K object classes plus a catch-all “background” class and another layer that outputs four real-valued numbers for each of the K object classes. Each set of 4 values encodes refined bounding-box positions for one of the K classes.
+
+-fastrcnn.png
+
+### ROI Pooling
+
+The RoI pooling layer uses max pooling to convert the features inside any valid region of interest into a small feature map with a fixed spatial extent of H × W (e.g. 7 x 7). In example below, with input ROI of 5×7, and output of 2×2, the area for each pooling area is 2×3 or 3×3 after rounding. Region of Interest Pooling allowed for sharing expensive computations and made the model much faster.
+
+-roi_pooling.png
+
+
+### Advantages over R-CNN
+
+- Higher detection quality (mAP) than R-CNN
+- Training is single-stage, using a multi-task loss (no need of multi-stage as seen in RCNN)
+- Training can update all network layers (end-to-end)
+- Avoid feature caching as SVM is replaced by Softmax, no need to store feature vectors (softmax is better than SVM).
+
+### Problems in Fast R-CNN
+
+- Still requires region proposals from selective search algorithm
+- At runtime, the detection network processes images in 0.3s (excluding object proposal time)
 
 ## Faster R-CNN
+
+To overcome shortcomings of Fast R-CNN, Grishick(again!) et al proposes faster architecture than previous attempts, hence the name Faster R-CNN. The introduce a Region Proposal Network (RPN) that shares full-image convolutional features with the detection network, thus enabling nearly cost-free region proposals(*finally*). An RPN is a fully convolutional network that simultaneously predicts object bounds and objectness scores at each position. The RPN is trained end-to-end to generate high-quality region proposals, which are used by Fast R-CNN for detection. Let's analyse the steps used in the algorithm:
+
+
+
+-fasterrcnn.png
+
+
+### Region Propsal Network (RPN)
+
+
+
+### Advantages over R-CNN and Fast R-CNN
+
+- Higher detection quality (mAP) than R-CNN and Fast R-CNN
+- At runtime, the detection network requires 200ms per image
+
+
+### Problems in Fast R-CNN
+
+- At runtime, the detection network processes images in 0.3s (excluding object proposal time)
 
 
 
 ## R-FCN
+
+
 
 
 
@@ -240,6 +321,11 @@ loss function - cost, error or objective function
 
 [R-CNN](https://arxiv.org/abs/1311.2524)
 
+[Selective Search for Object Recognition](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf)
+
+[Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf)
+
+[Faster R-CNN]()
 
 ---
 
@@ -247,6 +333,12 @@ loss function - cost, error or objective function
 
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
+
+[RCNN Algorithm](https://arxiv.org/abs/1311.2524)
+
+[Selective Search](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf)
+
+[RCNN illustration](https://towardsdatascience.com/deep-learning-for-object-detection-a-comprehensive-review-73930816d8d9)
 
 
 
