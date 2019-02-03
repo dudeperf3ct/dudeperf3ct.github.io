@@ -29,6 +29,7 @@ Feel free to jump anywhere,
   - [Regression Loss](#regression-loss)
 - [Introduction to Object Detection](#introduction-to-object-detection)
   - [Viola-Jones](#viola-jones)
+  - [OverFeat](#overfeat)
   - [R-CNN](#r-cnn)
   - [Fast R-CNN](#fast-r-cnn)
   - [Faster R-CNN](#faster-r-cnn)
@@ -77,7 +78,7 @@ Probabilistic View
 
 The output obtained from last softmax(or sigmoid for binary class) layer of the model can be interpreted as normalized class probabilities and we are therefore minimizing the negative log likelihood of the correct class or we are performing Maximum Likelihood Estimation (MLE). 
 
-For example consider we get an output of [0.1, 0.5, 0.4] (cat, dog, mouse) where the actual or expected output is [1, 0, 0] i.e. it is a cat. But our model predicted that given input has only 10% probability of being a cat, 50% probability of being dog and 40% of chance being a mouse. This being a multi-class classification, we can calculate the cross entropy using the formula for $$\mathbf{L_{mce}}$$ below. 
+As David Silver would like to say, let's make it concrete with an example. For example consider we get an output of [0.1, 0.5, 0.4] (cat, dog, mouse) where the actual or expected output is [1, 0, 0] i.e. it is a cat. But our model predicted that given input has only 10% probability of being a cat, 50% probability of being dog and 40% of chance being a mouse. This being a multi-class classification, we can calculate the cross entropy using the formula for $$\mathbf{L_{mce}}$$ below. 
 
 Another example for binary class can be as follows. The models outputs [0.4, 0.6] (cat, dog) whereas the input image is a cat i.e. actual output is [1, 0]. Now, we can use $$\mathbf{L_{bce}}$$ from below to calculate the loss and backpropgate the error and tell the model to correct its weight so as to get the output correct next time.
 
@@ -163,7 +164,7 @@ Now, that you have understood what we are doing in object detection. Let's look 
 
 ## Viola Jones Detector
 
-In early 2000s, deep learning where in their infancy or deep learning where not everything, in [this paper](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf) Viola and Jones proposed a machine learning approach for visual object detection which is capable of processing images extremely rapidly and achieving high detection rates. The algorithm consisted of 3 important parts, integral images which consisted of calculating about 60,,000 image features, AdaBoost classifier, a boosting process which is collection of weak classifier and cascading, where more complex classifier are cascaded in a chain. Intutivley, they created a chain of suppose 3 classifier, where each sub-window classifies it as a "face or not a face". Those sub-windows which are not intially rejected get passed on to next classifier and so no. If any classifier rejects sub-window, no further processing is involved. So, it was a degenerate decision classifier. This process allowed quick selection of faces and discarding backgrounds very quickly. 
+In early 2000s, deep learning where in their infancy or deep learning where not everything, in [this paper](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf) Viola and Jones proposed a machine learning approach for visual object detection which is capable of processing images extremely rapidly and achieving high detection rates. The algorithm consisted of 3 important parts, integral images which consisted of calculating about 60,,000 image features, AdaBoost classifier, a boosting process which is collection of weak classifier and cascading, where more complex classifier are cascaded in a chain. Intutivley, they created a chain of suppose 3 classifier, where each sub-window (field of view) classifies it as a "face or not a face". Those sub-windows which are not intially rejected get passed on to next classifier and so no. If any classifier rejects sub-window, no further processing is involved. So, it was a degenerate decision classifier. This process allowed quick selection of faces and discarding backgrounds very quickly. 
 
 For example, in below classifier, 1 feature classifier achieves 100% detection rate with 50% false positive rate, 2 feature classifier with 100% detection rate and 40% false positive rate(20% cumulative) and 20 feature classifier achieve 100% detection rate with 10% false positive rate(2% cumulative).
 
@@ -178,14 +179,20 @@ The real-time detector ran at 15 frames per second on a conventional 700 MHz Int
 For further, take a look at cool explaination by Dr. Mike Pound on [Viola -Jones Algorithm](https://www.youtube.com/watch?v=uEJ71VlUmMQ) on Computerphile.
 
 
-## Overfeat 
+## OverFeat 
 
-One of the first deep learning approach using ConvNets was developed by LeCunn et al in architecture called [Overfeat](https://arxiv.org/pdf/1312.6229.pdf). They provide integrated approach to object detection, recognition and localization with a single ConvNet.
+One of the first deep learning approach using ConvNets was developed by LeCunn et al in architecture called [Overfeat](https://arxiv.org/pdf/1312.6229.pdf). They provide integrated approach to object detection, recognition and localization with a single ConvNet. As we have discussed before, in this algorithm there are two parts of network, classification and localization. The classification network(Overfeat architecture) is trained on Imagenet classifying object into one of 1000 categories. The classifier layers of classification network is replaced by regression network which predicts object bounding box at each spatial location and scale.
 
+The working of algorithm can be explained by an example shown below.
+
+Using a sliding window approach method, which is effective in ConvNets as they share weights, the algorithm uses 6 different scales of input which are then presented to classifier to predict the class for each window for different resolutions as shown in top left and top right example. The regression then predicts the location scale of object with respect to each window as shown in bottom left and then these bounding boxes are merged and accumulated to a small number of objects as shown in bottom right. The
+various aspect ratios of the predicted bounding boxes shows that the network is able to cope with various object poses.
 
 
 
 ## R-CNN
+
+
 
 
 
@@ -226,7 +233,9 @@ loss function - cost, error or objective function
 
 [Loss Functions](http://cs231n.github.io/linear-classify/)
 
-[Viola ](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf)
+[Viola Jones Algorithm paper](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf)
+
+[OverFeat](https://arxiv.org/pdf/1312.6229.pdf)
 
 ---
 
