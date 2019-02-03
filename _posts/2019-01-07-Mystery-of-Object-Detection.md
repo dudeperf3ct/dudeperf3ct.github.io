@@ -326,28 +326,38 @@ Results from pretrained model using tensorflow Object Detection API using Faster
 [R-FCN](https://arxiv.org/pdf/1605.06409.pdf) uses region-based, fully convolutional networks based approach for object detection where almost all computation shared on the entire image. He et al propose a solution of using "position-sensitive score maps" which takes into account both translation invariance for image classification (wherever the object is in image) and translation variance for drawing boxes around the classified object i.e. object detection. Essentially, these score maps are convolutional feature maps that have been trained to recognize certain parts of each object. Let's analyse the steps used in the algorithm:
 
 - Run a backbone network (here, ResNet-101) over input image
-- Add FCN to generate score banks of size $$k^2(C+1)$$ where $$k^2$$ represents the number of relative positions to divide an object (e.g. $$3^2$$ for a 3 by 3 grid) and C+1 representing the number of classes plus the background.
+- Add FCN to generate banks of $$k^2$$ position-sensitive score maps for each category, i.e. $$k^2(C+1)$$ output where $$k^2$$ represents the number of relative positions to divide an object (e.g. $$3^2$$ for a 3 by 3 grid) and C+1 representing the number of classes plus the background.
 - Run a fully convolutional region proposal network (RPN) to generate regions of interest (RoI’s)
 - For each RoI, divide it into the same $$k^2$$ “bins” or subregions as the score maps
-- For each bin, check the score bank to see if that bin matches the corresponding position of some object. This process is repeated for each class
+- For each bin, check the score bank to see if that bin matches the corresponding position of some object. This process is repeated for each class.
 - Once each of the $$k^2$$ bins has an “object match” value for each class, average the bins to get a single score per class
-- Classify the RoI with a softmax over the remaining C+1 dimensional vector
+- Classify the RoI with a softmax over the remaining (C+1) dimensional vector
 
+In short, Region Proposal Network (RPN), which is a fully convolutional architecture is used to extract candidate regions. Given the proposal regions (RoIs), the R-FCN architecture is designed to classify the RoIs into object categories and background.
 
 -rfcn.png
 
-### Position-sensitive score maps
+### Position-sensitive score maps and Position-sensitive ROI pooling
+
+The last convolutional layer of  produces a bank of $$k^2$$ position-sensitive score maps for each category, and thus has a $$k^2(C+1)$$ -channel output layer with C object categories (+1 for background). The bank of $$k^2$$ score maps correspond to a k x k spatial grid describing relative positions. For example, with k x k = 3 x 3, the 9 score maps encode the cases of {top-left, top-center, top-right, ..., bottom-right} of an object category.
+
+-rfcn_maps.png
+
+When ROI pooling, (C+1) feature maps with size of $$k^2$$ are produced, i.e. $$k^2(C+1)$$. The pooling is done in the sense that they are pooled with the same area and the same color in the figure. Average voting is performed to generate (C+1) 1d-vector. And finally softmax is performed on the vector.
 
 Consider for example following example, 
 
-
 -rfcn_roi.png
+
+As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example as,
+
+> Simply put, R-FCN considers each region proposal, divides it up into sub-regions, and iterates over the sub-regions asking: “does this look like the top-left of a baby?”, “does this look like the top-center of a baby?” “does this look like the top-right of a baby?”, etc. It repeats this for all possible classes. If enough of the sub-regions say “yes, I match up with that part of a baby!”, the RoI gets classified as a baby after a softmax over all the classes.
 
 
 ### Advantages over Faster R-CNN
 
 - The result is achieved at a test-time speed of 170ms per image.
-
+- Comparable detection quality (mAP) to Faster R-CNN
 
 ## SSD
 
@@ -361,9 +371,14 @@ Consider for example following example,
 ## RetinaNet
 
 
+
+
 ## Backbones
 
-- MobileNet
+
+- **MobileNet**
+
+
 
 
 
@@ -403,6 +418,17 @@ loss function - cost, error or objective function
 [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf)
 
 [Faster R-CNN]()
+
+[R-FCN](https://arxiv.org/pdf/1605.06409.pdf)
+
+[SSD]()
+
+YOLO [v1]() [v2]() [v3]()
+
+[RetinaNet]()
+
+[Tensorflow detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
+
 
 ---
 
