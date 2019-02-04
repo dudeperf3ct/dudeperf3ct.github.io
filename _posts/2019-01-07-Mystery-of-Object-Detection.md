@@ -503,23 +503,79 @@ $$
 \end{aligned}
 $$
 
-Here $$\alpha_{t}$$ offsets class imbalance of number of examples and $$\gamma$$ focuses more on hard examples.
+Here $$\alpha_{t}$$ weight assigned to rare class and $$\gamma$$ focuses more on hard examples. In practice, $$\alpha$$ = 0.25 and $$\gamma$$ = 2 works best.
 
 -focal_loss.png
 
 Let's make this concrete with an example,
 
+- Scenario 1: Easy classified example
 
+Suppose we have easy classified foreground object and background object with p=0.9 and p=0.1 respectively where p is probability of containig an object. If we calculate cross entropy and focal loss for each object ($$\alpha$$ = 0.25 and $$\gamma$$ = 2), we get
+
+CE(foreground) = -log(0.9) = 0.1053
+CE(background) = -log((1-0.1)) = 0.1053
+FL(foreground) = -1 x 0.25 x $$(1–0.9)^2$$ log(0.9)  = 0.00026
+FL(background) =  -1 x 0.25 x $$(1–(1–0.1))^2$$ log(1–0.1) = 0.00026
+
+- Scenario 2: Misclassified example
+
+Suppose we have misclassified foreground object and misclassified background object with p=0.9 and p=0.1 respectively where p is probability of containig an object. If we calculate cross entropy and focal loss for each object ($$\alpha$$ = 0.25 and $$\gamma$$ = 2), we get
+
+CE(foreground) = -log(0.1) = 2.3025
+CE(background) = -log((1-0.9)) = 2.3025
+FL(foreground) = -1 x 0.25 x $$(1–0.1)^2$$ log(0.1)  = 0.4667
+FL(background) =  -1 x 0.25 x $$(1–(1–0.9))^2$$ log(1–0.9) = 0.4667
+
+- Scenario 3: Very easy classified example
+
+Suppose we have very easy classified foreground object and background object with p=0.99 and p=0.01 respectively where p is probability of containig an object. If we calculate cross entropy and focal loss for each object ($$\alpha$$ = 0.25 and $$\gamma$$ = 2), we get
+
+CE(foreground) = -log(0.99) = 0.004
+CE(background) = -log((1-0.01)) = 0.004
+FL(foreground) = -1 x 0.25 x $$(1–0.99)^2$$ log(0.99)  =  2.5 x 1e-7
+FL(background) =  -1 x 0.25 x $$(1–(1–0.01))^2$$ log(1–0.01) = 2.5 x 1e-7
+
+
+Scenario-1: 0.1/0.00026 = 384 times smaller number
+
+Scenario-2: 2.3/0.4667 = 5 times smaller number
+
+Scenario-3: 0.004/0.00000025 = 16,000 times smaller number.
+
+These three scenarios clearly show that Focal loss add very less weight to well classified examples and large weight to misclassified or hard classified examples.
 
 
 ## Backbones
 
+Many of the detection algorithms use of the following backbone architecture depending on trade-off in inference speed and accuracy, space vs latency. These are called backbone architecture which forms a base for detection algorithms upon which we add subnetworks for classifications and regression tasks.
 
 - **MobileNet**
 
+As the name suggests, this network is more suitable for low power appliances like mobile and embedded applications. [MobileNets](https://arxiv.org/pdf/1704.04861.pdf) are light weight because they use depthwise separable convolutions.
+
+mobilenet.png
+
+Here is a comparison of different backbones versus MobileNet,
+
+mobilenet_compare.png
+
+- **ResNeXt**
+
+[ResNext](https://arxiv.org/pdf/1611.05431.pdf) draws inspiration from lot of architecture. VGG-nets and ResNets show imple yet effective strategy of constructing very deep network by stacking building blocks of same shape. The Inception models adopt split-transform-merge strategy. ResNext combines these two strategies. It's simple design compared to ResNet architecture and accurate.
+
+resnext.png
+
+Here is a comparison of different architecture versus MobileNet,
+
+resnext_compare.png
+
+- **Feature Pyramid Networks**
+
+[FPN](https://arxiv.org/pdf/1612.03144.pdf) 
 
 
-
+The other many othet backbones include ResNet, VGG, Inception, InceptionResNet etc.
 
 <span class='orange'>Happy Learning!</span>
 
@@ -566,7 +622,17 @@ YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.
 
 [RetinaNet]()
 
+[MobileNets](https://arxiv.org/pdf/1704.04861.pdf)
+
+[ResNeXt](https://arxiv.org/pdf/1611.05431.pdf)
+
+[Feature Pyramid Networks](https://arxiv.org/pdf/1612.03144.pdf)
+
 [Tensorflow detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
+
+
+
+[Reviews of lot many architectures and model by SH Tsang](https://towardsdatascience.com/@sh.tsang)
 
 
 ---
@@ -583,6 +649,7 @@ YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.
 [RCNN illustration](https://towardsdatascience.com/deep-learning-for-object-detection-a-comprehensive-review-73930816d8d9)
 
 
+[ResNext architecture and result](https://towardsdatascience.com/review-resnext-1st-runner-up-of-ilsvrc-2016-image-classification-15d7f17b42ac)
 
 ---
 
