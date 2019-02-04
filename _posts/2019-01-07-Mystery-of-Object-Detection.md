@@ -48,24 +48,24 @@ Feel free to jump anywhere,
 
 # Loss Functions
 
-Loss functions are the heart of deep learning algorithms (*in case you are wondering, backprop the soul*). Loss functions tells the model how good the model is at particular task. Depending on the problem to solve, almost all model aim to minimize the loss. Also, did you notice one thing in particular about loss functions and non-linear functions, they are all "differentiable functions". Yes, we may also call deep learning as "differentiable programming". As there is "No Free Lunch" theorem in machine learning, which states that no one particular model can solve all the problems. Similarly, there is also no one particular loss function which when minimized(or maximize) will solve any task. If we make any changes to our model in hope(trying different hyperparameters) of creating better model, loss function will tell if we’re getting better model than previous model trained. If predictions of the model are totally off, loss function will output a higher number. If they’re pretty good, it’ll output a lower number. Designing loss functions to solve our particular task is one of the critical steps in deep learning, if we choose a poor error(loss) function and obtain unsatisfactory results, the fault is ours for badly specifying the goal of the search.
+Loss functions are the heart of deep learning algorithms (*in case you are wondering, backprop the soul*). Loss functions tells the model how good the model is at particular task. Depending on the problem to solve, almost all model aim to minimize the loss. Also, did you notice one thing in particular about loss functions and non-linear functions, they are all "differentiable functions". Yes, we may also call deep learning as "differentiable programming". As there is "No Free Lunch" theorem in machine learning, which states that no one particular model can solve all the problems. Similarly, there is also no one particular loss function which when minimized(or maximize) will solve any task. If we make any changes to our model in hope(trying different hyperparameters) of creating better model, loss function will tell if we’re getting better model than previous model trained. If predictions of the model are totally off, loss function will output a higher number. If they’re pretty good, it’ll output a lower number. Designing loss functions to solve our particular task is one of the critical steps in deep learning, if we choose a poor error(loss) function and obtain unsatisfactory results, the fault is ours for badly specifying the goal of the search. (*Choose wisely*)
 
 Loss function is defined in [Deep Learning book](https://www.deeplearningbook.org/contents/ml.html) as, 
 
 > The function we want to minimize or maximize is called the objective function or criterion. When we are minimizing it, we may also call it the cost function, loss function, or error function.
 
-There are lots many loss functions. But, broadly we can classify loss functions into two categories.
+There are lot many loss functions. But, broadly we can classify loss functions into two categories.
 
 **Classification Loss**
 
 As the name suggests, this loss will help with any task which requires classification. We are given k categories and our job is to make sure our model is good job in classifying x number of examples in k categories. An example is, we are given 1.2 million images of 1000 different categories, and our task it to classify each given image into it's 1000 categories.  
 
-Cross Entropy Loss
+- **Cross Entropy Loss**
 
 Cross-entropy loss is often simply referred to as “cross-entropy,” “logarithmic loss,” “logistic loss,” or “log loss” for short. 
 There are two interpretation of cross entropy. One through information theory and other through probabilistic view. 
 
-Information theory view
+**Information theory view**
 
 The entropy rate of a data source means the average number of bits per symbol needed to encode it without any loss of information. Entropy of probability distribution p is given by $$H(p)  = -\sum_{i}^{}p(i)\log_{2}{p(i)}$$. Let p be the true distrubtion and q be the predicted distribution over our labels, then cross entropy of both distribution is defined as. $$H(p, q)  = -\sum_{i}^{}p(i)\log_{2}{q(i)}$$. It looks like pretty similar to equation of entropy above but instead of computing log of true probability, we compute log of predicted probability distribution.
 
@@ -74,7 +74,7 @@ The cross-entropy compares the model’s prediction with the label which is the 
 
 Aurélien Géron explains amazingly how entropy, cross entropy and KL Divergence pieces are connected in this [video](https://www.youtube.com/watch?v=ErfnhcEV1O8).
 
-Probabilistic View
+**Probabilistic View**
 
 The output obtained from last softmax(or sigmoid for binary class) layer of the model can be interpreted as normalized class probabilities and we are therefore minimizing the negative log likelihood of the correct class or we are performing Maximum Likelihood Estimation (MLE). 
 
@@ -84,7 +84,7 @@ Another example for binary class can be as follows. The models outputs [0.4, 0.6
 
 There are two different types of cross entropy functions depending on number of classes to classify into.
 
-- Binary Classification
+- **Binary Classification**
 
 As name suggests, there will be binary(two) classes. If we have two classes to classify our images into, then we use binary cross entropy. Cross entropy loss penalizes heavily the predictions that are confident but wrong. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For M example, binary cross entropy can be forumlated as, 
 
@@ -95,7 +95,7 @@ $$
 $$
 
 
-- Multi-class Classification
+- **Multi-class Classification**
 
 As name suggests, if there are more than two classes that we want our images to be classified into, then we use multi-class classification error function. It is used as a loss function in neural networks which have softmax activations in the output layer. The model outputs the probability the example belonging to each class. For classifying into C classes, where C > 2, multi-class classification is given by,  
 
@@ -110,7 +110,7 @@ $$
 
 In regression, model outputs a number. This number is then compared with our expected value to get a measure of error. For example, we wanted to predict the prices of houses in the neighbourhood. So, we give our model different features(like number of bedrooms, number of bathrooms, area, etc) and ask the model to output the price of house.
 
-- Mean Squared Error(MSE)
+- **Mean Squared Error(MSE)**
 
 These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. It’s only concerned with the average magnitude of error irrespective of their direction. However, due to squaring, predictions which are far away from actual values are penalized heavily in comparison to less deviated predictions. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For M training example, mse loss can be forumlated as, 
 
@@ -120,7 +120,7 @@ $$
 \end{aligned}
 $$
 
-- Mean Absolute Error(MAE)
+- **Mean Absolute Error(MAE)**
 
 Similar to one above, this loss takes absolute error difference between target and predicted output. Like MSE, this as well measures the magnitude of error without considering their direction. The difference is MAE is more robust to outliers since it does not make use of square.
 
@@ -130,7 +130,7 @@ $$
 \end{aligned}
 $$
 
-- Root Mean Squared Error(RMSE)
+- **Root Mean Squared Error(RMSE)**
 
 Root mean square error will be just taking root of above \mathbf{L_{mse}}. The MSE penalizes large errors more strongly and therefore is very sensitive to outliers. To avoid this, we usually use the squared root version.
 
@@ -361,11 +361,53 @@ As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example a
 
 ## SSD
 
-[](https://arxiv.org/pdf/1512.02325.pdf)
+[SSD](https://arxiv.org/pdf/1512.02325.pdf) is simple relative to previous methods that require object proposals because it completely eliminates proposal generation (*wooh*) and subsequent pixel or feature resampling stages and encapsulates all computation in a single network(*yay*). Hence, the name single shot detector (SSD). One model to solve them all. Simply remarkable. Let's analyse the steps used in the algorithm:
+
+- Pass the image through a series of convolutional layers, yielding several sets of feature maps at different scales (e.g. 10x10, then 6x6, then 3x3, etc.)
+- For each location in each of these feature maps, use a 3x3 convolutional filter to evaluate a small set of default bounding boxes. These default bounding boxes are essentially equivalent to Faster R-CNN’s anchor boxes.
+- For each box, simultaneously predict a) the bounding box offset and b) the class probabilities
+- During training, match the ground truth box with these predicted boxes based on IoU. The best predicted box will be labeled a “positive,” along with all other boxes that have an IoU with the truth >0.5.
+
+-ssd.png
+
+To put simply, SSD approach is based on a feed-forward convolutional network that produces a fixed-size collection of bounding boxes and scores for the presence of object class instances in those boxes, followed by a non-maximum suppression step to produce the final detections.
+
+### Choosing scales and aspect ratios for default boxes
+
+There are “extra feature layers” as seen in above architecture at the end that scale down in size. These varying-size feature maps help capture objects of different sizes, where each feature map is associated with a set of default bouding boxes. At each feature map cell, network predict the offsets relative to the default box shapes in the cell, as well as the per-class scores that indicate the presence of a class instance in each of those boxes. Specifically, for each box out of k at a given location, network computes c class scores and the 4 offsets relative to the original default box shape. This results in a total of (c + 4)k filters that are applied around each location in the feature map, yielding (c + 4)kmn outputs for a m × n feature map. Default boxes are similar to the anchor boxes used in Faster R-CNN only they are applied them to several feature maps of different resolutions.
+
+-ssd_feature_map.png
+
+Consider above example where, SSD evaluates a small set (e.g. 4) of default boxes of different aspect ratios at each location in several feature maps with different scales (e.g. 8 x 8 and 4 x 4 in middle and right images). For each default box, SSD predict
+both the shape offsets and the confidences for all object categories belonging to C categories. At training time, SSD first  match these default boxes (middle and right) to the ground truth boxes (left image). For example, SSD have matched two default boxes with the cat and one with the dog, which are treated as positives and the rest as negatives.
+
+
+### Challenges in Training
+
+- Hard Negative Mining
+
+After matching, wherein authors match default boxes to any ground truth with jaccard overlap higher than a threshold (0.5), most of the default boxes are negatives, especially when the number of possible default boxes is large. This introduces a significant imbalance between the positive and negative training examples. Instead of using all the negative examples as seen from above example which can be a lot in proportion to positive, authors sort them using the highest confidence loss for each default box and pick the top ones so that the ratio between the negatives and positives is at most 3:1.
+
+- Data Augmentation
+
+Data augmentation is crucial. To make the model more robust to various input object sizes and shapes, each training image is randomly sampled by one of the following options:  use the entire original input image or sample a patch so that the minimum jaccard overlap with the objects is 0.1, 0.3, 0.5, 0.7, or 0.9. or randomly sample a patch. The size of each sampled patch is [0.1, 1] of the original image size, and the aspect ratio is between $$\frac{1}{2}$$ and 2. An improvement of 8.8% mAP is observed due to this strategy.
+
+The model loss is a weighted sum between localization loss (e.g. Smooth L1) and confidence loss (e.g. Softmax).
+
+### Advantages over Faster R-CNN
+
+- The real-time detection speed is just astounding and way way faster (59 FPS with mAP 74.3% on VOC2007 test, vs. Faster R-CNN 7 FPS)
+- Better detection quality (mAP) than any before
+- Single network to solve them all (*Finally*)
 
 
 ## YOLO
 
+- v1
+
+- v2
+
+- v3
 
 
 
