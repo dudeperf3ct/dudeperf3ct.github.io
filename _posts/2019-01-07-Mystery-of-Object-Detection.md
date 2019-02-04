@@ -469,9 +469,22 @@ Redmond et al proposed [YOLOv2](https://arxiv.org/pdf/1612.08242.pdf) which the 
 
 - **YOLOv3**
 
-IMO, this is one of the coolest technical paper ever written. We need more of these. Bunch of cool upgrades to YOLOv2, [YOLOv3](https://pjreddie.com/media/files/papers/YOLOv3.pdf) is a little bigger than last time but more accurate and fast.
+IMO, this is one of the coolest technical paper ever written. We need more of these. Bunch of cool upgrades to YOLOv2, [YOLOv3](https://pjreddie.com/media/files/papers/YOLOv3.pdf) is a little bigger than last time but more accurate and fast. Here are some upgrades:
 
 
+- New CNN architecutre with 53 layers, or popularly known among dark side as Darknet-53.
+
+-yolo_v3.png
+
+- Replace softmax with independent logistic classifiers. Using a softmax imposes the assumption that each box has exactly one class which is often not the case. A multilabel approach better models the data.
+
+- YOLOv3 predicts boxes at 3 different scales and extracts features from those scales using a similar concept to feature pyramid networks. Model predicts a 3-d tensor encoding bounding box, objectness, and class predictions. For e.g. N x N x (3 * (4 + 1 + C)) for the 4 bounding box offsets, 1 objectness prediction, and C class predictions.
+
+- Chose 9 clusters and 3 scales arbitrarily and then divide up the clusters evenly across scales. For e.g. (10 x 13), (16 x 30), (33 x 23), (30 x 61), (62 x 45), (59 x 119), (116 x 90), (156 x 198), (373 x 326).
+
+### Advantages over all before architectures
+
+-  YOLOv3 is much better than SSD variants and comparable to state-of-the-art model (not, RetinaNet though which takes 3.8x longer to process an image) and very very fast
 
 
 ## RetinaNet 
