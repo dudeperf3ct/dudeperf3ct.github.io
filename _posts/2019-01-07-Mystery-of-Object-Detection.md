@@ -487,7 +487,27 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 -  YOLOv3 is much better than SSD variants and comparable to state-of-the-art model (not, RetinaNet though which takes 3.8x longer to process an image) and very very fast
 
 
-## RetinaNet 
+## RetinaNet
+
+Girshick(yup again!) et al propose a new loss function "Focal loss" to deal with the foreground-background class imbalance posed in one-stage detectors. Okay, wait let me explain what do I mean by it exactly. From above so many architecture, there is one clear distinction that some architecture are one-shot detectors and others are two-shot detectors. In two-shot detectors, Region Proposal Networks provides potential regions to look at and second-stage classify so there is a good balance between foreground-background classes and but in one-shot network as we see in case of SSD, after matching there are lots of negatives and so less positives. They deal with a technique called Hard Negative Mining. So, the two-shot detectors provide greater accuracy than one-shot detector. Authors assert that after replacing standard cross entropy criterion with focal loss, they are able to match the speed of previous one-stage detectors while surpassing the accuracy of all existing state-of-the-art two-stage detectors. RetinaNet uses ResNet-101-FPN as backbone architecture and two-task specific subnetworks(classification and localization). It is combination of anchors used in all previous architectures and feature pyramids used in SSD.
+
+-retinanet.png
+
+### Focal Loss
+
+The loss function is a dynamically scaled cross entropy loss, where the scaling factor decays to zero as confidence in the correct class increases. Intuitively, this scaling factor can automatically down-weight the contribution of easy examples during training and rapidly focus the model on hard examples. Easy example, ahh? These are the examples where it is very easy to classify the given region as background. The class imbalance causes two problems: (1) training is inefficient as most locations are easy negatives that contribute no useful learning signal; (2) the easy negatives can overwhelm training and lead to degenerate models.
+
+$$
+\begin{aligned}
+\mathcal{L} = -\alpha_{t}(1-\mathbf{p}_{t})^\gamma\log_{}{\mathbf{p}_{t}}
+\end{aligned}
+$$
+
+Here $$\alpha_{t}$$ offsets class imbalance of number of examples and $$\gamma$$ focuses more on hard examples.
+
+-focal_loss.png
+
+Let's make this concrete with an example,
 
 
 
