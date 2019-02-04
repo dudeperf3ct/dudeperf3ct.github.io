@@ -405,7 +405,7 @@ The model loss is a weighted sum between localization loss (e.g. Smooth L1) and 
 
 You Only Live Once. No, it's not that. YOLO is You Only Look Once. So, cool. Wonder how would have they come with such cool acroynm.(*I mean reuse it*). Over the period of 3 years, 3 different versions of same algorithm with variations were proposed. Let's have a look at them one by one.
 
-- v1
+- **YOLOv1**
 
 [YOLOv1](https://arxiv.org/pdf/1506.02640.pdf) was the first algorithm to unite detection and localization in single network. Everything achieved in end-to-end fashion. Input to model, model does something and comes with predicted output (both class probability and location of object). Ross Girshick (*he's back!*) et al proposes a single convolutional network simultaneously predicts multiple bounding boxes and class probabilities for those boxes. YOLOv1 trains on full images and directly optimizes detection performance. Let's analyse the steps used in the algorithm:
 
@@ -434,29 +434,47 @@ Here is an example of detecting 3 objects, a dog, car and bicycle.
 - The real-time detection speed was extremely faster (before SSD came) (45 fps and fast yolo v1 achieves 155 fps *really?*)
 - Single network that does not require any region proposals or selective search
 
-- v2
+- **YOLOv2**
 
-Redmond et al proposed [YOLOv2](https://arxiv.org/pdf/1612.08242.pdf) which the second version of the YOLO with the objective of more accurate detector that is still fast.
+Redmond et al proposed [YOLOv2](https://arxiv.org/pdf/1612.08242.pdf) which the second version of the YOLO with the objective of  more accurate detector that is still fast. Here are some things that are have improved when compared to previous YOLOv1.
 
+- New CNN architecture: Darknet (*Joining the dark side*)
 
+-yolo_v2.png
+
+- Batch Normalization: By adding batch normalization on all of the convolutional layers in YOLO, more than 2% improvement in mAP
+
+- High Resolution Classifier: In YOLOv2, authors first fine tune the classification network at the full 448 × 448 resolution for 10 epochs on ImageNet. This gives the network time to adjust its filters to work better on higher resolution input. Then fine tune the resulting network on detection. This high resolution classification network gives us an increase of almost 4% mAP. This enables the detection of potentially smaller objects one of the problems in YOLOv1.
+
+- Anchor Boxes: This got rid of one of critical problem in YOLOv1 about the ability to generalize to objects in new aspect ratios. Fully connected layers from YOLOv1 are removed and the new model uses anchor boxes to predict bounding boxes. Model uses 5 anchor boxes and predicts class and objectness for every anchor box. Using anchor boxes we get a small decrease in accuracy from 69.5 mAP to 69.2 mAP but recall increases from 81% to 88%.
+
+- Dimension Clustering: In YOLOv1, the dimension of boxes were prechosen. Instead of choosing anchor boxes dimensions by hand, authors propose using k-means clustering on the training set bounding boxes to automatically find good anchor boxes.
+
+- Direct Location Prediction: Instead of predicting offsets same approach of YOLO for predict location coordinates relative to the location of the grid cell is used and logistic activation bounds the ground truth to fall between 0 and 1. Using dimension clusters along with directly predicting the bounding box center location improves YOLO by almost 5% over the version with anchor boxes.
+
+- Fine-Grained Features: For detecting large objects, YOLOv2 outputs a predict feature map of 13 x 13. To detect small objects well, the 26×26×512 feature maps from earlier layer is mapped into 13×13×2048 feature map, then concatenated with the original 13×13 feature maps for detection. This leads to 1% performance increase.
+
+- Multi-Scale Training: YOLOv2 uses multiple of 32 new image dimension size every 10 batch, as network is downsampled by a factor of 32 from set of {320, 352, ... 608}. This regime forces the network to learn to predict well across a variety of input dimensions. This means the same network can predict detections at different resolutions. The network runs faster at smaller sizes so YOLOv2 offers an easy tradeoff between speed and accuracy.
 
 
 ### Problems in YOLOv2
 
-- 
+- Can we make it faster and more accurate?
 
 ### Advantages over YOLOv1
 
-- The real-time detection speed was faster than YOLOv1 (45 fps and fast yolo v1 achieves 155 fps *really?*)
+- The real-time detection speed was faster than YOLOv1
 - Way better detection quality (mAP) than YOLOv1 and SSD300 but slightly behind SSD512
 
 
-- v3
+- **YOLOv3**
+
+IMO, this is one of the coolest technical paper ever written. We need more of these. Bunch of cool upgrades to YOLOv2, [YOLOv3](https://pjreddie.com/media/files/papers/YOLOv3.pdf) is a little bigger than last time but more accurate and fast.
 
 
 
 
-## RetinaNet
+## RetinaNet 
 
 
 
@@ -511,7 +529,7 @@ loss function - cost, error or objective function
 
 [SSD](https://arxiv.org/pdf/1512.02325.pdf)
 
-YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.08242.pdf) [v3]()
+YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.08242.pdf) [v3](https://pjreddie.com/media/files/papers/YOLOv3.pdf)
 
 [RetinaNet]()
 
