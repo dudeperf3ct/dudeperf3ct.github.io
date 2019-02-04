@@ -403,11 +403,11 @@ The model loss is a weighted sum between localization loss (e.g. Smooth L1) and 
 
 ## YOLO
 
-You only live once. No, it's not that. YOLO is You Only Look Once. So, cool. Wonder how would have they come with such cool acroynm.(*I mean reuse it*). Over the period of 3 years, 3 different versions of same algorithm with variations were proposed. Let's have a look at them one by one.
+You Only Live Once. No, it's not that. YOLO is You Only Look Once. So, cool. Wonder how would have they come with such cool acroynm.(*I mean reuse it*). Over the period of 3 years, 3 different versions of same algorithm with variations were proposed. Let's have a look at them one by one.
 
 - v1
 
-[YOLO v1](https://arxiv.org/pdf/1506.02640.pdf) was the first algorithm to unite detection and localization in single network. Everything achieved in end-to-end fashion. Input to model, model does something and comes with predicted output (both class probability and location of object). Ross Girshick (*he's back!*) et al proposes a single convolutional network simultaneously predicts multiple bounding boxes and class probabilities for those boxes. YOLO v1 trains on full images and directly optimizes detection performance. Let's analyse the steps used in the algorithm:
+[YOLOv1](https://arxiv.org/pdf/1506.02640.pdf) was the first algorithm to unite detection and localization in single network. Everything achieved in end-to-end fashion. Input to model, model does something and comes with predicted output (both class probability and location of object). Ross Girshick (*he's back!*) et al proposes a single convolutional network simultaneously predicts multiple bounding boxes and class probabilities for those boxes. YOLOv1 trains on full images and directly optimizes detection performance. Let's analyse the steps used in the algorithm:
 
 - Input image passed to CNN network is divided into S x S grid (S = 7). If the center of an object falls into a grid cell, that grid cell is responsible for detecting that object.
 - Each grid cell predicts B bounding boxes and confidence scores for those boxes. If no object exists in that cell, the confidence scores should be zero.- 
@@ -423,7 +423,7 @@ Here is an example of detecting 3 objects, a dog, car and bicycle.
 -yolo_v1_1.png
 
 
-### Problems in YOLO v1
+### Problems in YOLOv1
 
 - Struggles with small objects that appear in groups, such as flocks of birds
 - Struggles to generalize to objects in new or unusual aspect ratios or configurations
@@ -436,10 +436,23 @@ Here is an example of detecting 3 objects, a dog, car and bicycle.
 
 - v2
 
-Redmond et al proposed YOLOv2 which the second version of the YOLO with the objective of improving the accuracy significantly while making it faster.
+Redmond et al proposed [YOLOv2](https://arxiv.org/pdf/1612.08242.pdf) which the second version of the YOLO with the objective of more accurate detector that is still fast.
+
+
+
+
+### Problems in YOLOv2
+
+- 
+
+### Advantages over YOLOv1
+
+- The real-time detection speed was faster than YOLOv1 (45 fps and fast yolo v1 achieves 155 fps *really?*)
+- Way better detection quality (mAP) than YOLOv1 and SSD300 but slightly behind SSD512
 
 
 - v3
+
 
 
 
@@ -498,7 +511,7 @@ loss function - cost, error or objective function
 
 [SSD](https://arxiv.org/pdf/1512.02325.pdf)
 
-YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2]() [v3]()
+YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.08242.pdf) [v3]()
 
 [RetinaNet]()
 
