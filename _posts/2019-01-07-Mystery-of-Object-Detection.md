@@ -550,7 +550,7 @@ These three scenarios clearly show that Focal loss add very less weight to well 
 
 ## Backbones
 
-Many of the detection algorithms use of the following backbone architecture depending on trade-off in inference speed and accuracy, space vs latency. These are called backbone architecture which forms a base for detection algorithms upon which we add subnetworks for classifications and regression tasks.
+This  base  is responsible for creating a feature map  that is embedded  with salient information about the image. The accuracy for the object detector is highly related to how well the convolutional base(backbones) can capture meaningful information about the image. The base takes the image through a series of convolutions that make the image smaller and deeper. This process allows the network to make sense of the various shapes in the image. Many of the detection algorithms use of the following backbone architecture depending on trade-off in inference speed and accuracy, space vs latency. These are called backbone architecture which forms a base for detection algorithms upon which we add subnetworks for classifications and regression tasks.
 
 - **MobileNet**
 
