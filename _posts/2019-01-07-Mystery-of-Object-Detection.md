@@ -44,6 +44,7 @@ Feel free to jump anywhere,
     - [MobileNet](#mobilenet)
     - [FPN](#fpn)
     - [ResNeXt](#resnext)
+- [Recap](#recap)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -72,7 +73,6 @@ There are two interpretation of cross entropy. One through information theory an
 The entropy rate of a data source means the average number of bits per symbol needed to encode it without any loss of information. Entropy of probability distribution p is given by $$H(p)  = -\sum_{i}^{}p(i)\log_{2}{p(i)}$$. Let p be the true distrubtion and q be the predicted distribution over our labels, then cross entropy of both distribution is defined as. $$H(p, q)  = -\sum_{i}^{}p(i)\log_{2}{q(i)}$$. It looks like pretty similar to equation of entropy above but instead of computing log of true probability, we compute log of predicted probability distribution.
 
 The cross-entropy compares the model’s prediction with the label which is the true probability distribution. Cross entropy will grow large if predicted probability for true class is close to zero. But it goes down as the prediction gets more and more accurate. It becomes zero if the prediction is perfect i.e. our predicted distribution is equal to true distribution. KL Divergence(relative entropy) is the extra bit which exceeds if we remove entropy from cross entropy.
-
 
 Aurélien Géron explains amazingly how entropy, cross entropy and KL Divergence pieces are connected in this [video](https://www.youtube.com/watch?v=ErfnhcEV1O8).
 
@@ -151,13 +151,13 @@ There are also other loss functions like Focal Loss(which we define in RetinaNet
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
 <p align="center">
-<img src='/images/transfer_learning_files/master_student.gif' />
+<img src='/images/transfer_learning_files/master_student.gif' /> 
 </p>
 
 
-<span class='red'>I-know-everything:</span> 
+<span class='red'>I-know-everything:</span> My dear Padwan, unfortunately, this will be our last post on vision. So, let's make it count. Today we will see one of the most exiciting applications of vision, Object Detection. There are literally thousands of examples we can use object detection in for example, self-driving car detect whatever you see(through cameras) which includes traffic light, pedestrian, other cars, etc., counting particular objects for keeping track, surveillance(*Not cool*), or given a vision to bot for following [cats](https://scanlime.org/2017/12/smart-camera-gimbal-bot-scanlime027/). 
 
-<span class='green'>I-know-nothing:</span> 
+<span class='green'>I-know-nothing:</span>
 
 <span class='red'>I-know-everything:</span> 
 
@@ -170,11 +170,15 @@ In early 2000s, deep learning where in their infancy or deep learning where not 
 
 For example, in below classifier, 1 feature classifier achieves 100% detection rate with 50% false positive rate, 2 feature classifier with 100% detection rate and 40% false positive rate(20% cumulative) and 20 feature classifier achieve 100% detection rate with 10% false positive rate(2% cumulative).
 
--viola_jones.png
+<p align="center">
+<img src='/images/object_detection/viola_jones.png' /> 
+</p>
 
 Here are some results,
 
--viola_jones_result.png
+<p align="center">
+<img src='/images/object_detection/viola_jones_result.png' /> 
+</p>
 
 The real-time detector ran at 15 frames per second on a conventional 700 MHz Intel Pentium III.
 
@@ -206,7 +210,7 @@ Introduction for using CNN for object detection gave rise to whole new networks 
 
 The sliding window based approach used a window (grid of size say 7 x 7) which scans across the whole image and send that to classifier to classify if it is an object or not a object. Then there are various aspect ratio to be considered inside an image as different object can have different sizes. So, classifying for each location becomes extremely slow. But what if somehow someone provided us with 2000 potentially object containing regions regardless of their relative sizes and then our only job is to classify and localize based on these 2000 region proposals.
 
---selective search
+-selective search
 
 Here come the role of selective search, which use an [hierarchical grouping algorithm](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf#algocf.1) which uses a greedy algorithm to iteratively group regions together. This selective search is used in R-CNN to generate 2000 Region Proposals which are then passed to classifier network. 
 
@@ -223,7 +227,7 @@ The classifier network is AlexNet Network which acts as a feature extractor. For
 
 ### Training
 
-Training routine consists of classifying object into N classes
+Training routine consists of classifying object into N classes and also predicting predictions for bounding box containing object. 
 
 Typical training routine in all object detection algorithm consists of calculating Intersection Over Union(IOU). We will discuss about it below.
 
@@ -231,9 +235,28 @@ Typical training routine in all object detection algorithm consists of calculati
 
 
 
+
+### Anchor Boxes
+
+It might make sense to predict the width and the height of the bounding box, but in practice, that leads to unstable gradients during training. Instead, most of the modern object detectors predict log-space transforms, or simply offsets to pre-defined default bounding boxes called anchors. Then, these transforms are applied to the anchor boxes to obtain the prediction. 
+
+
+### Mean Average Precision (mAP)
+
+A common evaluation metric used in many object recognition and detection tasks is “mAP”, short for “mean average precision”. It is a number from 0 to 100; higher value is better. Here is how algorithm works:
+
+- Given that target objects are in different classes, we first compute AP (which is area under Precision-Recall curve) separately for each class, and then average over classes.
+- A detection is a true positive if it has “intersection over union” (IoU) with a ground-truth box greater than some threshold (usually 0.5; if so, the metric is “mAP@0.5”)
+
+
+### Loss Functions
+
+
+
+
 ## Fast R-CNN
 
-To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf)  which employs  several  innovations to improve training and testing speed while also increasing detection accuracy. Let's analyse the steps used in the algorithm:
+To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf)  which employs several  innovations to improve training and testing speed while also increasing detection accuracy. Let's analyse the steps used in the algorithm:
 
 - An input is entire image and a set of object proposals. 
 - The network first processes the whole image with several convolutional (conv) and max pooling layers to produce a conv feature map. 
@@ -579,6 +602,14 @@ Feature pyramids are a basic component in recognition systems for detecting obje
 fpn.png
 
 We have seen different architecture from above in various detector models. (b) is used in YOLO, (c) is used in SSD, (d) is FPN where it combines low-resolution, semantically strong features with high-resolution, semantically weak features via a top-down pathway and lateral connections.
+
+## Recap
+
+
+
+
+
+
 
 This completes our journey in Object Detection Land. The other many othet backbones include ResNet, VGG, Inception, InceptionResNet etc. There are different architectures which are not discussed such as 
 
