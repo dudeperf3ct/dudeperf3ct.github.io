@@ -36,12 +36,14 @@ Feel free to jump anywhere,
   - [R-FCN](#r-fnn)
   - [SSD](#ssd)
   - [YOLO](#yolo)
+    - [YOLOv1](#yolov1)
+    - [YOLOv2](#yolov2)
+    - [YOLOv3](#yolov3)  
   - [RetinaNet](#retinanet)
   - [Backbones](#backbones)
     - [MobileNet](#mobilenet)
     - [FPN](#fpn)
-    - [ResNet](#resnet)
-    - [ResNext](#resnext)
+    - [ResNeXt](#resnext)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -537,11 +539,11 @@ FL(foreground) = -1 x 0.25 x $$(1–0.99)^2$$ log(0.99)  =  2.5 x 1e-7
 FL(background) =  -1 x 0.25 x $$(1–(1–0.01))^2$$ log(1–0.01) = 2.5 x 1e-7
 
 
-Scenario-1: 0.1/0.00026 = 384 times smaller number
+Scenario-1: 0.1/0.00026 = 384x smaller number
 
-Scenario-2: 2.3/0.4667 = 5 times smaller number
+Scenario-2: 2.3/0.4667 = 5x smaller number
 
-Scenario-3: 0.004/0.00000025 = 16,000 times smaller number.
+Scenario-3: 0.004/0.00000025 = 16,000x smaller number.
 
 These three scenarios clearly show that Focal loss add very less weight to well classified examples and large weight to misclassified or hard classified examples.
 
@@ -572,10 +574,20 @@ resnext_compare.png
 
 - **Feature Pyramid Networks**
 
-[FPN](https://arxiv.org/pdf/1612.03144.pdf) 
+Feature pyramids are a basic component in recognition systems for detecting objects at different scales. But are avoided as they are compute and memory intensive. [FPN](https://arxiv.org/pdf/1612.03144.pdf) construct feature pyramids with lateral connections is developed for building high-level semantic feature maps at all scales.
 
+fpn.png
 
-The other many othet backbones include ResNet, VGG, Inception, InceptionResNet etc.
+We have seen different architecture from above in various detector models. (b) is used in YOLO, (c) is used in SSD, (d) is FPN where it combines low-resolution, semantically strong features with high-resolution, semantically weak features via a top-down pathway and lateral connections.
+
+This completes our journey in Object Detection Land. The other many othet backbones include ResNet, VGG, Inception, InceptionResNet etc. There are different architectures which are not discussed such as 
+
+This only explains Object Detection, then we have Semantic Segementation and Instance Segmentation. One notable architecture from both are U-Net and Mask R-CNN respectively. Mask R-CNN results are so cool.
+
+But Padwan, this will be our last interaction on images. Next, we will move to text, particularly, <span color='purple'>Power of RNN</span>.
+
+<span class='green'>I-know-nothing:</span> 
+
 
 <span class='orange'>Happy Learning!</span>
 
@@ -649,7 +661,7 @@ YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.
 [RCNN illustration](https://towardsdatascience.com/deep-learning-for-object-detection-a-comprehensive-review-73930816d8d9)
 
 
-[ResNext architecture and result](https://towardsdatascience.com/review-resnext-1st-runner-up-of-ilsvrc-2016-image-classification-15d7f17b42ac)
+[ResNeXt architecture and result](https://towardsdatascience.com/review-resnext-1st-runner-up-of-ilsvrc-2016-image-classification-15d7f17b42ac)
 
 ---
 
