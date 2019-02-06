@@ -185,7 +185,7 @@ Here are some results,
 
 The real-time detector ran at 15 frames per second on a conventional 700 MHz Intel Pentium III.
 
-For further, take a look at cool explaination by Dr. Mike Pound on [Viola -Jones Algorithm](https://www.youtube.com/watch?v=uEJ71VlUmMQ) on Computerphile.
+For further, take a look at cool explaination by Dr. Mike Pound on [Viola-Jones Algorithm](https://www.youtube.com/watch?v=uEJ71VlUmMQ) on Computerphile.
 
 
 ## OverFeat 
@@ -500,11 +500,11 @@ both the shape offsets and the confidences for all object categories belonging t
 
 ### Challenges in Training
 
-- Hard Negative Mining
+- **Hard Negative Mining**
 
 After matching, wherein authors match default boxes to any ground truth with jaccard overlap higher than a threshold (0.5), most of the default boxes are negatives, especially when the number of possible default boxes is large. This introduces a significant imbalance between the positive and negative training examples. Instead of using all the negative examples as seen from above example which can be a lot in proportion to positive, authors sort them using the highest confidence loss for each default box and pick the top ones so that the ratio between the negatives and positives is at most 3:1.
 
-- Data Augmentation
+- **Data Augmentation**
 
 Data augmentation is crucial. To make the model more robust to various input object sizes and shapes, each training image is randomly sampled by one of the following options:  use the entire original input image or sample a patch so that the minimum jaccard overlap with the objects is 0.1, 0.3, 0.5, 0.7, or 0.9. or randomly sample a patch. The size of each sampled patch is [0.1, 1] of the original image size, and the aspect ratio is between $$\frac{1}{2}$$ and 2. An improvement of 8.8% mAP is observed due to this strategy.
 
@@ -558,25 +558,25 @@ Here is an example of detecting 3 objects, a dog, car and bicycle.
 
 Redmond et al proposed [YOLOv2](https://arxiv.org/pdf/1612.08242.pdf) which the second version of the YOLO with the objective of  more accurate detector that is still fast. Here are some things that are have improved when compared to previous YOLOv1.
 
-- New CNN architecture: Darknet (*Joining the dark side, are we?*)
+- **New CNN architecture**: Darknet (*Joining the dark side, are we?*)
 
 <p align="center">
 <img src='/images/object_detection/yolo_v2.png' /> 
 </p>
 
-- Batch Normalization: By adding batch normalization on all of the convolutional layers in YOLO, more than 2% improvement in mAP
+- **Batch Normalization**: By adding batch normalization on all of the convolutional layers in YOLO, more than 2% improvement in mAP
 
-- High Resolution Classifier: In YOLOv2, authors first fine tune the classification network at the full 448 × 448 resolution for 10 epochs on ImageNet. This gives the network time to adjust its filters to work better on higher resolution input. Then fine tune the resulting network on detection. This high resolution classification network gives us an increase of almost 4% mAP. This enables the detection of potentially smaller objects one of the problems in YOLOv1.
+- **High Resolution Classifier**: In YOLOv2, authors first fine tune the classification network at the full 448 × 448 resolution for 10 epochs on ImageNet. This gives the network time to adjust its filters to work better on higher resolution input. Then fine tune the resulting network on detection. This high resolution classification network gives us an increase of almost 4% mAP. This enables the detection of potentially smaller objects one of the problems in YOLOv1.
 
-- Anchor Boxes: This got rid of one of critical problem in YOLOv1 about the ability to generalize to objects in new aspect ratios. Fully connected layers from YOLOv1 are removed and the new model uses anchor boxes to predict bounding boxes. Model uses 5 anchor boxes and predicts class and objectness for every anchor box. Using anchor boxes we get a small decrease in accuracy from 69.5 mAP to 69.2 mAP but recall increases from 81% to 88%.
+- **Anchor Boxes**: This got rid of one of critical problem in YOLOv1 about the ability to generalize to objects in new aspect ratios. Fully connected layers from YOLOv1 are removed and the new model uses anchor boxes to predict bounding boxes. Model uses 5 anchor boxes and predicts class and objectness for every anchor box. Using anchor boxes we get a small decrease in accuracy from 69.5 mAP to 69.2 mAP but recall increases from 81% to 88%.
 
-- Dimension Clustering: In YOLOv1, the dimension of boxes were prechosen. Instead of choosing anchor boxes dimensions by hand, authors propose using k-means clustering on the training set bounding boxes to automatically find good anchor boxes.
+- **Dimension Clustering**: In YOLOv1, the dimension of boxes were prechosen. Instead of choosing anchor boxes dimensions by hand, authors propose using k-means clustering on the training set bounding boxes to automatically find good anchor boxes.
 
-- Direct Location Prediction: Instead of predicting offsets same approach of YOLO for predict location coordinates relative to the location of the grid cell is used and logistic activation bounds the ground truth to fall between 0 and 1. Using dimension clusters along with directly predicting the bounding box center location improves YOLO by almost 5% over the version with anchor boxes.
+- **Direct Location Prediction**: Instead of predicting offsets same approach of YOLO for predict location coordinates relative to the location of the grid cell is used and logistic activation bounds the ground truth to fall between 0 and 1. Using dimension clusters along with directly predicting the bounding box center location improves YOLO by almost 5% over the version with anchor boxes.
 
-- Fine-Grained Features: For detecting large objects, YOLOv2 outputs a predict feature map of 13 x 13. To detect small objects well, the 26×26×512 feature maps from earlier layer is mapped into 13×13×2048 feature map, then concatenated with the original 13×13 feature maps for detection. This leads to 1% performance increase.
+- **Fine-Grained Features**: For detecting large objects, YOLOv2 outputs a predict feature map of 13 x 13. To detect small objects well, the 26×26×512 feature maps from earlier layer is mapped into 13×13×2048 feature map, then concatenated with the original 13×13 feature maps for detection. This leads to 1% performance increase.
 
-- Multi-Scale Training: YOLOv2 uses multiple of 32 new image dimension size every 10 batch, as network is downsampled by a factor of 32 from set of {320, 352, ... 608}. This regime forces the network to learn to predict well across a variety of input dimensions. This means the same network can predict detections at different resolutions. The network runs faster at smaller sizes so YOLOv2 offers an easy tradeoff between speed and accuracy.
+- **Multi-Scale Training**: YOLOv2 uses multiple of 32 new image dimension size every 10 batch, as network is downsampled by a factor of 32 from set of {320, 352, ... 608}. This regime forces the network to learn to predict well across a variety of input dimensions. This means the same network can predict detections at different resolutions. The network runs faster at smaller sizes so YOLOv2 offers an easy tradeoff between speed and accuracy.
 
 
 ### Problems in YOLOv2
@@ -604,7 +604,7 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 
 - YOLOv3 predicts boxes at 3 different scales and extracts features from those scales using a similar concept to feature pyramid networks. Model predicts a 3-d tensor encoding bounding box, objectness, and class predictions. For e.g. N x N x (3 * (4 + 1 + C)) for the 4 bounding box offsets, 1 objectness prediction, and C class predictions.
 
-- Chose 9 clusters and 3 scales arbitrarily and then divide up the clusters evenly across scales. For e.g. (10 x 13), (16 x 30), (33 x 23), (30 x 61), (62 x 45), (59 x 119), (116 x 90), (156 x 198), (373 x 326).
+- Choose 9 clusters and 3 scales arbitrarily and then divide up the clusters evenly across scales. For e.g. (10 x 13), (16 x 30), (33 x 23), (30 x 61), (62 x 45), (59 x 119), (116 x 90), (156 x 198), (373 x 326).
 
 ### Advantages over all before architectures
 
@@ -613,7 +613,7 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 
 ## RetinaNet
 
-Girshick(yup again!) et al propose a new loss function "Focal loss" to deal with the foreground-background class imbalance posed in one-stage detectors. Okay, wait let me explain what do I mean by it exactly. From above so many architecture, there is one clear distinction that some architecture are one-shot detectors and others are two-shot detectors. In two-shot detectors, Region Proposal Networks provides potential regions to look at and second-stage classify so there is a good balance between foreground-background classes and but in one-shot network as we see in case of SSD, after matching there are lots of negatives and so less positives. They deal with a technique called Hard Negative Mining. So, the two-shot detectors provide greater accuracy than one-shot detector. Authors assert that after replacing standard cross entropy criterion with focal loss, they are able to match the speed of previous one-stage detectors while surpassing the accuracy of all existing state-of-the-art two-stage detectors. RetinaNet uses ResNet-101-FPN as backbone architecture and two-task specific subnetworks(classification and localization). It is combination of anchors used in all previous architectures and feature pyramids used in SSD.
+Girshick(yup again!) et al propose a new loss function [Focal loss](https://arxiv.org/pdf/1708.02002.pdf) to deal with the foreground-background class imbalance posed in one-stage detectors. Okay, wait let me explain what do I mean by it exactly. From above so many architecture, there is one clear distinction that some architecture are one-shot detectors and others are two-shot detectors. In two-shot detectors, Region Proposal Networks provides potential regions to look at and second-stage classify so there is a good balance between foreground-background classes and but in one-shot network as we see in case of SSD, after matching there are lots of negatives and so less positives. They deal with a technique called Hard Negative Mining. So, the two-shot detectors provide greater accuracy than one-shot detector. Authors assert that after replacing standard cross entropy criterion with focal loss, they are able to match the speed of previous one-stage detectors while surpassing the accuracy of all existing state-of-the-art two-stage detectors. RetinaNet uses ResNet-101-FPN as backbone architecture and two-task specific subnetworks(classification and localization). It is combination of anchors used in all previous architectures and feature pyramids used in SSD.
 
 <p align="center">
 <img src='/images/object_detection/retinanet.png' /> 
@@ -761,6 +761,8 @@ loss function - cost, error or objective function
 
 [Some Thoughts About The Design Of Loss Functions](https://www.ine.pt/revstat/pdf/rs070102.pdf)
 
+[CS231n Winter 2017 Lecture 11](https://www.youtube.com/watch?v=nDPWywWRIRo&list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq&index=11)
+
 [A More General Robust Loss Function](https://arxiv.org/abs/1701.03077)
 
 [Loss Functions](http://cs231n.github.io/linear-classify/)
@@ -775,7 +777,7 @@ loss function - cost, error or objective function
 
 [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf)
 
-[Faster R-CNN]()
+[Faster R-CNN](https://arxiv.org/pdf/1506.01497.pdf)
 
 [R-FCN](https://arxiv.org/pdf/1605.06409.pdf)
 
@@ -783,7 +785,7 @@ loss function - cost, error or objective function
 
 YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.08242.pdf) [v3](https://pjreddie.com/media/files/papers/YOLOv3.pdf)
 
-[RetinaNet]()
+[RetinaNet](https://arxiv.org/pdf/1708.02002.pdf)
 
 [MobileNets](https://arxiv.org/pdf/1704.04861.pdf)
 
