@@ -164,12 +164,13 @@ There are also other loss functions like Focal Loss(which we define in RetinaNet
 <img src='/images/object_detection/puppy.png' /> 
 </p>
 
-So, these are the differences in classification, localization, segmentation and instance segmentation.  
+So, these are the differences in classification, localization, segmentation and instance segmentation. Here, the classification and localization task contains single image and we are supposed to identify what class does that image belong to and where is it. But in object detection, this problem gets blown on a multiple scale. There can be any number of objects in image and each object will have different size in image. This is what makes the challenge in detection very interesting.
+
 Now, that you have understood what we are doing in object detection. Let's look at some of the algorithms we can use to create such cool object detectors. *I mean very cool.*
 
 ## Viola Jones Detector
 
-In early 2000s, deep learning where in their infancy or deep learning where not everything, in [this paper](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf) Viola and Jones proposed a machine learning approach for visual object detection which is capable of processing images extremely rapidly and achieving high detection rates. The algorithm consisted of 3 important parts, integral images which consisted of calculating about 60,,000 image features, AdaBoost classifier, a boosting process which is collection of weak classifier and cascading, where more complex classifier are cascaded in a chain. Intutivley, they created a chain of suppose 3 classifier, where each sub-window (field of view) classifies it as a "face or not a face". Those sub-windows which are not intially rejected get passed on to next classifier and so no. If any classifier rejects sub-window, no further processing is involved. So, it was a degenerate decision classifier. This process allowed quick selection of faces and discarding backgrounds very quickly. 
+In early 2000s deep learning where in their infancy or deep learning where not everything, in [this paper](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf) by Viola and Jones, they proposed a machine learning approach for visual object detection which is capable of processing images extremely rapidly and achieving high detection rates. The algorithm consisted of 3 important parts, *integral images* which consisted of calculating about 60,,000 image features, *AdaBoost classifier*, a boosting process which is collection of weak classifier and *cascading* where more complex classifier are cascaded in a chain. Intutivley, they created a chain of suppose 3 classifier, where each sub-window (field of view) classifies it as a "face or not a face". Those sub-windows which are not intially rejected get passed on to next classifier and so no. If any classifier rejects sub-window, no further processing is involved. So, it was a degenerate decision classifier. This process allowed quick selection of faces and discarding backgrounds very quickly. 
 
 For example, in below classifier, 1 feature classifier achieves 100% detection rate with 50% false positive rate, 2 feature classifier with 100% detection rate and 40% false positive rate(20% cumulative) and 20 feature classifier achieve 100% detection rate with 10% false positive rate(2% cumulative).
 
@@ -215,11 +216,10 @@ various aspect ratios of the predicted bounding boxes shows that the network is 
 
 Introduction for using CNN for object detection gave rise to whole new networks and kept pushing the boundary of state-of-the-art detectors. Quickly after OverFeat, Grishick et al proposed a method where they used selective search to extract 2000 regions which they called "region proposals" (regions with high probability of containing objects). Hence the name, Regions with CNN features, [R-CNN](https://arxiv.org/pdf/1311.2524.pdf). They perform classification and regression on these 2000 region proposals. This result improved the previous result set by Overfeat on ILSVRC2013 detection dataset of 24.3% to 31.4%, an astounding 30% improvement. Let's analyse the steps used in the algorithm:
 
-- Extract possible objects using a region proposal method (the most popular one being Selective Search).
-- Extract features from each region using a CNN.
-- Classify each region with SVMs.
-- Also using same extracted features, predict the location of objects using regression model.
-
+- Extract possible objects using a region proposal method (the most popular one being Selective Search) to some fixed size
+- Extract features from each region using a CNN
+- Classify each region with SVMs (using hinge loss)
+- Predict offset loss to correct the prediction values of location produced in region proposal stage (using least square l2 loss)
 
 <p align="center">
 <img src='/images/object_detection/rcnn.png'/> 
@@ -333,9 +333,10 @@ Some algorithms minimize classification and regression together wherease some in
 
 To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf)  which employs several  innovations to improve training and testing speed while also increasing detection accuracy. Let's analyse the steps used in the algorithm:
 
-- An input is entire image and a set of object proposals. 
-- The network first processes the whole image with several convolutional (conv) and max pooling layers to produce a conv feature map. 
-- For each object proposal a region of interest (RoI) pooling layer extracts a fixed-length feature vector from the feature map. - Each feature vector is fed into a sequence of fully connected (fc) layers that finally branch into two sibling output layers: one that produces softmax probability estimates over K object classes plus a catch-all “background” class and another layer that outputs four real-valued numbers for each of the K object classes. Each set of 4 values encodes refined bounding-box positions for one of the K classes.
+- An input is entire image and a set of object proposals 
+- The network first processes the whole image with several convolutional (conv) and max pooling layers to produce a conv feature map
+- For each object proposal a region of interest (RoI) pooling layer extracts a fixed-length feature vector from the feature map
+- Each feature vector is fed into a sequence of fully connected (fc) layers that finally branch into two sibling output layers: one that produces softmax probability estimates over K object classes plus a catch-all background class and another layer that outputs four real-valued numbers for each of the K object classes. Each set of 4 values encodes refined bounding-box positions for one of the K classes ()
 
 <p align="center">
 <img src='/images/object_detection/fastrcnn.png' /> 
@@ -355,7 +356,7 @@ The RoI pooling layer uses max pooling to convert the features inside any valid 
 - Higher detection quality (mAP) than R-CNN
 - Training is single-stage, using a multi-task loss (no need of multi-stage as seen in RCNN)
 - Training can update all network layers (end-to-end)
-- Avoid feature caching as SVM is replaced by Softmax, no need to store feature vectors (softmax is better than SVM).
+- Avoid feature caching as SVM is replaced by Softmax, no need to store feature vectors (softmax is better than SVM)
 
 ### Problems in Fast R-CNN
 
@@ -366,9 +367,11 @@ The RoI pooling layer uses max pooling to convert the features inside any valid 
 
 To overcome shortcomings of Fast R-CNN, Grishick(again!) et al proposes faster architecture than previous attempts, hence the name Faster R-CNN. The introduce a Region Proposal Network (RPN) that shares full-image convolutional features with the detection network, thus enabling nearly cost-free region proposals(*finally*). An RPN is a fully convolutional network that simultaneously predicts object bounds and objectness scores at each position. The RPN is trained end-to-end to generate high-quality region proposals, which are used by Fast R-CNN for detection. Let's analyse the steps used in the algorithm:
 
-- In the first step, train the RPN. This network is initialized with an ImageNet-pre-trained model and fine-tuned end-to-end for the region proposal task.
-- In  the second  step, train a separate detection network by Fast R-CNN using the proposals generated by the step-1 RPN. This detection network is also initialized by the ImageNet pre-trained model.(At this point the two networks do not share convolutional layers)
-- Use Fast R-CNN steps above to classify and localize objects
+- Input the image to CNN to produce fixed feature map
+- Extracted feature map is sent to two different network: RPN and Fast R-CNN
+- RPN uses features to predict region proposals
+- Once we have these region proposals it's just following Fast R-CNN algorithm where we want input, list of object proposals and input image
+
 
 <p align="center">
 <img src='/images/object_detection/fasterrcnn.png' /> 
@@ -390,7 +393,6 @@ RPN were introduce to replace slow selective search which proposes region propos
 <img src='/images/object_detection/rpn.png' /> 
 </p>
 
-
 In Faster R-CNN, the “proposals” are dense sliding windows of 3 scales (128, 256, 512) and 3 aspect ratios (1:1, 1:2, 2:1).
 
 ### Region of Interest Pooling (ROI)
@@ -411,6 +413,8 @@ Then, it uses two different fully-connected layers for each of the different obj
 
 - A fully-connected layer with N+1 units where N is the total number of classes and that extra one is for the background class.
 - A fully-connected layer with 4N units. We want to have a regression prediction
+
+Jointly train for 4 losses RPN classify (object or not object), RPN regression box coordinates, final classification score(object classes), final box coordinates from Fast R-CNN. 
 
 ### Advantages over R-CNN and Fast R-CNN
 
