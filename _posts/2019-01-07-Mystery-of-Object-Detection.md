@@ -10,8 +10,7 @@ published : false
 
 # Object Detection
 
-In this notebook, 
-
+In this notebook, we will try to answer to the question, "Can computer see i.e. identify and locate the objects better than humans?"
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_pytorch.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_fastai.ipynb).  
 
@@ -80,7 +79,7 @@ Aurélien Géron explains amazingly how entropy, cross entropy and KL Divergence
 
 The output obtained from last softmax(or sigmoid for binary class) layer of the model can be interpreted as normalized class probabilities and we are therefore minimizing the negative log likelihood of the correct class or we are performing Maximum Likelihood Estimation (MLE). 
 
-As David Silver would like to say, let's make it concrete with an example. For example consider we get an output of [0.1, 0.5, 0.4] (cat, dog, mouse) where the actual or expected output is [1, 0, 0] i.e. it is a cat. But our model predicted that given input has only 10% probability of being a cat, 50% probability of being dog and 40% of chance being a mouse. This being a multi-class classification, we can calculate the cross entropy using the formula for $$\mathbf{L_{mce}}$$ below. 
+As David Silver would like to say, let's make it concrete with example. For example consider we get an output of [0.1, 0.5, 0.4] (cat, dog, mouse) where the actual or expected output is [1, 0, 0] i.e. it is a cat. But our model predicted that given input has only 10% probability of being a cat, 50% probability of being dog and 40% of chance being a mouse. This being a multi-class classification, we can calculate the cross entropy using the formula for $$\mathbf{L_{mce}}$$ below. 
 
 Another example for binary class can be as follows. The models outputs [0.4, 0.6] (cat, dog) whereas the input image is a cat i.e. actual output is [1, 0]. Now, we can use $$\mathbf{L_{bce}}$$ from below to calculate the loss and backpropgate the error and tell the model to correct its weight so as to get the output correct next time.
 
@@ -114,7 +113,7 @@ In regression, model outputs a number. This number is then compared with our exp
 
 - **Mean Squared Error(MSE)**
 
-These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. It’s only concerned with the average magnitude of error irrespective of their direction. However, due to squaring, predictions which are far away from actual values are penalized heavily in comparison to less deviated predictions. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For M training example, mse loss can be forumlated as, 
+These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. It’s only concerned with the average magnitude of error irrespective of their direction. However, due to squaring, predictions which are far away from actual values are penalized heavily in comparison to less deviated predictions. This error is also known as L1 loss. Suppose, $$\mathbf{y\hat}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For M training example, mse loss can be forumlated as, 
 
 $$
 \begin{aligned}
@@ -124,7 +123,7 @@ $$
 
 - **Mean Absolute Error(MAE)**
 
-Similar to one above, this loss takes absolute error difference between target and predicted output. Like MSE, this as well measures the magnitude of error without considering their direction. The difference is MAE is more robust to outliers since it does not make use of square.
+Similar to one above, this loss takes absolute error difference between target and predicted output. Like MSE, this as well measures the magnitude of error without considering their direction. The difference is MAE is more robust to outliers since it does not make use of square. This error is also known as L1 loss.
 
 $$
 \begin{aligned}
@@ -155,13 +154,17 @@ There are also other loss functions like Focal Loss(which we define in RetinaNet
 </p>
 
 
-<span class='red'>I-know-everything:</span> My dear Padwan, unfortunately, this will be our last post on vision. So, let's make it count. Today we will see one of the most exiciting applications of vision, Object Detection. There are literally thousands of examples we can use object detection in for example, self-driving car detect whatever you see(through cameras) which includes traffic light, pedestrian, other cars, etc., counting particular objects for keeping track, surveillance(*Not cool*), or given a vision to bot for following [cats](https://scanlime.org/2017/12/smart-camera-gimbal-bot-scanlime027/). 
+<span class='red'>I-know-everything:</span> My dear Padwan, unfortunately, this will be our last post on vision. So, let's make it count. Today we will see one of the most exiciting applications of vision, Object Detection. There are literally thousands of application examples we can use object detection in for example, self-driving car detect whatever you see(through cameras) which includes traffic light, pedestrian, other cars, etc., counting particular objects for keeping track, surveillance(*Not cool*), or given a vision to bot for following [cats](https://scanlime.org/2017/12/smart-camera-gimbal-bot-scanlime027/). 
 
-<span class='green'>I-know-nothing:</span>
+<span class='green'>I-know-nothing:</span> So, will it be like we pass a image and we get what objects are present in image along with their locations?
 
-<span class='red'>I-know-everything:</span> 
+<span class='red'>I-know-everything:</span> Yes, exactly. And we can run experiement real-time on video too. There is some subtle difference in different types of detections which I will let this puppies and cat explain it.
 
+<p align="center">
+<img src='/images/object_detection/puppy.png' /> 
+</p>
 
+So, these are the differences in classification, localization, segmentation and instance segmentation.  
 Now, that you have understood what we are doing in object detection. Let's look at some of the algorithms we can use to create such cool object detectors. *I mean very cool.*
 
 ## Viola Jones Detector
@@ -187,13 +190,25 @@ For further, take a look at cool explaination by Dr. Mike Pound on [Viola -Jones
 
 ## OverFeat 
 
-One of the first deep learning approach using ConvNets was developed by LeCunn et al in architecture called [Overfeat](https://arxiv.org/pdf/1312.6229.pdf). They provide integrated approach to object detection, recognition and localization with a single ConvNet. As we have discussed before, in this algorithm there are two parts of network, classification and localization. The classification network(Overfeat architecture) is trained on Imagenet classifying object into one of 1000 categories. The classifier layers of classification network is replaced by regression network which predicts object bounding box at each spatial location and scale. In OverFeat, the region-wise features come from a sliding window of one aspect ratio over a scale pyramid. These features are used to simultaneously determine the location and category of objects. On the 200-class ILSVRC2013 detection dataset, OverFeat achieved mean average precision (mAP) of 24.3%. 
+One of the first deep learning approach using ConvNets was developed by LeCunn et al in architecture called [Overfeat](https://arxiv.org/pdf/1312.6229.pdf). They provide integrated approach to object detection, recognition and localization with a single ConvNet. As we have discussed before, in this algorithm there are two parts of network, classification and localization. The classification network(Overfeat architecture) is trained on Imagenet classifying object into one of 1000 categories. The classifier layers of classification network is replaced by regression network which predicts object bounding box at each spatial location and scale. In OverFeat, the region-wise features come from a sliding window of one aspect ratio over a scale pyramid. These features are used to simultaneously determine the location and category of objects. On the 200-class ILSVRC2013 detection dataset, OverFeat achieved mean average precision (mAP) of 24.3%. Let's analyse the steps used in the algorithm:
+
+- Train a CNN model (similar to AlexNet) on the image classification task.
+- Replace the top classifier layers by a regression network and train it to predict object bounding boxes at each spatial location and scale. The regressor is class-specific, each generated for one image class. 
 
 The working of algorithm can be explained by an example shown below.
 
+<p align="center">
+<img src='/images/object_detection/overfeat_result_1.png' width="50%"/> 
+<img src='/images/object_detection/overfeat_result_2.png' width="50%" /> 
+</p>
+
+<p align="center">
+<img src='/images/object_detection/overfeat_result_3.png' width="50%"/> 
+<img src='/images/object_detection/overfeat_result_4.png' width="50%" /> 
+</p>
+
 Using a sliding window approach method, which is effective in ConvNets as they share weights, the algorithm uses 6 different scales of input which are then presented to classifier to predict the class for each window for different resolutions as shown in top left and top right example. The regression then predicts the location scale of object with respect to each window as shown in bottom left and then these bounding boxes are merged and accumulated to a small number of objects as shown in bottom right. The
 various aspect ratios of the predicted bounding boxes shows that the network is able to cope with various object poses.
-
 
 
 ## R-CNN
@@ -203,29 +218,38 @@ Introduction for using CNN for object detection gave rise to whole new networks 
 - Extract possible objects using a region proposal method (the most popular one being Selective Search).
 - Extract features from each region using a CNN.
 - Classify each region with SVMs.
+- Also using same extracted features, predict the location of objects using regression model.
 
--rcnn.jpg
+
+<p align="center">
+<img src='/images/object_detection/rcnn.png'/> 
+</p>  
 
 ### Selective Search
 
 The sliding window based approach used a window (grid of size say 7 x 7) which scans across the whole image and send that to classifier to classify if it is an object or not a object. Then there are various aspect ratio to be considered inside an image as different object can have different sizes. So, classifying for each location becomes extremely slow. But what if somehow someone provided us with 2000 potentially object containing regions regardless of their relative sizes and then our only job is to classify and localize based on these 2000 region proposals.
 
--selective search
+<p align="center">
+<img src='/images/object_detection/selective_search.png' /> 
+</p>
 
-Here come the role of selective search, which use an [hierarchical grouping algorithm](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf#algocf.1) which uses a greedy algorithm to iteratively group regions together. This selective search is used in R-CNN to generate 2000 Region Proposals which are then passed to classifier network. 
+Here come the role of selective search, which uses an [hierarchical grouping algorithm](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf#algocf.1), a greedy algorithm to iteratively group regions together. This selective search is used in R-CNN to generate 2000 Region Proposals which are then passed to classifier network. 
 
 The classifier network is AlexNet Network which acts as a feature extractor. For each proposal, a 4096-dimensional vector is computed which are then fed into SVM to classify the presence of the object within that candidate region proposal. This 4096-D vector also fed in a linear regressor to adapt the shapes of the bounding box for a region proposal and thus reduce localization errors.
 
--rcnn_region_proposal
+<p align="center">
+<img src='/images/object_detection/rcnn_region_proposal.png' /> 
+</p>
+
 
 ### Problems in R-CNN
 
 - It takes a lot of time to generate 2000 proposals for each image.(*Can we propose a new algorithm to replace these fixed proposals?*)
 - Real time object detection requires 47 seconds (*not cool*).
 - The selective search algorithm is a fixed algorithm. Therefore, no learning is happening at that stage. This could lead to the generation of bad candidate region proposals.(*Can we propose a new algorithm which is not fixed?*)
-- Training requires multiple stages of processing, where first ConvNet are finetuned to produce 4096-D vector. SVM uses these features to classify and in third stage bounding regressor are learned from feature vectors.(*Could we somehow achieve classification and localization in parallel?*)
+- Training requires multiple stages of processing, where first ConvNet are finetuned to produce 4096-D vector. SVM uses these features to classify and in third stage bounding regressor are learned from feature vectors.(*Could we somehow achieve classification and localization in parallel in one-shot?*)
 
-### Training
+### Training 
 
 Training routine consists of classifying object into N classes and also predicting predictions for bounding box containing object. 
 
@@ -233,13 +257,48 @@ Typical training routine in all object detection algorithm consists of calculati
 
 ### Intersection Over Union (IOU)
 
+<p align="center">
+<img src='/images/object_detection/iou.png' width="60%"/> 
+</p>  
 
+In the numerator we compute the area of overlap between the predicted bounding box and the ground-truth bounding box. The denominator is the area of union, or more simply, the area encompassed by both the predicted bounding box and the ground-truth bounding box. Dividing the area of overlap by the area of union yields our final score — the Intersection over Union.
 
+Here is 3 different scenarios where orange is ground-truth and blue is predicted bounding box:
+
+<p align="center">
+<img src='/images/object_detection/iou_example.png' width="60%"/> 
+</p>  
+
+1. Poor IOU: Area of intersection is small compared to Area of Union which is greater, the ratio will be very low (Area of Intersection/Area of Union).
+2. Near perfect IOU: Area of intersection and Area of Union are so close to each other. The ratio approaches 1. 
+3. Way off IOU: As area of intersection is very small compared to Area of Union.
+
+As you can see, predicted bounding boxes that heavily overlap with the ground-truth bounding boxes have higher scores than those with less overlap. 
+
+An Intersection over Union score > 0.5 is normally considered a “good” prediction. 
 
 ### Anchor Boxes
 
 It might make sense to predict the width and the height of the bounding box, but in practice, that leads to unstable gradients during training. Instead, most of the modern object detectors predict log-space transforms, or simply offsets to pre-defined default bounding boxes called anchors. Then, these transforms are applied to the anchor boxes to obtain the prediction. 
 
+Here is an example of 5 different anchor boxes,
+
+<p align="center">
+<img src='/images/object_detection/anchor_box.jpeg' width="60%"/> 
+</p> 
+
+
+### Non Max Suppresion(NMS)
+
+Non-max suppression is a common algorithm used for cleaning up when multiple boxes are predicted for the same object. Here is how it works:
+
+- Discard all boxes with prediction confidence of object less or equal to 0.6.
+- Pick the box with the largest prediction confidence output as a prediction.
+- Discard any remaining box with IoU greater than or equal to 0.5.
+
+<p align="center">
+<img src='/images/object_detection/nms.png' width="60%"/> 
+</p>  
 
 ### Mean Average Precision (mAP)
 
@@ -248,11 +307,27 @@ A common evaluation metric used in many object recognition and detection tasks i
 - Given that target objects are in different classes, we first compute AP (which is area under Precision-Recall curve) separately for each class, and then average over classes.
 - A detection is a true positive if it has “intersection over union” (IoU) with a ground-truth box greater than some threshold (usually 0.5; if so, the metric is “mAP@0.5”)
 
-
 ### Loss Functions
 
+In general for all object detection algorithms, there are two main objective functions to minimize. The first one is classfication loss($$\mathcal{L}_{cls}$$) which we have seen multiple times, but this classification loss is multi-class classification loss which translates to log-loss we defined above. The second loss function is regression loss($$\mathcal{L}_{reg}$$) over predicted 4 values of bounding boxes which as we have defined above as combination of L1 loss and L2 loss also known as "smooth L1 loss". Smooth L1-loss combines the advantages of L1-loss (steady gradients for large values of x) and L2-loss (less oscillations during updates when x is small).
 
+$$
+\begin{aligned}
+\mathcal{L}_{smooth} = &
+\begin{cases}
+0.5x^2 & |x| < 1\\
+|x| - 0.5 & otherwise
+\end{cases}
+\end{aligned}
+$$
 
+$$
+\begin{aligned}
+\mathcal{L} = \mathcal{L}_{cls} + \mathcal{L}_{reg}
+\end{aligned}
+$$
+
+Some algorithms minimize classification and regression together wherease some in two stages. But these two losses are present in all detectors.
 
 ## Fast R-CNN
 
@@ -262,14 +337,18 @@ To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.
 - The network first processes the whole image with several convolutional (conv) and max pooling layers to produce a conv feature map. 
 - For each object proposal a region of interest (RoI) pooling layer extracts a fixed-length feature vector from the feature map. - Each feature vector is fed into a sequence of fully connected (fc) layers that finally branch into two sibling output layers: one that produces softmax probability estimates over K object classes plus a catch-all “background” class and another layer that outputs four real-valued numbers for each of the K object classes. Each set of 4 values encodes refined bounding-box positions for one of the K classes.
 
--fastrcnn.png
+<p align="center">
+<img src='/images/object_detection/fastrcnn.png' /> 
+</p>
+
 
 ### ROI Pooling
 
 The RoI pooling layer uses max pooling to convert the features inside any valid region of interest into a small feature map with a fixed spatial extent of H × W (e.g. 7 x 7). In example below, with input ROI of 5×7, and output of 2×2, the area for each pooling area is 2×3 or 3×3 after rounding. Region of Interest Pooling allowed for sharing expensive computations and made the model much faster.
 
--roi_pooling.png
-
+<p align="center">
+<img src='/images/object_detection/roi_pooling.png' /> 
+</p>
 
 ### Advantages over R-CNN
 
@@ -291,8 +370,9 @@ To overcome shortcomings of Fast R-CNN, Grishick(again!) et al proposes faster a
 - In  the second  step, train a separate detection network by Fast R-CNN using the proposals generated by the step-1 RPN. This detection network is also initialized by the ImageNet pre-trained model.(At this point the two networks do not share convolutional layers)
 - Use Fast R-CNN steps above to classify and localize objects
 
-
--fasterrcnn.png
+<p align="center">
+<img src='/images/object_detection/fasterrcnn.png' /> 
+</p>
 
 
 ### Region Propsal Network (RPN)
@@ -306,8 +386,9 @@ RPN were introduce to replace slow selective search which proposes region propos
 - A regression layer outputs 4k for the coordinates (box center coordinates, width and height) of k boxes
 - With a size of W×H feature map, there are WHk anchors in total.
 
-
--rpn.png
+<p align="center">
+<img src='/images/object_detection/rpn.png' /> 
+</p>
 
 
 In Faster R-CNN, the “proposals” are dense sliding windows of 3 scales (128, 256, 512) and 3 aspect ratios (1:1, 1:2, 2:1).
@@ -360,19 +441,25 @@ Results from pretrained model using tensorflow Object Detection API using Faster
 
 In short, Region Proposal Network (RPN), which is a fully convolutional architecture is used to extract candidate regions. Given the proposal regions (RoIs), the R-FCN architecture is designed to classify the RoIs into object categories and background.
 
--rfcn.png
+<p align="center">
+<img src='/images/object_detection/rfcn.png' /> 
+</p>
 
 ### Position-sensitive score maps and Position-sensitive ROI pooling
 
 The last convolutional layer of  produces a bank of $$k^2$$ position-sensitive score maps for each category, and thus has a $$k^2(C+1)$$ -channel output layer with C object categories (+1 for background). The bank of $$k^2$$ score maps correspond to a k x k spatial grid describing relative positions. For example, with k x k = 3 x 3, the 9 score maps encode the cases of {top-left, top-center, top-right, ..., bottom-right} of an object category.
 
--rfcn_maps.png
+<p align="center">
+<img src='/images/object_detection/rfcn_maps.png' /> 
+</p>
 
 When ROI pooling, (C+1) feature maps with size of $$k^2$$ are produced, i.e. $$k^2(C+1)$$. The pooling is done in the sense that they are pooled with the same area and the same color in the figure. Average voting is performed to generate (C+1) 1d-vector. And finally softmax is performed on the vector.
 
 Consider for example following example of R-FCN detecting a baby, 
 
--rfcn_roi.png
+<p align="center">
+<img src='/images/object_detection/rfcn_roi.png' /> 
+</p>
 
 As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example as,
 
@@ -393,7 +480,9 @@ As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example a
 - For each box, simultaneously predict a) the bounding box offset and b) the class probabilities
 - During training, match the ground truth box with these predicted boxes based on IoU. The best predicted box will be labeled a “positive,” along with all other boxes that have an IoU with the truth >0.5.
 
--ssd.png
+<p align="center">
+<img src='/images/object_detection/ssd.png' /> 
+</p>
 
 To put simply, SSD approach is based on a feed-forward convolutional network that produces a fixed-size collection of bounding boxes and scores for the presence of object class instances in those boxes, followed by a non-maximum suppression step to produce the final detections.
 
@@ -401,7 +490,9 @@ To put simply, SSD approach is based on a feed-forward convolutional network tha
 
 There are “extra feature layers” as seen in above architecture at the end that scale down in size. These varying-size feature maps help capture objects of different sizes, where each feature map is associated with a set of default bouding boxes. At each feature map cell, network predict the offsets relative to the default box shapes in the cell, as well as the per-class scores that indicate the presence of a class instance in each of those boxes. Specifically, for each box out of k at a given location, network computes c class scores and the 4 offsets relative to the original default box shape. This results in a total of (c + 4)k filters that are applied around each location in the feature map, yielding (c + 4)kmn outputs for a m × n feature map. Default boxes are similar to the anchor boxes used in Faster R-CNN only they are applied them to several feature maps of different resolutions.
 
--ssd_feature_map.png
+<p align="center">
+<img src='/images/object_detection/ssd_feature_map.png' /> 
+</p>
 
 Consider above example where, SSD evaluates a small set (e.g. 4) of default boxes of different aspect ratios at each location in several feature maps with different scales (e.g. 8 x 8 and 4 x 4 in middle and right images). For each default box, SSD predict
 both the shape offsets and the confidences for all object categories belonging to C categories. At training time, SSD first  match these default boxes (middle and right) to the ground truth boxes (left image). For example, SSD have matched two default boxes with the cat and one with the dog, which are treated as positives and the rest as negatives.
@@ -439,13 +530,17 @@ You Only Live Once. No, it's not that. YOLO is You Only Look Once. So, cool. Won
 - Each bounding box consists of 5 predictions: x, y, w, h and confidence. The (x, y) coordinates represent the center of the box relative to the bounds of the grid cell. The width and height are predicted relative to the whole image. The confidence prediction represents the IOU between the predicted box and any ground truth box.
 - Each grid cell also predicts C conditional class probabilities, Pr($$Class_{i}$$ | Object). These probabilities are conditioned on the grid cell containing an object.
 
--yolo_v1.png
+<p align="center">
+<img src='/images/object_detection/yolo_v1.png' /> 
+</p>
 
 To put it simply, the model takes an image as input. It divides it into an SxS grid. Each cell of this grid predicts B bounding boxes with a confidence score. This confidence is simply the probability to detect the object multiply by the IOU between the predicted and the ground truth boxes.
 
 Here is an example of detecting 3 objects, a dog, car and bicycle.
 
--yolo_v1_1.png
+<p align="center">
+<img src='/images/object_detection/yolo_v1_1.png' /> 
+</p>
 
 
 ### Problems in YOLOv1
@@ -463,9 +558,11 @@ Here is an example of detecting 3 objects, a dog, car and bicycle.
 
 Redmond et al proposed [YOLOv2](https://arxiv.org/pdf/1612.08242.pdf) which the second version of the YOLO with the objective of  more accurate detector that is still fast. Here are some things that are have improved when compared to previous YOLOv1.
 
-- New CNN architecture: Darknet (*Joining the dark side*)
+- New CNN architecture: Darknet (*Joining the dark side, are we?*)
 
--yolo_v2.png
+<p align="center">
+<img src='/images/object_detection/yolo_v2.png' /> 
+</p>
 
 - Batch Normalization: By adding batch normalization on all of the convolutional layers in YOLO, more than 2% improvement in mAP
 
@@ -499,7 +596,9 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 
 - New CNN architecutre with 53 layers, or popularly known among dark side as Darknet-53.
 
--yolo_v3.png
+<p align="center">
+<img src='/images/object_detection/yolo_v3.png' /> 
+</p>
 
 - Replace softmax with independent logistic classifiers. Using a softmax imposes the assumption that each box has exactly one class which is often not the case. A multilabel approach better models the data.
 
@@ -516,7 +615,9 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 
 Girshick(yup again!) et al propose a new loss function "Focal loss" to deal with the foreground-background class imbalance posed in one-stage detectors. Okay, wait let me explain what do I mean by it exactly. From above so many architecture, there is one clear distinction that some architecture are one-shot detectors and others are two-shot detectors. In two-shot detectors, Region Proposal Networks provides potential regions to look at and second-stage classify so there is a good balance between foreground-background classes and but in one-shot network as we see in case of SSD, after matching there are lots of negatives and so less positives. They deal with a technique called Hard Negative Mining. So, the two-shot detectors provide greater accuracy than one-shot detector. Authors assert that after replacing standard cross entropy criterion with focal loss, they are able to match the speed of previous one-stage detectors while surpassing the accuracy of all existing state-of-the-art two-stage detectors. RetinaNet uses ResNet-101-FPN as backbone architecture and two-task specific subnetworks(classification and localization). It is combination of anchors used in all previous architectures and feature pyramids used in SSD.
 
--retinanet.png
+<p align="center">
+<img src='/images/object_detection/retinanet.png' /> 
+</p>
 
 ### Focal Loss
 
@@ -530,7 +631,9 @@ $$
 
 Here $$\alpha_{t}$$ weight assigned to rare class and $$\gamma$$ focuses more on hard examples. In practice, $$\alpha$$ = 0.25 and $$\gamma$$ = 2 works best.
 
--focal_loss.png
+<p align="center">
+<img src='/images/object_detection/focal_loss.png' /> 
+</p>
 
 Let's make this concrete with an example,
 
@@ -579,41 +682,58 @@ This  base  is responsible for creating a feature map  that is embedded  with sa
 
 As the name suggests, this network is more suitable for low power appliances like mobile and embedded applications. [MobileNets](https://arxiv.org/pdf/1704.04861.pdf) are light weight because they use depthwise separable convolutions.
 
-mobilenet.png
+<p align="center">
+<img src='/images/object_detection/mobilenet.png' /> 
+</p>
 
 Here is a comparison of different backbones versus MobileNet,
 
-mobilenet_compare.png
+<p align="center">
+<img src='/images/object_detection/mobilenet_compare.png' /> 
+</p>
 
 - **ResNeXt**
 
 [ResNext](https://arxiv.org/pdf/1611.05431.pdf) draws inspiration from lot of architecture. VGG-nets and ResNets show imple yet effective strategy of constructing very deep network by stacking building blocks of same shape. The Inception models adopt split-transform-merge strategy. ResNext combines these two strategies. It's simple design compared to ResNet architecture and accurate.
 
-resnext.png
+<p align="center">
+<img src='/images/object_detection/resnext.png' /> 
+</p>
 
 Here is a comparison of different architecture versus MobileNet,
 
-resnext_compare.png
+<p align="center">
+<img src='/images/object_detection/resnext_compare.png' /> 
+</p>
 
 - **Feature Pyramid Networks**
 
 Feature pyramids are a basic component in recognition systems for detecting objects at different scales. But are avoided as they are compute and memory intensive. [FPN](https://arxiv.org/pdf/1612.03144.pdf) construct feature pyramids with lateral connections is developed for building high-level semantic feature maps at all scales.
 
-fpn.png
+<p align="center">
+<img src='/images/object_detection/fpn.png' /> 
+</p>
 
 We have seen different architecture from above in various detector models. (b) is used in YOLO, (c) is used in SSD, (d) is FPN where it combines low-resolution, semantically strong features with high-resolution, semantically weak features via a top-down pathway and lateral connections.
 
+The other many othet backbones include ResNet, VGG, Inception, InceptionResNet etc.
+
+Here is some results from using object detection on videos.
+
+-video_result.gif
+
 ## Recap
 
+Here is a quick recap, so we saw there are broadly two types, two-stage detectors and one-stage detectors. In two-stage detector, region proposals are given by some fancy selective search algorithms which reduces the overhead of searching all over the image for finding objects, these are then passed to classification and regression subnetworks which do their job of classifying and localizing different objects present in the image. This can be seen in all R-* detectors, RCNN, FastRCNN, Faster-RCNN and RFCN. Next, we looked at one-stage detectors, these type of detectors don't require any input of region proposals, just give them image, they will output classes of object and their locations. This can be seen in family of algorithms like SSD, YOLO(v1, v2, v3). But then we learned that one-shot detectors even though they provide excellent real-time speed(fps) but they are not as accurate in detection as two-stage detectors. Then came the role of RetinaNet, which proposes new loss function, focal loss, which handles the trade-off between accuracy and latency real smooth. Having looked at family of object detectors, we looked at some of the driving architectures behind these detectors which can be ResNet, VGG or MobileNets, etc depending on how accurate or how fast is the requirement. This was a fascinating challenge but no detection algorithm can match detection going on in our brain. 
 
+---
 
+This completes our journey in Object Detection Land. 
 
+This only explains Object Detection, then we have Semantic Segementation and Instance Segmentation. One notable architecture from both are U-Net and Mask R-CNN respectively. Mask R-CNN results are so cool. 
 
-
-
-This completes our journey in Object Detection Land. The other many othet backbones include ResNet, VGG, Inception, InceptionResNet etc. There are different architectures which are not discussed such as 
-
-This only explains Object Detection, then we have Semantic Segementation and Instance Segmentation. One notable architecture from both are U-Net and Mask R-CNN respectively. Mask R-CNN results are so cool.
+Here is a glimpse of result from Mask R-CNN which is instance segmentation algorithm.
+-mask-rnn.gif
 
 But Padwan, this will be our last interaction on images. Next, we will move to text, particularly, <span color='purple'>Power of RNN</span>.
 
@@ -673,7 +793,7 @@ YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.
 
 [Tensorflow detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
 
-
+[Joyce Xu Object Detection Overview](https://towardsdatascience.com/deep-learning-for-object-detection-a-comprehensive-review-73930816d8d9)
 
 [Reviews of lot many architectures and model by SH Tsang](https://towardsdatascience.com/@sh.tsang)
 
@@ -685,12 +805,21 @@ YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
+[Puppies and cat example CS231n 2017 Lecture 11 Page 17](http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture11.pdf)
+
 [RCNN Algorithm](https://arxiv.org/abs/1311.2524)
 
 [Selective Search](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf)
 
-[RCNN illustration](https://towardsdatascience.com/deep-learning-for-object-detection-a-comprehensive-review-73930816d8d9)
+[IOU](https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/)
 
+[Anchor Box](https://medium.com/@jonathan_hui/real-time-object-detection-with-yolo-yolov2-28b1b93e2088)
+
+[NMS](https://www.kdnuggets.com/2018/09/object-detection-image-classification-yolo.html)
+
+[RCNN, Faster RCNN, Fast RCNN illustration](https://towardsdatascience.com/deep-learning-for-object-detection-a-comprehensive-review-73930816d8d9)
+
+[YOLO v1, v2, v3, Retinanet, FPN, MobileNet](https://towardsdatascience.com/@sh.tsang)
 
 [ResNeXt architecture and result](https://towardsdatascience.com/review-resnext-1st-runner-up-of-ilsvrc-2016-image-classification-15d7f17b42ac)
 
