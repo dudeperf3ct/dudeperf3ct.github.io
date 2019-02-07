@@ -227,7 +227,7 @@ Introduction for using CNN for object detection gave rise to whole new networks 
 </span>
 
 <p align="center">
-<img src='/images/object_detection/rcnn.jpg'/> 
+<img src='/images/object_detection/rcnn.jpg' width="60%"/> 
 </p>  
 
 ### Selective Search
@@ -550,13 +550,13 @@ Here are some results using SSD and Inception as backbone architecture,
 
 You Only Live Once. No, it's not that. YOLO is You Only Look Once. So, cool. Wonder how would have they come with such cool acroynm.(*I mean reuse it*). Over the period of 3 years, 3 different versions of same algorithm with variations were proposed. Let's have a look at them one by one.
 
-- **YOLOv1**
+## YOLOv1
 
 [YOLOv1](https://arxiv.org/pdf/1506.02640.pdf) was the first algorithm to unite detection and localization in single network. Everything achieved in end-to-end fashion. Input to model, model does something and comes with predicted output (both class probability and location of object). Ross Girshick (*he's back!*) et al proposes a single convolutional network simultaneously predicts multiple bounding boxes and class probabilities for those boxes. YOLOv1 trains on full images and directly optimizes detection performance. Let's analyse the steps used in the algorithm:
 
 <span class="saddlebrown">
 - Input image passed to CNN network is divided into S x S grid (S = 7). If the center of an object falls into a grid cell, that grid cell is responsible for detecting that object.
-- Each grid cell predicts B bounding boxes and confidence scores for those boxes. If no object exists in that cell, the confidence scores should be zero.- 
+- Each grid cell predicts B bounding boxes and confidence scores for those boxes. If no object exists in that cell, the confidence scores should be zero.
 - Each bounding box consists of 5 predictions: x, y, w, h and confidence. The (x, y) coordinates represent the center of the box relative to the bounds of the grid cell. The width and height are predicted relative to the whole image. The confidence prediction represents the IOU between the predicted box and any ground truth box.
 - Each grid cell also predicts C conditional class probabilities, Pr($$Class_{i}$$ | Object). These probabilities are conditioned on the grid cell containing an object.
 </span>
@@ -585,7 +585,7 @@ Here is an example of detecting 3 objects, a dog, car and bicycle.
 - The real-time detection speed was extremely faster (before SSD came) (45 fps and fast yolo v1 achieves 155 fps *really?*)
 - Single network that does not require any region proposals or selective search
 
-- **YOLOv2**
+## YOLOv2
 
 Redmond et al proposed [YOLOv2](https://arxiv.org/pdf/1612.08242.pdf) which the second version of the YOLO with the objective of  more accurate detector that is still fast. Here are some things that are have improved when compared to previous YOLOv1.
 
@@ -620,7 +620,7 @@ Redmond et al proposed [YOLOv2](https://arxiv.org/pdf/1612.08242.pdf) which the 
 - Way better detection quality (mAP) than YOLOv1 and SSD300 but slightly behind SSD512
 
 
-- **YOLOv3**
+## YOLOv3
 
 IMO, this is one of the coolest technical paper ever written. We need more of these. Bunch of cool upgrades to YOLOv2, [YOLOv3](https://pjreddie.com/media/files/papers/YOLOv3.pdf) is a little bigger than last time but more accurate and fast. Here are some upgrades:
 
@@ -639,7 +639,7 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 
 ### Advantages over all before architectures
 
--  YOLOv3 is much better than SSD variants and comparable to state-of-the-art model (not, RetinaNet though which takes 3.8x longer to process an image) and very very fast
+- YOLOv3 is much better than SSD variants and comparable to state-of-the-art model (not, RetinaNet though which takes 3.8x longer to process an image) and very very fast
 
 
 Here are some results using YOLOv3,
@@ -769,7 +769,7 @@ Here is a quick recap, so we saw there are broadly two types, two-stage detector
 
 This completes our journey in Object Detection Land. 
 
-This only explains Object Detection, then we have Semantic Segementation and Instance Segmentation. One notable architecture from both are U-Net and Mask R-CNN respectively. Mask R-CNN results are so cool. 
+This only explains <span class='purple'>Mystery of Object Detection</span>, then we have Semantic Segementation and Instance Segmentation. One notable architecture from both are U-Net and Mask R-CNN respectively. Mask R-CNN results are so cool. 
 
 Here is a glimpse of result from Mask R-CNN which is instance segmentation algorithm.
 
@@ -778,8 +778,6 @@ Here is a glimpse of result from Mask R-CNN which is instance segmentation algor
 </p>
 
 But Padwan, this will be our last interaction on images. Next, we will move to text, particularly, <span color='purple'>Power of RNN</span>.
-
-<span class='green'>I-know-nothing:</span> 
 
 
 <span class='orange'>Happy Learning!</span>
