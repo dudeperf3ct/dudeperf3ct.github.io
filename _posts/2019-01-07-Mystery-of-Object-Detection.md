@@ -345,7 +345,7 @@ $$
 
 ## Fast R-CNN
 
-To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf)  which employs several  innovations to improve training and testing speed while also increasing detection accuracy. Let's analyse the steps used in the algorithm:
+To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf)  which employs several  innovations to improve training and testing speed while also increasing detection accuracy. <span class='blue'>Why not run the CNN just once per image and then find a way to share that computation across the ~2000 proposals? </span> Let's analyse the steps used in the algorithm:
 
 
 - <span class="saddlebrown">An input is entire image and a set of object proposals </span>
