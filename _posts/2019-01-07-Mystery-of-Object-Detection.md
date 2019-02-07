@@ -10,7 +10,7 @@ published : false
 
 # Object Detection
 
-In this notebook, we will try to answer to the question, "Can computer see i.e. identify and locate the objects better than humans?"
+In this notebook, we will try to answer to the question, "Can computer identify and locate the objects better than humans?"
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/object_detection_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/object_detection_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/object_detection_tensorflow.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/object_detection_fastai.ipynb) and [Demos](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Demos).  
 
