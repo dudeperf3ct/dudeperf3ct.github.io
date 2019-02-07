@@ -181,8 +181,8 @@ For example, in below classifier, 1 feature classifier achieves 100% detection r
 Here are some results,
 
 <p>
-<img src='/images/object_detection/viola_jones_result_1.png' width="40%"/>
-<img src='/images/object_detection/viola_jones_result_1.png' width="40%"/> 
+<img src='/images/object_detection/viol_jones_result.png' width="40%"/>
+<img src='/images/object_detection/viol_jones_result_1.png' width="40%"/> 
 </p>
 
 The real-time detector ran at 15 frames per second on a conventional 700 MHz Intel Pentium III.
@@ -202,13 +202,13 @@ One of the first deep learning approach using ConvNets was developed by LeCunn e
 The working of algorithm can be explained by an example of detecting bear shown below.
 
 <p>
-<img src='/images/object_detection/overfeat_result_1.png' width="40%"/> 
-<img src='/images/object_detection/overfeat_result_2.png' width="40%" /> 
+<img src='/images/object_detection/overfeat_result_1.png' width="50%"/> 
+<img src='/images/object_detection/overfeat_result_2.png' width="50%" /> 
 </p>
 
 <p>
-<img src='/images/object_detection/overfeat_result_3.png' width="40%"/> 
-<img src='/images/object_detection/overfeat_result_4.png' width="40%" /> 
+<img src='/images/object_detection/overfeat_result_3.png' width="50%"/> 
+<img src='/images/object_detection/overfeat_result_4.png' width="50%" /> 
 </p>
 
 Using a sliding window approach method, which is effective in ConvNets as they share weights, the algorithm uses 6 different scales of input which are then presented to classifier to predict the class for each window for different resolutions as shown in top left and top right example. The regression then predicts the location scale of object with respect to each window as shown in bottom left and then these bounding boxes are merged and accumulated to a small number of objects as shown in bottom right. The
@@ -227,7 +227,7 @@ Introduction for using CNN for object detection gave rise to whole new networks 
 </span>
 
 <p align="center">
-<img src='/images/object_detection/rcnn.png'/> 
+<img src='/images/object_detection/rcnn.jpg'/> 
 </p>  
 
 ### Selective Search
@@ -263,7 +263,7 @@ Typical training routine in all object detection algorithm consists of calculati
 ### Intersection Over Union (IOU)
 
 <p align="center">
-<img src='/images/object_detection/iou.png' width="60%"/> 
+<img src='/images/object_detection/iou.png' width="40%"/> 
 </p>  
 
 In the numerator we compute the area of overlap between the predicted bounding box and the ground-truth bounding box. The denominator is the area of union, or more simply, the area encompassed by both the predicted bounding box and the ground-truth bounding box. Dividing the area of overlap by the area of union yields our final score — the Intersection over Union.
@@ -271,7 +271,7 @@ In the numerator we compute the area of overlap between the predicted bounding b
 Here is 3 different scenarios where orange is ground-truth and blue is predicted bounding box:
 
 <p align="center">
-<img src='/images/object_detection/iou_example.png' width="60%"/> 
+<img src='/images/object_detection/iou_example.png' width="40%"/> 
 </p>  
 
 1. Poor IOU: Area of intersection is small compared to Area of Union which is greater, the ratio will be very low (Area of Intersection/Area of Union).
@@ -289,7 +289,7 @@ It might make sense to predict the width and the height of the bounding box, but
 Here is an example of 5 different anchor boxes,
 
 <p align="center">
-<img src='/images/object_detection/anchor_box.jpeg' width="60%"/> 
+<img src='/images/object_detection/anchor_box.jpeg' width="50%"/> 
 </p> 
 
 
@@ -350,7 +350,7 @@ To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.
 </span>
 
 <p align="center">
-<img src='/images/object_detection/fastrcnn.png' /> 
+<img src='/images/object_detection/fastrcnn.png' width="50%"/> 
 </p>
 
 
@@ -359,7 +359,7 @@ To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.
 The RoI pooling layer uses max pooling to convert the features inside any valid region of interest into a small feature map with a fixed spatial extent of H × W (e.g. 7 x 7). In example below, with input ROI of 5×7, and output of 2×2, the area for each pooling area is 2×3 or 3×3 after rounding. Region of Interest Pooling allowed for sharing expensive computations and made the model much faster.
 
 <p align="center">
-<img src='/images/object_detection/roi_pooling.png' /> 
+<img src='/images/object_detection/roi_pooling.png' width="50%"/> 
 </p>
 
 ### Advantages over R-CNN
@@ -386,7 +386,7 @@ To overcome shortcomings of Fast R-CNN, Grishick(again!) et al proposes faster a
 </span>
 
 <p align="center">
-<img src='/images/object_detection/fasterrcnn.png' /> 
+<img src='/images/object_detection/fasterrcnn.png' width="50%"/> 
 </p>
 
 
@@ -404,7 +404,7 @@ RPN were introduce to replace slow selective search which proposes region propos
 </span>
 
 <p align="center">
-<img src='/images/object_detection/rpn.png' /> 
+<img src='/images/object_detection/rpn.png' width="50%"/> 
 </p>
 
 In Faster R-CNN, the “proposals” are dense sliding windows of 3 scales (128, 256, 512) and 3 aspect ratios (1:1, 1:2, 2:1).
@@ -444,7 +444,7 @@ Jointly train for 4 losses RPN classify (object or not object), RPN regression b
 Results from pretrained model using tensorflow Object Detection API using Faster R-CNN with Inception pretrained model,
 
 <p align="center">
-<img src='/images/object_detection/fasterrcnn_inception.png' /> 
+<img src='/images/object_detection/fasterrcnn_inception.jpg' /> 
 </p>
 
 ## R-FCN
@@ -464,7 +464,7 @@ Results from pretrained model using tensorflow Object Detection API using Faster
 In short, Region Proposal Network (RPN), which is a fully convolutional architecture is used to extract candidate regions. Given the proposal regions (RoIs), the R-FCN architecture is designed to classify the RoIs into object categories and background.
 
 <p align="center">
-<img src='/images/object_detection/rfcn.png' /> 
+<img src='/images/object_detection/rfcn.png' width="50%"/> 
 </p>
 
 ### Position-sensitive score maps and Position-sensitive ROI pooling
@@ -472,7 +472,7 @@ In short, Region Proposal Network (RPN), which is a fully convolutional architec
 The last convolutional layer of  produces a bank of $$k^2$$ position-sensitive score maps for each category, and thus has a $$k^2(C+1)$$ -channel output layer with C object categories (+1 for background). The bank of $$k^2$$ score maps correspond to a k x k spatial grid describing relative positions. For example, with k x k = 3 x 3, the 9 score maps encode the cases of {top-left, top-center, top-right, ..., bottom-right} of an object category.
 
 <p align="center">
-<img src='/images/object_detection/rfcn_maps.png' /> 
+<img src='/images/object_detection/rfcn_maps.png' width="50%"/> 
 </p>
 
 When ROI pooling, (C+1) feature maps with size of $$k^2$$ are produced, i.e. $$k^2(C+1)$$. The pooling is done in the sense that they are pooled with the same area and the same color in the figure. Average voting is performed to generate (C+1) 1d-vector. And finally softmax is performed on the vector.
@@ -480,7 +480,7 @@ When ROI pooling, (C+1) feature maps with size of $$k^2$$ are produced, i.e. $$k
 Consider for example following example of R-FCN detecting a baby, 
 
 <p align="center">
-<img src='/images/object_detection/rfcn_roi.png' /> 
+<img src='/images/object_detection/rfcn_roi.png' width="50%"/> 
 </p>
 
 As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example as,
@@ -505,7 +505,7 @@ As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example a
 </span>
 
 <p align="center">
-<img src='/images/object_detection/ssd.png' /> 
+<img src='/images/object_detection/ssd.png' width="50%"/> 
 </p>
 
 To put simply, SSD approach is based on a feed-forward convolutional network that produces a fixed-size collection of bounding boxes and scores for the presence of object class instances in those boxes, followed by a non-maximum suppression step to produce the final detections.
@@ -515,7 +515,7 @@ To put simply, SSD approach is based on a feed-forward convolutional network tha
 There are “extra feature layers” as seen in above architecture at the end that scale down in size. These varying-size feature maps help capture objects of different sizes, where each feature map is associated with a set of default bouding boxes. At each feature map cell, network predict the offsets relative to the default box shapes in the cell, as well as the per-class scores that indicate the presence of a class instance in each of those boxes. Specifically, for each box out of k at a given location, network computes c class scores and the 4 offsets relative to the original default box shape. This results in a total of (c + 4)k filters that are applied around each location in the feature map, yielding (c + 4)kmn outputs for a m × n feature map. Default boxes are similar to the anchor boxes used in Faster R-CNN only they are applied them to several feature maps of different resolutions.
 
 <p align="center">
-<img src='/images/object_detection/ssd_feature_map.png' /> 
+<img src='/images/object_detection/ssd_feature_map.png' width="50%"/> 
 </p>
 
 Consider above example where, SSD evaluates a small set (e.g. 4) of default boxes of different aspect ratios at each location in several feature maps with different scales (e.g. 8 x 8 and 4 x 4 in middle and right images). For each default box, SSD predict
@@ -543,7 +543,7 @@ The model loss is a weighted sum between localization loss (e.g. Smooth L1) and 
 Here are some results using SSD and Inception as backbone architecture,
 
 <p align="center">
-<img src='/images/object_detection/ssd_inception_result.png' /> 
+<img src='/images/object_detection/ssd_inception_result.jpg' /> 
 </p>
 
 ## YOLO
@@ -645,7 +645,7 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 Here are some results using YOLOv3,
 
 <p align="center">
-<img src='/images/object_detection/yolov3_result.png' /> 
+<img src='/images/object_detection/yolov3_result.jpg' /> 
 </p>
 
 ## RetinaNet
