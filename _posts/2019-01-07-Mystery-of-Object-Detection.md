@@ -90,7 +90,7 @@ There are two different types of cross entropy functions depending on number of 
 
 - **Binary Classification**
 
-As name suggests, there will be binary(two) classes. If we have two classes to classify our images into, then we use binary cross entropy. Cross entropy loss penalizes heavily the predictions that are confident but wrong. Suppose, $$\mathbf{\hat{y}}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or original) value. For M example, binary cross entropy can be forumlated as, 
+As name suggests, there will be binary(two) classes. <span class='red'>If we have two classes to classify our images into, then we use binary cross entropy. Cross entropy loss penalizes heavily the predictions that are confident but wrong.</span> Suppose, $$\mathbf{\hat{y}}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or original) value. For M example, binary cross entropy can be forumlated as, 
 
 $$
 \begin{aligned}
@@ -101,7 +101,7 @@ $$
 
 - **Multi-class Classification**
 
-As name suggests, if there are more than two classes that we want our images to be classified into, then we use multi-class classification error function. It is used as a loss function in neural networks which have softmax activations in the output layer. The model outputs the probability the example belonging to each class. For classifying into C classes, where C > 2, multi-class classification is given by,  
+As name suggests,<span class='red'> if there are more than two classes that we want our images to be classified into, then we use multi-class classification error function. It is used as a loss function in neural networks which have softmax activations in the output layer.</span> The model outputs the probability the example belonging to each class. For classifying into C classes, where C > 2, multi-class classification is given by,  
 
 $$
 \begin{aligned}
@@ -112,11 +112,11 @@ $$
 
 **Regression Loss**
 
-In regression, model outputs a number. This output number is then compared with our expected value to get a measure of error. For example, we wanted to predict the prices of houses in the neighbourhood. So, we give our model different features(like number of bedrooms, number of bathrooms, area, etc) and ask the model to output the price of house.
+<span class='red'>In regression, model outputs a number. This output number is then compared with our expected value to get a measure of error.</span> For example, we wanted to predict the prices of houses in the neighbourhood. So, we give our model different features(like number of bedrooms, number of bathrooms, area, etc) and ask the model to output the price of house.
 
 - **Mean Squared Error(MSE)**
 
-These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. It’s only concerned with the average magnitude of error irrespective of their direction. However, due to squaring, predictions which are far away from actual values are penalized heavily in comparison to less deviated predictions. This error is also known as L1 loss. Suppose, $$\mathbf{\hat{y}}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For M training example, mse loss can be forumlated as, 
+<span class='red'>These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. It’s only concerned with the average magnitude of error irrespective of their direction.</span> However, due to squaring, predictions which are far away from actual values are penalized heavily in comparison to less deviated predictions. This error is also known as L1 loss. Suppose, $$\mathbf{\hat{y}}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For M training example, mse loss can be forumlated as, 
 
 $$
 \begin{aligned}
@@ -126,7 +126,7 @@ $$
 
 - **Mean Absolute Error(MAE)**
 
-Similar to one above, this loss takes absolute error difference between target and predicted output. Like MSE, this as well measures the magnitude of error without considering their direction. The difference is MAE is more robust to outliers since it does not make use of square. This error is also known as L1 loss.
+<span class='red'>Similar to one above, this loss takes absolute error difference between target and predicted output. Like MSE, this as well measures the magnitude of error without considering their direction.</span> The difference is MAE is more robust to outliers since it does not make use of square. This error is also known as L1 loss.
 
 $$
 \begin{aligned}
@@ -136,7 +136,7 @@ $$
 
 - **Root Mean Squared Error(RMSE)**
 
-Root mean square error will be just taking root of above \mathbf{L_{mse}}. The MSE penalizes large errors more strongly and therefore is very sensitive to outliers. To avoid this, we usually use the squared root version.
+<span class='red'>Root mean square error will be just taking root of above \mathbf{L_{mse}}. The MSE penalizes large errors more strongly and therefore is very sensitive to outliers. To avoid this, we usually use the squared root version.</span>
 
 $$
 \begin{aligned}
@@ -197,10 +197,9 @@ For further, take a look at cool explaination by Dr. Mike Pound on [Viola-Jones 
 
 One of the first deep learning approach using ConvNets was developed by LeCunn et al in architecture called [Overfeat](https://arxiv.org/pdf/1312.6229.pdf). They provide integrated approach to object detection, recognition and localization with a single ConvNet. As we have discussed before, in this algorithm there are two parts of network, classification and localization. The classification network(Overfeat architecture) is trained on Imagenet classifying object into one of 1000 categories. The classifier layers of classification network is replaced by regression network which predicts object bounding box at each spatial location and scale. In OverFeat, the region-wise features come from a sliding window of one aspect ratio over a scale pyramid. These features are used to simultaneously determine the location and category of objects. On the 200-class ILSVRC2013 detection dataset, OverFeat achieved mean average precision (mAP) of 24.3%. Let's analyse the steps used in the algorithm:
 
-<span class="saddlebrown">
-- Train a CNN model (similar to AlexNet) on the image classification task.
-- Replace the top classifier layers by a regression network and train it to predict object bounding boxes at each spatial location and scale. The regressor is class-specific, each generated for one image class. 
-</span>
+- <span class="saddlebrown">Train a CNN model (similar to AlexNet) on the image classification task.</span>
+- <span class="saddlebrown">Replace the top classifier layers by a regression network and train it to predict object bounding boxes at each spatial location and scale. The regressor is class-specific, each generated for one image class. </span>
+
 
 The working of algorithm can be explained by an example of detecting bear shown below.
 
@@ -320,7 +319,7 @@ A common evaluation metric used in many object recognition and detection tasks i
 
 ### Loss Functions
 
-In general for all object detection algorithms, there are two main objective functions to minimize. The first one is classfication loss($$\mathcal{L}_{cls}$$) which we have seen multiple times, but this classification loss is multi-class classification loss which translates to log-loss we defined above. The second loss function is regression loss($$\mathcal{L}_{reg}$$) over predicted 4 values of bounding boxes which as we have defined above as combination of L1 loss and L2 loss also known as "smooth L1 loss". Smooth L1-loss combines the advantages of L1-loss (steady gradients for large values of x) and L2-loss (less oscillations during updates when x is small).
+In general for all object detection algorithms, there are two main objective functions to minimize. The first one is classfication loss($$\mathcal{L}_{cls}$$) which we have seen multiple times, but this classification loss is multi-class classification loss which translates to log-loss we defined above. The second loss function is regression loss($$\mathcal{L}_{reg}$$) over predicted 4 values of bounding boxes which as we have defined above as combination of L1 loss and L2 loss also known as <span class='blue'>smooth L1 loss</span>. Smooth L1-loss combines the advantages of L1-loss (steady gradients for large values of x) and L2-loss (less oscillations during updates when x is small).
 
 $$
 \begin{aligned}
@@ -484,7 +483,7 @@ Consider for example following example of R-FCN detecting a baby,
 
 As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example as,
 
-> Simply put, R-FCN considers each region proposal, divides it up into sub-regions, and iterates over the sub-regions asking: “does this look like the top-left of a baby?”, “does this look like the top-center of a baby?” “does this look like the top-right of a baby?”, etc. It repeats this for all possible classes. If enough of the sub-regions say “yes, I match up with that part of a baby!”, the RoI gets classified as a baby after a softmax over all the classes.
+> <span class='purple'>Simply put, R-FCN considers each region proposal, divides it up into sub-regions, and iterates over the sub-regions asking: “does this look like the top-left of a baby?”, “does this look like the top-center of a baby?” “does this look like the top-right of a baby?”, etc. It repeats this for all possible classes. If enough of the sub-regions say “yes, I match up with that part of a baby!”, the RoI gets classified as a baby after a softmax over all the classes.</span>
 
 
 ### Advantages over Faster R-CNN
