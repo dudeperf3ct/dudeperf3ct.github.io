@@ -12,7 +12,7 @@ published : false
 
 In this notebook, we will try to answer to the question, "Can computer identify and locate the objects better than humans?"
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/object_detection_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/object_detection_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/object_detection_tensorflow.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/object_detection_fastai.ipynb) and [Demos](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Demos).  
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Keras/object_detection_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/PyTorch/object_detection_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Tensorflow/object_detection_tensorflow.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Fastai/object_detection_fastai.ipynb) and [Demos](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Demos).  
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -20,7 +20,10 @@ Hey yo, but how?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
--meme
+
+<p align="center">
+<img src='/images/object_detection/waldo.png' /> 
+</p>
 
 Feel free to jump anywhere,
 - [Loss Functions](#loss-functions)
@@ -32,7 +35,7 @@ Feel free to jump anywhere,
   - [R-CNN](#r-cnn)
   - [Fast R-CNN](#fast-r-cnn)
   - [Faster R-CNN](#faster-r-cnn)
-  - [R-FCN](#r-fnn)
+  - [R-FCN](#r-fcn)
   - [SSD](#ssd)
   - [YOLO](#yolo)
     - [YOLOv1](#yolov1)
@@ -41,8 +44,8 @@ Feel free to jump anywhere,
   - [RetinaNet](#retinanet)
   - [Backbones](#backbones)
     - [MobileNet](#mobilenet)
-    - [FPN](#fpn)
     - [ResNeXt](#resnext)
+    - [FPN](#fpn)
 - [Recap](#recap)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
@@ -161,7 +164,7 @@ There are also other loss functions like Focal Loss(which we define in RetinaNet
 <span class='red'>I-know-everything:</span> Yes, exactly. And we can run these experiments real-time on video too. There is some subtle difference in different types of detections which I will let this puppies and cat explain it.
 
 <p align="center">
-<img src='/images/object_detection/puppy.png' /> 
+<img src='/images/object_detection/puppy.png' width="60%"/> 
 </p>
 
 So, these are subtle differences in classification, localization, segmentation and instance segmentation. <span class='blue'>Here, the classification and localization task contains input single image and we are supposed to identify what class does that image belong to and where is it. But in object detection, this problem gets blown on a multiple scale. There can be any number of objects in image and each object will have different size in image, for given image we have to detect the category the object belong to and locate the object. This is what makes the challenge in detection very interesting.</span>
@@ -755,6 +758,20 @@ We have seen different architecture from above in various detector models. (b) i
 
 The other many othet backbones include ResNet, VGG, Inception, InceptionResNet etc.
 
+Here is a table of comparison to summarize the results on VOC 2007 test dataset of all detectors. Table borrowed from [this paper](https://arxiv.org/pdf/1807.05511.pdf).
+
+Methods        |  Trained on    | mAP(%)         | Test time(sec/img) |  FPS           |
+-------------- | -------------- | -------------- | --------------     | -------------- |
+R-CNN          |     07         |     66.0       |    32.84           | 0.03           |
+Fast R-CNN     |     07 + 12    |     66.9       |    1.72            | 0.6            |
+Faster R-CNN(Resnet)   |     07 + 12    |     83.8       |    2.24            | 0.4            |
+R-FCN          | 07 + 12 + coco |     83.6       |    0.17            | 5.9             |
+SSD300         |     07 + 12    |     74.3       |    0.02            | 46             |
+SSD512         |     07 + 12    |     76.8       |    0.05            | 19             |
+YOLOv1         |     07 + 12    |     63.4       |    0.02            | 45             |
+YOLOv2         |     07 + 12    |     78.6       |    0.03            | 40             |
+
+
 Here is some results from using object detection on video.
 
 <p align="center">
@@ -803,6 +820,12 @@ loss function - cost, error or objective function
 
 [CS231n Winter 2017 Lecture 11](https://www.youtube.com/watch?v=nDPWywWRIRo&list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq&index=11)
 
+Fastai 2018 part 2 lesson [8]() and [9]()
+
+[Awesome Face Recognition blog by Adam Geitgey](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
+
+[KL Divergence Explained](https://www.countbayesie.com/blog/2017/5/9/kullback-leibler-divergence-explained)
+
 [A More General Robust Loss Function](https://arxiv.org/abs/1701.03077)
 
 [Loss Functions](http://cs231n.github.io/linear-classify/)
@@ -833,12 +856,31 @@ YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.
 
 [Feature Pyramid Networks](https://arxiv.org/pdf/1612.03144.pdf)
 
+[Object Detection Overview](https://arxiv.org/pdf/1807.05511.pdf)
+
+[Object Detection Survey](https://arxiv.org/pdf/1808.07256.pdf)
+
+[Salient Object Detection: A Survey](https://arxiv.org/pdf/1411.5878.pdf)
+
 [Tensorflow detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
+
+[Face++](https://zsc.github.io/megvii-pku-dl-course/slides/Lecture6(Object%20Detection).pdf)
+
+Lilian's awesome blog on Object Detection [part 1](https://lilianweng.github.io/lil-log/2017/10/29/object-recognition-for-dummies-part-1.html) [part 2](https://lilianweng.github.io/lil-log/2017/12/15/object-recognition-for-dummies-part-2.html) [part 3](https://lilianweng.github.io/lil-log/2017/12/31/object-recognition-for-dummies-part-3.html) [part 4](https://lilianweng.github.io/lil-log/2018/12/27/object-detection-part-4.html)
 
 [Joyce Xu Object Detection Overview](https://towardsdatascience.com/deep-learning-for-object-detection-a-comprehensive-review-73930816d8d9)
 
+Tyrolabs Object Detection [part 1](https://tryolabs.com/blog/2017/08/30/object-detection-an-overview-in-the-age-of-deep-learning/) and [part 2](https://tryolabs.com/blog/2018/01/18/faster-r-cnn-down-the-rabbit-hole-of-modern-object-detection/)
+
 [Reviews of lot many architectures and model by SH Tsang](https://towardsdatascience.com/@sh.tsang)
 
+[YOLO from scratch PyTorch](https://blog.paperspace.com/how-to-implement-a-yolo-object-detector-in-pytorch/)
+
+[Focal Loss](https://towardsdatascience.com/retinanet-how-focal-loss-fixes-single-shot-detection-cb320e3bb0de)
+
+[Retinanet Intuition](https://medium.com/@14prakash/the-intuition-behind-retinanet-eb636755607d)
+
+[R* Family Overview](https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e)
 
 ---
 
@@ -846,6 +888,8 @@ YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.
 
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
+
+[Waldo Meme](https://hackernoon.com/wheres-waldo-terminator-edition-8b3bd0805741)
 
 [Puppies and cat example CS231n 2017 Lecture 11 Page 17](http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture11.pdf)
 
@@ -866,6 +910,8 @@ YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.
 [ResNeXt architecture and result](https://towardsdatascience.com/review-resnext-1st-runner-up-of-ilsvrc-2016-image-classification-15d7f17b42ac)
 
 [Original Man United Video](https://www.youtube.com/watch?v=oGDHL1coPrw)
+
+[Table of different detectors](https://arxiv.org/pdf/1807.05511.pdf)
 
 ---
 
