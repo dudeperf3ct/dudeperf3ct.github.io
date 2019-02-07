@@ -22,7 +22,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 
 <p align="center">
-<img src='/images/object_detection/waldo.png' width="60%"/> 
+<img src='/images/object_detection/waldo.png' width="70%"/> 
 </p>
 
 Feel free to jump anywhere,
@@ -143,6 +143,10 @@ $$
 \mathbf{L_{rmse}} = \sqrt{\frac{1}{M}\sum_{i=0}^{M} (\mathbf{y_{i}} - \mathbf{\hat{y}_{i}})^2}
 \end{aligned}
 $$
+
+<p align="center">
+<img src='/images/object_detection/loss_fn.png' width="50%"/> 
+</p>
 
 There are also other loss functions like Focal Loss(which we define in RetinaNet), SVM Loss(Hinge), KL Divergence, Huber Loss etc.
 
@@ -815,6 +819,8 @@ R-CNN - Region CNN
 
 [Some Thoughts About The Design Of Loss Functions](https://www.ine.pt/revstat/pdf/rs070102.pdf)
 
+[Different Loss Functions](https://heartbeat.fritz.ai/5-regression-loss-functions-all-machine-learners-should-know-4fb140e9d4b0)
+
 [CS231n Winter 2017 Lecture 11](https://www.youtube.com/watch?v=nDPWywWRIRo&list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq&index=11)
 
 Fastai 2018 part 2 lesson [8](https://www.youtube.com/watch?v=Z0ssNAbe81M&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia) and [9](https://www.youtube.com/watch?v=0frKXR-2PBY&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia&index=2)
@@ -887,6 +893,8 @@ Tyrolabs Object Detection [part 1](https://tryolabs.com/blog/2017/08/30/object-d
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
 [Waldo Meme](https://hackernoon.com/wheres-waldo-terminator-edition-8b3bd0805741)
+
+[Loss Function](https://heartbeat.fritz.ai/5-regression-loss-functions-all-machine-learners-should-know-4fb140e9d4b0)
 
 [Puppies and cat example CS231n 2017 Lecture 11 Page 17](http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture11.pdf)
 
