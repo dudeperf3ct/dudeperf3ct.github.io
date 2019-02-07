@@ -238,7 +238,7 @@ Introduction for using CNN for object detection gave rise to whole new networks 
 
 ### Selective Search
 
-The sliding window based approach used a window (grid of size say 7 x 7) which scans across the whole image and send that to classifier to classify if it is an object or not a object. Then there are various aspect ratio to be considered inside an image as different object can have different sizes. So, classifying for each location becomes extremely slow.<span class="yellow">But what if somehow someone provided us with 2000 potentially object containing regions regardless of their relative sizes and then our only job is to classify and localize based on these 2000 region proposals.</span>
+The sliding window based approach used a window (grid of size say 7 x 7) which scans across the whole image and send that to classifier to classify if it is an object or not a object. Then there are various aspect ratio to be considered inside an image as different object can have different sizes. So, classifying for each location becomes extremely slow. <span class="yellow">But what if somehow someone provided us with 2000 potentially object containing regions regardless of their relative sizes and then our only job is to classify and localize based on these 2000 region proposals.</span>
 
 <p align="center">
 <img src='/images/object_detection/selective_search.png' /> 
@@ -679,8 +679,11 @@ Let's make this concrete with an example,
 Suppose we have easy classified foreground object and background object with p=0.9 and p=0.1 respectively where p is probability of containig an object. If we calculate cross entropy and focal loss for each object ($$\alpha$$ = 0.25 and $$\gamma$$ = 2), we get
 
 CE(foreground) = -log(0.9) = 0.1053
+
 CE(background) = -log((1-0.1)) = 0.1053
+
 FL(foreground) = -1 x 0.25 x $$(1–0.9)^2$$ log(0.9)  = 0.00026
+
 FL(background) =  -1 x 0.25 x $$(1–(1–0.1))^2$$ log(1–0.1) = 0.00026
 
 - Scenario 2: Misclassified example
@@ -688,8 +691,11 @@ FL(background) =  -1 x 0.25 x $$(1–(1–0.1))^2$$ log(1–0.1) = 0.00026
 Suppose we have misclassified foreground object and misclassified background object with p=0.9 and p=0.1 respectively where p is probability of containig an object. If we calculate cross entropy and focal loss for each object ($$\alpha$$ = 0.25 and $$\gamma$$ = 2), we get
 
 CE(foreground) = -log(0.1) = 2.3025
+
 CE(background) = -log((1-0.9)) = 2.3025
+
 FL(foreground) = -1 x 0.25 x $$(1–0.1)^2$$ log(0.1)  = 0.4667
+
 FL(background) =  -1 x 0.25 x $$(1–(1–0.9))^2$$ log(1–0.9) = 0.4667
 
 - Scenario 3: Very easy classified example
@@ -697,8 +703,11 @@ FL(background) =  -1 x 0.25 x $$(1–(1–0.9))^2$$ log(1–0.9) = 0.4667
 Suppose we have very easy classified foreground object and background object with p=0.99 and p=0.01 respectively where p is probability of containig an object. If we calculate cross entropy and focal loss for each object ($$\alpha$$ = 0.25 and $$\gamma$$ = 2), we get
 
 CE(foreground) = -log(0.99) = 0.004
+
 CE(background) = -log((1-0.01)) = 0.004
+
 FL(foreground) = -1 x 0.25 x $$(1–0.99)^2$$ log(0.99)  =  2.5 x 1e-7
+
 FL(background) =  -1 x 0.25 x $$(1–(1–0.01))^2$$ log(1–0.01) = 2.5 x 1e-7
 
 
