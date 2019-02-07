@@ -227,7 +227,7 @@ Introduction for using CNN for object detection gave rise to whole new networks 
 </span>
 
 <p align="center">
-<img src='/images/object_detection/rcnn.jpg' width="50%"/> 
+<img src='/images/object_detection/rcnn.jpg' width="60%"/> 
 </p>  
 
 ### Selective Search
@@ -243,7 +243,7 @@ Here come the role of selective search, which uses an [hierarchical grouping alg
 The classifier network is AlexNet Network which acts as a feature extractor. For each proposal, a 4096-dimensional vector is computed which are then fed into SVM to classify the presence of the object within that candidate region proposal. This 4096-D vector also fed in a linear regressor to adapt the shapes of the bounding box for a region proposal and thus reduce localization errors.
 
 <p align="center">
-<img src='/images/object_detection/rcnn_region_proposal.png' /> 
+<img src='/images/object_detection/rcnn_region_proposal.png' width="60%"/> 
 </p>
 
 
