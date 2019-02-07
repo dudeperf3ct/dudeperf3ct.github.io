@@ -157,11 +157,11 @@ There are also other loss functions like Focal Loss(which we define in RetinaNet
 </p>
 
 
-<span class='red'>I-know-everything:</span> My dear Padwan, unfortunately this will be our last post on vision. So, let's make it count. Today we will see one of the most exiciting applications of vision, Object Detection. There are literally thousands of application examples we can use object detection in for example, self-driving car detect whatever you see(through cameras) which includes traffic light, pedestrian, other cars, etc., counting particular objects for keeping track, surveillance(*Not cool*), or given a vision to bot for following [cats](https://scanlime.org/2017/12/smart-camera-gimbal-bot-scanlime027/)(*Cool*). 
+<span class='red'>I-know-everything:</span> My dear Padwan, unfortunately this will be our last post on vision. So, let's make it count. Today we will see one of the most exciting applications of vision, Object Detection. There are literally thousands of application examples we can use object detection in for example, self-driving car detect whatever you see(through cameras) which includes traffic light, pedestrian, other cars, etc., counting particular objects for keeping track, surveillance(*Not cool*), or making a bot for following [cats](https://scanlime.org/2017/12/smart-camera-gimbal-bot-scanlime027/)(*Cool*). 
 
 <span class='green'>I-know-nothing:</span> So, will it be like we pass a image and we get what objects are present in image along with their locations?
 
-<span class='red'>I-know-everything:</span> Yes, exactly. And we can run these experiments real-time on video too. There is some subtle difference in different types of detections which I will let this puppies and cat explain it.
+<span class='red'>I-know-everything:</span> Yes, exactly.(*Always looking for end-to-end*) And we can run these experiments real-time on video too. There is some subtle difference in different types of detections which I will let this puppies and cat explain it.
 
 <p align="center">
 <img src='/images/object_detection/puppy.png' width="60%"/> 
@@ -169,7 +169,7 @@ There are also other loss functions like Focal Loss(which we define in RetinaNet
 
 So, these are subtle differences in classification, localization, segmentation and instance segmentation. <span class='blue'>Here, the classification and localization task contains input single image and we are supposed to identify what class does that image belong to and where is it. But in object detection, this problem gets blown on a multiple scale. There can be any number of objects in image and each object will have different size in image, for given image we have to detect the category the object belong to and locate the object. This is what makes the challenge in detection very interesting.</span>
 
-Now, that you have understood what we are doing in object detection. Let's look at some of the algorithms we can use to create such cool object detectors. *I mean very cool.*
+Now, that you have understood what we are doing in object detection. Let's look at some of the algorithms we can use to make such cool object detectors. *I mean very cool.*
 
 ## Viola Jones Detector
 
@@ -235,7 +235,7 @@ Introduction for using CNN for object detection gave rise to whole new networks 
 
 ### Selective Search
 
-The sliding window based approach used a window (grid of size say 7 x 7) which scans across the whole image and send that to classifier to classify if it is an object or not a object. Then there are various aspect ratio to be considered inside an image as different object can have different sizes. So, classifying for each location becomes extremely slow.</span class="yellow">But what if somehow someone provided us with 2000 potentially object containing regions regardless of their relative sizes and then our only job is to classify and localize based on these 2000 region proposals.</span>
+The sliding window based approach used a window (grid of size say 7 x 7) which scans across the whole image and send that to classifier to classify if it is an object or not a object. Then there are various aspect ratio to be considered inside an image as different object can have different sizes. So, classifying for each location becomes extremely slow.<span class="yellow">But what if somehow someone provided us with 2000 potentially object containing regions regardless of their relative sizes and then our only job is to classify and localize based on these 2000 region proposals.</span>
 
 <p align="center">
 <img src='/images/object_detection/selective_search.png' /> 
@@ -261,7 +261,7 @@ The classifier network is AlexNet Network which acts as a feature extractor. For
 
 Training routine consists of classifying object into N classes and also predicting predictions for bounding box containing object. 
 
-Typical training routine in all object detection algorithm consists of calculating Intersection Over Union(IOU). We will discuss about it below.
+Typical training routine in all object detection algorithm consists of calculating Intersection Over Union (IOU), Non-max suppression (NMS) and loss. We will discuss about it below.
 
 ### Intersection Over Union (IOU)
 
@@ -283,7 +283,7 @@ Here is 3 different scenarios where orange is ground-truth and blue is predicted
 
 As you can see, predicted bounding boxes that heavily overlap with the ground-truth bounding boxes have higher scores than those with less overlap. 
 
-An Intersection over Union score > 0.5 is normally considered a “good” prediction. 
+**An Intersection over Union score > 0.5 is normally considered a “good” prediction.** 
 
 ### Anchor Boxes
 
@@ -359,7 +359,7 @@ To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.
 
 ### ROI Pooling
 
-The RoI pooling layer uses max pooling to convert the features inside any valid region of interest into a small feature map with a fixed spatial extent of H × W (e.g. 7 x 7). In example below, with input ROI of 5×7, and output of 2×2, the area for each pooling area is 2×3 or 3×3 after rounding. Region of Interest Pooling allowed for sharing expensive computations and made the model much faster.
+The RoI pooling layer uses max pooling to convert the features inside any valid region of interest into a small feature map with a fixed spatial extent of H×W (e.g. 7x7). In example below, with input ROI of 5×7, and output of 2×2, the area for each pooling area is 2×3 or 3×3 after rounding. Region of Interest Pooling allowed for sharing expensive computations and made the model much faster.
 
 <p align="center">
 <img src='/images/object_detection/roi_pooling.png' width="70%"/> 
@@ -400,7 +400,7 @@ RPN were introduce to replace slow selective search which proposes region propos
 <span class="saddlebrown">
 - First, the picture goes through conv layers and feature maps are extracted
 - Then a sliding window is used in RPN for each location over the feature map
-- For each location, k (k=9) anchor boxes are used (3 scales of 128, 256 and 512, and 3 aspect ratios of 1:1, 1:2, 2:1) for generating region proposals
+- For each location, k (k=9) anchor boxes (3 scales of 128, 256 and 512, and 3 aspect ratios of 1:1, 1:2, 2:1) are used for generating region proposals
 - A classification layer outputs 2k scores whether there is object or not for k boxes
 - A regression layer outputs 4k for the coordinates (box center coordinates, width and height) of k boxes
 - With a size of W×H feature map, there are WHk anchors in total.
@@ -644,7 +644,6 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 
 - YOLOv3 is much better than SSD variants and comparable to state-of-the-art model (not, RetinaNet though which takes 3.8x longer to process an image) and very very fast
 
-
 Here are some results using YOLOv3,
 
 <p align="center">
@@ -718,7 +717,7 @@ These three scenarios clearly show that Focal loss add very less weight to well 
 
 This  base  is responsible for creating a feature map  that is embedded  with salient information about the image. The accuracy for the object detector is highly related to how well the convolutional base(backbones) can capture meaningful information about the image. The base takes the image through a series of convolutions that make the image smaller and deeper. This process allows the network to make sense of the various shapes in the image. Many of the detection algorithms use of the following backbone architecture depending on trade-off in inference speed and accuracy, space vs latency. These are called backbone architecture which forms a base for detection algorithms upon which we add subnetworks for classifications and regression tasks.
 
-- **MobileNet**
+### MobileNet
 
 As the name suggests, this network is more suitable for low power appliances like mobile and embedded applications. [MobileNets](https://arxiv.org/pdf/1704.04861.pdf) are light weight because they use depthwise separable convolutions.
 
@@ -732,7 +731,7 @@ Here is a comparison of different backbones versus MobileNet,
 <img src='/images/object_detection/mobilenet_compare.png' /> 
 </p>
 
-- **ResNeXt**
+### ResNeXt
 
 [ResNext](https://arxiv.org/pdf/1611.05431.pdf) draws inspiration from lot of architecture.<span class="red"> VGG-nets and ResNets show imple yet effective strategy of constructing very deep network by stacking building blocks of same shape. The Inception models adopt split-transform-merge strategy. ResNext combines these two strategies. It's simple design compared to ResNet architecture and accurate.</span>
 
@@ -746,12 +745,12 @@ Here is a comparison of different architecture versus MobileNet,
 <img src='/images/object_detection/resnext_compare.png' /> 
 </p>
 
-- **Feature Pyramid Networks**
+### Feature Pyramid Networks
 
 Feature pyramids are a basic component in recognition systems for detecting objects at different scales. But are avoided as they are compute and memory intensive. [FPN](https://arxiv.org/pdf/1612.03144.pdf) construct feature pyramids with lateral connections is developed for building high-level semantic feature maps at all scales.
 
 <p align="center">
-<img src='/images/object_detection/fpn.png' /> 
+<img src='/images/object_detection/fpn.png' width="60%"/> 
 </p>
 
 We have seen different architecture from above in various detector models. (b) is used in YOLO, (c) is used in SSD, (d) is FPN where it combines low-resolution, semantically strong features with high-resolution, semantically weak features via a top-down pathway and lateral connections.
@@ -784,7 +783,7 @@ Here is a quick recap, so we saw there are broadly two types, two-stage detector
 
 ---
 
-This completes our journey in Object Detection Land. 
+This completes our journey in Object Detection Land.
 
 This only explains <span class='purple'>Mystery of Object Detection</span>, then we have Semantic Segementation and Instance Segmentation. One notable architecture from both are U-Net and Mask R-CNN respectively. Mask R-CNN results are so cool. 
 
@@ -794,7 +793,7 @@ Here is a glimpse of result from Mask R-CNN which is instance segmentation algor
 <img src='/images/object_detection/man_utd.gif' /> 
 </p>
 
-But Padwan, this will be our last interaction on images. Next, we will move to text, particularly, <span color='purple'>Power of RNN</span>.
+But Padwan, this will be our last interaction on images. Next, we will move to text, particularly, <span class='purple'>Power of RNN</span>.
 
 
 <span class='orange'>Happy Learning!</span>
@@ -806,11 +805,15 @@ But Padwan, this will be our last interaction on images. Next, we will move to t
 
 Mystery of Object Detection - Object Detection
 
-ConvNets - Convolution Neural Networks
+ConvNets, CNN - Convolution Neural Networks
 
-neurons - unit
+Power of RNN - Recurrent Neural Networks
 
 loss function - cost, error or objective function
+
+ResNet - Residual Networks
+
+R-CNN - Region CNN
 
 ---
 
@@ -820,7 +823,7 @@ loss function - cost, error or objective function
 
 [CS231n Winter 2017 Lecture 11](https://www.youtube.com/watch?v=nDPWywWRIRo&list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq&index=11)
 
-Fastai 2018 part 2 lesson [8]() and [9]()
+Fastai 2018 part 2 lesson [8](https://www.youtube.com/watch?v=Z0ssNAbe81M&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia) and [9](https://www.youtube.com/watch?v=0frKXR-2PBY&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia&index=2)
 
 [Awesome Face Recognition blog by Adam Geitgey](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
 
