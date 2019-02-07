@@ -22,7 +22,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 
 <p align="center">
-<img src='/images/object_detection/waldo.png' /> 
+<img src='/images/object_detection/waldo.png' width="60%"/> 
 </p>
 
 Feel free to jump anywhere,
