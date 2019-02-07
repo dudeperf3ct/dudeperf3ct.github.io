@@ -136,7 +136,7 @@ $$
 
 - **Root Mean Squared Error(RMSE)**
 
-<span class='red'>Root mean square error will be just taking root of above \mathbf{L_{mse}}. The MSE penalizes large errors more strongly and therefore is very sensitive to outliers. To avoid this, we usually use the squared root version.</span>
+<span class='red'>Root mean square error will be just taking root of above $$\mathbf{L_{mse}}$$. The MSE penalizes large errors more strongly and therefore is very sensitive to outliers. To avoid this, we usually use the squared root version.</span>
 
 $$
 \begin{aligned}
