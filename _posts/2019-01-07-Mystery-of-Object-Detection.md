@@ -161,7 +161,7 @@ There are also other loss functions like Focal Loss(which we define in RetinaNet
 </p>
 
 
-<span class='red'>I-know-everything:</span> My dear Padwan, unfortunately this will be our last post on vision. So, let's make it count. Today we will see one of the most exciting applications of vision, Object Detection. There are literally thousands of application examples we can use object detection in for example, self-driving car detect whatever you see(through cameras) which includes traffic light, pedestrian, other cars, etc., counting particular objects for keeping track, surveillance(*Not cool*), or making a bot for following [cats](https://scanlime.org/2017/12/smart-camera-gimbal-bot-scanlime027/)(*Cool*). 
+<span class='red'>I-know-everything:</span> My dear Padwan, unfortunately this will be our last post on vision. So, let's make it count. Today we will see one of the most exciting applications of vision, Object Detection. There are literally thousands of application examples we can use object detection in for example, self-driving car detect whatever you see(through cameras) which includes traffic light, pedestrian, other cars, etc., counting particular objects for keeping track, surveillance(*Not cool*), or making a bot for following [cats](https://scanlime.org/2017/12/smart-camera-gimbal-bot-scanlime027/)(*Cool*). Face Detection and recognition is itself a [challenge](https://arxiv.org/pdf/1804.09691.pdf) with lots of exicting models like [FaceNet](https://arxiv.org/pdf/1503.03832v3), [DeepFace](https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf), [HyperFace](https://arxiv.org/pdf/1603.01249.pdf) etc.
 
 <span class='green'>I-know-nothing:</span> So, will it be like we pass a image and we get what objects are present in image along with their locations?
 
@@ -834,6 +834,12 @@ R-CNN - Region CNN
 
 Fastai 2018 part 2 lesson [8](https://www.youtube.com/watch?v=Z0ssNAbe81M&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia) and [9](https://www.youtube.com/watch?v=0frKXR-2PBY&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia&index=2)
 
+[FaceNet](https://arxiv.org/pdf/1503.03832v3) 
+
+[DeepFace](https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf)
+
+[HyperFace](https://arxiv.org/pdf/1603.01249.pdf) 
+
 [Awesome Face Recognition blog by Adam Geitgey](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
 
 [KL Divergence Explained](https://www.countbayesie.com/blog/2017/5/9/kullback-leibler-divergence-explained)
@@ -871,6 +877,8 @@ YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.
 [Object Detection Overview](https://arxiv.org/pdf/1807.05511.pdf)
 
 [Object Detection Survey](https://arxiv.org/pdf/1808.07256.pdf)
+
+[Finding Tiny Faces](https://arxiv.org/pdf/1612.04402.pdf)
 
 [Salient Object Detection: A Survey](https://arxiv.org/pdf/1411.5878.pdf)
 
