@@ -304,7 +304,7 @@ This methods generalizes fairly to unobserved styles and content images.
 Random Fact: [Elmyr de Hory](http://www.intenttodeceive.org/forger-profiles/elmyr-de-hory/) gained world-wide fame by forging thousands of pieces of artwork and selling them to art dealers and museums.
 
 
-*So young padwan, wasn't it truly magical?* <span class='purple'> Magic of Style Transfer </span>. Similarly, in next post we will work on another cool application, <span class='purple'> Mystery of Object Detection </span>.
+*So young padwan, wasn't it truly magical?* <span class='purple'> Magic of Style Transfer </span>. Similarly, in next post we will work on another cool application, <span class='purple'> [Mystery of Object Detection](https://dudeperf3ct.github.io/object/detection/2019/01/07/Mystery-of-Object-Detection/) </span>.
 
 <span class='orange'>Happy Learning!</span>
 
