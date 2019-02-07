@@ -10,7 +10,7 @@ published : true
 
 # Object Detection
 
-In this notebook, we will try to answer to the question, "Can computer identify and locate the objects better than humans?"
+In this notebook, we will try to answer to the question, "Can computers identify and locate the objects better than humans?"
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Keras/object_detection_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/PyTorch/object_detection_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Tensorflow/object_detection_tensorflow.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Fastai/object_detection_fastai.ipynb) and [Demos](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Demos).  
 
@@ -57,7 +57,7 @@ Loss functions are the heart of deep learning algorithms (*in case you are wonde
 
 Loss function is defined in [Deep Learning book](https://www.deeplearningbook.org/contents/ml.html) as, 
 
-> The function we want to minimize or maximize is called the objective function or criterion. When we are minimizing it, we may also call it the cost function, loss function, or error function.
+> <span class='purple'>The function we want to minimize or maximize is called the objective function or criterion. When we are minimizing it, we may also call it the cost function, loss function, or error function.</span>
 
 There are lot many loss functions. But, broadly we can classify loss functions into two categories.
 
@@ -222,12 +222,12 @@ various aspect ratios of the predicted bounding boxes shows that the network is 
 
 Introduction for using CNN for object detection gave rise to whole new networks and kept pushing the boundary of state-of-the-art detectors. Quickly after OverFeat, Grishick et al proposed a method where they used selective search to extract 2000 regions which they called "region proposals" (regions with high probability of containing objects). Hence the name, Regions with CNN features, [R-CNN](https://arxiv.org/pdf/1311.2524.pdf). They perform classification and regression on these 2000 region proposals. This result improved the previous result set by Overfeat on ILSVRC2013 detection dataset of 24.3% to 31.4%, an astounding 30% improvement. Let's analyse the steps used in the algorithm:
 
-<span class="saddlebrown">
-- Extract possible objects using a region proposal method (the most popular one being Selective Search) to some fixed size
-- Extract features from each region using a CNN
-- Classify each region with SVMs (using hinge loss)
-- Predict offset loss to correct the prediction values of location produced in region proposal stage (using least square l2 loss)
-</span>
+
+- <span class="saddlebrown">Extract possible objects using a region proposal method (the most popular one being Selective Search) to some fixed size</span>
+- <span class="saddlebrown">Extract features from each region using a CNN</span>
+- <span class="saddlebrown">Classify each region with SVMs (using hinge loss)</span>
+- <span class="saddlebrown">Predict offset loss to correct the prediction values of location produced in region proposal stage (using least square l2 loss)</span>
+
 
 <p align="center">
 <img src='/images/object_detection/rcnn.jpg' width="60%"/> 
@@ -300,11 +300,11 @@ Here is an example of 5 different anchor boxes,
 
 Non-max suppression is a common algorithm used for cleaning up when multiple boxes are predicted for the same object. Here is how it works:
 
-<span class="saddlebrown">
-- Discard all boxes with prediction confidence of object less or equal to 0.6.
-- Pick the box with the largest prediction confidence output as a prediction.
-- Discard any remaining box with IoU greater than or equal to 0.5.
-</span>
+
+- <span class="saddlebrown">Discard all boxes with prediction confidence of object less or equal to 0.6</span>
+- <span class="saddlebrown">Pick the box with the largest prediction confidence output as a prediction</span>
+- <span class="saddlebrown">Discard any remaining box with IoU greater than or equal to 0.5</span>
+
 
 <p align="center">
 <img src='/images/object_detection/nms.png' width="60%"/> 
@@ -314,10 +314,9 @@ Non-max suppression is a common algorithm used for cleaning up when multiple box
 
 A common evaluation metric used in many object recognition and detection tasks is “mAP”, short for “mean average precision”. It is a number from 0 to 100; higher value is better. Here is how algorithm works:
 
-<span class="saddlebrown">
-- Given that target objects are in different classes, we first compute AP (which is area under Precision-Recall curve) separately for each class, and then average over classes.
-- A detection is a true positive if it has “intersection over union” (IoU) with a ground-truth box greater than some threshold (usually 0.5; if so, the metric is “mAP@0.5”)
-</span>
+- <span class="saddlebrown">Given that target objects are in different classes, we first compute AP (which is area under Precision-Recall curve) separately for each class, and then average over classes</span>
+- <span class="saddlebrown">A detection is a true positive if it has “intersection over union” (IoU) with a ground-truth box greater than some threshold (usually 0.5; if so, the metric is “mAP@0.5”)</span>
+
 
 ### Loss Functions
 
@@ -345,12 +344,12 @@ $$
 
 To overcome shortcomings of R-CNN, Grishick proposes [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf)  which employs several  innovations to improve training and testing speed while also increasing detection accuracy. Let's analyse the steps used in the algorithm:
 
-<span class="saddlebrown">
-- An input is entire image and a set of object proposals 
-- The network first processes the whole image with several convolutional (conv) and max pooling layers to produce a conv feature map
-- For each object proposal a region of interest (RoI) pooling layer extracts a fixed-length feature vector from the feature map
-- Each feature vector is fed into a sequence of fully connected (fc) layers that finally branch into two sibling output layers: one that produces softmax probability estimates over K object classes plus a catch-all background class and another layer that outputs four real-valued numbers for each of the K object classes. Each set of 4 values encodes refined bounding-box positions for one of the K classes
-</span>
+
+- <span class="saddlebrown">An input is entire image and a set of object proposals </span>
+- <span class="saddlebrown">The network first processes the whole image with several convolutional (conv) and max pooling layers to produce a conv feature map </span>
+- <span class="saddlebrown">For each object proposal a region of interest (RoI) pooling layer extracts a fixed-length feature vector from the feature map </span>
+- <span class="saddlebrown">Each feature vector is fed into a sequence of fully connected (fc) layers that finally branch into two sibling output layers: one that produces softmax probability estimates over K object classes plus a catch-all background class and another layer that outputs four real-valued numbers for each of the K object classes. Each set of 4 values encodes refined bounding-box positions for one of the K classes </span>
+
 
 <p align="center">
 <img src='/images/object_detection/fastrcnn.png' width="60%"/> 
@@ -381,12 +380,11 @@ The RoI pooling layer uses max pooling to convert the features inside any valid 
 
 To overcome shortcomings of Fast R-CNN, Grishick(again!) et al proposes faster architecture than previous attempts, hence the name Faster R-CNN. The introduce a Region Proposal Network (RPN) that shares full-image convolutional features with the detection network, thus enabling nearly cost-free region proposals(*finally*). An RPN is a fully convolutional network that simultaneously predicts object bounds and objectness scores at each position. The RPN is trained end-to-end to generate high-quality region proposals, which are used by Fast R-CNN for detection. Let's analyse the steps used in the algorithm:
 
-<span class="saddlebrown">
-- Input the image to CNN to produce fixed feature map
-- Extracted feature map is sent to two different network: RPN and Fast R-CNN
-- RPN uses features to predict region proposals
-- Once we have these region proposals it's just following Fast R-CNN algorithm where we want input, list of object proposals and input image
-</span>
+
+- <span class="saddlebrown">Input the image to CNN to produce fixed feature map</span>
+- <span class="saddlebrown">Extracted feature map is sent to two different network: RPN and Fast R-CNN</span>
+- <span class="saddlebrown">RPN uses features to predict region proposals</span>
+- <span class="saddlebrown">Once we have these region proposals it's just following Fast R-CNN algorithm where we want input, list of object proposals and input image</span>
 
 <p align="center">
 <img src='/images/object_detection/fasterrcnn.png' width="50%"/> 
@@ -397,14 +395,14 @@ To overcome shortcomings of Fast R-CNN, Grishick(again!) et al proposes faster a
 
 RPN were introduce to replace slow selective search which proposes region proposals with fast neural networks. Here is how RPN works:
 
-<span class="saddlebrown">
-- First, the picture goes through conv layers and feature maps are extracted
-- Then a sliding window is used in RPN for each location over the feature map
-- For each location, k (k=9) anchor boxes (3 scales of 128, 256 and 512, and 3 aspect ratios of 1:1, 1:2, 2:1) are used for generating region proposals
-- A classification layer outputs 2k scores whether there is object or not for k boxes
-- A regression layer outputs 4k for the coordinates (box center coordinates, width and height) of k boxes
-- With a size of W×H feature map, there are WHk anchors in total.
-</span>
+
+- <span class="saddlebrown">First, the picture goes through conv layers and feature maps are extracted</span>
+- <span class="saddlebrown">Then a sliding window is used in RPN for each location over the feature map</span>
+- <span class="saddlebrown">For each location, k (k=9) anchor boxes (3 scales of 128, 256 and 512, and 3 aspect ratios of 1:1, 1:2, 2:1) are used for generating region proposals</span>
+- <span class="saddlebrown">A classification layer outputs 2k scores whether there is object or not for k boxes</span>
+- <span class="saddlebrown">A regression layer outputs 4k for the coordinates (box center coordinates, width and height) of k boxes</span>
+- <span class="saddlebrown">With a size of W×H feature map, there are WHk anchors in total</span>
+
 
 <p align="center">
 <img src='/images/object_detection/rpn.png' width="60%"/> 
@@ -454,15 +452,13 @@ Results from pretrained model using tensorflow Object Detection API using Faster
 
 [R-FCN](https://arxiv.org/pdf/1605.06409.pdf) uses region-based, fully convolutional networks based approach for object detection where almost all computation shared on the entire image. He et al propose a solution of using "position-sensitive score maps" which takes into account both translation invariance for image classification (wherever the object is in image) and translation variance for drawing boxes around the classified object i.e. object detection. Essentially, these score maps are convolutional feature maps that have been trained to recognize certain parts of each object. Let's analyse the steps used in the algorithm:
 
-<span class="saddlebrown">
-- Run a backbone network (here, ResNet-101) over input image
-- Add FCN to generate banks of $$k^2$$ position-sensitive score maps for each category, i.e. $$k^2(C+1)$$ output where $$k^2$$ represents the number of relative positions to divide an object (e.g. $$3^2$$ for a 3 by 3 grid) and C+1 representing the number of classes plus the background.
-- Run a fully convolutional region proposal network (RPN) to generate regions of interest (RoI’s)
-- For each RoI, divide it into the same $$k^2$$ “bins” or subregions as the score maps
-- For each bin, check the score bank to see if that bin matches the corresponding position of some object. This process is repeated for each class.
-- Once each of the $$k^2$$ bins has an “object match” value for each class, average the bins to get a single score per class
-- Classify the RoI with a softmax over the remaining (C+1) dimensional vector
-</span>
+- <span class="saddlebrown">Run a backbone network (here, ResNet-101) over input image</span>
+- <span class="saddlebrown">Add FCN to generate banks of $$k^2$$ position-sensitive score maps for each category, i.e. $$k^2(C+1)$$ output where $$k^2$$ represents the number of relative positions to divide an object (e.g. $$3^2$$ for a 3 by 3 grid) and C+1 representing the number of classes plus the background</span>
+- <span class="saddlebrown">Run a fully convolutional region proposal network (RPN) to generate regions of interest (RoI’s)</span>
+- <span class="saddlebrown">For each RoI, divide it into the same $$k^2$$ “bins” or subregions as the score maps</span>
+- <span class="saddlebrown">For each bin, check the score bank to see if that bin matches the corresponding position of some object. This process is repeated for each class</span>
+- <span class="saddlebrown">Once each of the $$k^2$$ bins has an “object match” value for each class, average the bins to get a single score per class</span>
+- <span class="saddlebrown">Classify the RoI with a softmax over the remaining (C+1) dimensional vector</span>
 
 In short, Region Proposal Network (RPN), which is a fully convolutional architecture is used to extract candidate regions. Given the proposal regions (RoIs), the R-FCN architecture is designed to classify the RoIs into object categories and background.
 
@@ -500,12 +496,12 @@ As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example a
 
 [SSD](https://arxiv.org/pdf/1512.02325.pdf) is simple relative to previous methods that require object proposals because it completely eliminates proposal generation (*wooh*) and subsequent pixel or feature resampling stages and encapsulates all computation in a single network(*yay*). Hence, the name single shot detector (SSD). One model to solve them all. Simply remarkable. Let's analyse the steps used in the algorithm:
 
-<span class="saddlebrown">
-- Pass the image through a series of convolutional layers, yielding several sets of feature maps at different scales (e.g. 10x10, then 6x6, then 3x3, etc.)
-- For each location in each of these feature maps, use a 3x3 convolutional filter to evaluate a small set of default bounding boxes. These default bounding boxes are essentially equivalent to Faster R-CNN’s anchor boxes.
-- For each box, simultaneously predict a) the bounding box offset and b) the class probabilities
-- During training, match the ground truth box with these predicted boxes based on IoU. The best predicted box will be labeled a “positive,” along with all other boxes that have an IoU with the truth >0.5.
-</span>
+
+- <span class="saddlebrown">Pass the image through a series of convolutional layers, yielding several sets of feature maps at different scales (e.g. 10x10, then 6x6, then 3x3, etc.)</span>
+- <span class="saddlebrown">For each location in each of these feature maps, use a 3x3 convolutional filter to evaluate a small set of default bounding boxes. These default bounding boxes are essentially equivalent to Faster R-CNN’s anchor boxes</span>
+- <span class="saddlebrown">For each box, simultaneously predict a) the bounding box offset and b) the class probabilities</span>
+- <span class="saddlebrown">During training, match the ground truth box with these predicted boxes based on IoU. The best predicted box will be labeled a “positive,” along with all other boxes that have an IoU with the truth >0.5</span>
+
 
 <p align="center">
 <img src='/images/object_detection/ssd.png' width="70%"/> 
@@ -551,18 +547,17 @@ Here are some results using SSD and Inception as backbone architecture,
 
 ## YOLO
 
-You Only Live Once. No, it's not that. YOLO is You Only Look Once. So, cool. Wonder how would have they come with such cool acroynm.(*I mean reuse it*). Over the period of 3 years, 3 different versions of same algorithm with variations were proposed. Let's have a look at them one by one.
+<span class='red'>You Only Live Once. No, it's not that. YOLO is You Only Look Once. So, cool.</span> Wonder how would have they come with such cool acroynm.(*I mean reuse it*). Over the period of 3 years, 3 different versions of same algorithm with variations were proposed. Let's have a look at them one by one.
 
 ## YOLOv1
 
 [YOLOv1](https://arxiv.org/pdf/1506.02640.pdf) was the first algorithm to unite detection and localization in single network. Everything achieved in end-to-end fashion. Input to model, model does something and comes with predicted output (both class probability and location of object). Ross Girshick (*he's back!*) et al proposes a single convolutional network simultaneously predicts multiple bounding boxes and class probabilities for those boxes. YOLOv1 trains on full images and directly optimizes detection performance. Let's analyse the steps used in the algorithm:
 
-<span class="saddlebrown">
-- Input image passed to CNN network is divided into S x S grid (S = 7). If the center of an object falls into a grid cell, that grid cell is responsible for detecting that object.
-- Each grid cell predicts B bounding boxes and confidence scores for those boxes. If no object exists in that cell, the confidence scores should be zero.
-- Each bounding box consists of 5 predictions: x, y, w, h and confidence. The (x, y) coordinates represent the center of the box relative to the bounds of the grid cell. The width and height are predicted relative to the whole image. The confidence prediction represents the IOU between the predicted box and any ground truth box.
-- Each grid cell also predicts C conditional class probabilities, Pr($$Class_{i}$$ | Object). These probabilities are conditioned on the grid cell containing an object.
-</span>
+- <span class="saddlebrown">Input image passed to CNN network is divided into S x S grid (S = 7). If the center of an object falls into a grid cell, that grid cell is responsible for detecting that object.</span>
+- <span class="saddlebrown">Each grid cell predicts B bounding boxes and confidence scores for those boxes. If no object exists in that cell, the confidence scores should be zero.</span>
+- <span class="saddlebrown">Each bounding box consists of 5 predictions: x, y, w, h and confidence. The (x, y) coordinates represent the center of the box relative to the bounds of the grid cell. The width and height are predicted relative to the whole image. The confidence prediction represents the IOU between the predicted box and any ground truth box.</span>
+- <span class="saddlebrown">Each grid cell also predicts C conditional class probabilities, Pr($$Class_{i}$$ | Object). These probabilities are conditioned on the grid cell containing an object.</span>
+
 
 <p align="center">
 <img src='/images/object_detection/yolo_v1.png' /> 
