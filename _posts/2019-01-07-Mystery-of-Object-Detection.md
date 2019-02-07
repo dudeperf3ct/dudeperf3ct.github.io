@@ -227,7 +227,7 @@ Introduction for using CNN for object detection gave rise to whole new networks 
 </span>
 
 <p align="center">
-<img src='/images/object_detection/rcnn.jpg' width="60%"/> 
+<img src='/images/object_detection/rcnn.jpg' width="50%"/> 
 </p>  
 
 ### Selective Search
@@ -444,7 +444,7 @@ Jointly train for 4 losses RPN classify (object or not object), RPN regression b
 Results from pretrained model using tensorflow Object Detection API using Faster R-CNN with Inception pretrained model,
 
 <p align="center">
-<img src='/images/object_detection/fasterrcnn_inception.jpg' /> 
+<img src='/images/object_detection/fasterrcnn_inception.jpg' width="60%"/> 
 </p>
 
 ## R-FCN
@@ -505,7 +505,7 @@ As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example a
 </span>
 
 <p align="center">
-<img src='/images/object_detection/ssd.png' width="60%"/> 
+<img src='/images/object_detection/ssd.png' width="70%"/> 
 </p>
 
 To put simply, SSD approach is based on a feed-forward convolutional network that produces a fixed-size collection of bounding boxes and scores for the presence of object class instances in those boxes, followed by a non-maximum suppression step to produce the final detections.
@@ -543,7 +543,7 @@ The model loss is a weighted sum between localization loss (e.g. Smooth L1) and 
 Here are some results using SSD and Inception as backbone architecture,
 
 <p align="center">
-<img src='/images/object_detection/ssd_inception_result.jpg' /> 
+<img src='/images/object_detection/ssd_inception_result.jpg' width="60%"/> 
 </p>
 
 ## YOLO
@@ -628,7 +628,7 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 - New CNN architecutre with 53 layers, or popularly known among dark side as Darknet-53.
 
 <p align="center">
-<img src='/images/object_detection/yolo_v3.png' /> 
+<img src='/images/object_detection/yolo_v3.png' width="60%"/> 
 </p>
 
 - Replace softmax with independent logistic classifiers. Using a softmax imposes the assumption that each box has exactly one class which is often not the case. A multilabel approach better models the data.
@@ -645,7 +645,7 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 Here are some results using YOLOv3,
 
 <p align="center">
-<img src='/images/object_detection/yolov3_output.jpg' /> 
+<img src='/images/object_detection/yolov3_output.jpg' width="60%"/> 
 </p>
 
 ## RetinaNet
@@ -864,6 +864,8 @@ YOLO [v1](https://arxiv.org/pdf/1506.02640.pdf) [v2](https://arxiv.org/pdf/1612.
 [YOLO v1, v2, v3, Retinanet, FPN, MobileNet](https://towardsdatascience.com/@sh.tsang)
 
 [ResNeXt architecture and result](https://towardsdatascience.com/review-resnext-1st-runner-up-of-ilsvrc-2016-image-classification-15d7f17b42ac)
+
+[Original Man United Video](https://www.youtube.com/watch?v=oGDHL1coPrw)
 
 ---
 
