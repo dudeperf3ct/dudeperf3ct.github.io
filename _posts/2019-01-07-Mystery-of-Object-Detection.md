@@ -441,9 +441,11 @@ Jointly train for 4 losses RPN classify (object or not object), RPN regression b
 - Four loss functions to optimize (2 for RPN and 2 for Fast R-CNN)
 - Fully connected layers increase the parameters in network due to which inference time takes toll.(*Can we get rid of dense layers?*)
 
-Results from pretrained model using tensorflow Object Detection API using Faster R-CNN with Resnet pretrained model,
+Results from pretrained model using tensorflow Object Detection API using Faster R-CNN with Inception pretrained model,
 
-
+<p align="center">
+<img src='/images/object_detection/fasterrcnn_inception.png' /> 
+</p>
 
 ## R-FCN
 
@@ -538,6 +540,11 @@ The model loss is a weighted sum between localization loss (e.g. Smooth L1) and 
 - Better detection quality (mAP) than any before
 - Everything is done in single shot. Single network to solve them all (*Finally*)
 
+Here are some results using SSD and Inception as backbone architecture,
+
+<p align="center">
+<img src='/images/object_detection/ssd_inception_result.png' /> 
+</p>
 
 ## YOLO
 
@@ -634,6 +641,12 @@ IMO, this is one of the coolest technical paper ever written. We need more of th
 
 -  YOLOv3 is much better than SSD variants and comparable to state-of-the-art model (not, RetinaNet though which takes 3.8x longer to process an image) and very very fast
 
+
+Here are some results using YOLOv3,
+
+<p align="center">
+<img src='/images/object_detection/yolov3_result.png' /> 
+</p>
 
 ## RetinaNet
 
