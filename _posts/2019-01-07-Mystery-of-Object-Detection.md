@@ -778,7 +778,7 @@ YOLOv1         |     07 + 12    |     63.4       |    0.02            | 45      
 YOLOv2         |     07 + 12    |     78.6       |    0.03            | 40             |
 
 
-Here is some results from using object detection on video.
+Here is some result from using object detection on video.
 
 <p align="center">
 <img src='/images/object_detection/new_man_utd.gif' /> 
