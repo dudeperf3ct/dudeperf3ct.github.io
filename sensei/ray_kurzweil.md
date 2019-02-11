@@ -11,7 +11,7 @@ published: false
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. There is lesson in everything. <span class='red'>Happy Learning!</span>
 
-I really like the introduction given by the host for Ray everytime. I would do the same.
+I love the way Ray is introduced by the all hosts everytime. I would do the same.
 
 Ray Kurzweil is one of the world’s leading inventors, thinkers, and futurists, with a thirty-year track record of accurate predictions. Called "the restless genius" by The Wall Street Journal and "the ultimate thinking machine" by Forbes magazine, Kurzweil was selected as one of the top entrepreneurs by Inc. magazine, which described him as the "rightful heir to Thomas Edison." PBS selected him as one of the "sixteen revolutionaries who made America."
 
