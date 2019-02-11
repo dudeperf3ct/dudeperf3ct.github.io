@@ -16,6 +16,8 @@ Feel free to jump anywhere,
 - [Quotes](#quotes)
 - [Stories](#stories)
 
+> <span class="purple">I have in life all that I want right here. I love every day. I mean, I tap dance in here and work with nothing but people I like. There is no job in the world that is more fun than runnning Berkshire and I count myself lucky to be where I am.</span>
+
 Buffettism
 ===========================
 
