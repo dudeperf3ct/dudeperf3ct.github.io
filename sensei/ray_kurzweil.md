@@ -34,7 +34,7 @@ Then something else happen 2 million years ago, biological evolution decided to 
 Quotes
 ===========================
 
-Life beings at a billion examples.
+Life begins at a billion examples.
 
 
 Stories
