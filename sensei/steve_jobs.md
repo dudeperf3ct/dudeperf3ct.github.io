@@ -21,7 +21,7 @@ Feel free to jump anywhere,
 - [Mungerism](#mungerism)
 - [Quotes](#quotes)
 - [Stories](#stories)
-- [Commencement Address](#commencement-address)
+- [Stanford Commencement Address](#stanford-commencement-address)
 
 Jobsism
 ===========================
@@ -61,7 +61,7 @@ One of the things that Woz and I did was, we built blue boxes. These are obsolet
 
 
 
-Commencement Address
+Stanford Commencement Address
 ===========================
 
 This is a prepared text of the Commencement address delivered by Steve Jobs, CEO of Apple Computer and of Pixar Animation Studios, on June 12, 2005. All credits to [Stanford](https://www.youtube.com/watch?v=UF8uR6Z6KLc). 
