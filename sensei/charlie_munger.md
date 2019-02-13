@@ -94,10 +94,14 @@ When I urge a multidisciplinary approach I’m really asking you to ignore juris
 
 <span class='saddlebrown'>Since your academic structure by and large, doesn’t encourage minds jumping jurisdictional boundaries, you’re at a disadvantage because, in that one sense, even though academia’s very useful to you, you’ve been mistaught. So if our professors won’t give you an appropriate multidisciplinary approach – if each wants to overuse his own models and under use the important models in other disciplines – you can correct that folly yourself. You can reach out and grasp the model that better solves the overall problem. All you have to do is know it and develop the right mental habits. And it’s kind of fun to sit there and outthink people who are way smarter than you are because you’ve trained yourself to be more objective and multidisciplinary. Furthermore, there’s a lot of money in it – as I can testify from my own personal experience.</span>
 
+We read a lot. I don’t know anyone who’s wise who doesn’t read a lot. But that’s not enough: You have to have a temperament to grab ideas and do sensible things. Most people don’t grab the right ideas or don’t know what to do with them.
+
 Quotes
 ===========================
 
 All I want to know is where I’m going to die so I’ll never go there.
+
+The best thing a human being can do is to help another human being know more.
 
 Never spend more than you can earn.
 
@@ -114,6 +118,8 @@ Always invert.
 Every missed chance in life was an opportunity to behave well, to learn something.
 
 The best way to get what you want in life is to deserve what you want.
+
+Develop into a lifelong self-learner through voracious reading; cultivate curiosity and strive to become a little wiser every day.
 
 I have been a great actor for so long that I can no longer remember or know what I think about any subject.  ~ Sir Cedric Hardwicke
 
@@ -138,6 +144,8 @@ You change your mind when the facts change.
 I like the long-term investors who figure out something is going to work over the long term.
 
 All the wisdom in the world is not to be found in one little academic department. That would be a disastrous way to think and operate.
+
+Go to bed smarter than when you woke up.
 
 Stories
 ===========================
