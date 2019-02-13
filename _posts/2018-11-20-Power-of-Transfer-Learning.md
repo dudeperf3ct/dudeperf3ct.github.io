@@ -620,13 +620,17 @@ val_generator = val_datagen.flow(val_imgs, val_labels_enc, batch_size=16)
 def pretrained_models(name):
     
     if name == 'VGG16':
-        base_model = VGG16(weights='imagenet', include_top=False, 
-                           input_shape=input_shape)
- 
-        output = base_model.layers[-1].output
-        output = Flatten()(output)
-        
-    model = Model(inputs=base_model.input, outputs=output) 
+        base_model = VGG16(weights='imagenet', include_top=False, pooling='avg')
+        for layer in base_model.layers:
+          layer.trainable = False
+        x = base_model.output
+
+        x = Dense(256, activation='relu')(x)
+        x = Dropout(0.5)(x)
+        x = Dense(128, activation='relu')(x)
+        x = Dropout(0.7)(x)
+        output = Dense(1, activation='sigmoid')(x)
+        model = Model(inputs=base_model.input, outputs=output)
   
     return model
 
@@ -780,153 +784,113 @@ pd.DataFrame(layers, columns=['Layer Name', 'Layer Trainable'])
 
 
 ```python
-input_shape = vgg_model.output_shape[1]
-
-model = Sequential()
-model.add(vgg_model)
-model.add(Dense(512, activation='relu', input_dim=input_shape))
-model.add(Dropout(0.3))
-model.add(Dense(512, activation='relu'))
-model.add(Dropout(0.3))
-model.add(Dense(1, activation='sigmoid'))
-
-model.compile(loss='binary_crossentropy',
+vgg_model.compile(loss='binary_crossentropy',
               optimizer='Adam',
               metrics=['accuracy'])
 
-model.summary()
+es = EarlyStopping(monitor='val_acc', patience=5)
+
+vgg_model.summary()
 ```
 
-    _________________________________________________________________
-    Layer (type)                 Output Shape              Param #   
-    =================================================================
-    model_1 (Model)              (None, 25088)             14714688  
-    _________________________________________________________________
-    dense_1 (Dense)              (None, 512)               12845568  
-    _________________________________________________________________
-    dropout_1 (Dropout)          (None, 512)               0         
-    _________________________________________________________________
-    dense_2 (Dense)              (None, 512)               262656    
-    _________________________________________________________________
-    dropout_2 (Dropout)          (None, 512)               0         
-    _________________________________________________________________
-    dense_3 (Dense)              (None, 1)                 513       
-    =================================================================
-    Total params: 27,823,425
-    Trainable params: 13,108,737
-    Non-trainable params: 14,714,688
-    _________________________________________________________________
-
+      Layer (type)                 Output Shape              Param #   
+      =================================================================
+      input_1 (InputLayer)         (None, None, None, 3)     0         
+      _________________________________________________________________
+      block1_conv1 (Conv2D)        (None, None, None, 64)    1792      
+      _________________________________________________________________
+      block1_conv2 (Conv2D)        (None, None, None, 64)    36928     
+      _________________________________________________________________
+      block1_pool (MaxPooling2D)   (None, None, None, 64)    0         
+      _________________________________________________________________
+      block2_conv1 (Conv2D)        (None, None, None, 128)   73856     
+      _________________________________________________________________
+      block2_conv2 (Conv2D)        (None, None, None, 128)   147584    
+      _________________________________________________________________
+      block2_pool (MaxPooling2D)   (None, None, None, 128)   0         
+      _________________________________________________________________
+      block3_conv1 (Conv2D)        (None, None, None, 256)   295168    
+      _________________________________________________________________
+      block3_conv2 (Conv2D)        (None, None, None, 256)   590080    
+      _________________________________________________________________
+      block3_conv3 (Conv2D)        (None, None, None, 256)   590080    
+      _________________________________________________________________
+      block3_pool (MaxPooling2D)   (None, None, None, 256)   0         
+      _________________________________________________________________
+      block4_conv1 (Conv2D)        (None, None, None, 512)   1180160   
+      _________________________________________________________________
+      block4_conv2 (Conv2D)        (None, None, None, 512)   2359808   
+      _________________________________________________________________
+      block4_conv3 (Conv2D)        (None, None, None, 512)   2359808   
+      _________________________________________________________________
+      block4_pool (MaxPooling2D)   (None, None, None, 512)   0         
+      _________________________________________________________________
+      block5_conv1 (Conv2D)        (None, None, None, 512)   2359808   
+      _________________________________________________________________
+      block5_conv2 (Conv2D)        (None, None, None, 512)   2359808   
+      _________________________________________________________________
+      block5_conv3 (Conv2D)        (None, None, None, 512)   2359808   
+      _________________________________________________________________
+      block5_pool (MaxPooling2D)   (None, None, None, 512)   0         
+      _________________________________________________________________
+      global_average_pooling2d_1 ( (None, 512)               0         
+      _________________________________________________________________
+      dense_1 (Dense)              (None, 256)               131328    
+      _________________________________________________________________
+      dropout_1 (Dropout)          (None, 256)               0         
+      _________________________________________________________________
+      dense_2 (Dense)              (None, 128)               32896     
+      _________________________________________________________________
+      dropout_2 (Dropout)          (None, 128)               0         
+      _________________________________________________________________
+      dense_3 (Dense)              (None, 1)                 129       
+      =================================================================
+      Total params: 14,879,041
+      Trainable params: 164,353
+      Non-trainable params: 14,714,688
+      _________________________________________________________________
 
 
 ```python
-history = model.fit_generator(train_generator, 
-                              steps_per_epoch=50, 
-                              epochs=epochs,
-                              validation_data=val_generator, 
-                              validation_steps=50) 
+history = vgg_model.fit_generator(train_generator, 
+                                  steps_per_epoch=train_generator.n//train_generator.batch_size, 
+                                  epochs=50,
+                                  validation_data=val_generator, 
+                                  validation_steps=val_generator.n//val_generator.batch_size,
+                                  callbacks=[es]) 
 ```
 
+    WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+    Instructions for updating:
+    Use tf.cast instead.
     Epoch 1/50
-    50/50 [==============================] - 71s 1s/step - loss: 0.8805 - acc: 0.6373 - val_loss: 0.3111 - val_acc: 0.8612
+    50/50 [==============================] - 71s 1s/step - loss: 0.7123 - acc: 0.5368 - val_loss: 0.6182 - val_acc: 0.6913
     Epoch 2/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.4145 - acc: 0.8145 - val_loss: 0.2918 - val_acc: 0.8650
+    50/50 [==============================] - 61s 1s/step - loss: 0.5820 - acc: 0.7070 - val_loss: 0.4116 - val_acc: 0.8287
     Epoch 3/50
-    50/50 [==============================] - 61s 1s/step - loss: 0.3371 - acc: 0.8492 - val_loss: 0.2929 - val_acc: 0.8712
+    50/50 [==============================] - 62s 1s/step - loss: 0.4497 - acc: 0.7925 - val_loss: 0.3335 - val_acc: 0.8525
     Epoch 4/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.3755 - acc: 0.8210 - val_loss: 0.2396 - val_acc: 0.8888
+    50/50 [==============================] - 62s 1s/step - loss: 0.3996 - acc: 0.8243 - val_loss: 0.3250 - val_acc: 0.8550
     Epoch 5/50
-    50/50 [==============================] - 61s 1s/step - loss: 0.3447 - acc: 0.8423 - val_loss: 0.2149 - val_acc: 0.9175
+    50/50 [==============================] - 62s 1s/step - loss: 0.3721 - acc: 0.8447 - val_loss: 0.2676 - val_acc: 0.8788
     Epoch 6/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.3153 - acc: 0.8640 - val_loss: 0.1894 - val_acc: 0.9225
+    50/50 [==============================] - 61s 1s/step - loss: 0.3405 - acc: 0.8535 - val_loss: 0.2598 - val_acc: 0.8762
     Epoch 7/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.3164 - acc: 0.8600 - val_loss: 0.2024 - val_acc: 0.9187
+    50/50 [==============================] - 62s 1s/step - loss: 0.3188 - acc: 0.8615 - val_loss: 0.2539 - val_acc: 0.8838
     Epoch 8/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.3190 - acc: 0.8600 - val_loss: 0.2002 - val_acc: 0.9175
+    50/50 [==============================] - 62s 1s/step - loss: 0.3131 - acc: 0.8670 - val_loss: 0.2635 - val_acc: 0.8788
     Epoch 9/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2998 - acc: 0.8640 - val_loss: 0.2040 - val_acc: 0.9163
+    50/50 [==============================] - 62s 1s/step - loss: 0.3080 - acc: 0.8693 - val_loss: 0.2353 - val_acc: 0.8938
     Epoch 10/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2944 - acc: 0.8715 - val_loss: 0.1984 - val_acc: 0.9125
+    50/50 [==============================] - 62s 1s/step - loss: 0.3045 - acc: 0.8675 - val_loss: 0.2404 - val_acc: 0.8912
     Epoch 11/50
-    50/50 [==============================] - 61s 1s/step - loss: 0.3289 - acc: 0.8510 - val_loss: 0.2137 - val_acc: 0.9250
+    50/50 [==============================] - 61s 1s/step - loss: 0.2960 - acc: 0.8742 - val_loss: 0.2791 - val_acc: 0.8712
     Epoch 12/50
-    50/50 [==============================] - 61s 1s/step - loss: 0.3104 - acc: 0.8617 - val_loss: 0.1910 - val_acc: 0.9213
+    50/50 [==============================] - 61s 1s/step - loss: 0.3042 - acc: 0.8715 - val_loss: 0.2397 - val_acc: 0.8825
     Epoch 13/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2989 - acc: 0.8723 - val_loss: 0.1815 - val_acc: 0.9275
+    50/50 [==============================] - 62s 1s/step - loss: 0.2966 - acc: 0.8760 - val_loss: 0.2435 - val_acc: 0.8825
     Epoch 14/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2942 - acc: 0.8657 - val_loss: 0.1970 - val_acc: 0.9187
-    Epoch 15/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2808 - acc: 0.8825 - val_loss: 0.2038 - val_acc: 0.9125
-    Epoch 16/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2948 - acc: 0.8705 - val_loss: 0.1876 - val_acc: 0.9250
-    Epoch 17/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2816 - acc: 0.8772 - val_loss: 0.1874 - val_acc: 0.9275
-    Epoch 18/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2794 - acc: 0.8768 - val_loss: 0.1775 - val_acc: 0.9300
-    Epoch 19/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2708 - acc: 0.8812 - val_loss: 0.1897 - val_acc: 0.9213
-    Epoch 20/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2696 - acc: 0.8840 - val_loss: 0.1866 - val_acc: 0.9300
-    Epoch 21/50
-    50/50 [==============================] - 61s 1s/step - loss: 0.2720 - acc: 0.8775 - val_loss: 0.1997 - val_acc: 0.9263
-    Epoch 22/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2708 - acc: 0.8807 - val_loss: 0.1777 - val_acc: 0.9337
-    Epoch 23/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2663 - acc: 0.8845 - val_loss: 0.1934 - val_acc: 0.9175
-    Epoch 24/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2701 - acc: 0.8777 - val_loss: 0.1710 - val_acc: 0.9337
-    Epoch 25/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2845 - acc: 0.8753 - val_loss: 0.1993 - val_acc: 0.9137
-    Epoch 26/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2826 - acc: 0.8765 - val_loss: 0.1687 - val_acc: 0.9250
-    Epoch 27/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2785 - acc: 0.8800 - val_loss: 0.1716 - val_acc: 0.9313
-    Epoch 28/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2941 - acc: 0.8692 - val_loss: 0.1710 - val_acc: 0.9250
-    Epoch 29/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2738 - acc: 0.8767 - val_loss: 0.1851 - val_acc: 0.9175
-    Epoch 30/50
-    50/50 [==============================] - 61s 1s/step - loss: 0.2774 - acc: 0.8815 - val_loss: 0.2411 - val_acc: 0.9012
-    Epoch 31/50
-    50/50 [==============================] - 61s 1s/step - loss: 0.2896 - acc: 0.8692 - val_loss: 0.1796 - val_acc: 0.9325
-    Epoch 32/50
-    50/50 [==============================] - 61s 1s/step - loss: 0.2606 - acc: 0.8827 - val_loss: 0.1772 - val_acc: 0.9313
-    Epoch 33/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2440 - acc: 0.8962 - val_loss: 0.1727 - val_acc: 0.9287
-    Epoch 34/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2972 - acc: 0.8645 - val_loss: 0.1890 - val_acc: 0.9237
-    Epoch 35/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2464 - acc: 0.8975 - val_loss: 0.1734 - val_acc: 0.9263
-    Epoch 36/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2789 - acc: 0.8735 - val_loss: 0.1742 - val_acc: 0.9325
-    Epoch 37/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2821 - acc: 0.8755 - val_loss: 0.1747 - val_acc: 0.9287
-    Epoch 38/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2726 - acc: 0.8780 - val_loss: 0.1731 - val_acc: 0.9263
-    Epoch 39/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2693 - acc: 0.8800 - val_loss: 0.1896 - val_acc: 0.9200
-    Epoch 40/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2715 - acc: 0.8715 - val_loss: 0.1773 - val_acc: 0.9263
-    Epoch 41/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2521 - acc: 0.8877 - val_loss: 0.1700 - val_acc: 0.9313
-    Epoch 42/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2442 - acc: 0.8945 - val_loss: 0.1736 - val_acc: 0.9375
-    Epoch 43/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2552 - acc: 0.8865 - val_loss: 0.1925 - val_acc: 0.9250
-    Epoch 44/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2516 - acc: 0.8863 - val_loss: 0.1789 - val_acc: 0.9413
-    Epoch 45/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2498 - acc: 0.8910 - val_loss: 0.1749 - val_acc: 0.9275
-    Epoch 46/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2520 - acc: 0.8873 - val_loss: 0.1786 - val_acc: 0.9300
-    Epoch 47/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2518 - acc: 0.8947 - val_loss: 0.1664 - val_acc: 0.9363
-    Epoch 48/50
-    50/50 [==============================] - 61s 1s/step - loss: 0.2589 - acc: 0.8815 - val_loss: 0.1873 - val_acc: 0.9275
-    Epoch 49/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2603 - acc: 0.8865 - val_loss: 0.1737 - val_acc: 0.9387
-    Epoch 50/50
-    50/50 [==============================] - 60s 1s/step - loss: 0.2453 - acc: 0.8943 - val_loss: 0.1733 - val_acc: 0.9350
+    50/50 [==============================] - 62s 1s/step - loss: 0.2789 - acc: 0.8780 - val_loss: 0.2359 - val_acc: 0.8912
 
 
 
@@ -961,7 +925,7 @@ plt.show()
 
 
 ```python
-test_predictions = model.predict_on_batch(test_imgs/225.)
+test_predictions = vgg_model.predict_on_batch(test_imgs/225.)
 print (test_predictions.shape)
 ```
 
@@ -998,7 +962,7 @@ v_datagen = ImageDataGenerator(rescale=1./255)
 val_generator = val_datagen.flow(val_imgs, val_labels_enc, batch_size=batch_size)
 img, lbl = val_generator.next()
 
-v_predictions = model.predict_on_batch(img)
+v_predictions = vgg_model.predict_on_batch(img)
 print (v_predictions.shape, lbl.shape)
 print (v_predictions[:5], lbl[:5])
 ```
@@ -1038,7 +1002,7 @@ for idx in np.arange(20):
 
 
 ```python
-val_preds = model.predict(val_imgs, batch_size=batch_size)
+val_preds = vgg_model.predict(val_imgs, batch_size=batch_size)
 print (val_preds.shape, val_labels_enc.shape)
 ```
 
@@ -1059,7 +1023,7 @@ skplt.metrics.plot_confusion_matrix(val_labels_enc, val_preds.astype('int'), nor
 
 
 ```python
-model.save('bottleneck-features.h5')
+vgg_model.save('bottleneck-features.h5')
 ```
 
 ### Fine tuning
@@ -1067,10 +1031,7 @@ model.save('bottleneck-features.h5')
 
 ```python
 for i, layer in enumerate(vgg_model.layers):
-    print (i, layer.name, layer.trainable)
-    
-for i, layer in enumerate(model.layers):
-    print (i, layer.name, layer.trainable)
+  print (i, layer.name, layer.trainable)
 ```
 
     0 input_1 False
@@ -1092,33 +1053,34 @@ for i, layer in enumerate(model.layers):
     16 block5_conv2 False
     17 block5_conv3 False
     18 block5_pool False
-    19 flatten_1 False
-    0 model_1 False
-    1 dense_1 True
-    2 dropout_1 True
-    3 dense_2 True
-    4 dropout_2 True
-    5 dense_3 True
+    19 global_average_pooling2d_1 False
+    20 dense_1 True
+    21 dropout_1 True
+    22 dense_2 True
+    23 dropout_2 True
+    24 dense_3 True
 
 
 
 ```python
 # we chose to train the top 1 convolution block, i.e. we will freeze
 # the first 15 layers and unfreeze the rest:
-for layer in vgg_model.layers[:11]:
+for layer in vgg_model.layers[:15]:
     layer.trainable = False
-for layer in vgg_model.layers[11:]:
+for layer in vgg_model.layers[15:]:
     layer.trainable = True
 
 for i, layer in enumerate(vgg_model.layers):
     print (i, layer.name, layer.trainable)
     
     
-model.compile(loss='binary_crossentropy',
+vgg_model.compile(loss='binary_crossentropy',
               optimizer=SGD(lr=0.0001, momentum=0.9),
               metrics=['accuracy'])
-                 
-print (model.summary())
+               
+vgg_model.load_weights('bottleneck-features.h5')
+  
+print (vgg_model.summary())
 ```
 
     0 input_1 False
@@ -1132,86 +1094,134 @@ print (model.summary())
     8 block3_conv2 False
     9 block3_conv3 False
     10 block3_pool False
-    11 block4_conv1 True
-    12 block4_conv2 True
-    13 block4_conv3 True
-    14 block4_pool True
+    11 block4_conv1 False
+    12 block4_conv2 False
+    13 block4_conv3 False
+    14 block4_pool False
     15 block5_conv1 True
     16 block5_conv2 True
     17 block5_conv3 True
     18 block5_pool True
-    19 flatten_1 True
+    19 global_average_pooling2d_1 True
+    20 dense_1 True
+    21 dropout_1 True
+    22 dense_2 True
+    23 dropout_2 True
+    24 dense_3 True
     _________________________________________________________________
     Layer (type)                 Output Shape              Param #   
     =================================================================
-    model_1 (Model)              (None, 25088)             14714688  
+    input_1 (InputLayer)         (None, None, None, 3)     0         
     _________________________________________________________________
-    dense_1 (Dense)              (None, 512)               12845568  
+    block1_conv1 (Conv2D)        (None, None, None, 64)    1792      
     _________________________________________________________________
-    dropout_1 (Dropout)          (None, 512)               0         
+    block1_conv2 (Conv2D)        (None, None, None, 64)    36928     
     _________________________________________________________________
-    dense_2 (Dense)              (None, 512)               262656    
+    block1_pool (MaxPooling2D)   (None, None, None, 64)    0         
     _________________________________________________________________
-    dropout_2 (Dropout)          (None, 512)               0         
+    block2_conv1 (Conv2D)        (None, None, None, 128)   73856     
     _________________________________________________________________
-    dense_3 (Dense)              (None, 1)                 513       
+    block2_conv2 (Conv2D)        (None, None, None, 128)   147584    
+    _________________________________________________________________
+    block2_pool (MaxPooling2D)   (None, None, None, 128)   0         
+    _________________________________________________________________
+    block3_conv1 (Conv2D)        (None, None, None, 256)   295168    
+    _________________________________________________________________
+    block3_conv2 (Conv2D)        (None, None, None, 256)   590080    
+    _________________________________________________________________
+    block3_conv3 (Conv2D)        (None, None, None, 256)   590080    
+    _________________________________________________________________
+    block3_pool (MaxPooling2D)   (None, None, None, 256)   0         
+    _________________________________________________________________
+    block4_conv1 (Conv2D)        (None, None, None, 512)   1180160   
+    _________________________________________________________________
+    block4_conv2 (Conv2D)        (None, None, None, 512)   2359808   
+    _________________________________________________________________
+    block4_conv3 (Conv2D)        (None, None, None, 512)   2359808   
+    _________________________________________________________________
+    block4_pool (MaxPooling2D)   (None, None, None, 512)   0         
+    _________________________________________________________________
+    block5_conv1 (Conv2D)        (None, None, None, 512)   2359808   
+    _________________________________________________________________
+    block5_conv2 (Conv2D)        (None, None, None, 512)   2359808   
+    _________________________________________________________________
+    block5_conv3 (Conv2D)        (None, None, None, 512)   2359808   
+    _________________________________________________________________
+    block5_pool (MaxPooling2D)   (None, None, None, 512)   0         
+    _________________________________________________________________
+    global_average_pooling2d_1 ( (None, 512)               0         
+    _________________________________________________________________
+    dense_1 (Dense)              (None, 256)               131328    
+    _________________________________________________________________
+    dropout_1 (Dropout)          (None, 256)               0         
+    _________________________________________________________________
+    dense_2 (Dense)              (None, 128)               32896     
+    _________________________________________________________________
+    dropout_2 (Dropout)          (None, 128)               0         
+    _________________________________________________________________
+    dense_3 (Dense)              (None, 1)                 129       
     =================================================================
-    Total params: 27,823,425
-    Trainable params: 13,108,737
-    Non-trainable params: 14,714,688
+    Total params: 14,879,041
+    Trainable params: 7,243,777
+    Non-trainable params: 7,635,264
     _________________________________________________________________
     None
 
 
 
 ```python
-history = model.fit_generator(train_generator, 
-                              steps_per_epoch=50, 
-                              epochs=20,
-                              validation_data=val_generator, 
-                              validation_steps=50) 
+history = vgg_model.fit_generator(train_generator, 
+                                  steps_per_epoch=train_generator.n//train_generator.batch_size, 
+                                  epochs=50,
+                                  validation_data=val_generator, 
+                                  validation_steps=val_generator.n//val_generator.batch_size,
+                                  callbacks=[es]) 
 ```
 
-    Epoch 1/20
-    50/50 [==============================] - 83s 2s/step - loss: 0.2441 - acc: 0.8890 - val_loss: 0.1756 - val_acc: 0.9336
-    Epoch 2/20
-    50/50 [==============================] - 74s 1s/step - loss: 0.2423 - acc: 0.8928 - val_loss: 0.1749 - val_acc: 0.9328
-    Epoch 3/20
-    50/50 [==============================] - 74s 1s/step - loss: 0.2305 - acc: 0.8990 - val_loss: 0.1692 - val_acc: 0.9340
-    Epoch 4/20
-    50/50 [==============================] - 74s 1s/step - loss: 0.2361 - acc: 0.8977 - val_loss: 0.1740 - val_acc: 0.9276
-    Epoch 5/20
-    50/50 [==============================] - 74s 1s/step - loss: 0.2211 - acc: 0.9025 - val_loss: 0.1799 - val_acc: 0.9224
-    Epoch 6/20
-    50/50 [==============================] - 74s 1s/step - loss: 0.2389 - acc: 0.8950 - val_loss: 0.1687 - val_acc: 0.9348
-    Epoch 7/20
-    50/50 [==============================] - 74s 1s/step - loss: 0.2377 - acc: 0.8930 - val_loss: 0.1799 - val_acc: 0.9304
-    Epoch 8/20
-    50/50 [==============================] - 73s 1s/step - loss: 0.2223 - acc: 0.9048 - val_loss: 0.1756 - val_acc: 0.9296
-    Epoch 9/20
-    50/50 [==============================] - 73s 1s/step - loss: 0.2224 - acc: 0.9038 - val_loss: 0.1786 - val_acc: 0.9292
-    Epoch 10/20
-    50/50 [==============================] - 74s 1s/step - loss: 0.2282 - acc: 0.9042 - val_loss: 0.1745 - val_acc: 0.9300
-    Epoch 11/20
-    50/50 [==============================] - 73s 1s/step - loss: 0.2279 - acc: 0.9007 - val_loss: 0.1709 - val_acc: 0.9328
-    Epoch 12/20
-    50/50 [==============================] - 74s 1s/step - loss: 0.2212 - acc: 0.9045 - val_loss: 0.1815 - val_acc: 0.9232
-    Epoch 13/20
-    50/50 [==============================] - 73s 1s/step - loss: 0.2376 - acc: 0.8950 - val_loss: 0.1644 - val_acc: 0.9328
-    Epoch 14/20
-    50/50 [==============================] - 74s 1s/step - loss: 0.2226 - acc: 0.9012 - val_loss: 0.1711 - val_acc: 0.9304
-    Epoch 15/20
-    50/50 [==============================] - 73s 1s/step - loss: 0.2271 - acc: 0.9010 - val_loss: 0.1772 - val_acc: 0.9288
-    Epoch 16/20
-    50/50 [==============================] - 73s 1s/step - loss: 0.2334 - acc: 0.8975 - val_loss: 0.1728 - val_acc: 0.9284
-    Epoch 17/20
-    50/50 [==============================] - 74s 1s/step - loss: 0.2217 - acc: 0.9078 - val_loss: 0.1770 - val_acc: 0.9244
-    Epoch 18/20
-    50/50 [==============================] - 73s 1s/step - loss: 0.2311 - acc: 0.8915 - val_loss: 0.1694 - val_acc: 0.9284
-    Epoch 19/20
-    50/50 [==============================] - 73s 1s/step - loss: 0.2257 - acc: 0.9002 - val_loss: 0.1755 - val_acc: 0.9252
-    Epoch 20/20
-    50/50 [==============================] - 73s 1s/step - loss: 0.2298 - acc: 0.8950 - val_loss: 0.1602 - val_acc: 0.9340
+     Epoch 1/50
+    50/50 [==============================] - 68s 1s/step - loss: 0.2812 - acc: 0.8810 - val_loss: 0.2029 - val_acc: 0.9100
+    Epoch 2/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.2513 - acc: 0.8965 - val_loss: 0.1999 - val_acc: 0.9000
+    Epoch 3/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.2175 - acc: 0.9112 - val_loss: 0.1878 - val_acc: 0.9125
+    Epoch 4/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.2150 - acc: 0.9125 - val_loss: 0.1811 - val_acc: 0.9137
+    Epoch 5/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.1948 - acc: 0.9187 - val_loss: 0.1746 - val_acc: 0.9212
+    Epoch 6/50
+    50/50 [==============================] - 64s 1s/step - loss: 0.1977 - acc: 0.9240 - val_loss: 0.1729 - val_acc: 0.9288
+    Epoch 7/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.1911 - acc: 0.9233 - val_loss: 0.1923 - val_acc: 0.9225
+    Epoch 8/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.1868 - acc: 0.9257 - val_loss: 0.1797 - val_acc: 0.9275
+    Epoch 9/50
+    50/50 [==============================] - 64s 1s/step - loss: 0.1814 - acc: 0.9245 - val_loss: 0.1525 - val_acc: 0.9375
+    Epoch 10/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.1612 - acc: 0.9318 - val_loss: 0.1630 - val_acc: 0.9363
+    Epoch 11/50
+    50/50 [==============================] - 64s 1s/step - loss: 0.1675 - acc: 0.9362 - val_loss: 0.1660 - val_acc: 0.9337
+    Epoch 12/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.1631 - acc: 0.9355 - val_loss: 0.1481 - val_acc: 0.9375
+    Epoch 13/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.1648 - acc: 0.9372 - val_loss: 0.1649 - val_acc: 0.9325
+    Epoch 14/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.1619 - acc: 0.9320 - val_loss: 0.1361 - val_acc: 0.9437
+    Epoch 15/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.1434 - acc: 0.9420 - val_loss: 0.1510 - val_acc: 0.9387
+    Epoch 16/50
+    50/50 [==============================] - 64s 1s/step - loss: 0.1511 - acc: 0.9422 - val_loss: 0.1622 - val_acc: 0.9400
+    Epoch 17/50
+    50/50 [==============================] - 64s 1s/step - loss: 0.1408 - acc: 0.9487 - val_loss: 0.1432 - val_acc: 0.9500
+    Epoch 18/50
+    50/50 [==============================] - 63s 1s/step - loss: 0.1380 - acc: 0.9468 - val_loss: 0.1611 - val_acc: 0.9325
+    Epoch 19/50
+    50/50 [==============================] - 64s 1s/step - loss: 0.1381 - acc: 0.9455 - val_loss: 0.1452 - val_acc: 0.9462
+    Epoch 20/50
+    50/50 [==============================] - 64s 1s/step - loss: 0.1382 - acc: 0.9460 - val_loss: 0.1416 - val_acc: 0.9437
+    Epoch 21/50
+    50/50 [==============================] - 64s 1s/step - loss: 0.1329 - acc: 0.9478 - val_loss: 0.1463 - val_acc: 0.9425
+    Epoch 22/50
+    50/50 [==============================] - 64s 1s/step - loss: 0.1270 - acc: 0.9488 - val_loss: 0.1580 - val_acc: 0.9437
 
 
 
@@ -1246,7 +1256,7 @@ plt.show()
 
 
 ```python
-test_predictions = model.predict_on_batch(test_imgs)
+test_predictions = vgg_model.predict_on_batch(test_imgs)
 print (test_predictions.shape)
 ```
 
@@ -1279,7 +1289,7 @@ for idx in np.arange(20):
 
 
 ```python
-model.save('finetune.h5')
+vgg_model.save('finetune.h5')
 ```
 
 
@@ -1288,7 +1298,7 @@ v_datagen = ImageDataGenerator(rescale=1./255)
 val_generator = val_datagen.flow(val_imgs, val_labels_enc, batch_size=batch_size)
 img, lbl = val_generator.next()
 
-v_predictions = model.predict_on_batch(img)
+v_predictions = vgg_model.predict_on_batch(img)
 print (v_predictions.shape, lbl.shape)
 print (v_predictions[:5], lbl[:5])
 ```
@@ -1326,7 +1336,7 @@ for idx in np.arange(20):
 
 
 ```python
-val_preds = model.predict(val_imgs, batch_size=batch_size)
+val_preds = vgg_model.predict(val_imgs, batch_size=batch_size)
 print (val_preds.shape, val_labels_enc.shape)
 ```
 
