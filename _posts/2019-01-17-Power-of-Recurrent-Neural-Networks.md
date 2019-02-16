@@ -31,12 +31,13 @@ Feel free to jump anywhere,
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
-# Loss Functions
+# Text
+
 
 
 *In next post, we will switch from vision to text, we will understand Bag of Model and Embeddings. Stay tuned!*
 
-# Introduction to Object Detection
+# Introduction to Recurrent Neural Networks
 
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
