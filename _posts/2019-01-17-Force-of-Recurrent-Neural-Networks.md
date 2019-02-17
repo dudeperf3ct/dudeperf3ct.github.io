@@ -68,7 +68,7 @@ This will take us on a journey to understand what are RNN. How they so effective
 <img src='/images/rnn/simple_rnn.png' /> 
 </p>
 
-So, what can we infer by looking at the figure above. There is some context(t) which take in two inputs, Input(t) and context(t-1), which then produces output(t). Also, context(t-1) gets updated to context(t). There is some form of recursion. This is a Simple RNN which take in sequence input, to produce output. where context(t-1) is known as state. We will explore this in detail further below.
+So, what can we infer by looking at the figure above. There is some context(t) which take in two inputs, Input(t) and context(t-1), which then produces output(t). Also, context(t-1) gets updated to context(t). There is some form of recursion. This is a Simple RNN which take in sequence input, to produce output, where context(t-1) is known as state. We will explore this in detail further below.
 
 There are different types of sequence input and output combination that can be applied across various applications. 
 
@@ -99,7 +99,7 @@ $$
 \end{aligned}
 $$
 
-Here, $$\mathbf{h}_{t}$$, hidden layer of network acts as internal memory storing useful information about input and passing the same info to next hidden layer so that it can update the state (internal memory or hidden layer) as new input comes. In this way, <span class='red'>hidden layer sort of contains all this history of past inputs.</span>
+<span class='red'>Here, $$\mathbf{h}_{t}$$, hidden layer of network acts as internal memory storing useful information about input and passing the same info to next hidden layer so that it can update the state (internal memory or hidden layer) as new input comes. In this way, hidden layer sort of contains all this history of past inputs.</span>
 
 <p align="center">
 <img src='/images/rnn/rnn.png' width="90%"/> 
@@ -131,7 +131,7 @@ Training in RNNs is very similar to above. Also, the [loss functions](https://du
 
 Now, the backpropogation becomes BPTT i.e. <span class='saddlebrown'>jar jar backpropogation</span> meets long time lost sibling <span class='saddlebrown'> jar jar backpropogation through time</span>.
 
-What BPTT means is that the error is propagated through recurrent connections back in time for a specific number of time steps. Within BPTT the error is back-propagated from the last to the first timestep, while unrolling all the timesteps. This allows calculating the error for each timestep, which allows updating the weights. BPTT can be computationally expensive when you have a high number of timesteps.
+What BPTT means is that the error is propagated through recurrent connections back in time for a specific number of time steps. Within BPTT the error is back-propagated from the last to the first timestep, while unrolling all the timesteps. This allows calculating the error for each timestep, which allows updating the weights. *BPTT can be computationally expensive when you have a high number of timesteps.*
 
 Let's make this concrete with example.
 
