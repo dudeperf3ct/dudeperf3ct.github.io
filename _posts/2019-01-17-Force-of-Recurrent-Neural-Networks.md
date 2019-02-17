@@ -201,6 +201,15 @@ For example, we see that in the first time step when the RNN saw the character �
 Notice also that the first time the character “l” is input, the target is “l”, but the second time the target is “o”. The RNN therefore cannot rely on the input alone and must use its recurrent connection to keep track of the context to achieve this task.
 At test time, we feed a character into the RNN and get a distribution over what characters are likely to come next. We sample from this distribution, and feed it right back in to get the next letter.
 
+There are different ways we can feed input data to RNN. Here is the outline of 3 such methods which can be used as input to RNN.
+
+1. one-hot encoding inputs and one-hot encoding outputs 
+
+2. using the unique ids of input --> Embedding layer --> Output
+
+3. 
+
+
 This is how we train Character RNN. Now, let's see what we played with.
 
 ---
@@ -211,35 +220,93 @@ Here are some of the results trained on text data of Shaskpeare, Nietzsche, Obam
 **ShakespeareRNN**
 
 ```
+To be or not to bell,
+And made hus a polere of my hand.
 
+CORIOLANUS:
+I have be a there is shome to me,
+Well sheep had stain and shanger of a morth.
+
+SICINIUS:
+The such one state a childry, wherefore.
+
+MENENIUS:
+O worthy hands,
+The stroves of the son, time out to my stears on a man armon and wifold to hear hus that a stranges, who, the whare as he to me to he to me that tell thee,
+To see this bands of theing of a shripts and whom his sonsering with a store as was a solfor our thee?
+
+Second Servingman:
+Which he shallst an hally the strieges of subres of the cause, and thy barther of the chombers, breath my brow to tell thee to me, and this dause this his some himself so men,
+The secomair that a wenter's sides are as him as
+this and to see it hat.
+
+BRUTUS:
+With the so farst wise high this freens,
+But that with hapet heart the tales and have
+The sone of make this sour are, this the man much anse
+And which the partinious shall of a goneren sents,
+Which the word wind they shall a place they dised
+Is the didesters to make thy bast tongee
+To see a souse, that I have stay and farther, thy lord,
+Thou doth must courtest to he tas to be a man, and soul suck speach.
+
+BUCKINGHAM:
+Marry, my great strule, than a that of some at seting this true hard of the plint someting
+That thou wast now shall the compreased to me.
+To him of make of soul, we want to bear
+Which to being tood a chorded thought an hants
+And we discrack thee so the cried it seen,
+And most thou should breat on and my steat of the cords.
+
+KING RICHARD III:
+Thy word,
+Which thou day stand, stought they, sirst him them
+As thin stend and still a stallow hearts
+Our deviled on my love wort towe a man of thousand son that the were thou and the mean with a mate of a morrow.
+
+KING RICHARD II:
+Hade were is never be this thouser to the terme,
+To the creater and the cause and fline
+In sout to seed my states to be are true.
+
+BRUTUS:
+When, I what he,
+What how and the poist a mendy,
+And to her stint to take to that the mores, side they hath this sunce 
 
 ```
 
 **NietzscheRNN**
 
 ```
-every great philosophy seems, when as was through an intention or everything ortened, as
-an anciponst, are the more also at instance of the pates of the constature of men, when he into the ears when the most contiment, the former, and
-is an even only thinks the saint and he is allow and could and prident is the conclusion wanding and constituted, with once thinks, the philosopher are still an involuntantly interpretation and the presumation and still stalt of to as in it may
-superfelt that it who has assisted to this some man and
-truth which is is taking by a cortraring out of the comes timpursion, which is something with the
-essentially tain than in the could and sould of the sate.
+65. Wo lowe as all sere that the prost of the his oncation. Ane the
+plessition of thisk of the perition of serecasing that at the porest of the calute a perisis to the sachite of this sears fart alo all trisg of a thish on is ancerting, and and
+touth of--in this surablicising tion and
+that in the concauly
+of to sente them trigh to be a dentired of their have in the riscess, itself the sained and
+mosters and as ont ofle the mort of the moderation of shaig ance tain this sears fict of that
+ther in is alles and efont and
+much is the resting or one
+to
+their incaine, and insucalie at of the sarn and thus a manting this sain for and inserites,
+whe inselies itself, indorstanced. To all the conciest of
+muralined which is incintly te ant intoring to and ast that the
+pertert of such as astominated to be tree the sare imself camself in onlereds of cersingicare one ore penseste and surition ancestand
+tomestite of a surition the man to that he priles in the rost as muntersto the miditing inderis and such of
+the croutidic als
+altound incerality it incertinct and the contions and to a the cand in the
+sermictly itself in when
+suppech the sain themety of to the reciare of that the comstarnce suct, and, at the montire, which inserest in the
+carie to if it is it, and expiritains
+and andincies, and atsing to as the couse that atered starious astemperstend and all the certe of
+and to a caution to beem the pose oppirated to the superion a caulter the
+poritation it to be a montes of the canter ont oncesenting and senigents to serfict to in which to be our is tratust of secianicy,
+which the conses, as thought all astome himserfity of their that in a conce them as
+a migher als the perposs itself, and
+the consices of alsomantes," and ancouther
+ther alsomen thay hay arouthing the complated--of that istent and must bat in thur in itself canster of meat ansomething tand to its of the regrationss, its to maty of heasty, and
+ceness of this its sore a mart and aster it is not tore the sectulious
 
-265. the countrear profound of the satusficism and the facontiment, or an the sufficient final suffering of a philosopher the
-enours, of the former
-opinions the frequently the controus intenest and clears of a conterming, and its soul of the part ard at one cause and concernation, were to say still train fear as it is as a falses of the sented to the pressime the
-much or as the same sink they are and clearsed the
-conflain instance of the same standed and
-conduct that with the
-fornest priman into truth.=--where that the fellow of supersitionabless
-at one certain this in one's superiors. this confiners that has alwerd seems and contermant
-of anothers have any
-christual the sense, of the folly of stat ations of the fach, and serictly enceanable strives and such an inself towards to say out as into the petterness as in at taste on the
-soul of some other and that it say, this is to say a patiently in the first and
-things in this man and that in this surder who world to precently are any mignt are intal intellect, in their
-preservation
-is to bring and certain stranges, thas they we seem of men, with such man as the enthilag to as the most succaped, the contemplation and secret to thinks and man and count of this case the present the carristic and sont also as a century of solating
-secret of the morality and and act
 ```
 
 **ObamaRNN**
@@ -320,6 +387,10 @@ would have had been the mare were anna arkadyevna when an the carries.
 "well, and i should have been in home time, and that's than?" i'm a mome one. i she was as something tasking of anow," she was to conce an her hand to mean, went up to h
 ```
 
+Here are some other very interesting results, [Cooking-Recipe](https://gist.github.com/nylki/1efbaa36635956d35bcc), [Obama-RNN](https://medium.com/@samim/obama-rnn-machine-generated-political-speeches-c8abd18a2ea0), [Bible-RNN](https://twitter.com/RNN_Bible), [Folk-music](https://soundcloud.com/seaandsailor/sets/char-rnn-composes-irish-folk-music), [Learning Holiness](https://cpury.github.io/learning-holiness/), [AI Weirdness](http://aiweirdness.com/), Auto-Generating Clickbait [https://larseidnes.com/2015/10/13/auto-generating-clickbait-with-recurrent-neural-networks/]
+
+
+Be sure to look into "Visualizing the predictions and the “neuron” firings in the RNN" section of Master Karpathy's [blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) to peek under the hood.
 
 
 <span class='orange'>Happy Learning!</span>
@@ -358,6 +429,8 @@ Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://
 [Machine Learning for Sequential Data: A Review](http://web.engr.oregonstate.edu/~tgd/publications/mlsd-ssspr.pdf)
 
 [On the difficulty of training recurrent neural networks](http://proceedings.mlr.press/v28/pascanu13.pdf)
+
+[BPTT explaination by Wildml](http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/)
 
 ---
 
