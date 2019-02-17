@@ -800,7 +800,7 @@ Here is a glimpse of result from Mask R-CNN which is instance segmentation algor
 <img src='/images/object_detection/man_utd.gif' /> 
 </p>
 
-But Padwan, this will be our last interaction on images. Next, we will move to text, particularly, <span class='purple'>Force of RNN</span>.
+But Padwan, this will be our last interaction on images. Next, we will move to text, particularly, <span class='purple'>[Force of RNN](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/)</span>.
 
 
 <span class='orange'>Happy Learning!</span>
