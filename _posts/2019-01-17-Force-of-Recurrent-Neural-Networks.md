@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Force of Recurrent Neural Networks
-date:       2019-01-07 12:00:00
+date:       2019-01-19 12:00:00
 summary:    This post will provide an brief introduction to recurrent neural networks.
 categories: rnn
 published : false
@@ -10,7 +10,7 @@ published : false
 
 # Recurrent Neural Networks
 
-In this notebook, 
+In this notebook, we will see if Neural Networks can write as good as Shakespeare?
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Keras/object_detection_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/PyTorch/object_detection_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Tensorflow/object_detection_tensorflow.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Fastai/object_detection_fastai.ipynb) and [Demos](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Demos).  
 
@@ -52,7 +52,24 @@ Here, let me borrow some of the points from [Prof. Yuval Noah Harrari's](https:/
 
 <span class='red'>I-know-everything:</span> Bingo, that's exactly right. As Image understanding has it's own challenges like occlusion, viewpoint variation, deformations, background clutter, etc., dealing with language comes with it's own challenges, starting from what language we are dealing with. This is what Natural Language Processing (NLP) field is about.  
 
-Let me jump and tell you about the idea of what is <span class='purple'> Force of RNN </span>. RNN known as recurrent neural networks or Elman Network are useful for dealing with sequences.
+Let me jump and tell you about the idea of what is <span class='purple'> Force of RNN </span>. RNN known as recurrent neural networks or Elman Network are useful for dealing with sequential information.
+
+<span class='green'>I-know-nothing:</span> Why a new network, can't we just use the old <span class='purple'>[Force of MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/)</span> or <span class='purple'>[Force of CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/)</span>? for dealing with these sequential information? What's so special about sequential information? What makes RNN special to dealing with these types of data?
+
+<span class='red'>I-know-everything:</span> Ahh, as we will see later, indeed we can use <span class='purple'>[Force of CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/)</span> for dealing with sequential data but <span class='purple'>[Force of MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/)</span> fails to capture relationships found in sequential data. There are different types of sequential data (where some sort of sequence is present) like time series, speech, text, financial data, video, etc. These are sequential data are not independent but rather sequentially correlated. For e.g. given a sequence, The cat sat on mat. Here, from given example we come to a conclusion that cat is sitting on mat. So, there is some context, which is nearby values of the data are related to each other. This is one example of sequential data and we can see how the context in such sequetial data matters to understand sequences. Same can be said for video, audio or any other sequential i.e. sequence involving data.
+
+- What makes RNN special? 
+
+This will take us on a journey to understand what are RNN. How they so effectively learn sequential data and what can we use them for?
+
+
+
+
+
+
+
+
+
 
 <span class='orange'>Happy Learning!</span>
 
@@ -77,12 +94,15 @@ Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://
 
 [Recurrent neural network based language model](http://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf)
 
+[A neural probabilistic language model](http://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
+
 [A Primer on Neural Network Modelsfor Natural Language Processing](http://u.cs.biu.ac.il/~yogo/nnlp.pdf)
 
 [Extensions of Recurrent neural network language model](http://www.fit.vutbr.cz/research/groups/speech/publi/2011/mikolov_icassp2011_5528.pdf)
 
 [Wildml Introduction to RNN](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
 
+[Machine Learning for Sequential Data: A Review](http://web.engr.oregonstate.edu/~tgd/publications/mlsd-ssspr.pdf)
 
 ---
 
