@@ -48,7 +48,7 @@ Here, let me borrow some of the points from [Prof. Yuval Noah Harrari's](https:/
 
 <span class='red'>I-know-everything:</span>  So, Padwan today we are going to study about language through the lens of Neural Networks. Let me get philosophical for a bit, and show how we are what today because we are able to communicate which each other the ideas, the ideas to push the human race forward. Language has been a critical cornerstone to the foundation of human mankind and will also play a critical role in human-computer world.*Don't send terminator vibes, transmitting [JARVIS](https://marvel-movies.fandom.com/wiki/J.A.R.V.I.S.) vibes....*  
 
-<span class='green'>I-know-nothing:</span> Does this mean that it will be like Image where computer understand only numbers, the underlying language will be converted to numbers and where neural network does it's magic?
+<span class='green'>I-know-nothing:</span> Does this mean that it will be like Image where computer understand only numbers, the underlying language will be converted to numbers and where some neural network does it's magic?
 
 <span class='red'>I-know-everything:</span> Bingo, that's exactly right. As Image understanding has it's own challenges like occlusion, viewpoint variation, deformations, background clutter, etc., dealing with language comes with it's own challenges, starting from what language we are dealing with. This is what Natural Language Processing (NLP) field is about.  
 
@@ -111,6 +111,96 @@ This is where the recurrent word comes into RNN, as we are using the same state(
 <img src='/images/rnn/unfold_rnn.png' /> 
 </p>
 
+Here,
+
+$$\mathbf{x}_{t}$$ is input at time step t. It can be one-hot encoding of words or character or unique number associated with word or characters.
+
+$$\mathbf{s}_{t}$$ is hidden state at time step t. This is also called "state", "internal memory(or memory)" or "hidden state" which is calculated as $$\mathbf{h}_{t}$$ shown in the equations above. The nonlinearity usually used is ReLU or tanh.
+
+$$\mathbf{o}_{t}$$ is output state. We can apply softmax to get the probability across our vocabulary. All the outputs cannot be necessary for all tasks. For e.g., we may care only about last output for sentiment analysis, predict if it is positive, neutral or negative.
+
+Here, we also note that the same parameters U, V, W are shared across all RNN layers(*for all steps*). This reduces a large number of parameters.
+
+<span class='green'>I-know-nothing:</span> Yes Master, I concur(*Dr.Frank Conners from Catch Me If You Can*). But how is RNN trained and how does backpropogation work? Is the same as we looked in MLP?
+
+<span class='red'>I-know-everything:</span> Now, onto the training and learning part of neural networks. We have seen in CNNs and MLPs, the usual process is to pass input, calculate the loss using predicted output and target output, backpropogate the error to adjust the weights, and perform these steps for millions of example (inputs, targets) pairs.
+
+Training in RNNs is very similar to above. Also, the [loss functions](https://dudeperf3ct.github.io/object/detection/2019/01/07/Mystery-of-Object-Detection/#loss-functions) which we mentioned are the very ones used.
+
+Now, the backpropogation becomes BPTT, i.e. <span class='saddlebrown'>jar jar backpropogation</span> meets long lost sibling <span class='saddlebrown'> jar jar backpropogation through time</span>.
+
+What BPTT means is that the error is propagated through recurrent connections back in time for a specific number of time steps. Within BPTT the error is back-propagated from the last to the first timestep, while unrolling all the timesteps. This allows calculating the error for each timestep, which allows updating the weights. BPTT can be computationally expensive when you have a high number of timesteps.
+
+Let's make this concrete with example.
+
+Following above equations for RNN, 
+
+$$
+\begin{aligned}
+\mathbf{h}_{t} & = \phi(\mathbf{W}\mathbf{x}_{t} + \mathbf{U}\mathbf{h}_{t-1}) \\
+\mathbf{\hat{y}}_{t} & = softmax(\mathbf{V}\mathbf{h}_{t})\\
+\mathbf{E(\mathbf{y}, \mathvf{\hat{y}})} & = -\sum_{t}^{}\mathbf{y_{t}} \log{\mathbf{\hat{y}}_{t}}
+\end{aligned}
+$$
+
+Here loss $$\mathbf{E(\mathbf{y}, \mathvf{\hat{y}})}$$ is cross entopy loss. This can be stated as total error is summing error across all time steps. Training routine is, we pass in one word $$\mathbf{x}_{t}$$ and get the predicted word at time t as $$\mathvf{\hat{y}}_{t}$$ which is then used to calculate error at time step t along with actual word $$\mathvf{y}_{t}$$. Total error can be obtained by summation of errors across all time steps t i.e. $$\mathbf{E(\mathbf{y}, \mathvf{\hat{y}})} = \sum_{t}^{}\mathbf{E_{t}(\mathbf{y}, \mathvf{\hat{y}})}$$ 
+
+<p align="center">
+<img src='/images/rnn/backprop_rnn.png' /> 
+</p>
+
+Now, we look at BPTT equations, the total gradient error $$\frac {\partial E}{\partial W} = \sum_{t}^{}\frac {\partial E_{t}}{\partial W}$$ which is summation of individual gradient error across all time steps t just as done in calculating total error function.
+
+If we calculate $$\frac {\partial E_{3}}{\partial W}$$ (*Why 3?* we can further generalize to any number).
+
+$$
+\begin{aligned}
+\frac {\partial E_{3}}{\partial W} = \frac {\partial E_{3}}{\partial \mathbf{\hat{y}}_{3}}\frac {\partial \mathbf{\hat{y}}_{3}}{\partial \mathbf{s}_3}\frac {\partial \mathbf{s}_3}{\partial W}
+\mathbf{s}_{3} = tanh(\mathbf{U}\mathbf{x}_{t} + \mathbf{W}\mathbf{s}_{t})
+\end{aligned}
+$$
+
+As we can see from above equation $$\mathbf{s}_{3}$$ depends on $$\mathbf{s}_{2}$$, and $$\mathbf{s}_{2}$$ depends on $$\mathbf{s}_{1}$$ and so on. Hence, we can further simply using chain rule and jump to writing $$\frac {\partial E_{3}}{\partial W}$$ as,
+
+$$
+\begin{aligned}
+\frac {\partial E_{3}}{\partial W} = \sum_{k=0}^{3}\frac {\partial E_{3}}{\partial \mathbf{\hat{y}}_{3}}\frac {\partial \mathbf{\hat{y}}_{3}}{\partial \mathbf{s}_3}\frac {\partial \mathbf{s}_3}{\partial \mathbf{s}_{k}}\frac {\partial \mathbf{s}_{k}}{\partial W}
+\end{aligned}
+$$
+
+<p align="center">
+<img src='/images/rnn/backprop_3.png' /> 
+</p>
+
+We sum up the contributions of each time step to the gradient. For example, to calculate the gradient $$\frac {\partial E_{3}}{\partial W}$$ at t=3 we would need to backpropagate 3 steps (t = 0, 1, 2) and sum up the gradients(*remember, zero-indexing*). 
+
+This should also give you an idea of why standard RNNs are hard to train: Sequences (sentences) can be quite long, perhaps 20 words or more, and thus you need to back-propagate through many layers. In practice many people truncate the backpropagation to a few steps. Also, know as trauncated BPTT. Also, this accumulation of gradients from far steps leads to problem of exploding gradients and vanishing gradients explored in this [paper](http://proceedings.mlr.press/v28/pascanu13.pdf).
+
+To mitigate this problem of exploding gradients and vanishing gradients, we call in variants of RNN to help, which are LSTM and GRU. This will be topic of interest for our next post. 
+
+- Character-Level Language Models
+
+For now, we will look into char-rnn or Character RNN, where the network learns to predict next character. We’ll train RNN character-level language models. That is, we’ll give the RNN a huge chunk of text and ask it to model the probability distribution of the next character in the sequence given a sequence of previous characters. This will then allow us to generate new text one character at a time.
+
+We will borrow example from Master Karpathy's awesome [blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), 
+
+If training sequence is "hello" then vocabulary i.e. unique characters in words(or text) are "h, e, l, o", 4 letters.
+
+We will feed one-hot encoded vector of each character one step at a time into RNN, and observe a sequence of 4-dimensional output vector as shown in figure below.
+
+<p align="center">
+<img src='/images/rnn/hello.jpeg' /> 
+</p>
+
+
+
+
+
+
+
+
+
+
 
 
 <span class='orange'>Happy Learning!</span>
@@ -147,6 +237,8 @@ Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://
 [Wildml Introduction to RNN](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
 
 [Machine Learning for Sequential Data: A Review](http://web.engr.oregonstate.edu/~tgd/publications/mlsd-ssspr.pdf)
+
+[On the difficulty of training recurrent neural networks](http://proceedings.mlr.press/v28/pascanu13.pdf)
 
 ---
 
