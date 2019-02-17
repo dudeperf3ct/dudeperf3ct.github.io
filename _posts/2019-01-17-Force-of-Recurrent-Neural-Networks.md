@@ -12,7 +12,7 @@ published : false
 
 In this notebook, we will see if Neural Networks can write as good as Shakespeare?
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Keras/object_detection_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/PyTorch/object_detection_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Tensorflow/object_detection_tensorflow.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Fastai/object_detection_fastai.ipynb) and [Demos](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Object%20Detection/Demos).  
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_fastai.ipynb)
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -201,14 +201,13 @@ For example, we see that in the first time step when the RNN saw the character �
 Notice also that the first time the character “l” is input, the target is “l”, but the second time the target is “o”. The RNN therefore cannot rely on the input alone and must use its recurrent connection to keep track of the context to achieve this task.
 At test time, we feed a character into the RNN and get a distribution over what characters are likely to come next. We sample from this distribution, and feed it right back in to get the next letter.
 
-There are different ways we can feed input data to RNN. Here is the outline of 3 such methods which can be used as input to RNN.
+There are different ways we can feed input data to RNN. Here is the outline of 2 such methods which can be used as input to RNN.
 
 1. one-hot encoding inputs and one-hot encoding outputs 
 
 2. using the unique ids of input --> Embedding layer --> Output
 
-3. 
-
+*We will talk about embedding layers in-depth in next post. Stay tuned!*
 
 This is how we train Character RNN. Now, let's see what we played with.
 
@@ -387,11 +386,13 @@ would have had been the mare were anna arkadyevna when an the carries.
 "well, and i should have been in home time, and that's than?" i'm a mome one. i she was as something tasking of anow," she was to conce an her hand to mean, went up to h
 ```
 
-Here are some other very interesting results, [Cooking-Recipe](https://gist.github.com/nylki/1efbaa36635956d35bcc), [Obama-RNN](https://medium.com/@samim/obama-rnn-machine-generated-political-speeches-c8abd18a2ea0), [Bible-RNN](https://twitter.com/RNN_Bible), [Folk-music](https://soundcloud.com/seaandsailor/sets/char-rnn-composes-irish-folk-music), [Learning Holiness](https://cpury.github.io/learning-holiness/), [AI Weirdness](http://aiweirdness.com/), Auto-Generating Clickbait [https://larseidnes.com/2015/10/13/auto-generating-clickbait-with-recurrent-neural-networks/]
+Here are some other very interesting results, [Cooking-Recipe](https://gist.github.com/nylki/1efbaa36635956d35bcc), [Obama-RNN](https://medium.com/@samim/obama-rnn-machine-generated-political-speeches-c8abd18a2ea0), [Bible-RNN](https://twitter.com/RNN_Bible), [Folk-music](https://soundcloud.com/seaandsailor/sets/char-rnn-composes-irish-folk-music), [Learning Holiness](https://cpury.github.io/learning-holiness/), [AI Weirdness](http://aiweirdness.com/), [Auto-Generating Clickbait] (https://larseidnes.com/2015/10/13/auto-generating-clickbait-with-recurrent-neural-networks/)
 
 
 Be sure to look into "Visualizing the predictions and the “neuron” firings in the RNN" section of Master Karpathy's [blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) to peek under the hood.
 
+
+In next post, we explore the shortcomings of RNN by introducing <span class='purple'>Force of LSTM and GRU</span>.
 
 <span class='orange'>Happy Learning!</span>
 
@@ -403,6 +404,11 @@ Force of RNN - Recurrent Neural Networks
 
 loss function - cost, error or objective function
 
+jar jar backpropogation - backpropogation
+
+jar jar bptt - bptt
+
+bptt - backpropogation through time
 
 ---
 
@@ -412,7 +418,7 @@ Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://
 
 [Chater 9 Book: Speech and Language Processing by Jurafsky & Martin](https://web.stanford.edu/~jurafsky/slp3/9.pdf)
 
-
+[CS224d slides and lectures](http://cs224d.stanford.edu/syllabus.html)
 
 [Generating Text with Recurrent Neural Networks](https://www.cs.utoronto.ca/~ilya/pubs/2011/LANG-RNN.pdf)
 
@@ -442,6 +448,8 @@ Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://
 [Simple RNN](www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf)
 
 [Examples of RNN](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+
+[BPTT](http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/) and [Unrolled RNN](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
 
 
 ---
