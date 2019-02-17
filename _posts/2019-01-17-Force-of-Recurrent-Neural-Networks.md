@@ -100,7 +100,7 @@ $$
 Here, $$\mathbf{h}_{t}$$, hidden layer of network acts as internal memory storing useful information about input and passing the same info to next hidden layer so that it can update the state (internal memory or hidden layer) as new input comes. In this way, hidden layer sort of contains all this history of past inputs.
 
 <p align="center">
-<img src='/images/rnn/rnn.png' width="60%"/> 
+<img src='/images/rnn/rnn.png' width="80%"/> 
 </p>
 
 
