@@ -20,7 +20,9 @@ Hey yo, but how?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
--meme
+<p align="center">
+<img src='/images/rnn/rnn_meme.jpg' width="60%"/> 
+</p>
 
 
 Feel free to jump anywhere,
@@ -446,6 +448,8 @@ Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://
 
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
+
+[RNN Meme](https://memegenerator.net/instance/60549887/yo-dawg-yo-dawg-i-heard-you-like-rnns-so-i-put-an-rnn-on-your-rnn-on-your-rnn)
 
 [Simple RNN](www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf)
 
