@@ -186,20 +186,139 @@ We will borrow example from Master Karpathy's awesome [blog](http://karpathy.git
 
 If training sequence is "hello" then vocabulary i.e. unique characters in words(or text) are "h, e, l, o", 4 letters.
 
-We will feed one-hot encoded vector of each character one step at a time into RNN, and observe a sequence of 4-dimensional output vector as shown in figure below.
+We will feed one-hot encoded vector of each character one step at a time into RNN, and observe a sequence of 4-dimensional output vector as shown in diagram below.
 
 <p align="center">
 <img src='/images/rnn/hello.jpeg' /> 
 </p>
 
+This diagram shows that input is "h", "e", "l", "l" and we expect the predicted output to be "e", "l", "l", "o". The predicted output is shown in green color and we want it to be high as opposed to red ones.
+
+I will let Master Karpathy to explain it more succinctly,
+
+For example, we see that in the first time step when the RNN saw the character “h” it assigned confidence of 1.0 to the next letter being “h”, 2.2 to letter “e”, -3.0 to “l”, and 4.1 to “o”. Since in our training data (the string “hello”) the next correct character is “e”, we would like to increase its confidence (green) and decrease the confidence of all other letters (red). Similarly, we have a desired target character at every one of the 4 time steps that we’d like the network to assign a greater confidence to. Since the RNN consists entirely of differentiable operations we can run the backpropagation algorithm to figure out in what direction we should adjust every one of its weights to increase the scores of the correct targets (green bold numbers). We can then perform a parameter update, which nudges every weight a tiny amount in this gradient direction. If we were to feed the same inputs to the RNN after the parameter update we would find that the scores of the correct characters (e.g. “e” in the first time step) would be slightly higher (e.g. 2.3 instead of 2.2), and the scores of incorrect characters would be slightly lower. We then repeat this process over and over many times until the network converges and its predictions are eventually consistent with the training data in that correct characters are always predicted next.
+
+Notice also that the first time the character “l” is input, the target is “l”, but the second time the target is “o”. The RNN therefore cannot rely on the input alone and must use its recurrent connection to keep track of the context to achieve this task.
+At test time, we feed a character into the RNN and get a distribution over what characters are likely to come next. We sample from this distribution, and feed it right back in to get the next letter.
+
+This is how we train Character RNN. Now, let's see what we played with.
+
+---
+
+
+Here are some of the results trained on text data of Shaskpeare, Nietzsche, Obama and Trump speeches and Tolstoy's Anna Karenina,
+
+**ShakespeareRNN**
+
+```
+
+
+```
+
+**NietzscheRNN**
+
+```
+every great philosophy seems, when as was through an intention or everything ortened, as
+an anciponst, are the more also at instance of the pates of the constature of men, when he into the ears when the most contiment, the former, and
+is an even only thinks the saint and he is allow and could and prident is the conclusion wanding and constituted, with once thinks, the philosopher are still an involuntantly interpretation and the presumation and still stalt of to as in it may
+superfelt that it who has assisted to this some man and
+truth which is is taking by a cortraring out of the comes timpursion, which is something with the
+essentially tain than in the could and sould of the sate.
+
+265. the countrear profound of the satusficism and the facontiment, or an the sufficient final suffering of a philosopher the
+enours, of the former
+opinions the frequently the controus intenest and clears of a conterming, and its soul of the part ard at one cause and concernation, were to say still train fear as it is as a falses of the sented to the pressime the
+much or as the same sink they are and clearsed the
+conflain instance of the same standed and
+conduct that with the
+fornest priman into truth.=--where that the fellow of supersitionabless
+at one certain this in one's superiors. this confiners that has alwerd seems and contermant
+of anothers have any
+christual the sense, of the folly of stat ations of the fach, and serictly enceanable strives and such an inself towards to say out as into the petterness as in at taste on the
+soul of some other and that it say, this is to say a patiently in the first and
+things in this man and that in this surder who world to precently are any mignt are intal intellect, in their
+preservation
+is to bring and certain stranges, thas they we seem of men, with such man as the enthilag to as the most succaped, the contemplation and secret to thinks and man and count of this case the present the carristic and sont also as a century of solating
+secret of the morality and and act
+```
+
+**ObamaRNN**
+
+```
+and the question in the paist of these those some it as world. it's all some our the to distine with i mean and and shated of their alouss are worting there will nut our tramerican the workn that with to suce and suplents, became on their country on who chelegengen in the amprosistanies ovor a corniting the paist this ceasin that winling to becaupe thoughents the serestion of charge a fremurally as periane of our persicing they here and compert conternes the pare a farutary core southong i am a that as when i was there is we contern that i wan to the anst on our choule to and a southores what's a sting that will a centere are areand. the wirn as the seal of where whise with this costing intarent with cations and moner our callegration and chenied to the wordeds or spaltician that a can to stake to conget the work to carmention of the whith works, and when the worked to and the stoming of the would court of americans and seep and think the angromis and the what to sele our commanies over americans and will betand the serally fout our to beanse of the can this crist coungres. they is all costions in the sowe wan this a beturn the cholese ond to stare the porince these will and treat were as that have sourd al pasplents to ame tranists the health care constrot the probections of american properss of a lesting arougation to componsibies. this somith the ramales on our condinget or and anstranganing or someraces of the andincerant and somenged we cave seent to chound to the sichity to the security coure a conterity conceses that's the are it the teding or care of thrie in the fucr on off all a come in our contion.
+
+it's a netring we hear to so the praninglessed i to shis wants the howe the helling. with why we will no to to can ever chongen to senver the probration that it all of year on provermed weal who he bust tiles.  i will stank. when we sive the camments and susple and the world we con trous in a secure that a secter cerristre infuring to to ancone those who will not the past on a p
+
+```
+
+
+**TrumpRNN**
+
+```
+fake news immigration is trump to be a sprescibe to talk and we have got to see what i’m doing is they statting the wert ago.
+and they’re not comerang and tell you, and it’s not a creat startest this is a border of mane is almest so incredible again. we had a toter change, and to say the world where it is to get and they don’t know.
+we have to go ialo. i see the some if i were with the thill believe when i was showling, and they are going to be some of them to do this.
+
+
+and if you can did that he don’t win. it’s a contratelley that’s has bigger. but here, we’re going to stopy isis backed a letter and the well. i’ll be the special i think that we have a seecial parts of middle east.
 
 
 
 
 
 
+and i went in with mover of television, is a courle people to do what they’re going to be saying it’s not.
 
 
+
+
+
+
+thank you very group. it’s a love all oversite, we have to start the wart our military is a besa fight of them. i’m not going to do a lot of people. i didn’t thoug this and we’re going to be and say with the more country. you know, we will say "had is the there.
+
+
+we won americans and all of the world, it with these problems. you have to be a couple of china. it will be able. and i have to say a deal, take coure of instations, and i said it, and all of it. think of the many paiss to do with trump of and i want a suppresiate to be and she was brad problem. i would have saying "on expeople american taxis against millions, it can tell you it. we cent is them. and they did worse. what we have terration and some of the mexico are talking obamacaugher. i have brean shorle.
+i have the want to done time with the many. we’re going to have to stop is something." that is the bad.
+stere are i to take time. we can’t let able of the wise amazing.
+and they have a communities chose. that’s not going to win. i heard to build is intrade. and the way what don’t win on the stote that i will be saying this support. and i’m the gay. i said "oh, a lot of people is serong inthers to taxes, where we have 
+```
+
+
+**AnnaRNN**
+
+```
+anna, his chear, and was at his brother, she sat down the forts of a force that his cales was straight for his beginning to her sore, a sittle of
+it, but at some tell the paits.
+
+"you want it," said stepan arkadyevitch.
+
+"what i had be noter with the morning. the conversation was stord out him a fore an her atiently in the
+some and she had
+been delighted up the door, stepan arkadyevitch was some at her.
+
+"oh, then well i down the pression of her hand out the canter with the
+dinner as all her has should and saw that her sat her hand, and his hands. "as they way, too," alexey alexandrovitch was she was
+askandary the came to asking him a lift a charg, and still he would have so that the masche stand in his was strought. the same
+on the success of to the princess had to been to the sof the should
+hand to the pland was a find of compare and hulding
+towards the conter he had been all at the set that when the sare horses of a shame stirlly was simply stoom the talker had been down that she was not considered his
+face, and still answer and her his hinds of the
+care to the
+masters, and had
+boench she does the pronic of streaking
+a smiling, before she went up to the bouther to the
+carriage. "i didn't understand that word i have thought that he could not say the
+sone, and she was not
+in his ball was a forg will to
+the thought, and with a cale, and he was the tall made a sone, and they was a fathing and she clushed to see her face of the
+praning with the contic about her strenkeres. they were stepan arkadyevitch asked the
+carriage with head at them. the cortain the different of a proplating tater, wanting to him, and has been stood her hand there assitch he was, she had
+nothed and woman, and he was something that he had not see into the
+princess
+would have had been the mare were anna arkadyevna when an the carries.
+
+"well, and i should have been in home time, and that's than?" i'm a mome one. i she was as something tasking of anow," she was to conce an her hand to mean, went up to h
+```
 
 
 
