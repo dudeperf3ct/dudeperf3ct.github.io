@@ -21,7 +21,7 @@ Hey yo, but how?
 Well sit tight and buckle up. I will go through everything in-detail.
 
 <p align="center">
-<img src='/images/rnn/rnn_meme.jpg' width="60%"/> 
+<img src='/images/rnn/rnn_meme.jpg' width="50%"/> 
 </p>
 
 
@@ -88,7 +88,7 @@ We have looked at how simple MLP works. We define, $$\mathbf{h}$$ = $$\phi(\math
 
 When we look at sequences of video frames, we use only the images as input to CNN and completely ignore sequential aspects present in the video. Taking example from [Edwin Chen's blog](http://blog.echen.me/2017/05/30/exploring-lstms/), if we see a scence of beach, we should boost beach activities in future frames: an image of someone in the water should probably be labeled *swimming*, not *bathing*, and an image of someone lying with their eyes closed is probably *suntanning*. If we remember that Bob just arrived at a supermarket, then even without any distinctive supermarket features, an image of Bob holding a slab of bacon should probably be categorized as *shopping* instead of *cooking*.
 
-We need to integrate some kind of state which keeps tracks the current view of world for the model by continually updating as it learns new information. It sort of function like internal memory.
+<span class='blue'>We need to integrate some kind of state which keeps tracks the current view of world for the model by continually updating as it learns new information. It sort of function like internal memory.</span>
 
 After modifying the above equation to incorporate some notion that our model keeps remembering bits of information, new equation looks like,
 
@@ -216,7 +216,7 @@ This is how we train Character RNN. Now, let's see what we played with.
 ---
 
 
-Here are some of the results trained on text data of Shaskpeare, Nietzsche, Obama and Trump speeches and Tolstoy's Anna Karenina,
+Here are some of the results trained on text data of Shaskpeare, Nietzsche, Obama and Trump speeches and Tolstoy's Anna Karenina.
 
 **ShakespeareRNN**
 
