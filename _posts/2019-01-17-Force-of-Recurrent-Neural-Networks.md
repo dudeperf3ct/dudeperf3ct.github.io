@@ -62,7 +62,21 @@ Let me jump and tell you about the idea of what is <span class='purple'> Force o
 
 This will take us on a journey to understand what are RNN. How they so effectively learn sequential data and what can we use them for?
 
+<p align="center">
+<img src='/images/rnn/simple_rnn.png' /> 
+</p>
 
+So, what can we infer by looking at the figure above. There is some context(t) which take in two inputs, Input(t) and context(t-1), which then produces output(t). Also, context(t-1) gets updated to context(t). There is some form of recursion. This is a Simple RNN which take in sequence input, to produce output. where context(t-1) is known as state. We will explore this in-detail.
+
+There are different types of sequence input and output combination that can be used across various applications. 
+
+<p align="center">
+<img src='/images/rnn/applications.jpeg' /> 
+</p>
+
+In above figure, inputs are green, output blue and RNN's state in green. From left to right, One-to-One is what we saw in CNNs image classification where input image in, prediction output which class image belongs to i.e. fixed-size input to fixed-size output. One-to-Many contains sequence output, for fixed-input size, this can be task of image captioning where input is image and output is sentences of words. Many-to-one, here input is sequence and output is single prediction, which can be related to task of sentiment analysis, wherein input is sequence of words i.e. movie review and output is whether review is positive, neutral or negative. Next, Many-to-Many, here both input and output are sequence of words, which also happens in Machine Translation, where we input some sentence in English and get output sequence of words in French of varying length sequence. Another variant of Many-to-many, this can be related to video classification where we wish to label each frame in video.
+
+We still haven't answered what makes them special. Let's deep dive and take apart RNN and assemble it to understand what makes RNNs special.
 
 
 
