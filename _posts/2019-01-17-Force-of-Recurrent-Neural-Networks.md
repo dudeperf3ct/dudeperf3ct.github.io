@@ -71,7 +71,7 @@ So, what can we infer by looking at the figure above. There is some context(t) w
 There are different types of sequence input and output combination that can be used across various applications. 
 
 <p align="center">
-<img src='/images/rnn/applications.jpeg' /> 
+<img src='/images/rnn/applications.jpeg' width="60%"/> 
 </p>
 
 In above figure, inputs are green, output blue and RNN's state in green. From left to right, One-to-One is what we saw in CNNs image classification where input image in, prediction output which class image belongs to i.e. fixed-size input to fixed-size output. One-to-Many contains sequence output, for fixed-input size, this can be task of image captioning where input is image and output is sentences of words. *We know how multiple characters make up a word and multiple words combine to make a sentence.* Many-to-one, here input is sequence and output is single prediction, which can be related to task of sentiment analysis, wherein input is sequence of words i.e. movie review and output is whether review is positive, neutral or negative. Next, Many-to-Many, here both input and output are sequence of words, which also happens in Machine Translation, where we input some sentence in English and get output sequence of words in French of varying length sequence. Another variant of Many-to-many, this can be related to video classification where we wish to label each frame in video.
@@ -81,7 +81,7 @@ We still haven't answered what makes them special. Let's deep dive and take apar
 We have looked at how simple MLP works. We define, $$\mathbf{h}$$ = $$\phi(\mathbf{W}\mathbf{x})$$ , where $$\phi$$ is an activation function and $$\mathbf{y}$$ = $$\mathbf{V}\mathbf{h}$$, where $$\mathbf{V}$$ is weight matrix connecting hidden and output layers, $$\mathbf{W}$$ weight matrix connecting input and hidden layer and $$\mathbf{x}$$ is input vector. We also looked at different types of activation functions.
 
 <p align="center">
-<img src='/images/rnn/nn.png' /> 
+<img src='/images/rnn/nn.png' width="60%"/> 
 </p>
 
 When we look at sequences of video frames, we use only the images as input to CNN and completely ignore sequential aspects present in the video. Taking example from [Edwin Chen's blog](http://blog.echen.me/2017/05/30/exploring-lstms/), if we see a scence of beach, we should boost beach activities in future frames: an image of someone in the water should probably be labeled *swimming*, not *bathing*, and an image of someone lying with their eyes closed is probably *suntanning*. If we remember that Bob just arrived at a supermarket, then even without any distinctive supermarket features, an image of Bob holding a slab of bacon should probably be categorized as *shopping* instead of *cooking*.
@@ -100,7 +100,7 @@ $$
 Here, $$\mathbf{h}_{t}$$, hidden layer of network acts as internal memory storing useful information about input and passing the same info to next hidden layer so that it can update the state (internal memory or hidden layer) as new input comes. In this way, hidden layer sort of contains all this history of past inputs.
 
 <p align="center">
-<img src='/images/rnn/rnn.png' /> 
+<img src='/images/rnn/rnn.png' width="60%"/> 
 </p>
 
 
@@ -108,7 +108,7 @@ This is where the recurrent word comes into RNN, as we are using the same state(
 
 
 <p align="center">
-<img src='/images/rnn/unfold_rnn.png' /> 
+<img src='/images/rnn/unfold_rnn.jpg' width="60%"/> 
 </p>
 
 Here,
@@ -146,7 +146,7 @@ $$
 Here loss $$\mathbf{E(\mathbf{y}, \mathvf{\hat{y}})}$$ is cross entopy loss. This can be stated as total error is summing error across all time steps. Training routine is, we pass in one word $$\mathbf{x}_{t}$$ and get the predicted word at time t as $$\mathvf{\hat{y}}_{t}$$ which is then used to calculate error at time step t along with actual word $$\mathvf{y}_{t}$$. Total error can be obtained by summation of errors across all time steps t i.e. $$\mathbf{E(\mathbf{y}, \mathvf{\hat{y}})} = \sum_{t}^{}\mathbf{E_{t}(\mathbf{y}, \mathvf{\hat{y}})}$$ 
 
 <p align="center">
-<img src='/images/rnn/backprop_rnn.png' /> 
+<img src='/images/rnn/backprop_rnn.png' width="60%"/> 
 </p>
 
 Now, we look at BPTT equations, the total gradient error $$\frac {\partial E}{\partial W} = \sum_{t}^{}\frac {\partial E_{t}}{\partial W}$$ which is summation of individual gradient error across all time steps t just as done in calculating total error function.
@@ -169,7 +169,7 @@ $$
 $$
 
 <p align="center">
-<img src='/images/rnn/backprop_3.png' /> 
+<img src='/images/rnn/backprop_3.png' width="60%"/> 
 </p>
 
 We sum up the contributions of each time step to the gradient. For example, to calculate the gradient $$\frac {\partial E_{3}}{\partial W}$$ at t=3 we would need to backpropagate 3 steps (t = 0, 1, 2) and sum up the gradients(*remember, zero-indexing*). 
@@ -189,7 +189,7 @@ If training sequence is "hello" then vocabulary i.e. unique characters in words(
 We will feed one-hot encoded vector of each character one step at a time into RNN, and observe a sequence of 4-dimensional output vector as shown in diagram below.
 
 <p align="center">
-<img src='/images/rnn/hello.jpeg' /> 
+<img src='/images/rnn/hello.jpeg' width="60%"/> 
 </p>
 
 This diagram shows that input is "h", "e", "l", "l" and we expect the predicted output to be "e", "l", "l", "o". The predicted output is shown in green color and we want it to be high as opposed to red ones.
