@@ -28,6 +28,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 Feel free to jump anywhere,
 
 - [Introduction to Recurrent Neural Networks](#introduction-to-recurrent-neural-networks)
+  - [Backpropogation through time](#bptt)
   - [Character-Level Language Models](#character-level-language-models)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
@@ -128,6 +129,8 @@ Here, we also note that the same parameters U, V, W are shared across all RNN la
 <span class='red'>I-know-everything:</span> Now, onto the training and learning part of neural networks. We have seen in CNNs and MLPs, the usual process is to pass input, calculate the loss using predicted output and target output, backpropogate the error so as to adjust the weights to reduce the error, and perform these steps for millions of example (inputs, targets) pairs.
 
 Training in RNNs is very similar to above. Also, the [loss functions](https://dudeperf3ct.github.io/object/detection/2019/01/07/Mystery-of-Object-Detection/#loss-functions) which we mentioned are the very ones used depending on different applications.
+
+#### BPTT
 
 Now, the backpropogation becomes BPTT i.e. <span class='saddlebrown'>jar jar backpropogation</span> meets long time lost sibling <span class='saddlebrown'> jar jar backpropogation through time</span>.
 
