@@ -420,7 +420,7 @@ Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://
 
 [Chater 9 Book: Speech and Language Processing by Jurafsky & Martin](https://web.stanford.edu/~jurafsky/slp3/9.pdf)
 
-[Stanford CS231n Winter 2016 Chapter 10]()
+[Stanford CS231n Winter 2016 Chapter 10](https://www.youtube.com/watch?v=yCC09vCHzF8&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC&index=10)
 
 [CS224d slides and lectures](http://cs224d.stanford.edu/syllabus.html)
 
