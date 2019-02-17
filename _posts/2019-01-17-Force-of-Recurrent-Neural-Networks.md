@@ -12,7 +12,7 @@ published : false
 
 In this notebook, we will see if Neural Networks can write as good as Shakespeare?
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_fastai.ipynb)
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb) and [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb).
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -26,7 +26,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 Feel free to jump anywhere,
 
 - [Introduction to Recurrent Neural Networks](#introduction-to-recurrent-neural-networks)
-- [Recap](#recap)
+  - [Character-Level Language Models](#character-level-language-models)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -46,17 +46,17 @@ Here, let me borrow some of the points from [Prof. Yuval Noah Harrari's](https:/
 </p>
 
 
-<span class='red'>I-know-everything:</span>  So, Padwan today we are going to study about language through the lens of Neural Networks. Let me get philosophical for a bit, and show how we are what today because we are able to communicate which each other the ideas, the ideas to push the human race forward. Language has been a critical cornerstone to the foundation of human mankind and will also play a critical role in human-computer world.*Don't send terminator vibes, transmitting [JARVIS](https://marvel-movies.fandom.com/wiki/J.A.R.V.I.S.) vibes....*  
+<span class='red'>I-know-everything:</span>  So, Padwan today we are going to study about language through the lens of Neural Networks. Let me get philosophical for a bit, and show how we are what today because we are able to communicate which each other the ideas, the ideas to push the human race forward. Language has been a critical cornerstone to the foundation of human mankind and will also play a critical role in human-computer world.*Blocking terminator vibes, transmitting [JARVIS](https://marvel-movies.fandom.com/wiki/J.A.R.V.I.S.) vibes....*  
 
-<span class='green'>I-know-nothing:</span> Does this mean that it will be like Image where computer understand only numbers, the underlying language will be converted to numbers and where some neural network does it's magic?
+<span class='green'>I-know-nothing:</span> Does this mean that it will be the case where image where computer understand only numbers, the underlying language will also be converted to numbers and where some neural network does it's magic?
 
-<span class='red'>I-know-everything:</span> Bingo, that's exactly right. As Image understanding has it's own challenges like occlusion, viewpoint variation, deformations, background clutter, etc., dealing with language comes with it's own challenges, starting from what language we are dealing with. This is what Natural Language Processing (NLP) field is about.  
+<span class='red'>I-know-everything:</span> Bingo, that's exactly right. As image understanding has it's own challenges like occlusion, viewpoint variation, deformations, background clutter, etc. which we saw in both image classification and object detection, dealing with language comes with it's own challenges, starting from what language we are dealing with. This is what Natural Language Processing (NLP) field is about.
 
-Let me jump and tell you about the idea of what is <span class='purple'> Force of RNN </span>. RNN known as recurrent neural networks or Elman Network are useful for dealing with sequential information.
+Let me jump and give you about the idea of what is <span class='purple'> Force of RNN </span>. RNN known as recurrent neural networks or Elman Network are useful for dealing with sequential information.
 
 <span class='green'>I-know-nothing:</span> Why a new network, can't we just use the old <span class='purple'>[Force of MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/)</span> or <span class='purple'>[Force of CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/)</span>? for dealing with these sequential information? What's so special about sequential information? What makes RNN special to dealing with these types of data?
 
-<span class='red'>I-know-everything:</span> Ahh, as we will see later, indeed we can use <span class='purple'>[Force of CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/)</span> for dealing with sequential data but <span class='purple'>[Force of MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/)</span> fails to capture relationships found in sequential data. There are different types of sequential data (where some sort of sequence is present) like time series, speech, text, financial data, video, etc. These are sequential data are not independent but rather sequentially correlated. For e.g. given a sequence, The cat sat on mat. Here, from given example we come to a conclusion that cat is sitting on mat. So, there is some context, which is nearby values of the data are related to each other. This is one example of sequential data and we can see how the context in such sequetial data matters to understand sequences. Same can be said for video, audio or any other sequential i.e. sequence involving data.
+<span class='red'>I-know-everything:</span> Aha, as we will see later, indeed we can use <span class='purple'>[Force of CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/)</span> for dealing with sequential data but <span class='purple'>[Force of MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/)</span> fails to capture relationships found in sequential data. There are different types of sequential data (where some sort of sequence is present) like time series, speech, text, financial data, video, etc. These are sequential data are not independent but rather sequentially correlated. For e.g. given a sequence, The cat sat on mat. Here, from given example we come to a conclusion that cat is sitting on mat. So, there is some context, which is nearby values of the data are related to each other. This is one example of sequential data and we can see how the context in such sequetial data matters to understand sequences. Same can be said for video, audio or any other sequential i.e. sequence involving data.
 
 - What makes RNN special? 
 
@@ -66,9 +66,9 @@ This will take us on a journey to understand what are RNN. How they so effective
 <img src='/images/rnn/simple_rnn.png' /> 
 </p>
 
-So, what can we infer by looking at the figure above. There is some context(t) which take in two inputs, Input(t) and context(t-1), which then produces output(t). Also, context(t-1) gets updated to context(t). There is some form of recursion. This is a Simple RNN which take in sequence input, to produce output. where context(t-1) is known as state. We will explore this in-detail.
+So, what can we infer by looking at the figure above. There is some context(t) which take in two inputs, Input(t) and context(t-1), which then produces output(t). Also, context(t-1) gets updated to context(t). There is some form of recursion. This is a Simple RNN which take in sequence input, to produce output. where context(t-1) is known as state. We will explore this in detail further below.
 
-There are different types of sequence input and output combination that can be used across various applications. 
+There are different types of sequence input and output combination that can be applied across various applications. 
 
 <p align="center">
 <img src='/images/rnn/applications.jpeg' width="60%"/> 
@@ -86,7 +86,7 @@ We have looked at how simple MLP works. We define, $$\mathbf{h}$$ = $$\phi(\math
 
 When we look at sequences of video frames, we use only the images as input to CNN and completely ignore sequential aspects present in the video. Taking example from [Edwin Chen's blog](http://blog.echen.me/2017/05/30/exploring-lstms/), if we see a scence of beach, we should boost beach activities in future frames: an image of someone in the water should probably be labeled *swimming*, not *bathing*, and an image of someone lying with their eyes closed is probably *suntanning*. If we remember that Bob just arrived at a supermarket, then even without any distinctive supermarket features, an image of Bob holding a slab of bacon should probably be categorized as *shopping* instead of *cooking*.
 
-We need to integrate some kind of state which keeps tracks the current view of world for the model by continually updating as it learns new things. It will function like internal memory.
+We need to integrate some kind of state which keeps tracks the current view of world for the model by continually updating as it learns new information. It sort of function like internal memory.
 
 After modifying the above equation to incorporate some notion that our model keeps remembering bits of information, new equation looks like,
 
@@ -123,11 +123,11 @@ Here, we also note that the same parameters U, V, W are shared across all RNN la
 
 <span class='green'>I-know-nothing:</span> Yes Master, I concur(*Dr.Frank Conners from Catch Me If You Can*). But how is RNN trained and how does backpropogation work? Is the same as we looked in MLP?
 
-<span class='red'>I-know-everything:</span> Now, onto the training and learning part of neural networks. We have seen in CNNs and MLPs, the usual process is to pass input, calculate the loss using predicted output and target output, backpropogate the error to adjust the weights, and perform these steps for millions of example (inputs, targets) pairs.
+<span class='red'>I-know-everything:</span> Now, onto the training and learning part of neural networks. We have seen in CNNs and MLPs, the usual process is to pass input, calculate the loss using predicted output and target output, backpropogate the error so as to adjust the weights to reduce the error, and perform these steps for millions of example (inputs, targets) pairs.
 
-Training in RNNs is very similar to above. Also, the [loss functions](https://dudeperf3ct.github.io/object/detection/2019/01/07/Mystery-of-Object-Detection/#loss-functions) which we mentioned are the very ones used.
+Training in RNNs is very similar to above. Also, the [loss functions](https://dudeperf3ct.github.io/object/detection/2019/01/07/Mystery-of-Object-Detection/#loss-functions) which we mentioned are the very ones used depending on different applications.
 
-Now, the backpropogation becomes BPTT, i.e. <span class='saddlebrown'>jar jar backpropogation</span> meets long lost sibling <span class='saddlebrown'> jar jar backpropogation through time</span>.
+Now, the backpropogation becomes BPTT, i.e. <span class='saddlebrown'>jar jar backpropogation</span> meets long time lost sibling <span class='saddlebrown'> jar jar backpropogation through time</span>.
 
 What BPTT means is that the error is propagated through recurrent connections back in time for a specific number of time steps. Within BPTT the error is back-propagated from the last to the first timestep, while unrolling all the timesteps. This allows calculating the error for each timestep, which allows updating the weights. BPTT can be computationally expensive when you have a high number of timesteps.
 
@@ -143,7 +143,7 @@ $$
 \end{aligned}
 $$
 
-Here loss $$\mathbf{E(\mathbf{y}, \mathvf{\hat{y}})}$$ is cross entopy loss. This can be stated as total error is summing error across all time steps. Training routine is, we pass in one word $$\mathbf{x}_{t}$$ and get the predicted word at time t as $$\mathvf{\hat{y}}_{t}$$ which is then used to calculate error at time step t along with actual word $$\mathvf{y}_{t}$$. Total error can be obtained by summation of errors across all time steps t i.e. $$\mathbf{E(\mathbf{y}, \mathvf{\hat{y}})} = \sum_{t}^{}\mathbf{E_{t}(\mathbf{y}, \mathvf{\hat{y}})}$$ 
+Here, loss $$\mathbf{E(\mathbf{y}, \mathvf{\hat{y}})}$$ is cross entopy loss. This can be stated as total error is summing error across all time steps. Training routine is, we pass in one word $$\mathbf{x}_{t}$$ and get the predicted word at time t as $$\mathvf{\hat{y}}_{t}$$ which is then used to calculate error at time step t along with actual word $$\mathvf{y}_{t}$$. Total error can be obtained by summation of errors across all time steps t i.e. $$\mathbf{E(\mathbf{y}, \mathvf{\hat{y}})} = \sum_{t}^{}\mathbf{E_{t}(\mathbf{y}, \mathvf{\hat{y}})}$$ 
 
 <p align="center">
 <img src='/images/rnn/backprop_rnn.png' width="60%"/> 
@@ -176,9 +176,9 @@ We sum up the contributions of each time step to the gradient. For example, to c
 
 This should also give you an idea of why standard RNNs are hard to train: Sequences (sentences) can be quite long, perhaps 20 words or more, and thus you need to back-propagate through many layers. In practice many people truncate the backpropagation to a few steps. Also, know as trauncated BPTT. Also, this accumulation of gradients from far steps leads to problem of exploding gradients and vanishing gradients explored in this [paper](http://proceedings.mlr.press/v28/pascanu13.pdf).
 
-To mitigate this problem of exploding gradients and vanishing gradients, we call in variants of RNN to help, which are LSTM and GRU. This will be topic of interest for our next post. 
+To mitigate this problem of exploding gradients and vanishing gradients, we call in variants of RNN for help, which are LSTM and GRU. This will be topic of interest for our next post. 
 
-- Character-Level Language Models
+## Character-Level Language Models
 
 For now, we will look into char-rnn or Character RNN, where the network learns to predict next character. We’ll train RNN character-level language models. That is, we’ll give the RNN a huge chunk of text and ask it to model the probability distribution of the next character in the sequence given a sequence of previous characters. This will then allow us to generate new text one character at a time.
 
@@ -389,7 +389,7 @@ would have had been the mare were anna arkadyevna when an the carries.
 Here are some other very interesting results, [Cooking-Recipe](https://gist.github.com/nylki/1efbaa36635956d35bcc), [Obama-RNN](https://medium.com/@samim/obama-rnn-machine-generated-political-speeches-c8abd18a2ea0), [Bible-RNN](https://twitter.com/RNN_Bible), [Folk-music](https://soundcloud.com/seaandsailor/sets/char-rnn-composes-irish-folk-music), [Learning Holiness](https://cpury.github.io/learning-holiness/), [AI Weirdness](http://aiweirdness.com/), [Auto-Generating Clickbait] (https://larseidnes.com/2015/10/13/auto-generating-clickbait-with-recurrent-neural-networks/)
 
 
-Be sure to look into "Visualizing the predictions and the “neuron” firings in the RNN" section of Master Karpathy's [blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) to peek under the hood.
+Be sure to look into "Visualizing the predictions and the “neuron” firings in the RNN" section of Master Karpathy's [blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) to peek under the hood. We will do a seperate post the one similar to [Visualizing CNN](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/).
 
 
 In next post, we explore the shortcomings of RNN by introducing <span class='purple'>Force of LSTM and GRU</span>.
@@ -406,9 +406,9 @@ loss function - cost, error or objective function
 
 jar jar backpropogation - backpropogation
 
-jar jar bptt - bptt
+jar jar bptt - BPTT
 
-bptt - backpropogation through time
+BPTT - backpropogation through time
 
 ---
 
@@ -417,6 +417,8 @@ bptt - backpropogation through time
 Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 
 [Chater 9 Book: Speech and Language Processing by Jurafsky & Martin](https://web.stanford.edu/~jurafsky/slp3/9.pdf)
+
+[Stanford CS231n Winter 2016 Chapter 10]()
 
 [CS224d slides and lectures](http://cs224d.stanford.edu/syllabus.html)
 
