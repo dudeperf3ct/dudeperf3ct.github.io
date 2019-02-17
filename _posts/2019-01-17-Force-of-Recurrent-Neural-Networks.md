@@ -78,9 +78,38 @@ In above figure, inputs are green, output blue and RNN's state in green. From le
 
 We still haven't answered what makes them special. Let's deep dive and take apart RNN and assemble it to understand what makes RNNs special.
 
+We have looked at how simple MLP works. We define, $$\mathbf{h}$$ = $$\phi(\mathbf{W}\mathbf{x})$$ , where $$\phi$$ is an activation function and $$\mathbf{y}$$ = $$\mathbf{V}\mathbf{h}$$, where $$\mathbf{V}$$ is weight matrix connecting hidden and output layers, $$\mathbf{W}$$ weight matrix connecting input and hidden layer and $$\mathbf{x}$$ is input vector. We also looked at different types of activation functions.
+
+<p align="center">
+<img src='/images/rnn/nn.png' /> 
+</p>
+
+When we look at sequences of video frames, we use only the images as input to CNN and completely ignore sequential aspects present in the video. Taking example from [Edwin Chen's blog](http://blog.echen.me/2017/05/30/exploring-lstms/), if we see a scence of beach, we should boost beach activities in future frames: an image of someone in the water should probably be labeled *swimming*, not *bathing*, and an image of someone lying with their eyes closed is probably *suntanning*. If we remember that Bob just arrived at a supermarket, then even without any distinctive supermarket features, an image of Bob holding a slab of bacon should probably be categorized as *shopping* instead of *cooking*.
+
+We need to integrate some kind of state which keeps tracks the current view of world for the model by continually updating as it learns new things. It will function like internal memory.
+
+After modifying the above equation to incorporate some notion that our model keeps remembering bits of information, new equation looks like,
+
+$$
+\begin{aligned}
+\mathbf{h}_{t} & = \phi(\mathbf{W}\mathbf{x}_{t} + \mathbf{U}\mathbf{h}_{t-1}) \\
+\mathbf{y}_{t} & = \mathbf{V}\mathbf{h}_{t}
+\end{aligned}
+$$
+
+Here, $$\mathbf{h}_{t}$$, hidden layer of network acts as internal memory storing useful information about input and passing the same info to next hidden layer so that it can update the state (internal memory or hidden layer) as new input comes. In this way, hidden layer sort of contains all this history of past inputs.
+
+<p align="center">
+<img src='/images/rnn/rnn.png' /> 
+</p>
 
 
+This is where the recurrent word comes into RNN, as we are using the same state(hidden layer) for every input again and again. Another way to think about how RNN works is, we get an input, our hidden layer captures some information about that input, and then when next input comes, the information in hidden layer gets updated according to new input but also keeping some of the previous inputs. So in all, hidden layer becomes an internal memory which captures information about what has been calculated so far. The below diagram shows unrolled RNN, if sequence contains 3 words, then the network will be unrolled into 3-layer network as shown below.
 
+
+<p align="center">
+<img src='/images/rnn/unfold_rnn.png' /> 
+</p>
 
 
 
