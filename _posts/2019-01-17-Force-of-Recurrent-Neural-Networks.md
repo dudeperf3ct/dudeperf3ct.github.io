@@ -161,7 +161,7 @@ If we calculate $$\frac {\partial E_{3}}{\partial W}$$ (*Why 3?* we can further 
 $$
 \begin{aligned}
 \frac {\partial E_{3}}{\partial W} = \frac {\partial E_{3}}{\partial \mathbf{\hat{y}}_{3}}\frac {\partial \mathbf{\hat{y}}_{3}}{\partial \mathbf{s}_3}\frac {\partial \mathbf{s}_3}{\partial W}\\
-\mathbf{s}_{3} = tanh(\mathbf{U}\mathbf{x}_{t} + \mathbf{W}\mathbf{s}_{t})
+\mathbf{s}_{3} = tanh(\mathbf{U}\mathbf{x}_{t} + \mathbf{W}\mathbf{s}_{2})
 \end{aligned}
 $$
 
