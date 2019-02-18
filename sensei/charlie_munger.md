@@ -96,6 +96,10 @@ When I urge a multidisciplinary approach I’m really asking you to ignore juris
 
 We read a lot. I don’t know anyone who’s wise who doesn’t read a lot. But that’s not enough: You have to have a temperament to grab ideas and do sensible things. Most people don’t grab the right ideas or don’t know what to do with them.
 
+The great philosopher who said 'A man never steps into the same river twice,' you know, 'The man is different, and so is the river, when he goes in the second time.' That's the trouble with economics. It's not like physics. The same damn recipe done a different time gets a different result.
+
+<span class='blue'>Advice on life: You don't have a lot of envy, you don't have a lot of resentment, you don't overspend your income, you stay cheerful in spite of your troubles. You deal with reliable people and you do what you're supposed to do. And all these simple rules work so well to make your life better. And they're so trite.</span>
+
 Quotes
 ===========================
 
@@ -146,6 +150,9 @@ I like the long-term investors who figure out something is going to work over th
 All the wisdom in the world is not to be found in one little academic department. That would be a disastrous way to think and operate.
 
 Go to bed smarter than when you woke up.
+
+Every era, it is a cinch that a great nation will, in due time, be ruined.
+
 
 Stories
 ===========================
