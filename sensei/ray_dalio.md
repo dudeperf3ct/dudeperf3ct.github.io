@@ -74,6 +74,8 @@ The most important thing as you are young is to realize that your success comes 
 
 You have to have a balanced portfolio. Concentration is a risky thing.
 
+Think for yourself to decide 1) what you want, 2) what is true, and 3) what you should do to achieve #1 in light of #2, and do that with humility and open-mindedness so that you consider the best thinking available to you.
+
 <span class='purple'>Aim for 15 uncorrelated bets. “The holy grail of investing is to have 15 or more good—they don’t have to be great—uncorrelated bets.” In other words, everything comes down to owning an array of attractive assets that don’t move in tandem. That’s how you ensure survival and success.</span>
 
 People are so hung up on being right, starting their discussion and deriving some sort of satisfaction, if at the end of discussion they were where they began the discussion so that doesn't make any sense because there's not going to be any learning. So, ego plays an important role in that, that's that all the people who feel like they are, "I am good, I have got it". You won't learn if you got it. So, you have to get rid of this ego barrier of "I have got it thing".
