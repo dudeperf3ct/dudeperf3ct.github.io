@@ -49,6 +49,8 @@ Love what you do, do what you love.
 
 Start your business when you are young.
 
+Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple.
+
 
 Stories
 ===========================
