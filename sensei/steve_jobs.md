@@ -18,7 +18,7 @@ published: true
 > When you grow up you tend to get told, the world is the way that it is and your life is just the way it is, live your life just inside the world, try not to bash into the walls too much, try to have a nice family life, have fun, save little money. That is a very limited life. Life can be much broader ones you discover one simple fact and that is everything around you that you call life was made up by people that were no smarter than you and you can change it, influence it. You can build your own things that other people can use and the minute that you understand . You can change it, mould it. That's may be the most important thing. To shake of this erroneous notion that life is there and you just are going to live in it versus embrace it, change it, improve it, make your mark upon it. I think that's very important. Once you learn that you will never be the same again. 
 
 Feel free to jump anywhere,
-- [Mungerism](#mungerism)
+- [Jobsism](#jobsism)
 - [Quotes](#quotes)
 - [Stories](#stories)
 - [Stanford Commencement Address](#stanford-commencement-address)
