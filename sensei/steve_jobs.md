@@ -3,7 +3,7 @@ layout: page
 title: Steve Jobs
 permalink: /sensei/steve-jobs/
 tags: steve jobs
-published: false
+published: true
 ---
 <p align='center'>
  <img src="/images/senseis/steve_jobs.png" alt="Steve Jobs" />
