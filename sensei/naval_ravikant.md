@@ -6,7 +6,7 @@ tags: naval ravikant
 published: false
 ---
 <p align='center'>
- <img src="/images/charlie.jpg" alt="Charlie Munger" />
+ <img src="/images/senseis/naval_ravikant.jpeg" alt="Naval Ravikant" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. <span class='red'>Happy Learning!</span>
