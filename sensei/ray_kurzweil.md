@@ -22,7 +22,7 @@ Among Kurzweil’s many honors, he received the 2015 Technical Grammy Award for 
 Kurzweilism
 ===========================
 
-The key to be successful as an inventor in 1980s is timing. Have to be in right place at right time.
+The key to be successful as an inventor in 1980s is timing, [you have] to be in right place at right time.
 
 People intuition about future is linear even though they have seen many examples of exponential progressions. 
 
