@@ -3,7 +3,7 @@ layout: page
 title: Naval Ravikant
 permalink: /sensei/naval-ravikant/
 tags: naval ravikant
-published: false
+published: true
 ---
 <p align='center'>
  <img src="/images/senseis/naval_ravikant.jpeg" alt="Naval Ravikant" />
