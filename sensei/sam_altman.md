@@ -28,7 +28,11 @@ My three most pillar in productivity:
 
 Everytime I make a major investment in the company, I am convinced that it's going to work or atleast like I am prepared to pay for the expected value that I think it's going to work. Convincing yourself otherwise is very hard.
 
+I think the way you become really great at venture capital is to accept that the only way to figure out the future of the world is to identify incredibly talented, smart, creative, original thinkers and back those people. You have to trust that that will work out over time. You can’t just be the smartest person all the time.
+
 <span class='purple'>The best thing in investing is you get to be wrong a lot many times very frequently and you learn that's okay as long as magnitude of success is pays for all of failures.</span>
+
+Paul Graham used to say that the prototype for a good founder was James Bond. There’s lots of reasons the analogy doesn’t work, but this idea that a lot of things go wrong, you are unflappable, you never lose your cool, you know how to react. Bad things are happening to you left and right, and you are a survivor, and you always figure it out with whatever resource is in front of you. That part is the spirit of a great founder.
 
 The things that have taught me lot about business are poker and investing. I strongly recommend poker for understanding the world of psychology and risk.
 
@@ -38,6 +42,8 @@ I think as you get older, the perspective shift just gets harder and harder and 
 
 Surrounding yourself with people who will make you more ambitious, more inquisitive, shift your perspective more is really important. Basically all people, almost about 98% people in the world will try to pull you back and say it's crazy, it out there, it's really ambitious.
 
+I think a vision that someone feels compelled to make happen in the world is probably the most important of a super successful founder. Then this idea of relentless resourcefulness: “That thing is so important to me that I’m going to figure out how to get it done, whatever it takes. Whatever I need to learn. Whoever I need to convince.” That’s really important.
+ 
 You want to look for intersection of what you good at, what you enjoy and where you can create value for the world. In my experience, if you don't find some intersection of those three it's really hard to have impact.
 
 If you work very hard at early in your career, you get little better at what you work every day, every week, every year and you learn more and meet people and just get work done. There's a compound effect.
@@ -53,6 +59,14 @@ I think willing to go, take a risk and make some amount of sacrifice to be able 
 <span class='blue'>The role of the CEO is basically to figure out and decide what the company should do and then make sure it does that. Many CEOs try to outsource those things.</span>
 
 <span class='red'>The hard part of getting users and getting revenue is that it means spending your time building stuff and talking to users—and the implication is you should do nothing else.</span>
+
+Almost every venture capital firm gives advice they never follow themselves. They don’t build differentiated products. They are not network-affected businesses. They don’t try to build a brand and a community. And they don’t try to make something that gets better the bigger it gets and have the scale effects that anyone would tell you they want in a business.
+
+I think one thing that is a really important thing to strive for is being internally driven, being driven to compete with yourself, not with other people. If you compete with other people, you end up in this mimetic trap, and you sort of play this tournament, and if you win, you lose.
+
+The most expensive investing mistake in the world to make is to be a pessimist, and it’s a common one. I think that’s actually the most common mistake to make in life.
+
+If you look at most successful founders, they are pretty smart, upper-middle-class people. They are very rarely the children of super successful people. They are very rarely born in real poverty. They are very rarely the absolute smartest people who otherwise would win a Fields Medal. They are never dumb, but upper-middle-class, pretty smart people that have grit and drive and creativity and vision and edge and a different way of thinking about the world. That is what I think I’m good at spotting, and that is what I think are good founders.
 
 Quotes
 ===========================
