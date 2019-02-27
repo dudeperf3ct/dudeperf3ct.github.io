@@ -6,7 +6,7 @@ tags: ray kurzweil
 published: false
 ---
 <p align='center'>
- <img src="/images/ray_kurzweil.jpg" alt="Ray Kurzweil" />
+ <img src="/images/senseis/ray_kurzweil.jpg" alt="Ray Kurzweil" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. There is lesson in everything. <span class='red'>Happy Learning!</span>
