@@ -3,7 +3,7 @@ layout: page
 title: Sam Altman
 permalink: /sensei/sam-altman/
 tags: sam altman
-published: false
+published: true
 ---
 <p align='center'>
  <img src="/images/senseis/sam.jpg" alt="Sam Altman" />
