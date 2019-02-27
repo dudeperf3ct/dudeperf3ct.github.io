@@ -3,7 +3,7 @@ layout: page
 title: Ray Kurzweil
 permalink: /sensei/ray-kurzweil/
 tags: ray kurzweil
-published: false
+published: true
 ---
 <p align='center'>
  <img src="/images/senseis/ray_kurzweil.jpg" alt="Ray Kurzweil" />
