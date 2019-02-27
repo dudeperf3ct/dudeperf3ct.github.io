@@ -6,7 +6,7 @@ tags: steve jobs
 published: false
 ---
 <p align='center'>
- <img src="/images/charlie.jpg" alt="Charlie Munger" />
+ <img src="/images/senseis/steve_jobs.png" alt="Steve Jobs" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. <span class='red'>Happy Learning!</span>
