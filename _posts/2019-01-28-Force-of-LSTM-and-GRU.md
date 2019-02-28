@@ -175,18 +175,27 @@ Discarding word order ignores the context, and in turn meaning of words in the d
 
 ## Embeddings
 
-
+Embeddings are the answer to mitigate the drawbacks of above model. Embeddings take into account the context and semantic meanings of words by producing a n-dimensional vector corresponding to that word. We will look into some of the popular ways of creating embeddings using different methods.
 
 ### Word2Vec
 
+Ahh, the title. Word2Vec, converts a word to vector. But how? Word2vec is similar to an autoencoder, encoding each word in a vector. Word2Vec trains words against other words that neighbor them in the input corpus.
 
 
-#### Skipgram
+If the network is given enough training data (tens of billions of words), it produces word vectors with intriguing characteristics. Words with similar meanings appear in clusters, and clusters are spaced such that some word relationships, such as analogies, can be reproduced using vector math. The famous example is that, with highly trained word vectors, "king - man + woman = queen."
+
+It comes in two flavors, the Continuous Bag-of-Words model (CBOW) and the Skip-Gram model. Algorithmically, these models are similar, except that CBOW predicts target words (e.g. 'mat') from source context words ('the cat sits on the'), while the skip-gram does the inverse and predicts source context-words from the target words.
+
+#### Skip-Gram
+
+
+However, skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
 
 
 
 #### CBOW
 
+CBOW smoothes over a lot of the distributional information (by treating an entire context as one observation). For the most part, this turns out to be a useful thing for smaller datasets. 
 
 
 ### Glove
@@ -196,6 +205,11 @@ Discarding word order ignores the context, and in turn meaning of words in the d
 ### Fasttext
 
 
+
+
+
+
+*We will look into CoVe, ELMo, ULMFit, GPT, BERT and GPT-2 models in the post on Transfer Learning in NLP.*
 
 
 ## LSTM
@@ -228,7 +242,7 @@ BPTT - backpropogation through time
 
 # Further Reading
 
-Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 [Chater 9 Book: Speech and Language Processing by Jurafsky & Martin](https://web.stanford.edu/~jurafsky/slp3/9.pdf)
 
@@ -238,6 +252,7 @@ Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://
 
 [Sebastian Raschka article on Naive Bayes](https://sebastianraschka.com/Articles/2014_naive_bayes_1.html)
 
+[Word2Vec](https://arxiv.org/pdf/1301.3781.pdf)
 
 
 ---
