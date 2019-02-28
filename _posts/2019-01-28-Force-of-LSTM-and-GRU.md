@@ -10,9 +10,9 @@ published : false
 
 # Long-Short Term Memory and Gated Recurrent Units
 
-In this notebook, we will see if Neural Networks can write as good as Shakespeare?
+In this notebook, 
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb) and [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb).
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb) and.
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -20,18 +20,19 @@ Hey yo, but how?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
-<p align="center">
-<img src='/images/rnn/rnn_meme.jpg' width="50%"/> 
-</p>
-
 
 Feel free to jump anywhere,
 
 - [Introduction to LSTM and GRU](#introduction-to-lstm-and-gru)
-  - [Backpropogation through time](#bptt)
-  - [Character-Level Language Models](#character-level-language-models)
+  - [](#)
+  - [](#)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
+
+# Preprocessing Text
+
+
+
 
 
 # Introduction to LSTM and GRU
@@ -43,13 +44,105 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span>  So, Padwan today we are going to study about language through the lens of Neural Networks. Let me get philosophical for a bit, and show how we are what today because we are able to communicate which each other the ideas, the ideas to push the human race forward. Language has been a critical cornerstone to the foundation of human mankind and will also play a critical role in human-computer world. (*Blocking terminator vibes, transmitting [JARVIS](https://marvel-movies.fandom.com/wiki/J.A.R.V.I.S.) vibes....*)  
+<span class='red'>I-know-everything:</span> Today we will be visiting a lot of concepts in field of NLP. I mean a lot. There will be a lot to taken in so don't get lost (*in space*).
 
-<span class='green'>I-know-nothing:</span> Does this mean that it will be the case where image where computer understand only numbers, the underlying language will also be converted to numbers and where some neural network does it's magic?
+<span class='green'>I-know-nothing:</span> 
+
+<span class='red'>I-know-everything:</span> Let me start with the various vectorization and embeddings techniques and gradually we will move into LSTM and GRUs.
+
+
+In the [last post]() on RNNs we saw how neural networks only understand numbers and all we have as input is string of words which make up sentences, which add upto paragraphs and eventually make a document. Collection of such documents is called corpus. The text is converted to tokens using tokens and into numbers using vectorization/embeddings/numericalizations.
+
+So, to convert the text we often take help of various techniques. Let's visit them one by one.
+
+## Vectorization
+
+Vectorization refers to the process of converting strings to numbers. These numbers which are then fed to neural networks to do their thing. There are various ways we can convert these strings into numbers. This process is also called feature extraction or feature encoding. In this techniques we will often encounter with the word **Vocabulary**, vocab is nothing but collection of unique words or characters depending on how we want. 
+
+We will make this concrete with example.
+
+Example Sentence: The cat sat on the mat.
+
+vocab_character : {T, h, e, c, a, t, s, o, n, m, .}
+
+vocab_words : {The, cat, sat, on, the, mat, .}
+
+If we had converted all the text to lower, new vocabulary would have been
+
+vocab_character : {t, h, e, c, a, s, o, n, m, .}
+
+vocab_words : {the, cat, sat, on, mat, .}
+
+Notice, the repeated "the" is now gone. Hence, unique collection of words or characters. Note, we will assume that our sentences will be lower case even though they may appear upper case.
+
+### Bag-of-Words Model
+
+This is one of the most simple and naive way to vectorize. As the name suggests, we are creating a bag of models. The simplest way to create a vocabulary is to bag uniques words(characters). 
+
+Sentence 1: I came I saw
+
+Sentence 2: I conquered
+
+From these three sentences, our vocabulary is as follows:
+
+{ I, came, saw, conquered }
+
+
+#### Count Vectorizer
+
+BoW Model learns a vocabulary from each document and model each document by counting the occurence of word in the document. This is done on top of Bag-of-Models. Here each word count is considered as feature vector. CountVectorizer works on Terms Frequency, i.e. counting the occurrences of tokens.
+
+We will understand more clearly by example,
+
+Sentence 1: I came I saw
+
+Sentence 2: I conquered
+
+From these three sentences, our vocabulary is as follows:
+
+{ I, came, saw, conquered }
+
+To get our bags of words using count vectorizer, we count the number of times each word occurs in each sentence. In Sentence 1, "the" appears once, and "came" and "saw" each appear once, so the feature vector for Sentence 1 is:
+
+Sentence 1: { 2, 1, 1, 0 }
+
+Similarly, the features for Sentence 2 are: { 1, 0, 0, 1 }
+
+
+#### TF-IDF Vectorizer
 
 
 
-In next post, we explore the shortcomings of RNN by introducing <span class='purple'>Force of LSTM and GRU</span>.
+
+#### N-gram Models
+
+
+## Embeddings
+
+
+
+### Word2Vec
+
+
+
+#### Skipgram
+
+
+
+#### CBOW
+
+
+
+### Glove
+
+
+
+## LSTM
+
+
+## GRU
+
+
 
 <span class='orange'>Happy Learning!</span>
 
@@ -78,6 +171,8 @@ Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://
 [Stanford CS231n Winter 2016 Chapter 10](https://www.youtube.com/watch?v=yCC09vCHzF8&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC&index=10)
 
 [CS224d slides and lectures](http://cs224d.stanford.edu/syllabus.html)
+
+[Sebastian Raschka article on Naive Bayes](https://sebastianraschka.com/Articles/2014_naive_bayes_1.html)
 
 
 
