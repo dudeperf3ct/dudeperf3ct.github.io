@@ -77,7 +77,7 @@ Notice, the repeated "the" is now gone. Hence, unique collection of words or cha
 
 ### Bag-of-Words Model
 
-This is one of the most simple and naive way to vectorize. As the name suggests, we are creating a bag of models. The simplest way to create a vocabulary is to bag uniques words(characters). 
+This is one of the most simple and naive way to vectorize. As the name suggests, we are creating a bag of models. The simplest way to create a vocabulary is to bag uniques words(characters).
 
 Sentence 1: I came I saw
 
@@ -92,7 +92,7 @@ From these three sentences, our vocabulary is as follows:
 
 BoW Model learns a vocabulary from each document and model each document by counting the occurence of word in the document. This is done on top of Bag-of-Models. Here each word count is considered as feature vector. CountVectorizer works on Terms Frequency, i.e. counting the occurrences of tokens.
 
-We will understand more clearly by example,
+We will understand more clearly by example where each sentence is considered a document,
 
 Sentence 1: I came I saw
 
@@ -111,10 +111,66 @@ Similarly, the features for Sentence 2 are: { 1, 0, 0, 1 }
 
 #### TF-IDF Vectorizer
 
+Count Vectorizer tend to give higher score to more dominant words from the document but they may not contain "informational content" as much as rarer but domain specific words. For example, "I" from above example. Hence, we introduce TF-IDF. TF-IDF stands for term frequency-inverse document frequency. It gives a score as to how important a word is to the document in a corpus. TF-IDF measures relevance, not frequency. Wordcounts are replaced with TF-IDF scores across the whole corpus.The scores have the effect of highlighting words that are distinct (contain useful information) in a given document. The IDF of a rare term is high, whereas the IDF of a frequent term is likely to be low.
 
+- Term Frequency: is a scoring of the frequency of the word in the current document.
+- Inverse Document Frequency: is a scoring of how rare the word is across documents.
 
+TF(t) = Number of times t appears in document / Total number of terms in document
+
+IDF(t) = log(Total number of documents / Number of documents with term t in it)
+
+TF-IDF(t) = TF(t) * IDF(t)
+
+Let's look at our example,
+
+Document 1 consists of Sentence 1: 
+
+Term Frequency of Document 1 = {I: 2, came:1, saw: 1}
+
+Term Frequency of Document 2 = {I: 1, conquered: 1}
+
+Let's calculate TF-IDF("I") ,
+
+TF("I") for Document 1 = 1/4
+
+TF("I") for Document 2 = 1/2
+
+IDF("I") for Document 1 = log(2/3)
+
+TF-IDF("I") for Document 1 = (1/4) * log(2/3) 
+
+TF-IDF("I") for Document 2 = (1/2) * log(2/3)
+
+We get different weightings for same word.
 
 #### N-gram Models
+
+N-gram is contiguous sequence of n-items. Remember how using BoW we count occurrence of single word. Now, what if instead of using single word we used 2 consicutive words as construct bag-of-models from this model. We add the count based on the vocab used to construct a feature vector.
+
+1-gram model (unigram), the new vocab will be { I, came, saw, conquered} same as BoW model vocabulary.
+
+2-gram model (bigram), the new vocab will be { I came, came I, I saw, I conquered}
+
+3-gram model (trigram), the new vocab will be {I came I, came I saw}
+
+BoW can be considered as special case of n-gram model with n=1. 
+Adding features of higher n-grams can be helpful in identifying that a certain multi-word expression occurs in the text.
+
+
+#### Limitations of Bag-of-Words Model
+
+- Vocabulary
+
+The size of vocabulary requires careful design, most specifically in order to manage the size. The misspelling like come, cmoe will be considered as seperate words which can lead to increase in vocabulary.
+
+- Sparsity
+
+Sparse representations are harder to model both for computational reasons (space and time complexity). There will be a lot of zeros as input vectors will be one hot encoded of vocabulary size.
+
+- Ordering
+
+Discarding word order ignores the context, and in turn meaning of words in the document (semantics). Context and meaning can offer a lot to the model, that if modeled could tell the difference between the same words differently arranged (“this is interesting” vs “is this interesting”), synonyms (“old bike” vs “used bike”), and much more. This is one of the crucial drawbacks of using BoW models.
 
 
 ## Embeddings
@@ -137,7 +193,15 @@ Similarly, the features for Sentence 2 are: { 1, 0, 0, 1 }
 
 
 
+### Fasttext
+
+
+
+
 ## LSTM
+
+
+
 
 
 ## GRU
