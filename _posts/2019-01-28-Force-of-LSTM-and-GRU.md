@@ -24,8 +24,19 @@ Well sit tight and buckle up. I will go through everything in-detail.
 Feel free to jump anywhere,
 
 - [Introduction to LSTM and GRU](#introduction-to-lstm-and-gru)
-  - [](#)
-  - [](#)
+  - [Vectorization](#vectorization)
+    - [Bag of Words Model](#bag-of-words-model)
+    - [Count Vectorizer](#count-vectorizer)
+    - [TF-IDF Vectorizer](#tf-idf-vectorizer)
+    - [N-grams Model](#n-grams-model)
+  - [Embeddings](#embeddings)
+    - [Word2Vec](#word2vec)
+    - [Skip Gram Model](#skip-gram-model)
+    - [CBOW](#cbow)
+    - [Glove](#glove)
+    - [Fasttext](#fasttext)
+  - [LSTM](#lstm)
+  - [GRU](#gru)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
