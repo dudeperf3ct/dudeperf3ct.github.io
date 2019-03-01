@@ -31,9 +31,9 @@ Feel free to jump anywhere,
     - [N-gram Model](#n-gram-model)
   - [Embeddings](#embeddings)
     - [Word2Vec](#word2vec)
-    - [Skip Gram Model](#skip-gram-model)
+    - [Skip-gram Model](#skip-gram-model)
     - [CBOW](#cbow)
-    - [Glove](#glove)
+    - [GloVe](#glove)
     - [Fasttext](#fasttext)
   - [LSTM](#lstm)
   - [GRU](#gru)
@@ -218,6 +218,9 @@ Here we consider the window size = 2, window size refers to the number of words 
 The pairs to right are training samples. The training of skip-gram will take one-hot vector input on vocabulary and outputs a probability after applying softmax that the particular word is output given the input word. Given enough input vectors, model learns that there is high probability that when "San" is given as input, "Franciso" or "Jose" is more likely than "York". Skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
 
 
+<p align="center">
+<img src='/images/lstm_and_gru/skip_gram.png' /> 
+</p>
 
 
 #### CBOW Model
@@ -237,12 +240,15 @@ Here we also consider the window size = 2.
 <img src='/images/lstm_and_gru/cbow_2.png' /> 
 </p>
 
+The pairs to right are training samples. 
 
-
+<p align="center">
+<img src='/images/lstm_and_gru/cbow.png' /> 
+</p>
 
 One of the biggest challenges with Word2Vec is how to handle unknown or out-of-vocabulary (OOV) words and morphologically similar words. This can particularly be an issue in domains like medicine where synonyms and related words can be used depending on the preferred style of radiologist, and words may have been used infrequently in a large corpus. If the word2vec model has not encountered a particular word before, it will be forced to use a random vector, which is generally far from its ideal representation. 
 
-### Glove
+### GloVe
 
 
 
@@ -288,19 +294,23 @@ BPTT - backpropogation through time
 
 Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
+Must Read! [Edwin Chen's blog on LSTM]()
+
+Must Read! Word Embeddings by Sebastian Ruder [part-1](), [part-2]()
+
 [Chater 9 Book: Speech and Language Processing by Jurafsky & Martin](https://web.stanford.edu/~jurafsky/slp3/9.pdf)
 
 [Stanford CS231n Winter 2016 Chapter 10](https://www.youtube.com/watch?v=yCC09vCHzF8&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC&index=10)
 
 [CS224d slides and lectures](http://cs224d.stanford.edu/syllabus.html)
 
-Word Embeddings by Sebastian Ruder [part-1](), [part-2]()
-
 [A brief history of word embeddings](https://www.gavagai.se/blog/2015/09/30/a-brief-history-of-word-embeddings/)
 
 [Sebastian Raschka article on Naive Bayes](https://sebastianraschka.com/Articles/2014_naive_bayes_1.html)
 
 [Word2Vec](https://arxiv.org/pdf/1301.3781.pdf)
+
+[GloVe](https://nlp.stanford.edu/pubs/glove.pdf)
 
 
 ---
