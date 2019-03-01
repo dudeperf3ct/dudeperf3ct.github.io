@@ -28,7 +28,7 @@ Feel free to jump anywhere,
     - [Bag of Words Model](#bag-of-words-model)
     - [Count Vectorizer](#count-vectorizer)
     - [TF-IDF Vectorizer](#tf-idf-vectorizer)
-    - [N-grams Model](#n-grams-model)
+    - [N-gram Model](#n-gram-model)
   - [Embeddings](#embeddings)
     - [Word2Vec](#word2vec)
     - [Skip Gram Model](#skip-gram-model)
@@ -97,6 +97,11 @@ Sentence 2: I conquered
 From these three sentences, our vocabulary is as follows:
 
 { I, came, saw, conquered }
+
+
+<p align="center">
+<img src='/images/lstm_and_gru/bag_of_words.png' /> 
+</p>
 
 
 #### Count Vectorizer
@@ -190,24 +195,52 @@ Embeddings are the answer to mitigate the drawbacks of above model. Embeddings t
 
 ### Word2Vec
 
-Ahh, the title. Word2Vec, converts a word to vector. But how? Word2vec is similar to an autoencoder, encoding each word in a vector. Word2Vec trains words against other words that neighbor them in the input corpus.
+Ahh, the title, Word2Vec, converts a word to vector. [Mikilov et al](https://arxiv.org/pdf/1301.3781.pdf) developed the word2vec toolkit that allows to use pretrained embeddings. But how? Word2vec is similar to an autoencoder, encoding each word in a vector. Word2Vec trains words against other words that neighbor them in the input corpus. Word2Vec consists of 3-layer neural network i.e. input layer, hidden layer and output layer. Depending on which model (skip-gram or cbow), we feed in word and train to predict neighbouring words or feed neighbouring words and train to predict missing word. Once we obtain trained model, we remove last output layer and when we input a word from vocabulary, output given by hidden layer will be "embedding of the input word".
+
+If the network is given enough training data (tens of billions of words), it produces word vectors with intriguing characteristics. Words with similar meanings appear in clusters, and clusters are spaced such that some word relationships, such as analogies, can be reproduced using vector math. The famous example is that, with highly trained word vectors, "king - man + woman = queen."  Patterns such as “Man is to Woman as Brother is to Sister” can be generated through algebraic operations on the vector representations of these words such that the vector representation of “Brother” - ”Man” + ”Woman” produces a result which is closest to the vector representation of “Sister” in the model. Such relationships can be generated for a range of semantic relations (such as Country–Capital) as well as syntactic relations (e.g. present tense–past tense).
+
+It comes in two flavors, the Continuous Bag-of-Words model (CBOW) and the Skip-Gram model. Algorithmically, these models are similar, except that CBOW predicts target words (e.g. 'mat') from source context words ('the cat sits on the'), while the skip-gram does the inverse and predicts source context-words from the target words. 
+
+#### Skip-gram Model
+
+Skip-gram model predicts context (surrounding) words given the current word. To understand what that means, lets consider example shown below. 
+
+Here we consider the window size = 2, window size refers to the number of words to be looked on either side of focus or input word. The highlighted blue color word is input and it produces training samples depending on context words.
+
+<p align="center">
+<img src='/images/lstm_and_gru/skip_gram_1.png' /> 
+</p>
+
+<p align="center">
+<img src='/images/lstm_and_gru/skip_gram_2.png' /> 
+</p>
+
+The pairs to right are training samples. The training of skip-gram will take one-hot vector input on vocabulary and outputs a probability after applying softmax that the particular word is output given the input word. Given enough input vectors, model learns that there is high probability that when "San" is given as input, "Franciso" or "Jose" is more likely than "York". Skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
 
 
-If the network is given enough training data (tens of billions of words), it produces word vectors with intriguing characteristics. Words with similar meanings appear in clusters, and clusters are spaced such that some word relationships, such as analogies, can be reproduced using vector math. The famous example is that, with highly trained word vectors, "king - man + woman = queen."
-
-It comes in two flavors, the Continuous Bag-of-Words model (CBOW) and the Skip-Gram model. Algorithmically, these models are similar, except that CBOW predicts target words (e.g. 'mat') from source context words ('the cat sits on the'), while the skip-gram does the inverse and predicts source context-words from the target words.
-
-#### Skip-Gram
 
 
-However, skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
+#### CBOW Model
+
+Continuous bag of words (CBOW) model predicts the current word based on several surrounding words.
+
+CBOW smoothes over a lot of the distributional information (by treating an entire context as one observation). For the most part, this turns out to be a useful thing for smaller datasets. CBOW is faster while skip-gram is slower but does a better job for infrequent words. 
+
+
+Here we also consider the window size = 2.
+
+<p align="center">
+<img src='/images/lstm_and_gru/cbow_1.png' /> 
+</p>
+
+<p align="center">
+<img src='/images/lstm_and_gru/cbow_2.png' /> 
+</p>
 
 
 
-#### CBOW
 
-CBOW smoothes over a lot of the distributional information (by treating an entire context as one observation). For the most part, this turns out to be a useful thing for smaller datasets. 
-
+One of the biggest challenges with Word2Vec is how to handle unknown or out-of-vocabulary (OOV) words and morphologically similar words. This can particularly be an issue in domains like medicine where synonyms and related words can be used depending on the preferred style of radiologist, and words may have been used infrequently in a large corpus. If the word2vec model has not encountered a particular word before, it will be forced to use a random vector, which is generally far from its ideal representation. 
 
 ### Glove
 
@@ -260,6 +293,10 @@ Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://
 [Stanford CS231n Winter 2016 Chapter 10](https://www.youtube.com/watch?v=yCC09vCHzF8&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC&index=10)
 
 [CS224d slides and lectures](http://cs224d.stanford.edu/syllabus.html)
+
+Word Embeddings by Sebastian Ruder [part-1](), [part-2]()
+
+[A brief history of word embeddings](https://www.gavagai.se/blog/2015/09/30/a-brief-history-of-word-embeddings/)
 
 [Sebastian Raschka article on Naive Bayes](https://sebastianraschka.com/Articles/2014_naive_bayes_1.html)
 
