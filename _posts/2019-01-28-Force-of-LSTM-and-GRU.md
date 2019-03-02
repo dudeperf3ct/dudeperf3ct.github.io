@@ -215,7 +215,7 @@ Here we consider the window size = 2, window size refers to the number of words 
 <img src='/images/lstm_and_gru/skip_gram_2.png' /> 
 </p>
 
-The pairs to right are training samples. The training of skip-gram will take one-hot vector input on vocabulary and outputs a probability after applying Hierarchical softmax that the particular word is output given the input word. Given enough input vectors, model learns that there is high probability that when "San" is given as input, "Franciso" or "Jose" is more likely than "York". Skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
+The pairs to right are training samples i.e (context, target) pairs. The training of skip-gram will take one-hot vector input on vocabulary and outputs a probability after applying Hierarchical softmax that the particular word is output given the input word. Given enough input vectors, model learns that there is high probability that when "San" is given as input, "Franciso" or "Jose" is more likely than "York". Skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
 
 
 <p align="center">
@@ -225,8 +225,7 @@ The pairs to right are training samples. The training of skip-gram will take one
 
 #### CBOW Model
 
-Continuous bag of words (CBOW) model predicts the current word based on several surrounding words. The training objective is to learn word vector representations that are good at predicting missing word given the nearby words.
-
+Continuous bag of words (CBOW) model predicts the current word based on several surrounding words. The training objective is to learn word vector representations that are good at predicting missing word given the context words.
 
 Here we also consider the window size = 2.
 
@@ -238,7 +237,7 @@ Here we also consider the window size = 2.
 <img src='/images/lstm_and_gru/cbow_2.png' /> 
 </p>
 
-The pairs to right are training samples. It's like all the pairs from above Skip-gram training samples are inverted. That's exactly how it is. CBOW smoothes over a lot of the distributional information (by treating an entire context as one observation). For the most part, this turns out to be a useful thing for smaller datasets. CBOW is faster while skip-gram is slower but does a better job for infrequent words. 
+The pairs to right are training samples i.e. (context, target) pairs. It's like all the pairs from above Skip-gram training samples are inverted. That's exactly how it is. CBOW smoothes over a lot of the distributional information (by treating an entire context as one observation). For the most part, this turns out to be a useful thing for smaller datasets. CBOW is faster while skip-gram is slower but does a better job for infrequent words. 
 
 <p align="center">
 <img src='/images/lstm_and_gru/cbow.png' /> 
@@ -246,10 +245,7 @@ The pairs to right are training samples. It's like all the pairs from above Skip
 
 #### Training Tricks
 
-Word2Vect uses some tricks in training. We will look at some of them.
-
-- Negative Sampling
-
+Word2Vec uses some tricks in training. We will look at some of them.
 
 - Subsampling Frequent Words
 
@@ -258,18 +254,54 @@ We have seen how training samples are created. In very large corpora, the most f
 
 - Hierarchical Softmax
 
-The traditional softmax is very computationally expensive especially for large vocabulary size, typicall for vocabulary size of V the order is O(V), but hierarchical softmax reduces the computation to O(log(V)).
+The traditional softmax is very computationally expensive especially for large vocabulary size, typically for vocabulary size of V the order is O(V) which is often of size ($$10^5$$ - $$10^7$$ terms), but hierarchical softmax reduces the computation to O(log(V)). Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least 50×.  The hierarchical softmax uses a binary tree representationof the output layer with the $$\mathbf{W}$$ words asits leaves and, for each node, explicitly represents the relative probabilities of its child nodes. 
+
+To look more about hierarchical softmax, [here](https://www.youtube.com/watch?v=B95LTf2rVWM) is awesome video explaination by Hugo Larochelle.
 
 
+- Negative Sampling
 
+This methods provides a work around to let us keep traditional softmax and still achieve a less computationally expensive model. As we have seen in loss functions in previous posts, the maximum likelihood principle maximises the probability of $$\mathbf{w_t}$$ ("target") given the context $$\mathbf{h}$$, i.e. $$\mathbf{J_{ML}} = \log_{}P(\mathbf{w_t}|\mathbf{h})$$. With negative sampling, we are instead going to randomly select just a small number of “negative” words (k = 7) to update the weights for. Here negative words are the words other than the context words with respect to focus or input word. The authors propose that selecting 5-20 words works well for smaller datasets, and 2-5 words for large datasets. Negative samples are selected using "unigram distribution", where most frequent words are more likely to be selected. For e.g. the probability of picking word "saw" is the total number of times the word occurs in the corpus divided by the total number of words in the corpus. Authors found that word counts raised to power (3/4) gave good empirical results than power of 1. This one has the tendency to increase the probability for less frequent words and decrease the probability for more frequent words. The new objective is maximized when the model assigns high probabilities to the real words, and low probabilities to noise(negative) words.  
 
-One of the biggest challenges with Word2Vec is how to handle unknown or out-of-vocabulary (OOV) words and morphologically similar words. This can particularly be an issue in domains like medicine where synonyms and related words can be used depending on the preferred style of radiologist, and words may have been used infrequently in a large corpus. If the word2vec model has not encountered a particular word before, it will be forced to use a random vector, which is generally far from its ideal representation. 
+For more on negative sampling derivation, look into very [short paper](https://arxiv.org/pdf/1402.3722v1.pdf) by Goldberg and Levy.
+
+Sebastian Ruder has great in-depth discussion of various sampling and softmax classifiers in this [blog](http://ruder.io/word-embeddings-softmax/), definitely worth a look.
+
+There are many hyperparmamerters while training the algorithm and the  most crucial decisions that  affect the  performance are  the  choice of  the  modelarchitecture, the size of the vectors, the subsampling rate, and the size of the training window. One of the biggest challenges with Word2Vec is how to handle unknown or out-of-vocabulary (OOV) words and morphologically similar words. This can particularly be an issue in domains like medicine where synonyms and related words can be used depending on the preferred style of radiologist, and words may have been used infrequently in a large corpus. If the word2vec model has not encountered a particular word before, it will be forced to use a random vector, which is generally far from its ideal representation. 
+
+Here is one example of projecting the learned embedding in 2d space using tSNE.
+
+<p align="center">
+<img src='/images/lstm_and_gru/word2vec.png' /> 
+</p>
+
+Here we can see, the words like two,million,three are group together and words like he,she,it are clustered together.
 
 ### GloVe
 
+While the word2vec serendipitous discovered that the words semantically similar tend to be closer as shown in figure above. The authors of [GloVe paper](https://nlp.stanford.edu/pubs/glove.pdf) show how that the ratio of the co-occurrence probabilities of two words is what contains information and aim to encode this information as vector differences.
+
+Let us first look into what is co-occurence matrix. Consider three sentences with window size = 1. Then the co-occurence matrix X will be,
+
+ 1. I enjoy flying.
+ 2. I like NLP.
+ 3. I like deep learning.
+ 
+<p align="center">
+<img src='/images/lstm_and_gru/cooccurence_matrix.png' /> 
+</p>
+
+Authors propose a training objective J that directly aims to minimise the difference between the dot product of the vectors of two words and the logarithm of their number of co-occurrences,
+
+$$
+J = \sum_{i,j=1}^{V}f(\mathbf{X_{ij}})(\mathbf{w_{i}^{T}}\mathbf{\hat{w}_{j}} + \mathbf{b_i} + \mathbf{\hat{b}_{j}} - \log_{}{\mathbf{X_{ij}}})^2
+$$
+
+where $$\mathbf{w_{i}}$$ and $$\mathbf{b_{i}}$$ are word vector and bias of word i, $$\mathbf{\hat{w}_{j}}$$ and $$\mathbf{\hat{b}_{j}}$$ are context word vector and bias of  word j, $$\mathbf{X}$$ is the co-occurence matrix and $$\mathbf{X_{ij}}$$ is the number of times word i occurs in the context of word j, and f is a weighting function that assigns relatively lower weight to rare and frequent co-occurrences.
 
 
 ### Fasttext
+
 
 
 
@@ -309,11 +341,11 @@ BPTT - backpropogation through time
 
 # Further Reading
 
-Must Read! [The Unreasonable Effectiveness of Recurrent Neural Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+Must Read! [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 Must Read! [Edwin Chen's blog on LSTM]()
 
-Must Read! Word Embeddings by Sebastian Ruder [part-1](http://ruder.io/word-embeddings-1/), [part-2]()
+Must Read! Word Embeddings by Sebastian Ruder [part-1](http://ruder.io/word-embeddings-1/), [part-2](http://ruder.io/word-embeddings-softmax/index.html), [part-3](http://ruder.io/secret-word2vec/index.html), [part-4](http://ruder.io/cross-lingual-embeddings/index.html) and [part-5](http://ruder.io/word-embeddings-2017/index.html)
 
 [Deep Learning, NLP, and Representations](http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/)
 
@@ -323,11 +355,17 @@ Must Read! Word Embeddings by Sebastian Ruder [part-1](http://ruder.io/word-embe
 
 [CS224d slides and lectures](http://cs224d.stanford.edu/syllabus.html)
 
+[CS224d Word2Vec Lecture 2](https://www.youtube.com/watch?v=ERibwqs9p38&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6&index=2)
+
+[CS224 GloVe Lecture 3](https://www.youtube.com/watch?v=ASn7ExxLZws&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6&index=3)
+
 [A brief history of word embeddings](https://www.gavagai.se/blog/2015/09/30/a-brief-history-of-word-embeddings/)
 
 [Sebastian Raschka article on Naive Bayes](https://sebastianraschka.com/Articles/2014_naive_bayes_1.html)
 
-[Distributed Representations of Words and Phrasesand their Compositionality](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf)
+[McCormick, C Word2Vec Tutorial](http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/)
+
+[Distributed Representations of Words and Phrases and their Compositionality](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf)
 
 [Word2Vec](https://arxiv.org/pdf/1301.3781.pdf)
 
@@ -336,6 +374,10 @@ Must Read! Word Embeddings by Sebastian Ruder [part-1](http://ruder.io/word-embe
 [word2vec Explained](https://arxiv.org/pdf/1402.3722v1.pdf)
 
 [Quora: How does word2vec works?](https://www.quora.com/How-does-word2vec-work-Can-someone-walk-through-a-specific-example)
+
+[Bag of Tricks for Efficient Text Classification](https://arxiv.org/pdf/1607.01759.pdf)
+
+[Enriching Word Vectors with Subword Information](https://arxiv.org/pdf/1607.04606.pdf)
 
 ---
 
