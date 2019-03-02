@@ -2,7 +2,7 @@
 layout:     post
 title:      Magic of Style Transfer
 date:       2018-12-23 12:00:00
-summary:    This post will provide an brief introduction to different neural style transfer methods with some examples.
+summary:    This post will provide a brief introduction to different neural style transfer methods with some examples.
 categories: style transfer
 published : true
 ---
