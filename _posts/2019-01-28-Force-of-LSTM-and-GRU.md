@@ -249,19 +249,19 @@ Word2Vec uses some tricks in training. We will look at some of them.
 
 - Subsampling Frequent Words
 
-We have seen how training samples are created. In very large corpora, the most frequent words can easily occur hundreds of millions of times (e.g.,“in”, “the”, and “a”). Such words usually provide less information value than the rare words and being the most common word it occurs pretty much everywhere. So, how to learn a good vector for the word "the"? This where the authors propose a subsampling method for frequent words. The idea to change the vector representation of frequent words gradually. To counter the imbalance between the rare and frequent words, authors used a simple subsampling approach: each word $$\mathbf{w_{i}}$$ in the training set is discarded with probability computed by the formula $$ P(\mathbf{w_i}) = 1 - \sqrt{\frac{t}{\mathbf{f(\mathbf{w}_i)}}}$$ where $$\mathbf{f(\mathbf{w}_i)}}$$ is s  the  frequency  of  word $$\mathbf{w_i}$$ and t is a  chosen threshold, typically around $$10^-5$$.
+We have seen how training samples are created. In very large corpora, the most frequent words can easily occur hundreds of millions of times (e.g.,“in”, “the”, and “a”). Such words usually provide less information value than the rare words and being the most common word it occurs pretty much everywhere. So, how to learn a good vector for the word "the"? This where the authors propose a subsampling method for frequent words. The idea to change the vector representation of frequent words gradually. To counter the imbalance between the rare and frequent words, authors used a simple subsampling approach: each word $$\mathbf{w_{i}}$$ in the training set is discarded with probability computed by the formula $$ P(\mathbf{w_i}) = 1 - \sqrt{\frac{t}{\mathbf{f(\mathbf{w}_i)}}}$$ where $$\mathbf{f(\mathbf{w}_i)}}$$ is the frequency of word $$\mathbf{w_i}$$ and t is a chosen threshold, typically around $$10^-5$$.
  
 
 - Hierarchical Softmax
 
-The traditional softmax is very computationally expensive especially for large vocabulary size, typically for vocabulary size of V the order is O(V) which is often of size ($$10^5$$ - $$10^7$$ terms), but hierarchical softmax reduces the computation to O(log(V)). Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least 50×.  The hierarchical softmax uses a binary tree representationof the output layer with the $$\mathbf{W}$$ words asits leaves and, for each node, explicitly represents the relative probabilities of its child nodes. 
+The traditional softmax is very computationally expensive especially for large vocabulary size, typically for vocabulary size of V the order is O(V) which is often of size ($$10^5$$ - $$10^7$$ terms), but hierarchical softmax reduces the computation to O(log(V)). Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least 50×. The hierarchical softmax uses a binary tree representation of the output layer with the $$\mathbf{W}$$ words a sits leaves and, for each node, explicitly represents the relative probabilities of its child nodes. As binary tree(*remember binary serach*) is involved, the output will look if target word is first half or second half of tree and so on till it reaches a leaf of tree where the target sits. This reduces the complexity equal to the depth of tree instead of classifying looking through whole vocabulary through softmax where we sum over all vocabulary in the denominator. This is one idea for speeding up softmax calculation.
 
 To look more about hierarchical softmax, [here](https://www.youtube.com/watch?v=B95LTf2rVWM) is awesome video explaination by Hugo Larochelle.
 
 
 - Negative Sampling
 
-This methods provides a work around to let us keep traditional softmax and still achieve a less computationally expensive model. As we have seen in loss functions in previous posts, the maximum likelihood principle maximises the probability of $$\mathbf{w_t}$$ ("target") given the context $$\mathbf{h}$$, i.e. $$\mathbf{J_{ML}} = \log_{}P(\mathbf{w_t}|\mathbf{h})$$. With negative sampling, we are instead going to randomly select just a small number of “negative” words (k = 7) to update the weights for. Here negative words are the words other than the context words with respect to focus or input word. The authors propose that selecting 5-20 words works well for smaller datasets, and 2-5 words for large datasets. Negative samples are selected using "unigram distribution", where most frequent words are more likely to be selected. For e.g. the probability of picking word "saw" is the total number of times the word occurs in the corpus divided by the total number of words in the corpus. Authors found that word counts raised to power (3/4) gave good empirical results than power of 1. This one has the tendency to increase the probability for less frequent words and decrease the probability for more frequent words. The new objective is maximized when the model assigns high probabilities to the real words, and low probabilities to noise(negative) words.  
+This methods provides a work around to let us keep traditional softmax and still achieve a less computationally expensive model. As we have seen in loss functions in previous posts, the maximum likelihood principle maximises the probability of $$\mathbf{w_t}$$ ("target") given the context $$\mathbf{h}$$, i.e. $$\mathbf{J_{ML}} = \log_{}P(\mathbf{w_t}|\mathbf{h})$$. With negative sampling, we are instead going to randomly select just a small number of “negative” words (k = 7) to update the weights for. Here negative words are the words other than the context words with respect to focus or input word. In this case, a positive example would be (I, saw) and negative sample would be (I, book) or (I, king), picking a random word from vocabulary. The authors propose that selecting 5-20 words works well for smaller datasets, and 2-5 words for large datasets. Negative samples are selected using "unigram distribution", where most frequent words are more likely to be selected. For e.g. the probability of picking word "saw" is the total number of times the word occurs in the corpus divided by the total number of words in the corpus. Authors found that word counts raised to power (3/4) gave good empirical results than power of 1. This one has the tendency to increase the probability for less frequent words and decrease the probability for more frequent words like "the, is, of". The new objective is maximized when the model assigns high probabilities to the real words, and low probabilities to noise(negative) words. It is binary classification problem on k+1 (context, target) pairs it contains k negative samples and 1 positive samples where task is to predict is each of (context, target) pair is positive sample or not.
 
 For more on negative sampling derivation, look into very [short paper](https://arxiv.org/pdf/1402.3722v1.pdf) by Goldberg and Levy.
 
@@ -297,8 +297,17 @@ $$
 J = \sum_{i,j=1}^{V}f(\mathbf{X_{ij}})(\mathbf{w_{i}^{T}}\mathbf{\hat{w}_{j}} + \mathbf{b_i} + \mathbf{\hat{b}_{j}} - \log_{}{\mathbf{X_{ij}}})^2
 $$
 
-where $$\mathbf{w_{i}}$$ and $$\mathbf{b_{i}}$$ are word vector and bias of word i, $$\mathbf{\hat{w}_{j}}$$ and $$\mathbf{\hat{b}_{j}}$$ are context word vector and bias of  word j, $$\mathbf{X}$$ is the co-occurence matrix and $$\mathbf{X_{ij}}$$ is the number of times word i occurs in the context of word j, and f is a weighting function that assigns relatively lower weight to rare and frequent co-occurrences.
+where $$\mathbf{w_{i}}$$ and $$\mathbf{b_{i}}$$ are word vector and bias of word i, $$\mathbf{\hat{w}_{j}}$$ and $$\mathbf{\hat{b}_{j}}$$ are context word vector and bias of  word j, $$\mathbf{X}$$ is the co-occurence matrix and $$\mathbf{X_{ij}}$$ is the number of times word i occurs in the context of word j, and f is a weighting function that assigns relatively lower weight to rare and frequent co-occurrences. It is defined as:
 
+$$
+f(x) = 
+\begin{cases}
+(\frac{x}{\mathbf{x_{max}}})^\alpha & x < \mathbf{x_{max}} \\
+1 & otherwise
+\end{cases}
+$$
+
+where $$\mathbf{x_{max}}$$ and $$\alpha$$ are hyperparameters, authors found $$\mathbf{x_{max}}$$=100 and $$\alpha$$=0.75 showing good performance.
 
 ### fastText
 
@@ -312,14 +321,31 @@ fastText offers a better luxury in handling OOV words as it can construct the ve
 
 <span class='green'>I-know-nothing:</span> So, what I understand is that we can use any of these techniques above to convert individual words into numbers. But I have heard that embeddings are biased. Can we talk a little about bias in embeddings?
 
-<span class='red'>I-know-everything:</span> Haha, you caught me. That's absolutely right. And embedding learned are defintely biased. So to give example, if we give a relation such as Man:Doctor :: Woman:?, then the learned embeddings will with almost certainity predict the answer to be Nurse. (*What a biasist*) The community has proposed several ways of "debiasing embeddings".
+<span class='red'>I-know-everything:</span> Haha, you caught me. That's absolutely right. And embedding learned are defintely biased. So to give example, if we give a relation such as Man:Doctor :: Woman:?, then the learned embeddings will with almost certainity predict the answer to be Nurse (*What a biasist*) or Man:Computer Programmer::Woman:Homemaker.  The community has proposed several ways of "debiasing embeddings". All the pretrained embedding from above acquire stereotypical human biases from the text data they are trained on i.e. word embeddings can reflect gender, ethinicity, age, sexual orientation, and other biases of the text data used to train the model.
+
+We will understand a simple gender debiasing algorithm outlined in [this paper](http://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf), some other biases like religion or racial can also be used in similar way.
+
+1. Identify the gender space
+
+To identify a gender direction $$\vec{g}$$, we aggregate across multiple pair comparisons by combining several comparisons like $$\vec{man}$$ - $$\vec{woman}$$, $$\vec{he}$$ - $$\vec{she}$$, $$\vec{male}$$ - $$\vec{female}$$, etc which largely captures gender in the embedding. This direction helps us to quantify direct and indirect biases in words and associations.
+
+2. Neutralize
+
+For every word that is not definitional, project to get rid of bias. These words can be occupational like babysit, doctor, nurse, etc. Neutralize ensures that gender neutral words are zero in the gender subspace.
+
+3. Equalize pairs
+
+Equalize perfectly equalizes sets of words outside the subspace and there by enforces the property that any neutral word is equidistant to all words in each equality set. For instance, if {grandmother,grandfather} and {guy,gal} were two equality sets, then after equalization babysit would be equidistant to grandmother and grandfatherand also equidistant to gal and guy, but presumably closer to the grandparents and further from the gal and guy. This is suitable for applications where one does not want any such pair to display any bias with respect to neutral words.
+
+
+To reduce the bias in an embedding, we change the embeddings of gender neutral words, by removing their gender associations. For instance, nurse is moved to to be equally male and female in the direction g. In addition, we find that gender-specific words have additional biases beyondg. For instance,grandmother and grandfather are both closer to wisdom than gal and guy are, which does not reflect a gender difference. On the other hand, the fact that baby sit is so much closer to grandmother than grandfather(more than for other gender pairs) is a gender bias specific to grandmother. By equating grandmother and grandfather outside of gender, and since we’ve removed g from babysit,both grandmother and grandfather and equally close to baby sit after debiasing. By retaining the gender component for gender-specific words, we maintain analogies such as she:grandmother:: he:grandfather. 
 
 
 
 
-To further look into this topic, I am adding few paper to look [here](http://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf), [here](https://arxiv.org/pdf/1606.06121.pdf), [here](https://arxiv.org/pdf/1810.03611v1.pdf), [here](https://upcommons.upc.edu/bitstream/handle/2117/128025/memoria.pdf?sequence=1&isAllowed=y), [here](https://arxiv.org/pdf/1901.03116.pdf), [here](https://arxiv.org/pdf/1812.08769.pdf) and [here](https://aiforsocialgood.github.io/2018/pdfs/track2/47_aisg_neurips2018.pdf)
+To further look into this topic, I am adding link few papers to look [here](http://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf), [here](https://arxiv.org/pdf/1606.06121.pdf), [here](https://arxiv.org/pdf/1810.03611v1.pdf), [here](https://upcommons.upc.edu/bitstream/handle/2117/128025/memoria.pdf?sequence=1&isAllowed=y), [here](https://arxiv.org/pdf/1901.03116.pdf), [here](https://arxiv.org/pdf/1812.08769.pdf) and [here](https://aiforsocialgood.github.io/2018/pdfs/track2/47_aisg_neurips2018.pdf)
 
-
+Now, having looked at embeddings, we will move into new architectures which we will introduce to overcome the shortcomings in RNN.
 
 ## LSTM
 
