@@ -351,7 +351,7 @@ With conventational Back-Propogation through time(BPTT) which we looked in conte
 
 Long-term dependency example of is, "I studied Spainish in my class. So, the other day I visited Spain. It was an amazing experience. We enjoyed a lot. We ran up and down the road. We played football. But the coming from English background, we had difficulty conversing fluently in ...." If we ask RNN to fill in the blank with appropriate word, the word should be "Spanish".
 
-## LSTM
+## LSTM Network
 
 [LSTM](http://www.bioinf.jku.at/publications/older/2604.pdf) or Long Short Term Memory introduced by Hochreiter & Schmidhuber - a speical kind of RNN- capable of learning long-term dependencies. LSTMs are explicitly designed to avoid the long-term dependency problem.
 
@@ -404,9 +404,9 @@ It’s purpose is to separate the final memory from the hidden state. The final 
 
 If any Pokemon fans out there, check this awesome example explaination provided by Edwin Chen on his blog of [Exploring LSTMs](http://blog.echen.me/2017/05/30/exploring-lstms/).
 
-## GRU
+## GRU Network 
 
-Having learnt what LSTM does, we try to minimze the number of equations and instead of forget gate, input gate and output gate, we just introduce two gates, Update gate and Reset Gate in GRU (Gated Recurrent Units).
+Having learnt what LSTM does, we try to minimze the number of equations/gates and instead of forget gate, input gate and output gate, we just introduce two gates, Update gate and Reset Gate in GRU (Gated Recurrent Units).
 
 And the scariness continues.
 
@@ -443,7 +443,19 @@ The update signal $$z^{(t)}$$ is responsible for determining how much of $$h^{(t
 
 The hidden state $$h^{(t-1)}$$ is finally generated using the past hidden input $$h^{(t-1)}$$ and the new memory generated ̃$$\tilde{h}^{(t)}$$ with the advice of the update gate.
 
+## Bi-directional LSTM Network
 
+These are just the derivation of LSTM where we stack two lstm on top of each other. One LSTM runs a forward pass, while the another LSTM runs a backward pass and finally both the outputs are concatenated.
+
+<p align="center">
+<img src='/images/lstm_and_gru/bidirectional_lstm.jpeg' /> 
+</p>
+
+---
+
+What can we do with help of these networks? Movie Reviews? Calling IMDB...
+
+So, let's use these network to see how well do they classify movie reviews.
 
 
 
@@ -512,6 +524,8 @@ Must Read! Word Embeddings by Sebastian Ruder [part-1](http://ruder.io/word-embe
 [What are the biases in my word embedding?](https://arxiv.org/pdf/1812.08769.pdf)
 
 Seminal paper on [LSTM](http://www.bioinf.jku.at/publications/older/2604.pdf)
+
+[GRU paper](https://arxiv.org/pdf/1406.1078)
 
 
 
