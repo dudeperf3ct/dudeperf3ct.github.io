@@ -32,9 +32,9 @@ Feel free to jump anywhere,
   - [Embeddings](#embeddings)
     - [Word2Vec](#word2vec)
     - [Skip-gram Model](#skip-gram-model)
-    - [CBOW](#cbow)
+    - [CBOW Model](#cbow)
     - [GloVe](#glove)
-    - [Fasttext](#fasttext)
+    - [fastText](#fasttext)
   - [LSTM](#lstm)
   - [GRU](#gru)
 - [Further Reading](#further-reading)
@@ -267,7 +267,7 @@ For more on negative sampling derivation, look into very [short paper](https://a
 
 Sebastian Ruder has great in-depth discussion of various sampling and softmax classifiers in this [blog](http://ruder.io/word-embeddings-softmax/), definitely worth a look.
 
-There are many hyperparmamerters while training the algorithm and the  most crucial decisions that  affect the  performance are  the  choice of  the  modelarchitecture, the size of the vectors, the subsampling rate, and the size of the training window. One of the biggest challenges with Word2Vec is how to handle unknown or out-of-vocabulary (OOV) words and morphologically similar words. This can particularly be an issue in domains like medicine where synonyms and related words can be used depending on the preferred style of radiologist, and words may have been used infrequently in a large corpus. If the word2vec model has not encountered a particular word before, it will be forced to use a random vector, which is generally far from its ideal representation. 
+There are many hyperparmamerters while training the algorithm and the most crucial decisions that affect the performance are the choice of the model architecture, the size of the vectors, the subsampling rate, and the size of the training window. One of the biggest challenges with Word2Vec is how to handle unknown or out-of-vocabulary (OOV) words and morphologically similar words. This can particularly be an issue in domains like medicine where synonyms and related words can be used depending on the preferred style of radiologist, and words may have been used infrequently in a large corpus. If the word2vec model has not encountered a particular word before, it will be forced to use a random vector, which is generally far from its ideal representation. 
 
 Here is one example of projecting the learned embedding in 2d space using tSNE.
 
@@ -300,10 +300,11 @@ $$
 where $$\mathbf{w_{i}}$$ and $$\mathbf{b_{i}}$$ are word vector and bias of word i, $$\mathbf{\hat{w}_{j}}$$ and $$\mathbf{\hat{b}_{j}}$$ are context word vector and bias of  word j, $$\mathbf{X}$$ is the co-occurence matrix and $$\mathbf{X_{ij}}$$ is the number of times word i occurs in the context of word j, and f is a weighting function that assigns relatively lower weight to rare and frequent co-occurrences.
 
 
-### Fasttext
+### fastText
 
-
-
+fastText is a library created by the Facebook Research Team for efficient learning of word representations and sentence classification. The key difference between fastText and Word2Vec is the use of n-grams. In fastText each word is represented as bag of character of n-gram. For e.g. the word where and n=3 as an example, it will represented by the character n-grams: <wh, whe, her, ere, re> and special sequence <where>, < and > are added at begining and end of the words to distinguish prefixes and suffixes from other character sequences i.e. <her>, corresponding to word her can also be part of vocabulary and will be different from tri-gram "her" from where. At each training step in fastText, the mean of the target word vector and its component n-gram vectors are used for training. The adjustment that is calculated from the error is then used uniformly to update each of the vectors that were combined to form the target. This adds a lot of additional computation to the training step. At each point, a word needs to sum and average its n-gram component parts. The trade-off is a set of word-vectors that contain embedded sub-word information. These vectors have been shown to be more accurate than Word2Vec vectors by a number of different measures
+  
+fastText offers a better luxury in handling OOV words as it can construct the vector for a OOV word from its character n grams even if word doesn't appear in training corpus. Both Word2vec and Glove can't. 
 
 
 
