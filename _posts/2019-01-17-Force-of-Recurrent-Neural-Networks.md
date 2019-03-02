@@ -2,7 +2,7 @@
 layout:     post
 title:      Force of Recurrent Neural Networks
 date:       2019-01-19 12:00:00
-summary:    This post will provide an brief introduction to recurrent neural networks and look at the results obtained by training Character RNN on various datasets.
+summary:    This post will provide a brief introduction to recurrent neural networks and look at the results obtained by training Character RNN on various datasets.
 categories: rnn
 published : true
 ---
