@@ -2,7 +2,7 @@
 layout:     post
 title:      Mystery of Object Detection
 date:       2019-01-07 12:00:00
-summary:    This post will provide an brief overview to different architecture in object detection.
+summary:    This post will provide a brief overview to different architecture in object detection.
 categories: object detection
 published : true
 ---
