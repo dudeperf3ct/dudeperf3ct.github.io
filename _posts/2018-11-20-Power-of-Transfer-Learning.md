@@ -2,7 +2,7 @@
 layout:     post
 title:      Power of Transfer Learning
 date:       2018-11-20 12:00:00
-summary:    This post will provide an brief introduction to Transfer Learning using Dogs vs Cats Redux Competition dataset from Kaggle along with the implementation in Keras framework.
+summary:    This post will provide a brief introduction to Transfer Learning using Dogs vs Cats Redux Competition dataset from Kaggle along with the implementation in Keras framework.
 categories: transfer learning catsvsdogs
 published : true
 ---
