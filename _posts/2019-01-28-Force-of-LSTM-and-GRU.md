@@ -307,9 +307,18 @@ fastText is a library created by the Facebook Research Team for efficient learni
 fastText offers a better luxury in handling OOV words as it can construct the vector for a OOV word from its character n grams even if word doesn't appear in training corpus. Both Word2vec and Glove can't. 
 
 
-
-
 *We will look into CoVe, ELMo, ULMFit, GPT, BERT and GPT-2 models in the post on Transfer Learning in NLP.*
+
+
+<span class='green'>I-know-nothing:</span> So, what I understand is that we can use any of these techniques above to convert individual words into numbers. But I have heard that embeddings are biased. Can we talk a little about bias in embeddings?
+
+<span class='red'>I-know-everything:</span> Haha, you caught me. That's absolutely right. And embedding learned are defintely biased. So to give example, if we give a relation such as Man:Doctor :: Woman:?, then the learned embeddings will with almost certainity predict the answer to be Nurse. (*What a biasist*) The community has proposed several ways of "debiasing embeddings".
+
+
+
+
+To further look into this topic, I am adding few paper to look [here](http://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf), [here](https://arxiv.org/pdf/1606.06121.pdf), [here](https://arxiv.org/pdf/1810.03611v1.pdf), [here](https://upcommons.upc.edu/bitstream/handle/2117/128025/memoria.pdf?sequence=1&isAllowed=y), [here](https://arxiv.org/pdf/1901.03116.pdf), [here](https://arxiv.org/pdf/1812.08769.pdf) and [here](https://aiforsocialgood.github.io/2018/pdfs/track2/47_aisg_neurips2018.pdf)
+
 
 
 ## LSTM
@@ -379,6 +388,13 @@ Must Read! Word Embeddings by Sebastian Ruder [part-1](http://ruder.io/word-embe
 [Bag of Tricks for Efficient Text Classification](https://arxiv.org/pdf/1607.01759.pdf)
 
 [Enriching Word Vectors with Subword Information](https://arxiv.org/pdf/1607.04606.pdf)
+
+[Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings](http://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf)
+
+[Understanding the Origins of Bias in Word Embeddings](https://arxiv.org/pdf/1810.03611v1.pdf)
+
+[What are the biases in my word embedding?](https://arxiv.org/pdf/1812.08769.pdf)
+
 
 ---
 
