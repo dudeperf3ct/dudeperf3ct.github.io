@@ -327,7 +327,7 @@ We will understand a simple gender debiasing algorithm outlined in [this paper](
 
 1. Identify the gender space
 
-To identify a gender direction $$\vec{g}$$, we aggregate across multiple pair comparisons by combining several comparisons like $$\vec{man}$$ - $$\vec{woman}$$, $$\vec{he}$$ - $$\vec{she}$$, $$\vec{male}$$ - $$\vec{female}$$, etc which largely captures gender in the embedding. This direction helps us to quantify direct and indirect biases in words and associations.
+To identify a gender direction g, we aggregate across multiple pair comparisons by combining several comparisons like $$\vec{man}$$ - $$\vec{woman}$$, $$\vec{he}$$ - $$\vec{she}$$, $$\vec{male}$$ - $$\vec{female}$$, etc which largely captures gender in the embedding. This direction helps us to quantify direct and indirect biases in words and associations.
 
 2. Neutralize
 
@@ -335,25 +335,115 @@ For every word that is not definitional, project to get rid of bias. These words
 
 3. Equalize pairs
 
-Equalize perfectly equalizes sets of words outside the subspace and there by enforces the property that any neutral word is equidistant to all words in each equality set. For instance, if {grandmother,grandfather} and {guy,gal} were two equality sets, then after equalization babysit would be equidistant to grandmother and grandfatherand also equidistant to gal and guy, but presumably closer to the grandparents and further from the gal and guy. This is suitable for applications where one does not want any such pair to display any bias with respect to neutral words.
-
+Equalize perfectly equalizes sets of words outside the subspace and there by enforces the property that any neutral word is equidistant to all words in each equality set. For instance, if {grandmother, grandfather} and {guy, gal} were two equality sets, then after equalization babysit would be equidistant to grandmother and grandfather and also equidistant to gal and guy, but presumably closer to the grandparents and further from the gal and guy. This is suitable for applications where one does not want any such pair to display any bias with respect to neutral words.
 
 To reduce the bias in an embedding, we change the embeddings of gender neutral words, by removing their gender associations. For instance, nurse is moved to to be equally male and female in the direction g. In addition, we find that gender-specific words have additional biases beyondg. For instance,grandmother and grandfather are both closer to wisdom than gal and guy are, which does not reflect a gender difference. On the other hand, the fact that baby sit is so much closer to grandmother than grandfather(more than for other gender pairs) is a gender bias specific to grandmother. By equating grandmother and grandfather outside of gender, and since we’ve removed g from babysit,both grandmother and grandfather and equally close to baby sit after debiasing. By retaining the gender component for gender-specific words, we maintain analogies such as she:grandmother:: he:grandfather. 
 
-
-
+As an example, consider the analogy puzzle, he to doctor is as she to X. The original embedding returns X = nurse while the hard-debiased embedding finds X = physician.
 
 To further look into this topic, I am adding link few papers to look [here](http://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf), [here](https://arxiv.org/pdf/1606.06121.pdf), [here](https://arxiv.org/pdf/1810.03611v1.pdf), [here](https://upcommons.upc.edu/bitstream/handle/2117/128025/memoria.pdf?sequence=1&isAllowed=y), [here](https://arxiv.org/pdf/1901.03116.pdf), [here](https://arxiv.org/pdf/1812.08769.pdf) and [here](https://aiforsocialgood.github.io/2018/pdfs/track2/47_aisg_neurips2018.pdf)
 
 Now, having looked at embeddings, we will move into new architectures which we will introduce to overcome the shortcomings in RNN.
 
+## Exploding and Vanishing Gradients
+
+With conventational Back-Propogation through time(BPTT) which we looked in context of RNN in our [last post](), error signals(or gradients) "flowing backwards in time" tend to blow up(explode) or vanish. We can understand exploding and vanishing effects through two examples, one from compounding where the amount keeps multiplying and turn out to be very large amount and similarly if a gambler loses 3 cents for every dollar, the amount keeps multiplying and becomes less and less, eventually making gambler bankrupt. Similarly, large gradients keep multiplying through backpropogation through time backwards result in very large number and vice-versa. 
+
+Long-term dependency example of is, "I studied Spainish in my class. So, the other day I visited Spain. It was an amazing experience. We enjoyed a lot. We ran up and down the road. We played football. But the coming from English background, we had difficulty conversing fluently in ...." If we ask RNN to fill in the blank with appropriate word, the word should be "Spanish".
+
 ## LSTM
 
+[LSTM](http://www.bioinf.jku.at/publications/older/2604.pdf) or Long Short Term Memory introduced by Hochreiter & Schmidhuber - a speical kind of RNN- capable of learning long-term dependencies. LSTMs are explicitly designed to avoid the long-term dependency problem.
 
+The best explaination step-by-step is given by Christopher Olah in his wonderful blog on [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/).
 
+I will just write the equations, maybe explain a bit. But his blog covers it all. So, let's begin. 
 
+Let's start with mathematical formulation of LSTM units. It's going to be scary, hold on.
+
+$$
+\begin{aligned}
+i^{(t)} &  = \sigma(W^{(i)}x^{(t)} + U^{(i)}h^{(t-1)}) &  \text{(Input Gate)}\\
+f^{(t)} & = \sigma(W^{(f)}x^{(t)} + U^{(f)}h^{(t-1)}) & \text{(Forget Gate)}\\
+o^{(t)} & = \sigma(W^{(o)}x^{(t)} + U^{(o)}h^{(t-1)}) & \text{(Output Gate)}\\
+\tilde{c}^{(t)} & = \sigma(W^{(c)}x^{(t)} + U^{(c)}h^{(t-1)}) & \text{(New Memory cell)}\\
+c^{(t)} & =  f^{(t)} \cdot \tilde{c}^{(t-1)} +  i^{(t)} \cdot \tilde{c}^{(t)} & \text{(Final Memory cell)}\\
+h^{(t)} & = o^{(t)} \cdot tanh({c^{(t)}) \\
+\end{aligned}
+$$
+
+Here is an illustration explaining what is going on in above equations.
+
+<p align="center">
+<img src='/images/lstm_and_gru/lstm.png' /> 
+</p>
+
+So, what is really going on? 
+
+Let's go step by step through the architecture.
+
+1. **New memory generation**
+
+We use the input word $$x^{(t)}$$ and the past hidden state $$h^{(t-1)}$$  to generate new memory state $$\tilde{c}^{(t)}$$ which includes some information about input word $$x^{(t)}$$.
+
+2. **Input Gate**
+
+We see that the new memory generation stage doesn’t check if the new word is even important before generating the new memory – this is exactly the input gate’s function. The input gate uses the input word and the past hidden state to determine whether or not the input is worth preserving and thus is used to gate the new memory. It thus produces $$i^{(t)}$$ as an indicator of this information.
+
+3. **Forget Gate**
+
+This gate is similar to the input gate except that it does not make a determination of usefulness of the input word – instead it makes an assessment on whether the past memory cell is useful for the computation of the current memory cell. Thus, the forget gate looks at the input word and the past hidden state and produces $$f^{(t)}$$.
+
+4. **Final Memory Generation**
+
+This stage first takes the advice of the forget gate $$f^{(t)}$$ and accordingly forgets the past memory $$c^{(t-1)}$$. Similarly, it takes the advice of the input gate $$i^{(t)}$$ and accordingly gates the new memory $$\tilde{c}^{(t)}$$. It then sums these two results to produce the final memory $$c^{(t)}$$.
+
+5. **Output Gate**
+
+It’s purpose is to separate the final memory from the hidden state. The final memory $$c^{(t)}$$ contains a lot of information that is not necessarily required to be saved in the hidden state. Hidden states are used in every single gate of an LSTM and thus, this gate makes the assessment regarding what parts of the memory $$c^{(t)}$$ needs to be present in the hidden state $$h^{(t)}$$. The signal it produces to indicate this is $$o^{(t)}$$ and this is used to gate the pointwise tanh of the memory.
+
+If any Pokemon fans out there, check this awesome example explaination provided by Edwin Chen on his blog of [Exploring LSTMs](http://blog.echen.me/2017/05/30/exploring-lstms/).
 
 ## GRU
+
+Having learnt what LSTM does, we try to minimze the number of equations and instead of forget gate, input gate and output gate, we just introduce two gates, Update gate and Reset Gate in GRU (Gated Recurrent Units).
+
+And the scariness continues.
+
+$$
+\begin{aligned}
+z^{(t)} &  = \sigma(W^{(z)}x^{(t)} + U^{(z)}h^{(t-1)}) &  \text{(Update Gate)}\\
+r^{(t)} & = \sigma(W^{(r)}x^{(t)} + U^{(r)}h^{(t-1)}) & \text{(Reset Gate)}\\
+\tilde{h}^{(t)} & = tanh(r^{(t)} \cdot U^{(t)}h^{(t-1)}} + Wx^{(t)} ) & \text{(New Memory)}\\
+h^{(t)} & = (1-z^{(t)}) \cdot \tilde{h}^{(t)} + z^{(t)} \cdot \tilde{h}^{(t-1)}  & \text{(Hidden State)}\\
+\end{aligned}
+$$
+
+Here is an illustration explaining what is going on in above equations.
+
+<p align="center">
+<img src='/images/lstm_and_gru/gru.png' /> 
+</p>
+
+So what is going on, again?
+
+1. **New Memory Generation**
+
+A new memory $$\tilde{h}^{(t)}$$ is the consolidation of a new input word $$x^{(t)}$$ with the past hidden state $$h^{(t-1)}$$. Anthropomorphically, this stage  is the one who knows the recipe of combining a newly observed word with the past hidden state $$h^{(t-1)}$$ to summarize this new word in light of the contextual past as thevector ̃$$\tilde{h}^{(t)}$$.
+
+2. **Reset Gate**
+
+The reset signal $$r^{(t)}$$  is responsible for determining how important $$h^{(t-1)}$$ is to the summarization $$\tilde{h}^{(t)}$$. The reset gate has the ability to completely diminish past hidden state if it finds that $$h^{(t-1)}$$ is irrelevant to the computation of the new memory.
+
+3. **Update Gate**
+
+The update signal $$z^{(t)}$$ is responsible for determining how much of $$h^{(t-1)}$$ should be carried forward to the next state. For instance, if $$z^{(t)} \approx$$  1, then $$h^{(t-1)}$$ is almost entirely copied out to $$h^{(t)}$$. Conversely, if $$z^{(t) \approx$$ ≈ 0, then mostly the new memory ̃$$\tilde{h}^{(t)}$$ is forwarded to the next hidden state.
+
+4. **Hidden State**
+
+The hidden state $$h^{(t-1)}$$ is finally generated using the past hidden input $$h^{(t-1)}$$ and the new memory generated ̃$$\tilde{h}^{(t)}$$ with the advice of the update gate.
+
+
 
 
 
@@ -420,6 +510,9 @@ Must Read! Word Embeddings by Sebastian Ruder [part-1](http://ruder.io/word-embe
 [Understanding the Origins of Bias in Word Embeddings](https://arxiv.org/pdf/1810.03611v1.pdf)
 
 [What are the biases in my word embedding?](https://arxiv.org/pdf/1812.08769.pdf)
+
+Seminal paper on [LSTM](http://www.bioinf.jku.at/publications/older/2604.pdf)
+
 
 
 ---
