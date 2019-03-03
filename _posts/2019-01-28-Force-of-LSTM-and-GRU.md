@@ -45,9 +45,9 @@ Feel free to jump anywhere,
 
 # Preprocessing Text
 
-The data used in applications for nlp is messy, contains lot of noise. There are all sorts of preprocessing steps we need to carry to make use of this messy data to useful data. Let's look into some of the steps.
+The data used in applications for nlp is messy, contains lot of noise. There are all sorts of preprocessing steps we need to carry to make use of this messy data to useful data. Let's look into some of the preprocessing steps.
 
-Sentence: "<h2>I don't know about you but i'm feeling 22</h2>"
+**Sentence:** "<h2>I don't know about you but i'm feeling 22</h2>"
 
 1. **Remove HTML tags**
 
@@ -649,6 +649,8 @@ Must Read! Word Embeddings by Sebastian Ruder [part-1](http://ruder.io/word-embe
 Seminal paper on [LSTM](http://www.bioinf.jku.at/publications/older/2604.pdf)
 
 [GRU paper](https://arxiv.org/pdf/1406.1078)
+
+[LSTM: A Search Space Odyssey](https://arxiv.org/pdf/1503.04069.pdf)
 
 
 
