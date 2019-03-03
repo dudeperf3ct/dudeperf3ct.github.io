@@ -50,7 +50,7 @@ Feel free to jump anywhere,
 
 The data used in applications for nlp is messy, contains lot of noise. There are all sorts of preprocessing steps we need to carry to make use of this messy data to useful data. Let's look into some of the preprocessing steps.
 
-**Sentence:** "<h2>I don't know about you but i'm feeling 22</h2>"
+Sentence: "<tag>I don't know about you but i'm feeling 22</tag1>"
 
 1. **Remove HTML tags**
 
@@ -62,7 +62,7 @@ def strip_html_tags(text):
     stripped_text = soup.get_text()
     return stripped_text
 ```
-Input: <h2>I don't know about you but i'm feeling 22</h2>
+Input: <tag>I don't know about you but i'm feeling 22</tag1>
 Output: I don't know about you but i'm feeling 22
 
 2. **Remove accented characters**
