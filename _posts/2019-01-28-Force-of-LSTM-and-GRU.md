@@ -353,7 +353,7 @@ The pairs to right are training samples i.e (context, target) pairs. The trainin
 
 
 <p align="center">
-<img src='/images/lstm_and_gru/skip-gram.png' /> 
+<img src='/images/lstm_and_gru/skip-gram.png' width="50%"/> 
 </p>
 
 
@@ -374,11 +374,11 @@ Here we also consider the window size = 2.
 The pairs to right are training samples i.e. (context, target) pairs. It's like all the pairs from above Skip-gram training samples are inverted. That's exactly how it is. CBOW smoothes over a lot of the distributional information (by treating an entire context as one observation). For the most part, this turns out to be a useful thing for smaller datasets. CBOW is faster while skip-gram is slower but does a better job for infrequent words. 
 
 <p align="center">
-<img src='/images/lstm_and_gru/cbow.png' /> 
+<img src='/images/lstm_and_gru/cbow.png' width="50%"/> 
 </p>
 
 <p align="center">
-<img src='/images/lstm_and_gru/cbow_vs_skip.png' width="60%"/> 
+<img src='/images/lstm_and_gru/cbo_vs_skipgram.png' width="60%"/> 
 </p>
 
 #### Training Tricks
@@ -513,7 +513,7 @@ $$
 Here is an illustration explaining what is going on in above equations.
 
 <p align="center">
-<img src='/images/lstm_and_gru/lstm.png' /> 
+<img src='/images/lstm_and_gru/lstm.png' width="80%"/> 
 </p>
 
 So, what is really going on? 
@@ -560,7 +560,7 @@ $$
 Here is an illustration explaining what is going on in above equations.
 
 <p align="center">
-<img src='/images/lstm_and_gru/gru.png' /> 
+<img src='/images/lstm_and_gru/gru.png' width="80%"/> 
 </p>
 
 So what is going on again?
