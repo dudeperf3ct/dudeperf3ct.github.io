@@ -22,7 +22,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 
 Feel free to jump anywhere,
-
+- [Preprocessing Text](#preprocessing-text)
 - [Introduction to LSTM and GRU](#introduction-to-lstm-and-gru)
   - [Vectorization](#vectorization)
     - [Bag of Words Model](#bag-of-words-model)
@@ -35,15 +35,132 @@ Feel free to jump anywhere,
     - [CBOW Model](#cbow)
     - [GloVe](#glove)
     - [fastText](#fasttext)
-  - [LSTM](#lstm)
-  - [GRU](#gru)
+  - [LSTM Network](#lstm-network)
+  - [GRU Network](#gru-network)
+  - [Bidirectional LSTM Network](#bidirectional-lstm-network)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
 # Preprocessing Text
 
+The data used in applications for nlp is messy, contains lot of noise. There are all sorts of preprocessing steps we need to carry to make use of this messy data to useful data. Let's look into some of the steps.
+
+Sentence: "<h2>I don't know about you but i'm feeling 22</h2>"
+
+1. Remove HTML tags
+
+Here is where Beautiful Soup comes to resuce.
+
+```python
+def strip_html_tags(text):
+    soup = BeautifulSoup(text, "html.parser")
+    stripped_text = soup.get_text()
+    return stripped_text
+```
+Input: <h2>I don't know about you but i'm feeling 22</h2>
+Output: I don't know about you but i'm feeling 22
+
+2. Remove accented characters
+
+A simple example — converting é to e.
+
+```python
+def remove_accented_chars(text):
+    text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8', 'ignore')
+    return text
+```
+
+Input: Sómě Áccěntěd těxt
+Output: Some Accented text
+
+3. Expanding Contractions
+
+Contractions are shortened version of words or syllables. These shortened versions or contractions of words are created by removing specific letters and sounds. In case of English contractions, they are often created by removing one of the vowels from the word. Examples would be, do not to don’t and I would to I’d.
+
+```python
+def expand_contractions(text, contraction_mapping=CONTRACTION_MAP):
+    
+    contractions_pattern = re.compile('({})'.format('|'.join(contraction_mapping.keys())), 
+                                      flags=re.IGNORECASE|re.DOTALL)
+    def expand_match(contraction):
+        match = contraction.group(0)
+        first_char = match[0]
+        expanded_contraction = contraction_mapping.get(match)\
+                                if contraction_mapping.get(match)\
+                                else contraction_mapping.get(match.lower())                       
+        expanded_contraction = first_char+expanded_contraction[1:]
+        return expanded_contraction
+        
+    expanded_text = contractions_pattern.sub(expand_match, text)
+    expanded_text = re.sub("'", "", expanded_text)
+    return expanded_text
+
+```
+
+Input: I don't know about you but i'm feeling 22
+Output: I do not know about you but i am feeling 22
+
+4. Removing Special Characters and digits
+
+Removing special character like @ which is often used in tweets, <, >, quotations, any other punctuations, etc can make text useful for further processing. Removing digits can be optional.
+
+```python
+def remove_special_characters(text, remove_digits=True):
+    pattern = r'[^a-zA-z0-9\s]' if not remove_digits else r'[^a-zA-z\s]'
+    text = re.sub(pattern, '', text)
+    return text
+```
+
+Input: I do not know about @you but i am feeling 22
+Output: I do not know about you but i am feeling
+
+5. Stemming
+
+In Stemming, we convert the words to it's base form. 
+
+```python
+def stemmer_text(text):
+    ps = nltk.porter.PorterStemmer()
+    text = ' '.join([ps.stem(word) for word in text.split()])
+    return text
+```
+
+Input: I do not know about you but i am feeling 22
+Output: I do not know about you but i am feel 22
+
+6. Lemmatization
 
 
+
+```python
+def lemmatize_text(text):
+    text = nlp(text)
+    text = ' '.join([word.lemma_ if word.lemma_ != '-PRON-' else word.text for word in text])
+    return text
+```
+
+Input: I do not know about you but i am feel 22
+Output: I do not know about you but i be feel 22
+
+7. Removing Stopwords
+
+These are usually words that end up having the maximum frequency if you do a simple term or word frequency in a corpus. Some examples of stopwords are a, an, the, and, of, is, etc.
+
+```python
+def remove_stopwords(text, is_lower_case=False):
+    tokens = tokenizer.tokenize(text)
+    tokens = [token.strip() for token in tokens]
+    if is_lower_case:
+        filtered_tokens = [token for token in tokens if token not in stopword_list]
+    else:
+        filtered_tokens = [token for token in tokens if token.lower() not in stopword_list]
+    filtered_text = ' '.join(filtered_tokens)    
+    return filtered_text
+
+```
+
+Input: I do not know about you but i be feel 22
+Output: not know feel 22
 
 
 # Introduction to LSTM and GRU
