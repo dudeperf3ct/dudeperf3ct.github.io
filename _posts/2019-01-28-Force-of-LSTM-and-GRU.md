@@ -377,6 +377,10 @@ The pairs to right are training samples i.e. (context, target) pairs. It's like 
 <img src='/images/lstm_and_gru/cbow.png' /> 
 </p>
 
+<p align="center">
+<img src='/images/lstm_and_gru/cbow_vs_skip.png' width="60%"/> 
+</p>
+
 #### Training Tricks
 
 Word2Vec uses some tricks in training. We will look at some of them.
@@ -481,9 +485,9 @@ Now, having looked at embeddings, we will move into new architectures which we w
 
 ## Exploding and Vanishing Gradients
 
-With conventational Back-Propogation through time(BPTT) which we looked in context of RNN in our [last post](), error signals(or gradients) "flowing backwards in time" tend to blow up(explode) or vanish. We can understand exploding and vanishing effects through two examples, one from compounding where the amount keeps multiplying and turn out to be very large amount and similarly if a gambler loses 3 cents for every dollar, the amount keeps multiplying and becomes less and less, eventually making gambler bankrupt. Similarly, large gradients keep multiplying through backpropogation through time backwards result in very large number and vice-versa. 
+With conventational Back-Propogation through time(BPTT) which we looked in context of RNN in our [last post](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/#bptt), error signals(or gradients) "flowing backwards in time" tend to blow up(explode) or vanish. We can understand exploding and vanishing effects through two examples, one from compounding where the amount keeps multiplying and turn out to be very large amount and similarly if a gambler loses 3 cents for every dollar, the amount keeps multiplying and becomes less and less, eventually making gambler bankrupt. Similarly, large gradients keep multiplying through backpropogation through time backwards result in very large number and vice-versa. 
 
-Long-term dependency example of is, "I studied Spainish in my class. So, the other day I visited Spain. It was an amazing experience. We enjoyed a lot. We ran up and down the road. We played football. But the coming from English background, we had difficulty conversing fluently in ...." If we ask RNN to fill in the blank with appropriate word, the word should be "Spanish".
+Long-term dependency example of is, "I studied Spainish in my class. So, the other day I visited Spain. It was an amazing experience. We enjoyed a lot. We ran up and down the road. We played football and put many such sentences in between. But the coming from English background, we had difficulty conversing fluently in ...." If we ask RNN to fill in the blank with appropriate word, the word should be "Spanish" but as the relation between studying and conversing is far away, RNN will not be able to predict the correct word.
 
 ## LSTM Network
 
@@ -695,6 +699,8 @@ Seminal paper on [LSTM](http://www.bioinf.jku.at/publications/older/2604.pdf)
 
 [An Empirical Exploration of Recurrent Network Architectures](http://proceedings.mlr.press/v37/jozefowicz15.pdf)
 
+[Vanishing Gradient Code](http://cs224d.stanford.edu/notebooks/vanishing_grad_example.html)
+
 ---
 
 # Footnotes and Credits
@@ -702,7 +708,21 @@ Seminal paper on [LSTM](http://www.bioinf.jku.at/publications/older/2604.pdf)
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
+[Meme](https://github.com/BrainJS/brain.js/issues/286)
 
+[bag of words](https://web.stanford.edu/~jurafsky/slp3/4.pdf)
+
+[skip gram and cbow](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf)
+
+[cbow_and_skip example](https://fasttext.cc/img/cbo_vs_skipgram.png)
+
+[word2vec example](https://www.tensorflow.org/tutorials/representation/word2vec)
+
+[lstm](https://cs224d.stanford.edu/lecture_notes/LectureNotes4.pdf)
+
+[gru](https://cs224d.stanford.edu/lecture_notes/LectureNotes4.pdf)
+
+[bi-lstm](https://towardsdatascience.com/understanding-bidirectional-rnn-in-pytorch-5bd25a5dd66?gi=427a9309ecf9)
 
 ---
 
