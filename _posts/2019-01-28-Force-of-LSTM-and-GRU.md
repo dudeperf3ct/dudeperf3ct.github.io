@@ -2,8 +2,8 @@
 layout:     post
 title:      Force of Recurrent Neural Networks
 date:       2019-01-28 12:00:00
-summary:    This post will provide an brief introduction to recurrent neural networks and look at the results obtained by training Character RNN on various datasets.
-categories: rnn
+summary:    This post will provide a brief introduction to world of NLP through embeddings, vectorization and steps in processing text. We will also walkthrough very popular architecture like LSTM, GRU and Bidirectional LSTM and demonstrate it's power through the application of sentiment analysis of IMDB dataset.
+categories: lstm gru nlp
 published : false
 ---
 
