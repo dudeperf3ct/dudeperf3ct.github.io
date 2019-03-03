@@ -10,9 +10,9 @@ published : false
 
 # Long-Short Term Memory and Gated Recurrent Units
 
-In this notebook, 
+In this notebook, we will 
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb) and.
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_flair.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_fastai.ipynb).
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -22,6 +22,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 
 Feel free to jump anywhere,
+
 - [Preprocessing Text](#preprocessing-text)
 - [Introduction to LSTM and GRU](#introduction-to-lstm-and-gru)
   - [Vectorization](#vectorization)
@@ -35,6 +36,7 @@ Feel free to jump anywhere,
     - [CBOW Model](#cbow)
     - [GloVe](#glove)
     - [fastText](#fasttext)
+  - [Exploding and Vanishing gradients](#exploding-and-vanishing-gradients)
   - [LSTM Network](#lstm-network)
   - [GRU Network](#gru-network)
   - [Bidirectional LSTM Network](#bidirectional-lstm-network)
@@ -47,7 +49,7 @@ The data used in applications for nlp is messy, contains lot of noise. There are
 
 Sentence: "<h2>I don't know about you but i'm feeling 22</h2>"
 
-1. Remove HTML tags
+1. **Remove HTML tags**
 
 Here is where Beautiful Soup comes to resuce.
 
@@ -60,7 +62,7 @@ def strip_html_tags(text):
 Input: <h2>I don't know about you but i'm feeling 22</h2>
 Output: I don't know about you but i'm feeling 22
 
-2. Remove accented characters
+2. **Remove accented characters**
 
 A simple example — converting é to e.
 
@@ -73,7 +75,7 @@ def remove_accented_chars(text):
 Input: Sómě Áccěntěd těxt
 Output: Some Accented text
 
-3. Expanding Contractions
+3. **Expanding Contractions**
 
 Contractions are shortened version of words or syllables. These shortened versions or contractions of words are created by removing specific letters and sounds. In case of English contractions, they are often created by removing one of the vowels from the word. Examples would be, do not to don’t and I would to I’d.
 
@@ -100,7 +102,7 @@ def expand_contractions(text, contraction_mapping=CONTRACTION_MAP):
 Input: I don't know about you but i'm feeling 22
 Output: I do not know about you but i am feeling 22
 
-4. Removing Special Characters and digits
+4. **Removing Special Characters and digits**
 
 Removing special character like @ which is often used in tweets, <, >, quotations, any other punctuations, etc can make text useful for further processing. Removing digits can be optional.
 
@@ -114,9 +116,9 @@ def remove_special_characters(text, remove_digits=True):
 Input: I do not know about @you but i am feeling 22
 Output: I do not know about you but i am feeling
 
-5. Stemming
+5. **Stemming**
 
-In Stemming, we convert the words to it's base form. 
+Stemming refers to a simpler version of lemmatization in which we mainly stemming just strip suffixes from the end of the word.
 
 ```python
 def stemmer_text(text):
@@ -128,8 +130,9 @@ def stemmer_text(text):
 Input: I do not know about you but i am feeling 22
 Output: I do not know about you but i am feel 22
 
-6. Lemmatization
+6. **Lemmatization**
 
+Lemmatization is the task of determining that two words have the same root, despite their surface differences. For example, the words sang, sung, and sings are forms of the verb sing. The word sing is the common lemma of these words, and a lemmatizer maps from all of these to sing. Lemmatization is essential for processing morphologically complex languages like Arabic.
 
 
 ```python
@@ -142,7 +145,7 @@ def lemmatize_text(text):
 Input: I do not know about you but i am feel 22
 Output: I do not know about you but i be feel 22
 
-7. Removing Stopwords
+7. **Removing Stopwords**
 
 These are usually words that end up having the maximum frequency if you do a simple term or word frequency in a corpus. Some examples of stopwords are a, an, the, and, of, is, etc.
 
@@ -162,6 +165,9 @@ def remove_stopwords(text, is_lower_case=False):
 Input: I do not know about you but i be feel 22
 Output: not know feel 22
 
+After we obtain clean text, we use any of the vectorization or embedding methods mentioned below to convert string to numbers.
+
+---
 
 # Introduction to LSTM and GRU
 
@@ -178,8 +184,7 @@ Output: not know feel 22
 
 <span class='red'>I-know-everything:</span> Let me start with the various vectorization and embeddings techniques and gradually we will move into LSTM and GRUs.
 
-
-In the [last post]() on RNNs we saw how neural networks only understand numbers and all we have as input is string of words which make up sentences, which add upto paragraphs and eventually make a document. Collection of such documents is called corpus. The text is converted to tokens using tokens and into numbers using vectorization/embeddings/numericalizations.
+In the [last post](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/) on RNNs we saw how neural networks only understand numbers and all we have as input is string of words which make up sentences, which add upto paragraphs and eventually make a document. Collection of such documents is called corpus. The text is converted to tokens using tokens and into numbers using vectorization/embeddings/numericalizations.
 
 So, to convert the text we often take help of various techniques. Let's visit them one by one.
 
@@ -293,15 +298,15 @@ Adding features of higher n-grams can be helpful in identifying that a certain m
 
 #### Limitations of Bag-of-Words Model
 
-- Vocabulary
+- **Vocabulary**
 
 The size of vocabulary requires careful design, most specifically in order to manage the size. The misspelling like come, cmoe will be considered as seperate words which can lead to increase in vocabulary.
 
-- Sparsity
+- **Sparsity**
 
 Sparse representations are harder to model both for computational reasons (space and time complexity). There will be a lot of zeros as input vectors will be one hot encoded of vocabulary size.
 
-- Ordering
+- **Ordering**
 
 Discarding word order ignores the context, and in turn meaning of words in the document (semantics). Context and meaning can offer a lot to the model, that if modeled could tell the difference between the same words differently arranged (“this is interesting” vs “is this interesting”), synonyms (“old bike” vs “used bike”), and much more. This is one of the crucial drawbacks of using BoW models.
 
@@ -364,19 +369,19 @@ The pairs to right are training samples i.e. (context, target) pairs. It's like 
 
 Word2Vec uses some tricks in training. We will look at some of them.
 
-- Subsampling Frequent Words
+- **Subsampling Frequent Words**
 
 We have seen how training samples are created. In very large corpora, the most frequent words can easily occur hundreds of millions of times (e.g.,“in”, “the”, and “a”). Such words usually provide less information value than the rare words and being the most common word it occurs pretty much everywhere. So, how to learn a good vector for the word "the"? This where the authors propose a subsampling method for frequent words. The idea to change the vector representation of frequent words gradually. To counter the imbalance between the rare and frequent words, authors used a simple subsampling approach: each word $$\mathbf{w_{i}}$$ in the training set is discarded with probability computed by the formula $$ P(\mathbf{w_i}) = 1 - \sqrt{\frac{t}{\mathbf{f(\mathbf{w}_i)}}}$$ where $$\mathbf{f(\mathbf{w}_i)}}$$ is the frequency of word $$\mathbf{w_i}$$ and t is a chosen threshold, typically around $$10^-5$$.
  
 
-- Hierarchical Softmax
+- **Hierarchical Softmax**
 
 The traditional softmax is very computationally expensive especially for large vocabulary size, typically for vocabulary size of V the order is O(V) which is often of size ($$10^5$$ - $$10^7$$ terms), but hierarchical softmax reduces the computation to O(log(V)). Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least 50×. The hierarchical softmax uses a binary tree representation of the output layer with the $$\mathbf{W}$$ words a sits leaves and, for each node, explicitly represents the relative probabilities of its child nodes. As binary tree(*remember binary serach*) is involved, the output will look if target word is first half or second half of tree and so on till it reaches a leaf of tree where the target sits. This reduces the complexity equal to the depth of tree instead of classifying looking through whole vocabulary through softmax where we sum over all vocabulary in the denominator. This is one idea for speeding up softmax calculation.
 
 To look more about hierarchical softmax, [here](https://www.youtube.com/watch?v=B95LTf2rVWM) is awesome video explaination by Hugo Larochelle.
 
 
-- Negative Sampling
+- **Negative Sampling**
 
 This methods provides a work around to let us keep traditional softmax and still achieve a less computationally expensive model. As we have seen in loss functions in previous posts, the maximum likelihood principle maximises the probability of $$\mathbf{w_t}$$ ("target") given the context $$\mathbf{h}$$, i.e. $$\mathbf{J_{ML}} = \log_{}P(\mathbf{w_t}|\mathbf{h})$$. With negative sampling, we are instead going to randomly select just a small number of “negative” words (k = 7) to update the weights for. Here negative words are the words other than the context words with respect to focus or input word. In this case, a positive example would be (I, saw) and negative sample would be (I, book) or (I, king), picking a random word from vocabulary. The authors propose that selecting 5-20 words works well for smaller datasets, and 2-5 words for large datasets. Negative samples are selected using "unigram distribution", where most frequent words are more likely to be selected. For e.g. the probability of picking word "saw" is the total number of times the word occurs in the corpus divided by the total number of words in the corpus. Authors found that word counts raised to power (3/4) gave good empirical results than power of 1. This one has the tendency to increase the probability for less frequent words and decrease the probability for more frequent words like "the, is, of". The new objective is maximized when the model assigns high probabilities to the real words, and low probabilities to noise(negative) words. It is binary classification problem on k+1 (context, target) pairs it contains k negative samples and 1 positive samples where task is to predict is each of (context, target) pair is positive sample or not.
 
@@ -428,13 +433,11 @@ where $$\mathbf{x_{max}}$$ and $$\alpha$$ are hyperparameters, authors found $$\
 
 ### fastText
 
-fastText is a library created by the Facebook Research Team for efficient learning of word representations and sentence classification. The key difference between fastText and Word2Vec is the use of n-grams. In fastText each word is represented as bag of character of n-gram. For e.g. the word where and n=3 as an example, it will represented by the character n-grams: <wh, whe, her, ere, re> and special sequence <where>, < and > are added at begining and end of the words to distinguish prefixes and suffixes from other character sequences i.e. <her>, corresponding to word her can also be part of vocabulary and will be different from tri-gram "her" from where. At each training step in fastText, the mean of the target word vector and its component n-gram vectors are used for training. The adjustment that is calculated from the error is then used uniformly to update each of the vectors that were combined to form the target. This adds a lot of additional computation to the training step. At each point, a word needs to sum and average its n-gram component parts. The trade-off is a set of word-vectors that contain embedded sub-word information. These vectors have been shown to be more accurate than Word2Vec vectors by a number of different measures
+fastText is a library created by the Facebook Research Team for efficient learning of word representations and sentence classification. The key difference between fastText and Word2Vec is the use of n-grams. In fastText each word is represented as bag of character of n-gram. For e.g. the word where and n=3 as an example, it will represented by the character n-grams: <wh, whe, her, ere, re> and special sequence <where>, < and > are added at begining and end of the words to distinguish prefixes and suffixes from other character sequences i.e. <her>, corresponding to word her can also be part of vocabulary and will be different from tri-gram "her" from where. At each training step in fastText, the mean of the target word vector and its component n-gram vectors are used for training. The adjustment that is calculated from the error is then used uniformly to update each of the vectors that were combined to form the target. This adds a lot of additional computation to the training step. At each point, a word needs to sum and average its n-gram component parts. The trade-off is a set of word-vectors that contain embedded sub-word information. These vectors have been shown to be more accurate than Word2Vec vectors by a number of different measures.
   
 fastText offers a better luxury in handling OOV words as it can construct the vector for a OOV word from its character n grams even if word doesn't appear in training corpus. Both Word2vec and Glove can't. 
 
-
 *We will look into CoVe, ELMo, ULMFit, GPT, BERT and GPT-2 models in the post on Transfer Learning in NLP.*
-
 
 <span class='green'>I-know-nothing:</span> So, what I understand is that we can use any of these techniques above to convert individual words into numbers. But I have heard that embeddings are biased. Can we talk a little about bias in embeddings?
 
@@ -474,9 +477,9 @@ Long-term dependency example of is, "I studied Spainish in my class. So, the oth
 
 The best explaination step-by-step is given by Christopher Olah in his wonderful blog on [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/).
 
-I will just write the equations, maybe explain a bit. But his blog covers it all. So, let's begin. 
+I will just write the equations and maybe explain a bit. But his blog covers it all step-by-step. So, let's begin. 
 
-Let's start with mathematical formulation of LSTM units. It's going to be scary, hold on.
+Let's start with mathematical formulation of LSTM units. It's going to be scary, be warned.
 
 $$
 \begin{aligned}
@@ -560,7 +563,7 @@ The update signal $$z^{(t)}$$ is responsible for determining how much of $$h^{(t
 
 The hidden state $$h^{(t-1)}$$ is finally generated using the past hidden input $$h^{(t-1)}$$ and the new memory generated ̃$$\tilde{h}^{(t)}$$ with the advice of the update gate.
 
-## Bi-directional LSTM Network
+## Bidirectional LSTM Network
 
 These are just the derivation of LSTM where we stack two lstm on top of each other. One LSTM runs a forward pass, while the another LSTM runs a backward pass and finally both the outputs are concatenated.
 
@@ -572,7 +575,10 @@ These are just the derivation of LSTM where we stack two lstm on top of each oth
 
 What can we do with help of these networks? Movie Reviews? Calling IMDB...
 
-So, let's use these network to see how well do they classify movie reviews.
+So, let's use these network to see how well do they classify movie reviews. We will handpick some of the reviews from Rotten Tomatoes for testing.
+
+
+
 
 
 
@@ -598,13 +604,13 @@ BPTT - backpropogation through time
 
 Must Read! [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
-Must Read! [Edwin Chen's blog on LSTM]()
+Must Read! [Edwin Chen's blog on LSTM](http://blog.echen.me/2017/05/30/exploring-lstms/)
 
 Must Read! Word Embeddings by Sebastian Ruder [part-1](http://ruder.io/word-embeddings-1/), [part-2](http://ruder.io/word-embeddings-softmax/index.html), [part-3](http://ruder.io/secret-word2vec/index.html), [part-4](http://ruder.io/cross-lingual-embeddings/index.html) and [part-5](http://ruder.io/word-embeddings-2017/index.html)
 
 [Deep Learning, NLP, and Representations](http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/)
 
-[Chater 9 Book: Speech and Language Processing by Jurafsky & Martin](https://web.stanford.edu/~jurafsky/slp3/9.pdf)
+[Chater 1-8 Book: Speech and Language Processing by Jurafsky & Martin](https://web.stanford.edu/~jurafsky/slp3/)
 
 [Stanford CS231n Winter 2016 Chapter 10](https://www.youtube.com/watch?v=yCC09vCHzF8&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC&index=10)
 
