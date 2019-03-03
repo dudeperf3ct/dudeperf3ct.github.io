@@ -39,6 +39,7 @@ Feel free to jump anywhere,
     - [CBOW Model](#cbow)
     - [GloVe](#glove)
     - [fastText](#fasttext)
+  - [Debiasing Embeddings](#debiasing-embeddings)
   - [Exploding and Vanishing gradients](#exploding-and-vanishing-gradients)
   - [LSTM Network](#lstm-network)
   - [GRU Network](#gru-network)
@@ -233,7 +234,7 @@ From these three sentences, our vocabulary is as follows:
 
 
 <p align="center">
-<img src='/images/lstm_and_gru/bag_of_words.png' /> 
+<img src='/images/lstm_and_gru/bag-of-words.png' /> 
 </p>
 
 
@@ -341,18 +342,18 @@ Skip-gram model predicts context (surrounding) words given the current word. The
 Here we consider the window size = 2, window size refers to the number of words to be looked on either side of focus or input word. The highlighted blue color word is input and it produces training samples depending on context words.
 
 <p align="center">
-<img src='/images/lstm_and_gru/skip_gram_1.png' /> 
+<img src='/images/lstm_and_gru/skip-gram_1.png' /> 
 </p>
 
 <p align="center">
-<img src='/images/lstm_and_gru/skip_gram_2.png' /> 
+<img src='/images/lstm_and_gru/skip-gram_2.png' /> 
 </p>
 
 The pairs to right are training samples i.e (context, target) pairs. The training of skip-gram will take one-hot vector input on vocabulary and outputs a probability after applying Hierarchical softmax that the particular word is output given the input word. Given enough input vectors, model learns that there is high probability that when "San" is given as input, "Franciso" or "Jose" is more likely than "York". Skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
 
 
 <p align="center">
-<img src='/images/lstm_and_gru/skip_gram.png' /> 
+<img src='/images/lstm_and_gru/skip-gram.png' /> 
 </p>
 
 
@@ -405,10 +406,10 @@ There are many hyperparmamerters while training the algorithm and the most cruci
 Here is one example of projecting the learned embedding in 2d space using tSNE.
 
 <p align="center">
-<img src='/images/lstm_and_gru/word2vec.png' /> 
+<img src='/images/lstm_and_gru/word2vec.png' width="60%"/> 
 </p>
 
-Here we can see, the words like two,million,three are group together and words like he,she,it are clustered together.
+Here we can see, the words like two,million,three are group together and words like he,she,it are clustered together and many other clusters are formed.
 
 ### GloVe
 
@@ -454,6 +455,8 @@ fastText offers a better luxury in handling OOV words as it can construct the ve
 
 <span class='red'>I-know-everything:</span> Haha, you caught me. That's absolutely right. And embedding learned are defintely biased. So to give example, if we give a relation such as Man:Doctor :: Woman:?, then the learned embeddings will with almost certainity predict the answer to be Nurse (*What a biasist*) or Man:Computer Programmer::Woman:Homemaker.  The community has proposed several ways of "debiasing embeddings". All the pretrained embedding from above acquire stereotypical human biases from the text data they are trained on i.e. word embeddings can reflect gender, ethinicity, age, sexual orientation, and other biases of the text data used to train the model.
 
+### Debiasing Embeddings
+
 We will understand a simple gender debiasing algorithm outlined in [this paper](http://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf), some other biases like religion or racial can also be used in similar way.
 
 1. Identify the gender space
@@ -472,7 +475,7 @@ To reduce the bias in an embedding, we change the embeddings of gender neutral w
 
 As an example, consider the analogy puzzle, he to doctor is as she to X. The original embedding returns X = nurse while the hard-debiased embedding finds X = physician.
 
-To further look into this topic, I am adding link few papers to look [here](http://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf), [here](https://arxiv.org/pdf/1606.06121.pdf), [here](https://arxiv.org/pdf/1810.03611v1.pdf), [here](https://upcommons.upc.edu/bitstream/handle/2117/128025/memoria.pdf?sequence=1&isAllowed=y), [here](https://arxiv.org/pdf/1901.03116.pdf), [here](https://arxiv.org/pdf/1812.08769.pdf) and [here](https://aiforsocialgood.github.io/2018/pdfs/track2/47_aisg_neurips2018.pdf)
+To further look into this topic, I am adding link to few papers [here](http://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf), [here](https://arxiv.org/pdf/1606.06121.pdf), [here](https://arxiv.org/pdf/1810.03611v1.pdf), [here](https://upcommons.upc.edu/bitstream/handle/2117/128025/memoria.pdf?sequence=1&isAllowed=y), [here](https://arxiv.org/pdf/1901.03116.pdf), [here](https://arxiv.org/pdf/1812.08769.pdf) and [here](https://aiforsocialgood.github.io/2018/pdfs/track2/47_aisg_neurips2018.pdf)
 
 Now, having looked at embeddings, we will move into new architectures which we will introduce to overcome the shortcomings in RNN.
 
@@ -511,7 +514,7 @@ Here is an illustration explaining what is going on in above equations.
 
 So, what is really going on? 
 
-Let's go step by step through the architecture.
+Let's go step by step through the architecture. The LSTM have the ability to remove or add information to the cell state ($$c^{(t)}$$), carefully regulated by structures called gates.
 
 1. **New memory generation**
 
@@ -523,7 +526,7 @@ We see that the new memory generation stage doesn’t check if the new word is e
 
 3. **Forget Gate**
 
-This gate is similar to the input gate except that it does not make a determination of usefulness of the input word – instead it makes an assessment on whether the past memory cell is useful for the computation of the current memory cell. Thus, the forget gate looks at the input word and the past hidden state and produces $$f^{(t)}$$.
+This gate is similar to the input gate except that it does not make a determination of usefulness of the input word – instead it makes an assessment on whether the past memory cell is useful for the computation of the current memory cell. Thus, the forget gate looks at the input word and the past hidden state and produces $$f^{(t)}$$. The sigmoid layer outputs numbers between zero and one, describing how much of each component should be let through. A value of zero means “let nothing through,” while a value of one means “let everything through!” A 1 represents “completely keep this” while a 0 represents “completely get rid of this.”
 
 4. **Final Memory Generation**
 
@@ -537,7 +540,7 @@ If any Pokemon fans out there, check this awesome example explaination provided 
 
 ## GRU Network 
 
-Having learnt what LSTM does, we try to minimze the number of equations/gates and instead of forget gate, input gate and output gate, we just introduce two gates, Update gate and Reset Gate in GRU (Gated Recurrent Units).
+Having learnt what LSTM does, we try to minimze the number of equations/gates and instead of forget gate, input gate and output gate, we just introduce two gates, Update gate and Reset Gate in GRU (Gated Recurrent Unit).
 
 And the scariness continues.
 
@@ -556,7 +559,7 @@ Here is an illustration explaining what is going on in above equations.
 <img src='/images/lstm_and_gru/gru.png' /> 
 </p>
 
-So what is going on, again?
+So what is going on again?
 
 1. **New Memory Generation**
 
@@ -586,12 +589,29 @@ These are just the derivation of LSTM where we stack two lstm on top of each oth
 
 What can we do with help of these networks? Movie Reviews? Calling IMDB...
 
-So, let's use these network to see how well do they classify movie reviews. We will handpick some of the reviews from Rotten Tomatoes for testing.
+So, let's use these network to see how well do they classify movie reviews. We will handpick some of the reviews and give sentiment as predicted by our trained model.
 
+```
+"This movie is a disaster within a disaster film. It is full of great action scenes, which are only meaningful if you throw away all sense of reality. Let's see, word to the wise, lava burns you; steam burns you. You can't stand next to lava. Diverting a minor lava flow is difficult, let alone a significant one. Scares me to think that some might actually believe what they saw in this movie.<br /><br />Even worse is the significant amount of talent that went into making this film. I mean the acting is actually very good. The effects are above average. Hard to believe somebody read the scripts for this and allowed all this talent to be wasted. I guess my suggestion would be that if this movie is about to start on TV ... look away! It is like a train wreck: it is so awful that once you know what is coming, you just have to watch. Look away and spend your time on more meaningful content."
+```
 
+Prediction: [0.99533975 0.00466027]  -> 99% Negative
 
+```
+"Five medical students (Kevin Bacon, David Labraccio; William Baldwin, Dr. Joe Hurley; Oliver Platt, Randy Steckle; Julia Roberts, Dr. Rachel Mannus; Kiefer Sutherland, Nelson) experiment with clandestine near death & afterlife experiences, (re)searching for medical & personal enlightenment. One by one, each medical student's heart is stopped, then revived.<br /><br />Under temporary death spells each experiences bizarre visions, including forgotten childhood memories. Their flashbacks are like children's nightmares. The revived students are disturbed by remembering regretful acts they had committed or had done against them. As they experience afterlife, they bring real life experiences back into the present. As they continue to experiment, their remembrances dramatically intensify; so much so, some are physically overcome. Thus, they probe & transcend deeper into the death-afterlife experiences attempting to find a cure.<br /><br />Even though the DVD was released in 2007, this motion picture was released in 1990. Therefore, Kevin Bacon, William Baldwin, Julia Roberts & Kiefer Sutherland were in the early stages of their adult acting careers. Besides the plot being extremely intriguing, the suspense building to a dramatic climax & the script being tight & convincing, all of the young actors make \"Flatliners,\" what is now an all-star cult semi-sci-fi suspense. Who knew 17 years ago that the film careers of this young group of actors would skyrocket? I suspect that director Joel Schumacher did."
+```
 
+Prediction: [0.7998832  0.20011681]  -> 80% Negative  -> Misprediction
 
+```
+"All in all, this is a movie for kids. We saw it tonight and my child loved it. At one point my kid's excitement was so great that sitting was impossible. However, I am a great fan of A.A. Milne's books which are very subtle and hide a wry intelligence behind the childlike quality of its leading characters. This film was not subtle. It seems a shame that Disney cannot see the benefit of making movies from more of the stories contained in those pages, although perhaps, it doesn't have the permission to use them. I found myself wishing the theater was replaying \"Winnie-the-Pooh and Tigger too\", instead. The characters voices were very good. I was only really bothered by Kanga. The music, however, was twice as loud in parts than the dialog, and incongruous to the film.<br /><br />As for the story, it was a bit preachy and militant in tone. Overall, I was disappointed, but I would go again just to see the same excitement on my child's face.<br /><br />I liked Lumpy's laugh...."
+```
+
+Prediction: [0.02207627 0.9779237 ]  -> 98% Positive
+
+---
+
+In next post, we will look into the most exicting topic in NLP, <span class='purple'>Power of Transfer Learning in NLP</span>.
 
 <span class='orange'>Happy Learning!</span>
 
@@ -608,6 +628,16 @@ jar jar backpropogation - backpropogation
 jar jar bptt - BPTT
 
 BPTT - backpropogation through time
+
+LSTM - Long Short Term Memory
+
+Bi-LSTM - Bidirectional Long Short Term Memory
+
+GRU - Gated Recurrent Unit
+
+OOV - Out of Vocabulary
+
+TF-IDF - Term Frequency and Inverse Document Frequency
 
 ---
 
@@ -663,7 +693,7 @@ Seminal paper on [LSTM](http://www.bioinf.jku.at/publications/older/2604.pdf)
 
 [LSTM: A Search Space Odyssey](https://arxiv.org/pdf/1503.04069.pdf)
 
-
+[An Empirical Exploration of Recurrent Network Architectures](http://proceedings.mlr.press/v37/jozefowicz15.pdf)
 
 ---
 
