@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Force of Recurrent Neural Networks
+title:      Force of LSTM and GRU
 date:       2019-01-28 12:00:00
 summary:    This post will provide a brief introduction to world of NLP through embeddings, vectorization and steps in processing text. We will also walkthrough very popular architecture like LSTM, GRU and Bidirectional LSTM and demonstrate it's power through the application of sentiment analysis of IMDB dataset.
 categories: lstm gru nlp
@@ -8,7 +8,7 @@ published : false
 ---
 
 
-# Long-Short Term Memory and Gated Recurrent Units
+# Long-Short Term Memory and Gated Recurrent Unit
 
 In this notebook, we will 
 
