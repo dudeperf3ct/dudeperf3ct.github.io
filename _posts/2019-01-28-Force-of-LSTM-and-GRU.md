@@ -20,6 +20,9 @@ Hey yo, but how?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
+<p align="center">
+<img src='/images/lstm_and_gru/lstm_meme.jpeg'  width="70%"/> 
+</p>
 
 Feel free to jump anywhere,
 
