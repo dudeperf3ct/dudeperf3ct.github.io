@@ -77,8 +77,9 @@ def remove_accented_chars(text):
     return text
 ```
 
-Input: Sómě Áccěntěd těxt
-Output: Some Accented text
+`Input: Sómě Áccěntěd těxt`
+
+`Output: Some Accented text`
 
 3. **Expanding Contractions**
 
@@ -104,8 +105,9 @@ def expand_contractions(text, contraction_mapping=CONTRACTION_MAP):
 
 ```
 
-Input: I don't know about you but i'm feeling 22
-Output: I do not know about you but i am feeling 22
+`Input: I don't know about you but i'm feeling 22`
+
+`Output: I do not know about you but i am feeling 22`
 
 4. **Removing Special Characters and digits**
 
@@ -118,8 +120,9 @@ def remove_special_characters(text, remove_digits=True):
     return text
 ```
 
-Input: I do not know about @you but i am feeling 22
-Output: I do not know about you but i am feeling
+`Input: I do not know about @you but i am feeling 22`
+
+`Output: I do not know about you but i am feeling`
 
 5. **Stemming**
 
@@ -132,8 +135,9 @@ def stemmer_text(text):
     return text
 ```
 
-Input: I do not know about you but i am feeling 22
-Output: I do not know about you but i am feel 22
+`Input: I do not know about you but i am feeling 22`
+
+`Output: I do not know about you but i am feel 22`
 
 6. **Lemmatization**
 
@@ -147,8 +151,9 @@ def lemmatize_text(text):
     return text
 ```
 
-Input: I do not know about you but i am feel 22
-Output: I do not know about you but i be feel 22
+`Input: I do not know about you but i am feel 22`
+
+`Output: I do not know about you but i be feel 22`
 
 7. **Removing Stopwords**
 
@@ -167,8 +172,9 @@ def remove_stopwords(text, is_lower_case=False):
 
 ```
 
-Input: I do not know about you but i be feel 22
-Output: not know feel 22
+`Input: I do not know about you but i be feel 22`
+
+`Output: not know feel 22`
 
 After we obtain clean text, we use any of the vectorization or embedding methods mentioned below to convert string to numbers.
 
