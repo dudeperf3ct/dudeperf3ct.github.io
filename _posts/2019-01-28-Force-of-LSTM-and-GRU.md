@@ -2,9 +2,9 @@
 layout:     post
 title:      Force of LSTM and GRU
 date:       2019-01-28 12:00:00
-summary:    This post will provide a brief introduction to world of NLP through embeddings, vectorization and steps in processing text. We will also walkthrough very popular architecture like LSTM, GRU and Bidirectional LSTM and demonstrate it's power through the application of sentiment analysis of IMDB dataset.
+summary:    This post will provide a brief introduction to world of NLP through embeddings, vectorization and steps in processing text. We will also walk-through some of the very popular architecture like LSTM, GRU and Bidirectional-LSTM and demonstrate it's power through the application of sentiment analysis of IMDB dataset.
 categories: lstm gru nlp
-published : false
+published : true
 ---
 
 
@@ -49,7 +49,7 @@ Feel free to jump anywhere,
 
 # Preprocessing Text
 
-The data used in applications for nlp is messy, contains lot of noise. There are all sorts of preprocessing steps we need to carry to make use of this messy data to useful data. Let's look into some of the preprocessing steps.
+The data used in applications for nlp is messy, contains lot of noise. There are all sorts of preprocessing steps we need to carry to convert this messy data to useful data. Let's look into some of the preprocessing steps.
 
 `Sentence: "<h2>I don't know about you but i'm feeling 22</h2>"`
 
@@ -190,13 +190,13 @@ After we obtain clean text, we use any of the vectorization or embedding methods
 </p>
 
 
-<span class='red'>I-know-everything:</span> Today we will be visiting a lot of concepts in field of NLP. I mean a lot. There will be a lot to taken in so don't get lost (*in space*).
+<span class='red'>I-know-everything:</span> Today we will be visiting a lot of concepts in field of NLP. I mean a lot. There will be a lot to take in so don't get lost (*in space*).
 
 <span class='green'>I-know-nothing:</span> 
 
-<span class='red'>I-know-everything:</span> Let me start with the various vectorization and embeddings techniques and gradually we will move into LSTM and GRUs.
+<span class='red'>I-know-everything:</span> Let me start with introduction to various vectorization and embeddings techniques and gradually we will move into LSTM and GRUs.
 
-In the [last post](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/) on RNNs we saw how neural networks only understand numbers and all we have as input is string of words which make up sentences, which add upto paragraphs and eventually make a document. Collection of such documents is called corpus. The text is converted to tokens using tokens and into numbers using vectorization/embeddings/numericalizations.
+In the [last post](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/) on RNNs we saw how neural networks only understand numbers and all we have as input is string of words which make up sentences, which make up paragraphs and eventually a document. Collection of such documents is called corpus. The text is converted to tokens using tokens and into numbers using vectorization/embeddings/numericalizations.
 
 So, to convert the text we often take help of various techniques. Let's visit them one by one.
 
@@ -218,11 +218,13 @@ vocab_character : {t, h, e, c, a, s, o, n, m, .}
 
 vocab_words : {the, cat, sat, on, mat, .}
 
-Notice, the repeated "the" is now gone. Hence, unique collection of words or characters. Note, we will assume that our sentences will be lower case even though they may appear upper case.
+Notice, the repeated "the" is now gone. Hence, unique collection of words or characters. 
+
+*Note: we will assume that our sentences will be lower case even though they may appear upper case.*
 
 ### Bag-of-Words Model
 
-This is one of the most simple and naive way to vectorize. As the name suggests, we are creating a bag of models. The simplest way to create a vocabulary is to bag uniques words(characters).
+This is one of the most simple and naive way to vectorize. As the name suggests, <span class='orange'>we are creating a bag of words.</span> The simplest way to create a vocabulary is to bag unique words(characters).
 
 Sentence 1: I came I saw
 
@@ -240,7 +242,7 @@ From these three sentences, our vocabulary is as follows:
 
 #### Count Vectorizer
 
-BoW Model learns a vocabulary from each document and model each document by counting the occurence of word in the document. This is done on top of Bag-of-Models. Here each word count is considered as feature vector. CountVectorizer works on Terms Frequency, i.e. counting the occurrences of tokens.
+BoW Model learns a vocabulary from each document and model each document by counting the occurence of word in the document. This is done on top of Bag-of-Models. Here each word count is considered as feature vector. <span class='blue'>Count vectorizer works on Terms Frequency, i.e. counting the occurrences of tokens.</span>
 
 We will understand more clearly by example where each sentence is considered a document,
 
@@ -261,7 +263,7 @@ Similarly, the features for Sentence 2 are: { 1, 0, 0, 1 }
 
 #### TF-IDF Vectorizer
 
-Count Vectorizer tend to give higher score to more dominant words from the document but they may not contain "informational content" as much as rarer but domain specific words. For example, "I" from above example. Hence, we introduce TF-IDF. TF-IDF stands for term frequency-inverse document frequency. It gives a score as to how important a word is to the document in a corpus. TF-IDF measures relevance, not frequency. Wordcounts are replaced with TF-IDF scores across the whole corpus.The scores have the effect of highlighting words that are distinct (contain useful information) in a given document. The IDF of a rare term is high, whereas the IDF of a frequent term is likely to be low.
+Count Vectorizer tend to give higher score to more dominant words from the document but they may not contain "informational content" as much as rarer but domain specific words. For example, "I" from above example. Hence, we introduce TF-IDF. TF-IDF stands for term frequency-inverse document frequency. It gives a score as to how important a word is to the document in a corpus. <span class='red'>TF-IDF measures relevance, not frequency.</span> Wordcounts are replaced with TF-IDF scores across the whole corpus.The scores have the effect of highlighting words that are distinct (contain useful information) in a given document. The IDF of a rare term is high, whereas the IDF of a frequent term is likely to be low.
 
 - Term Frequency: is a scoring of the frequency of the word in the current document.
 - Inverse Document Frequency: is a scoring of how rare the word is across documents.
@@ -296,7 +298,7 @@ We get different weightings for same word.
 
 #### N-gram Models
 
-N-gram is contiguous sequence of n-items. Remember how using BoW we count occurrence of single word. Now, what if instead of using single word we used 2 consicutive words as construct bag-of-models from this model. We add the count based on the vocab used to construct a feature vector.
+N-gram is contiguous sequence of n-items. Remember how using BoW we count occurrence of single word. Now, what if instead of using single word we used 2 consecutive words as construct bag-of-models from this model, n=2, also called bigram. We add the count based on the vocab used to construct a feature vector for n-gram.
 
 1-gram model (unigram), the new vocab will be { I, came, saw, conquered} same as BoW model vocabulary.
 
@@ -304,7 +306,8 @@ N-gram is contiguous sequence of n-items. Remember how using BoW we count occurr
 
 3-gram model (trigram), the new vocab will be {I came I, came I saw}
 
-BoW can be considered as special case of n-gram model with n=1. 
+<span class='blue'>BoW can be considered as special case of n-gram model with n=1.</span>
+
 Adding features of higher n-grams can be helpful in identifying that a certain multi-word expression occurs in the text.
 
 
@@ -312,24 +315,24 @@ Adding features of higher n-grams can be helpful in identifying that a certain m
 
 - **Vocabulary**
 
-The size of vocabulary requires careful design, most specifically in order to manage the size. The misspelling like come, cmoe will be considered as seperate words which can lead to increase in vocabulary.
+The size of vocabulary requires careful design, most specifically in order to manage the size. <span class='saddlebrown'>The misspelling like come, cmoe will be considered as seperate words which can lead to increase in vocabulary.</span>
 
 - **Sparsity**
 
-Sparse representations are harder to model both for computational reasons (space and time complexity). There will be a lot of zeros as input vectors will be one hot encoded of vocabulary size.
+Sparse representations are harder to model both for computational reasons (space and time complexity). <span class='saddlebrown'>There will be a lot of zeros as input vectors will be one hot encoded of vocabulary size.</span>
 
 - **Ordering**
 
-Discarding word order ignores the context, and in turn meaning of words in the document (semantics). Context and meaning can offer a lot to the model, that if modeled could tell the difference between the same words differently arranged (“this is interesting” vs “is this interesting”), synonyms (“old bike” vs “used bike”), and much more. This is one of the crucial drawbacks of using BoW models.
+Discarding word order ignores the context, and in turn meaning of words in the document (semantics). <span class='saddlebrown'> Context and meaning can offer a lot to the model, that if model could tell the difference between the same words differently arranged (“this is interesting” vs “is this interesting”), synonyms (“old bike” vs “used bike”), and much more. This is one of the crucial drawbacks of using BoW models.</span>
 
 
 ## Embeddings
 
-Embeddings are the answer to mitigate the drawbacks of above model. Embeddings take into account the context and semantic meanings of words by producing a n-dimensional vector corresponding to that word. We will look into some of the popular ways of creating embeddings using different methods.
+Embeddings are the answer to mitigate the drawbacks of BoW model. Embeddings take into account the context and semantic meanings of words by producing a n-dimensional vector corresponding to that word. This vector captures the semantic meaning. We will look into some of the popular ways of creating embeddings using different methods.
 
 ### Word2Vec
 
-Ahh, the title, Word2Vec, converts a word to vector. [Mikilov et al](https://arxiv.org/pdf/1301.3781.pdf) developed the word2vec toolkit that allows to use pretrained embeddings. But how? Word2vec is similar to an autoencoder, encoding each word in a vector. Word2Vec trains words against other words that neighbor them in the input corpus. Word2Vec consists of 3-layer neural network (not very deep) i.e. input layer, hidden layer and output layer. Depending on which model (skip-gram or cbow), we feed in word and train to predict neighbouring words or feed neighbouring words and train to predict missing word. Once we obtain trained model, we remove last output layer and when we input a word from vocabulary, output given by hidden layer will be "embedding of the input word".
+Ahh, the title, Word2Vec, converts a word to vector. [Mikilov et al](https://arxiv.org/pdf/1301.3781.pdf) developed the word2vec toolkit that allows to use pretrained embeddings. But how? <span class='blue'>Word2vec is similar to an autoencoder, encoding each word in a vector. Word2Vec trains words against other words that neighbor them in the input corpus. Word2Vec consists of 3-layer neural network (not very deep) i.e. input layer, hidden layer and output layer.</span> Depending on which model (skip-gram or cbow), we feed in word and train to predict neighbouring words or feed neighbouring words and train to predict missing word. Once we obtain trained model, we remove last output layer and when we input a word from vocabulary, output given by hidden layer will be "embedding of the input word".
 
 If the network is given enough training data (tens of billions of words), it produces word vectors with intriguing characteristics. Words with similar meanings appear in clusters, and clusters are spaced such that some word relationships, such as analogies, can be reproduced using vector math. The famous example is that, with highly trained word vectors, "king - man + woman = queen."  Patterns such as “Man is to Woman as Brother is to Sister” can be generated through algebraic operations on the vector representations of these words such that the vector representation of “Brother” - ”Man” + ”Woman” produces a result which is closest to the vector representation of “Sister” in the model. Such relationships can be generated for a range of semantic relations (such as Country–Capital) as well as syntactic relations (e.g. present tense–past tense). A similar example of the result of a vector calculation vec(“Madrid”) - vec(“Spain”) + vec(“France”) is closer to vec(“Paris”) than to any other word vector.
 
@@ -337,7 +340,7 @@ It comes in two flavors, the Continuous Bag-of-Words model (CBOW) and the Skip-G
 
 #### Skip-gram Model
 
-Skip-gram model predicts context (surrounding) words given the current word. The training objective is to learn word vector representations that are good at predicting the nearby words. To understand what that means, lets consider example shown below. 
+<span class='red'>Skip-gram model predicts context (surrounding) words given the current word.</span> The training objective is to learn word vector representations that are good at predicting the nearby words. To understand what that means, lets consider example shown below. 
 
 Here we consider the window size = 2, window size refers to the number of words to be looked on either side of focus or input word. The highlighted blue color word is input and it produces training samples depending on context words.
 
@@ -349,7 +352,7 @@ Here we consider the window size = 2, window size refers to the number of words 
 <img src='/images/lstm_and_gru/skip-gram_2.png' /> 
 </p>
 
-The pairs to right are training samples i.e (context, target) pairs. The training of skip-gram will take one-hot vector input on vocabulary and outputs a probability after applying Hierarchical softmax that the particular word is output given the input word. Given enough input vectors, model learns that there is high probability that when "San" is given as input, "Franciso" or "Jose" is more likely than "York". Skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
+The pairs to right are training samples i.e (context, target) pairs. The training of skip-gram will take one-hot vector input on vocabulary and outputs a probability after applying Hierarchical softmax that the particular word is output given the input word. Given enough input vectors, model learns that there is high probability that when "San" is given as input, "Francicso" or "Jose" is more likely than "York". Skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
 
 
 <p align="center">
@@ -359,9 +362,10 @@ The pairs to right are training samples i.e (context, target) pairs. The trainin
 
 #### CBOW Model
 
-Continuous bag of words (CBOW) model predicts the current word based on several surrounding words. The training objective is to learn word vector representations that are good at predicting missing word given the context words.
+<span class='red'>Continuous bag of words (CBOW) model predicts the current word based on several surrounding words.</span> The training objective is to learn word vector representations that are good at predicting missing word given the context words.
 
-Here we also consider the window size = 2.
+Here we consider the window size = 2, window size refers to the number of words to be looked on either side of focus or input word. The highlighted blue color word is input and it produces training samples depending on context words.
+
 
 <p align="center">
 <img src='/images/lstm_and_gru/cbow_1.png' /> 
@@ -392,7 +396,7 @@ We have seen how training samples are created. In very large corpora, the most f
 
 - **Hierarchical Softmax**
 
-The traditional softmax is very computationally expensive especially for large vocabulary size, typically for vocabulary size of V the order is O(V) which is often of size ($$10^5$$ - $$10^7$$ terms), but hierarchical softmax reduces the computation to O(log(V)). Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least 50×. The hierarchical softmax uses a binary tree representation of the output layer with the $$\mathbf{W}$$ words a sits leaves and, for each node, explicitly represents the relative probabilities of its child nodes. As binary tree(*remember binary serach*) is involved, the output will look if target word is first half or second half of tree and so on till it reaches a leaf of tree where the target sits. This reduces the complexity equal to the depth of tree instead of classifying looking through whole vocabulary through softmax where we sum over all vocabulary in the denominator. This is one idea for speeding up softmax calculation.
+The traditional softmax is very computationally expensive especially for large vocabulary size, typically for vocabulary size of V the order is O(|V|) which is often of size ($$10^5$$ - $$10^7$$ terms), but hierarchical softmax reduces the computation to O(log(|V|)). Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least 50x. The hierarchical softmax uses a binary tree representation of the output layer with the $$\mathbf{W}$$ words a sits leaves and, for each node, explicitly represents the relative probabilities of its child nodes. As binary tree(*remember binary serach*) is involved, the output will look if target word is first half or second half of tree and so on till it reaches a leaf of tree where the target sits. This reduces the complexity equal to the depth of tree instead of classifying looking through whole vocabulary through softmax where we sum over all vocabulary in the denominator. This is one idea for speeding up softmax calculation.
 
 To look more about hierarchical softmax, [here](https://www.youtube.com/watch?v=B95LTf2rVWM) is awesome video explaination by Hugo Larochelle.
 
@@ -413,11 +417,11 @@ Here is one example of projecting the learned embedding in 2d space using tSNE.
 <img src='/images/lstm_and_gru/word2vec.png' width="60%"/> 
 </p>
 
-Here we can see, the words like two,million,three are group together and words like he,she,it are clustered together and many other clusters are formed.
+Here we can see, the words like two, million, three are group together and words like he, she, it are clustered together and many other clusters are formed.
 
 ### GloVe
 
-While the word2vec serendipitous discovered that the words semantically similar tend to be closer as shown in figure above. The authors of [GloVe paper](https://nlp.stanford.edu/pubs/glove.pdf) show how that the ratio of the co-occurrence probabilities of two words is what contains information and aim to encode this information as vector differences.
+While the word2vec serendipitous discovered that the words semantically similar tend to be closer as shown in figure above. The authors of [GloVe paper](https://nlp.stanford.edu/pubs/glove.pdf) show <span class='blue'>how that the ratio of the co-occurrence probabilities of two words is what contains information and aim to encode this information as vector differences.</span>
 
 Let us first look into what is co-occurence matrix. Consider three sentences with window size = 1. Then the co-occurence matrix X will be,
 
@@ -455,7 +459,7 @@ fastText offers a better luxury in handling OOV words as it can construct the ve
 
 *We will look into CoVe, ELMo, ULMFit, GPT, BERT and GPT-2 models in the post on Transfer Learning in NLP.*
 
-<span class='green'>I-know-nothing:</span> So, what I understand is that we can use any of these techniques above to convert individual words into numbers. But I have heard that embeddings are biased. Can we talk a little about bias in embeddings?
+<span class='green'>I-know-nothing:</span> So, what I understand is that we can use any of these techniques above to convert individual words into numbers. But aren't embeddings are biased. Can we talk a little about bias in embeddings?
 
 <span class='red'>I-know-everything:</span> Haha, you caught me. That's absolutely right. And embedding learned are defintely biased. So to give example, if we give a relation such as Man:Doctor :: Woman:?, then the learned embeddings will with almost certainity predict the answer to be Nurse (*What a biasist*) or Man:Computer Programmer::Woman:Homemaker.  The community has proposed several ways of "debiasing embeddings". All the pretrained embedding from above acquire stereotypical human biases from the text data they are trained on i.e. word embeddings can reflect gender, ethinicity, age, sexual orientation, and other biases of the text data used to train the model.
 
@@ -485,7 +489,7 @@ Now, having looked at embeddings, we will move into new architectures which we w
 
 ## Exploding and Vanishing Gradients
 
-With conventational Back-Propogation through time(BPTT) which we looked in context of RNN in our [last post](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/#bptt), error signals(or gradients) "flowing backwards in time" tend to blow up(explode) or vanish. We can understand exploding and vanishing effects through two examples, one from compounding where the amount keeps multiplying and turn out to be very large amount and similarly if a gambler loses 3 cents for every dollar, the amount keeps multiplying and becomes less and less, eventually making gambler bankrupt. Similarly, large gradients keep multiplying through backpropogation through time backwards result in very large number and vice-versa. 
+With conventational Back-Propogation through time(BPTT) which we looked in context of RNN in our [last post](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/#bptt), <span class='red'>error signals(or gradients) "flowing backwards in time" tend to blow up(explode) or vanish.</span> We can understand exploding and vanishing effects through two examples, one from compounding where the amount keeps multiplying and turn out to be very large amount and similarly if a gambler loses 3 cents for every dollar, the amount keeps multiplying and becomes less and less, eventually making gambler bankrupt. Similarly, large gradients keep multiplying through backpropogation through time backwards result in very large number and vice-versa. 
 
 Long-term dependency example of is, "I studied Spainish in my class. So, the other day I visited Spain. It was an amazing experience. We enjoyed a lot. We ran up and down the road. We played football and put many such sentences in between. But the coming from English background, we had difficulty conversing fluently in ...." If we ask RNN to fill in the blank with appropriate word, the word should be "Spanish" but as the relation between studying and conversing is far away, RNN will not be able to predict the correct word.
 
@@ -575,7 +579,7 @@ The reset signal $$r^{(t)}$$  is responsible for determining how important $$h^{
 
 3. **Update Gate**
 
-The update signal $$z^{(t)}$$ is responsible for determining how much of $$h^{(t-1)}$$ should be carried forward to the next state. For instance, if $$z^{(t)} \approx$$  1, then $$h^{(t-1)}$$ is almost entirely copied out to $$h^{(t)}$$. Conversely, if $$z^{(t) \approx$$ ≈ 0, then mostly the new memory ̃$$\tilde{h}^{(t)}$$ is forwarded to the next hidden state.
+The update signal $$z^{(t)}$$ is responsible for determining how much of $$h^{(t-1)}$$ should be carried forward to the next state. For instance, if $$z^{(t)} \approx$$  1, then $$h^{(t-1)}$$ is almost entirely copied out to $$h^{(t)}$$. Conversely, if $$z^{(t)} \approx$$ ≈ 0, then mostly the new memory ̃$$\tilde{h}^{(t)}$$ is forwarded to the next hidden state.
 
 4. **Hidden State**
 
@@ -593,7 +597,21 @@ These are just the derivation of LSTM where we stack two lstm on top of each oth
 
 What can we do with help of these networks? Movie Reviews? Calling IMDB...
 
+Let's see at [nlpprogess](http://nlpprogress.com/english/sentiment_analysis.html) what is the current state-of-the-art in sentiment analysis.
+
+
+Model | Accuracy | Paper |
+----- | -------- | ------|
+ULMFit| 95.4     | [Universal Language Model Fine-tuning for Text Classification](https://arxiv.org/abs/1801.06146)|
+Block-sparse LSTM| 94.99 | [GPU Kernels for Block-Sparse Weights](https://s3-us-west-2.amazonaws.com/openai-assets/blocksparse/blocksparsepaper.pdf)|
+oh-LSTM | 94.1 | [Supervised and Semi-Supervised Text Categorization using LSTM for Region Embeddings](https://arxiv.org/abs/1602.02373) |
+Virtual adversarial training  | 94.1 | [Adversarial Training Methods for Semi-Supervised Text Classification](https://arxiv.org/abs/1605.07725) |
+BCN+Char+CoVe | 91.8 | [Learned in Translation: Contextualized Word Vectors](https://arxiv.org/abs/1708.00107) |
+
+
+
 So, let's use these network to see how well do they classify movie reviews. We will handpick some of the reviews and give sentiment as predicted by our trained model.
+
 
 ```
 "This movie is a disaster within a disaster film. It is full of great action scenes, which are only meaningful if you throw away all sense of reality. Let's see, word to the wise, lava burns you; steam burns you. You can't stand next to lava. Diverting a minor lava flow is difficult, let alone a significant one. Scares me to think that some might actually believe what they saw in this movie.<br /><br />Even worse is the significant amount of talent that went into making this film. I mean the acting is actually very good. The effects are above average. Hard to believe somebody read the scripts for this and allowed all this talent to be wasted. I guess my suggestion would be that if this movie is about to start on TV ... look away! It is like a train wreck: it is so awful that once you know what is coming, you just have to watch. Look away and spend your time on more meaningful content."
