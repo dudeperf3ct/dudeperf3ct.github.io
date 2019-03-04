@@ -397,7 +397,7 @@ Here are some other very interesting results, [Cooking-Recipe](https://gist.gith
 Be sure to look into "Visualizing the predictions and the “neuron” firings in the RNN" section of Master Karpathy's [blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) to peek under the hood. We will do a seperate post the one similar to [Visualizing CNN](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/).
 
 
-In next post, we explore the shortcomings of RNN by introducing <span class='purple'>Force of LSTM and GRU</span>.
+In next post, we explore the shortcomings of RNN by introducing <span class='purple'>[Force of LSTM and GRU](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/)</span>.
 
 <span class='orange'>Happy Learning!</span>
 
