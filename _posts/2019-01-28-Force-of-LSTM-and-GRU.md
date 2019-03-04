@@ -53,7 +53,7 @@ The data used in applications for nlp is messy, contains lot of noise. There are
 
 `Sentence: "<h2>I don't know about you but i'm feeling 22</h2>"`
 
-1. **Remove HTML tags**
+- **Remove HTML tags**
 
 Here is where Beautiful Soup comes to resuce.
 
@@ -68,7 +68,7 @@ def strip_html_tags(text):
 
 `Output: I don't know about you but i'm feeling 22`
 
-2. **Remove accented characters**
+- **Remove accented characters**
 
 A simple example — converting é to e.
 
@@ -82,7 +82,7 @@ def remove_accented_chars(text):
 
 `Output: Some Accented text`
 
-3. **Expanding Contractions**
+- **Expanding Contractions**
 
 Contractions are shortened version of words or syllables. These shortened versions or contractions of words are created by removing specific letters and sounds. In case of English contractions, they are often created by removing one of the vowels from the word. Examples would be, do not to don’t and I would to I’d.
 
@@ -110,7 +110,7 @@ def expand_contractions(text, contraction_mapping=CONTRACTION_MAP):
 
 `Output: I do not know about you but i am feeling 22`
 
-4. **Removing Special Characters and digits**
+- **Removing Special Characters and digits**
 
 Removing special character like @ which is often used in tweets, <, >, quotations, any other punctuations, etc can make text useful for further processing. Removing digits can be optional.
 
@@ -125,7 +125,7 @@ def remove_special_characters(text, remove_digits=True):
 
 `Output: I do not know about you but i am feeling`
 
-5. **Stemming**
+- **Stemming**
 
 Stemming refers to a simpler version of lemmatization in which we mainly stemming just strip suffixes from the end of the word.
 
@@ -140,7 +140,7 @@ def stemmer_text(text):
 
 `Output: I do not know about you but i am feel 22`
 
-6. **Lemmatization**
+- **Lemmatization**
 
 Lemmatization is the task of determining that two words have the same root, despite their surface differences. For example, the words sang, sung, and sings are forms of the verb sing. The word sing is the common lemma of these words, and a lemmatizer maps from all of these to sing. Lemmatization is essential for processing morphologically complex languages like Arabic.
 
@@ -156,7 +156,7 @@ def lemmatize_text(text):
 
 `Output: I do not know about you but i be feel 22`
 
-7. **Removing Stopwords**
+- **Removing Stopwords**
 
 These are usually words that end up having the maximum frequency if you do a simple term or word frequency in a corpus. Some examples of stopwords are a, an, the, and, of, is, etc.
 
@@ -467,15 +467,15 @@ fastText offers a better luxury in handling OOV words as it can construct the ve
 
 We will understand a simple gender debiasing algorithm outlined in [this paper](http://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf), some other biases like religion or racial can also be used in similar way.
 
-1. Identify the gender space
+- Identify the gender space
 
 To identify a gender direction g, we aggregate across multiple pair comparisons by combining several comparisons like $$\vec{man}$$ - $$\vec{woman}$$, $$\vec{he}$$ - $$\vec{she}$$, $$\vec{male}$$ - $$\vec{female}$$, etc which largely captures gender in the embedding. This direction helps us to quantify direct and indirect biases in words and associations.
 
-2. Neutralize
+- Neutralize
 
 For every word that is not definitional, project to get rid of bias. These words can be occupational like babysit, doctor, nurse, etc. Neutralize ensures that gender neutral words are zero in the gender subspace.
 
-3. Equalize pairs
+- Equalize pairs
 
 Equalize perfectly equalizes sets of words outside the subspace and there by enforces the property that any neutral word is equidistant to all words in each equality set. For instance, if {grandmother, grandfather} and {guy, gal} were two equality sets, then after equalization babysit would be equidistant to grandmother and grandfather and also equidistant to gal and guy, but presumably closer to the grandparents and further from the gal and guy. This is suitable for applications where one does not want any such pair to display any bias with respect to neutral words.
 
