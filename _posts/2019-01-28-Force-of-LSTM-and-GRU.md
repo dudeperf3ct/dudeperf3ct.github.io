@@ -202,7 +202,7 @@ So, to convert the text we often take help of various techniques. Let's visit th
 
 ## Vectorization
 
-Vectorization refers to the process of converting strings to numbers. These numbers which are then fed to neural networks to do their thing. There are various ways we can convert these strings into numbers. This process is also called feature extraction or feature encoding. In this techniques we will often encounter with the word **Vocabulary**, vocab is nothing but collection of unique words or characters depending on how we want. 
+<span class='green'>Vectorization refers to the process of converting strings to numbers. These numbers which are then fed to neural networks to do their thing. There are various ways we can convert these strings into numbers. This process is also called feature extraction or feature encoding.</span> In this techniques we will often encounter with the word **Vocabulary**, vocab is nothing but collection of unique words or characters depending on how we want. 
 
 We will make this concrete with example.
 
@@ -224,7 +224,7 @@ Notice, the repeated "the" is now gone. Hence, unique collection of words or cha
 
 ### Bag-of-Words Model
 
-This is one of the most simple and naive way to vectorize. As the name suggests, <span class='orange'>we are creating a bag of words.</span> The simplest way to create a vocabulary is to bag unique words(characters).
+This is one of the most simple and naive way to vectorize. As the name suggests, <span class='orange'>we are creating a bag of unique words.</span> The simplest way to create a vocabulary is to bag unique words(characters).
 
 Sentence 1: I came I saw
 
@@ -263,7 +263,7 @@ Similarly, the features for Sentence 2 are: { 1, 0, 0, 1 }
 
 #### TF-IDF Vectorizer
 
-Count Vectorizer tend to give higher score to more dominant words from the document but they may not contain "informational content" as much as rarer but domain specific words. For example, "I" from above example. Hence, we introduce TF-IDF. TF-IDF stands for term frequency-inverse document frequency. It gives a score as to how important a word is to the document in a corpus. <span class='red'>TF-IDF measures relevance, not frequency.</span> Wordcounts are replaced with TF-IDF scores across the whole corpus.The scores have the effect of highlighting words that are distinct (contain useful information) in a given document. The IDF of a rare term is high, whereas the IDF of a frequent term is likely to be low.
+Count Vectorizer tend to give higher score to more dominant words from the document but they may not contain "informational content" as much as rarer but domain specific words. For example, "I" from above example. Hence, we introduce TF-IDF. TF-IDF stands for term frequency-inverse document frequency. It gives a score as to how important a word is to the document in a corpus. <span class='red'>TF-IDF measures relevance, not frequency.</span> Word counts are replaced with TF-IDF scores across the whole corpus.The scores have the effect of highlighting words that are distinct (contain useful information) in a given document. <span class='green'>The IDF of a rare term is high, whereas the IDF of a frequent term is likely to be low.</span>
 
 - Term Frequency: is a scoring of the frequency of the word in the current document.
 - Inverse Document Frequency: is a scoring of how rare the word is across documents.
@@ -298,7 +298,7 @@ We get different weightings for same word.
 
 #### N-gram Models
 
-N-gram is contiguous sequence of n-items. Remember how using BoW we count occurrence of single word. Now, what if instead of using single word we used 2 consecutive words as construct bag-of-models from this model, n=2, also called bigram. We add the count based on the vocab used to construct a feature vector for n-gram.
+<span class='green'>N-gram is contiguous sequence of n-items.</span> Remember how using BoW we count occurrence of single word. Now, what if instead of using single word we used 2 consecutive words as construct bag-of-models from this model, n=2, also called bigram. We add the count based on the vocab used to construct a feature vector for n-gram.
 
 1-gram model (unigram), the new vocab will be { I, came, saw, conquered} same as BoW model vocabulary.
 
@@ -328,7 +328,7 @@ Discarding word order ignores the context, and in turn meaning of words in the d
 
 ## Embeddings
 
-Embeddings are the answer to mitigate the drawbacks of BoW model. Embeddings take into account the context and semantic meanings of words by producing a n-dimensional vector corresponding to that word. This vector captures the semantic meaning. We will look into some of the popular ways of creating embeddings using different methods.
+Embeddings are the answer to mitigate the drawbacks of BoW model. <span class='green'>Embeddings take into account the context and semantic meanings of words by producing a n-dimensional vector corresponding to that word. This vector captures the semantic meaning.</span> We will look into some of the popular ways of creating embeddings using different methods.
 
 ### Word2Vec
 
@@ -579,11 +579,11 @@ The reset signal $$r^{(t)}$$  is responsible for determining how important $$h^{
 
 3. **Update Gate**
 
-The update signal $$z^{(t)}$$ is responsible for determining how much of $$h^{(t-1)}$$ should be carried forward to the next state. For instance, if $$z^{(t)} \approx$$  1, then $$h^{(t-1)}$$ is almost entirely copied out to $$h^{(t)}$$. Conversely, if $$z^{(t)} \approx$$ ≈ 0, then mostly the new memory ̃$$\tilde{h}^{(t)}$$ is forwarded to the next hidden state.
+The update signal $$z^{(t)}$$ is responsible for determining how much of $$h^{(t-1)}$$ should be carried forward to the next state. For instance, if $$z^{(t)} \approx$$ 1, then $$h^{(t-1)}$$ is almost entirely copied out to $$h^{(t)}$$. Conversely, if $$z^{(t)} \approx$$ 0, then mostly the new memory ̃$$\tilde{h}^{(t)}$$ is forwarded to the next hidden state.
 
 4. **Hidden State**
 
-The hidden state $$h^{(t-1)}$$ is finally generated using the past hidden input $$h^{(t-1)}$$ and the new memory generated ̃$$\tilde{h}^{(t)}$$ with the advice of the update gate.
+The hidden state $$h^{(t-1)}$$ is finally generated using the past hidden input $$h^{(t-1)}$$ and the new memory generated $$\tilde{h}^{(t)}$$ with the advice of the update gate.
 
 ## Bidirectional LSTM Network
 
