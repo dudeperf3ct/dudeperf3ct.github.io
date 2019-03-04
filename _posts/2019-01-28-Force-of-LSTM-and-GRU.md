@@ -403,7 +403,7 @@ To look more about hierarchical softmax, [here](https://www.youtube.com/watch?v=
 
 - **Negative Sampling**
 
-This methods provides a work around to let us keep traditional softmax and still achieve a less computationally expensive model. As we have seen in loss functions in previous posts, the maximum likelihood principle maximises the probability of $$\mathbf{w_t}$$ ("target") given the context $$\mathbf{h}$$, i.e. $$\mathbf{J_{ML}} = \log_{}P(\mathbf{w_t}\given\mathbf{h})$$. With negative sampling, we are instead going to randomly select just a small number of “negative” words (k = 7) to update the weights for. Here negative words are the words other than the context words with respect to focus or input word. In this case, a positive example would be (I, saw) and negative sample would be (I, book) or (I, king), picking a random word from vocabulary. The authors propose that selecting 5-20 words works well for smaller datasets, and 2-5 words for large datasets. Negative samples are selected using "unigram distribution", where most frequent words are more likely to be selected. For e.g. the probability of picking word "saw" is the total number of times the word occurs in the corpus divided by the total number of words in the corpus. Authors found that word counts raised to power (3/4) gave good empirical results than power of 1. This one has the tendency to increase the probability for less frequent words and decrease the probability for more frequent words like "the, is, of". The new objective is maximized when the model assigns high probabilities to the real words, and low probabilities to noise(negative) words. It is binary classification problem on k+1 (context, target) pairs it contains k negative samples and 1 positive samples where task is to predict is each of (context, target) pair is positive sample or not.
+This methods provides a work around to let us keep traditional softmax and still achieve a less computationally expensive model. As we have seen in loss functions in previous posts, the maximum likelihood principle maximises the probability of $$\mathbf{w_t}$$ ("target") given the context $$\mathbf{h}$$, i.e. $$\mathbf{J_{ML}} = \log_{}P(\mathbf{w_t}\mid\mathbf{h})$$. With negative sampling, we are instead going to randomly select just a small number of “negative” words (k = 7) to update the weights for. Here negative words are the words other than the context words with respect to focus or input word. In this case, a positive example would be (I, saw) and negative sample would be (I, book) or (I, king), picking a random word from vocabulary. The authors propose that selecting 5-20 words works well for smaller datasets, and 2-5 words for large datasets. Negative samples are selected using "unigram distribution", where most frequent words are more likely to be selected. For e.g. the probability of picking word "saw" is the total number of times the word occurs in the corpus divided by the total number of words in the corpus. Authors found that word counts raised to power (3/4) gave good empirical results than power of 1. This one has the tendency to increase the probability for less frequent words and decrease the probability for more frequent words like "the, is, of". The new objective is maximized when the model assigns high probabilities to the real words, and low probabilities to noise(negative) words. It is binary classification problem on k+1 (context, target) pairs it contains k negative samples and 1 positive samples where task is to predict is each of (context, target) pair is positive sample or not.
 
 For more on negative sampling derivation, look into very [short paper](https://arxiv.org/pdf/1402.3722v1.pdf) by Goldberg and Levy.
 
@@ -510,7 +510,7 @@ f^{(t)} & = \sigma(W^{(f)}x^{(t)} + U^{(f)}h^{(t-1)}) & \text{(Forget Gate)}\\
 o^{(t)} & = \sigma(W^{(o)}x^{(t)} + U^{(o)}h^{(t-1)}) & \text{(Output Gate)}\\
 \tilde{c}^{(t)} & = \sigma(W^{(c)}x^{(t)} + U^{(c)}h^{(t-1)}) & \text{(New Memory cell)}\\
 c^{(t)} & =  f^{(t)} \cdot \tilde{c}^{(t-1)} +  i^{(t)} \cdot \tilde{c}^{(t)} & \text{(Final Memory cell)}\\
-h^{(t)} & = o^{(t)} \cdot tanh({c^{(t)})
+h^{(t)} & = o^{(t)} \cdot tanh({c^{(t)})\\
 \end{aligned}
 $$
 
@@ -557,7 +557,7 @@ $$
 z^{(t)} &  = \sigma(W^{(z)}x^{(t)} + U^{(z)}h^{(t-1)}) &  \text{(Update Gate)}\\
 r^{(t)} & = \sigma(W^{(r)}x^{(t)} + U^{(r)}h^{(t-1)}) & \text{(Reset Gate)}\\
 \tilde{h}^{(t)} & = tanh(r^{(t)} \cdot U^{(t)}h^{(t-1)}} + Wx^{(t)} ) & \text{(New Memory)}\\
-h^{(t)} & = (1-z^{(t)}) \cdot \tilde{h}^{(t)} + z^{(t)} \cdot \tilde{h}^{(t-1)}  & \text{(Hidden State)}
+h^{(t)} & = (1-z^{(t)}) \cdot \tilde{h}^{(t)} + z^{(t)} \cdot \tilde{h}^{(t-1)}  & \text{(Hidden State)}\\
 \end{aligned}
 $$
 
