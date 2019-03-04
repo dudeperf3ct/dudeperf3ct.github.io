@@ -510,7 +510,7 @@ f^{(t)} & = \sigma(W^{(f)}x^{(t)} + U^{(f)}h^{(t-1)}) & \text{(Forget Gate)}\\
 o^{(t)} & = \sigma(W^{(o)}x^{(t)} + U^{(o)}h^{(t-1)}) & \text{(Output Gate)}\\
 \tilde{c}^{(t)} & = \sigma(W^{(c)}x^{(t)} + U^{(c)}h^{(t-1)}) & \text{(New Memory cell)}\\
 c^{(t)} & =  f^{(t)} \cdot \tilde{c}^{(t-1)} +  i^{(t)} \cdot \tilde{c}^{(t)} & \text{(Final Memory cell)}\\
-h^{(t)} & = o^{(t)} \cdot tanh({c^{(t)})\\
+h^{(t)} & = o^{(t)} \cdot tanh(c^{(t)})\\
 \end{aligned}
 $$
 
@@ -556,7 +556,7 @@ $$
 \begin{aligned}
 z^{(t)} &  = \sigma(W^{(z)}x^{(t)} + U^{(z)}h^{(t-1)}) &  \text{(Update Gate)}\\
 r^{(t)} & = \sigma(W^{(r)}x^{(t)} + U^{(r)}h^{(t-1)}) & \text{(Reset Gate)}\\
-\tilde{h}^{(t)} & = tanh(r^{(t)} \cdot U^{(t)}h^{(t-1)}} + Wx^{(t)} ) & \text{(New Memory)}\\
+\tilde{h}^{(t)} & = tanh(r^{(t)} \cdot U^{(t)}h^{(t-1)}  + Wx^{(t)} ) & \text{(New Memory)}\\
 h^{(t)} & = (1-z^{(t)}) \cdot \tilde{h}^{(t)} + z^{(t)} \cdot \tilde{h}^{(t-1)}  & \text{(Hidden State)}\\
 \end{aligned}
 $$
