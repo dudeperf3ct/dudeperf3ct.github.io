@@ -10,7 +10,7 @@ published : true
 
 # Long-Short Term Memory and Gated Recurrent Unit
 
-In this notebook, we will 
+In this notebook, we will see if we can analyse the sentiment in reviews of movies.
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_flair.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_fastai.ipynb).
 
@@ -32,7 +32,7 @@ Feel free to jump anywhere,
     - [Bag of Words Model](#bag-of-words-model)
     - [Count Vectorizer](#count-vectorizer)
     - [TF-IDF Vectorizer](#tf-idf-vectorizer)
-    - [N-gram Model](#n-gram-model)
+    - [N-gram Models](#n-gram-models)
   - [Embeddings](#embeddings)
     - [Word2Vec](#word2vec)
     - [Skip-gram Model](#skip-gram-model)
@@ -391,19 +391,19 @@ Word2Vec uses some tricks in training. We will look at some of them.
 
 - **Subsampling Frequent Words**
 
-We have seen how training samples are created. In very large corpora, the most frequent words can easily occur hundreds of millions of times (e.g.,“in”, “the”, and “a”). Such words usually provide less information value than the rare words and being the most common word it occurs pretty much everywhere. So, how to learn a good vector for the word "the"? This where the authors propose a subsampling method for frequent words. The idea to change the vector representation of frequent words gradually. To counter the imbalance between the rare and frequent words, authors used a simple subsampling approach: each word $$\mathbf{w_{i}}$$ in the training set is discarded with probability computed by the formula $$ P(\mathbf{w_i}) = 1 - \sqrt{\frac{t}{\mathbf{f(\mathbf{w}_i)}}}$$ where $$\mathbf{f(\mathbf{w}_i)}}$$ is the frequency of word $$\mathbf{w_i}$$ and t is a chosen threshold, typically around $$10^-5$$.
+We have seen how training samples are created. In very large corpora, the most frequent words can easily occur hundreds of millions of times (e.g.,“in”, “the”, and “a”). Such words usually provide less information value than the rare words and being the most common word it occurs pretty much everywhere. So, how to learn a good vector for the word "the"? This where the authors propose a subsampling method for frequent words. The idea to change the vector representation of frequent words gradually. To counter the imbalance between the rare and frequent words, authors used a simple subsampling approach: each word $$\mathbf{w_{i}}$$ in the training set is discarded with probability computed by the formula $$ P(\mathbf{w_i}) = 1 - \sqrt{\frac{t}{\mathbf{f(\mathbf{w}_i)}}}$$ where $$\mathbf{f(\mathbf{w}_i)}}$$ is the frequency of word $$\mathbf{w_i}$$ and t is a chosen threshold, typically around $$10^{-5}$$.
  
 
 - **Hierarchical Softmax**
 
-The traditional softmax is very computationally expensive especially for large vocabulary size, typically for vocabulary size of V the order is O(|V|) which is often of size ($$10^5$$ - $$10^7$$ terms), but hierarchical softmax reduces the computation to O(log(|V|)). Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least 50x. The hierarchical softmax uses a binary tree representation of the output layer with the $$\mathbf{W}$$ words a sits leaves and, for each node, explicitly represents the relative probabilities of its child nodes. As binary tree(*remember binary serach*) is involved, the output will look if target word is first half or second half of tree and so on till it reaches a leaf of tree where the target sits. This reduces the complexity equal to the depth of tree instead of classifying looking through whole vocabulary through softmax where we sum over all vocabulary in the denominator. This is one idea for speeding up softmax calculation.
+The traditional softmax is very computationally expensive especially for large vocabulary size, typically for vocabulary size of V the order is O(V) which is often of size ($$10^{5}$$ - $$10^{7}$$ terms), but hierarchical softmax reduces the computation to O(log(V)). Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least 50x. The hierarchical softmax uses a binary tree representation of the output layer with the $$\mathbf{W}$$ words a sits leaves and, for each node, explicitly represents the relative probabilities of its child nodes. As binary tree(*remember binary serach*) is involved, the output will look if target word is first half or second half of tree and so on till it reaches a leaf of tree where the target sits. This reduces the complexity equal to the depth of tree instead of classifying looking through whole vocabulary through softmax where we sum over all vocabulary in the denominator. This is one idea for speeding up softmax calculation.
 
 To look more about hierarchical softmax, [here](https://www.youtube.com/watch?v=B95LTf2rVWM) is awesome video explaination by Hugo Larochelle.
 
 
 - **Negative Sampling**
 
-This methods provides a work around to let us keep traditional softmax and still achieve a less computationally expensive model. As we have seen in loss functions in previous posts, the maximum likelihood principle maximises the probability of $$\mathbf{w_t}$$ ("target") given the context $$\mathbf{h}$$, i.e. $$\mathbf{J_{ML}} = \log_{}P(\mathbf{w_t}|\mathbf{h})$$. With negative sampling, we are instead going to randomly select just a small number of “negative” words (k = 7) to update the weights for. Here negative words are the words other than the context words with respect to focus or input word. In this case, a positive example would be (I, saw) and negative sample would be (I, book) or (I, king), picking a random word from vocabulary. The authors propose that selecting 5-20 words works well for smaller datasets, and 2-5 words for large datasets. Negative samples are selected using "unigram distribution", where most frequent words are more likely to be selected. For e.g. the probability of picking word "saw" is the total number of times the word occurs in the corpus divided by the total number of words in the corpus. Authors found that word counts raised to power (3/4) gave good empirical results than power of 1. This one has the tendency to increase the probability for less frequent words and decrease the probability for more frequent words like "the, is, of". The new objective is maximized when the model assigns high probabilities to the real words, and low probabilities to noise(negative) words. It is binary classification problem on k+1 (context, target) pairs it contains k negative samples and 1 positive samples where task is to predict is each of (context, target) pair is positive sample or not.
+This methods provides a work around to let us keep traditional softmax and still achieve a less computationally expensive model. As we have seen in loss functions in previous posts, the maximum likelihood principle maximises the probability of $$\mathbf{w_t}$$ ("target") given the context $$\mathbf{h}$$, i.e. $$\mathbf{J_{ML}} = \log_{}P(\mathbf{w_t}\given\mathbf{h})$$. With negative sampling, we are instead going to randomly select just a small number of “negative” words (k = 7) to update the weights for. Here negative words are the words other than the context words with respect to focus or input word. In this case, a positive example would be (I, saw) and negative sample would be (I, book) or (I, king), picking a random word from vocabulary. The authors propose that selecting 5-20 words works well for smaller datasets, and 2-5 words for large datasets. Negative samples are selected using "unigram distribution", where most frequent words are more likely to be selected. For e.g. the probability of picking word "saw" is the total number of times the word occurs in the corpus divided by the total number of words in the corpus. Authors found that word counts raised to power (3/4) gave good empirical results than power of 1. This one has the tendency to increase the probability for less frequent words and decrease the probability for more frequent words like "the, is, of". The new objective is maximized when the model assigns high probabilities to the real words, and low probabilities to noise(negative) words. It is binary classification problem on k+1 (context, target) pairs it contains k negative samples and 1 positive samples where task is to predict is each of (context, target) pair is positive sample or not.
 
 For more on negative sampling derivation, look into very [short paper](https://arxiv.org/pdf/1402.3722v1.pdf) by Goldberg and Levy.
 
@@ -510,7 +510,7 @@ f^{(t)} & = \sigma(W^{(f)}x^{(t)} + U^{(f)}h^{(t-1)}) & \text{(Forget Gate)}\\
 o^{(t)} & = \sigma(W^{(o)}x^{(t)} + U^{(o)}h^{(t-1)}) & \text{(Output Gate)}\\
 \tilde{c}^{(t)} & = \sigma(W^{(c)}x^{(t)} + U^{(c)}h^{(t-1)}) & \text{(New Memory cell)}\\
 c^{(t)} & =  f^{(t)} \cdot \tilde{c}^{(t-1)} +  i^{(t)} \cdot \tilde{c}^{(t)} & \text{(Final Memory cell)}\\
-h^{(t)} & = o^{(t)} \cdot tanh({c^{(t)}) \\
+h^{(t)} & = o^{(t)} \cdot tanh({c^{(t)})
 \end{aligned}
 $$
 
@@ -557,7 +557,7 @@ $$
 z^{(t)} &  = \sigma(W^{(z)}x^{(t)} + U^{(z)}h^{(t-1)}) &  \text{(Update Gate)}\\
 r^{(t)} & = \sigma(W^{(r)}x^{(t)} + U^{(r)}h^{(t-1)}) & \text{(Reset Gate)}\\
 \tilde{h}^{(t)} & = tanh(r^{(t)} \cdot U^{(t)}h^{(t-1)}} + Wx^{(t)} ) & \text{(New Memory)}\\
-h^{(t)} & = (1-z^{(t)}) \cdot \tilde{h}^{(t)} + z^{(t)} \cdot \tilde{h}^{(t-1)}  & \text{(Hidden State)}\\
+h^{(t)} & = (1-z^{(t)}) \cdot \tilde{h}^{(t)} + z^{(t)} \cdot \tilde{h}^{(t-1)}  & \text{(Hidden State)}
 \end{aligned}
 $$
 
