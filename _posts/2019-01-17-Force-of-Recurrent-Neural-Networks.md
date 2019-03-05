@@ -12,7 +12,7 @@ published : true
 
 In this notebook, we will see if Neural Networks can write as good as Shakespeare?
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb) and [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb).
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb) and [Fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_fastai.ipynb).
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -316,9 +316,17 @@ ceness of this its sore a mart and aster it is not tore the sectulious
 **ObamaRNN**
 
 ```
-and the question in the paist of these those some it as world. it's all some our the to distine with i mean and and shated of their alouss are worting there will nut our tramerican the workn that with to suce and suplents, became on their country on who chelegengen in the amprosistanies ovor a corniting the paist this ceasin that winling to becaupe thoughents the serestion of charge a fremurally as periane of our persicing they here and compert conternes the pare a farutary core southong i am a that as when i was there is we contern that i wan to the anst on our choule to and a southores what's a sting that will a centere are areand. the wirn as the seal of where whise with this costing intarent with cations and moner our callegration and chenied to the wordeds or spaltician that a can to stake to conget the work to carmention of the whith works, and when the worked to and the stoming of the would court of americans and seep and think the angromis and the what to sele our commanies over americans and will betand the serally fout our to beanse of the can this crist coungres. they is all costions in the sowe wan this a beturn the cholese ond to stare the porince these will and treat were as that have sourd al pasplents to ame tranists the health care constrot the probections of american properss of a lesting arougation to componsibies. this somith the ramales on our condinget or and anstranganing or someraces of the andincerant and somenged we cave seent to chound to the sichity to the security coure a conterity conceses that's the are it the teding or care of thrie in the fucr on off all a come in our contion.
-
-it's a netring we hear to so the praninglessed i to shis wants the howe the helling. with why we will no to to can ever chongen to senver the probration that it all of year on provermed weal who he bust tiles.  i will stank. when we sive the camments and susple and the world we con trous in a secure that a secter cerristre infuring to to ancone those who will not the past on a p
+And the question I ask you to decide is to give you hope . 
+ 
+  Now , amid the work of the United States of America -- between the United States and Australia -- i will never hesitate to use force or use military force to prevent attacks in America . But i have to let that happen again . Our military personnel and our troops have stopped our mission and a legitimate President ’s focus is on our efforts to put our military together . 
+ 
+  And that 's why we need to use a military force , which is why i am increasing our troop presence in Vietnam for the first time since the Vietnam War . In other words , the situation in Vietnam has been fluid . The United States and Israel have been stronger than ever as we have served America ’s long - term security . 
+ 
+  The United States and the United States continue to support our military efforts against military and diplomatic efforts . In America , we ’re partnering with NATO allies to strengthen our diplomatic relations , and we 're partnering with American diplomats to increase funding for American national security . And we ’re encouraging regional support when Congress needs to demonstrate that the U.S. military is more efficient than our war effort . And that is why i have made it clear that America is not going to be dealing with foreign policy overnight . 
+ 
+  So in eight years , Americans will continue to be a part of our American family . Over the last several years , we ’ve made a historic commitment to America ’s leadership in the 21st century . In this era of an era where the status quo does n’t work , we ’ve begun a transition to a new America , and we continue to work with the American people to tackle the barriers that we 've been through so long as we pursue our shared goal : to revive our economy , to restore prosperity , to combat terrorism , to create jobs , to build new alliances , to increase build and restore future generations ; and to build a new foundation for lasting prosperity . 
+ 
+  The last major economic crisis since the Great Depression found that the cost of energy , health care , and health care costs on both parties remains rising . That ’s why , over the weekend , i 'm proposing , on behalf of the American people -- what you 've been telling people what you are doing , how deeply we ’ll be able to make more than a million homes and how much money
 
 ```
 
@@ -326,69 +334,51 @@ it's a netring we hear to so the praninglessed i to shis wants the howe the hell
 **TrumpRNN**
 
 ```
-fake news immigration is trump to be a sprescibe to talk and we have got to see what i’m doing is they statting the wert ago.
-and they’re not comerang and tell you, and it’s not a creat startest this is a border of mane is almest so incredible again. we had a toter change, and to say the world where it is to get and they don’t know.
-we have to go ialo. i see the some if i were with the thill believe when i was showling, and they are going to be some of them to do this.
+Fake news conference ( WE ARE a FREE TRADE DEAL that WE LOVE IT , AND WE DON'T WIN . WE HAVE a VERY SMART MAN FOR THE COUNTRY THAT WE NEED AND WE NEED TO MAKE AMERICA SO GREAT AGAIN . HE WAS GOING TO BE a FREE AND OPEN TRADE DEALS . WE HAVE a CANDIDATE THAT WE HAVE TO BE STRONG TO MY FAMILY AND HERE IS HOW PUT IT TO US , GOING TO TAKE CARE OF THE PEOPLE , WE HAVE TO LOOK AT CHINA . WE HAVE A LONG WAY TO DO IT . AND i HAVE TO BE THE PIGGY BANK THAT 'S ABOUT TRADE , YOU NEED THEM THAT i HAVE . THAT HAS BEEN AND NOW WE HAVE THE GREATEST BUSINESSMEN IN THE WORLD AND THEY HAVE TO GO BACK AND TAKE OUR JOBS BACK , WE HAVE PROBLEMS WITH OUR PEOPLE THAT TAKE OUR JOBS . WE HAVE a TINY FRACTION OF WHAT WE 'RE ABOUT AND i WAS IN . AND WE HAVE TO TAKE a LOOK AT WHAT WE WANT TO DO WITH OUR BUSINESS , WITH OUR COUNTRY . WE HAVE TO GET IT BACK BEFORE , WE DON'T WANT THAT . WE HAVE a REAL THING ABOUT IT . WE'RE GOING TO MAKE GREAT DEALS AND NEGOTIATORS . WE HAVE TO GET PARTS OF THESE COUNTRIES . WE HAVE a CLUE . TO HERE , WE SHOULD HAVE NEVER SEEN THE OTHER PEOPLE WHO WAS IN SMALL POTATOES . WE HAVE SOME OF THEM THAT THIS , WE HAVE TO BE GREAT AGAIN , FOLKS . WE'RE
 
-
-and if you can did that he don’t win. it’s a contratelley that’s has bigger. but here, we’re going to stopy isis backed a letter and the well. i’ll be the special i think that we have a seecial parts of middle east.
-
-
-
-
-
-
-and i went in with mover of television, is a courle people to do what they’re going to be saying it’s not.
-
-
-
-
-
-
-thank you very group. it’s a love all oversite, we have to start the wart our military is a besa fight of them. i’m not going to do a lot of people. i didn’t thoug this and we’re going to be and say with the more country. you know, we will say "had is the there.
-
-
-we won americans and all of the world, it with these problems. you have to be a couple of china. it will be able. and i have to say a deal, take coure of instations, and i said it, and all of it. think of the many paiss to do with trump of and i want a suppresiate to be and she was brad problem. i would have saying "on expeople american taxis against millions, it can tell you it. we cent is them. and they did worse. what we have terration and some of the mexico are talking obamacaugher. i have brean shorle.
-i have the want to done time with the many. we’re going to have to stop is something." that is the bad.
-stere are i to take time. we can’t let able of the wise amazing.
-and they have a communities chose. that’s not going to win. i heard to build is intrade. and the way what don’t win on the stote that i will be saying this support. and i’m the gay. i said "oh, a lot of people is serong inthers to taxes, where we have 
 ```
 
 
 **AnnaRNN**
 
 ```
-anna, his chear, and was at his brother, she sat down the forts of a force that his cales was straight for his beginning to her sore, a sittle of
-it, but at some tell the paits.
+Anna Arkadyevna Karenina _ 
+  Linking together a new trait in her master and her new nurse , Alexey 
+  Alexandrovitch had been a French marquise , and had given food to her , and seemed to her a 
+  propos de la femme la angel in the dim daylight of the theater . 
+ 
+  She looked at him with a timid and guilty air , but at the same time she 
+  was appalled at the fact that she was a distant part of his 
+  regiment . He was more active in wrangling with him than anyone in the world ; 
+  he saw that he never saw in his soul what he had been 
+  thinking about . He felt that this was what he was thinking of himself . He must 
+  find he responsible for everything , and had no special charm in him . But he had a feeling of love in 
+  her soul , which had always hitherto been unbearable to her , and he felt that it was impossible to 
+  take her in love . He felt that he was himself aware of the 
+  force that filled her soul , and what he was doing , and she knew that in this matter she ought not to go to him . 
+ 
+  The words and smiles seemed to him so alarming that he was reassured at once by the tenderness 
+  of his soul . He raised 
+  his head , looked at her , and whispered , " Thank 
+  him ! " he moved away from him . 
+ 
+  " Oh , yes , but when i 've been on your way , i 'll come to see me . " He was 
+  delighted , and delighted to see Alexey Alexandrovitch at the 
+  piano . 
+ 
+  " Well , you have been a lamp and hope a great deal , " Alexey Alexandrovitch interrupted 
+  him , and he smiled contemptuously . 
+ 
+  " Oh , very well , and why did you announce Seryozha ? He 
+  was telling him of the last ball , and the last ball , and everything 
+  he wanted to say . He was a capital figure , but he felt 
+  positively positively nervous . He 's not a fool , he 's a judge . He has grown up ; but now he 's 
+  capable of amusing himself with it . " 
+ 
+  " Well , how is it you never had anything to do with that ? i 've adopted it . Now do you know , i 'll come 
+  round , " said Alexey Alexandrovitch . He did not even 
+  agree with this . " Yes , it
 
-"you want it," said stepan arkadyevitch.
-
-"what i had be noter with the morning. the conversation was stord out him a fore an her atiently in the
-some and she had
-been delighted up the door, stepan arkadyevitch was some at her.
-
-"oh, then well i down the pression of her hand out the canter with the
-dinner as all her has should and saw that her sat her hand, and his hands. "as they way, too," alexey alexandrovitch was she was
-askandary the came to asking him a lift a charg, and still he would have so that the masche stand in his was strought. the same
-on the success of to the princess had to been to the sof the should
-hand to the pland was a find of compare and hulding
-towards the conter he had been all at the set that when the sare horses of a shame stirlly was simply stoom the talker had been down that she was not considered his
-face, and still answer and her his hinds of the
-care to the
-masters, and had
-boench she does the pronic of streaking
-a smiling, before she went up to the bouther to the
-carriage. "i didn't understand that word i have thought that he could not say the
-sone, and she was not
-in his ball was a forg will to
-the thought, and with a cale, and he was the tall made a sone, and they was a fathing and she clushed to see her face of the
-praning with the contic about her strenkeres. they were stepan arkadyevitch asked the
-carriage with head at them. the cortain the different of a proplating tater, wanting to him, and has been stood her hand there assitch he was, she had
-nothed and woman, and he was something that he had not see into the
-princess
-would have had been the mare were anna arkadyevna when an the carries.
-
-"well, and i should have been in home time, and that's than?" i'm a mome one. i she was as something tasking of anow," she was to conce an her hand to mean, went up to h
 ```
 
 Here are some other very interesting results, [Cooking-Recipe](https://gist.github.com/nylki/1efbaa36635956d35bcc), [Obama-RNN](https://medium.com/@samim/obama-rnn-machine-generated-political-speeches-c8abd18a2ea0), [Bible-RNN](https://twitter.com/RNN_Bible), [Folk-music](https://soundcloud.com/seaandsailor/sets/char-rnn-composes-irish-folk-music), [Learning Holiness](https://cpury.github.io/learning-holiness/), [AI Weirdness](http://aiweirdness.com/), [Auto-Generating Clickbait](https://larseidnes.com/2015/10/13/auto-generating-clickbait-with-recurrent-neural-networks/).
