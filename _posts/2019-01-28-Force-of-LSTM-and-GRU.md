@@ -352,7 +352,7 @@ Here we consider the window size = 2, window size refers to the number of words 
 <img src='/images/lstm_and_gru/skip-gram_2.png' /> 
 </p>
 
-The pairs to right are training samples i.e (context, target) pairs. The training of skip-gram will take one-hot vector input on vocabulary and outputs a probability after applying Hierarchical softmax that the particular word is output given the input word. Given enough input vectors, model learns that there is high probability that when "San" is given as input, "Francicso" or "Jose" is more likely than "York". Skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
+The pairs to right are training samples i.e (context, target) pairs. The training of skip-gram will take one-hot vector input on vocabulary and outputs a probability after applying Hierarchical softmax that the particular word is output given the input word. Given enough input vectors, model learns that there is high probability that when "San" is given as input, "Francisco" or "Jose" is more likely than "York". Skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets. 
 
 
 <p align="center">
@@ -524,23 +524,23 @@ So, what is really going on?
 
 Let's go step by step through the architecture. The LSTM have the ability to remove or add information to the cell state ($$c^{(t)}$$), carefully regulated by structures called gates.
 
-1. **New memory generation**
+- **New memory generation**
 
 We use the input word $$x^{(t)}$$ and the past hidden state $$h^{(t-1)}$$  to generate new memory state $$\tilde{c}^{(t)}$$ which includes some information about input word $$x^{(t)}$$.
 
-2. **Input Gate**
+- **Input Gate**
 
 We see that the new memory generation stage doesn’t check if the new word is even important before generating the new memory – this is exactly the input gate’s function. The input gate uses the input word and the past hidden state to determine whether or not the input is worth preserving and thus is used to gate the new memory. It thus produces $$i^{(t)}$$ as an indicator of this information.
 
-3. **Forget Gate**
+- **Forget Gate**
 
 This gate is similar to the input gate except that it does not make a determination of usefulness of the input word – instead it makes an assessment on whether the past memory cell is useful for the computation of the current memory cell. Thus, the forget gate looks at the input word and the past hidden state and produces $$f^{(t)}$$. The sigmoid layer outputs numbers between zero and one, describing how much of each component should be let through. A value of zero means “let nothing through,” while a value of one means “let everything through!” A 1 represents “completely keep this” while a 0 represents “completely get rid of this.”
 
-4. **Final Memory Generation**
+- **Final Memory Generation**
 
 This stage first takes the advice of the forget gate $$f^{(t)}$$ and accordingly forgets the past memory $$c^{(t-1)}$$. Similarly, it takes the advice of the input gate $$i^{(t)}$$ and accordingly gates the new memory $$\tilde{c}^{(t)}$$. It then sums these two results to produce the final memory $$c^{(t)}$$.
 
-5. **Output Gate**
+- **Output Gate**
 
 It’s purpose is to separate the final memory from the hidden state. The final memory $$c^{(t)}$$ contains a lot of information that is not necessarily required to be saved in the hidden state. Hidden states are used in every single gate of an LSTM and thus, this gate makes the assessment regarding what parts of the memory $$c^{(t)}$$ needs to be present in the hidden state $$h^{(t)}$$. The signal it produces to indicate this is $$o^{(t)}$$ and this is used to gate the pointwise tanh of the memory.
 
@@ -569,19 +569,19 @@ Here is an illustration explaining what is going on in above equations.
 
 So what is going on again?
 
-1. **New Memory Generation**
+- **New Memory Generation**
 
 A new memory $$\tilde{h}^{(t)}$$ is the consolidation of a new input word $$x^{(t)}$$ with the past hidden state $$h^{(t-1)}$$. Anthropomorphically, this stage  is the one who knows the recipe of combining a newly observed word with the past hidden state $$h^{(t-1)}$$ to summarize this new word in light of the contextual past as thevector ̃$$\tilde{h}^{(t)}$$.
 
-2. **Reset Gate**
+- **Reset Gate**
 
 The reset signal $$r^{(t)}$$  is responsible for determining how important $$h^{(t-1)}$$ is to the summarization $$\tilde{h}^{(t)}$$. The reset gate has the ability to completely diminish past hidden state if it finds that $$h^{(t-1)}$$ is irrelevant to the computation of the new memory.
 
-3. **Update Gate**
+- **Update Gate**
 
 The update signal $$z^{(t)}$$ is responsible for determining how much of $$h^{(t-1)}$$ should be carried forward to the next state. For instance, if $$z^{(t)} \approx$$ 1, then $$h^{(t-1)}$$ is almost entirely copied out to $$h^{(t)}$$. Conversely, if $$z^{(t)} \approx$$ 0, then mostly the new memory ̃$$\tilde{h}^{(t)}$$ is forwarded to the next hidden state.
 
-4. **Hidden State**
+- **Hidden State**
 
 The hidden state $$h^{(t-1)}$$ is finally generated using the past hidden input $$h^{(t-1)}$$ and the new memory generated $$\tilde{h}^{(t)}$$ with the advice of the update gate.
 
