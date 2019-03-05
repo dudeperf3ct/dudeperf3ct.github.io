@@ -192,7 +192,7 @@ After we obtain clean text, we use any of the vectorization or embedding methods
 
 <span class='red'>I-know-everything:</span> Today we will be visiting a lot of concepts in field of NLP. I mean a lot. There will be a lot to take in so don't get lost (*in space*).
 
-<span class='green'>I-know-nothing:</span> 
+<span class='green'>I-know-nothing:</span> I better pay attention then.
 
 <span class='red'>I-know-everything:</span> Let me start with introduction to various vectorization and embeddings techniques and gradually we will move into LSTM and GRUs.
 
