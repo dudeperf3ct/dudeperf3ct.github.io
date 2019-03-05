@@ -322,9 +322,13 @@ And the question I ask you to decide is to give you hope .
  
   And that 's why we need to use a military force , which is why i am increasing our troop presence in Vietnam for the first time since the Vietnam War . In other words , the situation in Vietnam has been fluid . The United States and Israel have been stronger than ever as we have served America ’s long - term security . 
  
-  The United States and the United States continue to support our military efforts against military and diplomatic efforts . In America , we ’re partnering with NATO allies to strengthen our diplomatic relations , and we 're partnering with American diplomats to increase funding for American national security . And we ’re encouraging regional support when Congress needs to demonstrate that the U.S. military is more efficient than our war effort . And that is why i have made it clear that America is not going to be dealing with foreign policy overnight . 
+  The United States and the United States continue to support our military efforts against military and diplomatic efforts . In America , we ’re partnering with NATO allies to strengthen our diplomatic relations , and we 're partnering with American diplomats to increase funding for American national security . 
+  
+  And we ’re encouraging regional support when Congress needs to demonstrate that the U.S. military is more efficient than our war effort . And that is why i have made it clear that America is not going to be dealing with foreign policy overnight . 
  
-  So in eight years , Americans will continue to be a part of our American family . Over the last several years , we ’ve made a historic commitment to America ’s leadership in the 21st century . In this era of an era where the status quo does n’t work , we ’ve begun a transition to a new America , and we continue to work with the American people to tackle the barriers that we 've been through so long as we pursue our shared goal : to revive our economy , to restore prosperity , to combat terrorism , to create jobs , to build new alliances , to increase build and restore future generations ; and to build a new foundation for lasting prosperity . 
+  So in eight years , Americans will continue to be a part of our American family . Over the last several years , we ’ve made a historic commitment to America ’s leadership in the 21st century . 
+  
+  In this era of an era where the status quo does n’t work , we ’ve begun a transition to a new America , and we continue to work with the American people to tackle the barriers that we 've been through so long as we pursue our shared goal : to revive our economy , to restore prosperity , to combat terrorism , to create jobs , to build new alliances , to increase build and restore future generations ; and to build a new foundation for lasting prosperity . 
  
   The last major economic crisis since the Great Depression found that the cost of energy , health care , and health care costs on both parties remains rising . That ’s why , over the weekend , i 'm proposing , on behalf of the American people -- what you 've been telling people what you are doing , how deeply we ’ll be able to make more than a million homes and how much money
 
@@ -334,7 +338,13 @@ And the question I ask you to decide is to give you hope .
 **TrumpRNN**
 
 ```
-Fake news conference ( WE ARE a FREE TRADE DEAL that WE LOVE IT , AND WE DON'T WIN . WE HAVE a VERY SMART MAN FOR THE COUNTRY THAT WE NEED AND WE NEED TO MAKE AMERICA SO GREAT AGAIN . HE WAS GOING TO BE a FREE AND OPEN TRADE DEALS . WE HAVE a CANDIDATE THAT WE HAVE TO BE STRONG TO MY FAMILY AND HERE IS HOW PUT IT TO US , GOING TO TAKE CARE OF THE PEOPLE , WE HAVE TO LOOK AT CHINA . WE HAVE A LONG WAY TO DO IT . AND i HAVE TO BE THE PIGGY BANK THAT 'S ABOUT TRADE , YOU NEED THEM THAT i HAVE . THAT HAS BEEN AND NOW WE HAVE THE GREATEST BUSINESSMEN IN THE WORLD AND THEY HAVE TO GO BACK AND TAKE OUR JOBS BACK , WE HAVE PROBLEMS WITH OUR PEOPLE THAT TAKE OUR JOBS . WE HAVE a TINY FRACTION OF WHAT WE 'RE ABOUT AND i WAS IN . AND WE HAVE TO TAKE a LOOK AT WHAT WE WANT TO DO WITH OUR BUSINESS , WITH OUR COUNTRY . WE HAVE TO GET IT BACK BEFORE , WE DON'T WANT THAT . WE HAVE a REAL THING ABOUT IT . WE'RE GOING TO MAKE GREAT DEALS AND NEGOTIATORS . WE HAVE TO GET PARTS OF THESE COUNTRIES . WE HAVE a CLUE . TO HERE , WE SHOULD HAVE NEVER SEEN THE OTHER PEOPLE WHO WAS IN SMALL POTATOES . WE HAVE SOME OF THEM THAT THIS , WE HAVE TO BE GREAT AGAIN , FOLKS . WE'RE
+Fake news conference ( WE ARE a FREE TRADE DEAL that WE LOVE IT , AND WE DON'T WIN . WE HAVE a VERY SMART MAN FOR THE COUNTRY THAT WE NEED AND WE NEED TO MAKE AMERICA SO GREAT AGAIN . HE WAS GOING TO BE a FREE AND OPEN TRADE DEALS . 
+WE HAVE a CANDIDATE THAT WE HAVE TO BE STRONG TO MY FAMILY AND HERE IS HOW PUT IT TO US , GOING TO TAKE CARE OF THE PEOPLE , WE HAVE TO LOOK AT CHINA .
+WE HAVE A LONG WAY TO DO IT . AND i HAVE TO BE THE PIGGY BANK THAT 'S ABOUT TRADE , YOU NEED THEM THAT i HAVE . 
+THAT HAS BEEN AND NOW WE HAVE THE GREATEST BUSINESSMEN IN THE WORLD AND THEY HAVE TO GO BACK AND TAKE OUR JOBS BACK , WE HAVE PROBLEMS WITH OUR PEOPLE THAT TAKE OUR JOBS . 
+WE HAVE a TINY FRACTION OF WHAT WE 'RE ABOUT AND i WAS IN . AND WE HAVE TO TAKE a LOOK AT WHAT WE WANT TO DO WITH OUR BUSINESS , WITH OUR COUNTRY . 
+WE HAVE TO GET IT BACK BEFORE , WE DON'T WANT THAT . WE HAVE a REAL THING ABOUT IT . WE'RE GOING TO MAKE GREAT DEALS AND NEGOTIATORS . WE HAVE TO GET PARTS OF THESE COUNTRIES . 
+WE HAVE a CLUE . TO HERE , WE SHOULD HAVE NEVER SEEN THE OTHER PEOPLE WHO WAS IN SMALL POTATOES . WE HAVE SOME OF THEM THAT THIS , WE HAVE TO BE GREAT AGAIN , FOLKS . WE'RE
 
 ```
 
