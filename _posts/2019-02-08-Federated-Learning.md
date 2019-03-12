@@ -63,13 +63,13 @@ Each user will have different number of training samples.
 
 Due to varying upload and download speed across different regions and different countries, the uploads required in federated learning will be very slow compared to traditional distributed machine learning in datacenters where the communications among the nodes is very quick and messages don't get lost (*Imagenet training in 5 mintues*). 
 
+## Compression
 
 Clearly, there is a quite of overhead in communication between client and server given there is unreliable and slow network connections speed. The typical neural networks have millions of parameters nowadays. Sending updates for so many values to a server leads to huge communication costs with a growing number of users and iterations. So, to reduce the uplink communication cost, McMahan and group proposes two methods outlined in [this paper](https://arxiv.org/pdf/1610.05492.pdf). These are the compression techniques which encode updates with fewer bits, as only updates are communicated to server for averaging. 
 
 - Sketeched Updates
 
 In this method, each user calculates it's update after training on it's local data, and then before sending the updates to the server, the updates are compressed using a combination of [quantization](https://florian.github.io/probabilistic-quantization/), random rotations and subsampling.
-
 
 - Structured Updates
 
@@ -81,14 +81,15 @@ These both methods can be used to reduce the communication overhead and also red
 
 - Smartphones
 
-Smartphones have revolutionalized the data generation capability with growing number of users hooking on the device each year. 
+Smartphones have revolutionalized the data generation capability with growing number of users hooking on the device each year. With more data, comes more machine learning. Machine learning have provided a lot of cool applications such as Smart Reply, Image Recognition, next word prediction, and many more on smartphones. But this data collection has been heavily relied on private, sensitive user data. Sure, we can make use of synthetic data, but it doesn't capture all the scenarios occuring in real world data. Users (if are aware) are reluctant in sharing such sensitive information which corporations capture(making known or unknown to users) in exchange for smartness. With help of federated learning, the data never leaves the device and model gets trained on large amounts of data. 
 
 
 - Healthcare
 
+This is the field where anonymity plays a very crucial. The consequences of actual and potential privacy violations can be serious. By keeping the training data in the hands of patients or providers, federated learning has the potential to make it possible to collaboratively build models that save lives and generate huge value.
 
-- 
 
+We will look into one case study of improving suggestions on Gboard done at Google.
 
 ## Federated Learning Case Study Gboard
 
@@ -151,10 +152,17 @@ Must Read! [Communication-Efficient Learning of Deep Networks from Decentralized
 
 [Google Blog on Federated Learning ](https://ai.googleblog.com/2017/04/federated-learning-collaborative.html)
 
+[Learning differentially private language models without losing accuracy](https://arxiv.org/pdf/1710.06963)
+
+[Practical Secure Aggregation for Privacy-Preserving Machine Learning](http://delivery.acm.org/10.1145/3140000/3133982/p1175-bonawitz.pdf)
+
+[Deep Learning with Differential Privacy](https://arxiv.org/pdf/1607.00133.pdf)
+
 ---
 
 # Footnotes and Credits
 
+[Federated Averaging Algorithm](https://arxiv.org/pdf/1602.05629.pdf)
 
 
 ---
