@@ -125,7 +125,7 @@ Is the data communicated through federated learning really anonymus and secured?
 
 # Further Reading
 
-Must Read! Florian blog on [Federated Learning](https://florian.github.io/federated-learning/), [Differential Privacy](https://florian.github.io/differential-privacy/) and [Federated Learning on Firefox]()
+Must Read! Florian's blog on [Federated Learning](https://florian.github.io/federated-learning/), [Differential Privacy](https://florian.github.io/differential-privacy/) and [Federated Learning for Firefox](https://florian.github.io/federated-learning-firefox/)
 
 Must Read! [Communication-Efficient Learning of Deep Networks from Decentralized Data](https://arxiv.org/pdf/1602.05629.pdf)
 
