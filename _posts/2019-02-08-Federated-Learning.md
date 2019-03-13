@@ -115,7 +115,7 @@ Here are the steps that are performed in training and updating the global model,
 
 This is one such example demonstrating end-to-end training in FL with decentralized data.
 
-Here is another application of [next word prediction](https://arxiv.org/pdf/1811.03604.pdf) where federation learning can be used. Important result obtained is board is neural language model trained using FL demonstrated better performance than a model trained with traditional server-based collection and training.
+Here is another application of [next word prediction](https://arxiv.org/pdf/1811.03604.pdf) which we had seen in [RNN](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/) before, where federation learning can be used. Important result obtained is board is neural language model trained using FL demonstrated better performance than a model trained with traditional server-based collection and training.
 
 # Privacy 
 
@@ -141,12 +141,25 @@ Is the data communicated through federated learning really anonymous and secured
 
 ## Secure Aggeration
 
+Secure Aggregation uses Secure Multi-Party Computation protocol that uses encryption to make individual devices’ updates uninspectable by a server, instead only revealing the sum after a sufficient number of updates have been received as outlined in [this paper](https://eprint.iacr.org/2017/281.pdf). With secure aggregation, client's updates are securely summed into a single aggregate update without revealing any client’s individual component even to the server. This is accomplished by cryptographically simulating a trusted third party.
 
+Secure Aggregation is four-round interactive protocol enabled during the reporting phase of a given FL round shown above, which means it will grow quadratically with the number of users, most notably the computational cost for the server. In each protocol round, the server gathers messages from all devices in the FL round, then uses the set of device messages to compute an independent response (final aggregation) to return to each device. This protocol is robust to a significant fraction of devices dropping out which maybe the case where there is poor network connection or the phone is not idle anymore. The first two rounds constitute a Prepare phase, in which shared secrets are established and during which devices who drop out will not have their updates included in the final aggregation. The third round constitutes a Commit phase, during which devices upload cryptographically masked model updates and the server accumulates a sum of the masked updates. All devices who complete this round will have their model update included in the protocol’s final aggregate update, or else the entire aggregation will fail. The last round of the protocol constitutes a Finalization phase, during which devices reveal sufficient cryptographic secrets to allow the server to unmask the aggregated model update. Not all committed devices are required to complete this round; so long as a sufficient number of the devices who started to protocol survive through the Finalization phase,the entire protocol succeeds.
 
-
+By using cryptography techniques, it is possible to ensure that the updates of individuals can only be read when enough users submitted updates. This makes man-in-the-middle attacks much harder: An attacker cannot make conclusions about the training data based on the intercepted network activity of an individual user.
 
 ## Differential Privacy
 
+
+
+
+
+
+<span class='purple'>Both these approaches add communication and computation overhead, but that may be a trade-off worth making in highly sensitive contexts.</span>
+
+
+---
+
+What all talk no code?
 
 
 
@@ -189,6 +202,7 @@ Must Read! [Communication-Efficient Learning of Deep Networks from Decentralized
 
 [Federated Averaging Algorithm](https://arxiv.org/pdf/1602.05629.pdf)
 
+[Apple CES billboard](https://www.cnet.com/news/apple-turns-up-at-ces-2019-in-the-snarkiest-way-possible/)
 
 ---
 
