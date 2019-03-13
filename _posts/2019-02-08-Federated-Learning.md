@@ -89,16 +89,30 @@ Smartphones have revolutionalized the data generation capability with growing nu
 This is the field where anonymity plays a very crucial. The consequences of actual and potential privacy violations can be serious. By keeping the training data in the hands of patients or providers, federated learning has the potential to make it possible to collaboratively build models that save lives and generate huge value.
 
 
-We will look into one case study of improving suggestions on Gboard done at Google.
 
 ## Federated Learning Case Study Gboard
 
+We will look into one case study of improving suggestions on Gboard done at Google. Authors of the [paper](https://arxiv.org/pdf/1812.02903.pdf) used federated learning for search query suggestions on Gboard.
 
+add-image
 
+Thw use case case is to train a model that predicts whether query suggestions are useful, in order to filter out less relevant queries. The training data collected for this model by observing user interactions with the app: when surfacing a query suggestion to a user, a tuple(features; label) is stored in an on-device training cache, a SQLite based database. Here, features is collection of query and context related information and label is user action of {clicked, ignored}. This data is then used for on-device training and evaluation by servers. The model is trained typically at night time when phone is charging, idle and connected to WiFi network.
 
+add-image
 
+Here are the steps that are performed in training and updating the global model,
 
+1. The participants in the training are clients(or devices) and FL server which is cloud-based distributed service. Clients annouces to the server that they are ready to run FL task for a given FL population. An FL population is specified by a globally unique name which identifies the learning problem, or application, which is worked upon. An FL task is a specific computation for an FL population, such as training to be performed with given hyperparameters, or evaluation of trained models on local device data. Sever selects some number of clients to run FL task.
 
+2. The server tells the selected devices what computation to run with an FL plan, a data structure that includes a TensorFlow graph and instructions for how to execute it. Once a round is established, the server next sends to each participant the current global model parameters and any other necessary state as an FL checkpoint.
+
+3. Each participant then performs a local computation based on the global state and its local dataset, and sends an update in the form of an FL checkpoint back to the server.
+
+4. The server incorporates these ephemeral updates are aggregated using the Federated Averaging algorithm  into its global state, and the process repeats until convergence. Upon convergence, a trained checkpoint isused to create and deploy a model to clients for inference.
+
+This is one such example demonstrating end-to-end training in FL with decentralized data.
+
+Here is another application of [next word prediction](https://arxiv.org/pdf/1811.03604.pdf) where federation learning can be used. Important result obtained is board is neural language model trained using FL demonstrated better performance than a model trained with traditional server-based collection and training.
 
 # Privacy 
 
@@ -151,6 +165,8 @@ Must Read! [Communication-Efficient Learning of Deep Networks from Decentralized
 [Federated Learning: Strategies for Improving Communication Efficiency](https://arxiv.org/pdf/1610.05492.pdf)
 
 [Google Blog on Federated Learning ](https://ai.googleblog.com/2017/04/federated-learning-collaborative.html)
+
+[Federated Learning for Mobile Key Prediction](https://arxiv.org/pdf/1811.03604.pdf)
 
 [Learning differentially private language models without losing accuracy](https://arxiv.org/pdf/1710.06963)
 
