@@ -128,9 +128,15 @@ I will rephrase what Prof. Vivek Wadwa from CMU said about Artificial Intelligen
 
 > Privacy is like
 
+In contrast to traditional approach of uploading data to server, FL approach has clear privacy advantages:
+
+1. Only the minimal information necessary for model training (the model parameter deltas) is transmitted. The updates will never contain more information than the data from which they derive, and typically will contain much less. 
+2. The model update is ephemeral, lasting only long enough to be  transmitted and incorporated into the global model. Thus while the model aggregator needs to be trusted enough to be given access to each client’s model parameter deltas, only the final, trained model is supplied to end users for inference. Typically any one client’s contribution to that final model is negligible.
+
+
+
 
 Is the data communicated through federated learning really anonymous and secured? There are primarily two methods, namely secure aggregation and differential privacy to ensure that the data communicated stays anonymized. 
-
 
 
 ## Secure Aggeration
