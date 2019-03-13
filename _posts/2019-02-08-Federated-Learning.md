@@ -67,11 +67,11 @@ Due to varying upload and download speed across different regions and different 
 
 Clearly, there is a quite of overhead in communication between client and server given there is unreliable and slow network connections speed. The typical neural networks have millions of parameters nowadays. Sending updates for so many values to a server leads to huge communication costs with a growing number of users and iterations. So, to reduce the uplink communication cost, McMahan and group proposes two methods outlined in [this paper](https://arxiv.org/pdf/1610.05492.pdf). These are the compression techniques which encode updates with fewer bits, as only updates are communicated to server for averaging. 
 
-- Sketeched Updates
+- **Sketeched Updates**
 
 In this method, each user calculates it's update after training on it's local data, and then before sending the updates to the server, the updates are compressed using a combination of [quantization](https://florian.github.io/probabilistic-quantization/), random rotations and subsampling.
 
-- Structured Updates
+- **Structured Updates**
 
 This second type of compression method restricts the updates to a restricted space such as making each update low-rank with at most rank k or using random mask on updates making it a sparse matrix, and only sending the non-zero entries.
 
@@ -79,24 +79,27 @@ These both methods can be used to reduce the communication overhead and also red
 
 ## Applications
 
-- Smartphones
+- **Smartphones**
 
 Smartphones have revolutionalized the data generation capability with growing number of users hooking on the device each year. With more data, comes more machine learning. Machine learning have provided a lot of cool applications such as Smart Reply, Image Recognition, next word prediction, and many more on smartphones. But this data collection has been heavily relied on private, sensitive user data. Sure, we can make use of synthetic data, but it doesn't capture all the scenarios occuring in real world data. Users (if are aware) are reluctant in sharing such sensitive information which corporations capture(making known or unknown to users) in exchange for smartness. With help of federated learning, the data never leaves the device and model gets trained on large amounts of data. 
 
-
-- Healthcare
+- **Healthcare**
 
 This is the field where anonymity plays a very crucial. The consequences of actual and potential privacy violations can be serious. By keeping the training data in the hands of patients or providers, federated learning has the potential to make it possible to collaboratively build models that save lives and generate huge value.
 
 
-
 ## Federated Learning Case Study Gboard
 
-We will look into one case study of improving suggestions on Gboard done at Google. Authors of the [paper](https://arxiv.org/pdf/1812.02903.pdf) used federated learning for search query suggestions on Gboard.
+We will look into one case study of improving suggestions on Gboard done at Google. Authors of the [paper](https://arxiv.org/pdf/1812.02903.pdf) used federated learning(FL) for search query suggestions on Gboard.
 
 add-image
 
-Thw use case case is to train a model that predicts whether query suggestions are useful, in order to filter out less relevant queries. The training data collected for this model by observing user interactions with the app: when surfacing a query suggestion to a user, a tuple(features; label) is stored in an on-device training cache, a SQLite based database. Here, features is collection of query and context related information and label is user action of {clicked, ignored}. This data is then used for on-device training and evaluation by servers. The model is trained typically at night time when phone is charging, idle and connected to WiFi network.
+Thw use case case is to train a model that predicts whether query suggestions are useful, in order to filter out less relevant queries. The training data collected for this model by observing user interactions with the app: when surfacing a query suggestion to a user, a tuple(features; label) is stored in an on-device training cache, a SQLite based database. Here, features is collection of query and context related information and label is user action of {clicked, ignored}. This data is then used for on-device training and evaluation by servers. The model is trained typically at night time when phone is charging, idle and connected to WiFi network. 
+
+The baseline model is traditional server-based machine learning that generates query suggestion candidates by matching the user’s input to an on-device subset ofthe Google Knowledge Graph (KG). It then scores these suggestions using a [Long Short-Term Memory](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#lstm-network) network trained on an offline corpus ofchat data to detect potential query candidates. This LSTM is trained to predict the KG category of a word in a sentence and returns higher scores when the KG category of the query candidate matches the expected category. The highest scoring candidate from the baseline model isselected and displayed as a query suggestion (an impression). The user then either clicks on or ignores the suggestion and users interaction is stored in on-device training cache to be used by FL for training.
+
+The task of the federated trained model is designed to take in the suggested query candidate from the baseline model, and determine if the suggestion should or should not be shown to the user. This FL model is triggering model. The output of model is  a score for a given query, with higher scores meaning greater confidence in the suggestion.
+
 
 add-image
 
