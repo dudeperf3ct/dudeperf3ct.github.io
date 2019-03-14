@@ -93,11 +93,11 @@ Due to varying upload and download speed across different regions and different 
 
 Clearly, there is a quite of overhead in communication between client and server given there is unreliable and slow network connections speed. The typical neural networks have millions of parameters nowadays. <span class='red'>Sending updates for so many values to a server leads to huge communication costs with a growing number of users and iterations.</span> So, to reduce the uplink communication cost, McMahan and group proposes two methods outlined in [this paper](https://arxiv.org/pdf/1610.05492.pdf). These are the compression techniques which encode updates with fewer bits, as only updates are communicated to server for averaging. 
 
-- **Sketeched Updates**
+### Sketeched Updates
 
 In this method, each user calculates it's update after training on it's local data, and then before sending the updates to the server, the updates are compressed using a combination of [quantization](https://florian.github.io/probabilistic-quantization/), random rotations and subsampling techniques outlined in the paper.
 
-- **Structured Updates**
+### Structured Updates
 
 This second type of compression method restricts the updates to a restricted space such as making each update low-rank with at most rank k or using random mask on updates making it a sparse matrix, and only sending the non-zero entries.
 
