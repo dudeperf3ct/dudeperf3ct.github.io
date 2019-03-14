@@ -2,7 +2,7 @@
 layout:     post
 title:      Federated Learning and Privacy
 date:       2019-02-08 12:00:00
-summary:    This post will provide in-depth explaination to Federated Learning and Privacy.
+summary:    This post will provide brief introduction to Federated Learning and Privacy.
 categories: federated learning privacy
 published : true
 ---
