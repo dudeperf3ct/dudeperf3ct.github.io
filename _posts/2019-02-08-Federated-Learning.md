@@ -96,7 +96,7 @@ add-image
 
 The use case is to train a model that predicts whether query suggestions are useful, in order to filter out less relevant queries. The training data collected for this model by observing user interactions with the app: when surfacing a query suggestion to a user, a tuple(features; label) is stored in an on-device training cache, a SQLite based database. Here, features is collection of query and context related information and label is user action of {clicked, ignored}. This data is then used for on-device training and evaluation by servers. The model is trained typically at night time when phone is charging, idle and connected to WiFi network. 
 
-The baseline model is traditional server-based machine learning that generates query suggestion candidates by matching the user’s input to an on-device subset ofthe Google Knowledge Graph (KG). It then scores these suggestions using a [Long Short-Term Memory](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#lstm-network) network trained on an offline corpus ofchat data to detect potential query candidates. This LSTM is trained to predict the KG category of a word in a sentence and returns higher scores when the KG category of the query candidate matches the expected category. The highest scoring candidate from the baseline model isselected and displayed as a query suggestion (an impression). The user then either clicks on or ignores the suggestion and users interaction is stored in on-device training cache to be used by FL for training.
+The baseline model is traditional server-based machine learning that generates query suggestion candidates by matching the user’s input to an on-device subset ofthe [Google Knowledge Graph](https://developers.google.com/knowledge-graph/) (KG). It then scores these suggestions using a [Long Short-Term Memory](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#lstm-network) network trained on an offline corpus ofchat data to detect potential query candidates. This LSTM is trained to predict the KG category of a word in a sentence and returns higher scores when the KG category of the query candidate matches the expected category. The highest scoring candidate from the baseline model isselected and displayed as a query suggestion (an impression). The user then either clicks on or ignores the suggestion and users interaction is stored in on-device training cache to be used by FL for training.
 
 The task of the federated trained model is designed to take in the suggested query candidate from the baseline model, and determine if the suggestion should or should not be shown to the user. This FL model is triggering model. The output of model is  a score for a given query, with higher scores meaning greater confidence in the suggestion.
 
@@ -119,7 +119,7 @@ Here is another application of [next word prediction](https://arxiv.org/pdf/1811
 
 # Privacy 
 
-Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*) It's no surprise that with, *With great promises of personalization comes greater responsibility to privacy*.(Thanks Uncle Ben from 2050 Universe)
+Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*) It's no surprise that with, *In Age of Internet, with great promises of personalization comes greater responsibility to privacy*.(Thanks Uncle Ben from 2050 Universe)
 
 Apple poster of CES 2019
 
@@ -133,7 +133,7 @@ In contrast to traditional approach of uploading data to server, FL approach has
 1. Only the minimal information necessary for model training (the model parameter deltas) is transmitted. The updates will never contain more information than the data from which they derive, and typically will contain much less. 
 2. The model update is ephemeral, lasting only long enough to be  transmitted and incorporated into the global model. Thus while the model aggregator needs to be trusted enough to be given access to each client’s model parameter deltas, only the final, trained model is supplied to end users for inference. Typically any one client’s contribution to that final model is negligible.
 
-
+A simple join between an anonymized datasets and one of many publicly available, non-anonymized ones, can re-identify anonymized data. What do I mean by that, let me explain with classic example of Netflix.
 
 
 Is the data communicated through federated learning really anonymous and secured? There are primarily two methods, namely secure aggregation and differential privacy to ensure that the data communicated stays anonymized. 
@@ -143,15 +143,15 @@ Is the data communicated through federated learning really anonymous and secured
 
 Secure Aggregation uses Secure Multi-Party Computation protocol that uses encryption to make individual devices’ updates uninspectable by a server, instead only revealing the sum after a sufficient number of updates have been received as outlined in [this paper](https://eprint.iacr.org/2017/281.pdf). With secure aggregation, client's updates are securely summed into a single aggregate update without revealing any client’s individual component even to the server. This is accomplished by cryptographically simulating a trusted third party.
 
-Secure Aggregation is four-round interactive protocol enabled during the reporting phase of a given FL round shown above, which means it will grow quadratically with the number of users, most notably the computational cost for the server. In each protocol round, the server gathers messages from all devices in the FL round, then uses the set of device messages to compute an independent response (final aggregation) to return to each device. This protocol is robust to a significant fraction of devices dropping out which maybe the case where there is poor network connection or the phone is not idle anymore. The first two rounds constitute a Prepare phase, in which shared secrets are established and during which devices who drop out will not have their updates included in the final aggregation. The third round constitutes a Commit phase, during which devices upload cryptographically masked model updates and the server accumulates a sum of the masked updates. All devices who complete this round will have their model update included in the protocol’s final aggregate update, or else the entire aggregation will fail. The last round of the protocol constitutes a Finalization phase, during which devices reveal sufficient cryptographic secrets to allow the server to unmask the aggregated model update. Not all committed devices are required to complete this round; so long as a sufficient number of the devices who started to protocol survive through the Finalization phase,the entire protocol succeeds.
+Secure Aggregation is four-round interactive protocol enabled during the reporting phase of a given FL round shown above, which means it will grow quadratically with the number of users, most notably the computational cost for the server. In each protocol round, the server gathers messages from all devices in the FL round, then uses the set of device messages to compute an independent response (final aggregation) to return to each device. This protocol is robust to a significant fraction of devices dropping out which maybe the case where there is poor network connection or the phone is not idle anymore. The first two rounds constitute a Prepare phase, in which shared secrets are established and during which devices who drop out will not have their updates included in the final aggregation. The third round constitutes a Commit phase, during which devices upload cryptographically masked model updates and the server accumulates a sum of the masked updates. All devices who complete this round will have their model update included in the protocol’s final aggregate update, or else the entire aggregation will fail. The last round of the protocol constitutes a Finalization phase, during which devices reveal sufficient cryptographic secrets to allow the server to unmask the aggregated model update. Not all committed devices are required to complete this round; so long as a sufficient number of the devices who started to protocol survive through the Finalization phase, the entire protocol succeeds.
 
 By using cryptography techniques, it is possible to ensure that the updates of individuals can only be read when enough users submitted updates. This makes man-in-the-middle attacks much harder: An attacker cannot make conclusions about the training data based on the intercepted network activity of an individual user.
 
 ## Differential Privacy
 
+Differential privacy techniques can be used in which each client adds a carefully calibrated amount of noise to their update to  mask their contribution to the learned model. To avoid the disaster like Netflix join, differential privacy formalizes the idea that any query to database should not reveal any hints whether one person is present in dataset and what their data is. There are lot many techniques such as Randomized Response, Lapalace mechanism and [RAPPOR](https://github.com/google/rappor/). In short, in Differential Privacy, privacy is guaranteed by the noise added to the answers.
 
-
-
+For more on Differential Privacy, [here](https://arxiv.org/pdf/1607.00133.pdf) is the paper, [Differential Privacy for dummies](https://robertovitillo.com/2016/07/29/differential-privacy-for-dummies/), Florian blog on [differential privacy](https://florian.github.io/differential-privacy/) and CleverHans has a good blog on introduction to [Privacy and ML](http://www.cleverhans.io/privacy/2018/04/29/privacy-and-machine-learning.html).
 
 
 <span class='purple'>Both these approaches add communication and computation overhead, but that may be a trade-off worth making in highly sensitive contexts.</span>
@@ -186,7 +186,9 @@ Must Read! [Communication-Efficient Learning of Deep Networks from Decentralized
 
 [Federated Learning: Strategies for Improving Communication Efficiency](https://arxiv.org/pdf/1610.05492.pdf)
 
-[Google Blog on Federated Learning ](https://ai.googleblog.com/2017/04/federated-learning-collaborative.html)
+[Google Blog on Federated Learning](https://ai.googleblog.com/2017/04/federated-learning-collaborative.html)
+
+[Applied Federated Learning:Improving Google Keyboard Query Suggestions](https://arxiv.org/pdf/1812.02903.pdf)
 
 [Federated Learning for Mobile Key Prediction](https://arxiv.org/pdf/1811.03604.pdf)
 
@@ -195,6 +197,12 @@ Must Read! [Communication-Efficient Learning of Deep Networks from Decentralized
 [Practical Secure Aggregation for Privacy-Preserving Machine Learning](http://delivery.acm.org/10.1145/3140000/3133982/p1175-bonawitz.pdf)
 
 [Deep Learning with Differential Privacy](https://arxiv.org/pdf/1607.00133.pdf)
+
+[Differential Privacy for dummies](https://robertovitillo.com/2016/07/29/differential-privacy-for-dummies/)
+
+CleverHans blog [Privacy and ML](http://www.cleverhans.io/privacy/2018/04/29/privacy-and-machine-learning.html)
+
+[Differential Privacy and Machine Learning:a Survey and Review](https://arxiv.org/pdf/1412.7584v1.pdf)
 
 ---
 
