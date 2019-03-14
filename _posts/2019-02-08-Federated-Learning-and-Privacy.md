@@ -7,8 +7,6 @@ categories: federated learning privacy
 published : true
 ---
 
-# Federated Learning and Privacy
-
 In this notebook, we will see if we can make use of Federated Learning to make our lives more private.
 
 > All the codes implemented in Jupyter notebook in [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Federated%20Learning/federated_learning_tensorflow.ipynb) and [PyTorch + PySyft Library](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Federated%20Learning/federated_learning_pysyft.ipynb)
@@ -43,11 +41,11 @@ Feel free to jump anywhere,
 
 # Federated Learning
 
-In the wake of recent events related to privacy invasion through various methods of data collections by large corporations, it's about time we think about alternatives ways of collecting data before more users become aware as to why are they getting such excellent vision, text prediction and recommendation systems based on their recent watch history. (Hint: *by training on their data by invading their privacy, ringing any bells?*) One such example is [Detectron](https://florian.github.io/federated-learning/) by Facebook trained on [3 billion images](https://code.facebook.com/posts/1700437286678763/advancing-state-of-the-art-image-recognition-with-deep-learning-on-hashtags/) from Instagram. This is what McMahan and group must have thought (*coming from Google itself, a bit ironic isn't it?*) and hence, they proposed a learning method of using decentralised data in this [remarkable paper](https://arxiv.org/pdf/1602.05629.pdf) through decentralized approach termed as *Federated Learning*.
+In the wake of recent events related to privacy invasion through various methods of data collections by large corporations, it's about time we think about alternatives ways of collecting data before more users become aware as to why are they getting such excellent vision, text prediction and recommendation systems based on their recent watch history. (Hint: *by training on their data by invading their privacy, ringing any bells?*) One such example is [Detectron](https://github.com/facebookresearch/Detectron) by Facebook trained on [3 billion images](https://code.facebook.com/posts/1700437286678763/advancing-state-of-the-art-image-recognition-with-deep-learning-on-hashtags/) from Instagram. This is what McMahan and group must have thought (*coming from Google itself, a bit ironic isn't it?*) and hence, they proposed a learning method of using decentralised data in this [remarkable paper](https://arxiv.org/pdf/1602.05629.pdf) through decentralized approach termed as *Federated Learning*.
 
 <span class='purple'>Traditional learning algorithms learns on mountain loads of data gathered from many different users which is stored in some central server. Then, distributed learning model is created and trained on mountain loads of user data for months and months. After training, they come back to user promising that they have made their app more intelligent</span> (*without hinting: with help of your data, [so mean](https://www.youtube.com/watch?v=jYa1eI1hpDE)*).
 
-Federated Learning (FL) uses decentralized approach for training the model using the user (*privacy-sensitive*) data. <span class='saddlebrown'>In short, the traditional learning methods had approach of, "brining the data to code", instead of "code to data".</span> FL is all about the latter.
+Federated Learning (FL) uses decentralized approach for training the model using the user (*privacy-sensitive*) data. <span class='saddlebrown'>In short, the traditional learning methods had approach of, "brining the data to code", instead of "code to data".</span> FL is all about the latter approach.
 
 ## How it Works?
 
@@ -62,7 +60,7 @@ Federated Learning (FL) uses decentralized approach for training the model using
 <img src='/images/fl/federated_learning_in_short.png' width="50%"/> 
 </p>
 
-Here is simple Federated Averaging algorithm which accumlated the updated from clients into global model.
+Here is simple Federated Averaging algorithm which accumlates the updated from clients into global model.
 
 <p align="center">
 <img src='/images/fl/federated_averaging.png' width="50%"/> 
@@ -71,11 +69,11 @@ Here is simple Federated Averaging algorithm which accumlated the updated from c
 
 In what tasks is federated learning best suited.
 
-1. The task labels don’t require human labelers but are naturally derived from user interaction.
-2. The training data is privacy sensitive.
-3. The training data is too large to be feasibly collected centrally.
+1. <span class='saddlebrown'>The task labels don’t require human labelers but are naturally derived from user interaction.</span>
+2. <span class='saddlebrown'>The training data is privacy sensitive.</span>
+3. <span class='saddlebrown'>The training data is too large to be feasibly collected centrally.</span>
 
-Easy enough?
+*Easy enough?*
 
 At first, the training over this decentralized approach looks simple enough and similar to distributed machine learning approaches. But there are some major differences to applications in data centers where the training data is distributed among many machines.
 
@@ -93,7 +91,7 @@ Due to varying upload and download speed across different regions and different 
 
 ## Compression
 
-Clearly, there is a quite of overhead in communication between client and server given there is unreliable and slow network connections speed. The typical neural networks have millions of parameters nowadays. Sending updates for so many values to a server leads to huge communication costs with a growing number of users and iterations. So, to reduce the uplink communication cost, McMahan and group proposes two methods outlined in [this paper](https://arxiv.org/pdf/1610.05492.pdf). These are the compression techniques which encode updates with fewer bits, as only updates are communicated to server for averaging. 
+Clearly, there is a quite of overhead in communication between client and server given there is unreliable and slow network connections speed. The typical neural networks have millions of parameters nowadays. <span class='red'>Sending updates for so many values to a server leads to huge communication costs with a growing number of users and iterations.</span> So, to reduce the uplink communication cost, McMahan and group proposes two methods outlined in [this paper](https://arxiv.org/pdf/1610.05492.pdf). These are the compression techniques which encode updates with fewer bits, as only updates are communicated to server for averaging. 
 
 - **Sketeched Updates**
 
@@ -109,19 +107,18 @@ This second type of compression method restricts the updates to a restricted spa
 
 - **Smartphones**
 
-Smartphones have revolutionalized the data generation capability with growing number of users hooking on the device each year. (Did you know? There are an estimated [3 billion](https://newzoo.com/insights/trend-reports/newzoo-global-mobile-market-report-2018-light-version/) smartphones in the world, and [7 billion](https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/) connected devices.)With more data, comes more machine learning. Machine learning have provided a lot of cool applications such as Smart Reply, Image Recognition, next word prediction, and many more on smartphones. But this data collection has been heavily relied on private, sensitive user data. Sure, we can make use of synthetic data, but it doesn't capture all the scenarios occuring in real world data. Users (if are aware) are reluctant in sharing such sensitive information which corporations capture(making known or unknown to users) in exchange for smartness. With help of federated learning, the data never leaves the device and model gets trained on large amounts of data. 
+Smartphones have revolutionalized the data generation capability with growing number of users hooking on the device each year. (*Did you know? There are an estimated [3 billion](https://newzoo.com/insights/trend-reports/newzoo-global-mobile-market-report-2018-light-version/) smartphones in the world, and [7 billion](https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/) connected devices*). With more data, comes more machine learning. Machine learning have provided a lot of cool applications such as Smart Reply, Image Recognition, next word prediction, and many more on smartphones. But this comes at the cost of data and data collection has been heavily relied on private, sensitive user data. Sure, we can make use of synthetic data, but it doesn't capture all the scenarios occuring in real world data. Users (if are aware of any such usage) are reluctant in sharing such sensitive information which corporations capture (in process making it known or unknown to users) in exchange for smartness. <span class='blue'>With help of federated learning, the data never leaves the device and model gets trained on large amounts of data.</span>
 
 - **Healthcare**
 
 This is the field where anonymity plays a very crucial. The consequences of actual and potential privacy violations can be serious. By keeping the training data in the hands of patients or providers, federated learning has the potential to make it possible to collaboratively build models that save lives and generate huge value.
 
-
 ## Federated Learning Case Study Gboard
 
-We will look into one case study of improving suggestions on Gboard done at Google. Authors of the [paper](https://arxiv.org/pdf/1812.02903.pdf) used federated learning(FL) for search query suggestions on Gboard. The goal is to improve query click-through-rate (CTR) by taking suggestions from the baseline model and removing low quality suggestions through the triggering model.
+We will look into one case study of improving suggestions on Gboard done at Google. Authors of the [paper](https://arxiv.org/pdf/1812.02903.pdf) used federated learning(FL) for search query suggestions on Gboard. <span class='saddlebrown'>The goal is to improve query click-through-rate (CTR) by taking suggestions from the baseline model and removing low quality suggestions through the triggering model.</span>
 
 <p align="center">
-<img src='/images/fl/gboard.png' width="80%"/> 
+<img src='/images/fl/gboard.png' width="70%"/> 
 </p>
 
 The use case is to train a model that predicts whether query suggestions are useful, in order to filter out less relevant queries. The training data collected for this model by observing user interactions with the app: when surfacing a query suggestion to a user, a tuple(features; label) is stored in an on-device training cache, a SQLite based database. Here, features is collection of query and context related information and label is user action of {clicked, ignored}. This data is then used for on-device training and evaluation by servers. The model is trained typically at night time when phone is charging, idle and connected to WiFi network. 
@@ -145,13 +142,13 @@ Here are the steps that are performed in training and updating the global model,
 
 4. The server incorporates these ephemeral updates are aggregated using the <span class='saddlebrown'>Federated Averaging algorithm</span> into its global state, and the process repeats until convergence. Upon convergence, a trained checkpoint is used to create and deploy a model to clients for inference.
 
-This is one such example demonstrating end-to-end training in FL with decentralized data. *We all love end-to-end tasks, don't we?*.
+This is one such example demonstrating end-to-end training in FL with decentralized data. *We all love end-to-end learning tasks, don't we?*.
 
-Here is another application of [next word prediction](https://arxiv.org/pdf/1811.03604.pdf) which we had seen in [RNN](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/) before, where federation learning can be used. Important result obtained is board is neural language model trained using FL demonstrated better performance than a model trained with traditional server-based collection and training.
+Here is another application of [next word prediction](https://arxiv.org/pdf/1811.03604.pdf) which we had seen in [RNN](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/) before, where federation learning can be used. <span class='orange'>Important result obtained is board is neural language model trained using FL demonstrated better performance than a model trained with traditional server-based collection and training.</span>
 
 # Privacy 
 
-Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*). It's no surprise that, <span class='blue'>*In Age of Internet, with great promises of personalization comes greater responsibility to privacy*</span>.(Thanks privacy vigilant Uncle Ben)
+Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*). It's no surprise that, <span class='blue'>*In Age of Internet, with great promises of personalization comes greater responsibility to privacy*</span>.   (Thanks privacy vigilant Uncle Ben)
 
 <p align="center">
 <img src='/images/fl/apple.jpg' width="50%"/> 
@@ -159,24 +156,27 @@ Privacy, the one word which is promised by everyone but delievered by ... (*I wi
 
 Here is the template quote to put any of your favourite buzzwords at the start, I will put Privacy and see if it makes sense,
 
-> Privacy is like teenage s**: everyone talks about it, nobody knows how to do it, everyone thinks everyone else is doing it & so claims to do it.
+> <span class='purple'>Privacy is like teenage s**: everyone talks about it, nobody knows how to do it, everyone thinks everyone else is doing it & so claims to do it.</span>
 
 It does make sense after all.
 
 In contrast to traditional approach of uploading data to server, FL approach has clear privacy advantages:
 
-1. Only the minimal information necessary for model training (the model parameter deltas) is transmitted. The updates will never contain more information than the data from which they derive, and typically will contain much less. 
-2. The model update is ephemeral, lasting only long enough to be  transmitted and incorporated into the global model. Thus while the model aggregator needs to be trusted enough to be given access to each client’s model parameter deltas, only the final, trained model is supplied to end users for inference. Typically any one client’s contribution to that final model is negligible.
+1. <span class='saddlebrown'>Only the minimal information necessary for model training (the model parameter deltas) is transmitted. The updates will never contain more information than the data from which they derive, and typically will contain much less.</span>
+2. <span class='saddlebrown'>The model update is ephemeral, lasting only long enough to be  transmitted and incorporated into the global model. Thus while the model aggregator needs to be trusted enough to be given access to each client’s model parameter deltas, only the final, trained model is supplied to end users for inference. Typically any one client’s contribution to that final model is negligible.</span>
 
-<span class='saddlebrown'>A simple join between an anonymized datasets and one of many publicly available, non-anonymized ones, can re-identify anonymized data.</span> What do I mean by that, let me explain with classic example of Netflix. In 2007, Netflix offered $1 Million prize money by [hosting competition](https://www.kaggle.com/netflix-inc/netflix-prize-data) on Kaggle with objective to achieve a 10% improvement in its recommedation system. The data that Netflix provided for competition consits of movie rating on scale 1 to 5 for 480189 users. In order to protect their customer’s privacy, they removed personal information and replaced IDs with random IDs. But probing into dataset further, [researchers](https://www.cs.utexas.edu/~shmat/shmat_oak08netflix.pdf) linked the Netflix dataset with IMDb to de-anonymize the Netflix dataset using the dates on which a user rated certain movies and the result was they successfully identified the Netflix records of known users, uncovering their apparent political preferences and other potentially sensitive information. *Your data reflects you.*
+<span class='saddlebrown'>A simple join between an anonymized datasets and one of many publicly available, non-anonymized ones, can re-identify anonymized data.</span> What do I mean by that, let me explain with classic example of Netflix. In 2007, Netflix offered $1 Million prize money by [hosting competition](https://www.kaggle.com/netflix-inc/netflix-prize-data) on Kaggle with objective to achieve a 10% improvement in its recommedation system. The data that Netflix provided for competition consits of movie rating on scale 1 to 5 for 480189 users. In order to protect their customer’s privacy, they removed personal information and replaced IDs with random IDs. But probing into dataset further, [researchers](https://www.cs.utexas.edu/~shmat/shmat_oak08netflix.pdf) linked the Netflix dataset with IMDb to de-anonymize the Netflix dataset using the dates on which a user rated certain movies and <span class='red'>the result was they successfully identified the Netflix records of known users, uncovering their apparent political preferences and other potentially sensitive information.</span> 
 
 The most indirect way to infer information about the training data requires only the ability to query the model several times. Anyone with indirect access to the model via an API can attempt to attack it in this way. This attack vector is not unique (or any more dangerous) in federated learning.
+
+*Your data is your reflection.*
+
 
 <p align="center">
 <img src='/images/fl/privacy.png' width="50%"/> 
 </p>
 
-Now the question we all want answer to<span class='red'>Is the data communicated through federated learning really anonymous and secured? There are primarily two methods, namely <span class='orange'>secure aggregation</span> and <span class='orange'>differential privacy</span> to ensure that the data communicated stays anonymized.</span> 
+Now the question we all want answer to <span class='red'>Is the data communicated through federated learning really anonymous and secured? There are primarily two methods, namely <span class='orange'>secure aggregation</span> and <span class='orange'>differential privacy</span> to ensure that the data communicated stays anonymized.</span> 
 
 
 ## Secure Aggeration
@@ -274,6 +274,8 @@ CleverHans blog [Privacy and ML](http://www.cleverhans.io/privacy/2018/04/29/pri
 [Differential Privacy and Machine Learning:a Survey and Review](https://arxiv.org/pdf/1412.7584v1.pdf)
 
 [LEAF: A Benchmark for Federated Settings](https://arxiv.org/abs/1812.01097)
+
+[Tensorflow Dev Summit : Federated Learning](https://www.youtube.com/watch?v=1YbPmkChcbo)
 
 ---
 
