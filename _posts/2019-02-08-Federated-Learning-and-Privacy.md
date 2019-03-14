@@ -33,9 +33,9 @@ In the wake of recent events related to privacy invasion through varioys methods
 
 Amazon graphics from Tamil whatsapp group
 
-Traditional learning algorithms learns on mountain loads of data gathered from many different users which is stored in some central server. Then, distributed learning model is created and trained on mountain loads of user data for months and months. After training, they come back to user promising that they have made their app more intelligent (*without hinting: with help of your data, so mean*).
+<span class='purple'>Traditional learning algorithms learns on mountain loads of data gathered from many different users which is stored in some central server. Then, distributed learning model is created and trained on mountain loads of user data for months and months. After training, they come back to user promising that they have made their app more intelligent</span> (*without hinting: with help of your data, [so mean](https://www.youtube.com/watch?v=jYa1eI1hpDE)*).
 
-Federated Learning uses decentralized approach for training the model using the user (*privacy-sensitive*) data. In short, the traditional learning methods had approach to, "brining the data to code", instead of "code to data".
+Federated Learning uses decentralized approach for training the model using the user (*privacy-sensitive*) data. <span class='saddlebrown'>In short, the traditional learning methods had approach to, "brining the data to code", instead of "code to data".</span>
 
 ## How it Works?
 
@@ -65,24 +65,23 @@ In what tasks is federated learning best suited.
 2. The training data is privacy sensitive.
 3. The training data is too large to be feasibly collected centrally.
 
-
 Easy enough?
 
 At first, the training over this decentralized approach looks simple enough and similar to distributed machine learning approaches. But there are some major differences to applications in data centers where the training data is distributed among many machines.
 
-- Non IID 
+- **Non IID**
 
 The data obtained from different users 
 
-- High number of clients
+- **High number of clients**
 
 Since, deep learning algorithms are data hungry, applicated using federated learning require a lot of clients. The data from these many users will be far greater than the typically centrally stored data.
 
-- Unbalanced training samples
+- **Unbalanced training samples**
 
 Each user will have different number of training samples. 
 
-- Slow and unreliable Network Connections
+- **Slow and unreliable Network Connections**
 
 Due to varying upload and download speed across different regions and different countries, the uploads required in federated learning will be very slow compared to traditional distributed machine learning in datacenters where the communications among the nodes is very quick and messages don't get lost (*Imagenet training in 5 mintues*). 
 
@@ -98,7 +97,7 @@ In this method, each user calculates it's update after training on it's local da
 
 This second type of compression method restricts the updates to a restricted space such as making each update low-rank with at most rank k or using random mask on updates making it a sparse matrix, and only sending the non-zero entries.
 
-These both methods can be used to reduce the communication overhead and also reduce the size of updates for each round making it reliable even at low upload speeds.
+<span class='purple'>These both methods can be used to reduce the communication overhead and also reduce the size of updates for each round making it reliable even at low upload speeds.</span>
 
 ## Applications
 
@@ -132,7 +131,7 @@ The task of the federated trained model is designed to take in the suggested que
 
 Here are the steps that are performed in training and updating the global model,
 
-1. The participants in the training are clients(or devices) and FL server which is cloud-based distributed service. Clients annouces to the server that they are ready to run FL task for a given FL population. An FL population is specified by a globally unique name which identifies the learning problem, or application, which is worked upon. An FL task is a specific computation for an FL population, such as training to be performed with given hyperparameters, or evaluation of trained models on local device data. Sever selects some number of clients to run FL task.
+1. The participants in the training are clients(or devices) and FL server which is cloud-based distributed service. Clients announces to the server that they are ready to run FL task for a given FL population. An FL population is specified by a globally unique name which identifies the learning problem, or application, which is worked upon. An FL task is a specific computation for an FL population, such as training to be performed with given hyperparameters, or evaluation of trained models on local device data. Sever selects some number of clients to run FL task.
 
 2. The server tells the selected devices what computation to run with an FL plan, a data structure that includes a TensorFlow graph and instructions for how to execute it. Once a round is established, the server next sends to each participant the current global model parameters and any other necessary state as an FL checkpoint.
 
@@ -146,17 +145,17 @@ Here is another application of [next word prediction](https://arxiv.org/pdf/1811
 
 # Privacy 
 
-Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*) It's no surprise that with, *In Age of Internet, with great promises of personalization comes greater responsibility to privacy*.(Thanks privacy vigilant Uncle Ben)
-
+Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*) It's no surprise that with, <span class='blue'>*In Age of Internet, with great promises of personalization comes greater responsibility to privacy*</span>.(Thanks privacy vigilant Uncle Ben)
 
 <p align="center">
 <img src='/images/fl/apple.jpg' width="50%"/> 
 </p>
 
+Here is the template quote to put any buzzwords at the start, I will put Privacy and see if it makes sense,
 
-I will rephrase what Prof. Vivek Wadwa from CMU said about Artificial Intelligence in terms of Privacy,
+> Privacy is like teenage s**: everyone talks about it, nobody knows how to do it, everyone thinks everyone else is doing it & so claims to do it.
 
-> Privacy is like
+It does make sense after all.
 
 In contrast to traditional approach of uploading data to server, FL approach has clear privacy advantages:
 
