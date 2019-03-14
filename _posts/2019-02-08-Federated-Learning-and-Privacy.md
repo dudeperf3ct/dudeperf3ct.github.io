@@ -7,6 +7,17 @@ categories: federated learning privacy
 published : false
 ---
 
+# Federated Learning and Privacy
+
+In this notebook, we will see if we can make use of Federated Learning to make our lives more private.
+
+> All the codes implemented in Jupyter notebook in [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/federated_learning/federated_learning_tensorflow.ipynb) and [PyTorch + PySyft Library](https://github.com/dudeperf3ct/DL_notebooks/blob/master/federated_learning/federated_learning_pysyft.ipynb)
+
+> *All codes can be run on Google Colab (link provided in notebook).*
+
+Hey yo, but how?
+
+Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 
@@ -20,6 +31,7 @@ Feel free to jump anywhere,
 - [Privacy](#privacy)
   - [Secure Aggregation](#secure-aggregation)
   - [Differential Privacy](#differential-privacy)
+- [Code](#code)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -69,21 +81,17 @@ Easy enough?
 
 At first, the training over this decentralized approach looks simple enough and similar to distributed machine learning approaches. But there are some major differences to applications in data centers where the training data is distributed among many machines.
 
-- **Non IID**
+- **Unbalanced and Non IID training samples**
 
-The data obtained from different users 
+The data obtained from different users local dataset will not be representative of the population distribution and vary from user to user thus creating imbalance data for training.
 
 - **High number of clients**
 
 Since, deep learning algorithms are data hungry, applicated using federated learning require a lot of clients. The data from these many users will be far greater than the typically centrally stored data.
 
-- **Unbalanced training samples**
+- **Slow and Unreliable network connections**
 
-Each user will have different number of training samples. 
-
-- **Slow and unreliable Network Connections**
-
-Due to varying upload and download speed across different regions and different countries, the uploads required in federated learning will be very slow compared to traditional distributed machine learning in datacenters where the communications among the nodes is very quick and messages don't get lost (*Imagenet training in 5 mintues*). 
+Due to varying upload and download speed across different regions and different countries, the uploads required in federated learning will be very slow compared to traditional distributed machine learning in datacenters where the communications among the nodes is very quick and messages don't get lost (*Remember, Imagenet training in 5 mintues*). 
 
 ## Compression
 
@@ -103,7 +111,7 @@ This second type of compression method restricts the updates to a restricted spa
 
 - **Smartphones**
 
-Smartphones have revolutionalized the data generation capability with growing number of users hooking on the device each year. With more data, comes more machine learning. Machine learning have provided a lot of cool applications such as Smart Reply, Image Recognition, next word prediction, and many more on smartphones. But this data collection has been heavily relied on private, sensitive user data. Sure, we can make use of synthetic data, but it doesn't capture all the scenarios occuring in real world data. Users (if are aware) are reluctant in sharing such sensitive information which corporations capture(making known or unknown to users) in exchange for smartness. With help of federated learning, the data never leaves the device and model gets trained on large amounts of data. 
+Smartphones have revolutionalized the data generation capability with growing number of users hooking on the device each year. (Did you know? There are an estimated [3 billion](https://newzoo.com/insights/trend-reports/newzoo-global-mobile-market-report-2018-light-version/) smartphones in the world, and [7 billion](https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/) connected devices.)With more data, comes more machine learning. Machine learning have provided a lot of cool applications such as Smart Reply, Image Recognition, next word prediction, and many more on smartphones. But this data collection has been heavily relied on private, sensitive user data. Sure, we can make use of synthetic data, but it doesn't capture all the scenarios occuring in real world data. Users (if are aware) are reluctant in sharing such sensitive information which corporations capture(making known or unknown to users) in exchange for smartness. With help of federated learning, the data never leaves the device and model gets trained on large amounts of data. 
 
 - **Healthcare**
 
@@ -120,7 +128,7 @@ We will look into one case study of improving suggestions on Gboard done at Goog
 
 The use case is to train a model that predicts whether query suggestions are useful, in order to filter out less relevant queries. The training data collected for this model by observing user interactions with the app: when surfacing a query suggestion to a user, a tuple(features; label) is stored in an on-device training cache, a SQLite based database. Here, features is collection of query and context related information and label is user action of {clicked, ignored}. This data is then used for on-device training and evaluation by servers. The model is trained typically at night time when phone is charging, idle and connected to WiFi network. 
 
-The *baseline model* is traditional server-based machine learning that generates query suggestion candidates by matching the user’s input to an on-device subset ofthe [Google Knowledge Graph](https://developers.google.com/knowledge-graph/) (KG). It then scores these suggestions using a [Long Short-Term Memory](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#lstm-network) network trained on an offline corpus ofchat data to detect potential query candidates. This LSTM is trained to predict the KG category of a word in a sentence and returns higher scores when the KG category of the query candidate matches the expected category. The highest scoring candidate from the baseline model is selected and displayed as a query suggestion (an impression). The user then either clicks on or ignores the suggestion and users interaction is stored in on-device training cache to be used by FL for training.
+The *baseline model* is traditional server-based machine learning that generates query suggestion candidates by matching the user’s input to an on-device subset ofthe [Google Knowledge Graph](https://developers.google.com/knowledge-graph/) (KG). It then scores these suggestions using a [Long Short-Term Memory](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#lstm-network) network trained on an offline corpus of chat data to detect potential query candidates. This LSTM is trained to predict the KG category of a word in a sentence and returns higher scores when the KG category of the query candidate matches the expected category. The highest scoring candidate from the baseline model is selected and displayed as a query suggestion (an impression). The user then either clicks on or ignores the suggestion and users interaction is stored in on-device training cache to be used by FL for training.
 
 The task of the federated trained model is designed to take in the suggested query candidate from the baseline model, and determine if the suggestion should or should not be shown to the user. This FL model is *triggering model*. The output of model is a score for a given query, with higher scores meaning greater confidence in the suggestion.
 
@@ -133,19 +141,19 @@ Here are the steps that are performed in training and updating the global model,
 
 1. The participants in the training are clients(or devices) and <span class='saddlebrown'>FL server</span> which is cloud-based distributed service. Clients announces to the server that they are ready to run <span class='saddlebrown'>FL task</span> for a given <span class='saddlebrown'>FL population</span>. An FL population is specified by a globally unique name which identifies the learning problem, or application, which is worked upon. An FL task is a specific computation for an FL population, such as training to be performed with given hyperparameters, or evaluation of trained models on local device data. Sever selects some number of clients to run FL task.
 
-2. The server tells the selected devices what computation to run with an FL plan, a data structure that includes a TensorFlow graph and instructions for how to execute it. Once a round is established, the server next sends to each participant the current global model parameters and any other necessary state as an <span class='saddlebrown'>FL checkpoint</span>.
+2. The server tells the selected devices what computation to run with an <span class='saddlebrown'>FL plan</span>, a data structure that includes a TensorFlow graph and instructions for how to execute it. Once a round is established, the server next sends to each participant the current global model parameters and any other necessary state as an <span class='saddlebrown'>FL checkpoint</span>.
 
 3. Each participant then performs a local computation based on the global state and its local dataset, and sends an update in the form of an FL checkpoint back to the server.
 
-4. The server incorporates these ephemeral updates are aggregated using the <span class='saddlebrown'>Federated Averaging algorithm</span>  into its global state, and the process repeats until convergence. Upon convergence, a trained checkpoint is used to create and deploy a model to clients for inference.
+4. The server incorporates these ephemeral updates are aggregated using the <span class='saddlebrown'>Federated Averaging algorithm</span> into its global state, and the process repeats until convergence. Upon convergence, a trained checkpoint is used to create and deploy a model to clients for inference.
 
-This is one such example demonstrating end-to-end training in FL with decentralized data.
+This is one such example demonstrating end-to-end training in FL with decentralized data. *We all love end-to-end tasks, don't we?*.
 
 Here is another application of [next word prediction](https://arxiv.org/pdf/1811.03604.pdf) which we had seen in [RNN](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/) before, where federation learning can be used. Important result obtained is board is neural language model trained using FL demonstrated better performance than a model trained with traditional server-based collection and training.
 
 # Privacy 
 
-Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*) It's no surprise that with, <span class='blue'>*In Age of Internet, with great promises of personalization comes greater responsibility to privacy*</span>.(Thanks privacy vigilant Uncle Ben)
+Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*) It's no surprise that, <span class='blue'>*In Age of Internet, with great promises of personalization comes greater responsibility to privacy*</span>.(Thanks privacy vigilant Uncle Ben)
 
 <p align="center">
 <img src='/images/fl/apple.jpg' width="50%"/> 
@@ -162,14 +170,15 @@ In contrast to traditional approach of uploading data to server, FL approach has
 1. Only the minimal information necessary for model training (the model parameter deltas) is transmitted. The updates will never contain more information than the data from which they derive, and typically will contain much less. 
 2. The model update is ephemeral, lasting only long enough to be  transmitted and incorporated into the global model. Thus while the model aggregator needs to be trusted enough to be given access to each client’s model parameter deltas, only the final, trained model is supplied to end users for inference. Typically any one client’s contribution to that final model is negligible.
 
-A simple join between an anonymized datasets and one of many publicly available, non-anonymized ones, can re-identify anonymized data. What do I mean by that, let me explain with classic example of Netflix.
+<span class='saddlebrown'>A simple join between an anonymized datasets and one of many publicly available, non-anonymized ones, can re-identify anonymized data.</span> What do I mean by that, let me explain with classic example of Netflix. In 2007, Netflix offered $1 Million prize money by [hosting competition](https://www.kaggle.com/netflix-inc/netflix-prize-data) on Kaggle with objective to achieve a 10% improvement in its recommedation system. The data that Netflix provided for competition consits of movie rating on scale 1 to 5 for 480189 users. In order to protect their customer’s privacy, they removed personal information and replaced IDs with random IDs. But probing into dataset further, [researchers](https://www.cs.utexas.edu/~shmat/shmat_oak08netflix.pdf) linked the Netflix dataset with IMDb to de-anonymize the Netflix dataset using the dates on which a user rated certain movies and the result was they successfully identified the Netflix records of known users, uncovering their apparent political preferences and other potentially sensitive information. *Your data reflects you.*
 
+The most indirect way to infer information about the training data requires only the ability to query the model several times. Anyone with indirect access to the model via an API can attempt to attack it in this way. This attack vector is not unique (or any more dangerous) in federated learning.
 
 <p align="center">
 <img src='/images/fl/privacy.png' width="50%"/> 
 </p>
 
-<span class='red'>Is the data communicated through federated learning really anonymous and secured? There are primarily two methods, namely secure aggregation and differential privacy to ensure that the data communicated stays anonymized.</span> 
+Now the question we all want answer to<span class='red'>Is the data communicated through federated learning really anonymous and secured? There are primarily two methods, namely <span class='orange'>secure aggregation</span> and <span class='orange'>differential privacy</span> to ensure that the data communicated stays anonymized.</span> 
 
 
 ## Secure Aggeration
@@ -198,11 +207,39 @@ For more on Differential Privacy, [here](https://arxiv.org/pdf/1607.00133.pdf) i
 
 ---
 
+# Code
+
 What all talk no code?
 
+We implemented federated learning using two frameworks [Tensorflow](https://www.tensorflow.org) and [PyTorch](https://pytorch.org/) with [PySyft library](https://github.com/OpenMined/PySyft/).
 
+Using PyTorch + PySyft, we are able to achieve Federated Learning model by making changes to **just 10 lines** of traditional CNN Pytorch model. So, cool!
 
+Here we create two clients, named Alice and Bob,
 
+```python
+import syft as sy  # <-- import the Pysyft library
+hook = sy.TorchHook(torch)  # <-- hook PyTorch ie add extra functionalities to support Federated Learning
+bob = sy.VirtualWorker(hook, id="bob")  # <-- define remote worker bob
+alice = sy.VirtualWorker(hook, id="alice")  # <-- and alice
+```
+
+We distribute the dataset across both the clients
+
+```python
+federated_train_loader = sy.FederatedDataLoader( # <-- this is now a FederatedDataLoader 
+    datasets.MNIST('../data', train=True, download=True,
+                   transform=transforms.Compose([
+                       transforms.ToTensor(),
+                       transforms.Normalize((0.1307,), (0.3081,))
+                   ]))
+    .federate((bob, alice)), #we distribute the dataset across all the workers, it's now a FederatedDataset
+    batch_size=args.batch_size, shuffle=True)
+```
+
+After training this for 10 rounds, we achieve same accuracy as by traditional CNN Pytorch Model and in very less time.
+
+🍻 Cheers to Privacy!
 
 <span class='orange'>Happy Learning!</span>
 
@@ -227,6 +264,8 @@ Must Read! [Communication-Efficient Learning of Deep Networks from Decentralized
 
 [Learning differentially private language models without losing accuracy](https://arxiv.org/pdf/1710.06963)
 
+[Netflix Dataset De-anonymization](https://www.cs.utexas.edu/~shmat/shmat_oak08netflix.pdf)
+
 [Practical Secure Aggregation for Privacy-Preserving Machine Learning](http://delivery.acm.org/10.1145/3140000/3133982/p1175-bonawitz.pdf)
 
 [Deep Learning with Differential Privacy](https://arxiv.org/pdf/1607.00133.pdf)
@@ -236,6 +275,8 @@ Must Read! [Communication-Efficient Learning of Deep Networks from Decentralized
 CleverHans blog [Privacy and ML](http://www.cleverhans.io/privacy/2018/04/29/privacy-and-machine-learning.html)
 
 [Differential Privacy and Machine Learning:a Survey and Review](https://arxiv.org/pdf/1412.7584v1.pdf)
+
+[LEAF: A Benchmark for Federated Settings](https://arxiv.org/abs/1812.01097)
 
 ---
 
