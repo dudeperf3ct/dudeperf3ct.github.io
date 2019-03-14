@@ -2,22 +2,27 @@
 layout:     post
 title:      Federated Learning and Privacy
 date:       2019-02-08 12:00:00
-summary:    This post will introduce Federated Learning and Privacy.
+summary:    This post will provide in-depth explaination to Federated Learning and Privacy.
 categories: federated learning privacy
-published : false
+published : true
 ---
 
 # Federated Learning and Privacy
 
 In this notebook, we will see if we can make use of Federated Learning to make our lives more private.
 
-> All the codes implemented in Jupyter notebook in [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/federated_learning/federated_learning_tensorflow.ipynb) and [PyTorch + PySyft Library](https://github.com/dudeperf3ct/DL_notebooks/blob/master/federated_learning/federated_learning_pysyft.ipynb)
+> All the codes implemented in Jupyter notebook in [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Federated%20Learning/federated_learning_tensorflow.ipynb) and [PyTorch + PySyft Library](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Federated%20Learning/federated_learning_pysyft.ipynb)
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
 Hey yo, but how?
 
 Well sit tight and buckle up. I will go through everything in-detail.
+
+<p align="center">
+<img src='/images/fl/amazon.png'/> 
+</p>
+
 
 Feel free to jump anywhere,
 
@@ -35,19 +40,14 @@ Feel free to jump anywhere,
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
-xkcd comic introudcing supervisied learning, unsupervised learning, rl and nlp tasks.
-
-where does this data come from .. invading privacy ... privacy ... hmmm what is that?
 
 # Federated Learning
 
-In the wake of recent events related to privacy invasion through varioys methods of data collections by large corporations, it's about time we think about alternatives about collecting data before more users become aware as to why are they getting such excellent vision, text prediction and recommendation systems. (Hint: by training on their data by invading their privacy, ringing any bells?) One such example is [Detectron](https://florian.github.io/federated-learning/) by Facebook trained on [3 billion images](https://code.facebook.com/posts/1700437286678763/advancing-state-of-the-art-image-recognition-with-deep-learning-on-hashtags/) from Instagram. This is what McMahan and group must have thought (coming from Google itself, a bit ironic isn't it?) and hence, they proposed a learning method through decentralised data in this [remarkable paper](https://arxiv.org/pdf/1602.05629.pdf) through decentralized approach termed as *Federated Learning*.
-
-Amazon graphics from Tamil whatsapp group
+In the wake of recent events related to privacy invasion through various methods of data collections by large corporations, it's about time we think about alternatives ways of collecting data before more users become aware as to why are they getting such excellent vision, text prediction and recommendation systems based on their recent watch history. (Hint: *by training on their data by invading their privacy, ringing any bells?*) One such example is [Detectron](https://florian.github.io/federated-learning/) by Facebook trained on [3 billion images](https://code.facebook.com/posts/1700437286678763/advancing-state-of-the-art-image-recognition-with-deep-learning-on-hashtags/) from Instagram. This is what McMahan and group must have thought (*coming from Google itself, a bit ironic isn't it?*) and hence, they proposed a learning method of using decentralised data in this [remarkable paper](https://arxiv.org/pdf/1602.05629.pdf) through decentralized approach termed as *Federated Learning*.
 
 <span class='purple'>Traditional learning algorithms learns on mountain loads of data gathered from many different users which is stored in some central server. Then, distributed learning model is created and trained on mountain loads of user data for months and months. After training, they come back to user promising that they have made their app more intelligent</span> (*without hinting: with help of your data, [so mean](https://www.youtube.com/watch?v=jYa1eI1hpDE)*).
 
-Federated Learning uses decentralized approach for training the model using the user (*privacy-sensitive*) data. <span class='saddlebrown'>In short, the traditional learning methods had approach to, "brining the data to code", instead of "code to data".</span>
+Federated Learning (FL) uses decentralized approach for training the model using the user (*privacy-sensitive*) data. <span class='saddlebrown'>In short, the traditional learning methods had approach of, "brining the data to code", instead of "code to data".</span> FL is all about the latter.
 
 ## How it Works?
 
@@ -58,11 +58,9 @@ Federated Learning uses decentralized approach for training the model using the 
 
 <span class='blue'>In series of rounds(of communication) server selectes K random users(clients) to participate in training. Each selected user downloads the current model from server and performs some number of local updates using its local training data ($$\mathbf{H}_{i}$$); for example it may perform single epoch of minibatch SGD. Then the users upload their model update – that is,the difference between the final parameters after training and the original parameters – and the server averages the contributions before accumulating them into the global model.</span>
  
-
 <p align="center">
 <img src='/images/fl/federated_learning_in_short.png' width="50%"/> 
 </p>
-
 
 Here is simple Federated Averaging algorithm which accumlated the updated from clients into global model.
 
@@ -99,7 +97,7 @@ Clearly, there is a quite of overhead in communication between client and server
 
 - **Sketeched Updates**
 
-In this method, each user calculates it's update after training on it's local data, and then before sending the updates to the server, the updates are compressed using a combination of [quantization](https://florian.github.io/probabilistic-quantization/), random rotations and subsampling.
+In this method, each user calculates it's update after training on it's local data, and then before sending the updates to the server, the updates are compressed using a combination of [quantization](https://florian.github.io/probabilistic-quantization/), random rotations and subsampling techniques outlined in the paper.
 
 - **Structured Updates**
 
@@ -123,14 +121,14 @@ This is the field where anonymity plays a very crucial. The consequences of actu
 We will look into one case study of improving suggestions on Gboard done at Google. Authors of the [paper](https://arxiv.org/pdf/1812.02903.pdf) used federated learning(FL) for search query suggestions on Gboard. The goal is to improve query click-through-rate (CTR) by taking suggestions from the baseline model and removing low quality suggestions through the triggering model.
 
 <p align="center">
-<img src='/images/fl/gboard.png' width="60%"/> 
+<img src='/images/fl/gboard.png' width="80%"/> 
 </p>
 
 The use case is to train a model that predicts whether query suggestions are useful, in order to filter out less relevant queries. The training data collected for this model by observing user interactions with the app: when surfacing a query suggestion to a user, a tuple(features; label) is stored in an on-device training cache, a SQLite based database. Here, features is collection of query and context related information and label is user action of {clicked, ignored}. This data is then used for on-device training and evaluation by servers. The model is trained typically at night time when phone is charging, idle and connected to WiFi network. 
 
-The *baseline model* is traditional server-based machine learning that generates query suggestion candidates by matching the user’s input to an on-device subset ofthe [Google Knowledge Graph](https://developers.google.com/knowledge-graph/) (KG). It then scores these suggestions using a [Long Short-Term Memory](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#lstm-network) network trained on an offline corpus of chat data to detect potential query candidates. This LSTM is trained to predict the KG category of a word in a sentence and returns higher scores when the KG category of the query candidate matches the expected category. The highest scoring candidate from the baseline model is selected and displayed as a query suggestion (an impression). The user then either clicks on or ignores the suggestion and users interaction is stored in on-device training cache to be used by FL for training.
+The *baseline model* is traditional server-based machine learning that generates query suggestion candidates by matching the user’s input to an on-device subset ofthe [Google Knowledge Graph](https://developers.google.com/knowledge-graph/) (KG). It then scores these suggestions using a [Long Short-Term Memory](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#lstm-network) network trained on an offline corpus of chat data to detect potential query candidates. This LSTM is trained to predict the KG category of a word in a sentence and returns higher scores when the KG category of the query candidate matches the expected category. The highest scoring candidate from the baseline model is selected and displayed as a query suggestion (an impression). The user then either *clicks on* or *ignores* the suggestion and users interaction is stored in on-device training cache to be used by FL for training.
 
-The task of the federated trained model is designed to take in the suggested query candidate from the baseline model, and determine if the suggestion should or should not be shown to the user. This FL model is *triggering model*. The output of model is a score for a given query, with higher scores meaning greater confidence in the suggestion.
+<span class='green'>The task of the federated trained model is designed to take in the suggested query candidate from the baseline model, and determine if the suggestion should or should not be shown to the user.</span> This FL model is *triggering model*. The output of model is a score for a given query, with higher scores meaning greater confidence in the suggestion.
 
 
 <p align="center">
@@ -153,13 +151,13 @@ Here is another application of [next word prediction](https://arxiv.org/pdf/1811
 
 # Privacy 
 
-Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*) It's no surprise that, <span class='blue'>*In Age of Internet, with great promises of personalization comes greater responsibility to privacy*</span>.(Thanks privacy vigilant Uncle Ben)
+Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*). It's no surprise that, <span class='blue'>*In Age of Internet, with great promises of personalization comes greater responsibility to privacy*</span>.(Thanks privacy vigilant Uncle Ben)
 
 <p align="center">
 <img src='/images/fl/apple.jpg' width="50%"/> 
 </p>
 
-Here is the template quote to put any buzzwords at the start, I will put Privacy and see if it makes sense,
+Here is the template quote to put any of your favourite buzzwords at the start, I will put Privacy and see if it makes sense,
 
 > Privacy is like teenage s**: everyone talks about it, nobody knows how to do it, everyone thinks everyone else is doing it & so claims to do it.
 
@@ -187,23 +185,22 @@ Secure Aggregation uses Secure Multi-Party Computation protocol that uses encryp
 
 Secure Aggregation is four-round interactive protocol enabled during the reporting phase of a given FL round shown above, which means it will grow quadratically with the number of users, most notably the computational cost for the server. In each protocol round, the server gathers messages from all devices in the FL round, then uses the set of device messages to compute an independent response (final aggregation) to return to each device. This protocol is robust to a significant fraction of devices dropping out which maybe the case where there is poor network connection or the phone is not idle anymore. The first two rounds constitute a <span class='saddlebrown'>Prepare phase</span>, in which shared secrets are established and during which devices who drop out will not have their updates included in the final aggregation. The third round constitutes a <span class='saddlebrown'>Commit phase</span>, during which devices upload cryptographically masked model updates and the server accumulates a sum of the masked updates. All devices who complete this round will have their model update included in the protocol’s final aggregate update, or else the entire aggregation will fail. The last round of the protocol constitutes a <span class='saddlebrown'>Finalization phase</span>, during which devices reveal sufficient cryptographic secrets to allow the server to unmask the aggregated model update. Not all committed devices are required to complete this round; so long as a sufficient number of the devices who started to protocol survive through the Finalization phase, the entire protocol succeeds.
 
-By using cryptography techniques, it is possible to ensure that the updates of individuals can only be read when enough users submitted updates. This makes man-in-the-middle attacks much harder: An attacker cannot make conclusions about the training data based on the intercepted network activity of an individual user.
+<span class='red'>By using cryptography techniques, it is possible to ensure that the updates of individuals can only be read when enough users submitted updates. This makes man-in-the-middle attacks much harder: An attacker cannot make conclusions about the training data based on the intercepted network activity of an individual user.</span>
 
 ## Differential Privacy
 
 <span class='blue'>Differential privacy techniques can be used in which each client adds a carefully calibrated amount of noise to their update to  mask their contribution to the learned model.</span> To avoid the disaster like Netflix join, differential privacy formalizes the idea that any query to database should not reveal any hints whether one person is present in dataset and what their data is. There are lot many techniques such as Randomized Response, Lapalace mechanism and [RAPPOR](https://github.com/google/rappor/). <span classs='blue'>In short, in Differential Privacy, privacy is guaranteed by the noise added to the answers.</span>
 
-Here is algorithm from [paper](https://arxiv.org/pdf/1607.00133.pdf) for Differentially private SGD,
+Here is algorithm for Differentially private SGD from [paper](https://arxiv.org/pdf/1607.00133.pdf),
 
 <p align="center">
 <img src='/images/fl/dp.png' width="50%"/> 
 </p>
 
-For more on Differential Privacy, [here](https://arxiv.org/pdf/1607.00133.pdf) is the paper, [Differential Privacy for dummies](https://robertovitillo.com/2016/07/29/differential-privacy-for-dummies/), Florian blog on [differential privacy](https://florian.github.io/differential-privacy/) and CleverHans has a good blog on introduction to [Privacy and ML](http://www.cleverhans.io/privacy/2018/04/29/privacy-and-machine-learning.html).
+For more on Differential Privacy, [here](https://arxiv.org/pdf/1607.00133.pdf) is the paper, [Differential Privacy for dummies](https://robertovitillo.com/2016/07/29/differential-privacy-for-dummies/), Florian blog excellent introduction on [differential privacy](https://florian.github.io/differential-privacy/) and CleverHans has a good blog on introduction to [Privacy and ML](http://www.cleverhans.io/privacy/2018/04/29/privacy-and-machine-learning.html).
 
 
 <span class='purple'>Both these approaches add communication and computation overhead, but that may be a trade-off worth making in highly sensitive contexts.</span>
-
 
 ---
 
