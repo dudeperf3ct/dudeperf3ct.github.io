@@ -7,6 +7,22 @@ categories: federated learning
 published : false
 ---
 
+
+Feel free to jump anywhere,
+
+- [Federated Learning](#preprocessing-text)
+  - [How it Works?](#how-it-works)
+  - [Compression](#compression)
+    - [Sketeched Updates](#sketeched-updates)
+    - [Structured Updates](#structured-updates)
+  - [Applications](#applications)
+  - [Federated Learning Case Study Gboard](#federated-learning-case-study-gboard)  
+- [Privacy](#privacy)
+  - [Secure Aggregation](#secure-aggregation)
+  - [Differential Privacy](#differential-privacy)
+- [Further Reading](#further-reading)
+- [Footnotes and Credits](#footnotes-and-credits)
+
 xkcd comic introudcing supervisied learning, unsupervised learning, rl and nlp tasks.
 
 where does this data come from .. invading privacy ... privacy ... hmmm what is that?
@@ -23,17 +39,24 @@ Federated Learning uses decentralized approach for training the model using the 
 
 ## How it Works?
 
-graphic from florian
+
+<p align="center">
+<img src='/images/fl/iteration.png'/> 
+</p>
 
 In series of rounds(of communication) server selectes K random users(clients) to participate in training. Each selected user downloads the current model from server and performs some number of local updates using its local training data ($$\mathbf{H}_{i}$$); for example it may perform single epoch of minibatch SGD. Then the users upload their model update – that is,the difference between the final parameters after training and the original parameters – and the server averages the contributions before accumulating them into the global model.
  
-one graphic from cloudera
+
+<p align="center">
+<img src='/images/fl/federated_learning_in_short.png' width="50%"/> 
+</p>
 
 
 Here is simple Federated Averaging algorithm which accumlated the updated from clients into global model.
 
-
-federated_averaging
+<p align="center">
+<img src='/images/fl/federated_averaging.png' width="50%"/> 
+</p>
 
 
 In what tasks is federated learning best suited.
@@ -92,7 +115,9 @@ This is the field where anonymity plays a very crucial. The consequences of actu
 
 We will look into one case study of improving suggestions on Gboard done at Google. Authors of the [paper](https://arxiv.org/pdf/1812.02903.pdf) used federated learning(FL) for search query suggestions on Gboard. The goal is to improve query click-through-rate (CTR) by taking suggestions from the baseline model and removing low quality suggestions through the triggering model.
 
-add-image
+<p align="center">
+<img src='/images/fl/gboard.png' width="50%"/> 
+</p>
 
 The use case is to train a model that predicts whether query suggestions are useful, in order to filter out less relevant queries. The training data collected for this model by observing user interactions with the app: when surfacing a query suggestion to a user, a tuple(features; label) is stored in an on-device training cache, a SQLite based database. Here, features is collection of query and context related information and label is user action of {clicked, ignored}. This data is then used for on-device training and evaluation by servers. The model is trained typically at night time when phone is charging, idle and connected to WiFi network. 
 
@@ -101,7 +126,9 @@ The baseline model is traditional server-based machine learning that generates q
 The task of the federated trained model is designed to take in the suggested query candidate from the baseline model, and determine if the suggestion should or should not be shown to the user. This FL model is triggering model. The output of model is  a score for a given query, with higher scores meaning greater confidence in the suggestion.
 
 
-add-image
+<p align="center">
+<img src='/images/fl/federated_learning.png' width="50%"/> 
+</p>
 
 Here are the steps that are performed in training and updating the global model,
 
@@ -121,7 +148,10 @@ Here is another application of [next word prediction](https://arxiv.org/pdf/1811
 
 Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*) It's no surprise that with, *In Age of Internet, with great promises of personalization comes greater responsibility to privacy*.(Thanks Uncle Ben from 2050 Universe)
 
-Apple poster of CES 2019
+
+<p align="center">
+<img src='/images/fl/apple.jpeg' width="50%"/> 
+</p>
 
 
 I will rephrase what Prof. Vivek Wadwa from CMU said about Artificial Intelligence in terms of Privacy,
@@ -135,6 +165,10 @@ In contrast to traditional approach of uploading data to server, FL approach has
 
 A simple join between an anonymized datasets and one of many publicly available, non-anonymized ones, can re-identify anonymized data. What do I mean by that, let me explain with classic example of Netflix.
 
+
+<p align="center">
+<img src='/images/fl/privacy.png' width="50%"/> 
+</p>
 
 Is the data communicated through federated learning really anonymous and secured? There are primarily two methods, namely secure aggregation and differential privacy to ensure that the data communicated stays anonymized. 
 
@@ -150,6 +184,12 @@ By using cryptography techniques, it is possible to ensure that the updates of i
 ## Differential Privacy
 
 Differential privacy techniques can be used in which each client adds a carefully calibrated amount of noise to their update to  mask their contribution to the learned model. To avoid the disaster like Netflix join, differential privacy formalizes the idea that any query to database should not reveal any hints whether one person is present in dataset and what their data is. There are lot many techniques such as Randomized Response, Lapalace mechanism and [RAPPOR](https://github.com/google/rappor/). In short, in Differential Privacy, privacy is guaranteed by the noise added to the answers.
+
+Here is the algorithm from [paper](https://arxiv.org/pdf/1607.00133.pdf) for SGD,
+
+<p align="center">
+<img src='/images/fl/dp.png' width="50%"/> 
+</p>
 
 For more on Differential Privacy, [here](https://arxiv.org/pdf/1607.00133.pdf) is the paper, [Differential Privacy for dummies](https://robertovitillo.com/2016/07/29/differential-privacy-for-dummies/), Florian blog on [differential privacy](https://florian.github.io/differential-privacy/) and CleverHans has a good blog on introduction to [Privacy and ML](http://www.cleverhans.io/privacy/2018/04/29/privacy-and-machine-learning.html).
 
