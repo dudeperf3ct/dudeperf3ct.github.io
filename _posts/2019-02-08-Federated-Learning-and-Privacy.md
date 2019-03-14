@@ -41,7 +41,7 @@ Federated Learning uses decentralized approach for training the model using the 
 
 
 <p align="center">
-<img src='/images/fl/iteration.png'/> 
+<img src='/images/fl/iteration.png' width="50%"/> 
 </p>
 
 In series of rounds(of communication) server selectes K random users(clients) to participate in training. Each selected user downloads the current model from server and performs some number of local updates using its local training data ($$\mathbf{H}_{i}$$); for example it may perform single epoch of minibatch SGD. Then the users upload their model update – that is,the difference between the final parameters after training and the original parameters – and the server averages the contributions before accumulating them into the global model.
@@ -127,7 +127,7 @@ The task of the federated trained model is designed to take in the suggested que
 
 
 <p align="center">
-<img src='/images/fl/federated_learning.png' width="50%"/> 
+<img src='/images/fl/federated_learning.png' width="80%"/> 
 </p>
 
 Here are the steps that are performed in training and updating the global model,
@@ -150,7 +150,7 @@ Privacy, the one word which is promised by everyone but delievered by ... (*I wi
 
 
 <p align="center">
-<img src='/images/fl/apple.jpeg' width="50%"/> 
+<img src='/images/fl/apple.jpg' width="50%"/> 
 </p>
 
 
@@ -185,7 +185,7 @@ By using cryptography techniques, it is possible to ensure that the updates of i
 
 Differential privacy techniques can be used in which each client adds a carefully calibrated amount of noise to their update to  mask their contribution to the learned model. To avoid the disaster like Netflix join, differential privacy formalizes the idea that any query to database should not reveal any hints whether one person is present in dataset and what their data is. There are lot many techniques such as Randomized Response, Lapalace mechanism and [RAPPOR](https://github.com/google/rappor/). In short, in Differential Privacy, privacy is guaranteed by the noise added to the answers.
 
-Here is Differential Privacy algorithm from [paper](https://arxiv.org/pdf/1607.00133.pdf) for SGD,
+Here is algorithm from [paper](https://arxiv.org/pdf/1607.00133.pdf) for Differentially private SGD,
 
 <p align="center">
 <img src='/images/fl/dp.png' width="50%"/> 
@@ -244,7 +244,15 @@ CleverHans blog [Privacy and ML](http://www.cleverhans.io/privacy/2018/04/29/pri
 
 [Federated Averaging Algorithm](https://arxiv.org/pdf/1602.05629.pdf)
 
-[Apple CES billboard](https://www.cnet.com/news/apple-turns-up-at-ces-2019-in-the-snarkiest-way-possible/)
+[Federated Learning overview](https://florian.github.io/federated-learning/)
+
+[Gboard](https://arxiv.org/pdf/1812.02903.pdf) and [Federated Learning protocol](https://arxiv.org/pdf/1902.01046.pdf)
+
+[Federated Learning in short graphics and privacy](https://blog.fastforwardlabs.com/2018/11/14/federated-learning.html)
+
+[Apple CES billboard](https://www.sfgate.com/business/article/Apple-burns-Google-in-giant-billboard-touting-13513745.php)
+
+[Differentially private SGD Algorithm](https://arxiv.org/pdf/1607.00133.pdf)
 
 ---
 
