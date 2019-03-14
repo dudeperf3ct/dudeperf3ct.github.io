@@ -142,7 +142,7 @@ Here are the steps that are performed in training and updating the global model,
 
 4. The server incorporates these ephemeral updates are aggregated using the <span class='saddlebrown'>Federated Averaging algorithm</span> into its global state, and the process repeats until convergence. Upon convergence, a trained checkpoint is used to create and deploy a model to clients for inference.
 
-This is one such example demonstrating end-to-end training in FL with decentralized data. *We all love end-to-end learning tasks, don't we?*.
+This is one such example demonstrating end-to-end training in FL with decentralized data. *We all love end-to-end learning tasks, don't we?*
 
 Here is another application of [next word prediction](https://arxiv.org/pdf/1811.03604.pdf) which we had seen in [RNN](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/) before, where federation learning can be used. <span class='orange'>Important result obtained is board is neural language model trained using FL demonstrated better performance than a model trained with traditional server-based collection and training.</span>
 
