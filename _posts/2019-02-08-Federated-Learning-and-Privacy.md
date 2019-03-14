@@ -1,9 +1,9 @@
 ---
 layout:     post
-title:      Differential Privacy and Federated Learning
+title:      Federated Learning and Privacy
 date:       2019-02-08 12:00:00
-summary:    This post will introduce Federated Learning and Differential Privacy.
-categories: federated learning
+summary:    This post will introduce Federated Learning and Privacy.
+categories: federated learning privacy
 published : false
 ---
 
@@ -138,7 +138,7 @@ Here are the steps that are performed in training and updating the global model,
 
 3. Each participant then performs a local computation based on the global state and its local dataset, and sends an update in the form of an FL checkpoint back to the server.
 
-4. The server incorporates these ephemeral updates are aggregated using the Federated Averaging algorithm  into its global state, and the process repeats until convergence. Upon convergence, a trained checkpoint isused to create and deploy a model to clients for inference.
+4. The server incorporates these ephemeral updates are aggregated using the Federated Averaging algorithm  into its global state, and the process repeats until convergence. Upon convergence, a trained checkpoint is used to create and deploy a model to clients for inference.
 
 This is one such example demonstrating end-to-end training in FL with decentralized data.
 
@@ -146,7 +146,7 @@ Here is another application of [next word prediction](https://arxiv.org/pdf/1811
 
 # Privacy 
 
-Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*) It's no surprise that with, *In Age of Internet, with great promises of personalization comes greater responsibility to privacy*.(Thanks Uncle Ben from 2050 Universe)
+Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*) It's no surprise that with, *In Age of Internet, with great promises of personalization comes greater responsibility to privacy*.(Thanks privacy vigilant Uncle Ben)
 
 
 <p align="center">
@@ -185,7 +185,7 @@ By using cryptography techniques, it is possible to ensure that the updates of i
 
 Differential privacy techniques can be used in which each client adds a carefully calibrated amount of noise to their update to  mask their contribution to the learned model. To avoid the disaster like Netflix join, differential privacy formalizes the idea that any query to database should not reveal any hints whether one person is present in dataset and what their data is. There are lot many techniques such as Randomized Response, Lapalace mechanism and [RAPPOR](https://github.com/google/rappor/). In short, in Differential Privacy, privacy is guaranteed by the noise added to the answers.
 
-Here is the algorithm from [paper](https://arxiv.org/pdf/1607.00133.pdf) for SGD,
+Here is Differential Privacy algorithm from [paper](https://arxiv.org/pdf/1607.00133.pdf) for SGD,
 
 <p align="center">
 <img src='/images/fl/dp.png' width="50%"/> 
@@ -206,12 +206,6 @@ What all talk no code?
 
 
 <span class='orange'>Happy Learning!</span>
-
----
-
-### Note: Caveats on terminology
-
-
 
 
 ---
