@@ -24,7 +24,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 
-- [Federated Learning](#preprocessing-text)
+- [Federated Learning](#federated-learning)
   - [How it Works?](#how-it-works)
   - [Compression](#compression)
     - [Sketeched Updates](#sketeched-updates)
