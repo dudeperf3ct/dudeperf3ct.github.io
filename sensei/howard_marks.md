@@ -51,7 +51,7 @@ It is our job as contrarians to catch falling knives, hopefully with care and sk
 
 We can make excellent investment decisions on the basis of present observations, with no need to make guesses about the future. If great investors like Marks, Buffett, Munger, Lynch etc. can’t make macro forecasts, do you think economists can? If you do believe they can, “Where are the economists’ yachts?"
 
-The first lesson I learnt at Wharton was you can't tell the quality of decisions from its outcome.
+<span class='blue'>The first lesson I learnt at Wharton was you can't tell the quality of decisions from its outcome.</span>
 
 Dave Swenson says in his book that superior investing requires the adoption of uncomfortably idiosyncratic positions. And those two words are fabulous because if you want to be superior investor even if you want to avoid horrible mistakes by definition you must invest differently from the herd. You must invest idiosyncratically. But by definition these idiosyncratic positions are uncomfortable, why? Because markets goes upwards, every stock is getting more valuable everyday, you say it's overpriced, you get out, it continues higher. Everybody is making money telling you what an idiot you are to get out. There's a book about bubbles and crashes by Charles Kindleberger, he says there is nothing worse your equilibrium to watch a friend get rich. Nobody ever identified an overpriced assest and got out only to see if go down the other day. General rule, overpriced assets become more overpriced and you have to be able to live with that comfortably.
 
@@ -104,6 +104,8 @@ Imagine if you were a baseball player, you have five trips to the plate and you 
 The greatest thing I was ever taught was back around ’73 or ’74. Somebody said, “I’m going to tell you about the three stages of the bull market. In the first stage, just a few incredibly insightful people understand that there could be improvement. In the second stage, most people recognize that improvement is actually taking place. In the third stage, everybody and his brother believes that things will only get better forever.” 
 
 Investing is the only place where people buy less when things go on sale, and I think this is really important for investors and especially new investors to realize. Even Buffet says, “I like hamburgers. And when the hamburgers go on sale, I eat more hamburgers.” 
+
+I think I’ve been the luckiest person on the planet. And I think it was to that that people were responding. But I get into arguments with people and a lot of people say, “Oh—!” Well, what started the article is, I read a piece that quoted some Silicon Valley guy who says, “Success is never accidental. You make your own luck.” And I don’t agree. I think luck is a real thing and it’s important and it’s inherently unfair, but that’s life.
 
 Quotes
 ===========================
