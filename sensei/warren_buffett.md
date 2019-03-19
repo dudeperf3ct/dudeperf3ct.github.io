@@ -86,6 +86,8 @@ Fear is incredibly contagious. Confidence comes back through the door one at a t
 
 If you don't find a way to make money while you sleep, you will work until you die.
 
+A business should be viewed as an unfolding movie, not as a still photograph text.
+
 Stories
 ===========================
 
