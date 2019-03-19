@@ -117,7 +117,7 @@ Fortunately it isn’t that tough because 80 or 90 important models will carry a
 
 Generally I have found two things you should never do in your life, <span class='red'> one is never feel sorry for yourself (never ever), and other thing you never want to have is envy. That's the only of the deadly sins, you're never going to have fun at all. Pick one of others! </span>
 
-Always invert.
+Always invert. ~ Carl Jacobi
 
 Every missed chance in life was an opportunity to behave well, to learn something.
 
@@ -152,6 +152,8 @@ All the wisdom in the world is not to be found in one little academic department
 Go to bed smarter than when you woke up.
 
 Every era, it is a cinch that a great nation will, in due time, be ruined.
+
+Cognition, misled by tiny changes involving low contrast, will often miss a trend that is destiny.
 
 
 Stories
