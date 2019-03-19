@@ -2,7 +2,7 @@
 layout:     post
 title:      Power of Transfer Learning in NLP
 date:       2019-02-22 12:00:00
-summary:    This post will provide a brief introduction to world of NLP through embeddings, vectorization and steps in processing text. We will also walk-through some of the very popular architecture like LSTM, GRU and Bidirectional-LSTM and demonstrate it's power through the application of sentiment analysis of IMDB dataset.
+summary:    This post will provide a brief introduction 
 categories: nlp transfer learning
 published : false
 ---
