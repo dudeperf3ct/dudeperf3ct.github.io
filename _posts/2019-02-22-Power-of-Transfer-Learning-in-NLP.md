@@ -163,14 +163,16 @@ SoTA in 3 out of 7 tasks, well that's  a good start with using CoVe pretrained v
 
 ### What this means?
 
-Replacing the good ol' GloVe, Word2vec and fastText with CoVe seems to do a good job at the tasks where context matters. Training a custom pretrained CoVe model is also simple. Just take any unlabelled data corresponding to task at hand (e.g. Amazon Review for SST or IMDB 50,000 unlabelled reviews for IMDb sentiment analysis task) pass it through encoder (MT-LSTM) to generate CoVe word vector and we can use that CoVe pretrained vector along with GloVe vector as initial embedding model and use that train for specific task like sentiment analysis, Question Answering, Machine Translation, etc. The more data we use to train the MT-LSTM, the more pronounced the improvement, which seems to be complementary to improvements that come from using other forms of pretrained vector representations.
+Replacing the good ol' GloVe, Word2vec and fastText with CoVe seems to do a good job at the tasks where context matters. Training a custom pretrained CoVe model is also simple. Just take any unlabelled data corresponding to task at hand (e.g. Amazon Review for SST or IMDB 50,000 unlabelled reviews for IMDb sentiment analysis task) pass it through encoder (MT-LSTM) to generate CoVe word vector in supervised fashion and we can use that CoVe pretrained vector along with GloVe vector as initial embedding model and use that train for specific task like sentiment analysis, Question Answering, Machine Translation, etc. The more data we use to train the MT-LSTM, the more pronounced the improvement, which seems to be complementary to improvements that come from using other forms of pretrained vector representations.
 
 -general_cove.png
 
-
-Here there is disadavantage of using only avaliable data for generating pretrained CoVe embedding. (*no large unsupervisied dataset which are everywhere*)
+Here there is disadavantage of using only avaliable data for generating pretrained CoVe embedding using supervised training of encoder-decoder architecture. (*no large unsupervisied dataset which are everywhere, supervised learning requires labels too*)
 
 ## ELMO
+
+Hi, my name is ELMO and I will overcome the limitation by generating contextual embeddings in an unsupervised fashion.
+
 
 
 
@@ -227,6 +229,8 @@ Here there is disadavantage of using only avaliable data for generating pretrain
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
 [Meme src](https://twitter.com/gregd_nlp/status/1096244878600818693)
+
+[ELMO](https://twitter.com/elmo)
 
 
 ---
