@@ -8,7 +8,7 @@ published : false
 ---
 
 
-# Long-Short Term Memory and Gated Recurrent Unit
+# Transfer Learning in NLP
 
 In this notebook, .
 
@@ -23,9 +23,22 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 
-- [](#)
+- [](#nlp-tasks)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
+
+# NLP Tasks
+
+### POS
+
+
+### NER
+
+
+### QA
+
+
+### Coreference 
 
 
 
@@ -45,6 +58,43 @@ Feel free to jump anywhere,
 
 
 <span class='red'>I-know-everything:</span> 
+
+The [embedding models](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#embeddings) which we disscused earlier like [word2vec](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#word2vec), [GLoVe](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#glove) and [fastText](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#fasttext) are fantastic in capturing meaning of individual words and their relationships by leveraging large datasets. These model generate word vectors of n-dimension which is used by neural network as starting point of training. The word vectors can be initialized to lists of random numbers before a model is trained for a specific task, or initialized with word vectors obtained from above embedding models.
+
+
+
+
+
+## CoVe
+
+In NLP tasks, context matters. That is, understanding context is very essential to all NLP tasks as words rarely appear in isolation. One such example is in Question Answering where understanding of how words in question shift the importance of words in document or in Summarization where model needs to understand which words capture the context clearly to summarize succinctly. The ability to share a common representation of words in the context of sentences that include them could further improve transfer learning in NLP. This is where CoVe comes into play which transfers information from large amounts of unlabeled training data in the form of word vectors has shown to improve performance over random word vector initialization on a variety of downstream tasks e.g. POS, NER and QA. 
+
+
+
+
+
+
+## ELMO
+
+
+
+## ULMFiT
+
+
+
+
+## GPT
+
+
+
+## BERT
+
+
+
+
+## GPT-2
+
+
 
 
 
