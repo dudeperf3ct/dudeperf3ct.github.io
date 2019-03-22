@@ -191,6 +191,8 @@ ELMo word representations are function of entire input sentence and are computed
 
 - **Bidirectional Language Model**
 
+-elmo_bilm.png
+
 Given a sequence of N tokens, ($$t_{1}, t_{2}, ..., t_{N}$$) forward language model(LM) computes the probability of sequence by modelling the probability of token $$t_{k}$$ given history ($$t_{1}, t_{2}, ..., t_{k-1}$$):
 
 $$
@@ -199,7 +201,7 @@ p(t_{1}, t_{2}, ..., t_{N}) = \prod_{k=1}^{N}p(t_{k} \mid t_{1}, t_{2}, ..., t_{
 \end{aligned}
 $$
 
-Given a sequence of N tokens, ($$t_{1}, t_{2}, ..., t_{N}$$) backward language model(LM) computes the probability of sequence by modelling the probability of token $$t_{k}$$ given history ($$t_{k+1}, t_{k+2}, ..., t_{N}$$):
+Given a sequence of N tokens, ($$t_{1}, t_{2}, ..., t_{N}$$) backward language model(LM) computes the probability of sequence by modelling the probability of predicting previous token $$t_{k}$$ given future context ($$t_{k+1}, t_{k+2}, ..., t_{N}$$):
 
 $$
 \begin{aligned}
@@ -215,7 +217,14 @@ $$
 \end{aligned}
 $$
 
-ELMo uses two layer biLM where each biLM layer consists of one forward pass and one backward pass that scans the sentence in both directions. 
+Here $$\Theta_{x}$$ and $$\Theta_{s}$$ are embedding layers and softmax layers. Overall, this formulation is similar to the approach of CoVe, with the exception that we share some weights between directions instead of using completely independent parameters. The internal states of forward pass at a certain word reflect the word itself and what has happened before that word, whereas similar can be concluded for backward pass where word itself and what has happened after that word gets reflected. These two passes are concatenated to get intermediate word vector of that word. Therefore, this intermediate word vector at that word is still the representation of what the word means, but it "knows" what is happening (i.e. captures the essence or context) in the rest of the sentence and how the word is used.
+
+-elmo_bilstm.png
+
+ELMo uses two layer biLM where each biLM layer consists of one forward pass and one backward pass that scans the sentence in both directions. ELMo is a task specific combination of the intermediate layer representations in the biLM. 
+
+
+
 
 
 
