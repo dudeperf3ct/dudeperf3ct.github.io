@@ -154,6 +154,10 @@ $$
 
 Here $$p(y_{t} \mid H,y_{1},y_{2}, …,y_{t-1})$$ is a probability distribution over output words.
 
+### TL;DR
+
+
+
 ### Results
 
 Hmm, that seems simple process but what about results? Was is it SOTA breaker?
@@ -190,6 +194,8 @@ ELMo stands for Embeddings from Language Models. ELMo is a word representation t
 ELMo word representations are function of entire input sentence and are computed on top of two biLM with character convolutions.
 
 - **Bidirectional Language Model**
+
+A language model is an NLP model which learns to predict the next word in a sentence. For instance, if your mobile phone keyboard guesses what word you are going to want to type next, then it’s using a language model. The reason this is important is because for a language model to be really good at guessing what you’ll say next, it needs a lot of world knowledge (e.g. “I ate a hot” → “dog”, “It is very hot” → “weather”), and a deep understanding of grammar, semantics, and other elements of natural language.
 
 -elmo_bilm.png
 
@@ -247,6 +253,13 @@ Finally, ELMo uses character CNN (convolutional neural network) for computing th
 
 Study of "what information is captured by biLM representations" section of [paper](https://arxiv.org/pdf/1802.05365.pdf) indicate that syntactic information is better represented at lower layers while semantic information is captured by higher layers. Because different layers tend to carry different type of information, stacking them together helps.
 
+[Masato Hagiwara](http://www.realworldnlpbook.com/blog/improving-sentiment-analyzer-using-elmo.html) points out difference between biLM and biLSTM clearly,
+ 
+<span class='red'>A word of caution: the biLM used by ELMo is different from biLSTM although they are very similar. biLM is just a concatenation of two LMs, one forward and one backward. biLSTM, on the other hand, is something more than just a concatenation of two spearate LSTMs. The main difference is that in biLSTM, internal states from both directions are concatenated before they are fed to the next layer, while in biLM, internal states are just concatenated from two independently-trained LMs.</span>
+
+### TL;DR
+
+
 ### Results
 
 Well, ELMo certainly outperforms CoVe and emerges as new SOTA at all the 6 tasks with relative error reductions ranging from 6 - 20%. 
@@ -256,16 +269,79 @@ Well, ELMo certainly outperforms CoVe and emerges as new SOTA at all the 6 tasks
 
 ### What this means?
 
+Here is one the results from context embedding of biLM.
+
+-bilm_example.png
+
+Notice how biLM s able to disambiguate both the part of speech and word sense in the source sentence of word "play" than glove counterpart which has fixed neighbours no matter the context.
+
+ELMo improves task performance over word vectors as the biLM’s contextual representations encodes information generally useful for NLP tasks that is not captured in word vectors.
+
 Once pretrained, the biLM can compute representations for any task. In some cases, fine tuning the biLM on domain specific data leads to significant drops in perplexity and an increase in down-stream task performance. 
 
-Given a pretrained LM and a supervised architecture for a target NLP task, it is a simple processto use the biLM to improve the task model. We simply run the biLM and record all of the layer representations for each word. Then, we let the end task model learn a linear combination of these representations.
+Given a pretrained LM and a supervised architecture for a target NLP task, it is a simple process to use the biLM to improve the task model. We simply run the biLM and record all of the layer representations for each word. Then, we let the end task model learn a linear combination of these representations.
 
-To add ELMo to the supervised model, we first freeze the weights of the biLM and then
+To add ELMo to the supervised model, we first freeze the weights of the biLM and then concatenate the ELMo vector $$\text{ELMo}^{task}$$ with $$x_{k}$$ and pass the ELMo enhanced representation [$$x_{k}; \text{ELMo}^{task}$$] into task RNN.
 
 
 ## ULMFiT
 
+The [paper](https://arxiv.org/pdf/1801.06146.pdf) by [Jermey Howard]() and [Sebestain Ruder](http://twitter.com/seb_ruder/) proposes a transfer learning method in NLP similar to the one which we saw in our previous blog on [Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/) on images. *So cool!*
 
+There was a simple transfer learning technique involved in fine-tuning pretrained word embeddings and also approaches of ELMo and CoVe that concatenate embeddings derived from other tasks with the input at different layers but that only targets model's first layer barely scratching the surface of model for finetuning as seen in Computer Vision. The authors argued that not the idea of LM fine-tuning but our lack of knowledge of how to train them effectively has been hindering wider adoption. 
+
+
+### How it Works?
+
+Universal Language Model Fine-tuning (ULMFiT) is the model that addresses the issues mentioned above and enables robust inductive transfer learning for any NLP task.
+
+-ulmfit.png
+
+ULMFiT consists of three stages: 
+
+1. **General-domain LM pretraining** : Typical routine for creating pretraining vision models is to train on very large corpus of data (ImageNet size) and then use that freezed model as starting base model for finetuning. Similarly, Wikitext-103 consisting of 28,595 preprocessed Wikipedia articles and 103 million words is used to pretrain a language model. A language model as we discussed in ELMo section learns to predict next word in sentence. This prediction task makes language model more efficient in understanding grammar, semantics and other elements of corpus it is trained on. The base pretrained language model model is [AWD-LSTM](http://nlpprogress.com/english/language_modeling.html) described in another [paper](https://arxiv.org/pdf/1708.02182.pdf) by group at Salesforce, Merity et al. This is only step that needs to be performed once (to obtain pretrained model on large corpus) and is expensive step.
+
+2. **Target task LM fine-tuning** :  As we know that data on target task and general-domain data used for pretraining can be different (come from a different distribution). This step will finetune LM data on target data. As noted above in lack of knowledge on how to train effectively is holding this process of transfer learning in nlp. To stabilize finetuning process, the authors propose two methods : a) Discriminative fine-tuning  and b) Slanted Triangular learning rates.
+
+a) **Discriminative fine-tuning** : We have seen in [visualizing layer](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/) how different layers capture different types of information and also in biLM in ELMo. In Discriminative fine-tuning, each layer is updated using different learning rate {$$\eta^{1}, ..\eta^{L}$$}  for L layers in model where $$\eta^{l}$$ is learning rate of l-th layer. In practise, choosing the learning rate $$eta^{L}$$ of the last layer by fine-tuning only the last layer and using $$eta^{l-1}$$ = $$eta^{l}$$/2.6 as the learning rate for lower layers is found to work well.
+
+
+b) **Slanted Triangular learning rates**: Using the same learning rate (LR) or an annealed learning rate throughout training is not the best way to achieve this behaviour. Instead, authors propose slanted triangular learning rates(STLR), which first linearly increases the learning rate and then linearly decays it according to the following update schedule.
+
+-slr.png
+
+where T is number of iteration (number of epochs x number of updates per epoch) and *cut_frac* is the fraction of iterations we increase the LR *cut* is the iteration when we switch fromincreasing to decreasing the LR, p is the fraction of the number of iterations we have increased or will decrease the LR respectively, ratio specifies how much smaller the lowest LR is from the maximum LR $$\eta_{max}$$ and $$\eta_{t}$$ is learning rate at iteration t. In practise, ratio = 32, *cut_frac* = 0.1 and $$\eta_{max}$$ = 0.01 is used.
+
+3. **Target task classifier fine-tuning** : 
+
+For finetuning classifier, pretrained language model is augmented with two additional linear blocks, a) concat pooling and gradual b) unfreezing.
+
+a) **Concat pooling**:  The authors state that as input document can consist of hundreds of words, information may get lost if we only consider the last hidden state of the model. For this reason, we concatenate the hidden state at the last time step $$h_{T}$$ of the document with both the max-pooled and the mean-pooled representation of the hidden states over as many time steps as fit in GPU memory. If $$\mathcal{H}$$ = [h_{1},...,h_{T}]$$, then $$h_{c} = [h_{T}, \text{maxpool}(\mathcal{H}), \text{meanpool}(\mathcal{H})]$$.
+
+
+b) **Gradual Unfreezing**: Rather than fine-tuning all layers at once, which may result in catastrophic forgetting, authors propose gradual unfreezing starting from last layer as it contains least amount of information. The steps involved are: We first unfreeze the last layer and fine-tune all unfrozen layers for one epoch. We then unfreeze the next lower frozen layer and repeat, until we fine-tune all layers until convergence at the last iteration. 
+
+### TL;DR
+
+
+
+
+### Results
+
+-jph_tweet.png
+
+ULMFiT method significantly outperforms the SOTA on six text classification tasks, reducing the error by 18-24% on the majority of datasets. 
+
+-ulmfit_result_1.png
+
+-ulmfit_result_2.png
+
+
+### What this means?
+
+Ooooh, this is very exiciting. SoTA on everything! Take my money already.
+
+ULMFiT shows one of the best approaches to tackling difficult problem through concatinating different methods into one. Transfer Learning has certainly change Computer Vision field and this method surely opens the door for similar breakthroughs in NLP field.
 
 
 ## GPT
@@ -300,6 +376,8 @@ To add ELMo to the supervised model, we first freeze the weights of the biLM and
 
 [ELMo](https://arxiv.org/pdf/1802.05365.pdf)
 
+[ELMo blog by Masato Hagiwara](http://www.realworldnlpbook.com/blog/improving-sentiment-analyzer-using-elmo.html)
+
 [ULMFiT]()
 
 [GPT]()
@@ -319,6 +397,9 @@ To add ELMo to the supervised model, we first freeze the weights of the biLM and
 
 [ELMO](https://twitter.com/elmo)
 
+[ELMo biLM](http://www.realworldnlpbook.com/blog/improving-sentiment-analyzer-using-elmo.html)
+
+[ELMo biLSTM](https://lilianweng.github.io/lil-log/2019/01/31/generalized-language-models.html)
 
 ---
 
