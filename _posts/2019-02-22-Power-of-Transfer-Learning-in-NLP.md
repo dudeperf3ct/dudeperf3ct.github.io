@@ -156,7 +156,7 @@ Here $$p(y_{t} \mid H,y_{1},y_{2}, …,y_{t-1})$$ is a probability distribution 
 
 ### Results
 
-Hmm, that seems simple process but what about results? Was is it SoTA breaker?
+Hmm, that seems simple process but what about results? Was is it SOTA breaker?
 
 -cove_results.png
 
@@ -165,7 +165,7 @@ Here CoVe+GLove means that we take the GloVe sequence, run it through a pretrain
 -cove_results_1.png
 
 
-SoTA in 3 out of 7 tasks, well that's  a good start with using CoVe pretrained vectors.
+SOTA in 3 out of 7 tasks, well that's  a good start with using CoVe pretrained vectors.
 
 -cove_results_overall.png
 
@@ -232,7 +232,7 @@ $$
 
 where $$h_{k, 0}^{LM}$$ is embedding layer $$h_{k, j}^{LM} = [\overset{\rightarrow}h_{k,j}^{LM} ; \overset{\leftarrow}h_{k,j}^{LM}]$$, for each biLSTM layer.
 
-For inclusion in a downstream model, ELMO collapses all layer in R into a single vector,
+For inclusion in a downstream model, ELMo collapses all layer in $$\mathcal{R}$$ into a single vector,
 
 $$
 \begin{aligned}
@@ -243,15 +243,24 @@ $$
 
 where $$s^{task}$$ are softmax-normalized weights and the scalar parameter $$\gamma^{task}$$ allows the task model to scale the entire ELMo vector.
 
+Finally, ELMo uses character CNN (convolutional neural network) for computing those raw word embeddings that get fed into the first layer of the biLM. The input to the biLM is computed purely from characters (and combinations of characters) within a word, without relying on some form of lookup tables like we had in case of [word2vec](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#word2vec) and [glove](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#glove). This type of character n-gram were seen in [fastText](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#fasttext) embeddings and are very much known for their way of handling OOV (out of vocabulary) words. Thus, ELMo embeddings can handle OOV in efficient manner.
+
+Study of "what information is captured by biLM representations" section of [paper](https://arxiv.org/pdf/1802.05365.pdf) indicate that syntactic information is better represented at lower layers while semantic information is captured by higher layers. Because different layers tend to carry different type of information, stacking them together helps.
 
 ### Results
 
-Well, this certainly outperforms CoVe. 
+Well, ELMo certainly outperforms CoVe and emerges as new SOTA at all the 6 tasks with relative error reductions ranging from 6 - 20%. 
+
+-elmo_results.png
 
 
 ### What this means?
 
+Once pretrained, the biLM can compute representations for any task. In some cases, fine tuning the biLM on domain specific data leads to significant drops in perplexity and an increase in down-stream task performance. 
 
+Given a pretrained LM and a supervised architecture for a target NLP task, it is a simple processto use the biLM to improve the task model. We simply run the biLM and record all of the layer representations for each word. Then, we let the end task model learn a linear combination of these representations.
+
+To add ELMo to the supervised model, we first freeze the weights of the biLM and then
 
 
 ## ULMFiT
