@@ -24,6 +24,12 @@ Well sit tight and buckle up. I will go through everything in-detail.
 Feel free to jump anywhere,
 
 - [](#nlp-tasks)
+- [CoVe](#cove)
+- [ELMo](#elmo)
+- [ULMFiT](#ulmfit)
+- [GPT](#gpt)
+- [BERT](#bert)
+- [GPT-2](#gpt-2)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -219,7 +225,7 @@ A bidirectional language model consists of forward LM and backward LM and combin
 
 $$
 \begin{aligned}
-\mathcal{L} = \sum_{k=1}^{N}(log (p(t_{k} \mid t_{1}, t_{2}, ..., t_{k-1}); \Theta_{x},  \overset{\rightarrow}\Theta_\text{LSTM}, \Theta_{s}) \\ + log (p(t_{k} \mid t_{k+1}, t_{k+2}, ..., t_{N}); \Theta_{x},  \overset{\leftarrow}\Theta_\text{LSTM}, \Theta_{s}))
+\mathcal{L}_{LM} = \sum_{k=1}^{N}(log (p(t_{k} \mid t_{1}, t_{2}, ..., t_{k-1}); \Theta_{x},  \overset{\rightarrow}\Theta_\text{LSTM}, \Theta_{s}) \\ + log (p(t_{k} \mid t_{k+1}, t_{k+2}, ..., t_{N}); \Theta_{x},  \overset{\leftarrow}\Theta_\text{LSTM}, \Theta_{s}))
 \end{aligned}
 $$
 
@@ -288,7 +294,7 @@ To add ELMo to the supervised model, we first freeze the weights of the biLM and
 
 The [paper](https://arxiv.org/pdf/1801.06146.pdf) by [Jermey Howard]() and [Sebestain Ruder](http://twitter.com/seb_ruder/) proposes a transfer learning method in NLP similar to the one which we saw in our previous blog on [Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/) on images. *So cool!*
 
-There was a simple transfer learning technique involved in fine-tuning pretrained word embeddings and also approaches of ELMo and CoVe that concatenate embeddings derived from other tasks with the input at different layers but that only targets model's first layer barely scratching the surface of model for finetuning as seen in Computer Vision. The authors argued that not the idea of LM fine-tuning but our lack of knowledge of how to train them effectively has been hindering wider adoption. 
+There was a simple transfer learning technique involved in fine-tuning pretrained word embeddings and also approaches of ELMo and CoVe that concatenate embeddings derived from other tasks with the input at different layers but that only targets model's first layer barely scratching the surface of model for finetuning as seen in Computer Vision. These approaches mainly transfer word-level information instead of transferring high-level semantics. The authors argued that not the idea of LM fine-tuning but our lack of knowledge of how to train them effectively has been hindering wider adoption. 
 
 
 ### How it Works?
@@ -346,6 +352,69 @@ ULMFiT shows one of the best approaches to tackling difficult problem through co
 
 ## GPT
 
+The group at OpenAI proposed a new method [GPT](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf) large gains on various nlp tasks can be realized by generative pretraining of a language model on a diverse corpus of unlabeled text, followed by discriminative fine-tuning on each specific task. The main goal of paper was to learn a universal representation that transfers with little adaptation to a wide range of tasks.
+
+
+### How it works?
+
+GPT is short for Generative Pretraining Transformers.
+
+GPT training procedure consists of two steps:
+
+- **Unsupervised pretraining**
+
+GPT similar to ELMo uses a standard language model, where instead of using biLM model i.e. both forward and backward direction, GPT uses only forward direction and the model architecture is multi-layer Transformer decoder adapted from this [paper](https://arxiv.org/pdf/1801.10198.pdf) for language model. This model applies multiple transformer blocks over the embeddings of input sequences. Each block contains a masked multi-headed self-attention layer and a pointwise feed-forward layer. The final output produces a distribution over target tokens after softmax normalization.
+
+$$
+\begin{aligned}
+h_{0} & = UW_{e} + W_{p} \\
+h_{l} &  = transformer\_block(h_{l-1}) \\
+P(u) &  = softmax(h_{n}W_{e}^{T}) \\
+\end{aligned}
+$$
+
+where W_{e} is token embedding matrix, W_{p} is position embedding matrix, n is number of layers and U = ($$U_{-k}... U_{-1}$$) is the context vector of tokens.
+
+The objective to maximize as seen in ELMo will be the only forward direction of biLM.
+
+
+$$
+\begin{aligned}
+\mathcal{L}_{LM} = \sum_{k=1}^{N}(log (p(t_{k} \mid t_{1}, t_{2}, ..., t_{k-1}))
+\end{aligned}
+$$
+
+[Byte Pair Encoding](https://arxiv.org/pdf/1508.07909) (BPE) is used to encode the input sequences. Motivated by the intuition that rare and unknown words can often be decomposed into multiple subwords, BPE finds the best word segmentation by iteratively and greedily merging frequent pairs of characters.
+
+-gpt_transformer.png
+
+- **Semi-supervised learning for NLP**
+
+After training with objective $$\mathcal{L}_{LM}$$, the inputs where each instance consists of a sequence of input tokens, $$x^{1}, x^{2} ..., x^{m}$$ along with label y are passed through our pretrained model to obtain the final transformer block’s activation $$h_{l}^{m}$$ which is then fed into an added linear output layer with parameters $$W_{y}$$ to predict y:
+
+$$
+\begin{aligned}
+(P(y \mid x^{1}, x^{2}, ..., x^{m}) & = softmax(h_{l}^{m}W_{y}) \\
+\mathcal{L}_{C} &  = \sum_{(x,y)}^{}(log (P(y \mid x^{1}, x^{2}, ..., x^{m})) \\
+\mathcal{L}_{total} &  = \mathcal{L}_{C} + \lambda * \mathcal{L}_{LM}
+\end{aligned}
+$$
+
+GPT gets rid of any task-specific customization when applying across various tasks.
+
+
+### TL;DR
+
+
+### Results
+
+That's a lot of results.
+
+
+
+
+### What this means?
+
 
 
 ## BERT
@@ -378,9 +447,17 @@ ULMFiT shows one of the best approaches to tackling difficult problem through co
 
 [ELMo blog by Masato Hagiwara](http://www.realworldnlpbook.com/blog/improving-sentiment-analyzer-using-elmo.html)
 
-[ULMFiT]()
+[ULMFiT](https://arxiv.org/pdf/1801.06146.pdf)
 
-[GPT]()
+[Fastai blog on ULMFiT](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html)
+
+[Attention is All You Need](https://arxiv.org/pdf/1511.01432)
+
+[Semi-supervised Sequence Learning](https://arxiv.org/pdf/1511.01432)
+
+[GPT](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)
+
+[Byte Pair Encoding](https://arxiv.org/pdf/1508.07909)
 
 [BERT]()
 
