@@ -211,11 +211,11 @@ A bidirectional language model consists of forward LM and backward LM and combin
 
 $$
 \begin{aligned}
-\mathcal{L} = \sum_{k=1}^{N}(log (p(t_{k} \mid t_{1}, t_{2}, ..., t_{k-1}); \Theta{}))
+\mathcal{L} = \sum_{k=1}^{N}(log (p(t_{k} \mid t_{1}, t_{2}, ..., t_{k-1}); \Theta_{x},  \overset{\rightarrow}\Theta_\text{LSTM}, \Theta_{s}) \\ + log (p(t_{k} \mid t_{k+1}, t_{k+2}, ..., t_{N}); \Theta_{x},  \overset{\leftarrow}\Theta_\text{LSTM}, \Theta_{s}))
 \end{aligned}
 $$
 
-ELMo uses two layer biLM where each layer consists of one forward pass and one backward pass that scans the sentence in both directions.
+ELMo uses two layer biLM where each biLM layer consists of one forward pass and one backward pass that scans the sentence in both directions. 
 
 
 
