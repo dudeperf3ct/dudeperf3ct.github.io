@@ -221,11 +221,27 @@ Here $$\Theta_{x}$$ and $$\Theta_{s}$$ are embedding layers and softmax layers. 
 
 -elmo_bilstm.png
 
-ELMo uses two layer biLM where each biLM layer consists of one forward pass and one backward pass that scans the sentence in both directions. ELMo is a task specific combination of the intermediate layer representations in the biLM. 
+ELMo uses two layer biLM where each biLM layer consists of one forward pass and one backward pass that scans the sentence in both directions. ELMo is a task specific combination of the intermediate layer representations in the biLM. For each token $$t_{k}$$, a L-layer biLM computes a set of L+1 representations:
 
+$$
+\begin{aligned}
+\mathcal{R}_{k} & = \{x_{k}^{LM}, \overset{\rightarrow}h_{k,j}^{LM} ,\overset{\leftarrow}h_{k,j}^{LM} \mid j=1,2,...,L\} \\
+& = \{h_{k, j}^{LM} \mid j = 0,1,2,...,L\}
+\end{aligned}
+$$
 
+where $$h_{k, 0}^{LM}$$ is embedding layer $$h_{k, j}^{LM} = [\overset{\rightarrow}h_{k,j}^{LM} ; \overset{\leftarrow}h_{k,j}^{LM}]$$, for each biLSTM layer.
 
+For inclusion in a downstream model, ELMO collapses all layer in R into a single vector,
 
+$$
+\begin{aligned}
+\text{ELMo}_{k}^{task} & = E[\mathcal{R}_{k}; \Theta^{task}]\\
+& = \gamma^{task} \sum_{j=0}^{L}s_{j}^{task}h_{k, j}^{LM}
+\end{aligned}
+$$
+
+where $$s^{task}$$ are softmax-normalized weights and the scalar parameter $$\gamma^{task}$$ allows the task model to scale the entire ELMo vector.
 
 
 ## ULMFiT
