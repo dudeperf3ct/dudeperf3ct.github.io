@@ -27,7 +27,11 @@ Feel free to jump anywhere,
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
-# NLP Tasks
+## NLP Tasks
+
+
+### Sentiment analysis
+
 
 ### POS
 
@@ -35,10 +39,14 @@ Feel free to jump anywhere,
 ### NER
 
 
-### QA
+### Textual entailment
 
 
-### Coreference 
+### Coreference resolution
+
+
+
+### Question Answering
 
 
 
@@ -61,7 +69,7 @@ Feel free to jump anywhere,
 
 The [embedding models](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#embeddings) which we disscused earlier like [word2vec](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#word2vec), [GLoVe](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#glove) and [fastText](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#fasttext) are fantastic in capturing meaning of individual words and their relationships by leveraging large datasets. These model generate word vectors of n-dimension which is used by neural network as starting point of training. The word vectors can be initialized to lists of random numbers before a model is trained for a specific task, or initialized with word vectors obtained from above embedding models.
 
-
+A word is assigned the same vector representation no matter where it appears and how it's used, because word embeddings rely on just a look-up table. In other word, they ignore polysemy — a concept that words can have multiple meanings. 
 
 
 
@@ -169,10 +177,45 @@ Replacing the good ol' GloVe, Word2vec and fastText with CoVe seems to do a good
 
 Here there is disadavantage of using only avaliable data for generating pretrained CoVe embedding using supervised training of encoder-decoder architecture. (*no large unsupervisied dataset which are everywhere, supervised learning requires labels too*)
 
-## ELMO
+## ELMo
 
-Hi, my name is ELMO and I will overcome the limitation by generating contextual embeddings in an unsupervised fashion.
+Hi, my name is ELMo and I will overcome the limitation of CoVe by generating contextual embeddings in an unsupervised fashion.
 
+-elmo.png
+
+ELMo stands for Embeddings from Language Models. ELMo is a word representation technique proposed by [AllenNLP](https://arxiv.org/pdf/1802.05365.pdf)
+
+### How it Works?
+
+ELMo word representations are function of entire input sentence and are computed on top of two biLM with character convolutions.
+
+- **Bidirectional Language Model**
+
+Given a sequence of N tokens, ($$t_{1}, t_{2}, ..., t_{N}$$) forward language model(LM) computes the probability of sequence by modelling the probability of token $$t_{k}$$ given history ($$t_{1}, t_{2}, ..., t_{k-1}$$):
+
+$$
+\begin{aligned}
+p(t_{1}, t_{2}, ..., t_{N}) = \prod_{k=1}^{N}p(t_{k} \mid t_{1}, t_{2}, ..., t_{k-1})
+\end{aligned}
+$$
+
+Given a sequence of N tokens, ($$t_{1}, t_{2}, ..., t_{N}$$) backward language model(LM) computes the probability of sequence by modelling the probability of token $$t_{k}$$ given history ($$t_{k+1}, t_{k+2}, ..., t_{N}$$):
+
+$$
+\begin{aligned}
+p(t_{1}, t_{2}, ..., t_{N}) = \prod_{k=1}^{N}p(t_{k} \mid t_{k+1}, t_{k+2}, ..., t_{N})
+\end{aligned}
+$$
+
+A bidirectional language model consists of forward LM and backward LM and combines both a forward and backward LM. This model is trained to minimize the negative log likelihood (= maximize the log likelihood for true words) of forward and backward directions:
+
+$$
+\begin{aligned}
+\mathcal{L} = \sum_{k=1}^{N}(log (p(t_{k} \mid t_{1}, t_{2}, ..., t_{k-1}); \Theta{}))
+\end{aligned}
+$$
+
+ELMo uses two layer biLM where each layer consists of one forward pass and one backward pass that scans the sentence in both directions.
 
 
 
@@ -211,15 +254,15 @@ Hi, my name is ELMO and I will overcome the limitation by generating contextual 
 
 [CoVe](https://arxiv.org/pdf/1708.00107.pdf)
 
-[ELMO]
+[ELMo](https://arxiv.org/pdf/1802.05365.pdf)
 
-[ULMFiT]
+[ULMFiT]()
 
-[GPT]
+[GPT]()
 
-[BERT]
+[BERT]()
 
-[GPT-2]
+[GPT-2]()
 
 ---
 
