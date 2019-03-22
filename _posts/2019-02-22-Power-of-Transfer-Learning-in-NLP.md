@@ -244,6 +244,16 @@ $$
 where $$s^{task}$$ are softmax-normalized weights and the scalar parameter $$\gamma^{task}$$ allows the task model to scale the entire ELMo vector.
 
 
+### Results
+
+Well, this certainly outperforms CoVe. 
+
+
+### What this means?
+
+
+
+
 ## ULMFiT
 
 
