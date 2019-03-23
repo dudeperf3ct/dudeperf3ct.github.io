@@ -491,7 +491,7 @@ Understanding and choosing correct hyperparameters(*there are too many*) can mak
 
 Hold on, here comes the result. BERT outperforms previous SOTA in 11 tasks. Yay!! Go, BERT.
 
-
+-bert_results.png
 
 ### What this means?
 
@@ -507,16 +507,56 @@ Look who shows up at showdown in between GPT and BERT, GPT's big brother GPT-2. 
 
 GPT-2 is a large transformer-based language model with 1.5 billion parameters (10x more than GPT), trained on a dataset of 8 million web pages. GPT-2 is trained with a simple objective: predict the next word, given all of the previous words within some text.
 
+The authors state that the paper] from Google AI which performed Multi-task Learning on .. tasks required supervision but language modeling, in principle is able to learn such task without the need for explicit supervision. Authors perform preliminary experiments to confirm that sufficiently large language models are able to perform multitask learning in toyish setup but learning is much slower than in explicitly supervised approaches. 
+
+The internet contains a vast amount of information that is passively available without the need for interactive communication like in dialog or QA tasks. Authors speculate that a language model with sufficient capacity will begin to learn to infer and  perform the tasks demonstrated in natural language sequences in order to better predict them, regardless of their method of procurement. If a language model is able to do this it will be, in effect, performing unsupervised multitask learning. Authors propose using Zero-shot Transfer by pretraining a language model on various tasks and conditioning tasks along with input to get task-specific output, p(*output*|*input*,*task*) instead of finetuning for seperate tasks where for each task the conditional probability is p(*output*|*input*). 
+
+- **Zero-shot Transfer** : GPT-2 learns it's language model on diverse dataset in order to collect natural language demonstrations of tasks in as varied of domains and contexts as possible. While preprocessing LM, authors state that current byte-level LMs are not competitive with word-level LMs on large scale datasets. They modify BPE (Byte Pair encoding) to combine benefits word-level LM with the generality of byte-level approaches. 
+
+- **Byte Pair Encoding** : 
+
+BPE merges frequently co-occurred byte pairs in a greedy manner. To prevent it from generating multiple versions of common words (i.e. dog., dog! and dog? for the word dog), GPT-2 prevents BPE from merging characters across categories (thus dog would not be merged with punctuations like ., ! and ?). This tricks improves the compression efficiency while adding only minimal fragmentation of words across multiple vocab tokens.
+
+
+GPT-2 follows similar Transformer architecture used in GPT. The model details is largely similar to GPT model with a few modifications: Layer normalization was moved to  the input of each sub-block, similar to a pre-activation residual network and an additional layer normalization was added after the final self-attention block, a modified initialization was constructed as a function of the model depth, scaling the weights of residual layers at initialization by a factor of $$1/ \sqrt{N}$$ where N is the number of residual layers. The vocabulary is expanded to 50,257, and also increase the context size from 512 to 1024 tokens and a larger batch size of 512 is used.
+
+**Downstream Tasks**
+
+- **Text Generation** : Text generation is standard given pretrained LM. Here is one example of text generation
+
+-gpt_2_text.png
+
+*So real but not real! or is it?*
+
+- **Summarization** : Adding TL;DR after articles produces summary.
+
+-gpt_2_summary.png
+
+- **Machine Translation** : Using conditional probability of target language, translation is obtained. For e.g. for translating English to Chinese P(? | I like green apples. = 我喜欢绿苹果。 A cat meows at him. = 一只猫对他喵。It is raining cats and dogs. =") will give the translation of "It is raining cats and dogs." in Chinese.
+
+-gpt_2_translate.png
+
+
+- **Question Answering** : Similar to translation, pairs of question and answer and context can be conditioned to give the answer for required question.
+
+-gpt_2_qa.png
+
+
 ### TL;DR
 
 
 
 ### Results
 
-I bet results would be SOTA and they are on 7 tasks out of 8.
+I bet results would be SOTA and they are, on 7 tasks out of 8.
 
+-gpt_2_results.png
 
 ### What this means?
+
+Just training LM (*no task-specific finetuning*) that is all it took. Results are mind (*into tiny pieces*) blowing.
+
+
 
 
 
@@ -547,15 +587,19 @@ I bet results would be SOTA and they are on 7 tasks out of 8.
 
 [Semi-supervised Sequence Learning](https://arxiv.org/pdf/1511.01432)
 
+[Byte Pair Encoding](https://arxiv.org/pdf/1508.07909)
+
 [GPT](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)
 
-[Byte Pair Encoding](https://arxiv.org/pdf/1508.07909)
+[OpenAI GPT Blog](https://blog.openai.com/language-unsupervised/)
 
 [BERT](https://arxiv.org/pdf/1810.04805.pdf)
 
 [Google AI blog BERT](https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html)
 
-[GPT-2]()
+[GPT-2](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
+
+[OpenAI GPT-2 Blog](https://openai.com/blog/better-language-models/)
 
 ---
 
