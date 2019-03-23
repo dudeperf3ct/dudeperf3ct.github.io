@@ -357,7 +357,7 @@ The group at OpenAI proposed a new method [GPT](https://s3-us-west-2.amazonaws.c
 
 ### How it works?
 
-GPT is short for Generative Pretraining Transformers.
+GPT is short for Generative Pretraining Transformers. GPT uses a combination of unsupervised pretraining and supervised fine-tuning. 
 
 GPT training procedure consists of two steps:
 
@@ -376,7 +376,6 @@ $$
 where W_{e} is token embedding matrix, W_{p} is position embedding matrix, n is number of layers and U = ($$U_{-k}... U_{-1}$$) is the context vector of tokens.
 
 The objective to maximize as seen in ELMo will be the only forward direction of biLM.
-
 
 $$
 \begin{aligned}
@@ -400,22 +399,31 @@ $$
 \end{aligned}
 $$
 
-GPT gets rid of any task-specific customization when applying across various tasks.
+GPT gets rid of any task-specific customization or any hyperparameter tuning when applying across various tasks. If the task input contains multiple sentences, a special delimiter token ($) is added between each pair of sentences. The embedding for this delimiter token is a new parameter we need to learn, but it should be pretty minimal. All transformations include adding randomly initialized start and end tokens (〈s〉,〈e〉).
+
+-gpt_rid.png
+
 
 
 ### TL;DR
 
+- 
+
 
 ### Results
 
-That's a lot of results.
+That's a lot of results. GPT significantly improves upon the SOTA in 9 out of the 12 tasks.
+
+-gpt_result.png
 
 
 
 
 ### What this means?
 
+By pretraining on a diverse corpus with long stretches of contiguous text our model acquires significant world knowledge and ability to process long-range dependencies which are then successfully transferred to solving discriminative tasks such as question answering, semantic similarity assessment, entailment determination, and text classification, improving the state of the art.
 
+One limitation of GPT is its uni-directional nature — the model is only trained to predict the future left-to-right context.
 
 ## BERT
 
