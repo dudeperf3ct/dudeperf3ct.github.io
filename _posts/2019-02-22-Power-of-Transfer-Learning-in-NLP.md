@@ -446,7 +446,9 @@ Here are the differences in pretraining model architectures. BERT uses bidirecti
 
 The authors argue that GPT used left-to-right architecture on standard langauge model is limiting in choice and a deep  bidirectional model is strictly more powerful than either a left-to-right model (GPT) or the shallow concatenation of a left-to-right and right-to-left model (ELMo). The authors propose a new language model with new objective: "masked language model"(MLM) and "next sentence prediction".
 
-Input to BERT is composed of 3 parts: 
+Input to BERT is composed of multiple parts: (i) Token Embeddings Use of [WordPiece](https://arxiv.org/pdf/1609.08144.pdf) embeddings with a 30,000 token vocabulary and denote split word pieces with ## (ii) Position Embeddings: learned positional embeddings with supported sequence lengths upto 512 tokens (iii) The first token of every  sequence is always the special classification embedding([CLS]) (iv) Segment Embeddings: Sentence pairs are packed together into a single sequence.  We differentiate the sentences in two ways. First, we separate them  with a special token ([SEP]). Second, we add a learned sentence A embedding to every token of the first sentence and a sentence B embedding to every token of the second sentence, and for single-sentence inputs we only use the sentence A embeddings.
+ 
+BERT's input representation is constructed by summing the corresponding token, segment and position embeddings.
 
 -bert_input.png
 
@@ -458,8 +460,11 @@ a) **Task #1: Masked LM**: Here we mask some percentage of the input tokens at r
 
 b) **Task #2: Next Sentence Prediction**: In order to train a model that understands sentence relationships which can be useful for downstream tasks such as Question Answering (QA) and Natural Language Inference (NLI), we train a model to capture this relationship in language model. When choosing sentence A and B for each pretraining example, 50% of time B is actual next sentence that follows A, and 50% of time it is a random sentence from corpus. The final pretrained model achieves 97%-98% accuracy at this task.
 
-- **Finetuning Procedure**
+- **Finetuning Procedure**: For classification task, we take the final hidden state (i.e. the output of Transformer) for the first token in input which is special token [CLS], $$h_{L}^{CLS}$$, and multiply it with weight matrix of classification layer $$W_{CLS}$$ which is the only added parameter during fine-tuning. Then the label probabilities is applying standard softmax which is $$P = softmax(h_{L}^{CLS} W_{CLS}^{T})$$. For other downstream tasks, following figure explains some task-specific modification to be made.
 
+-bert_cls_1.png
+
+-bert_cls_2.png
 
 
 ### TL;DR
@@ -514,7 +519,9 @@ Hold on, here comes the result. BERT outperforms previous SOTA in 11 tasks. Yay!
 
 [Byte Pair Encoding](https://arxiv.org/pdf/1508.07909)
 
-[BERT]()
+[BERT](https://arxiv.org/pdf/1810.04805.pdf)
+
+[Google AI blog BERT](https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html)
 
 [GPT-2]()
 
