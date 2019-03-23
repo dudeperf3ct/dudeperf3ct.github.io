@@ -292,10 +292,9 @@ To add ELMo to the supervised model, we first freeze the weights of the biLM and
 
 ## ULMFiT
 
-The [paper](https://arxiv.org/pdf/1801.06146.pdf) by [Jermey Howard]() and [Sebestain Ruder](http://twitter.com/seb_ruder/) proposes a transfer learning method in NLP similar to the one which we saw in our previous blog on [Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/) on images. *So cool!*
+The [paper](https://arxiv.org/pdf/1801.06146.pdf) by [Jermey Howard](http://twitter.com/jeremyphoward/) and [Sebestain Ruder](http://twitter.com/seb_ruder/) proposes a transfer learning method in NLP similar to the one which we saw in our previous blog on [Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/) on images. *So cool!*
 
 There was a simple transfer learning technique involved in fine-tuning pretrained word embeddings and also approaches of ELMo and CoVe that concatenate embeddings derived from other tasks with the input at different layers but that only targets model's first layer barely scratching the surface of model for finetuning as seen in Computer Vision. These approaches mainly transfer word-level information instead of transferring high-level semantics. The authors argued that not the idea of LM fine-tuning but our lack of knowledge of how to train them effectively has been hindering wider adoption. 
-
 
 ### How it Works?
 
@@ -373,7 +372,7 @@ P(u) &  = softmax(h_{n}W_{e}^{T}) \\
 \end{aligned}
 $$
 
-where W_{e} is token embedding matrix, W_{p} is position embedding matrix, n is number of layers and U = ($$U_{-k}... U_{-1}$$) is the context vector of tokens.
+where $$W_{e}$$ is token embedding matrix, $$W_{p}$$ is position embedding matrix, n is number of layers and U = ($$U_{-k}... U_{-1}$$) is the context vector of tokens.
 
 The objective to maximize as seen in ELMo will be the only forward direction of biLM.
 
@@ -423,9 +422,30 @@ That's a lot of results. GPT significantly improves upon the SOTA in 9 out of th
 
 By pretraining on a diverse corpus with long stretches of contiguous text our model acquires significant world knowledge and ability to process long-range dependencies which are then successfully transferred to solving discriminative tasks such as question answering, semantic similarity assessment, entailment determination, and text classification, improving the state of the art.
 
-One limitation of GPT is its uni-directional nature — the model is only trained to predict the future left-to-right context.
+One limitation of GPT is its unidirectional nature — the model is only trained to predict the future left-to-right context.
 
 ## BERT
+
+Yo myself, BERT. I will improve the shortcomings of GPT.
+
+-bert.png
+
+
+### How this works?
+
+
+
+
+### TL;DR
+
+
+
+### Results
+
+
+
+
+### What this means?
 
 
 
