@@ -417,22 +417,48 @@ That's a lot of results. GPT significantly improves upon the SOTA in 9 out of th
 
 
 
-
 ### What this means?
 
-By pretraining on a diverse corpus with long stretches of contiguous text our model acquires significant world knowledge and ability to process long-range dependencies which are then successfully transferred to solving discriminative tasks such as question answering, semantic similarity assessment, entailment determination, and text classification, improving the state of the art.
+By pretraining on a diverse corpus with long stretches of contiguous text our model acquires significant world knowledge and ability to process long-range dependencies which are then successfully transferred to solving discriminative tasks such as question answering, semantic similarity assessment, entailment determination, and text classification, improving the state of the art. The advantage of this approach is few parameters need to be learned from scratch.
 
 One limitation of GPT is its unidirectional nature — the model is only trained to predict the future left-to-right context.
+
+**Note**: Harvard NLP group has excellent [blog](http://nlp.seas.harvard.edu/2018/04/03/attention.html) detailing the paper "Attention is All You Need" which describes the Transformer architecture used by GPT and BERT. *So cool*. 
 
 ## BERT
 
 Yo myself, BERT. I will improve the shortcomings of GPT.
 
--bert.png
+-bert.jpg
 
 
 ### How this works?
 
+BERT stands for Bidirectional Encoder Representations for Transformers. [BERT](https://arxiv.org/pdf/1810.04805.pdf) is designed by group at Google AI Language to pretrain deep bidirectional representations by jointly conditioning on both left and right context in all layers. With adding different output layers to pretrained BERT, this model can be used for various nlp tasks.  
+
+We have seen two strategies for applying pretrained language representations to downstream tasks : feature-based and fine-tuning. ELMo is example of feature-based where various task-specific architectures are used as additional features and GPT is example of fine-tuning which has minimal task-specific parameters is trained on the downstream tasks by simply fine-tuning the pre-trained  parameters.
+
+-diff.png
+
+Here are the differences in pretraining model architectures. BERT uses bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-left LSTM to generate features for downstream tasks.  BERT Transformer uses  bidirectional  self-attention, while the GPT Transformer uses constrained self-attention where every token can only attend to context to its left. In the literature the bidirectional Transformer is often referred to as a “Transformer encoder” while the left-context-only version is referred to as a “Transformer decoder” since it can be used for text generation.
+
+-bert_pretraining.png
+
+The authors argue that GPT used left-to-right architecture on standard langauge model is limiting in choice and a deep  bidirectional model is strictly more powerful than either a left-to-right model (GPT) or the shallow concatenation of a left-to-right and right-to-left model (ELMo). The authors propose a new language model with new objective: "masked language model"(MLM) and "next sentence prediction".
+
+Input to BERT is composed of 3 parts: 
+
+-bert_input.png
+
+Similar to GPT, BERT training takes place in two steps:
+
+- **Pretraining tasks**:  Unlike GPT, BERT's model architecture is multi-layer bidirectional Transformer encoder. To encourage the bidirectional prediction and sentence-level understanding, BERT is trained with two auxiliary tasks (masking random words and next sentence prediction) instead of the basic language task (that is, to predict the next token given context).
+
+a) **Task #1: Masked LM**: Here we mask some percentage of the input tokens at random, and then predict only those masked tokens. Consider for example sentence: *my dog is hairy*. Here, it chooses *hairy*. It randomly masks 15% of tokens in a sequence and rather than always replacing the chosen words with [MASK], the data generator will do the following: (i) Replace the word with [MASK] token 80% of time i.e. *my dog is hairy → my dog is [MASK]*, (ii) Replace the word with a random word 10% of time i.e. *my dog is hairy → my dog is apple*, (iii) Keep the word untouched 10% of time i.e. *my dog is hairy → my dog is hairy*. The purpose of this is to bias the representation towards  the actual observed word. The Transformer encoder does not know which words it  will be asked to predict or which have been replaced by random words. This forces LM to keep a distributional contextual representation of every input token.
+
+b) **Task #2: Next Sentence Prediction**: In order to train a model that understands sentence relationships which can be useful for downstream tasks such as Question Answering (QA) and Natural Language Inference (NLI), we train a model to capture this relationship in language model. When choosing sentence A and B for each pretraining example, 50% of time B is actual next sentence that follows A, and 50% of time it is a random sentence from corpus. The final pretrained model achieves 97%-98% accuracy at this task.
+
+- **Finetuning Procedure**
 
 
 
@@ -442,6 +468,7 @@ Yo myself, BERT. I will improve the shortcomings of GPT.
 
 ### Results
 
+Hold on, here comes the result. BERT outperforms previous SOTA in 11 tasks. Yay!! Go, BERT.
 
 
 
