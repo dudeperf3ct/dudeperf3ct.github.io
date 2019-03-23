@@ -348,6 +348,14 @@ Ooooh, this is very exiciting. SoTA on everything! Take my money already.
 
 ULMFiT shows one of the best approaches to tackling difficult problem through concatinating different methods into one. Transfer Learning has certainly change Computer Vision field and this method surely opens the door for similar breakthroughs in NLP field.
 
+Before procedding to GPT and BERT, it is necessary to understand Transformer architecture properly introduced in paper "[Attention is All You Need](https://arxiv.org/pdf/1706.03762)". Here are recommended very cool resources other than paper to get you started
+
+**Note**: [Dissceting Bert](https://medium.com/dissecting-bert) on medium dissects BERT and Transformer, for in-depth understanding BERT Encoder look here [part-1](https://medium.com/dissecting-bert/dissecting-bert-part-1-d3c3d495cdb3) and [part-2](https://medium.com/dissecting-bert/dissecting-bert-part2-335ff2ed9c73), Decoder of Transformer architecture look [here](https://medium.com/dissecting-bert/dissecting-bert-appendix-the-decoder-3b86f66b0e5f). 
+
+**Note**: [keitakurita](http://mlexplained.com/author/admin/)  does a great job in dissecting the paper on the [blog](http://mlexplained.com/2017/12/29/attention-is-all-you-need-explained/).
+
+**Note**: Harvard NLP group has excellent [blog](http://nlp.seas.harvard.edu/2018/04/03/attention.html) detailing the paper "Attention is All You Need" which describes the Transformer architecture used by GPT and BERT with implementation details.
+
 
 ## GPT
 
@@ -423,7 +431,6 @@ By pretraining on a diverse corpus with long stretches of contiguous text our mo
 
 One limitation of GPT is its unidirectional nature — the model is only trained to predict the future left-to-right context.
 
-**Note**: Harvard NLP group has excellent [blog](http://nlp.seas.harvard.edu/2018/04/03/attention.html) detailing the paper "Attention is All You Need" which describes the Transformer architecture used by GPT and BERT. *So cool*. 
 
 ## BERT
 
@@ -466,6 +473,15 @@ b) **Task #2: Next Sentence Prediction**: In order to train a model that underst
 
 -bert_cls_2.png
 
+Understanding and choosing correct hyperparameters(*there are too many*) can make or break BERT. So, we need to choose wisely. Paper outlines some experiements which I would encourage the curious readers to have a look.
+
+[Paper](https://arxiv.org/pdf/1810.04805.pdf) also outlines differences between BERT and GPT.
+
+- GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCorpus (800M words) and Wikipedia (2,500M words).
+- GPT uses a sentence separator ([SEP]) and classifier token ([CLS]) which are only introduced at fine-tuning time; BERT learns [SEP], [CLS] and sentence A/B embeddings during pre-training.
+- GPT was trained for 1M steps with a batchsize of 32,000 words; BERT was trained for 1M steps with a batch size of 128,000 words.
+- GPT used the same learning rate of 5e-5 for all fine-tuning experiments; BERT chooses a task-specific fine-tuning learning rate which performs the best on the development set.
+
 
 ### TL;DR
 
@@ -479,12 +495,28 @@ Hold on, here comes the result. BERT outperforms previous SOTA in 11 tasks. Yay!
 
 ### What this means?
 
+This means BERT is super cool, that's it! We can use pretrained [BERT models](https://github.com/google-research/bert#pre-trained-models) to finetune for specific tasks.
 
 
 
 ## GPT-2
 
+Look who shows up at showdown in between GPT and BERT, GPT's big brother GPT-2. OpenAI team introduces next version of GPT in the [paper](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf), GPT-2. 
 
+### How it Works?
+
+GPT-2 is a large transformer-based language model with 1.5 billion parameters (10x more than GPT), trained on a dataset of 8 million web pages. GPT-2 is trained with a simple objective: predict the next word, given all of the previous words within some text.
+
+### TL;DR
+
+
+
+### Results
+
+I bet results would be SOTA and they are on 7 tasks out of 8.
+
+
+### What this means?
 
 
 
