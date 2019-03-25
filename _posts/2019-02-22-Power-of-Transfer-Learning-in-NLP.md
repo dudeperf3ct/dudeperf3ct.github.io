@@ -23,7 +23,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 
-- [](#nlp-tasks)
+- [NLP Tasks and Dataset](#nlp-tasks-and-datasets)
 - [CoVe](#cove)
 - [ELMo](#elmo)
 - [ULMFiT](#ulmfit)
@@ -33,27 +33,168 @@ Feel free to jump anywhere,
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
-## NLP Tasks
+## NLP Tasks and Datasets
 
 
 ### Sentiment analysis
 
+**Task**
+
+Sentiment analysis is task of classifying polarity of given text.
+
+**Dataset**
+
+- [IMDb](https://ai.stanford.edu/~ang/papers/acl11-WordVectorsSentimentAnalysis.pdf)
+- [Stanford Sentiment Treebank (SST)](https://nlp.stanford.edu/sentiment/index.html)
+- [Yelp Review dataset](https://papers.nips.cc/paper/5782-character-level-convolutional-networks-for-text-classification.pdf)
+
+**Current SoTA** : [Sentiment Analysis](http://nlpprogress.com/english/sentiment_analysis.html)
+
+**Sample Example**
+
+Input Sentence: Avengers Endgame is the best movie. Kudos Russo brothers.
+
+Output: Positive (100%)
 
 ### POS
+
+**Task**
+
+A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads text in some language and assigns parts of speech to each word (and other token), such as noun, verb, adjective, etc.
+
+**Dataset**
+
+- [Penn Treebank](https://github.com/tomsercu/lstm/tree/master/data)
+- [Social Media](https://aclanthology.coli.uni-saarland.de/papers/D11-1141/d11-1141)
+- [Universal Dependencies (UD)](http://universaldependencies.org/) 
+
+**Current SoTA** : [Part-of-speech tagging](http://nlpprogress.com/english/part-of-speech_tagging.html)
+
+
+**Sample Example**
+
+Input Sentence: Apple is looking at buying U.K. startup for $1 billion
+
+Output
+
+![]  ![]
+
+**Note**: Output obtained from [spaCy POS Tagging](https://spacy.io/usage/linguistic-features#pos-tagging). Try now!
 
 
 ### NER
 
+**Task**
 
-### Textual entailment
+Named Entity Recognition (NER) labels sequences of words in a text which are the names of things, such as person and company names, or gene and protein names. 
+
+**Dataset**
+
+- [CoNLL 2003 NER task](http://www.aclweb.org/anthology/W03-0419.pdf)
+- [WNUT 2017 Emerging Entities task](http://aclweb.org/anthology/W17-4418)
+- [Ontonotes corpus v5](https://catalog.ldc.upenn.edu/docs/LDC2013T19/OntoNotes-Release-5.0.pdf) 
+
+**Current SoTA** : [Named entity recognition](http://nlpprogress.com/english/named_entity_recognition.html)
+
+**Sample Example**
+
+Input Sentence: Apple is looking at buying U.K. startup for $1 billion
+
+Output
+
+![]  ![]
+
+**Note**: Output obtained from [spaCy Named Entities](https://spacy.io/usage/linguistic-features#named-entities). Try now!
+
+Also, here is a live demo from Allennlp for [Named Entity Recognition](https://demo.allennlp.org/named-entity-recognition).
+
+
+### Textual Entailment
+
+**Task**
+
+Textual Entailment (TE) also known as Natural language inference (NLI) takes a pair of sentences and predicts whether the facts in the first necessarily imply the facts in the second one or task of determining whether a “hypothesis” is true (entailment), false (contradiction), or undetermined (neutral) given a “premise”.
+
+**Dataset**
+
+- [SNLI](https://nlp.stanford.edu/projects/snli/)
+- [MultiNLI](Multi-Genre Natural Language Inference (MultiNLI) corpus)
+- [SciTail](http://ai2-website.s3.amazonaws.com/publications/scitail-aaai-2018_cameraready.pdf) 
+
+**Current SoTA** : [Natural language inference](http://nlpprogress.com/english/natural_language_inference.html)
+
+
+**Sample Example**
+
+Input: 
+
+![]
+
+**Note**: Here is a live demo from Allennlp for [Textual Entailment](https://demo.allennlp.org/textual-entailment).
 
 
 ### Coreference resolution
 
 
+**Task**
+
+Coreference resolution is the task of finding all expressions that refer to the same entity in a text.
+
+For e.g. The trophy would not fit in the brown suitcase because it was too big (small). What was too big (small)?
+
+Answer 0: the trophy
+Answer 1: the suitcase 
+
+**Dataset**
+
+- [CoNLL-2012 shared task](http://www.aclweb.org/anthology/W12-4501)
+
+**Current SoTA** : [Coreference resolution](http://nlpprogress.com/english/coreference_resolution.html)
+
+**Sample Example**
+
+Input Sentence: The trophy would not fit in the brown suitcase because it was too big. What was too big? the trophy or the suitcase?
+
+**Note**: Here is a live demo from huggingface for [Coreference resolution](https://huggingface.co/coref/?text=The%20trophy%20would%20not%20fit%20in%20the%20brown%20suitcase%20because%20it%20was%20too%20big.%20What%20was%20too%20big%3F%20the%20trophy%20or%20the%20suitcase%3F). Also check [Winograd Challenge](http://commonsensereasoning.org/winograd.html).
+
+Here is a live demo from Allennlp for [Coreference resolution](https://demo.allennlp.org/coreference-resolution).
+
 
 ### Question Answering
 
+**Task**
+
+Reading comprehension or Question Answering is the task of answering questions about a passage of text to show that the system understands the passage
+
+**Dataset**
+
+- [AI2 Reasoning Challenge (ARC)](http://ai2-website.s3.amazonaws.com/publications/AI2ReasoningChallenge2018.pdf)
+- [ShARC](https://arxiv.org/abs/1809.01494)
+- [CliCR dataset](http://aclweb.org/anthology/N18-1140) 
+- [CNN / Daily Mail dataset](https://arxiv.org/abs/1506.03340)
+- [CoQA](https://arxiv.org/abs/1808.07042) 
+- [HotpotQA](https://hotpotqa.github.io/)
+- [MS MARCO](http://www.msmarco.org/leaders.aspx) 
+- [MultiRC](http://cogcomp.org/multirc/)
+- [NewsQA dataset](https://arxiv.org/pdf/1611.09830.pdf) 
+- Stanford Question Answering Dataset (SQuAD) [SQUAD 1.0](https://arxiv.org/abs/1606.05250) and [SQUAD 2.0](https://arxiv.org/abs/1806.03822)
+and many more!
+
+Check [nlpprogress](http://nlpprogress.com/english/question_answering.html) for complete list.
+
+
+**Current SoTA** : [Question Answering](http://nlpprogress.com/english/question_answering.html)
+
+
+**Sample Example**
+
+
+
+**Note**: Here is a live demo from Allennlp for [QA](https://demo.allennlp.org/reading-comprehension).
+
+
+
+There are many more challenges and [nlpprogess](http://nlpprogress.com/) provides a great overview of challenges and current SOTA for each challenge. Be sure to check it out!
 
 
 # Transfer Learning in NLP
