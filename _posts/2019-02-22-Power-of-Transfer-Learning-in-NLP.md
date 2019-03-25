@@ -58,9 +58,13 @@ Sentiment analysis is task of classifying polarity of given text.
 
 **Sample Example**
 
-Input Sentence: Avengers Endgame is the best movie. Kudos Russo brothers.
+- Input 
 
-Output: Positive (100%)
+Sentence: Avengers Endgame is the best movie. Kudos Russo brothers.
+
+- Output 
+
+Positive (100% accuracy) (sentiment)
 
 ### POS
 
@@ -79,18 +83,16 @@ A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads text in s
 
 **Sample Example**
 
-Input Sentence: Apple is looking at buying U.K. startup for $1 billion
+- Input 
 
-Output
+Sentence: Apple is looking at buying U.K. startup for $1 billion
 
-<!--
+- Output
+
 <p align="center">
-<img src='/images/tl_nlp/pos_ex.png' width="60%"/>
+<img src='/images/tl_nlp/pos_ex.png' width="40%"/>
 <img src='/images/tl_nlp/pos_ex_1.png' width="40%"/>
 </p>
--->
-
-![pos](/images/tl_nlp/pos_ex.png "pos") ![pos](/images/tl_nlp/pos_ex_1.png "pos")
 
 **Note**: Output obtained from [spaCy POS Tagging](https://spacy.io/usage/linguistic-features#pos-tagging). Try now!
 
@@ -111,18 +113,17 @@ Named Entity Recognition (NER) labels sequences of words in a text which are the
 
 **Sample Example**
 
-Input Sentence: Apple is looking at buying U.K. startup for $1 billion
+- Input 
 
-Output
+Sentence: Apple is looking at buying U.K. startup for $1 billion
 
-<!--
+- Output
+
 <p align="center">
-<img src='/images/tl_nlp/ner_ex.png' width="60%"/>
+<img src='/images/tl_nlp/ner_ex.png' width="40%"/>
 <img src='/images/tl_nlp/ner_ex_1.png' width="40%"/>
 </p>
--->
 
-![ner](/images/tl_nlp/ner_ex.png "ner") ![ner](/images/tl_nlp/ner_ex_1.png "ner")
 
 **Note**: Output obtained from [spaCy Named Entities](https://spacy.io/usage/linguistic-features#named-entities). Try now!
 
@@ -146,8 +147,12 @@ Textual Entailment (TE) also known as Natural language inference (NLI) takes a p
 
 **Sample Example**
 
-Input: 
+- Input 
 
+Premise: Two women are wandering along the shore drinking iced tea.
+Hypothesis: Two women are sitting on a blanket near some rocks talking about politics.
+
+- Output
 
 <p align="center">
 <img src='/images/tl_nlp/nli_ex.png' width="90%"/>
@@ -176,7 +181,11 @@ Answer 1: the suitcase
 
 **Sample Example**
 
-Input Sentence: The trophy would not fit in the brown suitcase because it was too big. What was too big? the trophy or the suitcase?
+- Input 
+
+Sentence: The trophy would not fit in the brown suitcase because it was too big. What was too big? the trophy or the suitcase?
+
+- Output 
 
 <p align="center">
 <img src='/images/tl_nlp/coref_ex.png' width="90%"/>
@@ -207,11 +216,9 @@ Reading comprehension or Question Answering is the task of answering questions a
 - Stanford Question Answering Dataset (SQuAD) [SQUAD 1.0](https://arxiv.org/abs/1606.05250) and [SQUAD 2.0](https://arxiv.org/abs/1806.03822)
 and many more!
 
-Check [nlpprogress](http://nlpprogress.com/english/question_answering.html) for complete list.
-
+*Check [nlpprogress](http://nlpprogress.com/english/question_answering.html) for complete list.*
 
 **Current SoTA** : [Question Answering](http://nlpprogress.com/english/question_answering.html)
-
 
 **Sample Example**
 
@@ -222,10 +229,11 @@ Check [nlpprogress](http://nlpprogress.com/english/question_answering.html) for 
 
 **Note**: Here is a live demo from Allennlp for [QA](https://demo.allennlp.org/reading-comprehension).
 
-
+---
 
 There are many more challenges and [nlpprogess](http://nlpprogress.com/) provides a great overview of challenges and current SOTA for each challenge. Be sure to check it out!
 
+--
 
 # Transfer Learning in NLP
 
