@@ -581,6 +581,14 @@ Just training LM (*no task-specific finetuning*) that is all it took. Results ar
 
 # Further Reading
 
+Must Read! Awesome Lil'Log [Generalized Language Models](https://lilianweng.github.io/lil-log/2019/01/31/generalized-language-models.html)
+
+Must Read! Jay Alammar [Illustrated bert](http://jalammar.github.io/illustrated-bert/), [Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) and [Visualizing A Neural Machine Translation Model](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)
+
+Must Read! mlexplained Paper Dissected [BERT](http://mlexplained.com/2019/01/07/paper-dissected-bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding-explained/), [ELMo](http://mlexplained.com/2018/06/15/paper-dissected-deep-contextualized-word-representations-explained/) and [Attention Is All You Need](http://mlexplained.com/2017/12/29/attention-is-all-you-need-explained/)
+
+Must Read! Havard NLP [The Annotated Transformer](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
+
 [Salesforce Research Blog: CoVe](https://blog.einstein.ai/learned-in-translation-contextualized-word-vectors/)
 
 [CoVe](https://arxiv.org/pdf/1708.00107.pdf)
