@@ -83,12 +83,14 @@ Input Sentence: Apple is looking at buying U.K. startup for $1 billion
 
 Output
 
+<!--
 <p align="center">
 <img src='/images/tl_nlp/pos_ex.png' width="60%"/>
 <img src='/images/tl_nlp/pos_ex_1.png' width="40%"/>
 </p>
+-->
 
-![pos](/images/tl_nlp/pos_ex.png "pos") ![pos](/images/tl_nlp/pos_ex.png "pos")
+![pos](/images/tl_nlp/pos_ex.png "pos") ![pos](/images/tl_nlp/pos_ex_1.png "pos")
 
 **Note**: Output obtained from [spaCy POS Tagging](https://spacy.io/usage/linguistic-features#pos-tagging). Try now!
 
@@ -113,13 +115,14 @@ Input Sentence: Apple is looking at buying U.K. startup for $1 billion
 
 Output
 
-
+<!--
 <p align="center">
 <img src='/images/tl_nlp/ner_ex.png' width="60%"/>
 <img src='/images/tl_nlp/ner_ex_1.png' width="40%"/>
 </p>
+-->
 
-![ner](/images/tl_nlp/ner_ex.png "ner") ![ner](/images/tl_nlp/ner_ex.png "ner")
+![ner](/images/tl_nlp/ner_ex.png "ner") ![ner](/images/tl_nlp/ner_ex_1.png "ner")
 
 **Note**: Output obtained from [spaCy Named Entities](https://spacy.io/usage/linguistic-features#named-entities). Try now!
 
