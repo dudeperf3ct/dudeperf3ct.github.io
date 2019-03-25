@@ -149,8 +149,9 @@ Textual Entailment (TE) also known as Natural language inference (NLI) takes a p
 
 - Input 
 
-Premise: Two women are wandering along the shore drinking iced tea.
-Hypothesis: Two women are sitting on a blanket near some rocks talking about politics.
+Premise : If you help the needy, God will reward you.
+
+Hypothesis : Giving money to the poor has good consequences.
 
 - Output
 
@@ -171,6 +172,7 @@ Coreference resolution is the task of finding all expressions that refer to the 
 For e.g. The trophy would not fit in the brown suitcase because it was too big (small). What was too big (small)?
 
 Answer 0: the trophy
+
 Answer 1: the suitcase 
 
 **Dataset**
@@ -384,7 +386,7 @@ Replacing the good ol' GloVe, Word2vec and fastText with CoVe seems to do a good
 <img src='/images/tl_nlp/general_cove.png' width="70%"/>
 </p>
 
-Here there is disadavantage of using only avaliable data for generating pretrained CoVe embedding using supervised training of encoder-decoder architecture. (*no large unsupervisied dataset which are everywhere, supervised learning requires labels too*)
+Here there is disadvantage of using only avaliable data for generating pretrained CoVe embedding using supervised training of encoder-decoder architecture. (*no large unsupervisied dataset which are everywhere, supervised learning requires labels too*)
 
 ## ELMo
 
@@ -571,6 +573,8 @@ Ooooh, this is very exiciting. SoTA on everything! Take my money already.
 
 ULMFiT shows one of the best approaches to tackling difficult problem through concatinating different methods into one. Transfer Learning has certainly change Computer Vision field and this method surely opens the door for similar breakthroughs in NLP field.
 
+---
+
 Before procedding to GPT and BERT, it is necessary to understand Transformer architecture properly introduced in paper "[Attention is All You Need](https://arxiv.org/pdf/1706.03762)". Here are recommended very cool resources other than paper to get you started
 
 **Note**: [Dissceting Bert](https://medium.com/dissecting-bert) on medium dissects BERT and Transformer, for in-depth understanding BERT Encoder look here [part-1](https://medium.com/dissecting-bert/dissecting-bert-part-1-d3c3d495cdb3) and [part-2](https://medium.com/dissecting-bert/dissecting-bert-part2-335ff2ed9c73), Decoder of Transformer architecture look [here](https://medium.com/dissecting-bert/dissecting-bert-appendix-the-decoder-3b86f66b0e5f). 
@@ -579,6 +583,7 @@ Before procedding to GPT and BERT, it is necessary to understand Transformer arc
 
 **Note**: Harvard NLP group has excellent [blog](http://nlp.seas.harvard.edu/2018/04/03/attention.html) detailing the paper "Attention is All You Need" which describes the Transformer architecture used by GPT and BERT with implementation details.
 
+---
 
 ## GPT
 
