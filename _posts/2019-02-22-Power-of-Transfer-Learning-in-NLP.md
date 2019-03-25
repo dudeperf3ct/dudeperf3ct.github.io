@@ -88,6 +88,8 @@ Output
 <img src='/images/tl_nlp/pos_ex_1.png' width="40%"/>
 </p>
 
+![pos](/images/tl_nlp/pos_ex.png "pos") ![pos](/images/tl_nlp/pos_ex.png "pos")
+
 **Note**: Output obtained from [spaCy POS Tagging](https://spacy.io/usage/linguistic-features#pos-tagging). Try now!
 
 
@@ -117,6 +119,7 @@ Output
 <img src='/images/tl_nlp/ner_ex_1.png' width="40%"/>
 </p>
 
+![ner](/images/tl_nlp/ner_ex.png "ner") ![ner](/images/tl_nlp/ner_ex.png "ner")
 
 **Note**: Output obtained from [spaCy Named Entities](https://spacy.io/usage/linguistic-features#named-entities). Try now!
 
@@ -601,7 +604,6 @@ $$
 
 [Byte Pair Encoding](https://arxiv.org/pdf/1508.07909) (BPE) is used to encode the input sequences. Motivated by the intuition that rare and unknown words can often be decomposed into multiple subwords, BPE finds the best word segmentation by iteratively and greedily merging frequent pairs of characters.
 
--gpt_transformer.png
 <p align="center">
 <img src='/images/tl_nlp/gpt_transformer.png' width="70%"/>
 </p>
@@ -620,7 +622,7 @@ $$
 
 GPT gets rid of any task-specific customization or any hyperparameter tuning when applying across various tasks. If the task input contains multiple sentences, a special delimiter token ($) is added between each pair of sentences. The embedding for this delimiter token is a new parameter we need to learn, but it should be pretty minimal. All transformations include adding randomly initialized start and end tokens (〈s〉,〈e〉).
 
--gpt_rid.png
+
 <p align="center">
 <img src='/images/tl_nlp/gpt_rid.png' width="70%"/>
 </p>
@@ -636,7 +638,6 @@ GPT gets rid of any task-specific customization or any hyperparameter tuning whe
 
 That's a lot of results. GPT significantly improves upon the SOTA in 9 out of the 12 tasks.
 
--gpt_result.png
 <p align="center">
 <img src='/images/tl_nlp/gpt_result.png' width="60%"/>
 </p>
@@ -672,7 +673,7 @@ Here are the differences in pretraining model architectures. BERT uses bidirecti
 
 
 <p align="center">
-<img src='/images/tl_nlp/bert_pretraining.png' width="50%"/>
+<img src='/images/tl_nlp/bert_pretraining.png' width="30%"/>
 </p>
 
 The authors argue that GPT used left-to-right architecture on standard langauge model is limiting in choice and a deep  bidirectional model is strictly more powerful than either a left-to-right model (GPT) or the shallow concatenation of a left-to-right and right-to-left model (ELMo). The authors propose a new language model with new objective: "masked language model"(MLM) and "next sentence prediction".
