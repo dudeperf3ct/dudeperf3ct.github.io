@@ -246,19 +246,27 @@ There are many more challenges and [nlpprogess](http://nlpprogress.com/) provide
 </p>
 
 
-<span class='red'>I-know-everything:</span> 
+<span class='red'>I-know-everything:</span> Today the topic of interest is very interesting. It's Transfer Learning in NLP. Can we transfer the knowledge learned about the language and fine-tune it to task at hand. It's the similar concept we saw in [Power of Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/) for Computer Vision.
 
 
-<span class='green'>I-know-nothing:</span> 
+<span class='green'>I-know-nothing:</span> Will we be using same embedding models which we learned in previous posts?
 
 
-<span class='red'>I-know-everything:</span> 
+<span class='red'>I-know-everything:</span> Well, there's a catch and to answer your question no. We will not be using traditional embedding models.
 
 The [embedding models](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#embeddings) which we disscused earlier like [word2vec](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#word2vec), [GLoVe](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#glove) and [fastText](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#fasttext) are fantastic in capturing meaning of individual words and their relationships by leveraging large datasets. These model generate word vectors of n-dimension which is used by neural network as starting point of training. The word vectors can be initialized to lists of random numbers before a model is trained for a specific task, or initialized with word vectors obtained from above embedding models.
 
-A word is assigned the same vector representation no matter where it appears and how it's used, because word embeddings rely on just a look-up table. In other word, they ignore polysemy — a concept that words can have multiple meanings. 
+Here is one such relationship learned through embeddings,
 
-The basic idea of all below approaches will be to learn representation (depending on context) instead fixed emebedding of each word by training a deep language model and use the representation learned by the language model in downstream tasks.
+<p align="center">
+<img src='/images/tl_nlp/word2vec.png' width="50%"/>
+</p>
+
+*How amazingly word2vec learns the captials and relation with the countries?* Just through simple arithmetic algebra, a + b - c gives the correct answer.
+
+In above embedding models, a word is assigned the same vector representation no matter where it appears and how it's used, because word embeddings rely on just a look-up table. In other word, they ignore *polysemy* — a concept that words can have multiple meanings. To take this point home, let's consider a example, The way Messi *plays* football, can only be par with the greatest Broadway *plays*. Notice the word *plays* in the sentence, the first plays is related to playing while the second plays is more related to drama. The traditional embedding models will assign the same vector for both words when in turn we need embedding that also takes into consideration the context in which the word is used. Those are the embeddings we will learn about in following approaches and how can we achieve such *context-conscious* embeddings.
+
+The basic idea of following approaches which we will look into will be to learn representation (depending on context) instead fixed emebedding of each word by training a deep language model and use the representation learned by the language model in downstream tasks.
 
 
 ## CoVe
