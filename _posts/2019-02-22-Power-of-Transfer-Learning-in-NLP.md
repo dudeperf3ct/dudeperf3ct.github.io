@@ -12,7 +12,7 @@ published : false
 
 In this notebook, .
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_flair.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_fastai.ipynb).
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_flair.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/lstm_and_gru_fastai.ipynb).
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -77,6 +77,7 @@ The [embedding models](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/For
 
 A word is assigned the same vector representation no matter where it appears and how it's used, because word embeddings rely on just a look-up table. In other word, they ignore polysemy — a concept that words can have multiple meanings. 
 
+The basic idea of all below approaches will be to learn representation (depending on context) instead fixed emebedding of each word by training a deep language model and use the representation learned by the language model in downstream tasks.
 
 
 ## CoVe
@@ -146,7 +147,7 @@ Here H is is a stack of hidden states {h} along the time dimension.
 
 - **Generation**
 
-The generator then looks at the context-adjusted state to determine which German word to output, and the context-adjusted state is passed back to the decoder so that it has an accurate sense of what it has already translated. The decoder repeats this process until it is done translating. This is a standard attentional encoder-decoder architecture for learning sequence to sequence tasks like machine translation.
+The generator (not a sperate layer, it's a decoder but step is generation because it generates output sentence) then looks at the context-adjusted state to determine which German word to output, and the context-adjusted state is passed back to the decoder so that it has an accurate sense of what it has already translated. The decoder repeats this process until it is done translating. This is a standard attentional encoder-decoder architecture for learning sequence to sequence tasks like machine translation.
 
 -generator_cove
 
@@ -162,7 +163,8 @@ Here $$p(y_{t} \mid H,y_{1},y_{2}, …,y_{t-1})$$ is a probability distribution 
 
 ### TL;DR
 
-
+- Use the traditional encoder-decoder architecture used in seq-to-seq learning, to learn the context of words by giving input GLoVe embedding of words in sentence to encoder and two stacked BiLSTM layers generate output is hidden vector or context vectors.
+- We looked at one specific example of MT, where encoder was used to generate context vectors, and this context vectors along with attention mechanism (which gives context-adjusted state as output) to give target langauge output sentence using decoder.
 
 ### Results
 
@@ -265,6 +267,10 @@ Study of "what information is captured by biLM representations" section of [pape
 
 ### TL;DR
 
+- Different words carry different meaning depending on context and so their embeddings should also take context in account.
+- ELMo trains a bidirectional LM, and extract the hidden state of each layer for the input sequence of words.
+- Then, compute a weighted sum of those hidden states to obtain an embedding for each word. The weight of each hidden state is task-dependent and is learned.
+- This learned ELMo embedding in used in specific task for which embedding is obtained.
 
 ### Results
 
@@ -319,7 +325,7 @@ where T is number of iteration (number of epochs x number of updates per epoch) 
 
 3. **Target task classifier fine-tuning** : 
 
-For finetuning classifier, pretrained language model is augmented with two additional linear blocks, a) concat pooling and gradual b) unfreezing.
+For finetuning classifier, pretrained language model is augmented with two additional linear blocks, a) concat pooling and b) gradual unfreezing.
 
 a) **Concat pooling**:  The authors state that as input document can consist of hundreds of words, information may get lost if we only consider the last hidden state of the model. For this reason, we concatenate the hidden state at the last time step $$h_{T}$$ of the document with both the max-pooled and the mean-pooled representation of the hidden states over as many time steps as fit in GPU memory. If $$\mathcal{H}$$ = [h_{1},...,h_{T}]$$, then $$h_{c} = [h_{T}, \text{maxpool}(\mathcal{H}), \text{meanpool}(\mathcal{H})]$$.
 
@@ -328,8 +334,9 @@ b) **Gradual Unfreezing**: Rather than fine-tuning all layers at once, which may
 
 ### TL;DR
 
-
-
+- Wooh, CV transfer learning style training. Create a pretrained language model by training on large corpus like Wikitext-103, etc.
+- Finetune LM data on target data and to stabalize this finetuning two methods like Discriminative finetuning and Slanted learning rates are used.
+- To make target task classifier, additional linear model is added to language model architecture such as concat pooling is added and gradual unfreezing is used.
 
 ### Results
 
@@ -364,7 +371,7 @@ The group at OpenAI proposed a new method [GPT](https://s3-us-west-2.amazonaws.c
 
 ### How it works?
 
-GPT is short for Generative Pretraining Transformers. GPT uses a combination of unsupervised pretraining and supervised fine-tuning. 
+GPT is short for Generative Pretraining Transformers. GPT uses a combination of unsupervised pretraining and supervised fine-tuning. Unlike ULMFit, the authors thought lets turn to Transformer architectures instead of Recurrent architectures for creating language models.
 
 GPT training procedure consists of two steps:
 
@@ -414,7 +421,8 @@ GPT gets rid of any task-specific customization or any hyperparameter tuning whe
 
 ### TL;DR
 
-- 
+- GPT makes use of unlabelled data to train a language model using a multi-layer Transformer decoder architecture. 
+- Langauge model pretrained above can be applied across various tasks directly instead of training different langauge models across different tasks.
 
 
 ### Results
@@ -485,6 +493,8 @@ Understanding and choosing correct hyperparameters(*there are too many*) can mak
 
 ### TL;DR
 
+- Use large corpus of unlabeled data to learn a language model(which captures semantics, etc of language) by training on two tasks: Masked Language Model and Next Sentence Prediction using a multi-layer bidirectional Transformer Encoder architecture.
+- Finetuning pretrained language model for specific downstream tasks, task-specific modifications are done.
 
 
 ### Results
@@ -507,14 +517,13 @@ Look who shows up at showdown in between GPT and BERT, GPT's big brother GPT-2. 
 
 GPT-2 is a large transformer-based language model with 1.5 billion parameters (10x more than GPT), trained on a dataset of 8 million web pages. GPT-2 is trained with a simple objective: predict the next word, given all of the previous words within some text.
 
-The authors state that the paper] from Google AI which performed Multi-task Learning on .. tasks required supervision but language modeling, in principle is able to learn such task without the need for explicit supervision. Authors perform preliminary experiments to confirm that sufficiently large language models are able to perform multitask learning in toyish setup but learning is much slower than in explicitly supervised approaches. 
+The authors state that the [paper]() from Google AI which performed Multi-task Learning on .. tasks required supervision but language modeling, in principle is able to learn such task without the need for explicit supervision. Authors perform preliminary experiments to confirm that sufficiently large language models are able to perform multitask learning in toy-ish setup but learning is much slower than in explicitly supervised approaches. 
 
 The internet contains a vast amount of information that is passively available without the need for interactive communication like in dialog or QA tasks. Authors speculate that a language model with sufficient capacity will begin to learn to infer and  perform the tasks demonstrated in natural language sequences in order to better predict them, regardless of their method of procurement. If a language model is able to do this it will be, in effect, performing unsupervised multitask learning. Authors propose using Zero-shot Transfer by pretraining a language model on various tasks and conditioning tasks along with input to get task-specific output, p(*output*|*input*,*task*) instead of finetuning for seperate tasks where for each task the conditional probability is p(*output*|*input*). 
 
 - **Zero-shot Transfer** : GPT-2 learns it's language model on diverse dataset in order to collect natural language demonstrations of tasks in as varied of domains and contexts as possible. While preprocessing LM, authors state that current byte-level LMs are not competitive with word-level LMs on large scale datasets. They modify BPE (Byte Pair encoding) to combine benefits word-level LM with the generality of byte-level approaches. 
 
 - **Byte Pair Encoding** : Byte Pair Encoding (BPE) is a practical middle ground between character and word level language modeling which effectively interpolates between word level inputs for frequent symbol sequences and character level inputs for infrequent symbol sequences. BPE implementations often operate on Unicode code points and not byte sequences. Each byte can represent 256 different values in 8 bits, while UTF-8 can use up to 4 bytes for one character, supporting up to 231 characters in total. Therefore, with byte sequence representation we only need a vocabulary of size 256 and do not need to worry about pre-processing, tokenization, etc. BPE merges frequently co-occurred byte pairs in a greedy manner. To prevent it from generating multiple versions of common words (i.e. dog., dog! and dog? for the word dog), GPT-2 prevents BPE from merging characters across categories (thus dog would not be merged with punctuations like ., ! and ?). This tricks improves the compression efficiency while adding only minimal fragmentation of words across multiple vocab tokens.
-
 
 GPT-2 follows similar Transformer architecture used in GPT. The model details is largely similar to GPT model with a few modifications: Layer normalization was moved to  the input of each sub-block, similar to a pre-activation residual network and an additional layer normalization was added after the final self-attention block, a modified initialization was constructed as a function of the model depth, scaling the weights of residual layers at initialization by a factor of $$1/ \sqrt{N}$$ where N is the number of residual layers. The vocabulary is expanded to 50,257 and also increase the context size from 512 to 1024 tokens and a larger batch size of 512 is used.
 
@@ -542,6 +551,9 @@ GPT-2 follows similar Transformer architecture used in GPT. The model details is
 
 ### TL;DR
 
+- Large and diverse amount data is enough to capture language semantics related to different tasks instead of training a language model for seperate tasks.
+- Pretrained lanaguage model does excellent job on various tasks such as question answering, machine translation, summarization and especially text generation without having to train explicitly for each particular tasks. No task-specific finetuning required.
+- GPT-2 achieves mind blowing results just through pretrained language model.
 
 
 ### Results
