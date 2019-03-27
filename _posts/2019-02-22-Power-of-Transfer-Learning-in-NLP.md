@@ -35,32 +35,32 @@ Feel free to jump anywhere,
   - [Question Answering](#question-answering)
 - [CoVe](#cove)
   - [How it Works?](#how-it-works?)
-  - [TL;DR](#tl;dr)
+  - [TL;DR](#tldr)
   - [Results](#results)
   - [What this means?](#what-this-means?)  
 - [ELMo](#elmo)
   - [How it Works?](#how-it-works?)
-  - [TL;DR](#tl;dr)
+  - [TL;DR](#tldr)
   - [Results](#results)
   - [What this means?](#what-this-means?) 
 - [ULMFiT](#ulmfit)
   - [How it Works?](#how-it-works?)
-  - [TL;DR](#tl;dr)
+  - [TL;DR](#tldr)
   - [Results](#results)
   - [What this means?](#what-this-means?) 
 - [GPT](#gpt)
   - [How it Works?](#how-it-works?)
-  - [TL;DR](#tl;dr)
+  - [TL;DR](#tldr)
   - [Results](#results)
   - [What this means?](#what-this-means?) 
 - [BERT](#bert)
   - [How it Works?](#how-it-works?)
-  - [TL;DR](#tl;dr)
+  - [TL;DR](#tldr)
   - [Results](#results)
   - [What this means?](#what-this-means?) 
 - [GPT-2](#gpt-2)
   - [How it Works?](#how-it-works?)
-  - [TL;DR](#tl;dr)
+  - [TL;DR](#tldr)
   - [Results](#results)
   - [What this means?](#what-this-means?) 
 - [Further Reading](#further-reading)
@@ -95,6 +95,8 @@ Sentence: Avengers Endgame is the best movie. Kudos Russo brothers.
 
 Positive (100% accuracy) (sentiment)
 
+---
+
 ### POS
 
 **Task**
@@ -125,6 +127,7 @@ Sentence: Apple is looking at buying U.K. startup for $1 billion
 
 **Note**: Output obtained from [spaCy POS Tagging](https://spacy.io/usage/linguistic-features#pos-tagging). Try now!
 
+---
 
 ### NER
 
@@ -156,6 +159,7 @@ Sentence: Apple is looking at buying U.K. startup for $1 billion
 
 **Note**: Output obtained from [spaCy Named Entities](https://spacy.io/usage/linguistic-features#named-entities). Try now! Also, here is a live demo from Allennlp for [Named Entity Recognition](https://demo.allennlp.org/named-entity-recognition).
 
+---
 
 ### Textual Entailment
 
@@ -188,6 +192,7 @@ Hypothesis : Giving money to the poor has good consequences.
 
 **Note**: Here is a live demo from Allennlp for [Textual Entailment](https://demo.allennlp.org/textual-entailment).
 
+---
 
 ### Coreference resolution
 
@@ -222,6 +227,7 @@ Sentence: The trophy would not fit in the brown suitcase because it was too big.
 
 **Note**: Here is a live demo from huggingface for [Coreference resolution](https://huggingface.co/coref/?text=The%20trophy%20would%20not%20fit%20in%20the%20brown%20suitcase%20because%20it%20was%20too%20big.%20What%20was%20too%20big%3F%20the%20trophy%20or%20the%20suitcase%3F). Also check [Winograd Challenge](http://commonsensereasoning.org/winograd.html). Here is a live demo from Allennlp for [Coreference resolution](https://demo.allennlp.org/coreference-resolution).
 
+---
 
 ### Question Answering
 
@@ -260,7 +266,7 @@ and many more!
 
 There are many more challenges and [nlpprogess](http://nlpprogress.com/) provides a great overview of challenges and current SOTA for each challenge. Be sure to check it out! [Here](https://allenai.org/data/data-all.html) is list of 34 datasets from Allen Institute for Artificial Intelligence.
 
---
+---
 
 # Transfer Learning in NLP
 
