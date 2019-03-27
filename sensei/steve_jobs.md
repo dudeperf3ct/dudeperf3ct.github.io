@@ -47,6 +47,8 @@ Quotes
 
 Love what you do, do what you love.
 
+I want to put a ding in the universe. Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma — which is living with the results of other people’s thinking. 
+
 Start your business when you are young.
 
 Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple.
