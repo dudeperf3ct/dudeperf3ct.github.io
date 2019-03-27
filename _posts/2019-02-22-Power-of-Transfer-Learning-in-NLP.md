@@ -2,7 +2,7 @@
 layout:     post
 title:      Power of Transfer Learning in NLP
 date:       2019-02-22 12:00:00
-summary:    This post will provide a brief introduction 
+summary:    This post will provide a brief introduction to various approaches like CoVe, ELMo, BERT, GPT and GPT-2 and also, transfer learning in NLP.
 categories: nlp transfer learning
 published : false
 ---
@@ -12,7 +12,7 @@ published : false
 
 In this notebook, .
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_flair.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/lstm_and_gru_fastai.ipynb).
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/ltl_nlp/tweets_sentiment_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_flair.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_fastai.ipynb) and [allennlp](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_allennlp.ipynb).
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -20,6 +20,9 @@ Hey yo, but how?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
+<p align="center">
+<img src='/images/tl_nlp/meme.jpeg' width="50%"/>
+</p>
 
 Feel free to jump anywhere,
 
@@ -31,16 +34,42 @@ Feel free to jump anywhere,
   - [Coreference resolution](#coreference-resolution)
   - [Question Answering](#question-answering)
 - [CoVe](#cove)
+  - [How it Works?](#how-it-works?)
+  - [TL;DR](#tl;dr)
+  - [Results](#results)
+  - [What this means?](#what-this-means?)  
 - [ELMo](#elmo)
+  - [How it Works?](#how-it-works?)
+  - [TL;DR](#tl;dr)
+  - [Results](#results)
+  - [What this means?](#what-this-means?) 
 - [ULMFiT](#ulmfit)
+  - [How it Works?](#how-it-works?)
+  - [TL;DR](#tl;dr)
+  - [Results](#results)
+  - [What this means?](#what-this-means?) 
 - [GPT](#gpt)
+  - [How it Works?](#how-it-works?)
+  - [TL;DR](#tl;dr)
+  - [Results](#results)
+  - [What this means?](#what-this-means?) 
 - [BERT](#bert)
+  - [How it Works?](#how-it-works?)
+  - [TL;DR](#tl;dr)
+  - [Results](#results)
+  - [What this means?](#what-this-means?) 
 - [GPT-2](#gpt-2)
+  - [How it Works?](#how-it-works?)
+  - [TL;DR](#tl;dr)
+  - [Results](#results)
+  - [What this means?](#what-this-means?) 
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
 ## NLP Tasks and Datasets
 
+The ultimate goal is to make machines understand language (natural language understanding) as we humans do.
+These are some the tasks outlined which need to be accomplished in order for the machines to be able to comprehend natural language as we do. Of course this is not the complete list and there are some other tasks such as Common sense Reasoning, 
 
 ### Sentiment analysis
 
@@ -125,9 +154,7 @@ Sentence: Apple is looking at buying U.K. startup for $1 billion
 </p>
 
 
-**Note**: Output obtained from [spaCy Named Entities](https://spacy.io/usage/linguistic-features#named-entities). Try now!
-
-Also, here is a live demo from Allennlp for [Named Entity Recognition](https://demo.allennlp.org/named-entity-recognition).
+**Note**: Output obtained from [spaCy Named Entities](https://spacy.io/usage/linguistic-features#named-entities). Try now! Also, here is a live demo from Allennlp for [Named Entity Recognition](https://demo.allennlp.org/named-entity-recognition).
 
 
 ### Textual Entailment
@@ -193,9 +220,7 @@ Sentence: The trophy would not fit in the brown suitcase because it was too big.
 <img src='/images/tl_nlp/coref_ex.png' width="90%"/>
 </p>
 
-**Note**: Here is a live demo from huggingface for [Coreference resolution](https://huggingface.co/coref/?text=The%20trophy%20would%20not%20fit%20in%20the%20brown%20suitcase%20because%20it%20was%20too%20big.%20What%20was%20too%20big%3F%20the%20trophy%20or%20the%20suitcase%3F). Also check [Winograd Challenge](http://commonsensereasoning.org/winograd.html).
-
-Here is a live demo from Allennlp for [Coreference resolution](https://demo.allennlp.org/coreference-resolution).
+**Note**: Here is a live demo from huggingface for [Coreference resolution](https://huggingface.co/coref/?text=The%20trophy%20would%20not%20fit%20in%20the%20brown%20suitcase%20because%20it%20was%20too%20big.%20What%20was%20too%20big%3F%20the%20trophy%20or%20the%20suitcase%3F). Also check [Winograd Challenge](http://commonsensereasoning.org/winograd.html). Here is a live demo from Allennlp for [Coreference resolution](https://demo.allennlp.org/coreference-resolution).
 
 
 ### Question Answering
@@ -233,7 +258,7 @@ and many more!
 
 ---
 
-There are many more challenges and [nlpprogess](http://nlpprogress.com/) provides a great overview of challenges and current SOTA for each challenge. Be sure to check it out!
+There are many more challenges and [nlpprogess](http://nlpprogress.com/) provides a great overview of challenges and current SOTA for each challenge. Be sure to check it out! [Here](https://allenai.org/data/data-all.html) is list of 34 datasets from Allen Institute for Artificial Intelligence.
 
 --
 
@@ -249,10 +274,9 @@ There are many more challenges and [nlpprogess](http://nlpprogress.com/) provide
 <span class='red'>I-know-everything:</span> Today the topic of interest is very interesting. It's Transfer Learning in NLP. Can we transfer the knowledge learned about the language and fine-tune it to task at hand. It's the similar concept we saw in [Power of Transfer Learning](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/) for Computer Vision.
 
 
-<span class='green'>I-know-nothing:</span> Will we be using same embedding models which we learned in previous posts?
+<span class='green'>I-know-nothing:</span> Will we be using same embedding models which we learned in previous posts? Will the transfer learning in NLP be same as in CV i.e. train on some large dataset and finetune with some target data?
 
-
-<span class='red'>I-know-everything:</span> Well, there's a catch and to answer your question no. We will not be using traditional embedding models.
+<span class='red'>I-know-everything:</span> Well, there's a catch and to answer your first question no. We will not be using traditional embedding models. And the answer to your second question, the answer is yes.
 
 The [embedding models](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#embeddings) which we disscused earlier like [word2vec](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#word2vec), [GLoVe](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#glove) and [fastText](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#fasttext) are fantastic in capturing meaning of individual words and their relationships by leveraging large datasets. These model generate word vectors of n-dimension which is used by neural network as starting point of training. The word vectors can be initialized to lists of random numbers before a model is trained for a specific task, or initialized with word vectors obtained from above embedding models.
 
@@ -262,7 +286,7 @@ Here is one such relationship learned through embeddings,
 <img src='/images/tl_nlp/word2vec.png' width="50%"/>
 </p>
 
-*How amazingly word2vec learns the captials and relation with the countries?* Just through simple arithmetic algebra, a + b - c gives the correct answer.
+*How amazingly word2vec learns the captials and relation with the countries in first example?* Just through simple arithmetic algebra, a + b - c gives the correct answer i.e. France:Paris :: Japan: ?, the answer it predicts is Tokyo, so cool.
 
 In above embedding models, a word is assigned the same vector representation no matter where it appears and how it's used, because word embeddings rely on just a look-up table. In other word, they ignore *polysemy* — a concept that words can have multiple meanings. To take this point home, let's consider a example, The way Messi *plays* football, can only be par with the greatest Broadway *plays*. Notice the word *plays* in the sentence, the first plays is related to playing while the second plays is more related to drama. The traditional embedding models will assign the same vector for both words when in turn we need embedding that also takes into consideration the context in which the word is used. Those are the embeddings we will learn about in following approaches and how can we achieve such *context-conscious* embeddings.
 
