@@ -70,14 +70,13 @@ Feel free to jump anywhere,
 
 ## NLP Tasks and Datasets
 
-The ultimate goal is to make machines understand language (natural language understanding) as we humans do.
-These are some the tasks outlined which need to be accomplished in order for the machines to be able to comprehend natural language as we do.
+<span class='red'>The ultimate goal is to make machines understand language (natural language understanding) as we humans do.</span> These are some the tasks outlined which need to be accomplished in order for the machines to be able to comprehend natural language as we do.
 
 ### Sentiment analysis
 
 **Task**
 
-<span class='blue'>Sentiment analysis is task of classifying polarity of given text.</span>
+<span class='red'>Sentiment analysis is task of classifying polarity of given text.</span>
 
 **Dataset**
 
@@ -103,7 +102,7 @@ Positive (100% accuracy) (sentiment)
 
 **Task**
 
-<span class='blue'>A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads text in some language and assigns parts of speech to each word (and other token), such as noun, verb, adjective, etc.</span>
+<span class='red'>A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads text in some language and assigns parts of speech to each word (and other token), such as noun, verb, adjective, etc.</span>
 
 **Dataset**
 
@@ -135,7 +134,7 @@ Sentence: Apple is looking at buying U.K. startup for $1 billion
 
 **Task**
 
-<span class='blue'>Named Entity Recognition (NER) labels sequences of words in a text which are the names of things, such as person and company names, or gene and protein names.</span>
+<span class='red'>Named Entity Recognition (NER) labels sequences of words in a text which are the names of things, such as person and company names, or gene and protein names.</span>
 
 **Dataset**
 
@@ -167,7 +166,7 @@ Sentence: Apple is looking at buying U.K. startup for $1 billion
 
 **Task**
 
-<span class='blue'>Textual Entailment (TE) also known as Natural language inference (NLI) takes a pair of sentences and predicts whether the facts in the first necessarily imply the facts in the second one or task of determining whether a “hypothesis” is true (entailment), false (contradiction), or undetermined (neutral) given a “premise”.</span>
+<span class='red'>Textual Entailment (TE) also known as Natural language inference (NLI) takes a pair of sentences and predicts whether the facts in the first necessarily imply the facts in the second one or task of determining whether a “hypothesis” is true (entailment), false (contradiction), or undetermined (neutral) given a “premise”.</span>
 
 **Dataset**
 
@@ -201,7 +200,7 @@ Hypothesis : Giving money to the poor has good consequences.
 
 **Task**
 
-<span class='blue'>Coreference resolution is the task of finding all expressions that refer to the same entity in a text.</span>
+<span class='red'>Coreference resolution is the task of finding all expressions that refer to the same entity in a text.</span>
 
 For e.g. The trophy would not fit in the brown suitcase because it was too big (small). What was too big (small)?
 
@@ -235,7 +234,7 @@ Sentence: The trophy would not fit in the brown suitcase because it was too big.
 
 **Task**
 
-<span class='blue'>Reading comprehension or Question Answering is the task of answering questions about a passage of text to show that the system understands the passage</span>
+<span class='red'>Reading comprehension or Question Answering is the task of answering questions about a passage of text to show that the system understands the passage</span>
 
 **Dataset**
 
@@ -302,7 +301,7 @@ In above embedding models, a word is assigned the same vector representation no 
 
 ## CoVe
 
-<span class='saddlebrown'>In NLP tasks, context matters.</span> That is, understanding context is very essential to all NLP tasks as words rarely appear in isolation and also helps in general sense of language understanding tasks. One such example is in Question Answering where understanding of how words in question shift the importance of words in document or in Summarization where model needs to understand which words capture the context clearly to summarize succinctly. The ability to share a common representation of words in the context of sentences that include them could further improve transfer learning in NLP. This is where CoVe comes into play, which transfers information from large amounts of unlabeled training data in the form of word vectors using encoder to contextualize word vector has shown to improve performance over random word vector initialization on a variety of downstream tasks e.g. POS, NER and QA. 
+<span class='saddlebrown'>In NLP tasks, context matters.</span> That is, understanding context is very essential to all NLP tasks as words rarely appear in isolation and also helps in general sense of language understanding tasks. One such example is in Question Answering where understanding of how words in question shift the importance of words in document or in Summarization where model needs to understand which words capture the context clearly to summarize succinctly. The ability to share a common representation of words in the context of sentences that include them could further improve transfer learning in NLP. <span class='green'>This is where CoVe comes into play, which transfers information from large amounts of unlabeled training data in the form of word vectors using encoder to contextualize word vector has shown to improve performance over random word vector initialization on a variety of downstream tasks e.g. POS, NER and QA.</span>
 
 ### How it Works?
 
@@ -333,7 +332,7 @@ h_{t} &  = [\overset{\leftarrow}{h_{t}}; \overset{\rightarrow}{h_{t}}] \\
 \end{aligned}
 $$
 
-The pretrained vectors obtained from embedding captured some interesting relationships, similar results are obtained from hidden vectors (h). In our case of Machine Translation, inputs are Glove embeddings of English words of input sentence (GloVe($$w^{x}$$)) and output are it's hidden vectors(h). After training, we call this encoder pretrained LSTM an MT-LSTM (Machine Translation) and can serve as pretrained model to generate hidden vectors for new sentences. When using these machine translation hidden vectors as inputs to another NLP model, we refer to them as context vectors (CoVe).
+The pretrained vectors obtained from embedding captured some interesting relationships, similar results are obtained from hidden vectors (h). In our case of Machine Translation, inputs are Glove embeddings of English words of input sentence (GloVe($$w^{x}$$)) and output are it's hidden vectors(h). After training, we call this encoder pretrained LSTM an <span class='saddlebrown'>MT-LSTM (Machine Translation) and can serve as pretrained model to generate hidden vectors for new sentences. When using these machine translation hidden vectors as inputs to another NLP model, we refer to them as context vectors (CoVe).</span>
 
 - **Decoder**
 
@@ -375,7 +374,6 @@ Here H is is a stack of hidden states {h} along the time dimension.
 
 <span class='saddlebrown'>The generator (not a sperate layer, it's a decoder but step is generation because it generates output sentence) then looks at the context-adjusted state to determine which German word to output, and the context-adjusted state is passed back to the decoder so that it has an accurate sense of what it has already translated.</span> The decoder repeats this process until it is done translating. This is a standard attentional encoder-decoder architecture for learning sequence to sequence tasks like machine translation.
 
--generator_cove
 <p align="center">
 <img src='/images/tl_nlp/generator_cove.svg' width="70%"/>
 </p>
@@ -442,7 +440,7 @@ ELMo word representations are function of entire input sentence and are computed
 
 - **Bidirectional Language Model**
 
-A language model is an NLP model which learns to predict the next word in a sentence. For instance, if your mobile phone keyboard guesses what word you are going to want to type next, then it’s using a language model. The reason this is important is because for a language model to be really good at guessing what you’ll say next, it needs a lot of world knowledge (e.g. “I ate a hot” → “dog”, “It is very hot” → “weather”), and a deep understanding of grammar, semantics, and other elements of natural language.
+<span class='red'>A language model is an NLP model which learns to predict the next word in a sentence. For instance, if your mobile phone keyboard guesses what word you are going to want to type next, then it’s using a language model. The reason this is important is because for a language model to be really good at guessing what you’ll say next, it needs a lot of world knowledge (e.g. “I ate a hot” → “dog”, “It is very hot” → “weather”), and a deep understanding of grammar, semantics, and other elements of natural language.</span>
 
 <p align="center">
 <img src='/images/tl_nlp/elmo_bilm.png' width="70%"/>
@@ -502,7 +500,7 @@ where $$s^{task}$$ are softmax-normalized weights and the scalar parameter $$\ga
 
 Finally, ELMo uses character CNN (convolutional neural network) for computing those raw word embeddings that get fed into the first layer of the biLM. The input to the biLM is computed purely from characters (and combinations of characters) within a word, without relying on some form of lookup tables like we had in case of [word2vec](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#word2vec) and [glove](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#glove). This type of character n-gram were seen in [fastText](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#fasttext) embeddings and are very much known for their way of handling OOV (out of vocabulary) words. Thus, ELMo embeddings can handle OOV in efficient manner.
 
-Study of "what information is captured by biLM representations" section of [paper](https://arxiv.org/pdf/1802.05365.pdf) indicate that syntactic information is better represented at lower layers while semantic information is captured by higher layers. Because different layers tend to carry different type of information, stacking them together helps.
+Study of <span class='saddlebrown'>"what information is captured by biLM representations"</span> section of [paper](https://arxiv.org/pdf/1802.05365.pdf) indicate that syntactic information is better represented at lower layers while semantic information is captured by higher layers. Because different layers tend to carry different type of information, stacking them together helps.
 
 [Masato Hagiwara](http://www.realworldnlpbook.com/blog/improving-sentiment-analyzer-using-elmo.html) points out difference between biLM and biLSTM clearly,
  
@@ -535,7 +533,7 @@ Notice how biLM s able to disambiguate both the part of speech and word sense in
 
 ELMo improves task performance over word vectors as the biLM’s contextual representations encodes information generally useful for NLP tasks that is not captured in word vectors.
 
-Once pretrained, the biLM can compute representations for any task. In some cases, fine tuning the biLM on domain specific data leads to significant drops in perplexity and an increase in downstream task performance. Given a pretrained LM and a supervised architecture for a target NLP task, it is a simple process to use the biLM to improve the task model. We simply run the biLM and record all of the layer representations for each word. Then, we let the end task model learn a linear combination of these representations.
+Once pretrained, the biLM can compute representations for any task. In some cases, fine tuning the biLM on domain specific data leads to significant drops in perplexity and an increase in downstream task performance. <span class='green'>Given a pretrained LM and a supervised architecture for a target NLP task, it is a simple process to use the biLM to improve the task model. We simply run the biLM and record all of the layer representations for each word. Then, we let the end task model learn a linear combination of these representations.</span>
 
 To add ELMo to the supervised model, we first freeze the weights of the biLM and then concatenate the ELMo vector $$\text{ELMo}^{task}$$ with $$x_{k}$$ and pass the ELMo enhanced representation [$$x_{k}; \text{ELMo}^{task}$$] into task RNN.
 
@@ -560,7 +558,7 @@ ULMFiT consists of three stages:
 
 2. **Target task LM fine-tuning** :  As we know that data on target task and general-domain data used for pretraining can be different (come from a different distribution). This step will finetune LM data on target data. As noted above in lack of knowledge on how to train effectively is holding this process of transfer learning in nlp. To stabilize finetuning process, the authors propose two methods : a) Discriminative fine-tuning  and b) Slanted Triangular learning rates.
 
-a) **Discriminative fine-tuning** : We have seen in [visualizing layer](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/) how different layers capture different types of information and also in biLM in ELMo. In Discriminative fine-tuning, each layer is updated using different learning rate {$$\eta^{1}, ..\eta^{L}$$}  for L layers in model where $$\eta^{l}$$ is learning rate of l-th layer. In practise, choosing the learning rate $$eta^{L}$$ of the last layer by fine-tuning only the last layer and using $$eta^{l-1}$$ = $$eta^{l}$$/2.6 as the learning rate for lower layers is found to work well.
+a) **Discriminative fine-tuning** : We have seen in [visualizing layer](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/) how different layers capture different types of information and also in biLM in ELMo. In Discriminative fine-tuning, each layer is updated using different learning rate {$$\eta^{1}, ..\eta^{L}$$}  for L layers in model where $$\eta^{l}$$ is learning rate of l-th layer. In practise, choosing the learning rate $$\eta^{L}$$ of the last layer by fine-tuning only the last layer and using $$\eta^{l-1}$$ = $$\eta^{l}$$/2.6 as the learning rate for lower layers is found to work well.
 
 
 b) **Slanted Triangular learning rates**: Using the same learning rate (LR) or an annealed learning rate throughout training is not the best way to achieve this behaviour. Instead, authors propose slanted triangular learning rates(STLR), which first linearly increases the learning rate and then linearly decays it according to the following update schedule.
@@ -569,13 +567,13 @@ b) **Slanted Triangular learning rates**: Using the same learning rate (LR) or a
 <img src='/images/tl_nlp/slr.png' width="60%"/>
 </p>
 
-where T is number of iteration (number of epochs x number of updates per epoch) and *cut_frac* is the fraction of iterations we increase the LR *cut* is the iteration when we switch fromincreasing to decreasing the LR, p is the fraction of the number of iterations we have increased or will decrease the LR respectively, ratio specifies how much smaller the lowest LR is from the maximum LR $$\eta_{max}$$ and $$\eta_{t}$$ is learning rate at iteration t. In practise, ratio = 32, *cut_frac* = 0.1 and $$\eta_{max}$$ = 0.01 is used.
+where T is number of iteration (number of epochs x number of updates per epoch) and *cut_frac* is the fraction of iterations we increase the LR *cut* is the iteration when we switch from increasing to decreasing the LR, p is the fraction of the number of iterations we have increased or will decrease the LR respectively, ratio specifies how much smaller the lowest LR is from the maximum LR $$\eta_{max}$$ and $$\eta_{t}$$ is learning rate at iteration t. In practise, ratio = 32, *cut_frac* = 0.1 and $$\eta_{max}$$ = 0.01 is used.
 
 3. **Target task classifier fine-tuning** : 
 
 For finetuning classifier, pretrained language model is augmented with two additional linear blocks, a) concat pooling and b) gradual unfreezing.
 
-a) **Concat pooling**:  The authors state that as input document can consist of hundreds of words, information may get lost if we only consider the last hidden state of the model. For this reason, we concatenate the hidden state at the last time step $$h_{T}$$ of the document with both the max-pooled and the mean-pooled representation of the hidden states over as many time steps as fit in GPU memory. If $$\mathcal{H}$$ = [h_{1},...,h_{T}]$$, then $$h_{c} = [h_{T}, \text{maxpool}(\mathcal{H}), \text{meanpool}(\mathcal{H})]$$.
+a) **Concat pooling**:  The authors state that as input document can consist of hundreds of words, information may get lost if we only consider the last hidden state of the model. For this reason, we concatenate the hidden state at the last time step $$h_{T}$$ of the document with both the max-pooled and the mean-pooled representation of the hidden states over as many time steps as fit in GPU memory. If $$\mathcal{H} = [h_{1},...,h_{T}]$$, then $$h_{c} = [h_{T}, \text{maxpool}(\mathcal{H}), \text{meanpool}(\mathcal{H})]$$.
 
 
 b) **Gradual Unfreezing**: Rather than fine-tuning all layers at once, which may result in catastrophic forgetting, authors propose gradual unfreezing starting from last layer as it contains least amount of information. <span class='saddlebrown'>The steps involved are: We first unfreeze the last layer and fine-tune all unfrozen layers for one epoch. We then unfreeze the next lower frozen layer and repeat, until we fine-tune all layers until convergence at the last iteration.</span>
@@ -638,7 +636,7 @@ GPT training procedure consists of two steps:
 
 - **Unsupervised pretraining**
 
-GPT similar to ELMo uses a standard language model, where instead of using biLM model i.e. both forward and backward direction, GPT uses only forward direction and the model architecture is multi-layer Transformer decoder adapted from this [paper](https://arxiv.org/pdf/1801.10198.pdf) for language model. This model applies multiple transformer blocks over the embeddings of input sequences. Each block contains a masked multi-headed self-attention layer and a pointwise feed-forward layer. The final output produces a distribution over target tokens after softmax normalization.
+<span class='orange'>GPT similar to ELMo uses a standard language model, where instead of using biLM model i.e. both forward and backward direction, GPT uses only forward direction and the model architecture is multi-layer Transformer decoder adapted from this [paper](https://arxiv.org/pdf/1801.10198.pdf) for language model.</span> This model applies multiple transformer blocks over the embeddings of input sequences. Each block contains a masked multi-headed self-attention layer and a pointwise feed-forward layer. The final output produces a distribution over target tokens after softmax normalization.
 
 $$
 \begin{aligned}
@@ -719,13 +717,13 @@ Yo myself, BERT. I will improve the shortcomings of GPT.
 
 <span class='blue'>BERT stands for Bidirectional Encoder Representations for Transformers.</span> [BERT](https://arxiv.org/pdf/1810.04805.pdf) is designed by group at Google AI Language to pretrain deep bidirectional representations by jointly conditioning on both left and right context in all layers. With adding different output layers to pretrained BERT, this model can be used for various nlp tasks.  
 
-We have seen two strategies for applying pretrained language representations to downstream tasks : feature-based and finetuning. ELMo is example of feature-based where various task-specific architectures are used as additional features and GPT is example of fine-tuning which has minimal task-specific parameters is trained on the downstream tasks by simply fine-tuning the pre-trained  parameters.
+<span class='red'>We have seen two strategies for applying pretrained language representations to downstream tasks : feature-based and finetuning. ELMo is example of feature-based where various task-specific architectures are used as additional features and GPT is example of finetuning which has minimal task-specific parameters is trained on the downstream tasks by simply finetuning the pretrained  parameters.</span>
 
 <p align="center">
 <img src='/images/tl_nlp/diff.png' width="70%"/>
 </p>
 
-Here are the differences in pretraining model architectures. <span class='saddlebrown'>BERT uses bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-left LSTM to generate features for downstream tasks.  BERT Transformer uses  bidirectional  self-attention, while the GPT Transformer uses constrained self-attention where every token can only attend to context to its left. In the literature the bidirectional Transformer is often referred to as a “Transformer encoder” while the left-context-only version is referred to as a “Transformer decoder” since it can be used for text generation.</span>
+Here are the differences in pretraining model architectures. <span class='saddlebrown'>BERT uses bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-left LSTM to generate features for downstream tasks. BERT Transformer uses bidirectional self-attention, while the GPT Transformer uses constrained self-attention where every token can only attend to context to its left. In the literature the bidirectional Transformer is often referred to as a “Transformer encoder” while the left-context-only version is referred to as a “Transformer decoder” since it can be used for text generation.</span>
 
 
 <p align="center">
@@ -799,7 +797,7 @@ GPT-2 is a large transformer-based language model with 1.5 billion parameters (1
 
 The authors state that the [paper](https://arxiv.org/pdf/1706.05137.pdf) from [Google AI](https://ai.googleblog.com/2017/06/multimodel-multi-task-machine-learning.html) which performed Multi-task Learning on 8 different tasks required supervision but language modeling, in principle is able to learn such task without the need for explicit supervision. Authors perform preliminary experiments to confirm that sufficiently large language models are able to perform multitask learning in toy-ish setup but learning is much slower than in explicitly supervised approaches. 
 
-The internet contains a vast amount of information that is passively available without the need for interactive communication like in dialog or QA tasks. Authors speculate that a language model with sufficient capacity will begin to learn to infer and  perform the tasks demonstrated in natural language sequences in order to better predict them, regardless of their method of procurement. If a language model is able to do this it will be, in effect, performing unsupervised multitask learning. <span class='saddlebrown'>Authors propose using Zero-shot Transfer by pretraining a language model on various tasks and conditioning tasks along with input to get task-specific output, p(*output*|*input*,*task*) instead of finetuning for seperate tasks where for each task the conditional probability is p(*output*|*input*).</span>
+The internet contains a vast amount of information that is passively available without the need for interactive communication like in dialog or QA tasks. <span class='red'>Authors speculate that a language model with sufficient capacity will begin to learn to infer and  perform the tasks demonstrated in natural language sequences in order to better predict them, regardless of their method of procurement. If a language model is able to do this it will be, in effect, performing unsupervised multitask learning. Authors propose using Zero-shot Transfer by pretraining a language model on various tasks and conditioning tasks along with input to get task-specific output, p(*output*|*input*,*task*) instead of finetuning for seperate tasks where for each task the conditional probability is p(*output*|*input*).</span>
 
 - **Zero-shot Transfer** : GPT-2 learns it's language model on diverse dataset in order to collect natural language demonstrations of tasks in as varied of domains and contexts as possible. While preprocessing LM, authors state that current byte-level LMs are not competitive with word-level LMs on large scale datasets. They modify BPE (Byte Pair encoding) to combine benefits word-level LM with the generality of byte-level approaches. 
 
@@ -823,7 +821,7 @@ GPT-2 follows similar Transformer architecture used in GPT. The model details is
 <img src='/images/tl_nlp/gpt_2_summary.png' width="70%"/>
 </p>
 
-- **Machine Translation** : Using conditional probability of target language, translation is obtained. For e.g. for translating English to Chinese P(? | I like green apples. = 我喜欢绿苹果。 A cat meows at him. = 一只猫对他喵。It is raining cats and dogs. =") will give the translation of "It is raining cats and dogs." in Chinese.
+- **Machine Translation** : Using conditional probability of target language, translation is obtained. For e.g. for translating English to Chinese $$P(? \mid I like green apples. = 我喜欢绿苹果。 A cat meows at him. = 一只猫对他喵。It is raining cats and dogs. =")$$ will give the translation of "It is raining cats and dogs." in Chinese.
 
 
 <p align="center">
@@ -937,15 +935,18 @@ I couldn't make any conversation like a Walter White subject... Reject madmen of
 
 |  Approach | Epoch  | Time (min)  | Train loss |  Dev  | Dev Accuracy (%)  |
 |---|---|---|---|---|---|
-| Finetune LM | 15   |  6 | 3.575478 | 4.021957  | 0.264607 |
-| Finetune Classifier | 5   |  2 | 0.786838  |	0.658620  | 0.724479 |
-| Gradual Unfreezing (Last 1 layer) | 5   |  2 | 0.725324  |	0.590953  | 0.752134 |
-| Gradual Unfreezing (Last 2 layer) | 5   |  3 | 0.556359  |	0.486604   | 0.812564 |
-| Unfreeze whole and train | 8   |  7 |  0.474538  |	0.446159  | 0.829293 |
+| Finetune LM | 15   |  6 | 3.575478 | 4.021957  | 26.4607 |
+| Finetune Classifier | 5   |  2 | 0.786838  |	0.658620  | 72.4479 |
+| Gradual Unfreezing (Last 1 layer) | 5   |  2 | 0.725324  |	0.590953  | 75.2134 |
+| Gradual Unfreezing (Last 2 layer) | 5   |  3 | 0.556359  |	0.486604   | 81.2564 |
+| Unfreeze whole and train | 8   |  7 |  0.474538  |	0.446159  | 82.9293 |
 
 
+Next, we will move back to vision and understand one of the very serious problem in blog <span class='purple'>Mystery of Adversarial Training</span>.
 
 <span class='orange'>Happy Learning!</span>
+
+
 
 ---
 
