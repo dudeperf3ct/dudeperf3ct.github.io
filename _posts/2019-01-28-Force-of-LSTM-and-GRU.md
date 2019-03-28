@@ -633,7 +633,7 @@ Prediction: [0.02207627 0.9779237 ]  -> 98% Positive
 
 ---
 
-In next post, we will look into the most exicting topic in NLP, <span class='purple'>Power of Transfer Learning in NLP</span>.
+In next post, we will look into the most exicting topic in NLP, <span class='purple'>[Power of Transfer Learning in NLP](https://dudeperf3ct.github.io/nlp/transfer/learning/2019/02/22/Power-of-Transfer-Learning-in-NLP/)</span>.
 
 <span class='orange'>Happy Learning!</span>
 
