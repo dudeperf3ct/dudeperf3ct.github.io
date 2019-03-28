@@ -646,7 +646,7 @@ P(u) &  = softmax(h_{n}W_{e}^{T}) \\
 \end{aligned}
 $$
 
-where $$W_{e}$$ is token embedding matrix, $$W_{p}$$ is position embedding matrix, n is number of layers and U = ($$U_{-k}... U_{-1}$$) is the context vector of tokens.
+where $$W_{e}$$ is token embedding matrix, $$W_{p}$$ is position embedding matrix, n is number of layers and U = ($$u_{-k}... u_{-1}$$) is the context vector of tokens.
 
 The objective to maximize as seen in ELMo will be the only forward direction of biLM.
 
@@ -821,8 +821,7 @@ GPT-2 follows similar Transformer architecture used in GPT. The model details is
 <img src='/images/tl_nlp/gpt_2_summary.png' width="70%"/>
 </p>
 
-- **Machine Translation** : Using conditional probability of target language, translation is obtained. For e.g. for translating English to Chinese $$P(? \mid I like green apples. = 我喜欢绿苹果。 A cat meows at him. = 一只猫对他喵。It is raining cats and dogs. =")$$ will give the translation of "It is raining cats and dogs." in Chinese.
-
+- **Machine Translation** : Using conditional probability of target language, translation is obtained.
 
 <p align="center">
 <img src='/images/tl_nlp/gpt_2_translate.png' width="70%"/>
@@ -865,14 +864,14 @@ There is recent approach from Baidu, called (*wait for it*) [ERNIE](http://resea
 ## Experiments
 
 
-To test drive these approaches, we use the dataset of [Twitter US Airlines Sentiment](https://www.kaggle.com/crowdflower/twitter-airline-sentiment). About dataset, Twitter data was scraped from February of 2015 and contributors were asked to first classify positive, negative, and neutral tweets, followed by categorizing negative reasons (such as "late flight" or "rude service"). It contains whether the sentiment of the tweets in this set was positive, neutral, or negative for six US airlines
+To test drive these approaches, we use the dataset of [Twitter US Airlines Sentiment](https://www.kaggle.com/crowdflower/twitter-airline-sentiment). About dataset, Twitter data was scraped from February of 2015 and contributors were asked to first classify positive, negative, and neutral tweets, followed by categorizing negative reasons (such as "late flight" or "rude service"). It contains whether the sentiment of the tweets in this set was positive, neutral, or negative for six US airlines.
 
 We will apply the recently learned nlp techniques and see what they can add to the table.
 
 ### Keras 
 
 | Approach | Epoch  | Time (sec)  | Train Accuracy(%)  | Dev Accuracy (%)  |
-|---|---|---|---|---|
+|---|---|:---:|:---:|:---:|
 | LSTM  |  10  | 250  |  82 |  80 |
 | BiLSTM |  10 |  500 |  83 | 79  |
 | GRU  |  10 |  300 |  88 | 77  |
@@ -883,7 +882,7 @@ We will apply the recently learned nlp techniques and see what they can add to t
 ### PyTorch
 
 |  Approach | Epoch  | Time (sec)  | Train Accuracy(%)  | Dev Accuracy (%)  |
-|---|---|---|---|---|
+|---|---|:---:|:---:|:---:|
 | LSTM  |  10  | 25  |  98 |  78.8 |
 | BiLSTM |  10 |  35 |  98 | 79.1  |
 | GRU  |  10 |  27 |  92 | 79.3  |
@@ -929,12 +928,12 @@ they had room to spare from their loves.
 I couldn't make any conversation like a Walter White subject... Reject madmen of the City of Independence. [[End Post, 5/17/08] Hearing what Fitzgerald Barbara is saying, began to seem superfluous. Fitzgerald burst into a Googling of white people's black "hypocrisy" and found herself empowered with an insight understanding that the principle of "black roots arrogant of white" must be Austin McKetty's's vision of white supremacy, when it was the preeminence of a man and its map to totalitarianism, its sensibilities, its pleading what could be called "impartiality to all our problems" and the above alienation of white people. Within and of the Gentlemen's splashy rendition of the words, The Advocate adapted this core reading to help these white nationalist bast
 ```
 
-*Mind blowing*
+*Mind blowing* 🤯
 
 ### Fastai
 
 |  Approach | Epoch  | Time (min)  | Train loss |  Dev  | Dev Accuracy (%)  |
-|---|---|---|---|---|---|
+|---|---|:---:|:---:|:---:|
 | Finetune LM | 15   |  6 | 3.575478 | 4.021957  | 26.4607 |
 | Finetune Classifier | 5   |  2 | 0.786838  |	0.658620  | 72.4479 |
 | Gradual Unfreezing (Last 1 layer) | 5   |  2 | 0.725324  |	0.590953  | 75.2134 |
