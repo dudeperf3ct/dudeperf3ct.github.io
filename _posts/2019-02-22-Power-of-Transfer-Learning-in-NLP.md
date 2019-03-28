@@ -10,7 +10,7 @@ published : false
 
 # Transfer Learning in NLP
 
-In this notebook, .
+In this notebook, 
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/ltl_nlp/tweets_sentiment_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_flair.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_fastai.ipynb) and [allennlp](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_allennlp.ipynb).
 
@@ -62,14 +62,15 @@ Feel free to jump anywhere,
   - [How it Works?](#how-it-works?)
   - [TL;DR](#tldr)
   - [Results](#results)
-  - [What this means?](#what-this-means?) 
+  - [What this means?](#what-this-means?)
+- [Experiments](#experiements)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
 ## NLP Tasks and Datasets
 
 The ultimate goal is to make machines understand language (natural language understanding) as we humans do.
-These are some the tasks outlined which need to be accomplished in order for the machines to be able to comprehend natural language as we do. Of course this is not the complete list and there are some other tasks such as Common sense Reasoning, 
+These are some the tasks outlined which need to be accomplished in order for the machines to be able to comprehend natural language as we do.
 
 ### Sentiment analysis
 
@@ -858,7 +859,86 @@ I bet results would be SOTA and they are, on 7 tasks out of 8.
 
 Just training LM (*no task-specific finetuning*) that is all it took. Results are mind (*into tiny pieces*) blowing.
 
+---
 
+## Experiments
+
+
+To test drive these approaches, we use the dataset of [Twitter US Airlines Sentiment](https://www.kaggle.com/crowdflower/twitter-airline-sentiment). About dataset, Twitter data was scraped from February of 2015 and contributors were asked to first classify positive, negative, and neutral tweets, followed by categorizing negative reasons (such as "late flight" or "rude service"). It contains whether the sentiment of the tweets in this set was positive, neutral, or negative for six US airlines
+
+We will apply the recently learned nlp techniques and see what they can add to the table.
+
+### Keras 
+
+| Approach | Epoch  | Time (sec)  | Train Accuracy(%)  | Dev Accuracy (%)  |
+|---|---|---|---|---|
+| LSTM  |  10  | 250  |  82 |  80 |
+| BiLSTM |  10 |  500 |  83 | 79  |
+| GRU  |  10 |  300 |  88 | 77  |
+| CoVe  | 10 | 450  | 72  | 72  |
+| BERT  |  3 | 500  |  - | 85  |
+
+
+### PyTorch
+
+|  Approach | Epoch  | Time (sec)  | Train Accuracy(%)  | Dev Accuracy (%)  |
+|---|---|---|---|---|
+| LSTM  |  10  | 25  |  98 |  78.8 |
+| BiLSTM |  10 |  35 |  98 | 79.1  |
+| GRU  |  10 |  27 |  92 | 79.3  |
+| BERT  |  3 | 600  |  - | 85.03  |
+
+How can I not try open GPT-2 langauge generation model?
+
+Here are the results on random seeds,
+
+Sample Text 1
+
+```
+Take me to the QB!
+
+I came pregnant.
+
+"I'm sure kids will be learning that to be a tad boy."<|endoftext|>Embed This Video On Your Site With This Html: Copy Embed code
+
+<iframe src="http://www.youjizz.com/videos/embed/242203" frameborder="0" style="width:100%; height:570px;" scrolling="no" allowtransparency="true"></iframe><|endoftext|>As president-elect Donald Trump takes his dismantling of Barack Obama's health care law to the White House, it's hoped the good will of both generations won't override Kansas' ready-made attorney general. Getting somebody to poke fun at Trump for not keeping things on her from drawing up a repeal budget, following that up with a lame attempt by Sen. Susan Collins, R-Maine, to slash federal penalties on consumers who'd pay more for insurance through a Medicaid replacement, won't be a serious blow.
+
+That may be largely because it works; reaching a single-payer, single-payer healthcare system under Trump's new administration is not much of a magic bullet, and will make us reluctant to defund Planned Parenthood (which is what the Trump administration and the GOP are taking away as a price to pay for shutting it down), but Republicans weigh in as a country trying to find an adequate replacement.
+
+As Chairman of the Joint Committee on Taxation won't the CBO represent, Trump decides, it would give his political opponents less power to make legitimate criticism of AHCA available, or to oppose repeal legislation without sharing the pieces. "Nobody can refuse to make it available. I mean, let's take a look here," said Senate Minority Leader Chuck Schumer, C-N.Y. (four of the sixteen Democratic senators who voted to repeal tax credits for having children care for themselves or their parents, by making free outreach to Russian entertainment hit shows about women injured in Syria). "To me that means that's another piece of legislation from the Oval Office devoted exclusively to people who feel like we're firing them immediately."
+
+Senators are not Republican only because they represent nothing less than sovereignty on their party's national stage, but because they can break through entrenched partisan historical convictions in one moment with one substantive change they want to see voted upon in the next, and then repeat it because that moment feels unreal and basic.
+
+Now this is my heart, because every unelected bit of Republican leadership in the United States has a
+```
+
+Sample Text 2
+
+```
+[sniffs] I mean Christian, you know, those Christians, we have a holy book that is doctrinal moderate ... like a god? I think that it's time to come out and say like, wow, I just also see the long sweep animosity some people have toward Rule 2. . . but Franciscans also are notoriously violent there and they intend to be in charge at the end of each put. God is the judge of every place."
+
+The Patriot Leader has a tone similar to that of Rev. Carl Nelson's."Let me ask, is a right to exhibit racial and religious symbols on your property such a my God," he marveled, as one inquirer characterized those religious symbols."Jeb Talmage, you did this painting there, did you know?" asked Gagnon.
+
+Through a crack at Trump for his response, Fitzgerald efficient rebuked; not once did Fitzgerald otherwise react. More snd just finished writing this post which the Journal overlooked due to focus and questionability and yet in this city transcribed the posting over 887 frustrating seconds in length and markedly. You know probably will not boo the level of the Presidential "say turn" for much money to basically pay for his utter disregard for our how we live. Not that there's anything wrong with pay-to-play or kicking Fauxouts. As a mother of one young daughter, pray for my voice. See "Before this she left to go to Gothic, I looked up the alphabet to eat cookies For my Christian a Werewolf Wolf, and my Dog ; quote: Heaven my prayer
+
+I saw the scene these moronchildren were living in,
+
+they had room to spare from their loves.
+
+I couldn't make any conversation like a Walter White subject... Reject madmen of the City of Independence. [[End Post, 5/17/08] Hearing what Fitzgerald Barbara is saying, began to seem superfluous. Fitzgerald burst into a Googling of white people's black "hypocrisy" and found herself empowered with an insight understanding that the principle of "black roots arrogant of white" must be Austin McKetty's's vision of white supremacy, when it was the preeminence of a man and its map to totalitarianism, its sensibilities, its pleading what could be called "impartiality to all our problems" and the above alienation of white people. Within and of the Gentlemen's splashy rendition of the words, The Advocate adapted this core reading to help these white nationalist bast
+```
+
+*Mind blowing*
+
+### Fastai
+
+|  Approach | Epoch  | Time (min)  | Train loss |  Dev  | Dev Accuracy (%)  |
+|---|---|---|---|---|---|
+| Finetune LM | 15   |  6 | 3.575478 | 4.021957  | 0.264607 |
+| Finetune Classifier | 5   |  2 | 0.786838  |	0.658620  | 0.724479 |
+| Gradual Unfreezing (Last 1 layer) | 5   |  2 | 0.725324  |	0.590953  | 0.752134 |
+| Gradual Unfreezing (Last 2 layer) | 5   |  3 | 0.556359  |	0.486604   | 0.812564 |
+| Unfreeze whole and train | 8   |  7 |  0.474538  |	0.446159  | 0.829293 |
 
 
 
@@ -877,9 +957,9 @@ Must Read! Awesome Lil'Log [Generalized Language Models](https://lilianweng.gith
 
 Must Read! [Dissecting BERT Part 1: The Encoder](https://medium.com/dissecting-bert/dissecting-bert-part-1-d3c3d495cdb3), [Understanding BERT Part 2: BERT Specifics](https://medium.com/dissecting-bert/dissecting-bert-part2-335ff2ed9c73) and [Dissecting BERT Appendix: The Decoder](https://medium.com/dissecting-bert/dissecting-bert-appendix-the-decoder-3b86f66b0e5f)
 
-Must Read! Jay Alammar [Illustrated bert](http://jalammar.github.io/illustrated-bert/), [Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) and [Visualizing A Neural Machine Translation Model](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)
+Must Read! Very cool visualizations by Jay Alammar [Illustrated bert](http://jalammar.github.io/illustrated-bert/), [Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) and [Visualizing A Neural Machine Translation Model](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)
 
-Must Read! mlexplained.com Paper Dissected [BERT](http://mlexplained.com/2019/01/07/paper-dissected-bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding-explained/), [ELMo](http://mlexplained.com/2018/06/15/paper-dissected-deep-contextualized-word-representations-explained/) and [Attention Is All You Need](http://mlexplained.com/2017/12/29/attention-is-all-you-need-explained/)
+Must Read! mlexplained.com by keitakurita Awesome Paper Dissected [BERT](http://mlexplained.com/2019/01/07/paper-dissected-bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding-explained/), [ELMo](http://mlexplained.com/2018/06/15/paper-dissected-deep-contextualized-word-representations-explained/) and [Attention Is All You Need](http://mlexplained.com/2017/12/29/attention-is-all-you-need-explained/)
 
 Must Read! Havard NLP [The Annotated Transformer](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
 
@@ -922,7 +1002,7 @@ Must Read! Havard NLP [The Annotated Transformer](http://nlp.seas.harvard.edu/20
 
 [Meme src](https://twitter.com/gregd_nlp/status/1096244878600818693)
 
-[ELMO](https://twitter.com/elmo)
+[ELMo](https://twitter.com/elmo)
 
 [ELMo biLM](http://www.realworldnlpbook.com/blog/improving-sentiment-analyzer-using-elmo.html)
 
