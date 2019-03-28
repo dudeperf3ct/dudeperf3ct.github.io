@@ -4,15 +4,15 @@ title:      Power of Transfer Learning in NLP
 date:       2019-02-22 12:00:00
 summary:    This post will provide a brief introduction to various approaches like CoVe, ELMo, BERT, GPT and GPT-2 and also, transfer learning in NLP.
 categories: nlp transfer learning
-published : false
+published : true
 ---
 
 
 # Transfer Learning in NLP
 
-In this notebook, 
+In this notebook, we will understand the true power of transfer learning in NLP, why it matters and how they compare with recurrent architectures in previous posts using a dataset of [Tweets on US Airlines](https://www.kaggle.com/crowdflower/twitter-airline-sentiment/).
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/ltl_nlp/tweets_sentiment_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_flair.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_fastai.ipynb) and [allennlp](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tweets_sentiment_allennlp.ipynb).
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tl_nlp_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tl_nlp_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tl_nlp_flair.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tl_nlp_fastai.ipynb) and [allennlp](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tl_nlp_allennlp.ipynb).
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -1021,6 +1021,7 @@ Must Read! Havard NLP [The Annotated Transformer](http://nlp.seas.harvard.edu/20
 
 # Footnotes and Credits
 
+[Kaggle Dataset Tweets Sentiment Analysis](https://www.kaggle.com/crowdflower/twitter-airline-sentiment/)
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
