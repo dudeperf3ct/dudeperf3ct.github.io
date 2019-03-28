@@ -317,7 +317,7 @@ In above embedding models, a word is assigned the same vector representation no 
 <span class='saddlebrown'>A neural network [BiLSTM](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#bidirectional-lstm-network) takes word vectors as input and outputs a new vector called hidden vector.</span> This process is often referred to as encoding the sequence, and the neural network that does the encoding is referred to as an encoder. BiLSTM (forward and backward LSTM) is used to incorporate information from words that appear later in the sequence.
 
 <p align="center">
-<img src='/images/tl_nlp/encoder_cove.svg' width="70%"/>
+<img src='/images/tl_nlp/encoder_cove.png' width="60%"/>
 </p>
 
 CoVe uses two BiLSTM layers as encoder, first BiLSTM processes its entire sequence before passing outputs to the second. Let $$w^{x}$$ = [$$w^{x}_{1}, w^{x}_{2}, ..., w^{x}_{n}$$] sequence of words in source language, then the output hidden vector h or CoVe vector,
@@ -636,7 +636,7 @@ GPT training procedure consists of two steps:
 
 - **Unsupervised pretraining**
 
-<span class='orange'>GPT similar to ELMo uses a standard language model, where instead of using biLM model i.e. both forward and backward direction, GPT uses only forward direction and the model architecture is multi-layer Transformer decoder adapted from this [paper](https://arxiv.org/pdf/1801.10198.pdf) for language model.</span> This model applies multiple transformer blocks over the embeddings of input sequences. Each block contains a masked multi-headed self-attention layer and a pointwise feed-forward layer. The final output produces a distribution over target tokens after softmax normalization.
+<span class='yellow'>GPT similar to ELMo uses a standard language model, where instead of using biLM model i.e. both forward and backward direction, GPT uses only forward direction and the model architecture is multi-layer Transformer decoder adapted from this [paper](https://arxiv.org/pdf/1801.10198.pdf) for language model.</span> This model applies multiple transformer blocks over the embeddings of input sequences. Each block contains a masked multi-headed self-attention layer and a pointwise feed-forward layer. The final output produces a distribution over target tokens after softmax normalization.
 
 $$
 \begin{aligned}
@@ -668,7 +668,7 @@ After training with objective $$\mathcal{L}_{LM}$$, the inputs where each instan
 
 $$
 \begin{aligned}
-(P(y \mid x^{1}, x^{2}, ..., x^{m}) & = softmax(h_{l}^{m}W_{y}) \\
+P(y \mid x^{1}, x^{2}, ..., x^{m}) & = softmax(h_{l}^{m}W_{y}) \\
 \mathcal{L}_{C} &  = \sum_{(x,y)}^{}(log (P(y \mid x^{1}, x^{2}, ..., x^{m})) \\
 \mathcal{L}_{total} &  = \mathcal{L}_{C} + \lambda * \mathcal{L}_{LM}
 \end{aligned}
