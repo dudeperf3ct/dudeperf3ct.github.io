@@ -432,7 +432,7 @@ Hi, my name is ELMo and I will overcome the limitation of CoVe by generating con
 <img src='/images/tl_nlp/elmo.jpeg' width="50%"/>
 </p>
 
-<span class='blue'>ELMo stands for Embeddings from Language Models.</span> ELMo is a word representation technique proposed by [AllenNLP](https://arxiv.org/pdf/1802.05365.pdf)
+<span class='blue'>ELMo stands for Embeddings from Language Models.</span> ELMo is a word representation technique proposed by [AllenNLP group](https://arxiv.org/pdf/1802.05365.pdf)
 
 ### How it Works?
 
@@ -932,7 +932,7 @@ I couldn't make any conversation like a Walter White subject... Reject madmen of
 
 ### Fastai
 
-|  Approach | Epoch  | Time (min)  | Train loss |  Dev  | Dev Accuracy (%)  |
+|  Approach | Epoch  | Time (min)  | Train loss |  Dev loss | Dev Accuracy (%)  |
 |---|---|:---:|:---:|:---:|
 | Finetune LM | 15   |  6 | 3.575478 | 4.021957  | 26.4607 |
 | Finetune Classifier | 5   |  2 | 0.786838  |	0.658620  | 72.4479 |
