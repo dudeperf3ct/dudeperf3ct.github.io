@@ -979,6 +979,8 @@ ERNIE - Enhanced Representation through kNowledge IntEgration
 
 Must Read! Awesome Lil'Log [Generalized Language Models](https://lilianweng.github.io/lil-log/2019/01/31/generalized-language-models.html)
 
+Must Read! Sebastian Ruder [NLP's ImageNet moment has arrived](https://thegradient.pub/nlp-imagenet/) and [10 Exciting Ideas of 2018 in NLP](http://ruder.io/10-exciting-ideas-of-2018-in-nlp/)
+
 Must Read! [Dissecting BERT Part 1: The Encoder](https://medium.com/dissecting-bert/dissecting-bert-part-1-d3c3d495cdb3), [Understanding BERT Part 2: BERT Specifics](https://medium.com/dissecting-bert/dissecting-bert-part2-335ff2ed9c73) and [Dissecting BERT Appendix: The Decoder](https://medium.com/dissecting-bert/dissecting-bert-appendix-the-decoder-3b86f66b0e5f)
 
 Must Read! Very cool visualizations by Jay Alammar on [Illustrated bert](http://jalammar.github.io/illustrated-bert/), [Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) and [Visualizing A Neural Machine Translation Model](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)
