@@ -2,7 +2,7 @@
 layout:     post
 title:      Power of Transfer Learning in NLP
 date:       2019-02-22 12:00:00
-summary:    This post will provide a brief introduction to various approaches like CoVe, ELMo, BERT, GPT and GPT-2 and also, transfer learning in NLP.
+summary:    This post will provide a brief introduction to various approaches like CoVe, ELMo, BERT, GPT and GPT-2 and also, compare the results of these approaches with traditional recurrent model like LSTM and GRU.
 categories: nlp transfer learning
 published : true
 ---
