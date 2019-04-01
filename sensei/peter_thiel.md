@@ -37,6 +37,8 @@ Creating value isn't enough - you also need to capture some of the value you cre
 
 Education is a bubble in a classic sense. To call something a bubble, it must be overpriced, and there must be an intense belief in it. 
 
+Monopolists lie to protect themselves.
+
 
 
 Stories
