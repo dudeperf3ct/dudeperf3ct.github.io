@@ -1049,6 +1049,8 @@ Must Read! Havard NLP [The Annotated Transformer](http://nlp.seas.harvard.edu/20
 
 [GPT-2 examples](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
 
+Karen Hao's post in MIT Technology Review [Four different philosophies of language](https://www.technologyreview.com/s/612975/ai-natural-language-processing-explained/)
+
 
 ---
 
