@@ -88,6 +88,8 @@ If you don't find a way to make money while you sleep, you will work until you d
 
 A business should be viewed as an unfolding movie, not as a still photograph text.
 
+Chains of habit are too light to be felt, until they are too heavy to be broken.
+
 Stories
 ===========================
 
