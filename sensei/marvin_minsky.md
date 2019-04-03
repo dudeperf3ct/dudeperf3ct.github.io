@@ -15,6 +15,7 @@ published: false
 Minksyism
 ===========================
 
+If you see a lot of people doing something then if you want to be sure that you want job someday do whats popular then you got a good chance. If you want to win a Nobel Prize or solve an important problem then don't do whats popular because chances are you will be just a frog in it in a big pond of frogs.
 
 
 Quotes
