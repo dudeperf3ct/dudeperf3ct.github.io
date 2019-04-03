@@ -28,4 +28,4 @@ Religion is a sort of science that doesn't use evidence, and in fact kills peopl
 Stories
 ===========================
 
-I changed schools around 3rd grade. There was no European history. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
+I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
