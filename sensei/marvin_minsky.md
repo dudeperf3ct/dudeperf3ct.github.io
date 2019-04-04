@@ -45,6 +45,8 @@ It would have been nice to meet Aristotle (*no one really knows much about him*)
 
 I spent some time learning neuroscience(*a great stroke of luck*) when I was just a junior at Harvard, there was a great new building which was just finished and half occupied because it was made with future. So, I wondered over there and met a professor made John and I said I like to learn neurology. He said great, well I have a extra lab why don't you study the crayfish claw, I said great. He gave me this lab which had 4 rooms and a dark room and lot of equipment and nobody there. 
 
-<span class='blue'>Always reminding myself that I am luckiest person in the world because everytime I wanted to do something I just happened to find the right person and they would give me a lab.</span> <span class='red'>Another reason why I was lucky is that, if you had a mathematical question you could find the best mathematician in the world down the block somewhere.</span>
+<span class='blue'>Always reminding myself that I am luckiest person in the world because everytime I wanted to do something I just happened to find the right person and they would give me a lab.</span> 
+
+<span class='red'>Another reason why I was lucky is that, if you had a mathematical question you could find the best mathematician in the world down the block somewhere.</span>
 
 I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
