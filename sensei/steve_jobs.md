@@ -55,6 +55,9 @@ Start your business when you are young.
 
 Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple.
 
+We’re here to put a dent in the universe. Otherwise why else even be here?
+
+
 
 Stories
 ===========================
