@@ -353,7 +353,7 @@ $$
 
 - **Attention**
 
-Attention mechanism is one the interesting mechanism in NLP. The attention mechanism looks back at hidden vectors in order to decide which part of English sentence to translate next. It uses the state vector to determine how important each hidden vector is, and then it produces a new vector, which we will call the context-adjusted state, to record its observation.
+[Attention](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/) mechanism is one the interesting mechanism in NLP. The attention mechanism looks back at hidden vectors in order to decide which part of English sentence to translate next. It uses the state vector to determine how important each hidden vector is, and then it produces a new vector, which we will call the context-adjusted state, to record its observation.
 
 <p align="center">
 <img src='/images/tl_nlp/attention_cove.svg' width="70%"/>
