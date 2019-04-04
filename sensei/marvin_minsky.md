@@ -39,4 +39,8 @@ Religion is a sort of science that doesn't use evidence, and in fact kills peopl
 Stories
 ===========================
 
+When I was in grade school sometimes when I said something bright I would hear a teacher saying maybe he is another [J. Robert Oppenheimer](https://en.wikipedia.org/wiki/J._Robert_Oppenheimer)(*3 or 4 years senior in same school*).
+
+Many years later when I was in Princetion(my grad school) I met the Robert Oppenheimer and that was a great pleasure. In fact, he took me to lunch with couple of other people I admire, namely Kurt Gödel and Albert Einstein which was very exicting. It would have been nice to meet Aristotle (*no one really knows much about him*), a lot of his writings is done from his students. Astonishing thing about Aristotle is that he seems to be more imaginative most congnitive scientists you will run into. Also, it would have been nice to meet [Kant](https://en.wikipedia.org/wiki/Immanuel_Kant) and [Freud](https://en.wikipedia.org/wiki/Sigmund_Freud).
+
 I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
