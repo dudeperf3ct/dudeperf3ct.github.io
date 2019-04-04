@@ -55,6 +55,8 @@ One of the things you see crystal clearly in VC is how much competition emerges 
 
 <span class='red'>I’m really on the Jeff Bezos program on structure of teams, the two-pizza team thing. Jeff Bezos favors product innovation teams with five to seven people—no more than can be fed with two pizzas. I think hierarchies kill innovation for the most part. You need original thinking and speed of execution, and it’s really hard to get that in anything other than a small-team format, in my view.</span>
 
+If you can’t ride two elephants at the same time, what are you doing at the circus?
+
 
 Quotes
 ===========================
