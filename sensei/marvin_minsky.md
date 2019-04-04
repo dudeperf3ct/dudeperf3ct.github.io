@@ -28,8 +28,6 @@ The most important thing from human point of view is that at some point the litt
 <span class='purple'>While most neuroscientists are interested in how the brain cells work to me that's pretty much like trying to understand a computer from how the transistors work it's many many levels of organization below the important things that distinguish a human from a crayfish or a snake or whatever and I'm interested in the question of how the this piece of machinery the brain can do things like remember what it's been doing in the past and can decide that what it's doing didn't work how does it develop new goals how does it develop new methods for achieving goals and most important how does it make a model of itself as a being in a world and think about its own future and its past and its relatives and this very high-level stuff and those are questions that neuroscientists don't like to talk about very much because they see that as too futuristic, too vague and too high level. They still want to explain how people work in terms of how the neurons transmit sodium and potassium through their membranes and how each cell excites the next.</span>
 
  
-
-
 Quotes
 ===========================
 
@@ -42,5 +40,7 @@ Stories
 When I was in grade school sometimes when I said something bright I would hear a teacher saying maybe he is another [J. Robert Oppenheimer](https://en.wikipedia.org/wiki/J._Robert_Oppenheimer)(*3 or 4 years senior in same school*).
 
 Many years later when I was in Princetion(my grad school) I met the Robert Oppenheimer and that was a great pleasure. In fact, he took me to lunch with couple of other people I admire, namely Kurt Gödel and Albert Einstein which was very exicting. It would have been nice to meet Aristotle (*no one really knows much about him*), a lot of his writings is done from his students. Astonishing thing about Aristotle is that he seems to be more imaginative most congnitive scientists you will run into. Also, it would have been nice to meet [Kant](https://en.wikipedia.org/wiki/Immanuel_Kant) and [Freud](https://en.wikipedia.org/wiki/Sigmund_Freud).
+
+I spent some time learning neuroscience(*a great stroke of luck*) when I was just a junior at Harvard, there was a great new building which was just finished and half occupied because it was made with future. So, I wondered over there and met a professor made John and I said I like to learn neurology. He said great, well I have a extra lab why don't you study the crayfish claw, I said great. He gave me this lab which had 4 rooms and a dark room and lot of equipment and nobody there. <span class='blue'>Always reminding myself that I am luckiest person in the world because everytime I wanted to do something I just happened to find the right person and they would give me a lab.</span>
 
 I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
