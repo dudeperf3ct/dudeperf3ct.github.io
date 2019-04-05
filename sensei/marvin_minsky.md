@@ -11,6 +11,7 @@ published: false
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. <span class='red'>Happy Learning!</span>
 
+> <span class='purple'>I am obsessed with the question why you can pull with the string and not push with it?</span>
 
 Minksyism
 ===========================
@@ -38,6 +39,8 @@ Contrast this with the progress we’ve seen toward answering questions about ph
 What's the important problem in next 100 years? We are going to have 20 billion old people and nobody to take care to them unless we get AI.
 
 What's difference between artist and engineers? When you do a painting then 9/10th of the problem is what should I paint, so you could think of an artist as 10% skill and 90% trying to figure out what problem to solve. Whereas for the engineers somebody has told him what to do so he going to paint 90% of time solving the problem and only 10% of time deciding what problem to solve. So, I don't really see any difference between artist and engineers except that artists has lot many problems to solve than he can possibly solve and usually ends up by picking a really dumb one like lets have a saint and three angels, where should I put the third angel(*that's the engineering part 😛*)?
+
+
 
  
 Quotes
