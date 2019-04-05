@@ -58,3 +58,10 @@ I spent some time learning neuroscience(*a great stroke of luck*) when I was jus
 <span class='red'>Another reason why I was lucky is that, if you had a mathematical question you could find the best mathematician in the world down the block somewhere.</span>
 
 I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
+
+"Oh, life is a glorious cycle of song,
+A medley of extemporanea;
+And love is a thing that can never go wrong;
+And I am Marie of Roumania.”— Dorothy Parker
+One of my favourite poems of all time.
+
