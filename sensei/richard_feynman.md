@@ -20,6 +20,8 @@ Feynmanism
 
 The fact that I beat a drum has nothing to do with the fact that I do theoretical physics. Theoretical physics is a human endeavor, one of the higher developments of human beings – and this perpetual desire to prove that people who do it are human by showing that they do other things that a few other humans do (like playing bongo drums) is insulting to me.
 
+It's interesting some people find science interesting while some find it dull and difficult. I don't know why it is. I think people lose a lot of pleasure who find science dull. In case of science, I think on of the things it makes it difficult is it takes a lot of imagination. It's very hard to imagine all crazy things are like.
+
 
 Quotes
 ===========================
