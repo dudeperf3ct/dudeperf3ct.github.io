@@ -35,6 +35,10 @@ We all admire great accomplishments in the sciences, arts, and humanities—but 
 
 Contrast this with the progress we’ve seen toward answering questions about physical things. What are solids, liquids, and gases?  What are colors, sounds, and temperatures?  What are forces, stresses, and strains? What is the nature of energy? Today, almost all such mysteries have been explained in terms of very small numbers of simple laws—such as the equations discovered by such physicists as Newton, Maxwell, Einstein, and Schrödinger. So naturally, psychologists tried to imitate physicists—by searching for compact sets of laws to explain what happens inside our brains.  
 
+What's the important problem in next 100 years? We are going to have 20 billion old people and nobody to take care to them unless we get AI.
+
+What's difference between artist and engineers? When you do a painting then 9/10th of the problem is what should I paint, so you could think of an artist as 10% skill and 90% trying to figure out what problem to solve. Whereas for the engineers somebody has told him what to do so he going to paint 90% of time solving the problem and only 10% of time deciding what problem to solve. So, I don't really see any difference between artist and engineers except that artists has lot many problems to solve than he can possibly solve and usually ends up by picking a really dumb one like lets have a saint and three angels, where should I put the third angel(*that's the engineering part 😛*)?
+
  
 Quotes
 ===========================
@@ -59,9 +63,11 @@ I spent some time learning neuroscience(*a great stroke of luck*) when I was jus
 
 I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
 
+I was once giving a lecture and talking about living a long time and nobody in the audience seem interested. And I said suppose you could live for 400 years, I was asked wouldn't it be boring. So then I tried it again in couple of other lectures and if you ask bunch of scientists how would you like to live for 400 years, almost all hands go up, everyone says yay! You ask them why and they say well I am working on a problem that I might solve if I get 400 years.
+
 "Oh, life is a glorious cycle of song,
 A medley of extemporanea;
 And love is a thing that can never go wrong;
 And I am Marie of Roumania.”— Dorothy Parker
-One of my favourite poems of all time.
+
 
