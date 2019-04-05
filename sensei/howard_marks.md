@@ -107,6 +107,8 @@ Investing is the only place where people buy less when things go on sale, and I 
 
 I think I’ve been the luckiest person on the planet. And I think it was to that that people were responding. But I get into arguments with people and a lot of people say, “Oh—!” Well, what started the article is, I read a piece that quoted some Silicon Valley guy who says, “Success is never accidental. You make your own luck.” And I don’t agree. I think luck is a real thing and it’s important and it’s inherently unfair, but that’s life.
 
+<span class='purple'>First-level thinking is simplistic and superficial, and just about everyone can do it (a bad sign for anything involving an attempt at superiority). All the first-level thinker needs is an opinion about the future, as in “The outlook for the company is favorable, meaning the stock will go up.” Second-level thinking is deep, complex and convoluted.</span>
+
 Quotes
 ===========================
 
