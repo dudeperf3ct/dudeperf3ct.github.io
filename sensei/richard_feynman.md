@@ -39,7 +39,7 @@ Trees come of air not the ground. The carbon dioxide in the air goes into the tr
 
 How is the tree so smart to take out the carbon and kick oxygen from carbon dioxide so easily? Ahh the nature. Life has some mysterious fuss. The sun is shining and it's the sunlight that comes down and that knocks this oxygen away from carbon. So, it takes sunlight to get to plant to work. Sun is all time doing this work of seperating the oxygen away from the carbon and spitting the oxygen as some kind of terrible byproduct back into air and leaving the carbon and water and stuff to make the substance to the tree. Then when we take the substance of the tree and stick it in fireplace, all the oxygen made by these trees and all the carbon (wood from tree) would much prefer to be close together again. And once you get the heat to get it started, it continues and makes a awful lot of activity while it's going back together again. All this nice light and everything comes out and everything is being undone and you get carbon dioxide back from carbon and oxygen and the light and heat that's coming out, that's light and heat of sun that went in. So, it's sort of stored sun that's coming out when you burn a log.
 
-
+There is no special miracle, talent, ability to understand quantum mechanics or to imagine electromagnetic fields. It comes without practice in reading and learning. If you say, you take a ordinary person who is wiling to devote a great deal of time and study and work and think and Mathematics then he has become a scientist.
 
 
 
@@ -50,7 +50,7 @@ What I cannot create I do not understand.
  
 The first principle is that you must not fool yourself — and you are the easiest person to fool.
 
-Look for the simplest, most elementary solution to a problem that was possible. If it wasn't possible, you had to use something fancier.
+Look for the simplest, most elementary solution to a problem that was possible. If it wasn't possible, you use something fancier.
 
 I can live with doubt and uncertainty and not knowing. I think it’s much more interesting to live not knowing than to have answers which might be wrong. 
 
@@ -61,6 +61,9 @@ Just the runner gets kick out of sweating, I get the run out of thinking.
 I think nature's imagination is so much greater than man, she's never going to let us relax.
 
 The deeper a thing is, the more interesting it is.
+
+I was a ordinary person who studied hard. There is no miracle people.
+
 
 
 Stories
