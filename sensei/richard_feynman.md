@@ -29,7 +29,13 @@ If you cool of the water so the jiggling of atoms is less and less, they jiggle 
 
 The atoms like each other at different degrees. Oxygen for instance in the air would like to be next to carbon and they snap to each other when they get close. If they are not too close though they repel and they go apart so they don't know they could stand together. The situation is similar to a ball rolling up the hill with mountain having a deep hole like in valcano, so when we push the ball up it goes up and comes down not completely going up unless we push it harder. The same situation is with oxygen molecule. But when we bring wood(contains carbon) in oxygen from air, the carbon from wood in tree and oxygen comes and hits carbon but no hard enough, it just goes away again. The air is always coming and nothing is happening. If you can get it faster by heating it up somehow, get it started some of them come fast (they go over the top of mountain) they come close enough to carbon and snap in and that creates a lot of jiggly motion and that might hit some other atom, then those go faster(so they could climb up) and make other atoms of carbon jiggle and so on. What you get is a terrible catastrophe which is one after another these things are going faster and faster and snapping in and whole thing is changing. That catastrophe is fire🔥.
 
-Trees come of air not the ground. The carbon dioxide in the air goes into the tree and they changes it kicking out the oxygen and leaving the carbon with water. Water comes of the ground but water too came out of sky you see. So, in fact most of the trees are out of the air. There is a little bit from ground some minerals and so forth.
+Trees come of air not the ground. The carbon dioxide in the air goes into the tree and they changes it kicking out the oxygen and leaving the carbon with water. Water comes of the ground but water too came out of sky you see. So, in fact most of the trees are out of the air. There is a little bit from ground some minerals and so forth. 
+
+How is the tree so smart to take out the carbon and kick oxygen from carbon dioxide so easily? Ahh the nature. Life has some mysterious fuss. The sun is shining and it's the sunlight that comes down and that knocks this oxygen away from carbon. So, it takes sunlight to get to plant to work. Sun is all time doing this work of seperating the oxygen away from the carbon and spitting the oxygen as some kind of terrible byproduct back into air and leaving the carbon and water and stuff to make the substance to the tree. Then when we take the substance of the tree and stick it in fireplace, all the oxygen made by these trees and all the carbon (wood from tree) would much prefer to be close together again. And once you get the heat to get it started, it continues and makes a awful lot of activity while it's going back together again. All this nice light and everything comes out and everything is being undone and you get carbon dioxide back from carbon and oxygen and the light and heat that's coming out, that's light and heat of sun that went in. So, it's sort of stored sun that's coming out when you burn a log.
+
+
+
+
 
 Quotes
 ==========================
@@ -38,12 +44,15 @@ What I cannot create I do not understand.
  
 The first principle is that you must not fool yourself — and you are the easiest person to fool.
 
+Look for the simplest, most elementary solution to a problem that was possible. If it wasn't possible, you had to use something fancier.
+
 I can live with doubt and uncertainty and not knowing. I think it’s much more interesting to live not knowing than to have answers which might be wrong. 
 
 I learned very early the difference between knowing the name of something and knowing something.
 
 Just the runner gets kick out of sweating, I get the run out of thinking.
 
+I think nature's imagination is so much greater than man, she's never going to let us relax.
 
 
 Stories
