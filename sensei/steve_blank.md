@@ -22,6 +22,10 @@ Feel free to jump anywhere,
 Steveism
 ===========================
 
+Founders/visionaries see things other don’t and the extraordinary ones create new industries.
+
+When technology changes are rapid you want the founder to continue to run the company. However, when success depends on exploitation and execution at scale their impatience for continuous innovation and invention often gets in the way of day-to-day execution.
+
 If you’re an early company employee, it’s not likely that the skills you have on day one are the skills needed as the company scales to the next level. 
 
 The painful reality is that products change, strategies change, people change. Things have to change for your company to stay in business and grow.
@@ -31,6 +35,8 @@ You know we have a special name for failed entrepreneur in a entrepreneur cluste
 Almost always founders actually understand the symptom of the problem not the problem.
 
 If you're a founder you believe on day one you're a visionary but we now have 50 years of data that says almost all of you are hallucinating.
+
+Entrepreneurs lead a startup community while everyone else feeds the community. Feeders include the government, universities, investors, mentors, service providers and large companies.
 
 The common wisdom is that no one would want to work like crazy knowing that they might not be the ones to lead as the company grows. I call this the Moses-problem–you work for years to get the tribe to the promised land–but you’re not allowed to cross over. The company needs to give formal recognition for those individuals who brought the tribe to the promised land.
 
@@ -58,6 +64,31 @@ If you're a startup founder you're using customer discovery to fill out essentia
 
 For enterprise sales for the rest of you you know I had a model which I think is still kind of valid is first of all you want to find people who have a problem right but just because you see there's a problem they might not know there's a problem sometimes you have greater insight than they do so first they have to have a problem and two is they have to know they have a problem big idea the third part is they have to not only know they have a problem but it had to be important enough that they were actively looking for a solution because if they weren't looking for a solution now you need to spend your time convincing them they need a solution you don't have enough time in the day as a startup to do that.
 
+Not understanding how to respond to advice/suggestions can limit your career. Advice is a kickstarter for your own insights and a gateway for mentorship. Treat advice and suggestions as a gift, not a distraction. Here is a response I gave to my team:
+
+Dear Team:
+
+Throughout your work career you’ll be getting tons of suggestions and advice; from mentors – people you don’t work for but who care about your career and from your direct boss and others up your reporting chain.
+1. Treat advice and suggestions as a gift, not a distraction
+    - Assume someone has just given you a package wrapped in a bow with your name on it.
+    - Then think of how they’ll feel when you ignore it and toss it aside.
+2. When you’re working at full speed just trying to get your job done, it’s pretty easy to assume that advice/suggestions from others are just diversions. That’s a mistake. At times following up on them may make or break a career and/or a relationship. 
+    - The first time your boss or mentor will assume you were too busy to follow up.
+    - The second time your boss will begin to question your judgment. Your mentor is going to question your willingness to be coached.
+    - The third time you ignore suggestions/advice from your boss is a career-limiting move. And if from a mentor, you’ve likely damaged or ended the relationship.
+3. Everyone likes to offer “suggestions” and “advice.” Think of these as falling into four categories:
+    - Some bosses/mentors offer “suggestions” and “advice” because it makes them feel important.
+    - Others have a set of contacts or insights they are willing to share with you because they believe these might be useful to you.
+    - A few bosses/mentors have pattern-recognition skills. They’ve recognized the project you’re working on or problem you’re trying to solve could be helped by connecting with a specific person/group or by listening to how it was solved previously.
+    - A very small subset of bosses/mentors has extracted some best practices and/or wisdom from those patterns. These can give you shortcuts to the insights they’ve taken years to learn.
+4. Early in your career it’s hard to know whether a suggestion/advice is valuable enough to spend time following up. Here’s what I suggest:
+    - Start with “Thanks for the suggestion.”
+    - Next, it’s OK to ask, “Help me understand why is this important? Why should I talk to them? What should I learn?” This will help you figure out which category of advice you’re getting.If it’s a direct boss and others up your reporting chain, ask, “How should I prioritize this? Does it require immediate action?” (And it most cases it doesn’t matter what category it’s in, just do it.)
+    - Always report back to whoever offered you the advice/suggestion to share what you learned. Thank them
+
+
+
+
 Quotes
 ===========================
 
@@ -80,6 +111,9 @@ Large companies execute known business models whereas startups search for new bu
 You don't go to war without understanding and preparing for battle.
 
 When you're driving if you don't feel like you're out of control you're not driving fast enough. ~ Mario Andretti
+
+The best ones know when it’s time to let go.
+
 
 Stories
 ===========================
