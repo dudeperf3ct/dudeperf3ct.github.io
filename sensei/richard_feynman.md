@@ -18,7 +18,7 @@ Feel free to jump anywhere,
 - [Feynmanism](#feynmanism)
 - [Quotes](#quotes)
 - [Stories](#stories)
-- [Leonard Susskind: My friend Richard Feynman](#leonard-susskind:-my-friend-richard-feynman)
+- [Leonard Susskind: My friend Richard Feynman](#leonard-susskind-my-friend-richard-feynman)
 
 Feynmanism
 ===========================
@@ -41,6 +41,10 @@ How is the tree so smart to take out the carbon and kick oxygen from carbon diox
 
 There is no special miracle, talent, ability to understand quantum mechanics or to imagine electromagnetic fields. It comes without practice in reading and learning. If you say, you take a ordinary person who is wiling to devote a great deal of time and study and work and think and Mathematics then he has become a scientist.
 
+One kid says to me, “See that bird? What kind of bird is that?”
+I said, “I haven't the slightest idea what kind of a bird it is.”
+He says, “It'a brown-throated thrush. Your father doesn't teach you anything!”
+But it was the opposite. He [Feynman's father] had already taught me: “See that bird?” he says. “It's a Spencer's warbler.” (I knew he didn't know the real name.) “Well, in Italian, it's a Chutto Lapittida. In Portuguese, it's a Bom da Peida… You can know the name of that bird in all the languages of the world, but when you're finished, you'll know absolutely nothing whatever about the bird! You'll only know about humans in different places, and what they call the bird. So let's look at the bird and see what it's doing — that's what counts.” (I learned very early the difference between knowing the name of something and knowing something.) 
 
 
 Quotes
@@ -73,7 +77,6 @@ Stories
 When I was a kid, I noticed that when I pumped the tyres of bicycle, you learn a lot by having a bicycle, pump up the tyre the pump would get hot. As the pump comes down the atoms are coming up against it and are bouncing up as the pump is moving in, the ones(atoms) that are coming off are having the biggest speed than the ones that are coming in. As it comes down, each time they collide it speeds them up and so they are harder. When you compress the gas it heats and when you pull the piston back out, then the atoms which are coming fast at the piston it loses engery. As you put the piston out, the atoms lose their speed and they cool off and gases cool when they expand. I don't wanna take this stuff seriously, I think we should have fun imagining it and not worry about it. There is no teacher to ask you a question in the end. Otherwise it's a horrible subject.
 
 I went through a scientific school MIT and then in fraternity when you first join, if you think you are smart keep you from feeling that you are too smart by giving you what look like simple questions to try to figure out what actually happens. It's like training for imagination. Once you learn them when somebody comes to you with wonderful puzzle you look at them, quietly 2 or 3 seconds to show that you were thinking and then you come up with this answer to astonish your friends but the fact was that of course you were trained by your fraternity brothers as how to answer these things early on.
-
 
 
 
