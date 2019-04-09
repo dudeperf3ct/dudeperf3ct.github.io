@@ -23,8 +23,6 @@ Almost always founders actually understand the symptom of the problem not the pr
 
 If you're a founder you believe on day one you're a visionary but we now have 50 years of data that says almost all of you are hallucinating.
 
-Large companies execute known business models whereas startups search for new business models.
-
 The common wisdom is that no one would want to work like crazy knowing that they might not be the ones to lead as the company grows. I call this the Moses-problem–you work for years to get the tribe to the promised land–but you’re not allowed to cross over. The company needs to give formal recognition for those individuals who brought the tribe to the promised land.
 
 CEOs need to put processes in places to acknowledge and deal with the real sense of loss
@@ -47,6 +45,9 @@ The goal is to do enough discovery so eventually when you build a repeatable pro
 
 Hypothesis testing we've been doing that as scientists for 500 years is that you create a hypothesis you design an experiment you know you get out of the building, you collect some data, and then you do one of three things with that data you either validate the hypothesis, you invalidate it or you modify it and that's what implicitly I was teaching about the Lean Startup method.
 
+If you're a startup founder you're using customer discovery to fill out essentially a sparse matrix and you're making decisions always on imperfect data and if you're not comfortable doing that you shouldn't be running a startup. There's never enough data in a startup for you to make perfect decisions. And that's why startups feel chaotic and if it doesn't feel chaotic you're not moving fast enough because you've just turned it into a lifestyle business and if you do that then that's fine but you're not going to scale.
+
+
 Quotes
 ===========================
 
@@ -54,7 +55,9 @@ Customer development is about get out of the building.
 
 [To CEOs and Founders]There are no facts inside your building so get the hell outside.
 
-The the incredible passion of a founder to drive to a conclusion gets in your way of gathering data.
+The goal of getting out of the building for the lean startup is to inform the founders of vision.
+
+The incredible passion of a founder to drive to a conclusion gets in your way of gathering data.
 
 The biggest idea about customer discovery is that it is not sales.
 
@@ -62,6 +65,9 @@ No business plans survives first contact with customers.
 
 A pivot is a substantive change to one or more of business model elements hypothesis. 
 
+Large companies execute known business models whereas startups search for new business models.
+
+You don't go to war without understanding and preparing for battle.
 
 Stories
 ===========================
