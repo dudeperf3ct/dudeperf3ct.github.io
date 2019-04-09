@@ -12,6 +12,10 @@ published: false
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. <span class='red'>Happy Learning!</span>
 
 
+Feel free to jump anywhere,
+- [Steveism](#steveism)
+- [Quotes](#quotes)
+- [Stories](#stories)
 
 > <span class='purple'>Every great at least technology startup has at least an innovator and an entrepreneur and they're almost never the same person. The innovator is somebody likes Straubel or somebody like Steve Wozniak or somebody like Paul Allen at Microsoft, this could be a technology entrepreneur, could be some business person who has a great insight. But you know what, a startup with just an innovator is like one hand clapping. Almost always you need an entrepreneur, somebody who kind of gets the technology but is world-class in creating a reality distortion field that allows you to attract capital beyond all rational means, to recruit people, to quit great day jobs, to convince the press and early customers, to by bugging unfinished software.</span>
 
