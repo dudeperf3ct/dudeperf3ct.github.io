@@ -64,6 +64,7 @@ The deeper a thing is, the more interesting it is.
 
 I was a ordinary person who studied hard. There is no miracle people.
 
+Study hard what interests you the most in the most undisciplined, irreverent and original manner possible. 
 
 
 Stories
