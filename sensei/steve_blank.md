@@ -12,6 +12,9 @@ published: false
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. <span class='red'>Happy Learning!</span>
 
 
+
+> <span class='purple'>Every great at least technology startup has at least an innovator and an entrepreneur and they're almost never the same person. The innovator is somebody likes Straubel or somebody like Steve Wozniak or somebody like Paul Allen at Microsoft, this could be a technology entrepreneur, could be some business person who has a great insight. But you know what, a startup with just an innovator is like one hand clapping. Almost always you need an entrepreneur, somebody who kind of gets the technology but is world-class in creating a reality distortion field that allows you to attract capital beyond all rational means, to recruit people, to quit great day jobs, to convince the press and early customers, to by bugging unfinished software.</span>
+
 Steveism
 ===========================
 
@@ -73,4 +76,6 @@ Stories
 ===========================
 
 I remember the first time I had to do this just as a you know the marketing guy and someone said well you're not a marketing guy who has you've actually been outside the building which was great advice. You know I used to call people but to set up meetings, the first thing I remember-- literally I remember staring at the phone hoping it with the dial itself because like there's no way  I wanted to talk to people. I was having more fun inside the building thinking great thoughts. What do you mean talk to people I don't even like those people? Why would I talk to them? They're not they're not very smart and all I want is their money. 
+
+Elon Musk's first job in Silicon Valley he was my intern and I had no idea. Somebody came to me with an idea for an electric car and was a kid named JB Straubel you might know who he is is the inventor of all this the Tesla technologies (the chief engineer at Tesla did all the battery technology the drivetrain etc). He was driving around Palo Alto in a in a Porsche he had personally converted as a 20 some-odd year old with a lead-acid battery trailer behind that the powering and so for six weeks him and the then head of Nissan's Palo Alto research group decided we were going to build an electric car. This was going to be my 9th startup and I quickly realized and I said this is going to take 10 years and $50 million. Well I was only off by only another 20 years and probably 100x. I said you know what I just can't do it anymore. JB Starubel went off and found the Tesla with a another entrepreneur named Martin Eberhard, turns out the Elon Musk was actually the investor not the founder though managed to get himself written into history and by the way the company would not have been a success without Musk being the you know the new CEO.
 
