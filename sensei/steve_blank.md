@@ -19,15 +19,41 @@ If you’re an early company employee, it’s not likely that the skills you hav
 
 The painful reality is that products change, strategies change, people change. Things have to change for your company to stay in business and grow.
 
+Almost always founders actually understand the symptom of the problem not the problem.
+
+If you're a founder you believe on day one you're a visionary but we now have 50 years of data that says almost all of you are hallucinating.
+
+Large companies execute known business models whereas startups search for new business models.
+
 The common wisdom is that no one would want to work like crazy knowing that they might not be the ones to lead as the company grows. I call this the Moses-problem–you work for years to get the tribe to the promised land–but you’re not allowed to cross over. The company needs to give formal recognition for those individuals who brought the tribe to the promised land.
 
 CEOs need to put processes in places to acknowledge and deal with the real sense of loss
   - These will keep early employees motivated–and retained
   - And build a stronger company
+  
+In the 20th century if you were an entrepreneur the pattern worked like this you wrote a business plan which looked not much different than the plan you would write instead of a large corporation it had five year forecast which surprisingly all of them happen to say a $100 million dollars of revenue in year five. Basically you took that plan you turned it into 10 or 12 slides you pitched a VC and if they believed you they funded the plan and they maybe ran some numbers anddepending whether it was a bubble or notyou would get get the money but here's what happened as they insisted consciously or unconsciously that what you were doing next was simply executing the plan and by executing the plan I mean building the products you wrote down you know going through waterfall engineering that is serially building the product alpha test, beta test, first customer ship. In the meantime starting to scale sales and marketing and you will have a big bang product launch and then you'd stand back and the bags of money would just appear in your office and you'd be rich and retired no didn't really work like that you would work like that Silverbacks of money part and then the surprise was is you know you'd have aboard meeting six weeks after you launched and everybody be high-fiving the VP of marketing it was great press and look at that and you did your job it was wonderful and no one would talk to the VP of Sales for a while until the board meeting after that another six weeks and they'd go so how we doing by the numbers remember the numbers are what you got funded on it was this forecast and the VP of Sales would say great pipeline now only some of you were laughing because very pipeline means well that we're really not making the numbers but don't worry right that's um and so another six weeks would go by and this would repeat itself and depending on the economic conditions the VCs would then raise and in fact they practice on raising one eyebrow as they practice into mirror because they raise one eyebrow to the CEO and the next time the VP of Sales says gray pipeline a puff of smoke appears and a pile of ashes shows up on the seat they were sitting in and a new VP of Sales appears and this goes on for another six months or a year and pipeline pipeline and all of a sudden who gets fired next the VP of Marketing and then eventually the VP of the CEO gets fired and maybe the company restarts or runs out of cash.  
+
+World class founders intutively believe that they understand the problem so all they need to do is execute the solution. That is get out of my way, let me hire the staff and build this damn thing. And again the only problem we are going to have is where do we put the bags of money? I have yet to see that work, yet every founder from day one because of their passion believes that's the case.
+
+Osterwalder business model canvas, Risa's observation that if we use natural engineering we can actually build iterative products which called Minimum Viable Products, to get them out and actually show people stuff rather than just talking to them and my idea of getting out of the building and like starting to talk to people and that is the Lean Startup.
+
+The difference between a horse and a pastor and a horse with a jockey you know that horse in the pasture has no interest in running around the track until someone's sitting on top of it kicking it a bit it's the same I've found with founders trying to do discovery and and dispassionately ask instead of do you like my product, trying to first understand do you deeply understand the problem you're implicitly trying to solve that is if you're making a product underneath it is a set of assumptions about why people will buy it all right not the features or whatever but what are you trying to solve?
+
+Easiest goal is okay well help me understand who the first customers are going to be not the first orders in revenue you know are they now are they female are they inside of a company or the consumers geographic things, demographic things, what do they read what do they buy if you don't know that then you don't know exactly what you're chasing and you don't know why you're doing discovery.
+
+The goal is you're trying to find enough data to build the repeatable and scalable sales process and you're doing that by testing all these hypotheses about do I understand the archetypes of my customers.
 
 
 Quotes
 ===========================
+
+Customer development is about get out of the building.
+
+[To CEOs and Founders]There are no facts inside your building so get the hell outside.
+
+The the incredible passion of a founder to drive to a conclusion gets in your way of gathering data.
+
+The biggest idea about customer discovery is that it is not sales.
 
 
 
