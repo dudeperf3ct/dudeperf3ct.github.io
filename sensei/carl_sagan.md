@@ -17,6 +17,7 @@ Feel free to jump anywhere,
 - [Carlism](#carlism)
 - [Quotes](#quotes)
 - [Stories](#stories)
+- [Neil deGrasse Tyson: On Carl Sagan](#neil-deGrasse-tyson:-on-carl-sagan)
 
 Carlism
 ===========================
@@ -58,6 +59,7 @@ You can read Sagan’s [letter](https://i.imgur.com/jdNby7O.jpg), dated November
     I would guess from your resume that your interests in astronomy are sufficiently deep and your mathematical and physical background sufficiently strong that we could probably engage you in real astronomical research during your undergraduate career here, if the possibility interests you. For example, we hope to be bringing back to Ithaca in late calendar year 1976 an enormous array of Viking data on Mars both from the orbiters and from the landers.
 </i>
 </br>
+</br>
 <i>
     I would be delighted to meet with you when you visit Ithaca. Please try and give as much advance notice of the date as you can because my travel schedule is quite hectic right now and I really would like to be in Ithaca when you drop by.
 </i>
@@ -73,7 +75,7 @@ You can read Sagan’s [letter](https://i.imgur.com/jdNby7O.jpg), dated November
 </i> 
 </br>
 </br>
-</br>
+
 
 Tyson was deeply moved by Sagan’s kindness and sincerity. He did venture out to Ithaca from the Bronx on a snowy afternoon. As Tyson recalled years later, “I thought to myself, who am I? I’m just some high school kid.” In the end, Sagan’s personal plea wasn’t quite enough to convince young Tyson to attend his school. As you can read in [his response](www.loc.gov/resource/mss85590.053/) below, dated April 30, 1976, Tyson decided to go to Harvard.
 
@@ -104,4 +106,8 @@ Tyson was deeply moved by Sagan’s kindness and sincerity. He did venture out t
 </br>
 </br>
 
-He(*Carl*) was nothing I was like drinking buddies with them but we were sort of a generation separate but I was applying to colleges in high school and I already knew I wanted to do to study the universe at age 17 because I knew at age 9. So my applications were dripping with the universe, I was accepted at Cornell and it's time to decide what school you go to and a set of other schools as well. The admissions office unknown to me sent my application to Carl Sagan, he who's already famous, he was already on Johnny Carson's Tonight Show set to get him to just comment on it. Carl Sagan then sent me a letter hand sign saying I understand you Mike you're considering Cornell, if you come by and visit I'd be happy to show you the lab and I said, "Is this Carl Sagan?" I showed it to mom dad is this, could this be and it was! I wrote back and I said y'all go up in two weekends. He met me on a Saturday morning in the snow gave me a tour of his lab I'm in his office he reaches back pulls out one of his books signs it to me the time for me to leave they drives me to the bus station it's snowing a little heavier. He writes his home phone on a sheet of paper said if the bus can't get through call me spend the night at our place and I thought to myself *"Who am I?"* I'm just some high school kid. Into this day to this day, I have this duty to respond to students who are inquiring about the universe as a career path to respond to them in the way that Carl Sagan had responded to me.
+He(*Carl*) was nothing I was like drinking buddies with them but we were sort of a generation separate but I was applying to colleges in high school and I already knew I wanted to do to study the universe at age 17 because I knew at age 9. So my applications were dripping with the universe, I was accepted at Cornell and it's time to decide what school you go to and a set of other schools as well. The admissions office unknown to me sent my application to Carl Sagan, he who's already famous, he was already on Johnny Carson's Tonight Show set to get him to just comment on it. Carl Sagan then sent me a letter hand sign saying I understand you Mike you're considering Cornell, if you come by and visit I'd be happy to show you the lab and I said, "Is this Carl Sagan?" I showed it to mom dad is this, could this be and it was! I wrote back and I said, "y'all go up in two weekends". He met me on a Saturday morning in the snow gave me a tour of his lab. I'm in his office he reaches back pulls out one of his books signs it to me. At the end of the day, he drove me back to the bus station. The snow was falling harder. He wrote his phone number, his home phone number, on a scrap of paper. And he said, "If the bus can't get through, call me. Spend the night at my home, with my family." I thought to myself *"Who am I?"*, I'm just some high school kid. I already knew I wanted to become a scientist, but that afternoon I learned from Carl the kind of person I wanted to become. He reached out to me and to countless others. Inspiring so many of us to study, teach, and do science. Science is a cooperative enterprise, spanning the generations. To this day I have this duty to respond to students who are inquiring about the universe as a career path, to respond to them in the way that Carl Sagan had responded to me.
+
+
+
+
