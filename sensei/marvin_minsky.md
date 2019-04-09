@@ -75,4 +75,5 @@ A medley of extemporanea;
 And love is a thing that can never go wrong;
 And I am Marie of Roumania.”— Dorothy Parker
 
+[Here](https://hokku.wordpress.com/2012/09/24/and-i-am-marie-of-roumania/) is a perfect deep dive into the poem. 
 
