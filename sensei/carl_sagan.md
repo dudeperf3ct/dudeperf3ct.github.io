@@ -48,9 +48,11 @@ You can read Sagan’s [letter](https://i.imgur.com/jdNby7O.jpg), dated November
     Dear Neil:
 </i>
 </br>
+</br>
 <i>
     Thanks for your letter and most interesting resume. I was especially glad to see that, for a career in astronomy, you intend to do your undergraduate work in physics. In this way, you will acquire the essential tools for a wide range of subsequent astronomical endeavors.
 </i>
+</br>
 </br>
 <i>
     I would guess from your resume that your interests in astronomy are sufficiently deep and your mathematical and physical background sufficiently strong that we could probably engage you in real astronomical research during your undergraduate career here, if the possibility interests you. For example, we hope to be bringing back to Ithaca in late calendar year 1976 an enormous array of Viking data on Mars both from the orbiters and from the landers.
@@ -60,13 +62,16 @@ You can read Sagan’s [letter](https://i.imgur.com/jdNby7O.jpg), dated November
     I would be delighted to meet with you when you visit Ithaca. Please try and give as much advance notice of the date as you can because my travel schedule is quite hectic right now and I really would like to be in Ithaca when you drop by.
 </i>
 </br>
+</br>
 <i>
     With all good wishes,
 </i>
 </br>
+</br>
 <i>
     Carl Sagan
 </i> 
+</br>
 </br>
 </br>
 
@@ -76,21 +81,26 @@ Tyson was deeply moved by Sagan’s kindness and sincerity. He did venture out t
     Dear Prof. Sagan
 </i>
 </br>
+</br>
 <i>
     Thank you for your offer concerning the Viking Missions. After long thought and decision making I have chosen to attend Harvard University this September. I chose it not simply because of its “valuable” name but because they have a larger astronomy department in addition to the Smithsonian Astrophysical Observatory, so while I am majoring in physics I will have more surrounding me in the way of on-going research in astronomy.
 </i>
+</br>
 </br>
 <i>
     I want to say that I did enjoy meeting you and I am very grateful for your hospitality and the time you spent with me while at Cornell. I will throughout my undergraduate years keep you informed on any noteworthy news concerning astronomy-related work that I’m involved in. I do plan to apply again for the Viking Internship next summer.
 </i>
 </br>
+</br>
 <i>
     Thanks again
 </i>
 </br>
+</br>
 <i>
     Neil D. Tyson
 </i>
+</br>
 </br>
 </br>
 
