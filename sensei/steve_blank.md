@@ -43,6 +43,9 @@ Easiest goal is okay well help me understand who the first customers are going t
 
 The goal is you're trying to find enough data to build the repeatable and scalable sales process and you're doing that by testing all these hypotheses about do I understand the archetypes of my customers.
 
+The goal is to do enough discovery so eventually when you build a repeatable process you've understood all the points that you now have a sales channel that you literally could go implement because you've done the hard work and customer validation is the next step in saying okay let's try to do some early sales based on the data we have and if we've nailed it just the money should pour in and it almost never works like that.
+
+Hypothesis testing we've been doing that as scientists for 500 years is that you create a hypothesis you design an experiment you know you get out of the building, you collect some data, and then you do one of three things with that data you either validate the hypothesis, you invalidate it or you modify it and that's what implicitly I was teaching about the Lean Startup method.
 
 Quotes
 ===========================
@@ -55,8 +58,13 @@ The the incredible passion of a founder to drive to a conclusion gets in your wa
 
 The biggest idea about customer discovery is that it is not sales.
 
+No business plans survives first contact with customers.
+
+A pivot is a substantive change to one or more of business model elements hypothesis. 
 
 
 Stories
 ===========================
+
+I remember the first time I had to do this just as a you know the marketing guy and someone said well you're not a marketing guy who has you've actually been outside the building which was great advice. You know I used to call people but to set up meetings, the first thing I remember-- literally I remember staring at the phone hoping it with the dial itself because like there's no way  I wanted to talk to people. I was having more fun inside the building thinking great thoughts. What do you mean talk to people I don't even like those people? Why would I talk to them? They're not they're not very smart and all I want is their money. 
 
