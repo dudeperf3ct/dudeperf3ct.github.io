@@ -22,6 +22,8 @@ If you’re an early company employee, it’s not likely that the skills you hav
 
 The painful reality is that products change, strategies change, people change. Things have to change for your company to stay in business and grow.
 
+You know we have a special name for failed entrepreneur in a entrepreneur cluster. It's called Experienced.
+
 Almost always founders actually understand the symptom of the problem not the problem.
 
 If you're a founder you believe on day one you're a visionary but we now have 50 years of data that says almost all of you are hallucinating.
@@ -50,6 +52,7 @@ Hypothesis testing we've been doing that as scientists for 500 years is that you
 
 If you're a startup founder you're using customer discovery to fill out essentially a sparse matrix and you're making decisions always on imperfect data and if you're not comfortable doing that you shouldn't be running a startup. There's never enough data in a startup for you to make perfect decisions. And that's why startups feel chaotic and if it doesn't feel chaotic you're not moving fast enough because you've just turned it into a lifestyle business and if you do that then that's fine but you're not going to scale.
 
+For enterprise sales for the rest of you you know I had a model which I think is still kind of valid is first of all you want to find people who have a problem right but just because you see there's a problem they might not know there's a problem sometimes you have greater insight than they do so first they have to have a problem and two is they have to know they have a problem big idea the third part is they have to not only know they have a problem but it had to be important enough that they were actively looking for a solution because if they weren't looking for a solution now you need to spend your time convincing them they need a solution you don't have enough time in the day as a startup to do that.
 
 Quotes
 ===========================
@@ -72,10 +75,14 @@ Large companies execute known business models whereas startups search for new bu
 
 You don't go to war without understanding and preparing for battle.
 
+When you're driving if you don't feel like you're out of control you're not driving fast enough. ~ Mario Andretti
+
 Stories
 ===========================
 
 I remember the first time I had to do this just as a you know the marketing guy and someone said well you're not a marketing guy who has you've actually been outside the building which was great advice. You know I used to call people but to set up meetings, the first thing I remember-- literally I remember staring at the phone hoping it with the dial itself because like there's no way  I wanted to talk to people. I was having more fun inside the building thinking great thoughts. What do you mean talk to people I don't even like those people? Why would I talk to them? They're not they're not very smart and all I want is their money. 
 
 Elon Musk's first job in Silicon Valley he was my intern and I had no idea. Somebody came to me with an idea for an electric car and was a kid named JB Straubel you might know who he is is the inventor of all this the Tesla technologies (the chief engineer at Tesla did all the battery technology the drivetrain etc). He was driving around Palo Alto in a in a Porsche he had personally converted as a 20 some-odd year old with a lead-acid battery trailer behind that the powering and so for six weeks him and the then head of Nissan's Palo Alto research group decided we were going to build an electric car. This was going to be my 9th startup and I quickly realized and I said this is going to take 10 years and $50 million. Well I was only off by only another 20 years and probably 100x. I said you know what I just can't do it anymore. JB Starubel went off and found the Tesla with a another entrepreneur named Martin Eberhard, turns out the Elon Musk was actually the investor not the founder though managed to get himself written into history and by the way the company would not have been a success without Musk being the you know the new CEO.
+
+I used to confuse customer development with sales and I always used to convince confuse every interaction even when I had sales early on, with everybody should give me an order. Not understanding the the model that says no what I'm looking for on day one are other crazy people seriously and an enterprise back then and probably a lot different but at least for me crazy people even when I found the right archetype was 1 out of 20 in the enterprise, maybe 1 out of 5 of those or less would give me an order early on because I was a startup.
 
