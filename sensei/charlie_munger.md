@@ -100,6 +100,8 @@ The great philosopher who said 'A man never steps into the same river twice,' yo
 
 <span class='blue'>Advice on life: You don't have a lot of envy, you don't have a lot of resentment, you don't overspend your income, you stay cheerful in spite of your troubles. You deal with reliable people and you do what you're supposed to do. And all these simple rules work so well to make your life better. And they're so trite.</span>
 
+<span class='red'>You can argue that if you're not willing to react with equanimity to a market price decline of 50% two or three times a century you're not fit to be a common shareholder, and you deserve the mediocre result you're going to get compared to the people who can be more philosophical about these market fluctuations.</span>
+
 Quotes
 ===========================
 
