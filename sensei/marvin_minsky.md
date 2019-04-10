@@ -13,7 +13,13 @@ published: false
 
 > <span class='purple'>I am obsessed with the question why you can pull with the string and not push with it?</span>
 
-Minksyism
+Feel free to jump anywhere,
+- [Minskyism](#minskyism)
+- [Quotes](#quotes)
+- [Stories](#stories)
+- [Robert Lawrence Kuhn: On Marvin Minsky](#robert-lawrence-kuhn-on-marvin-minsky)
+
+Minskyism
 ===========================
 
 If you see a lot of people doing something then if you want to be sure that you want job someday do whats popular then you got a good chance. If you want to win a Nobel Prize or solve an important problem then don't do whats popular because chances are you will be just a frog in it in a big pond of frogs.
