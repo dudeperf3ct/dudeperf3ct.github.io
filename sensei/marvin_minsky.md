@@ -40,7 +40,7 @@ What's the important problem in next 100 years? We are going to have 20 billion 
 
 What's difference between artist and engineers? When you do a painting then 9/10th of the problem is what should I paint, so you could think of an artist as 10% skill and 90% trying to figure out what problem to solve. Whereas for the engineers somebody has told him what to do so he going to paint 90% of time solving the problem and only 10% of time deciding what problem to solve. So, I don't really see any difference between artist and engineers except that artists has lot many problems to solve than he can possibly solve and usually ends up by picking a really dumb one like lets have a saint and three angels, where should I put the third angel(*that's the engineering part 😛*)?
 
-
+"One-hundred years from now, people will say, 'Well, the Internet was really important until the development of [true] artificial intelligence in 2073.' The second bump was the big one."
 
  
 Quotes
@@ -60,6 +60,8 @@ Many years later when I was in Princetion(my grad school) I met the Robert Oppen
 
 It would have been nice to meet Aristotle (*no one really knows much about him*), a lot of his writings is done from his students. Astonishing thing about Aristotle is that he seems to be more imaginative most congnitive scientists you will run into. Also, it would have been nice to meet [Kant](https://en.wikipedia.org/wiki/Immanuel_Kant) and [Freud](https://en.wikipedia.org/wiki/Sigmund_Freud).
 
+When I(Robert Kuhn) suggested that Feynman couldn't intimidate anyone because he was, well, dead, Marvin said he didn't care. "It doesn't matter that he's dead," Marvin said with a straight face. "I have a very good [mental] copy of him, and if I say something too speculative, I can hear Feynman say, 'What would be the experiment for that?'"
+
 I spent some time learning neuroscience(*a great stroke of luck*) when I was just a junior at Harvard, there was a great new building which was just finished and half occupied because it was made with future. So, I wondered over there and met a professor made John and I said I like to learn neurology. He said great, well I have a extra lab why don't you study the crayfish claw, I said great. He gave me this lab which had 4 rooms and a dark room and lot of equipment and nobody there. 
 
 <span class='blue'>Always reminding myself that I am luckiest person in the world because everytime I wanted to do something I just happened to find the right person and they would give me a lab.</span> 
@@ -76,4 +78,38 @@ And love is a thing that can never go wrong;
 And I am Marie of Roumania.”— Dorothy Parker
 
 [Here](https://hokku.wordpress.com/2012/09/24/and-i-am-marie-of-roumania/) is a perfect deep dive into the poem. 
+
+
+Robert Lawrence Kuhn: On Marvin Minsky
+===========================
+
+I have stolen excerpts from this undoubtedly the best article by Robert Lawrence Kuhn as a Tribute titled "[Brains, Minds, AI, God: Marvin Minsky Thought Like No One Else](https://www.space.com/32153-god-artificial-intelligence-and-the-passing-of-marvin-minsky.html)"
+
+### Meeting Minsky
+
+Minsky was voluminous in his production of ideas, covering great swaths of intellectual terrain. Part of his charm was his iconoclastic stream of consciousness, generating a gusher of provocative and sometimes outrageous ideas that, agree with them or not, always made you think.
+
+I met Marvin in 1999 during the inaugural season of "Closer to Truth." He personified what we aspired to be on the show: inventive, insightful, irreverent, fearless, rigorous, tough-minded, iconoclastic, daring, whimsical. I wanted to do what Marvin did: challenge conventional belief, taking our topics seriously, but not ourselves.
+
+Timorously, I invited Marvin to participate in our first taping session at KOCE, a small PBS station in Orange County, California. In retrospect, I realize I was asking an international superstar, whom I had never met and who certainly did not know me, to fly across the country to appear with an unknown host on a not-yet-broadcast television show — and be a co-equal on an opaque panel with four others whose identities I couldn't even suggest, much less confirm. I prepared myself for rejection, more likely for no response at all.
+
+Marvin accepted immediately. Of course he'd do it — that was Martin — and do it he did. He provided incisive insights. Combative arguments. Effervescent style. No airs or pretensions. 
+
+I asked him about his book, "The Society of Mind" (Simon & Schuster, 1988), which combined ideas from artificial intelligence and developmental psychology to develop his thesis that human minds are composed of hundreds of mini-mind modules (Marvin estimated about 400 of them), each of which evolved to execute highly specific tasks. And when integrated together, they generate a constructed sense of conscious unity. (All Minsky quotes in this essay are from his multiple appearances on "Closer to Truth.") [Scientists Closing in on Theory of Consciousness]
+
+"It's trying to figure out how the mind works," Minsky told me, "without the commonsense belief that somewhere inside the mind there's a 'self' that's sort of in control and commanding everything. So the question is, how do you get mindlike behavior from a brain really made of roughly 400 different computers? They do different things. They don't agree on everything. How do you get reasonable, commonsense behavior out of such a system?" 
+
+Minsky's concept of a "society" is that all these separate "mind computers" are working together in the brain. But "it's not like human society," he clarifies, "where each person works pretty well independently."
+
+When producer/director Peter Getzels and I restructured "Closer to Truth," Minsky was again among our first, most-desired interviews — this time, one-on-one at MIT (2007). Marvin was penetrating and fiery; even on the edges of knowledge, he never hesitated, offering his scintillating, idiosyncratic and often radical takes on the nature of the cosmos, the inner workings of minds and consciousness, and how human beings might achieve immortality. It was a treat; we were swept up by his passion, engulfed by his intellect. 
+
+### The Minsky way of thinking
+
+How to distinguish Minsky's way of thinking? I'd start with two organizing principles. First, "How does it work?" He applied this, for starters, to brains, minds, computers, natural intelligence, artificial intelligence, information, society, religion and God. Second, "Don't be sure!" As Minsky asserted, "The word 'sure' is when a cognitive process has turned off all other processes that can cast doubt on a particular statement. 'Being sure' is not 'being sure.' Being sure is a process saying, 'I'm not going to change my mind.'"
+
+It's no secret that Marvin was a strong atheist, and irrespective of one's beliefs, one can appreciate — dare I say "enjoy" — his bluntness. "If you want real meaning, and you can't find one, it's all very well to make one up," he told me. "But I don't see how that [God] solves any problems. Unless you say how God works, saying that God exists doesn't explain anything." 
+
+If there is a God, I'd be disappointed if Marvin isn't one of God's favorites. (Actually, I'd be shocked.) 
+
+In the 17 years of "Closer to Truth," whether in discourse with atheists or with theists, I've tried to elicit best thinking and tease out clear arguments, which we question and challenge equally. We think critically with an ever-open mind. We reject only sloppy, specious arguments — and often, I ask myself, "What would Marvin think?"
 
