@@ -85,6 +85,14 @@ And I am Marie of Roumania.”— Dorothy Parker
 
 [Here](https://hokku.wordpress.com/2012/09/24/and-i-am-marie-of-roumania/) is a perfect deep dive into the poem. 
 
+No one finds it surprising these days when we make machines that do logical things, because logic is based on clear, simple rules of the sorts that computers can easily use. But Love by its nature, some people would say, cannot and ought not be explained in such ways. Listen to Pablo Neruda:
+
+" ...love has to be so,
+involving and general,
+particular and terrifying,
+honoured and yet in mourning,
+flowering like the stars,
+and measureless as a kiss.” — from ‘Extravagaria’
 
 Robert Lawrence Kuhn: On Marvin Minsky
 ===========================
