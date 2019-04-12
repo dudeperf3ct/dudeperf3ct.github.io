@@ -48,6 +48,8 @@ What's difference between artist and engineers? When you do a painting then 9/10
 
 "One-hundred years from now, people will say, 'Well, the Internet was really important until the development of [true] artificial intelligence in 2073.' The second bump was the big one."
 
+Tensors - things with lot of subscripts.
+
  
 Quotes
 ===========================
@@ -55,6 +57,8 @@ Quotes
 Religion is a sort of science that doesn't use evidence, and in fact kills people who try to get it.
 
 The best way to invent future is to make it. ~ Alan Kay
+
+Every smart person want to be corrected, not admired.
 
 
 Stories
@@ -74,25 +78,27 @@ I spent some time learning neuroscience(*a great stroke of luck*) when I was jus
 
 <span class='red'>Another reason why I was lucky is that, if you had a mathematical question you could find the best mathematician in the world down the block somewhere.</span>
 
+We once had Turing Test situation where in the early days we had teletypes attached to a big computer in Technology Square(MIT) and it was all connected to the first beautiful time sharing systems. One of the engineers who worked on time sharing systems was young professor named Herb Schneider. I fooled him into thinking that I had AI programmed
+
 I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
 
 I was once giving a lecture and talking about living a long time and nobody in the audience seem interested. And I said suppose you could live for 400 years, I was asked wouldn't it be boring. So then I tried it again in couple of other lectures and if you ask bunch of scientists how would you like to live for 400 years, almost all hands go up, everyone says yay! You ask them why and they say well I am working on a problem that I might solve if I get 400 years.
 
-"Oh, life is a glorious cycle of song,
-A medley of extemporanea;
-And love is a thing that can never go wrong;
-And I am Marie of Roumania.”— Dorothy Parker
+"Oh, life is a glorious cycle of song,</br>
+A medley of extemporanea;</br>
+And love is a thing that can never go wrong;</br>
+And I am Marie of Roumania.”— Dorothy Parker</br>
 
 [Here](https://hokku.wordpress.com/2012/09/24/and-i-am-marie-of-roumania/) is a perfect deep dive into the poem. 
 
 No one finds it surprising these days when we make machines that do logical things, because logic is based on clear, simple rules of the sorts that computers can easily use. But Love by its nature, some people would say, cannot and ought not be explained in such ways. Listen to Pablo Neruda:
 
-" ...love has to be so,
-involving and general,
-particular and terrifying,
-honoured and yet in mourning,
-flowering like the stars,
-and measureless as a kiss.” — from ‘Extravagaria’
+" ...love has to be so,</br>
+involving and general,</br>
+particular and terrifying,</br>
+honoured and yet in mourning,</br>
+flowering like the stars,</br>
+and measureless as a kiss.” — from ‘Extravagaria’</br>
 
 Robert Lawrence Kuhn: On Marvin Minsky
 ===========================
