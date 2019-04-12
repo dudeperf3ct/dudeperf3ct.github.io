@@ -84,6 +84,8 @@ Every human being has weakness. If they don't embrace that they are going to con
 
 I love relationships. Meaningful work and meaningful relationships are very important to me that's where I am coming from.
 
+I learned that there is an incredible beauty to mistakes, because embedded in each mistake is a puzzle, and a gem that I could get if I solved it, i.e., a principle that I could use to reduce my mistakes in the future. I learned that each mistake was probably a reflection of something that I was (or others were) doing wrong, so if I could figure out what that was, I could learn how to be more effective. I learned that wrestling with my problems, mistakes, and weaknesses was the training that strengthened me.
+
 Quotes
 ===========================
 
