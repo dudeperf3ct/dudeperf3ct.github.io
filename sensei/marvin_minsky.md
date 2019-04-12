@@ -64,21 +64,17 @@ Every smart person want to be corrected, not admired.
 Stories
 ===========================
 
-When I was in grade school sometimes when I said something bright I would hear a teacher saying maybe he is another [J. Robert Oppenheimer](https://en.wikipedia.org/wiki/J._Robert_Oppenheimer)(*3 or 4 years senior in same school*).
-
-Many years later when I was in Princetion(my grad school) I met the Robert Oppenheimer and that was a great pleasure. In fact, he took me to lunch with couple of other people I admire, namely Kurt Gödel and Albert Einstein which was very exicting. 
-
-It would have been nice to meet Aristotle (*no one really knows much about him*), a lot of his writings is done from his students. Astonishing thing about Aristotle is that he seems to be more imaginative most congnitive scientists you will run into. Also, it would have been nice to meet [Kant](https://en.wikipedia.org/wiki/Immanuel_Kant) and [Freud](https://en.wikipedia.org/wiki/Sigmund_Freud).
-
 When I(Robert Kuhn) suggested that Feynman couldn't intimidate anyone because he was, well, dead, Marvin said he didn't care. "It doesn't matter that he's dead," Marvin said with a straight face. "I have a very good [mental] copy of him, and if I say something too speculative, I can hear Feynman say, 'What would be the experiment for that?'"
 
 I spent some time learning neuroscience(*a great stroke of luck*) when I was just a junior at Harvard, there was a great new building which was just finished and half occupied because it was made with future. So, I wondered over there and met a professor made John and I said I like to learn neurology. He said great, well I have a extra lab why don't you study the crayfish claw, I said great. He gave me this lab which had 4 rooms and a dark room and lot of equipment and nobody there. 
 
-I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
-
 <span class='blue'>Always reminding myself that I am luckiest person in the world because everytime I wanted to do something I just happened to find the right person and they would give me a lab.</span> 
 
 <span class='red'>Another reason why I was lucky is that, if you had a mathematical question you could find the best mathematician in the world down the block somewhere.</span>
+
+Many years later when I was in Princetion(my grad school) I met the Robert Oppenheimer and that was a great pleasure. In fact, he took me to lunch with couple of other people I admire, namely Kurt Gödel and Albert Einstein which was very exicting. It would have been nice to meet Aristotle (*no one really knows much about him*), a lot of his writings is done from his students. Astonishing thing about Aristotle is that he seems to be more imaginative most congnitive scientists you will run into. Also, it would have been nice to meet [Kant](https://en.wikipedia.org/wiki/Immanuel_Kant) and [Freud](https://en.wikipedia.org/wiki/Sigmund_Freud).
+
+I was once giving a lecture and talking about living a long time and nobody in the audience seem interested. And I said suppose you could live for 400 years, I was asked wouldn't it be boring. So then I tried it again in couple of other lectures and if you ask bunch of scientists how would you like to live for 400 years, almost all hands go up, everyone says yay! You ask them why and they say well I am working on a problem that I might solve if I get 400 years.
 
 We once had Turing Test situation where in the early days we had teletypes attached to a big computer in Technology Square(MIT) and it was all connected to the first beautiful time sharing systems. One of the engineers who worked on time sharing systems was young professor named Herb Schneider. I fooled him for a minute into thinking that I had AI programmed actually I was in the other room. He would ask questions and I would answer them in very stilted computer like fashion. Then he said, "How much is one 15 digit number times another 15 digit number?" (*some random 15 digit numbers*) So I very cleverly replied, "Accumulator Overflow". But I mispelled accumulator. So I failed the Turing Test.😛
 
@@ -86,7 +82,7 @@ There was one time when we went to IBM when we were building these big time shar
 
 Sometime later IBM had researchers working on AI and Thomas Watson who was President to the company heard about that he said, "Nobody should use any expression like that." Because he didn't want public thinking that IBM was making intelligent machines. The customers would get very upset. The researchers continued the research for a while and never used the expression "AI" again.
 
-I was once giving a lecture and talking about living a long time and nobody in the audience seem interested. And I said suppose you could live for 400 years, I was asked wouldn't it be boring. So then I tried it again in couple of other lectures and if you ask bunch of scientists how would you like to live for 400 years, almost all hands go up, everyone says yay! You ask them why and they say well I am working on a problem that I might solve if I get 400 years.
+When I was in grade school sometimes when I said something bright I would hear a teacher saying maybe he is another [J. Robert Oppenheimer](https://en.wikipedia.org/wiki/J._Robert_Oppenheimer)(*3 or 4 years senior in same school*). I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
 
 "Oh, life is a glorious cycle of song,</br>
 A medley of extemporanea;</br>
