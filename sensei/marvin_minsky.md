@@ -74,13 +74,17 @@ When I(Robert Kuhn) suggested that Feynman couldn't intimidate anyone because he
 
 I spent some time learning neuroscience(*a great stroke of luck*) when I was just a junior at Harvard, there was a great new building which was just finished and half occupied because it was made with future. So, I wondered over there and met a professor made John and I said I like to learn neurology. He said great, well I have a extra lab why don't you study the crayfish claw, I said great. He gave me this lab which had 4 rooms and a dark room and lot of equipment and nobody there. 
 
+I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
+
 <span class='blue'>Always reminding myself that I am luckiest person in the world because everytime I wanted to do something I just happened to find the right person and they would give me a lab.</span> 
 
 <span class='red'>Another reason why I was lucky is that, if you had a mathematical question you could find the best mathematician in the world down the block somewhere.</span>
 
-We once had Turing Test situation where in the early days we had teletypes attached to a big computer in Technology Square(MIT) and it was all connected to the first beautiful time sharing systems. One of the engineers who worked on time sharing systems was young professor named Herb Schneider. I fooled him for a minute into thinking that I had AI programmed actually I was in the other room. He would ask questions and I would answer them in very stilted computer like fashion. Then he said, "How much is one 15 digit number times another 15 digit number?" (*some random 15 digit numbers*) So I very cleverly replied, "accumulator overflow". But I mispelled accumulator. So I failed the Turing Test.😛
+We once had Turing Test situation where in the early days we had teletypes attached to a big computer in Technology Square(MIT) and it was all connected to the first beautiful time sharing systems. One of the engineers who worked on time sharing systems was young professor named Herb Schneider. I fooled him for a minute into thinking that I had AI programmed actually I was in the other room. He would ask questions and I would answer them in very stilted computer like fashion. Then he said, "How much is one 15 digit number times another 15 digit number?" (*some random 15 digit numbers*) So I very cleverly replied, "Accumulator Overflow". But I mispelled accumulator. So I failed the Turing Test.😛
 
-I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
+There was one time when we went to IBM when we were building these big time sharing computer and asked them if they would support a project to make time shared computer. The head of research asked us to explain what it would do and the answer was we would have a big computer and we would have several teletypes and people would be typing on them, running a program. Each time somebody would type a character, the big computer would switch to their program and run a few steps of their program in response to that. And the head of IBM Research said, "That's a terrible idea." He said, "There are 30 people and they are typing 5 or 10 characters a second that means you are interrupting the computer 300 times a second. How could it ever get any work done?"
+
+Sometime later IBM had researchers working on AI and Thomas Watson who was President to the company heard about that he said, "Nobody should use any expression like that." Because he didn't want public thinking that IBM was making intelligent machines. The customers would get very upset. The researchers continued the research for a while and never used the expression "AI" again.
 
 I was once giving a lecture and talking about living a long time and nobody in the audience seem interested. And I said suppose you could live for 400 years, I was asked wouldn't it be boring. So then I tried it again in couple of other lectures and if you ask bunch of scientists how would you like to live for 400 years, almost all hands go up, everyone says yay! You ask them why and they say well I am working on a problem that I might solve if I get 400 years.
 
@@ -103,7 +107,7 @@ and measureless as a kiss.” — from ‘Extravagaria’</br>
 Robert Lawrence Kuhn: On Marvin Minsky
 ===========================
 
-I have stolen excerpts from this undoubtedly the best article by Robert Lawrence Kuhn as a Tribute titled "[Brains, Minds, AI, God: Marvin Minsky Thought Like No One Else](https://www.space.com/32153-god-artificial-intelligence-and-the-passing-of-marvin-minsky.html)"
+I have stolen some of excerpts from this undoubtedly the best article by Robert Lawrence Kuhn as a Tribute titled "[Brains, Minds, AI, God: Marvin Minsky Thought Like No One Else](https://www.space.com/32153-god-artificial-intelligence-and-the-passing-of-marvin-minsky.html)"
 
 ### Meeting Minsky
 
