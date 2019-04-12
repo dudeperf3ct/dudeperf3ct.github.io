@@ -78,7 +78,7 @@ I spent some time learning neuroscience(*a great stroke of luck*) when I was jus
 
 <span class='red'>Another reason why I was lucky is that, if you had a mathematical question you could find the best mathematician in the world down the block somewhere.</span>
 
-We once had Turing Test situation where in the early days we had teletypes attached to a big computer in Technology Square(MIT) and it was all connected to the first beautiful time sharing systems. One of the engineers who worked on time sharing systems was young professor named Herb Schneider. I fooled him into thinking that I had AI programmed
+We once had Turing Test situation where in the early days we had teletypes attached to a big computer in Technology Square(MIT) and it was all connected to the first beautiful time sharing systems. One of the engineers who worked on time sharing systems was young professor named Herb Schneider. I fooled him for a minute into thinking that I had AI programmed actually I was in the other room. He would ask questions and I would answer them in very stilted computer like fashion. Then he said, "How much is one 15 digit number times another 15 digit number?" (*some random 15 digit numbers*) So I very cleverly replied, "accumulator overflow". But I mispelled accumulator. So I failed the Turing Test.😛
 
 I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
 
