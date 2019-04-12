@@ -110,29 +110,37 @@ Ray Kurzweil: On Marvin Minsky
 Dear readers,
 </i>
 </br>
+</br>
 <i>
 When I was 14 I wrote Marvin Minsky a letter asking to meet with him. He invited me to visit him at MIT and he spent hours with me as if he had nothing else to do.
 </i>
+</br>
 </br>
 <i>
 When my daughter Amy was about eleven and we went out for a meal at the Harvest Restaurant in Cambridge with my wife Sonya and his wife Gloria, Amy and Marvin built a large structure on the restaurant table using all of the silverware, experimenting with different ways that the utensils could create stable structures.
 </i>
 </br>
+</br>
 <i>
 There was no sense that he was working with an elementary school student. He approached this endeavor with the same combination of seriousness and whimsy that he would bring to his interactions with any colleague.
 </i>
+</br>
 </br>
 <i>
 He was the consummate educator for that was his greatest joy and passion. But he was also many other things: a scientist, an inventor, an engineer, a roboticist, a writer, a philosopher, a polymath, a poet, a musician, and most of all, a student of human nature and thinking.
 </i>
 </br>
+</br>
 <i>
 He was the principal pioneer of both the symbolic and connectionist schools of AI and made profound contributions that have enriched the field of computer science and of all of science. He was one of humanity’s great thinkers. He was also my only mentor. He will be deeply missed.
 </i>
 </br>
+</br>
 <i>
 — Ray Kurzweil
 </i>
+</br>
+</br>
 </br>
 
 [Video](https://www.youtube.com/watch?v=FIK3X2fKJrE): Ray Kurzweil Remembers Marvin Minksy
