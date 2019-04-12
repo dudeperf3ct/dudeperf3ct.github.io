@@ -143,7 +143,7 @@ He was the principal pioneer of both the symbolic and connectionist schools of A
 </br>
 </br>
 
-[Video](https://www.youtube.com/watch?v=FIK3X2fKJrE): Ray Kurzweil Remembers Marvin Minksy
+Video: [Ray Kurzweil Remembers Marvin Minksy](https://www.youtube.com/watch?v=FIK3X2fKJrE)
 
 
 Robert Lawrence Kuhn: On Marvin Minsky
