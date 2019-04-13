@@ -13,6 +13,8 @@ published: false
 
 > <span class='purple'>To me, it underscores our responsibility to deal more kindly with one another, and to preserve and cherish the pale blue dot, the only home we've ever known.</span>
 
+> <span class='red'>The universe is a pretty big place. If it's just us, seems like an awful waste of space.</span>
+
 Feel free to jump anywhere,
 - [Carlism](#carlism)
 - [Quotes](#quotes)
@@ -23,6 +25,8 @@ Carlism
 ===========================
 
 Modern science has been a voyage into the unknown, with a lesson in humility waiting at every stop. Our common sense intuitions can be mistaken. Our preferences don't count. We do not live in a privileged reference frame. If we crave some cosmic purpose, then let us find ourselves a worthy goal.
+
+What an astonishing thing a book is. It's a flat object made from a tree with flexible parts on which are imprinted lots of funny dark squiggles. But one glance at it and you're inside the mind of another person, maybe somebody dead for thousands of years. Across the millennia, an author is speaking clearly and silently inside your head, directly to you. Writing is perhaps the greatest of human inventions, binding together people who never knew each other, citizens of distant epochs. Books break the shackles of time. A book is proof that humans are capable of working magic.
 
 From this distant vantage point, the Earth might not seem of any particular interest. But for us, it's different. Consider again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives. The aggregate of our joy and suffering, thousands of confident religions, ideologies, and economic doctrines, every hunter and forager, every hero and coward, every creator and destroyer of civilization, every king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every teacher of morals, every corrupt politician, every "superstar," every "supreme leader," every saint and sinner in the history of our species lived there-on a mote of dust suspended in a sunbeam. 
 
@@ -38,6 +42,9 @@ Long ago, when an early galaxy began to pour light out in to the surrounding dar
 
 We can recognize here a shortcoming, in some circumstances serious, in our ability to understand the world. Characteristically, willie-nilly we seem compelled to project our own nature onto nature. <span class='purple'>Man in his arrogance thinks himself a great work worthy of the interposition of a deity. Darwin wrote in his notebook, more humble, and I think truer to consider himself created from animals.</span>
 
+How is it that hardly any major religion has looked at science and concluded, “This is better than we thought! The Universe is much bigger than our prophets said, grander, more subtle, more elegant?” Instead they say, “No, no, no! My god is a little god, and I want him to stay that way.” A religion, old or new, that stressed the magnificence of the Universe as revealed by modern science might be able to draw forth reserves of reverence and awe hardly tapped by the conventional faiths.
+
+You're an interesting species. An interesting mix. You're capable of such beautiful dreams, and such horrible nightmares. You feel so lost, so cut off, so alone, only you're not. See, in all our searching, the only thing we've found that makes the emptiness bearable, is each other.
 
 Quotes
 ==========================
@@ -48,6 +55,20 @@ The nature of life on Earth and the search for life elsewhere are two sides of t
 
 Imagination will often carry us to worlds that never were. But without it we go nowhere.
 
+It pays to keep an open mind, but not so open your brains fall out.
+
+Extraordinary claims require extraordinary evidence.
+
+Science is not only compatible with spirituality; it is a profound source of spirituality.
+
+If you wish to make an apple pie from scratch, you must first invent the universe.
+
+We are like butterflies who flutter for a day and think it is forever.
+
+I don't want to believe. I want to know.
+
+Books permit us to voyage through time, to tap the wisdom of our ancestors.
+
 Stories
 ===========================
 
@@ -56,7 +77,7 @@ Stories
 Neil deGrasse Tyson: On Carl Sagan
 ===========================
 
-In 1975, Sagan, who was already famous at that time, was so impressed by Tyson’s college application that he personally reached out to him, hoping to convince the high school student to attend Cornell. He even offered to personally show Tyson around his lab.
+It was almost like a dispatch from another planet: the invitation to the young astronomer to leave Brooklyn and visit the lakes and gorges of upstate New York. In 1975, Sagan, who was already famous at that time, was so impressed by Tyson’s college application that he personally reached out to him, hoping to convince the high school student to attend Cornell. He even offered to personally show Tyson around his lab.
 
 You can read Sagan’s [letter](https://i.imgur.com/jdNby7O.jpg), dated November 12, 1975, below.
 
