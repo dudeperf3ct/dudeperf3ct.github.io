@@ -12,7 +12,7 @@ published : false
 
 In this notebook, 
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb) and [Fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_fastai.ipynb).
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Adversarial%20Learning/adv_learning_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Adversarial%20Learning/adv_learning_pytorch.ipynb) and [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Adversarial%20Learning/adv_learning_tf.ipynb).
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -42,7 +42,7 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span> 
+<span class='red'>I-know-everything:</span> My dear young padwan, you are learning quite a lot and honestly, keeping up with the pace of reasearch is really a challenge in itself. But we have tried to cover and focus on the basic concepts in Deep Learning and its application. The journey so far has been like visting a lot of cool stations. We visited MLP, CNN, RNN, LSTM & GRU, and also we visited one the very famous places Transfer Learning in CNN and Transfer Learning in NLP. Hope you enjoyed the journey. A lot is still waiting to be explored. One such topic of interest today is about Adveserial Training.
 
 <span class='green'>I-know-nothing:</span> 
 
