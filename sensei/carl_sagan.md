@@ -46,6 +46,8 @@ How is it that hardly any major religion has looked at science and concluded, �
 
 You're an interesting species. An interesting mix. You're capable of such beautiful dreams, and such horrible nightmares. You feel so lost, so cut off, so alone, only you're not. See, in all our searching, the only thing we've found that makes the emptiness bearable, is each other.
 
+We sometimes hear of things that can travel faster than light. Something called 'the speed of thought' is occasionally proffered. This is an exceptionally silly notion especially since the speed of impulses through the neutrons in our brain is about the same as the speed of a donkey cart.
+
 Quotes
 ==========================
 
@@ -68,6 +70,12 @@ We are like butterflies who flutter for a day and think it is forever.
 I don't want to believe. I want to know.
 
 Books permit us to voyage through time, to tap the wisdom of our ancestors.
+
+We’re all time travelers—at a rate of exactly one second per second. 
+
+Science has taught us that we are not the measure of all things.
+
+Science is more than a body of knowledge, it's a way of thinking.
 
 Stories
 ===========================
