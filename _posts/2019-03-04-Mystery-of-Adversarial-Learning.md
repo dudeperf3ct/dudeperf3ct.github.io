@@ -46,7 +46,7 @@ Feel free to jump anywhere,
 
 <span class='green'>I-know-nothing:</span> Horse doing arithmetic? For real?  
 
-<span class='red'>I-know-everything:</span> Here is the picture of clever hans (a horse) with its owner. The story of Clever Hans goes like this: 
+<span class='red'>I-know-everything:</span> Here is the picture of clever hans (a horse) with its owner lived in 1900s. The story of Clever Hans goes like this: 
 
 <p align="center">
 <img src='/images/adv_learning/cleverhans.jpg' width="50%"/> 
@@ -74,23 +74,104 @@ An Adversarial Example is an example that has been carefully computed to be misc
 
 There are mainly 3 types of adversarial attacks. We will explain why is it so easy to perform them, and discuss the security implications that stem from these attacks.
 
-1. Adversarial Inputs
-2. Data poisoning Attacks
+1. Non-targeted adversarial attack
+2. Targeted adversarial attack
 3. Model stealing Techniques
 
 ## Adversarial Attacks
 
 We study each attack in-detail here.
 
-### Adversarial Inputs
+A trained CNN model acts as a linear seperator for high dimensional data for different classes where every point(image) is associated with its class. Of course, the boundary of seperation is not perfect. This provides an opportunity to push one image from one class to another (*cross the boundary*) i.e. perturbating the input data in the direction of another class.
+
+<p align="center">
+<img src='/images/adv_learning/boundary.png' width="50%"/> 
+</p>
+
+A better way to illustrate the two non-targeted and targeted attack is explained by this story of Sherlock Holmes on [cleverhans](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html) blog :
+
+> Suppose Professor Moriarty wishes to frame Sherlock Holmes for a crime. He may arrange for an unsuspected accomplice to give Sherlock Holmes a pair of very unique and ornate boots. After Sherlock has worn these boots in the presence of the policemen he routinely assists, the policemen will learn to associate the unique boots with him. Professor Moriarty may then commit a crime while wearing a second copy of the same pair of boots, leaving behind tracks that will cause Holmes to fall under suspicion.
+
+In machine learning, the strategy followed by the adversary is to perturb training points in a way that increases the prediction error of the machine learning when it is used in production. The simplest yet still very efficient algorithm is known as Fast Gradient Step Method (FGSM) is used by both the attacks to generate adversarial examples(*very fast*) introduced in [this](https://arxiv.org/pdf/1412.6572.pdf) paper by Goodfellow and colleagues at Google.
+
+### Non-targeted adversarial attack
+
+Non-targeted adversarial attack makes the classifier to give incorrect result for given input image.
 
 
-### Data poisoning Attacks
+
+
+```python
+def non_targeted_attack(img):
+    img = img.cuda()
+    label = torch.zeros(1, 1).cuda()
+
+    x, y = Variable(img, requires_grad=True), Variable(label)
+    for step in range(steps):
+        zero_gradients(x)
+        out = model(x)
+        y.data = out.data.max(1)[1]
+        _loss = loss(out, y)
+        _loss.backward()
+        normed_grad = step_alpha * torch.sign(x.grad.data)
+        step_adv = x.data + normed_grad
+        adv = step_adv - img
+        adv = torch.clamp(adv, -eps, eps)
+        result = img + adv
+        result = torch.clamp(result, 0.0, 1.0)
+        x.data = result
+    return result.cpu(), adv.cpu()
+```
+
+
+<p align="center">
+<img src='/images/adv_learning/non_targeted.png' width="50%"/> 
+</p>
+
+### Targeted adversarial attack
+
+
+
+
+```python
+def targeted_attack(img, label):
+    img = img.cuda()
+    label = torch.Tensor([label]).long().cuda()
+
+    x, y = Variable(img, requires_grad=True), Variable(label)
+    for step in range(steps):
+        zero_gradients(x)
+        out = model(x)
+        _loss = loss(out, y)
+        _loss.backward()
+        normed_grad = step_alpha * torch.sign(x.grad.data)
+        step_adv = x.data - normed_grad
+        adv = step_adv - img
+        adv = torch.clamp(adv, -eps, eps)
+        result = img + adv
+        result = torch.clamp(result, 0.0, 1.0)
+        x.data = result
+    return result.cpu(), adv.cpu()
+```
+
+
+<p align="center">
+<img src='/images/adv_learning/targeted.png' width="50%"/> 
+</p>
 
 
 ### Model stealing Techniques
 
+Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing.
 
+In these black-box settings, the machine learning model is said to act as an oracle. A strategy is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
+
+
+## Security Implications
+
+
+
+## Adversarial Training
 
 
 
@@ -108,6 +189,19 @@ We study each attack in-detail here.
 
 Stanford CS231n 2017 [Lecture 16 | Adversarial Examples and Adversarial Training](https://www.youtube.com/watch?v=CIfsB_EYsVI)
 
+[Explaining and Harnessing Adversarial Examples](https://arxiv.org/pdf/1412.6572.pdf)
+
+[Adversarial Examples in Real Physical World](https://bengio.abracadoudou.com/publications/pdf/kurakin_2017_iclr_physical.pdf)
+
+cleverhans blog: [Breaking things is easy](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html), [Is attacking machine learning easier than defending it?](www.cleverhans.io/security/privacy/ml/2017/02/15/why-attacking-machine-learning-is-easier-than-defending-it.html) and []()
+
+[How Adversarial Attacks Work](https://blog.ycombinator.com/how-adversarial-attacks-work/)
+
+Gradient Science's blog: [A Brief Introduction to Adversarial Examples](http://gradientscience.org/intro_adversarial/), []() and []()
+
+Elie's blog on [Attacks against machine learning — an overview](https://elie.net/blog/ai/attacks-against-machine-learning-an-overview/)
+
+
 
 ---
 
@@ -116,6 +210,7 @@ Stanford CS231n 2017 [Lecture 16 | Adversarial Examples and Adversarial Training
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
+[Turtle Video](https://www.labsix.org/physical-objects-that-fool-neural-nets/)
 
 
 ---
