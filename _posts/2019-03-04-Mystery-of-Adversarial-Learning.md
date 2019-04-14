@@ -29,6 +29,14 @@ Feel free to jump anywhere,
 
 - [Adversarial Learning](#adversarial-learning)
   - [Clever Hans](#clever-hans)
+  - [Adversarial Attacks](#adversarial-attacks)
+    - [Non-targeted adversarial attack](#non-targeted-adversarial-attack)
+    - [Targeted adversarial attack](#targeted-adversarial-attack)
+    - [Model stealing techniques](#model-stealing-techniques)
+  - [Real World Examples](#real-world-examples)
+  - [Adversarial Training](#adversarial-training)
+  - [Beyond Image](#beyond-image)
+  - [Conclusion](#conclusion)  
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
