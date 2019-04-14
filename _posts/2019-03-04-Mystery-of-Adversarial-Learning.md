@@ -35,7 +35,7 @@ Feel free to jump anywhere,
     - [Model stealing techniques](#model-stealing-techniques)
   - [Real World Examples](#real-world-examples)
   - [Adversarial Training](#adversarial-training)
-  - [Beyond Image](#beyond-image)
+  - [Beyond Images](#beyond-images)
   - [Conclusion](#conclusion)  
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
@@ -220,11 +220,13 @@ And imagination is limit. There is so many bad examples which can be exploited. 
 
 What can be done? How can we avoid Adversarial attacks? From above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed.
 
-
+One way for Adversarial Training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. 
 
 ## Beyond Images
 
 Adversarial examples are not limited to image classification. Adversarial examples are seen in [speech recognition](https://arxiv.org/pdf/1801.01944), [question answering systems](https://arxiv.org/pdf/1707.07328), [reinforcement learning](https://arxiv.org/abs/1702.02284), and other tasks.
+
+[Here]() is video demonstrating adversarial example in speech recognition.
 
 <p align="center">
 <img src='/images/adv_learning/text_adv.png' width="50%"/> 
@@ -270,6 +272,8 @@ Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.
 [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf)
 
 [Towards Deep Learning Models Resistant to Adversarial Attacks](https://arxiv.org/pdf/1706.06083.pdf)
+
+[Towards Evaluating the Robustnessof Neural Networks](https://arxiv.org/pdf/1608.04644.pdf)
 
 [Synthesizing Robust Adversarial Examples](https://arxiv.org/pdf/1707.07397)
 
