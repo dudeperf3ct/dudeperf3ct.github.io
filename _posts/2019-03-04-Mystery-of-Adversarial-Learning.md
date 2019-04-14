@@ -192,7 +192,7 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [3d A
 
 ### L_infinity adversarial attack
 
-These optimization-based attacks are by far the most powerful 
+These optimization-based attacks are by far the most powerful attack.
 
 
 ### Model stealing techniques
@@ -230,7 +230,7 @@ What can be done? How can we avoid Adversarial attacks? From above examples we c
 
 One other way for Adversarial Training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. 
 
-
+Nicholas Carlini et al [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf)
 
 
 ## Beyond Images
