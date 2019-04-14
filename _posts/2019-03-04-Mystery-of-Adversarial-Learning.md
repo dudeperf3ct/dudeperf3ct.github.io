@@ -214,13 +214,20 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [Part
 <img src='/images/adv_learning/traffic_sign.png' width="50%"/> 
 </p>
 
-And imagination is limit. There is so many bad examples which can be exploited. Just like any new technology not designed withsecurity in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).
+And imagination is limit. There is so many bad examples which can be exploited. Just like any new technology not designed with security in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).
 
 ## Adversarial Training
 
 What can be done? How can we avoid Adversarial attacks? From above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed.
 
+
+
 One way for Adversarial Training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. 
+
+
+
+
+
 
 ## Beyond Images
 
@@ -237,6 +244,10 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 
 ## Conclusion
 
+
+The study of adversarial examples is exciting because many of the most important problems remain open, both in terms of theory and in terms of applications. 
+On the theoretical side, no one yet knows whether defending against adversarial examples is a theoretically hopeless endeavor (like trying to find a universal machine learning algorithm) or if an optimal strategy would give the defender the upper ground (like in cryptography and differential privacy). 
+On the applied side, no one has yet designed a truly powerful defense algorithm that can resist a wide variety of adversarial example attack algorithms.
 
 
 Well that really concludes adversarial machine learning. Where to next? <span class='purple'>Power of GAN</span>. 
