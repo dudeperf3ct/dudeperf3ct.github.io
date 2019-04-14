@@ -60,23 +60,23 @@ So, clever hans was trained to answer these questions. And he found a way of doi
 
 <span class='green'>I-know-nothing:</span> Ahh now I see, the horse was clever indeed in reading people's emotional reactions. But how does this relate to Machine Learning I wonder?
 
-<span class='red'>I-know-everything:</span> Great! So, we have seen how a vision model, where we use CNN, was able to attain human level accuracy in classifying images and we also saw what the model is actually looking at when it is classifying the image. If we given the following image of "Pig" to the classifer it correctly predicts that image as "Pig" but if we add a little(*calculated and not random*) noise to the same image, as you can see the resultant image(*original image + noise*) isn't much different from the original Pig image. If we pass this resultant image to the classifier, it predicts the image as "Airline" with 99% confidence.(😞) This resultant image is called "Adversarial Example". This example is *fooling CNN into thinking that Pig is a Airline.*
+<span class='red'>I-know-everything:</span> Great! So, we have seen how a vision model, where we use CNN, was able to attain human level accuracy in classifying images and we also saw what the model is actually looking at when it is classifying the image. If we given the following image of "panda" to the classifer it correctly predicts that image as "panda" but if we add a little(*calculated and not random*) noise to the same image, as you can see the resultant image(*original image + noise*) isn't much different from the original panda image. If we pass this resultant image to the classifier, it predicts the image as "gibbon" with 99% confidence.(😞) This resultant image is called "Adversarial Example". This example is *fooling CNN into thinking that panda is a gibbon.*
 
 <p align="center">
-<img src='/images/adv_learning/pig.png' width="50%"/> 
+<img src='/images/adv_learning/panda.jpg' width="50%"/> 
 </p>
 
 An Adversarial Example is an example that has been carefully computed to be misclassified. To make a new image indistinguishable to human obeserver from original image.
  
 <span class='green'>I-know-nothing:</span> So what is really going on? Did the classifier cheat with us the same way Clever hans did? Are there any other methods which we can cheat? Is there any way to defend this cheating? Is it only in images or also in other tasks such as NLP and RL? This cheating can really put the state of the art classifier in a very difficult position as to are they really state of the art(SOTA) in classification and if someone misuses these techniques in fooling the classifier. This certainly has some serious after effects.
 
-<span class='red'>I-know-everything:</span> That is certainly true. This issue of adversarial example does put the mark of SOTA  on classifier really in a jeopardy.
+<span class='red'>I-know-everything:</span> That is certainly true. This issue of adversarial example does put the mark of SOTA  on classifier really in a jeopardy!
 
 There are mainly 3 types of adversarial attacks. We will explain why is it so easy to perform them, and discuss the security implications that stem from these attacks.
 
 1. Non-targeted adversarial attack
 2. Targeted adversarial attack
-3. Model stealing Techniques
+3. Model stealing techniques
 
 ## Adversarial Attacks
 
@@ -141,9 +141,9 @@ def non_targeted_attack(img):
 Targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of specific class for given input image. The main change is the sign of the gradient. As opposed to the non-targeted attack, where the goal was to increase the error assuming that the targeted model is almost always correct, here we are going to minimize the error. Here we minimize the error by computing loss with respect to given (incorrect target) label such that when attack completes, the image outputs that it belongs to the specific class making the attack successful.
 
 ```python
-def targeted_attack(img, label):
+def targeted_attack(img, label_idx):
     img = img.cuda()
-    label = torch.Tensor([label]).long().cuda()
+    label = torch.Tensor([label_idx]).long().cuda()
 
     x, y = Variable(img, requires_grad=True), Variable(label)
     for step in range(steps):
@@ -160,7 +160,6 @@ def targeted_attack(img, label):
         x.data = result
     return result.cpu(), adv.cpu()
 ```
-
 
 <p align="center">
 <img src='/images/adv_learning/targeted.png' width="50%"/> 
@@ -180,7 +179,7 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [3d A
 </video> 
 </p>
 
-### Model stealing Techniques
+### Model stealing techniques
 
 Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing.
 Both the above attacks can be considered as whitebox attacks where the attacker has access to the model’s parameters (gradient in this case) whereas in black box attacks, the attacker has no access to these parameters, i.e., it uses a different model or no model at all to generate adversarial images with the hope that these will transfer to the target model. In the black-box settings, the machine learning model is said to act as an *oracle*. A strategy is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
@@ -196,26 +195,41 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [Part
 ## Real World Examples
 
 1. Print a “noisy” ATM check written for $100 – and cash it for $1,000,000.
-2. Swap a road sign with a slightly perturbed one that would set the speed limit to 200 – in a world of self-driving cars it can be quite dangerous.
+2. [Swap](https://arxiv.org/pdf/1511.07528.pdf) a road sign with a slightly perturbed one that would set the speed limit to 200 – in a world of self-driving cars it can be quite dangerous.
 3. Don’t wait for self-driving cars – redraw your license plate and cameras will never recognize your car.
-
-And imagination is limit. There is so many bad examples which can be exploited.
+4. [Cause](http://openaccess.thecvf.com/content_ECCV_2018/papers/Arjun_Nitin_Bhagoji_Practical_Black-box_Attacks_ECCV_2018_paper.pdf) an NSFW detector to incorrectly recognize an image as safe-for-work
+5. [Cause](https://arxiv.org/pdf/1811.03194.pdf) an ad-blocker to incorrectly identify an advertisement as natural content
+6. [Cause](https://nicholas.carlini.com/papers/2016_usenix_hiddenvoicecommands.pdf) a digital assistant to incorrectly recognize commands it is given
+7. [Cause](https://www.covert.io/research-papers/deep-learning-security/Large-scale%20Malware%20Classification%20using%20Random%20Projections%20and%20Neural%20Networks.pdf) a malware (or spam) classifier to identify a malicious file (or spam email) as benign 
 
 <p align="center">
 <img src='/images/adv_learning/traffic_sign.png' width="50%"/> 
 </p>
 
+And imagination is limit. There is so many bad examples which can be exploited. Just like any new technology not designed withsecurity in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).
 
 ## Adversarial Training
 
-What can be done? How can we avoid Adversarial attacks? 
+What can be done? How can we avoid Adversarial attacks? From above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed.
 
 
 
 ## Beyond Images
 
+Adversarial examples are not limited to image classification. Adversarial examples are seen in [speech recognition](https://arxiv.org/pdf/1801.01944), [question answering systems](https://arxiv.org/pdf/1707.07328), [reinforcement learning](https://arxiv.org/abs/1702.02284), and other tasks.
+
+<p align="center">
+<img src='/images/adv_learning/text_adv.png' width="50%"/> 
+</p>
+
+[Here](https://www.youtube.com/watch?&v=r2jm0nRJZdI) is video demonstrating adversarial example in RL.
 
 
+## Conclusion
+
+
+
+Well that really concludes adversarial machine learning. Where to next? <span class='purple'>Power of GAN</span>. 
 
 <span class='orange'>Happy Learning!</span>
 
@@ -223,6 +237,13 @@ What can be done? How can we avoid Adversarial attacks?
 
 ### Note: Caveats on terminology
 
+FGSM - Fast Gradient Sign Method
+
+CNN - Convolution Neural Networks
+
+RL - Reinforcement Learning
+
+GAN - Generative Adversarial Networks
 
 ---
 
@@ -230,15 +251,29 @@ What can be done? How can we avoid Adversarial attacks?
 
 Stanford CS231n 2017 [Lecture 16 | Adversarial Examples and Adversarial Training](https://www.youtube.com/watch?v=CIfsB_EYsVI)
 
+Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.carlini.com/writing/2018/adversarial-machine-learning-reading-list.html)
+
 [Explaining and Harnessing Adversarial Examples](https://arxiv.org/pdf/1412.6572.pdf)
+
+[Adversarial Examples Are Not Easily Detected:Bypassing Ten Detection Methods](https://nicholas.carlini.com/papers/2017_aisec_breakingdetection.pdf)
 
 [Adversarial Examples in Real Physical World](https://bengio.abracadoudou.com/publications/pdf/kurakin_2017_iclr_physical.pdf)
 
-cleverhans blog: [Breaking things is easy](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html), [Is attacking machine learning easier than defending it?](www.cleverhans.io/security/privacy/ml/2017/02/15/why-attacking-machine-learning-is-easier-than-defending-it.html) and []()
+[On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf)
+
+[Towards Deep Learning Models Resistant to Adversarial Attacks](https://arxiv.org/pdf/1706.06083.pdf)
+
+[Synthesizing Robust Adversarial Examples](https://arxiv.org/pdf/1707.07397)
+
+[Black-box Adversarial Attacks with Limited Queries and Information](https://arxiv.org/pdf/1804.08598)
+
+[Wild Patterns: Ten Years After the Rise ofAdversarial Machine Learning](https://arxiv.org/pdf/1712.03141.pdf)
+
+cleverhans blog: [Breaking things is easy](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html), [Is attacking machine learning easier than defending it?](www.cleverhans.io/security/privacy/ml/2017/02/15/why-attacking-machine-learning-is-easier-than-defending-it.html) and [The challenge of verification and testing of machine learning](http://www.cleverhans.io/security/privacy/ml/2017/06/14/verification.html)
 
 [How Adversarial Attacks Work](https://blog.ycombinator.com/how-adversarial-attacks-work/)
 
-Gradient Science's blog: [A Brief Introduction to Adversarial Examples](http://gradientscience.org/intro_adversarial/), []() and []()
+Gradient Science's blog: [A Brief Introduction to Adversarial Examples](http://gradientscience.org/intro_adversarial/), [Training Robust Classifiers (Part 1)](http://gradientscience.org/robust_opt_pt1/) and [Training Robust Classifiers (Part 2)](http://gradientscience.org/robust_opt_pt2/)
 
 Elie's blog on [Attacks against machine learning — an overview](https://elie.net/blog/ai/attacks-against-machine-learning-an-overview/)
 
