@@ -21,7 +21,7 @@ Hey yo, but how?
 Well sit tight and buckle up. I will go through everything in-detail.
 
 <p align="center">
-<img src='/images/rnn/rnn_meme.jpg' width="50%"/> 
+<img src='/images/adv_learning/meme.jpeg' width="50%"/> 
 </p>
 
 
@@ -92,14 +92,22 @@ A better way to illustrate the two non-targeted and targeted attack is explained
 
 > Suppose Professor Moriarty wishes to frame Sherlock Holmes for a crime. He may arrange for an unsuspected accomplice to give Sherlock Holmes a pair of very unique and ornate boots. After Sherlock has worn these boots in the presence of the policemen he routinely assists, the policemen will learn to associate the unique boots with him. Professor Moriarty may then commit a crime while wearing a second copy of the same pair of boots, leaving behind tracks that will cause Holmes to fall under suspicion.
 
-In machine learning, the strategy followed by the adversary is to perturb training points in a way that increases the prediction error of the machine learning when it is used in production. The simplest yet still very efficient algorithm is known as Fast Gradient Step Method (FGSM) is used by both the attacks to generate adversarial examples(*very fast*) introduced in [this](https://arxiv.org/pdf/1412.6572.pdf) paper by Goodfellow and colleagues at Google.
+In machine learning, the strategy followed by the adversary is to perturb training points in a way that increases the prediction error of the machine learning when it is used in production. The simplest yet still very efficient algorithm is known as Fast Gradient Step Method (FGSM) is used by both the attacks to generate adversarial examples(*very fast*) introduced in [this](https://arxiv.org/pdf/1412.6572.pdf) paper by Goodfellow and colleagues at Google. The core idea is to add some defined $$\epsilon$$ weak noise on every step of optimization, drifting towards the desired class (targeted) — or, if you wish, away from the correct one (non-targeted).
+
+$$
+\begin{aligned}
+x^{adv} & = x + \epsilon * sign(\nabla_{x} J(x, y_{true})) \\
+\textbf{where}, x &= \textbf{clean image} \\
+x^{adv} &= \textbf{perturbed adversarial image} \\
+J &= \textbf{classification loss} \\
+y_{true} &= \textbf{true label for input image x} \\
+\end{aligned}
+$$
+
 
 ### Non-targeted adversarial attack
 
-Non-targeted adversarial attack makes the classifier to give incorrect result for given input image.
-
-
-
+Non-targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of any other class than input image class. Here the objective is to perturb the input image in direction where the gradient increases error by some $$\epsilon$$ in such a way that when we reconstruct the resultant adversarial image it looks indistinguishable than the original image.
 
 ```python
 def non_targeted_attack(img):
@@ -123,15 +131,14 @@ def non_targeted_attack(img):
     return result.cpu(), adv.cpu()
 ```
 
-
 <p align="center">
 <img src='/images/adv_learning/non_targeted.png' width="50%"/> 
 </p>
 
+
 ### Targeted adversarial attack
 
-
-
+Targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of specific class for given input image. The main change is the sign of the gradient. As opposed to the non-targeted attack, where the goal was to increase the error assuming that the targeted model is almost always correct, here we are going to minimize the error. Here we minimize the error by computing loss with respect to given (incorrect target) label such that when attack completes, the image outputs that it belongs to the specific class making the attack successful.
 
 ```python
 def targeted_attack(img, label):
@@ -159,19 +166,53 @@ def targeted_attack(img, label):
 <img src='/images/adv_learning/targeted.png' width="50%"/> 
 </p>
 
+Here is one example by Goodfellow et al in using [2d Adversarial Objects in fooling neural networks](https://bengio.abracadoudou.com/publications/pdf/kurakin_2017_iclr_physical.pdf),
+
+<p align="center">
+<img src='/images/adv_learning/washing_machine.png' width="50%"/> 
+</p>
+
+Here is one example from [lab six](https://www.labsix.org/) where they use [3d Adversarial Objects in fooling neural networks](https://www.labsix.org/physical-objects-that-fool-neural-nets/),
+
+<p align="center">
+ <video width="320" height="240" controls>
+  <source src="/images/adv_learning/turtle.mp4" type="video/mp4">
+</video> 
+</p>
 
 ### Model stealing Techniques
 
 Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing.
+Both the above attacks can be considered as whitebox attacks where the attacker has access to the model’s parameters (gradient in this case) whereas in black box attacks, the attacker has no access to these parameters, i.e., it uses a different model or no model at all to generate adversarial images with the hope that these will transfer to the target model. In the black-box settings, the machine learning model is said to act as an *oracle*. A strategy is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
 
-In these black-box settings, the machine learning model is said to act as an oracle. A strategy is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
+Here is one example from [lab six](https://www.labsix.org/) where they use [Partial Information Attacks on Real-world AI](https://www.labsix.org/partial-information-adversarial-examples/),
 
+<p align="center">
+ <video width="320" height="240" controls>
+  <source src="/images/adv_learning/black_box.mp4" type="video/mp4">
+</video> 
+</p>
 
-## Security Implications
+## Real World Examples
 
+1. Print a “noisy” ATM check written for $100 – and cash it for $1,000,000.
+2. Swap a road sign with a slightly perturbed one that would set the speed limit to 200 – in a world of self-driving cars it can be quite dangerous.
+3. Don’t wait for self-driving cars – redraw your license plate and cameras will never recognize your car.
+
+And imagination is limit. There is so many bad examples which can be exploited.
+
+<p align="center">
+<img src='/images/adv_learning/traffic_sign.png' width="50%"/> 
+</p>
 
 
 ## Adversarial Training
+
+What can be done? How can we avoid Adversarial attacks? 
+
+
+
+## Beyond Images
 
 
 
@@ -207,11 +248,13 @@ Elie's blog on [Attacks against machine learning — an overview](https://elie.n
 
 # Footnotes and Credits
 
+[Meme](https://medium.com/@ml.at.berkeley/tricking-neural-networks-create-your-own-adversarial-examples-a61eb7620fd8)
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
 [Turtle Video](https://www.labsix.org/physical-objects-that-fool-neural-nets/)
 
+[Traffic sign](https://www.cc.gatech.edu/news/611783/erasing-stop-signs-shapeshifter-shows-self-driving-cars-can-still-be-manipulated)
 
 ---
 
