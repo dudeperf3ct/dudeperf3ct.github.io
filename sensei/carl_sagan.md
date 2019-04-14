@@ -15,6 +15,9 @@ published: false
 
 > <span class='red'>The universe is a pretty big place. If it's just us, seems like an awful waste of space.</span>
 
+> <span class='purple'>That’s here. That’s home. That’s us. On it, everyone you love, everyone you know, everyone you have ever heard of, every human being who ever was, lived out their lives...[E]very king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every revered teacher of morals, every corrupt politician, every superstar, every supreme leader, every saint and sinner in the history of our species lived there–on a mote of dust suspended in a sunbeam.</span>
+
+
 Feel free to jump anywhere,
 - [Carlism](#carlism)
 - [Quotes](#quotes)
@@ -48,6 +51,11 @@ You're an interesting species. An interesting mix. You're capable of such beauti
 
 We sometimes hear of things that can travel faster than light. Something called 'the speed of thought' is occasionally proffered. This is an exceptionally silly notion especially since the speed of impulses through the neutrons in our brain is about the same as the speed of a donkey cart.
 
+There is a wide yawning black infinity. In every direction the extension is endless, the sensation of depth is overwhelming. And the darkness is immortal. Where light exists, it is pure, blazing, fierce; but light exists almost nowhere, and the blackness itself is also pure and blazing and fierce. But most of all, there is very nearly nothing in the dark; except for little bits here and there, often associated with the light, this infinite receptacle is empty. This picture is strangely frightening. It should be familiar. It is our universe.
+
+Even these stars, which seem so numerous, are, as sand, as dust, or less than dust, in the enormity of the space in which there is nothing. Nothing! We are not without empathetic terror when we open Pascal’s Pensées and read, “I am the great silent spaces between worlds.
+
+
 Quotes
 ==========================
 
@@ -79,6 +87,8 @@ Science is more than a body of knowledge, it's a way of thinking.
 
 Stories
 ===========================
+
+I went to the librarian and asked for a book about stars ... And the answer was stunning. It was that the Sun was a star but really close. The stars were suns, but so far away they were just little points of light ... The scale of the universe suddenly opened up to me. It was a kind of religious experience. There was a magnificence to it, a grandeur, a scale which has never left me. Never ever left me.
 
 
 
