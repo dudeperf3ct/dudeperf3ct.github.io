@@ -30,8 +30,8 @@ Feel free to jump anywhere,
 - [Adversarial Learning](#adversarial-learning)
   - [Clever Hans](#clever-hans)
   - [Adversarial Attacks](#adversarial-attacks)
-    - [Non-targeted adversarial attack](#non-targeted-adversarial-attack)
-    - [Targeted adversarial attack](#targeted-adversarial-attack)
+    - [Non-targeted and Targeted adversarial attack](#non-targeted-and-targeted-adversarial-attack)
+    - [l_infinity adversarial attack](#l_infinty-adversarial-attack)
     - [Model stealing techniques](#model-stealing-techniques)
   - [Real World Examples](#real-world-examples)
   - [Adversarial Training](#adversarial-training)
@@ -82,8 +82,8 @@ An Adversarial Example is an example that has been carefully computed to be misc
 
 There are mainly 3 types of adversarial attacks. We will explain why is it so easy to perform them, and discuss the security implications that stem from these attacks.
 
-1. Non-targeted adversarial attack
-2. Targeted adversarial attack
+1. Non-targeted and Targeted adversarial attack
+2. L_infinity adversarial attack 
 3. Model stealing techniques
 
 ## Adversarial Attacks
@@ -112,8 +112,11 @@ y_{true} &= \textbf{true label for input image x} \\
 \end{aligned}
 $$
 
+### Non-targeted and Targeted adversarial attack
 
-### Non-targeted adversarial attack
+These are the simplest technique that demonstratethe linearity of neural networks using FGSM and as the name suggest they are Gradient-based methods.
+
+#### Non-targeted adversarial attack
 
 Non-targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of any other class than input image class. Here the objective is to perturb the input image in direction where the gradient increases error by some $$\epsilon$$ in such a way that when we reconstruct the resultant adversarial image it looks indistinguishable than the original image.
 
@@ -144,7 +147,7 @@ def non_targeted_attack(img):
 </p>
 
 
-### Targeted adversarial attack
+#### Targeted adversarial attack
 
 Targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of specific class for given input image. The main change is the sign of the gradient. As opposed to the non-targeted attack, where the goal was to increase the error assuming that the targeted model is almost always correct, here we are going to minimize the error. Here we minimize the error by computing loss with respect to given (incorrect target) label such that when attack completes, the image outputs that it belongs to the specific class making the attack successful.
 
@@ -187,6 +190,11 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [3d A
 </video> 
 </p>
 
+### L_infinity adversarial attack
+
+These optimization-based attacks are by far the most powerful 
+
+
 ### Model stealing techniques
 
 Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing.
@@ -218,13 +226,9 @@ And imagination is limit. There is so many bad examples which can be exploited. 
 
 ## Adversarial Training
 
-What can be done? How can we avoid Adversarial attacks? From above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed.
+What can be done? How can we avoid Adversarial attacks? From above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed. Adversarial training can defend against FGSM attack by causing gradient masking, where locally the gradient around a given image may point in a direction that is not useful for generating an adversarial example.
 
-
-
-One way for Adversarial Training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. 
-
-
+One other way for Adversarial Training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. 
 
 
 
