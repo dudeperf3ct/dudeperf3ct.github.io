@@ -3,7 +3,7 @@ layout: page
 title: Marvin Minksy
 permalink: /sensei/marvin-minsky/
 tags: marvin minsky
-published: false
+published: true
 ---
 <p align='center'>
  <img src="/images/senseis/minsky.jpg" alt="Marvin Minsky" />
