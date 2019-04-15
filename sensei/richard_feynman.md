@@ -6,7 +6,7 @@ tags: richard feynman
 published: false
 ---
 <p align='center'>
- <img src="/images/richard.jpg" alt="Richard Feynman" />
+ <img src="/images/senseis/richard.jpg" alt="Richard Feynman" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. <span class='red'>Happy Learning!</span>
