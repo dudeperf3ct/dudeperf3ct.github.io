@@ -186,7 +186,7 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [3d A
 
 <p align="center">
  <video width="320" height="240" controls>
-  <source src="/images/adv_learning/turtle.mp4" type="video/mp4" />
+  <source src="/images/adv_learning/turtle.mp4" type="video/mp4" >
 </video> 
 </p>
 
@@ -233,8 +233,8 @@ Both the above attacks can be considered as whitebox attacks where the attacker 
 Here is one example from [lab six](https://www.labsix.org/) where they use [Partial Information Attacks on Real-world AI](https://www.labsix.org/partial-information-adversarial-examples/),
 
 <p align="center">
- <video width="320" height="240" controls>
-  <source src="/images/adv_learning/black_box.mp4" type="video/mp4" />
+ <video width="320px" height="240px" controls>
+  <source src="/images/adv_learning/black_box.mp4" type="video/mp4">
 </video> 
 </p>
 
