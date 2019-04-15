@@ -22,7 +22,7 @@ Feel free to jump anywhere,
 - [Carlism](#carlism)
 - [Quotes](#quotes)
 - [Stories](#stories)
-- [Neil deGrasse Tyson: On Carl Sagan](#neil-deGrasse-tyson-on-carl-sagan)
+- [Neil deGrasse Tyson: On Carl Sagan](#neil-degrasse-tyson-on-carl-sagan)
 
 Carlism
 ===========================
