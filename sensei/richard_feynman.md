@@ -3,7 +3,7 @@ layout: page
 title: Richard Feynman
 permalink: /sensei/richard-feynman/
 tags: richard feynman
-published: false
+published: true
 ---
 <p align='center'>
  <img src="/images/senseis/richard.jpg" alt="Richard Feynman" />
