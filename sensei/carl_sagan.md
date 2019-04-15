@@ -163,4 +163,8 @@ He(*Carl*) was nothing I was like drinking buddies with them but we were sort of
 
 And just watch [this](https://www.youtube.com/watch?v=oRYVtVFadX0)!
 
+<p align='center'>
+ <img src="/images/senseis/neil.jpg" alt="Neil book" />
+</p>
+
 
