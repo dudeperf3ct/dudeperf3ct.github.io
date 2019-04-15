@@ -6,7 +6,7 @@ tags: carl sagan
 published: true
 ---
 <p align='center'>
- <img src="/images/carlsagan.jpg" alt="Carl Sagan" />
+ <img src="/images/senseis/carlsagan.jpg" alt="Carl Sagan" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. <span class='red'>Happy Learning!</span>
