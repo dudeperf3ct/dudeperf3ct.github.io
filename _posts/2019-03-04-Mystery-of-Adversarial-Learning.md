@@ -179,15 +179,13 @@ def targeted_attack(img, label_idx):
 Here is one example by Goodfellow et al in using [2d Adversarial Objects in fooling neural networks](https://bengio.abracadoudou.com/publications/pdf/kurakin_2017_iclr_physical.pdf),
 
 <p align="center">
-<img src='/images/adv_learning/washing_machine.png' width="50%"/> 
+<img src='/images/adv_learning/washing_machine.png' width="80%"/> 
 </p>
 
 Here is one example from [lab six](https://www.labsix.org/) where they use [3d Adversarial Objects in fooling neural networks](https://www.labsix.org/physical-objects-that-fool-neural-nets/),
 
 <p align="center">
- <video width="320" height="240" controls>
-  <source src="/images/adv_learning/turtle.mp4" type="video/mp4" >
-</video> 
+<img src='/images/adv_learning/turtle.gif' width="50%"/> 
 </p>
 
 ### Optimization-based adversarial attack
@@ -232,10 +230,9 @@ Both the above attacks can be considered as whitebox attacks where the attacker 
 
 Here is one example from [lab six](https://www.labsix.org/) where they use [Partial Information Attacks on Real-world AI](https://www.labsix.org/partial-information-adversarial-examples/),
 
+
 <p align="center">
- <video width="320px" height="240px" controls>
-  <source src="/images/adv_learning/black_box.mp4" type="video/mp4">
-</video> 
+<img src='/images/adv_learning/black_box.gif' width="50%"/> 
 </p>
 
 ## Real World Examples
