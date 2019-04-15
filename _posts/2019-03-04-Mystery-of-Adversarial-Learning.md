@@ -30,8 +30,8 @@ Feel free to jump anywhere,
 - [Adversarial Learning](#adversarial-learning)
   - [Clever Hans](#clever-hans)
   - [Adversarial Attacks](#adversarial-attacks)
-    - [Non-targeted and Targeted adversarial attack](#non-targeted-and-targeted-adversarial-attack)
-    - [l_infinity adversarial attack](#l_infinty-adversarial-attack)
+    - [Gradient-based adversarial attack](#gradient-based-adversarial-attack)
+    - [Optimization-based adversarial attack](#optimization-based-adversarial-attack)
     - [Model stealing techniques](#model-stealing-techniques)
   - [Real World Examples](#real-world-examples)
   - [Adversarial Training](#adversarial-training)
@@ -82,8 +82,8 @@ An Adversarial Example is an example that has been carefully computed to be misc
 
 There are mainly 3 types of adversarial attacks. We will explain why is it so easy to perform them, and discuss the security implications that stem from these attacks.
 
-1. Non-targeted and Targeted adversarial attack
-2. L_infinity adversarial attack 
+1. Gradient-based adversarial attack
+2. Optimization-based adversarial attack 
 3. Model stealing techniques
 
 ## Adversarial Attacks
@@ -112,7 +112,7 @@ y_{true} &= \textbf{true label for input image x} \\
 \end{aligned}
 $$
 
-### Non-targeted and Targeted adversarial attack
+### Gradient-based adversarial attack
 
 These are the simplest technique that demonstratethe linearity of neural networks using FGSM and as the name suggest they are Gradient-based methods.
 
@@ -190,7 +190,21 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [3d A
 </video> 
 </p>
 
-### L_infinity adversarial attack
+### Optimization-based adversarial attack
+
+The paper on [Towards Evaluating the Robustness of Neural Networks](https://arxiv.org/pdf/1608.04644.pdf) introduces three types of attacks: 
+
+- $$L_{0}$$ attack
+
+$$L_{0}$$ distance measures the number of coordinates i such that $$x_{i} \ne x_{i'}$$.  Thus, the $$L_{0}$$ distance corresponds to the number of pixels that have been altered in an image. The $$L_{0}$$ distance metric is non-differentiable and therefore is ill-suited for standard gradient descent. 
+
+- $$L_{2}$$ attack
+
+$$L_{2}$$ distance measures the standard Euclidean (root-mean-square) distance between x and x′. The $$L_{2}$$ distance can remain small when there are many small changes to many pixels.
+
+- $$L_{\infty}$$ attack
+
+$$L_{\infty}$$ distance measures the maximum change to any of the coordinates. For images, we can imagine there is a maximum budget, and each pixel is allowed to be changed by up to this limit, with no limit on the number of pixels that are modified.
 
 These optimization-based attacks are by far the most powerful attack.
 
@@ -222,6 +236,8 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [Part
 <img src='/images/adv_learning/traffic_sign.png' width="50%"/> 
 </p>
 
+Here is a recent [demo](https://v.qq.com/x/page/x0855xzykn4.html) by Tencent Keen Security Lab which conducted research on Autopilot of Tesla Model S and achieved 3 flaws, *Auto-wipers Vision Recognition Flaw*, *Lane Recognition Flaw* and *Control Steering System with Gamepad*. For more details on the technical details, [here](https://keenlab.tencent.com/en/whitepapers/Experimental_Security_Research_of_Tesla_Autopilot.pdf) is the paper. *So cool*
+
 And imagination is limit. There is so many bad examples which can be exploited. Just like any new technology not designed with security in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).
 
 ## Adversarial Training
@@ -249,9 +265,9 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 ## Conclusion
 
 
-The study of adversarial examples is exciting because many of the most important problems remain open, both in terms of theory and in terms of applications. 
-On the theoretical side, no one yet knows whether defending against adversarial examples is a theoretically hopeless endeavor (like trying to find a universal machine learning algorithm) or if an optimal strategy would give the defender the upper ground (like in cryptography and differential privacy). 
-On the applied side, no one has yet designed a truly powerful defense algorithm that can resist a wide variety of adversarial example attack algorithms.
+- The study of adversarial examples is exciting because many of the most important problems remain open, both in terms of theory and in terms of applications. 
+- On the theoretical side, no one yet knows whether defending against adversarial examples is a theoretically hopeless endeavor (like trying to find a universal machine learning algorithm) or if an optimal strategy would give the defender the upper ground (like in cryptography and differential privacy). 
+- On the applied side, no one has yet designed a truly powerful defense algorithm that can resist a wide variety of adversarial example attack algorithms.
 
 
 Well that really concludes adversarial machine learning. Where to next? <span class='purple'>Power of GAN</span>. 
