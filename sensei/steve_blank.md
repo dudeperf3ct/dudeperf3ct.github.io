@@ -3,10 +3,10 @@ layout: page
 title: Steve Blank
 permalink: /sensei/steve-blank/
 tags: steve blank
-published: false
+published: true
 ---
 <p align='center'>
- <img src="/images/charlie.jpg" alt="Charlie Munger" />
+ <img src="/images/senseis/steve_blank.jpg" alt="Steve Blank" />
 </p>
 
 ###### This a collection of almost everything including stories, lessons, short quotes which I will keep updating often. <span class='red'>Happy Learning!</span>
