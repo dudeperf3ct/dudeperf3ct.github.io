@@ -186,7 +186,7 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [3d A
 
 <p align="center">
  <video width="320" height="240" controls>
-  <source src="/images/adv_learning/turtle.mp4" type="video/mp4">
+  <source src="/images/adv_learning/turtle.mp4" type="video/mp4" />
 </video> 
 </p>
 
@@ -234,7 +234,7 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [Part
 
 <p align="center">
  <video width="320" height="240" controls>
-  <source src="/images/adv_learning/black_box.mp4" type="video/mp4">
+  <source src="/images/adv_learning/black_box.mp4" type="video/mp4" />
 </video> 
 </p>
 
