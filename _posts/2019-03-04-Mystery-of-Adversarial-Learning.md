@@ -196,15 +196,31 @@ The paper on [Towards Evaluating the Robustness of Neural Networks](https://arxi
 
 - $$L_{0}$$ attack
 
-$$L_{0}$$ distance measures the number of coordinates i such that $$x_{i} \ne x_{i'}$$.  Thus, the $$L_{0}$$ distance corresponds to the number of pixels that have been altered in an image. The $$L_{0}$$ distance metric is non-differentiable and therefore is ill-suited for standard gradient descent. 
+$$L_{0}$$ distance measures the number of coordinates i such that $$x_{i} \ne x_{i'}$$.  Thus, the $$L_{0}$$ distance corresponds to the number of pixels that have been altered in an image. The $$L_{0}$$ distance metric is non-differentiable and therefore is ill-suited for standard gradient descent instead, we use an iterative algorithm. In each iteration, a few pixels are considered trivial forgenerating adversarial examples and removed. The importance of pixels is determined by the gradient of $$L_{2}$$ distance. The iteration stops if the remaining pixels can not generate an adversarial example. In each iteration, we use our $L_{2}$$ attack to identify which pixels are unimportant.
 
 - $$L_{2}$$ attack
 
-$$L_{2}$$ distance measures the standard Euclidean (root-mean-square) distance between x and x′. The $$L_{2}$$ distance can remain small when there are many small changes to many pixels.
+$$L_{2}$$ distance measures the standard Euclidean (root-mean-square) distance between x and x′. The $$L_{2}$$ distance can remain small when there are many small changes to many pixels. $$L_{2}$$ attack can be best described by
+
+$$
+\begin{aligned}
+\min_{w} || \frac{1}{2} (tanh(w) + 1) ||_{2} + c * g (\frac{1}{2} (tanh(w)) + 1)
+\end{aligned}
+$$
+
+where task is to search for w that solves above equation.
 
 - $$L_{\infty}$$ attack
 
-$$L_{\infty}$$ distance measures the maximum change to any of the coordinates. For images, we can imagine there is a maximum budget, and each pixel is allowed to be changed by up to this limit, with no limit on the number of pixels that are modified.
+$$L_{\infty}$$ distance measures the maximum change to any of the coordinates. For images, we can imagine there is a maximum budget, and each pixel is allowed to be changed by up to this limit, with no limit on the number of pixels that are modified. The $$L_{\infty}$$ distance metric is non-differentiable and therefore is ill-suited for standard gradient descent and also use an iterative algorithm which replaced the $$L_{2}$$ term with a new penalty in each iteration.
+
+$$
+\begin{aligned}
+\min c * g (x + \eta) + \sum_{i}^{}[(\eta_{i} + \tau)^{+}]
+\end{aligned}
+$$
+
+For each iteration, $$\tau$$ is reduced by a factor of 0.9, if all $$\eta_{i} < \tau$$. $$L_{\infty}$$ attack considered $$\tau$$ as an estimation of $$L_{\infty}$$.
 
 These optimization-based attacks are by far the most powerful attack.
 
