@@ -86,21 +86,30 @@ Sometime later IBM had researchers working on AI and Thomas Watson who was Presi
 
 When I was in grade school sometimes when I said something bright I would hear a teacher saying maybe he is another [J. Robert Oppenheimer](https://en.wikipedia.org/wiki/J._Robert_Oppenheimer)(*3 or 4 years senior in same school*). I changed school around 3rd grade. There was no European history then. To me American history is recent and European history is old. So, 1776 is after 1880. To me history ends with Napolean because then I got into 4th grade.
 
-"Oh, life is a glorious cycle of song,</br>
-A medley of extemporanea;</br>
-And love is a thing that can never go wrong;</br>
-And I am Marie of Roumania.”— Dorothy Parker</br>
+"Oh, life is a glorious cycle of song,
+
+A medley of extemporanea;
+
+And love is a thing that can never go wrong;
+
+And I am Marie of Roumania.”— Dorothy Parker
 
 [Here](https://hokku.wordpress.com/2012/09/24/and-i-am-marie-of-roumania/) is a perfect deep dive into the poem. 
 
 No one finds it surprising these days when we make machines that do logical things, because logic is based on clear, simple rules of the sorts that computers can easily use. But Love by its nature, some people would say, cannot and ought not be explained in such ways. Listen to Pablo Neruda:
 
-" ...love has to be so,</br>
-involving and general,</br>
-particular and terrifying,</br>
-honoured and yet in mourning,</br>
-flowering like the stars,</br>
-and measureless as a kiss.” — from ‘Extravagaria’</br>
+" ...love has to be so,
+
+involving and general,
+
+particular and terrifying,
+
+honoured and yet in mourning,
+
+flowering like the stars,
+
+and measureless as a kiss.” — from ‘Extravagaria’
+
 
 
 Ray Kurzweil: On Marvin Minsky
