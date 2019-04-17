@@ -53,6 +53,8 @@ Siraj Raval, Director of school of ai
 > I'm not afraid of super-intelligent AI, I'm afraid of humans using AI to exploit other humans. Technology is like fire, it can be used to either burn us or give us warmth. A tool is just a tool, it all depends on how we use it. Choose love, not fear. ~ Siraj Raval (@sirajraval) 10 October, 2018 https://twitter.com/sirajraval/status/1052973097744097280 
 
 
+Here is how media has protrayed AI in far more melodramatic and overblown articles like “[AI apocalypse](https://www.dailystar.co.uk/news/latest-news/716305/ai-artificial-intelligence-autonomous-weaponry-arms-race)”, “[artificial brains](https://futurism.com/artificial-brains-operate-like-humans-close/)”, “[artificial superintelligence](http://www.forbesindia.com/blog/technology/can-super-intelligence-and-emotional-intelligence-co-exist/)”, “[brain-like computers](https://www.nytimes.com/2013/12/29/science/brainlike-computers-learning-from-experience.html)” and “[creepy Facebook bot AIs](https://nypost.com/2017/08/01/creepy-facebook-bots-talked-to-each-other-in-a-secret-language/)”.
+
 
 > AI is coming. Capitalist logic & motives drive investment & support. Physical labor unskilled, is doomed by robotics. Skilled will do ok in the right markets. Eventually, humans will be an anachronism,valued as antique  pets in robotic households. It's happening folks! Scary,huh! ~ Politicus (@rsspych) Jan 9, 2019 https://twitter.com/rsspych/status/1083167561229815808
 
@@ -75,7 +77,6 @@ The societal impacts current technology in AI has is profound. To give example l
 
 And unlike other catastrophic risks—like say climate change—it’s dramatically underserved. There are thousands of person-years and billions of dollars being poured into the project of developing AI. And there are fewer than 10 people in the world right now working full-time on safety.
 
-> The best way to predict future is to invent it. ~ Alan Kay
 
 https://www.quora.com/Should-artificial-intelligence-be-regulated/answer/Andrew-Ng
 
@@ -84,6 +85,9 @@ https://www.quora.com/Should-artificial-intelligence-be-regulated/answer/Andrew-
 > The government also has a big role to play to help with the coming job displacements caused by AI, for example to provide basic income and retraining.
 
 > Finally, the rise of AI is creating a new way for companies to compete, become dominant, and shut out competitors. Anti-trust regulators are way behind corporations in understanding this new basis of competition, and have a lot of catching up to do.
+
+
+> The best way to predict future is to invent it. ~ Alan Kay
 
 # TLDR
 
