@@ -30,7 +30,7 @@ That joke exists because, even today, AI isn’t well defined—artificial intel
 
 # The Reactions
 
-What do researchers in field of AI who are the makers and general public opine about AI fear?
+What do researchers in field of AI who are the makers, the media and general public opine about AI fear?
 
 Rodney Brooks, Robot Builder
 
@@ -38,7 +38,7 @@ Rodney Brooks, Robot Builder
 
 Andrew Ng, Co-Founder of Coursera; Stanford CS adjunct faculty. Former head of Baidu AI Group/Google Brain
 
-> Fearing a rise of killer robots is like worrying about overpopulation on Mars. https://www.theregister.co.uk/2015/03/19/andrew_ng_baidu_ai/
+> Worrying about evil-killer AI today is like worrying about overpopulation on the planet Mars. Perhaps it'll be a problem someday, but we haven't even landed on the planet yet. This hype has been unnecessarily distracting everyone from the much bigger problem AI creates, which is job displacement. https://www.vox.com/conversations/2017/3/8/14712286/artificial-intelligence-science-technology-robots-singularity-automation
 
 Anima Anandkumar, Director of research Nvidia, Bren Professor Caltech, Former Principal scientist AWSCloud
 
@@ -48,13 +48,34 @@ François Chollet, Creator of Keras, neural networks library
 
 > Prediction: there will not be a real AI winter, because AI is making real progress and delivering real value, at scale. But there will be an AGI winter, where AGI is no longer perceived to be around the corner. AGI talk is pure hype, and interest will wane. ~ François Chollet (@fchollet) 13 December, 2017 https://twitter.com/fchollet/status/940992948786806784
 
+> Meanwhile, what is our community focusing on? What are the media & public focusing on? Misplaced hype. Fantasies about lofty AGI research that is sure to generate unlimited profits. Fantasies of AI apocalypse peddled by those who need you to be afraid. It's a bit disheartening. ~ François Chollet (@fchollet) 23 March, 2019 https://twitter.com/fchollet/status/1109381645214339072
+
 Siraj Raval, Director of school of ai
 
 > I'm not afraid of super-intelligent AI, I'm afraid of humans using AI to exploit other humans. Technology is like fire, it can be used to either burn us or give us warmth. A tool is just a tool, it all depends on how we use it. Choose love, not fear. ~ Siraj Raval (@sirajraval) 10 October, 2018 https://twitter.com/sirajraval/status/1052973097744097280 
 
+Sebastian Thrun, Computer Science professor, Stanford University
+
+> I am infinitely excited about artificial intelligence and not worried at all. Not in the slightest. AI will free us humans from highly repetitive mindless repetitive office work, and give us much more time to be truly creative. I can't wait. — Sebastian Thrun https://www.vox.com/conversations/2017/3/8/14712286/artificial-intelligence-science-technology-robots-singularity-automation
+
+Steven Pinker, psychology professor, Harvard University
+
+> We should worry a lot about climate change, nuclear weapons, antibiotic-resistant pathogens, and reactionary and neo-fascist political movements. We should worry some about the displacement of workers in an automating economy. We should not worry about artificial intelligence enslaving us. — Steven Pinker
+
+Nick Bostrom, Director of the Future of Humanity Institute, Oxford University
+
+> The transition to machine superintelligence is a very grave matter, and we should take seriously the possibility that things could go radically wrong. This should motivate having some top talent in mathematics and computer science research the problems of AI safety and AI control. — Nick Bostrom https://www.vox.com/conversations/2017/3/8/14712286/artificial-intelligence-science-technology-robots-singularity-automation
+
+Stuart Russell, computer science professor, UC Berkeley
+
+> My current guesses for the most likely failure modes are twofold: The gradual enfeeblement of human society as more knowledge and know-how resides in and is transmitted through machines and fewer humans are motivated to learn the hard stuff in the absence of real need. Secondly, I worry about the loss of control over intelligent malware and/or deliberate misuse of unsafe AI for nefarious ends. — Stuart Russell
+
+
+Well most of the researchers in the field seem to be chill. Some are worried, some are chill.  
 
 Here is how media has protrayed AI in far more melodramatic and overblown articles like “[AI apocalypse](https://www.dailystar.co.uk/news/latest-news/716305/ai-artificial-intelligence-autonomous-weaponry-arms-race)”, “[artificial brains](https://futurism.com/artificial-brains-operate-like-humans-close/)”, “[artificial superintelligence](http://www.forbesindia.com/blog/technology/can-super-intelligence-and-emotional-intelligence-co-exist/)”, “[brain-like computers](https://www.nytimes.com/2013/12/29/science/brainlike-computers-learning-from-experience.html)” and “[creepy Facebook bot AIs](https://nypost.com/2017/08/01/creepy-facebook-bots-talked-to-each-other-in-a-secret-language/)”.
 
+And what has this effect lead to in general public?(*Chaos*)
 
 > AI is coming. Capitalist logic & motives drive investment & support. Physical labor unskilled, is doomed by robotics. Skilled will do ok in the right markets. Eventually, humans will be an anachronism,valued as antique  pets in robotic households. It's happening folks! Scary,huh! ~ Politicus (@rsspych) Jan 9, 2019 https://twitter.com/rsspych/status/1083167561229815808
 
@@ -62,7 +83,7 @@ Here is how media has protrayed AI in far more melodramatic and overblown articl
 
 > We meet new technology with cheers thoughts of utopia or doom and fears As with fire, writing, steel, mathematics with machines, relativity, AI, and genetics the benefits accumulate along with dangers barely understood So let us meet the future with respect and master it for good ~ James(@AwokeKnowing) Feb 21, 2019 https://twitter.com/AwokeKnowing/status/1098669337911615488
 
-Here is a small graphic of prominent figures and opinion of building AI,
+Here is a small graphic of prominent figures and opinion in building AI,
 
 [Image]
 
@@ -73,7 +94,7 @@ So, what are we doing here? We try to paint the picture of AI fear by maintainin
 
 In times of moral crisis(*is there?*), we outline some the steps we would advise the public, media and researchers to take. We would **ask the public** to keep an open mind and weigh the advantages and disadvantages properly, try to see both sides of the coin or **ask the media** to portray both hypes vs realties with equal proportion and not be biased towards hypes(*sure for some they do bring in lot of views, a lot of TRP and in turn revenues and in turn keep shareholders happy!*) and also focus on current progress and challenges in AI. We would **ask the researchers** to take into consideration "[dual-use](https://en.wikipedia.org/wiki/Dual-use_technology)" of the algorithm. One such example would be to include a section on "Misuse and Saftey" in research papers which would detail in what ways this technique could be misued(*giving ideas to bad guys*) and what necessary steps have they taken to mitigate the issue(*preventing the action of bad guys*).
 
-The societal impacts current technology in AI has is profound. To give example look no further than deepfakes, 
+The societal impacts, current technology like AI has is profound. To give example look no further than deepfakes, 
 
 And unlike other catastrophic risks—like say climate change—it’s dramatically underserved. There are thousands of person-years and billions of dollars being poured into the project of developing AI. And there are fewer than 10 people in the world right now working full-time on safety.
 
