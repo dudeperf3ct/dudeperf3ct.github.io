@@ -11,36 +11,57 @@ published : false
 
 # What happened
 
-Typically we would have started by explaining the basics, “[What is AI?](https://arstechnica.com/features/2019/04/from-ml-to-gan-to-hal-a-peak-behind-the-modern-artificial-intelligence-curtain/)” but given that [AI catastrophe fear has already crept the American public](https://www.vox.com/future-perfect/2019/1/9/18174081/fhi-govai-ai-safety-american-public-worried-ai-catastrophe) which means they have already decided the fate of AI. This can be due to reading a lot of media articles like [this very first](https://www.nytimes.com/1958/07/08/archives/new-navy-device-learns-by-doing-psychologist-shows-embryo-of.html), [this](https://www.nytimes.com/1958/07/13/archives/electronic-brain-teaches-itself.html), [this](https://www.technologyreview.com/s/534871/our-fear-of-artificial-intelligence/), [this](https://www.currentaffairs.org/2018/11/what-you-have-to-fear-from-artificial-intelligence) or [this](https://www.technologyreview.com/s/608296/elon-musk-urges-us-governors-to-regulate-ai-before-its-too-late/), [this](https://www.vox.com/future-perfect/2018/10/16/17978596/stephen-hawking-ai-climate-change-robots-future-universe-earth) (*okay we give up media you guys win!*) or by being a member Elon community. But as for every coin there exists a another side which also covered by media articles like [this](https://www.newyorker.com/tech/annals-of-technology/hyping-artificial-intelligence-yet-again), [this](https://www.theguardian.com/technology/2018/jul/25/ai-artificial-intelligence-social-media-bots-wrong) or [this]() (*we need more of these!*). 
+Typically we would have started by explaining the basics, “[What is AI?](https://arstechnica.com/features/2019/04/from-ml-to-gan-to-hal-a-peak-behind-the-modern-artificial-intelligence-curtain/)” like most articles about AI start with but given that [AI catastrophe fear has already crept the American public](https://www.vox.com/future-perfect/2019/1/9/18174081/fhi-govai-ai-safety-american-public-worried-ai-catastrophe) which means they know what is AI and have already decided the fate of AI. This can be due to reading a lot of media articles like [this very first](https://www.nytimes.com/1958/07/08/archives/new-navy-device-learns-by-doing-psychologist-shows-embryo-of.html), [this](https://www.nytimes.com/1958/07/13/archives/electronic-brain-teaches-itself.html), [this](https://www.technologyreview.com/s/534871/our-fear-of-artificial-intelligence/), [this](https://www.currentaffairs.org/2018/11/what-you-have-to-fear-from-artificial-intelligence) or [this](https://www.technologyreview.com/s/608296/elon-musk-urges-us-governors-to-regulate-ai-before-its-too-late/), [this](https://www.vox.com/future-perfect/2018/10/16/17978596/stephen-hawking-ai-climate-change-robots-future-universe-earth) (*okay we give up media you guys win!*) or by being a member Elon community. But as for every coin there exists a another side which also covered by media articles like [this](https://www.newyorker.com/tech/annals-of-technology/hyping-artificial-intelligence-yet-again), [this](https://www.theguardian.com/technology/2018/jul/25/ai-artificial-intelligence-social-media-bots-wrong) or [this](https://www.wired.com/story/greedy-brittle-opaque-and-shallow-the-downsides-to-deep-learning/) (*we need more of these!*). 
 
-If we would travel back in [1990s](https://en.wikipedia.org/wiki/History_of_artificial_intelligence#Bust:_the_second_AI_winter_1987%E2%80%931993) time and ask anyone their opinion on "Would AI come for their jobs?", we would would guessed majority of time the time answer would have been "No". But fastforward now, the [report from Gallup](https://news.gallup.com/reports/226475/gallup-northeastern-university-artificial-intelligence-report-2018.aspx), survey conducted in US found that the answer to above question was that "75 percent" of adults believe AI will “eliminate more jobs than it creates.” Well alone explains the progess of AI field in (minds of?) public. 
+If we would travel back in [1990s](https://en.wikipedia.org/wiki/History_of_artificial_intelligence#Bust:_the_second_AI_winter_1987%E2%80%931993) time and ask anyone their opinion on "Would AI come for their jobs?", we would would guessed majority of time the time answer would have been "No". But fastforward now, the [report from Gallup](https://news.gallup.com/reports/226475/gallup-northeastern-university-artificial-intelligence-report-2018.aspx), survey conducted in US found that the answer to above question was that "75 percent" of adults believe AI will “eliminate more jobs than it creates.” Well that alone explains the progess of AI field in view of public. 
 
- 
 
 > "With artificial intelligence we are summoning the demon." ~ Elon Musk https://www.vanityfair.com/news/2017/03/elon-musk-billion-dollar-crusade-to-stop-ai-space-x  
 
 
 > “Why are we so worried about AI? Surely humans are always able to pull the plug?” a hypothetical person asks him. Hawking answers: “People asked a computer, ‘Is there a God?’ And the computer said, ‘There is now,’ and fused the plug.” ~ Stephen Hawking https://www.vox.com/future-perfect/2018/10/16/17978596/stephen-hawking-ai-climate-change-robots-future-universe-earth
 
-> The development of full artificial intelligence could spell the end of the human race. ~ Stephen Hawking https://www.bbc.com/news/technology-30290540
+> "The development of full artificial intelligence could spell the end of the human race." ~ Stephen Hawking https://www.bbc.com/news/technology-30290540
 
-There’s an old joke in computer science that goes like this: what’s the difference between AI and automation? Well, automation is what we can do with computers, and AI is what we wish we could do. As soon as we figure out how to do something, it stops being AI and starts being automation.
+There’s an old joke in computer science that goes like this: "What’s the difference between AI and automation?" Well, automation is what we can do with computers, and AI is what we wish we could do. As soon as we figure out how to do something, it stops being AI and starts being automation.
 
 That joke exists because, even today, AI isn’t well defined—artificial intelligence simply isn’t a technical term. If you were to look it up on [Wikipedia](https://en.wikipedia.org/wiki/Artificial_intelligence), AI is “intelligence demonstrated by machines, in contrast to the natural intelligence displayed by humans and other animals.” That's about as vague as you can get.
 
 
 # The Reactions
 
+What do researchers in field of AI who are the makers and general public think about AI fear?
+
+Andrew Ng, Co-Founder of Coursera; Stanford CS adjunct faculty. Former head of Baidu AI Group/Google Brain
+
+> Fearing a rise of killer robots is like worrying about overpopulation on Mars. https://www.theregister.co.uk/2015/03/19/andrew_ng_baidu_ai/
+
+Anima Anandkumar, Director of research Nvidia, Bren Professor Caltech, Former Principal scientist AWSCloud
+
+> As an AI expert, what do I fear about artificial intelligence? Fear of the unforeseen, Fear of misuse, Fear of wrong social priorities and Fear of the nightmare scenario. theconversation.com/what-an-artificial-intelligence-researcher-fears-about-ai-78655
+
+François Chollet, Creator of Keras, neural networks library
+
+> Prediction: there will not be a real AI winter, because AI is making real progress and delivering real value, at scale. But there will be an AGI winter, where AGI is no longer perceived to be around the corner. AGI talk is pure hype, and interest will wane. https://twitter.com/fchollet/status/940992948786806784
+
+Siraj Raval, Director of school of ai
+
+> I'm not afraid of super-intelligent AI, I'm afraid of humans using AI to exploit other humans. Technology is like fire, it can be used to either burn us or give us warmth. A tool is just a tool, it all depends on how we use it. Choose love, not fear. https://twitter.com/sirajraval/status/1052973097744097280 
 
 
 
+> AI is coming. Capitalist logic & motives drive investment & support. Physical labor unskilled, is doomed by robotics. Skilled will do ok in the right markets. Eventually, humans will be an anachronism,valued as antique  pets in robotic households. It's happening folks! Scary,huh! ~ Politicus https://twitter.com/rsspych/status/1083167561229815808
+
+> The obvious problem is the public has not been informed as to what AI and machine learning are. That's what the industry could do. Not just winning chess or dancing robots. ~ Squaith Jerembrel https://twitter.com/Reebo_FX/status/1083102118351794176
+
+> We meet new technology with cheers thoughts of utopia or doom and fears As with fire, writing, steel, mathematics with machines, relativity, AI, and genetics the benefits accumulate along with dangers barely understood So let us meet the future with respect and master it for good ~ James https://twitter.com/ylecun/status/1098624007719608323
 
 
 # Our Perspective
 
 So, what are we doing here? We try to paint the picture of AI fear by maintaining a neutral position. But Dante would interrupt and quote, "The darkest places in hell are reserved for those who maintain their neutrality in times of moral crisis".  
 
-In times of moral crisis(*is there?*), we outline some the steps we would advise the public, media and researchers to take. We would **ask the public** to keep an open mind and weigh the advantages and disadvantages properly, try to see both sides of the coin or **ask the media** to portray both hypes vs realties with equal proportion and not be biased towards hypes(*sure for some they do bring in lot of views, a lot of TRP and in turn revenues and in turn keep shareholders happy!*) and also focus on current progress and challenges in AI. We would **ask the researchers** to take into consideration the bad effects the algorithm can have and address those along with necessary steps taken to prevent them. One such example would be to include a section on "Misuse and Saftey" in research papers which would detail in what ways this technique could be misued(*giving ideas to bad guys*) and what necessary steps have they taken to mitigate the issue(*preventing the action of bad guys*).
+In times of moral crisis(*is there?*), we outline some the steps we would advise the public, media and researchers to take. We would **ask the public** to keep an open mind and weigh the advantages and disadvantages properly, try to see both sides of the coin or **ask the media** to portray both hypes vs realties with equal proportion and not be biased towards hypes(*sure for some they do bring in lot of views, a lot of TRP and in turn revenues and in turn keep shareholders happy!*) and also focus on current progress and challenges in AI. We would **ask the researchers** to take into consideration "[dual-use](https://en.wikipedia.org/wiki/Dual-use_technology)" of the algorithm. One such example would be to include a section on "Misuse and Saftey" in research papers which would detail in what ways this technique could be misued(*giving ideas to bad guys*) and what necessary steps have they taken to mitigate the issue(*preventing the action of bad guys*).
 
 The societal impacts current technology in AI has is profound. To give example look no further than deepfakes, 
 
@@ -48,6 +69,13 @@ And unlike other catastrophic risks—like say climate change—it’s dramatica
 
 > The best way to predict future is to invent it. ~ Alan Kay
 
+https://www.quora.com/Should-artificial-intelligence-be-regulated/answer/Andrew-Ng
+
+> Some AI use cases need regulation both to protect individuals, and to accelerate its adoption. The automotive industry is already heavily regulated to ensure safety. Thinking through how these regulations should change in light of new AI capabilities such as autonomous driving will help the whole industry. Same goes for other areas, including pharmaceuticals, arms control, financial markets, and so on. But the regulation should be industry-specific, and based on a thoughtful understanding of the use-cases and on the outcomes we do/don’t want to see in specific sectors, rather than on the basic technology.
+
+> The government also has a big role to play to help with the coming job displacements caused by AI, for example to provide basic income and retraining.
+
+> Finally, the rise of AI is creating a new way for companies to compete, become dominant, and shut out competitors. Anti-trust regulators are way behind corporations in understanding this new basis of competition, and have a lot of catching up to do.
 
 # TLDR
 
