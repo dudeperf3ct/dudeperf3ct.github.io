@@ -88,7 +88,6 @@ Here is a small graphic of prominent figures and opinion in building AI,
 [Image]
 
 
-Here is video from Beneficial AI 2017 Conference, where Max Tegmark(moderator) asks the question, "Is some form of super intelligence possible?"
 
 # Our Perspective
 
@@ -96,12 +95,11 @@ So, what are we doing here? We try to paint the picture of AI fear by maintainin
 
 In times of moral crisis(*is there?*), we outline some the steps we would advise the public, media and researchers to take. We would **ask the public** to keep an open mind and weigh the advantages and disadvantages properly, try to see both sides of the coin or **ask the media** to portray both hypes vs realties with equal proportion and not be biased towards hypes(*sure for some they do bring in lot of views, a lot of TRP and in turn revenues and in turn keep shareholders happy!*) and also focus on current progress and challenges in AI. We would **ask the researchers** to take into consideration "[dual-use](https://en.wikipedia.org/wiki/Dual-use_technology)" of the algorithm. One such example would be to include a section on "Misuse and Saftey" in research papers which would detail in what ways this technique could be misued(*giving ideas to bad guys*) and what necessary steps have they taken to mitigate the issue(*preventing the action of bad guys*).
 
-The societal impacts, current technology like AI has is profound. To give example look no further than deepfakes, 
-
 And unlike other catastrophic risks—like say climate change—it’s dramatically underserved. There are thousands of person-years and billions of dollars being poured into the project of developing AI. And there are fewer than 10 people in the world right now working full-time on safety.
 
+The societal impacts, current technology like AI has is profound. To give example look no further than deepfakes, [want to create revenge porn](https://www.washingtonpost.com/technology/2018/12/31/scarlett-johansson-fake-ai-generated-sex-videos-nothing-can-stop-someone-cutting-pasting-my-image/?utm_term=.fe8b67cabd9f), [want obama to address anything](https://www.youtube.com/watch?v=cQ54GDm1eL0&feature=youtu.be), etc. This alone should suffice the impact one such application can have and we haven't even scratched the surface yet! Clearly we need some kind of regulations in place to prevent such things from happening(*no blocking on social media them doesn't solve it*). 
 
-https://www.quora.com/Should-artificial-intelligence-be-regulated/answer/Andrew-Ng
+Here is Andrew Ng take on "[Should AI be regulated?](https://www.quora.com/Should-artificial-intelligence-be-regulated/answer/Andrew-Ng)", 
 
 > Some AI use cases need regulation both to protect individuals, and to accelerate its adoption. The automotive industry is already heavily regulated to ensure safety. Thinking through how these regulations should change in light of new AI capabilities such as autonomous driving will help the whole industry. Same goes for other areas, including pharmaceuticals, arms control, financial markets, and so on. But the regulation should be industry-specific, and based on a thoughtful understanding of the use-cases and on the outcomes we do/don’t want to see in specific sectors, rather than on the basic technology.
 
