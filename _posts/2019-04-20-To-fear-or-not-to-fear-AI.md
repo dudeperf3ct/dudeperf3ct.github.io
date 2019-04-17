@@ -120,9 +120,9 @@ Here is Andrew Ng take on "[Should AI be regulated?](https://www.quora.com/Shoul
 
 > The best way to predict future is to invent it. ~ Alan Kay
 
-- We have already cover the topic of [Job loss due to AI](https://www.skynettoday.com/editorials/ai-automation-job-loss), [Racist AI](https://www.skynettoday.com/editorials/why-your-ai-might-be-racist), [Biased AI](https://www.skynettoday.com/editorials/biased-ai) and keeping the public informed about the current state of AI through these articles by turning down the hype.
--  
-- 
+- We have already cover the topic of [Job loss due to AI](https://www.skynettoday.com/editorials/ai-automation-job-loss), [Racist AI](https://www.skynettoday.com/editorials/why-your-ai-might-be-racist), [Biased AI](https://www.skynettoday.com/editorials/biased-ai) and keeping the public informed about the current state of AI and their impact through these articles by turning down the hype.
+- Related to AI, we are in uncharted territories and having taken advice from Alan Kay about predicting future, safely inventing will ensure that our best invention in history does not turn to be our last.
+- Surely lot many people like media, researchers and government have a big role to play. Also general public with advent of social media can amplify their voice and force government/corporations to stay on track morally.
 
 
 
