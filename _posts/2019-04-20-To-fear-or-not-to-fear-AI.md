@@ -60,7 +60,7 @@ Sebastian Thrun, Computer Science professor, Stanford University
 
 Steven Pinker, psychology professor, Harvard University
 
-> We should worry a lot about climate change, nuclear weapons, antibiotic-resistant pathogens, and reactionary and neo-fascist political movements. We should worry some about the displacement of workers in an automating economy. We should not worry about artificial intelligence enslaving us. — Steven Pinker
+> We should worry a lot about climate change, nuclear weapons, antibiotic-resistant pathogens, and reactionary and neo-fascist political movements. We should worry some about the displacement of workers in an automating economy. We should not worry about artificial intelligence enslaving us. — Steven Pinker https://www.vox.com/conversations/2017/3/8/14712286/artificial-intelligence-science-technology-robots-singularity-automation
 
 Nick Bostrom, Director of the Future of Humanity Institute, Oxford University
 
@@ -68,10 +68,10 @@ Nick Bostrom, Director of the Future of Humanity Institute, Oxford University
 
 Stuart Russell, computer science professor, UC Berkeley
 
-> My current guesses for the most likely failure modes are twofold: The gradual enfeeblement of human society as more knowledge and know-how resides in and is transmitted through machines and fewer humans are motivated to learn the hard stuff in the absence of real need. Secondly, I worry about the loss of control over intelligent malware and/or deliberate misuse of unsafe AI for nefarious ends. — Stuart Russell
+> My current guesses for the most likely failure modes are twofold: The gradual enfeeblement of human society as more knowledge and know-how resides in and is transmitted through machines and fewer humans are motivated to learn the hard stuff in the absence of real need. Secondly, I worry about the loss of control over intelligent malware and/or deliberate misuse of unsafe AI for nefarious ends. — Stuart Russell https://www.vox.com/conversations/2017/3/8/14712286/artificial-intelligence-science-technology-robots-singularity-automation
 
 
-Well most of the researchers in the field seem to be chill. Some are worried, some are chill.  
+Well most of the researchers in the field seem to be chill. Some experts consider AI an urgent danger; many more believe the fears are either exaggerated or misplaced.   
 
 Here is how media has protrayed AI in far more melodramatic and overblown articles like “[AI apocalypse](https://www.dailystar.co.uk/news/latest-news/716305/ai-artificial-intelligence-autonomous-weaponry-arms-race)”, “[artificial brains](https://futurism.com/artificial-brains-operate-like-humans-close/)”, “[artificial superintelligence](http://www.forbesindia.com/blog/technology/can-super-intelligence-and-emotional-intelligence-co-exist/)”, “[brain-like computers](https://www.nytimes.com/2013/12/29/science/brainlike-computers-learning-from-experience.html)” and “[creepy Facebook bot AIs](https://nypost.com/2017/08/01/creepy-facebook-bots-talked-to-each-other-in-a-secret-language/)”.
 
@@ -87,6 +87,8 @@ Here is a small graphic of prominent figures and opinion in building AI,
 
 [Image]
 
+
+Here is video from Beneficial AI 2017 Conference, where Max Tegmark(moderator) asks the question, "Is some form of super intelligence possible?"
 
 # Our Perspective
 
