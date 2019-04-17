@@ -35,12 +35,14 @@ That joke exists because, even today, AI isn’t well defined—artificial intel
 
 
 
+
 # Our Perspective
 
-So, what are we doing here? We try to paint the picture of AI fear by maintaining a neutral position. But Dante would interept and quote, "The darkest places in hell are reserved for those who maintain their neutrality in times of moral crisis" 
+So, what are we doing here? We try to paint the picture of AI fear by maintaining a neutral position. But Dante would interrupt and quote, "The darkest places in hell are reserved for those who maintain their neutrality in times of moral crisis".  
 
-Here we outline some the steps we would advise the public, media and researchers take to avoid any biases.
-We would **ask the public** to keep an open mind and weigh the advantages and disadvantages properly, try to see both sides of the coin or **ask the media** to portray both hypes vs realties with equal proportion and not be biased towards hypes(*sure they do bring in lot of view, a lot of TRP and SEO boosting and in turn revenues and in turn keeping shareholders happy!*) and also focus on current progress and challenges in AI. We would **ask the researchers** to take into consideration the bad effects the algorithm can have and address those along with necessary steps taken to prevent them. One such example would be to include a section on "Misuse and Saftey" in research papers which would detail in what ways this technique could be misued(*giving ideas to bad guys*) and what necessary steps have they taken to mitigate the issue(*preventing the action of bad guys*).
+In times of moral crisis(*is there?*), we outline some the steps we would advise the public, media and researchers to take. We would **ask the public** to keep an open mind and weigh the advantages and disadvantages properly, try to see both sides of the coin or **ask the media** to portray both hypes vs realties with equal proportion and not be biased towards hypes(*sure for some they do bring in lot of views, a lot of TRP and in turn revenues and in turn keep shareholders happy!*) and also focus on current progress and challenges in AI. We would **ask the researchers** to take into consideration the bad effects the algorithm can have and address those along with necessary steps taken to prevent them. One such example would be to include a section on "Misuse and Saftey" in research papers which would detail in what ways this technique could be misued(*giving ideas to bad guys*) and what necessary steps have they taken to mitigate the issue(*preventing the action of bad guys*).
+
+The societal impacts current technology in AI has is profound. To give example look no further than deepfakes, 
 
 And unlike other catastrophic risks—like say climate change—it’s dramatically underserved. There are thousands of person-years and billions of dollars being poured into the project of developing AI. And there are fewer than 10 people in the world right now working full-time on safety.
 
