@@ -30,7 +30,11 @@ That joke exists because, even today, AI isn’t well defined—artificial intel
 
 # The Reactions
 
-What do researchers in field of AI who are the makers and general public think about AI fear?
+What do researchers in field of AI who are the makers and general public opine about AI fear?
+
+Rodney Brooks, Robot Builder
+
+> Artificial Intelligence is a tool not a threat. https://www.rethinkrobotics.com/blog/artificial-intelligence-tool-threat/
 
 Andrew Ng, Co-Founder of Coursera; Stanford CS adjunct faculty. Former head of Baidu AI Group/Google Brain
 
@@ -42,19 +46,23 @@ Anima Anandkumar, Director of research Nvidia, Bren Professor Caltech, Former Pr
 
 François Chollet, Creator of Keras, neural networks library
 
-> Prediction: there will not be a real AI winter, because AI is making real progress and delivering real value, at scale. But there will be an AGI winter, where AGI is no longer perceived to be around the corner. AGI talk is pure hype, and interest will wane. https://twitter.com/fchollet/status/940992948786806784
+> Prediction: there will not be a real AI winter, because AI is making real progress and delivering real value, at scale. But there will be an AGI winter, where AGI is no longer perceived to be around the corner. AGI talk is pure hype, and interest will wane. ~ François Chollet (@fchollet) 13 December, 2017 https://twitter.com/fchollet/status/940992948786806784
 
 Siraj Raval, Director of school of ai
 
-> I'm not afraid of super-intelligent AI, I'm afraid of humans using AI to exploit other humans. Technology is like fire, it can be used to either burn us or give us warmth. A tool is just a tool, it all depends on how we use it. Choose love, not fear. https://twitter.com/sirajraval/status/1052973097744097280 
+> I'm not afraid of super-intelligent AI, I'm afraid of humans using AI to exploit other humans. Technology is like fire, it can be used to either burn us or give us warmth. A tool is just a tool, it all depends on how we use it. Choose love, not fear. ~ Siraj Raval (@sirajraval) 10 October, 2018 https://twitter.com/sirajraval/status/1052973097744097280 
 
 
 
-> AI is coming. Capitalist logic & motives drive investment & support. Physical labor unskilled, is doomed by robotics. Skilled will do ok in the right markets. Eventually, humans will be an anachronism,valued as antique  pets in robotic households. It's happening folks! Scary,huh! ~ Politicus https://twitter.com/rsspych/status/1083167561229815808
+> AI is coming. Capitalist logic & motives drive investment & support. Physical labor unskilled, is doomed by robotics. Skilled will do ok in the right markets. Eventually, humans will be an anachronism,valued as antique  pets in robotic households. It's happening folks! Scary,huh! ~ Politicus (@rsspych) Jan 9, 2019 https://twitter.com/rsspych/status/1083167561229815808
 
-> The obvious problem is the public has not been informed as to what AI and machine learning are. That's what the industry could do. Not just winning chess or dancing robots. ~ Squaith Jerembrel https://twitter.com/Reebo_FX/status/1083102118351794176
+> The obvious problem is the public has not been informed as to what AI and machine learning are. That's what the industry could do. Not just winning chess or dancing robots. ~ Squaith Jerembrel(@Reebo_FX) Jan 9, 2019 https://twitter.com/Reebo_FX/status/1083102118351794176
 
-> We meet new technology with cheers thoughts of utopia or doom and fears As with fire, writing, steel, mathematics with machines, relativity, AI, and genetics the benefits accumulate along with dangers barely understood So let us meet the future with respect and master it for good ~ James https://twitter.com/ylecun/status/1098624007719608323
+> We meet new technology with cheers thoughts of utopia or doom and fears As with fire, writing, steel, mathematics with machines, relativity, AI, and genetics the benefits accumulate along with dangers barely understood So let us meet the future with respect and master it for good ~ James(@AwokeKnowing) Feb 21, 2019 https://twitter.com/AwokeKnowing/status/1098669337911615488
+
+Here is a small graphic of prominent figures and opinion of building AI,
+
+[Image]
 
 
 # Our Perspective
