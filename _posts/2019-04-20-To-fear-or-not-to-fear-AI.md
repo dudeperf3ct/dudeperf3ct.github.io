@@ -3,7 +3,7 @@ layout:     post
 title:      To fear or not to fear AI
 date:       2019-04-20 12:00:00
 summary:    We will finally put a nail in AI coffin.
-categories: ai
+categories: ai fear
 published : false
 ---
 
@@ -33,7 +33,7 @@ Typically we would have started by explaining the basics, “[What is AI?](https
 
 
 
-
+And unlike other catastrophic risks—like say climate change—it’s dramatically underserved. There are thousands of person-years and billions of dollars being poured into the project of developing AI. And there are fewer than 10 people in the world right now working full-time on safety.
 
 > The best way to predict future is to invent it. ~ Alan Kay
 
