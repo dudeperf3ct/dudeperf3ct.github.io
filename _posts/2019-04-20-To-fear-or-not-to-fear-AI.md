@@ -40,10 +40,6 @@ Andrew Ng, Co-Founder of Coursera; Stanford CS adjunct faculty. Former head of B
 
 > Worrying about evil-killer AI today is like worrying about overpopulation on the planet Mars. Perhaps it'll be a problem someday, but we haven't even landed on the planet yet. This hype has been unnecessarily distracting everyone from the much bigger problem AI creates, which is job displacement. https://www.vox.com/conversations/2017/3/8/14712286/artificial-intelligence-science-technology-robots-singularity-automation
 
-Anima Anandkumar, Director of research Nvidia, Bren Professor Caltech, Former Principal scientist AWSCloud
-
-> As an AI expert, what do I fear about artificial intelligence? Fear of the unforeseen, Fear of misuse, Fear of wrong social priorities and Fear of the nightmare scenario. theconversation.com/what-an-artificial-intelligence-researcher-fears-about-ai-78655
-
 François Chollet, Creator of Keras, neural networks library
 
 > Prediction: there will not be a real AI winter, because AI is making real progress and delivering real value, at scale. But there will be an AGI winter, where AGI is no longer perceived to be around the corner. AGI talk is pure hype, and interest will wane. ~ François Chollet (@fchollet) 13 December, 2017 https://twitter.com/fchollet/status/940992948786806784
