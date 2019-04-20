@@ -188,10 +188,6 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [3d A
 <img src='/images/adv_learning/turtle.gif' width="50%"/> 
 </p>
 
-<p align="center">
-<video src='/images/adv_learning/turtle.mp4' width="50%"/> 
-</p>
-
 ### Optimization-based adversarial attack
 
 The paper on [Towards Evaluating the Robustness of Neural Networks](https://arxiv.org/pdf/1608.04644.pdf) introduces three types of attacks: 
