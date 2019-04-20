@@ -62,20 +62,20 @@ Feel free to jump anywhere,
 
 ### Clever Hans
 
-There was a horse named Clever Hans who could do arithmetic (*Yes you read it right*). The trainer of horse was not any kind of charlatan, didn't want to make any money of any sort but gained a lot of attention but also believed it to be true. You could ask the horse to do *2+2* and then the horse would tap his foot 4 times. Huge crowd of people would gather and watch the horse perform. As far as anybody could tell, it really was able to actually answer wide variety of questions people ask the horse. Later a pyschologist decided to examine the horse. He went to an enclosed area with no other people and wore a mask and he asked the horse to do arithmetic and the horse couldn't do it at all. It turned out what was happening that the horse had not learned arithmetic but *horse had learned how to read people's emotional reactions*. So, you would ask the horse add 1 plus 2 and horse would tap his hoof once and crowd would stare at him in expectation. Then the horse would tap his hoof the second time and everybody in the crowd would sit on the edge and see, then he would tap his hoof the third time and everybody would be like oh my good he knows arithmetic. And then he would stop taping.
+There was a horse named Clever Hans who could do arithmetic (*Yes you read it right*). The trainer of horse was not any kind of charlatan, didn't want to make any money of any sort but gained a lot of attention but also believed it to be true. You could ask the horse to do *2+2* and then the horse would tap his foot 4 times. Huge crowd of people would gather and watch the horse perform. As far as anybody could tell, it really was able to actually answer wide variety of questions people ask the horse. Later a psychologist decided to examine the horse. He went to an enclosed area with no other people and wore a mask and he asked the horse to do arithmetic and the horse couldn't do it at all. It turned out what was happening that the horse had not learned arithmetic but *horse had learned how to read people's emotional reactions*. So, you would ask the horse add 1 plus 2 and horse would tap his hoof once and crowd would stare at him in expectation. Then the horse would tap his hoof the second time and everybody in the crowd would sit on the edge and see, then he would tap his hoof the third time and everybody would be like oh my good he knows arithmetic. And then he would stop taping.
 
-So, clever hans was trained to answer these questions. And he found a way of doing it that made him appear to be successful by metric of "Can he provide the right answer where roomful of people are watching him?". He hadn't learned arithmetic and so could not generalize to unusual situations when there weren't a room of people to provide the reactions that he needed to solve the problem. 
+So, clever hans was trained to answer these questions. And he found a way of doing it that made him appear to be successful by metric of "Can he provide the right answer where roomful of people are watching him?". He hadn't learned arithmetic and so could not generalise to unusual situations when there weren't a room of people to provide the reactions that he needed to solve the problem. 
 
 <span class='green'>I-know-nothing:</span> Ahh now I see, the horse was clever indeed in reading people's emotional reactions. But how does this relate to Machine Learning I wonder?
 
-<span class='red'>I-know-everything:</span> Great! So, we have seen how a vision model, where we use CNN, was able to attain human level accuracy in classifying images and we also saw what the model is actually looking at when it is classifying the image. If we given the following image of "panda" to the classifer it correctly predicts that image as "panda" but if we add a little(*calculated and not random*) noise to the same image, as you can see the resultant image(*original image + noise*) isn't much different from the original panda image. If we pass this resultant image to the classifier, it predicts the image as "gibbon" with 99% confidence.(😞) This resultant image is called "Adversarial Example". This example is *fooling CNN into thinking that panda is a gibbon.*
+<span class='red'>I-know-everything:</span> Great! So, we have seen how a vision model, where we use CNN, was able to attain human level accuracy in classifying images and we also saw what the model is actually looking at when it is classifying the image. If we given the following image of "panda" to the classifier it correctly predicts that image as "panda" but if we add a little(*calculated and not random*) noise to the same image, as you can see the resultant image(*original image + noise*) isn't much different from the original panda image. If we pass this resultant image to the classifier, it predicts the image as "gibbon" with 99% confidence.(😞) This resultant image is called "Adversarial Example". This example is *fooling CNN into thinking that panda is a gibbon.*
 
 <p align="center">
 <img src='/images/adv_learning/panda.jpg' width="50%"/> 
 </p>
 
 An Adversarial Example is an example that has been carefully computed to be misclassified. To make a new image indistinguishable to human obeserver from original image.
- 
+
 <span class='green'>I-know-nothing:</span> So what is really going on? Did the classifier cheat with us the same way Clever hans did? Are there any other methods which we can cheat? Is there any way to defend this cheating? Is it only in images or also in other tasks such as NLP and RL? This cheating can really put the state of the art classifier in a very difficult position as to are they really state of the art(SOTA) in classification and if someone misuses these techniques in fooling the classifier. This certainly has some serious after effects.
 
 <span class='red'>I-know-everything:</span> That is certainly true. This issue of adversarial example does put the mark of SOTA  on classifier really in a jeopardy!
@@ -225,8 +225,7 @@ These optimization-based attacks are by far the most powerful attack.
 
 ### Model stealing techniques
 
-Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing.
-Both the above attacks can be considered as whitebox attacks where the attacker has access to the model’s parameters (gradient in this case) whereas in black box attacks, the attacker has no access to these parameters, i.e., it uses a different model or no model at all to generate adversarial images with the hope that these will transfer to the target model. In the black-box settings, the machine learning model is said to act as an *oracle*. A strategy is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
+Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing. Both the above attacks can be considered as whitebox attacks where the attacker has access to the model’s parameters (gradient in this case) whereas in black box attacks, the attacker has no access to these parameters, i.e., it uses a different model or no model at all to generate adversarial images with the hope that these will transfer to the target model. In the black-box settings, the machine learning model is said to act as an *oracle*. A strategy is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
 
 Here is one example from [lab six](https://www.labsix.org/) where they use [Partial Information Attacks on Real-world AI](https://www.labsix.org/partial-information-adversarial-examples/),
 
@@ -239,8 +238,8 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [Part
 
 1. Print a “noisy” ATM check written for $100 – and cash it for $1,000,000.
 2. [Swap](https://arxiv.org/pdf/1511.07528.pdf) a road sign with a slightly perturbed one that would set the speed limit to 200 – in a world of self-driving cars it can be quite dangerous.
-3. Don’t wait for self-driving cars – redraw your license plate and cameras will never recognize your car.
-4. [Cause](http://openaccess.thecvf.com/content_ECCV_2018/papers/Arjun_Nitin_Bhagoji_Practical_Black-box_Attacks_ECCV_2018_paper.pdf) an NSFW detector to incorrectly recognize an image as safe-for-work
+3. Don’t wait for self-driving cars – redraw your license plate and cameras will never recognise your car.
+4. [Cause](http://openaccess.thecvf.com/content_ECCV_2018/papers/Arjun_Nitin_Bhagoji_Practical_Black-box_Attacks_ECCV_2018_paper.pdf) an NSFW detector to incorrectly recognise an image as safe-for-work
 5. [Cause](https://arxiv.org/pdf/1811.03194.pdf) an ad-blocker to incorrectly identify an advertisement as natural content
 6. [Cause](https://nicholas.carlini.com/papers/2016_usenix_hiddenvoicecommands.pdf) a digital assistant to incorrectly recognize commands it is given
 7. [Cause](https://www.covert.io/research-papers/deep-learning-security/Large-scale%20Malware%20Classification%20using%20Random%20Projections%20and%20Neural%20Networks.pdf) a malware (or spam) classifier to identify a malicious file (or spam email) as benign 
@@ -279,7 +278,7 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 
 
 - The study of adversarial examples is exciting because many of the most important problems remain open, both in terms of theory and in terms of applications. 
-- On the theoretical side, no one yet knows whether defending against adversarial examples is a theoretically hopeless endeavor (like trying to find a universal machine learning algorithm) or if an optimal strategy would give the defender the upper ground (like in cryptography and differential privacy). 
+- On the theoretical side, no one yet knows whether defending against adversarial examples is a theoretically hopeless endeavour (like trying to find a universal machine learning algorithm) or if an optimal strategy would give the defender the upper ground (like in cryptography and differential privacy). 
 - On the applied side, no one has yet designed a truly powerful defense algorithm that can resist a wide variety of adversarial example attack algorithms.
 
 
@@ -353,6 +352,4 @@ Elie's blog on [Attacks against machine learning — an overview](https://elie.n
 
 Questions, comments, other feedback? E-mail [the author](mailto:imdudeperf3ct@gmail.com)
 
-
 ---
-
