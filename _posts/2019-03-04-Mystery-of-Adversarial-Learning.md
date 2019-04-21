@@ -182,9 +182,9 @@ Here is one example by Goodfellow et al in using [2d Adversarial Objects in fool
 
 Here is one example from [lab six](https://www.labsix.org/) where they use [3d Adversarial Objects in fooling neural networks](https://www.labsix.org/physical-objects-that-fool-neural-nets/),
 
-<p class='video-responsive' align="center">
+<div class='video-responsive'>
 <iframe width="560" height="315" src="/images/adv_learning/turtle.mp4" frameborder="0" allowfullscreen></iframe> 
-</p>
+</div>
 
 ### Optimization-based adversarial attack
 
