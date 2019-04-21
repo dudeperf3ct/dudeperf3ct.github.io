@@ -78,7 +78,7 @@ An Adversarial Example is an example that has been carefully computed to be misc
 
 <span class='green'>I-know-nothing:</span> So what is really going on? Did the classifier cheat with us the same way Clever hans did? Are there any other methods which we can cheat? Is there any way to defend this cheating? Is it only in images or also in other tasks such as NLP and RL? This cheating can really put the state of the art classifier in a very difficult position as to are they really state of the art(SOTA) in classification and if someone misuses these techniques in fooling the classifier. This certainly has some serious after effects.
 
-<span class='red'>I-know-everything:</span> That is certainly true. This issue of adversarial example does put the mark of SOTA  on classifier really in a jeopardy!
+<span class='red'>I-know-everything:</span> That is certainly true. This issue of adversarial example does put the mark of SOTA  on classifier really in a jeopardy! Are they really good as they claim beating humans?
 
 There are mainly 3 types of adversarial attacks. We will explain why is it so easy to perform them, and discuss the security implications that stem from these attacks.
 
@@ -87,8 +87,6 @@ There are mainly 3 types of adversarial attacks. We will explain why is it so ea
 3. Model stealing techniques
 
 ## Adversarial Attacks
-
-We study each attack in-detail here.
 
 A trained CNN model acts as a linear seperator for high dimensional data for different classes where every point(image) is associated with its class. Of course, the boundary of seperation is not perfect. This provides an opportunity to push one image from one class to another (*cross the boundary*) i.e. perturbating the input data in the direction of another class.
 
@@ -114,7 +112,7 @@ $$
 
 ### Gradient-based adversarial attack
 
-These are the simplest technique that demonstratethe linearity of neural networks using FGSM and as the name suggest they are Gradient-based methods.
+These are the simplest technique that demonstrate the linearity of neural networks using Fast-Gradient Sign Method(FGSM) and as the name suggest they are Gradient-based methods.
 
 #### Non-targeted adversarial attack
 
@@ -179,13 +177,13 @@ def targeted_attack(img, label_idx):
 Here is one example by Goodfellow et al in using [2d Adversarial Objects in fooling neural networks](https://bengio.abracadoudou.com/publications/pdf/kurakin_2017_iclr_physical.pdf),
 
 <p align="center">
-<img src='/images/adv_learning/washing_machine.png' width="80%"/> 
+<img src='/images/adv_learning/washing_machine.png' width="80%"/>
 </p>
 
 Here is one example from [lab six](https://www.labsix.org/) where they use [3d Adversarial Objects in fooling neural networks](https://www.labsix.org/physical-objects-that-fool-neural-nets/),
 
-<p align="center">
-<img src='/images/adv_learning/turtle.gif' width="50%"/> 
+<p class='video-responsive' align="center">
+<iframe width="560" height="315" src="/images/adv_learning/turtle.mp4" frameborder="0" allowfullscreen></iframe> 
 </p>
 
 ### Optimization-based adversarial attack
