@@ -182,7 +182,9 @@ Here is one example by Goodfellow et al in using [2d Adversarial Objects in fool
 
 Here is one example from [lab six](https://www.labsix.org/) where they use [3d Adversarial Objects in fooling neural networks](https://www.labsix.org/physical-objects-that-fool-neural-nets/),
 
-<iframe width="420" height="315" src="http://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+<p align="center">
+<img src='/images/adv_learning/turtle.gif' width="50%"/> 
+</p>
 
 ### Optimization-based adversarial attack
 
@@ -221,7 +223,9 @@ These optimization-based attacks are by far the most powerful attack.
 
 ### Model stealing techniques
 
-Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing. Both the above attacks can be considered as whitebox attacks where the attacker has access to the model’s parameters (gradient in this case) whereas in black box attacks, the attacker has no access to these parameters, i.e., it uses a different model or no model at all to generate adversarial images with the hope that these will transfer to the target model. In the black-box settings, the machine learning model is said to act as an *oracle*. A strategy is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
+Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing. Both the above attacks can be considered as whitebox attacks where the attacker has access to the model’s parameters (gradient in this case) whereas in black box attacks, the attacker has no access to these parameters, i.e., it uses a different model or no model at all to generate adversarial images with the hope that these will transfer to the target model. 
+
+In the black-box settings, the machine learning model is said to act as an *oracle*. A strategy is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
 
 Here is one example from [lab six](https://www.labsix.org/) where they use [Partial Information Attacks on Real-world AI](https://www.labsix.org/partial-information-adversarial-examples/),
 
