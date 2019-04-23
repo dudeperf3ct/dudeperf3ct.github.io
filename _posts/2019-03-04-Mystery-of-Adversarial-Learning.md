@@ -78,7 +78,7 @@ An Adversarial Example is an example that has been carefully computed to be misc
 
 <span class='green'>I-know-nothing:</span> So what is really going on? Did the classifier cheat with us the same way Clever hans did? Are there any other methods which we can cheat? Is there any way to defend this cheating? Is it only in images or also in other tasks such as NLP and RL? This cheating can really put the state of the art classifier in a very difficult position as to are they really state of the art(SOTA) in classification and if someone misuses these techniques in fooling the classifier. This certainly has some serious after effects.
 
-<span class='red'>I-know-everything:</span> That is certainly true. This issue of adversarial example does put the mark of SOTA  on classifier really in a jeopardy! Are they really good as they claim beating humans?
+<span class='red'>I-know-everything:</span> That is certainly true. This issue of adversarial example does put the mark of SOTA  on classifier really in a jeopardy! Are they really good as they claim, beating humans?
 
 There are mainly 3 types of adversarial attacks. We will explain why is it so easy to perform them, and discuss the security implications that stem from these attacks.
 
@@ -88,13 +88,13 @@ There are mainly 3 types of adversarial attacks. We will explain why is it so ea
 
 ## Adversarial Attacks
 
-A trained CNN model acts as a linear seperator for high dimensional data for different classes where every point(image) is associated with its class. Of course, the boundary of seperation is not perfect. This provides an opportunity to push one image from one class to another (*cross the boundary*) i.e. perturbating the input data in the direction of another class.
+A trained CNN model acts as a linear seperator for high dimensional data for different classes where every point(image) is associated with its class. Of course, the boundary of seperation is not perfect. This provides an opportunity to push one image from one class to another (*cross the boundary*) i.e. perturbing the input data in the direction of another class.
 
 <p align="center">
 <img src='/images/adv_learning/boundary.png' width="50%"/> 
 </p>
 
-A better way to illustrate the two non-targeted and targeted attack is explained by this story of Sherlock Holmes on [cleverhans](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html) blog :
+A better way to illustrate the two, non-targeted and targeted attack is explained by this story of Sherlock Holmes on [cleverhans](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html) blog :
 
 > Suppose Professor Moriarty wishes to frame Sherlock Holmes for a crime. He may arrange for an unsuspected accomplice to give Sherlock Holmes a pair of very unique and ornate boots. After Sherlock has worn these boots in the presence of the policemen he routinely assists, the policemen will learn to associate the unique boots with him. Professor Moriarty may then commit a crime while wearing a second copy of the same pair of boots, leaving behind tracks that will cause Holmes to fall under suspicion.
 
