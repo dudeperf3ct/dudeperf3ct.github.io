@@ -292,7 +292,7 @@ IDF("conquered") for Document 1 = log(2/1)
 
 TF-IDF("conquered") for Document 1 = (0/4) * log(2/1) 
 
-TF-IDF("I") for Document 2 = (1/2) * log(2/1)
+TF-IDF("conquered") for Document 2 = (1/2) * log(2/1)
 
 We get different weightings for same word.
 
