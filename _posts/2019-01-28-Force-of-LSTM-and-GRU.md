@@ -254,7 +254,7 @@ From these three sentences, our vocabulary is as follows:
 
 { I, came, saw, conquered }
 
-To get our bags of words using count vectorizer, we count the number of times each word occurs in each sentence. In Sentence 1, "the" appears once, and "came" and "saw" each appear once, so the feature vector for Sentence 1 is:
+To get our bags of words using count vectorizer, we count the number of times each word occurs in each sentence. In Sentence 1, "I" appears twice, and "came" and "saw" each appear once, so the feature vector for Sentence 1 is:
 
 Sentence 1: { 2, 1, 1, 0 }
 
@@ -263,7 +263,7 @@ Similarly, the features for Sentence 2 are: { 1, 0, 0, 1 }
 
 #### TF-IDF Vectorizer
 
-Count Vectorizer tend to give higher score to more dominant words from the document but they may not contain "informational content" as much as rarer but domain specific words. For example, "I" from above example. Hence, we introduce TF-IDF. TF-IDF stands for term frequency-inverse document frequency. It gives a score as to how important a word is to the document in a corpus. <span class='red'>TF-IDF measures relevance, not frequency.</span> Word counts are replaced with TF-IDF scores across the whole corpus.The scores have the effect of highlighting words that are distinct (contain useful information) in a given document. <span class='green'>The IDF of a rare term is high, whereas the IDF of a frequent term is likely to be low.</span>
+Count Vectorizer tend to give higher score to more dominant words from the document but they may not contain "informational content" as much as rarer but domain specific words. For example, "conquered" from above example. Hence, we introduce TF-IDF. TF-IDF stands for term frequency-inverse document frequency. It gives a score as to how important a word is to the document in a corpus. <span class='red'>TF-IDF measures relevance, not frequency.</span> Word counts are replaced with TF-IDF scores across the whole corpus.The scores have the effect of highlighting words that are distinct (contain useful information) in a given document. <span class='green'>The IDF of a rare term is high, whereas the IDF of a frequent term is likely to be low.</span>
 
 - Term Frequency: is a scoring of the frequency of the word in the current document.
 - Inverse Document Frequency: is a scoring of how rare the word is across documents.
@@ -282,17 +282,17 @@ Term Frequency of Document 1 = {I: 2, came:1, saw: 1}
 
 Term Frequency of Document 2 = {I: 1, conquered: 1}
 
-Let's calculate TF-IDF("I") ,
+Let's calculate TF-IDF("conquered") ,
 
-TF("I") for Document 1 = 1/4
+TF("conquered") for Document 1 = 0/4
 
-TF("I") for Document 2 = 1/2
+TF("conquered") for Document 2 = 1/2
 
-IDF("I") for Document 1 = log(2/3)
+IDF("conquered") for Document 1 = log(2/1)
 
-TF-IDF("I") for Document 1 = (1/4) * log(2/3) 
+TF-IDF("conquered") for Document 1 = (0/4) * log(2/1) 
 
-TF-IDF("I") for Document 2 = (1/2) * log(2/3)
+TF-IDF("I") for Document 2 = (1/2) * log(2/1)
 
 We get different weightings for same word.
 
