@@ -288,7 +288,7 @@ TF("conquered") for Document 1 = 0/4
 
 TF("conquered") for Document 2 = 1/2
 
-IDF("conquered") for Document 1 = log(2/1)
+IDF("conquered") = log(2/1)
 
 TF-IDF("conquered") for Document 1 = (0/4) * log(2/1) 
 
