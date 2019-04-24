@@ -263,7 +263,7 @@ Similarly, the features for Sentence 2 are: { 1, 0, 0, 1 }
 
 #### TF-IDF Vectorizer
 
-Count Vectorizer tend to give higher score to more dominant words from the document but they may not contain "informational content" as much as rarer but domain specific words. For example, "conquered" from above example. Hence, we introduce TF-IDF. TF-IDF stands for term frequency-inverse document frequency. It gives a score as to how important a word is to the document in a corpus. <span class='red'>TF-IDF measures relevance, not frequency.</span> Word counts are replaced with TF-IDF scores across the whole corpus.The scores have the effect of highlighting words that are distinct (contain useful information) in a given document. <span class='green'>The IDF of a rare term is high, whereas the IDF of a frequent term is likely to be low.</span>
+Count Vectorizer tend to give higher score to more dominant words from the document but they may not contain "informational content" as much as rarer but domain specific words. For example, "I" from above example. Hence, we introduce TF-IDF. TF-IDF stands for term frequency-inverse document frequency. It gives a score as to how important a word is to the document in a corpus. <span class='red'>TF-IDF measures relevance, not frequency.</span> Word counts are replaced with TF-IDF scores across the whole corpus.The scores have the effect of highlighting words that are distinct (contain useful information) in a given document. <span class='green'>The IDF of a rare term is high, whereas the IDF of a frequent term is likely to be low.</span>
 
 - Term Frequency: is a scoring of the frequency of the word in the current document.
 - Inverse Document Frequency: is a scoring of how rare the word is across documents.
