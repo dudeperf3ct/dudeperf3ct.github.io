@@ -383,7 +383,7 @@ The generator uses context-adjusted state from attention mechanism to produce ou
 
 $$
 \begin{aligned}
-\textbf{Generator Output} : p(y_{t} \mid H,y_{1},y_{2}, …,y_{t-1}) & = softmax(W_{out}\tilde{h}_{t} + b_{out}))
+\textbf{Generator Output} : p(y_{t} \mid H,y_{1},y_{2}, …,y_{t-1}) & = softmax(W_{out}\tilde{h}_{t} + b_{out})
 \end{aligned}
 $$
 
