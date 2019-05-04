@@ -316,13 +316,19 @@ Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.
 
 [Towards Deep Learning Models Resistant to Adversarial Attacks](https://arxiv.org/pdf/1706.06083.pdf)
 
-[Towards Evaluating the Robustnessof Neural Networks](https://arxiv.org/pdf/1608.04644.pdf)
+[Towards Evaluating the Robustness of Neural Networks](https://arxiv.org/pdf/1608.04644.pdf)
 
 [Synthesizing Robust Adversarial Examples](https://arxiv.org/pdf/1707.07397)
 
 [Black-box Adversarial Attacks with Limited Queries and Information](https://arxiv.org/pdf/1804.08598)
 
 [Wild Patterns: Ten Years After the Rise ofAdversarial Machine Learning](https://arxiv.org/pdf/1712.03141.pdf)
+
+[Threat of Adversarial Attacks on Deep Learningin Computer Vision: A Survey](https://arxiv.org/pdf/1801.00553.pdf)
+
+[Adversarial Attacks and Defences: A Survey](https://arxiv.org/pdf/1810.00069.pdf)
+
+[Practical Black-Box Attacks against Machine Learning](https://arxiv.org/pdf/1602.02697.pdf)
 
 cleverhans blog: [Breaking things is easy](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html), [Is attacking machine learning easier than defending it?](www.cleverhans.io/security/privacy/ml/2017/02/15/why-attacking-machine-learning-is-easier-than-defending-it.html) and [The challenge of verification and testing of machine learning](http://www.cleverhans.io/security/privacy/ml/2017/06/14/verification.html)
 
