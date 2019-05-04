@@ -41,7 +41,7 @@ Feel free to jump anywhere,
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
-# Adverserial Training
+# Adversarial Training
 
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
@@ -50,7 +50,7 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span> My dear young padwan, you are learning quite a lot and honestly, keeping up with the pace of reasearch is really a challenge in itself. But we have tried to cover and focus on the basic concepts in Deep Learning and its application. The journey so far has been like visting a lot of cool stations. We visited MLP, CNN, RNN, LSTM & GRU, and also we visited one the very famous places Transfer Learning in CNN and Transfer Learning in NLP. Hope you enjoyed the journey. A lot is still waiting to be explored. One such topic of interest today is about Adveserial Training. But before that let me tell you a story about clever horse named Clever Hans who could do arithmetic.
+<span class='red'>I-know-everything:</span> My dear young padwan, you are learning quite a lot and honestly, keeping up with the pace of reasearch is really a challenge in itself. But we have tried to cover and focus on the basic concepts in Deep Learning and its application. The journey so far has been like visting a lot of cool stations. We visited MLP, CNN, RNN, LSTM & GRU, and also we visited one the very famous places Transfer Learning in CNN and Transfer Learning in NLP. Hope you enjoyed the journey. A lot is still waiting to be explored. One such topic of interest today is about Adversarial Training. But before that let me tell you a story about *clever horse named Clever Hans who could do arithmetic*.
 
 <span class='green'>I-know-nothing:</span> Horse doing arithmetic? For real?  
 
@@ -74,7 +74,7 @@ So, clever hans was trained to answer these questions. And he found a way of doi
 <img src='/images/adv_learning/panda.jpg' width="50%"/> 
 </p>
 
-An Adversarial Example is an example that has been carefully computed to be misclassified. To make a new image indistinguishable to human obeserver from original image.
+An Adversarial Example is an example that has been carefully computed to be misclassified. To make a new image indistinguishable to human obeserver from original image. Adversaries can craftily manipulate legitimate inputs, which may be imperceptible to human eye, but can force a trained model to produce incorrect outputs.
 
 <span class='green'>I-know-nothing:</span> So what is really going on? Did the classifier cheat with us the same way Clever hans did? Are there any other methods which we can cheat? Is there any way to defend this cheating? Is it only in images or also in other tasks such as NLP and RL? This cheating can really put the state of the art classifier in a very difficult position as to are they really state of the art(SOTA) in classification and if someone misuses these techniques in fooling the classifier. This certainly has some serious after effects.
 
@@ -186,6 +186,8 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [3d A
 <img src='/images/adv_learning/turtle.gif' width="50%"/> 
 </p>
 
+These are not only the gradient-based adversarial attacks but are the simplest. 
+
 ### Optimization-based adversarial attack
 
 The paper on [Towards Evaluating the Robustness of Neural Networks](https://arxiv.org/pdf/1608.04644.pdf) introduces three types of attacks: 
@@ -252,7 +254,7 @@ Here is a recent [demo](https://v.qq.com/x/page/x0855xzykn4.html) by Tencent Kee
 
 And imagination is limit. There is so many bad examples which can be exploited. Just like any new technology not designed with security in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).
 
-## Adversarial Training
+## Defenses against Adversarial Attacks
 
 What can be done? How can we avoid Adversarial attacks? From above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed. Adversarial training can defend against FGSM attack by causing gradient masking, where locally the gradient around a given image may point in a direction that is not useful for generating an adversarial example.
 
@@ -329,6 +331,10 @@ Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.
 [Adversarial Attacks and Defences: A Survey](https://arxiv.org/pdf/1810.00069.pdf)
 
 [Practical Black-Box Attacks against Machine Learning](https://arxiv.org/pdf/1602.02697.pdf)
+
+[Are Adversarial Examples Inevitable?](https://openreview.net/pdf?id=r1lWUoA9FQ)
+
+[Safety and Trustworthiness of Deep Neural Networks:  A Survey](https://arxiv.org/pdf/1812.08342v1.pdf)
 
 cleverhans blog: [Breaking things is easy](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html), [Is attacking machine learning easier than defending it?](www.cleverhans.io/security/privacy/ml/2017/02/15/why-attacking-machine-learning-is-easier-than-defending-it.html) and [The challenge of verification and testing of machine learning](http://www.cleverhans.io/security/privacy/ml/2017/06/14/verification.html)
 
