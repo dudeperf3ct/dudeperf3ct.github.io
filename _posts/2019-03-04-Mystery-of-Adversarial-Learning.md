@@ -34,7 +34,7 @@ Feel free to jump anywhere,
     - [Optimization-based adversarial attack](#optimization-based-adversarial-attack)
     - [Model stealing techniques](#model-stealing-techniques)
   - [Real World Examples](#real-world-examples)
-  - [Adversarial Training](#adversarial-training)
+  - [Defenses against Adversarial Attacks](#defenses-against-adversarial-attacks)
   - [Beyond Images](#beyond-images)
   - [Conclusion](#conclusion)  
 - [Further Reading](#further-reading)
@@ -85,6 +85,7 @@ There are mainly 3 types of adversarial attacks. We will explain why is it so ea
 1. Gradient-based adversarial attack
 2. Optimization-based adversarial attack 
 3. Model stealing techniques
+4. One pixel Attack
 
 ## Adversarial Attacks
 
@@ -227,13 +228,24 @@ These optimization-based attacks are by far the most powerful attack.
 
 Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing. Both the above attacks can be considered as whitebox attacks where the attacker has access to the model’s parameters (gradient in this case) whereas in black box attacks, the attacker has no access to these parameters, i.e., it uses a different model or no model at all to generate adversarial images with the hope that these will transfer to the target model. 
 
-In the black-box settings, the machine learning model is said to act as an *oracle*. A strategy is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
+In the black-box settings, the machine learning model is said to act as an *oracle*. One strategy in using black-box setting for stealing called *oracle attack* is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
 
-Here is one example from [lab six](https://www.labsix.org/) where they use [Partial Information Attacks on Real-world AI](https://www.labsix.org/partial-information-adversarial-examples/),
+Here is one example from [lab six](https://www.labsix.org/) where they use [Partial Information Attacks on Real-world AI](https://www.labsix.org/partial-information-adversarial-examples/) another black-box attack,
 
 
 <p align="center">
 <img src='/images/adv_learning/black_box.gif' width="50%"/> 
+</p>
+
+
+### One pixel Attack
+
+Sometimes perturbing too many pixels can make the modified image seem perceptible to human eye. Su et al proposed [a method](https://arxiv.org/pdf/1710.08864.pdf) by perturbing only one pixel with differential evolution. 
+
+
+
+<p align="center">
+<img src='/images/adv_learning/one_pixel.png' width="50%"/> 
 </p>
 
 ## Real World Examples
@@ -250,15 +262,20 @@ Here is one example from [lab six](https://www.labsix.org/) where they use [Part
 <img src='/images/adv_learning/traffic_sign.png' width="50%"/> 
 </p>
 
-Here is a recent [demo](https://v.qq.com/x/page/x0855xzykn4.html) by Tencent Keen Security Lab which conducted research on Autopilot of Tesla Model S and achieved 3 flaws, *Auto-wipers Vision Recognition Flaw*, *Lane Recognition Flaw* and *Control Steering System with Gamepad*. For more details on the technical details, [here](https://keenlab.tencent.com/en/whitepapers/Experimental_Security_Research_of_Tesla_Autopilot.pdf) is the paper. *So cool*
+Here is a recent [demo](https://v.qq.com/x/page/x0855xzykn4.html) by Tencent Keen Security Lab which conducted research on Autopilot of Tesla Model S and achieved 3 flaws, *Auto-wipers Vision Recognition Flaw*, *Lane Recognition Flaw* and *Control Steering System with Gamepad*. For more details on the technical details, [here](https://keenlab.tencent.com/en/whitepapers/Experimental_Security_Research_of_Tesla_Autopilot.pdf) is the paper and must watch [video](https://www.youtube.com/watch?v=6QSsKy0I9LE) demonstrating each of the flaws. *Controlling Tesla steering with Gamepad, finally all GTA practise paying off. So cool*
 
-And imagination is limit. There is so many bad examples which can be exploited. Just like any new technology not designed with security in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).
+And imagination is limit. There are so many bad examples which can be exploited. Just like any new technology not designed with security in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).
 
 ## Defenses against Adversarial Attacks
 
-What can be done? How can we avoid Adversarial attacks? From above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed. Adversarial training can defend against FGSM attack by causing gradient masking, where locally the gradient around a given image may point in a direction that is not useful for generating an adversarial example.
+What can be done? How can we avoid Adversarial attacks? From above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed. *Adversarial training* can defend against FGSM attack by causing gradient masking, where locally the gradient around a given image may point in a direction that is not useful for generating an adversarial example. 
 
-One other way for Adversarial Training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. 
+One way for Adversarial Training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. Adversarial training is a standard brute force approach where the defender simply generates a lot of adversarial examples and augments these perturbed data while training the targeted model. Adversarial training of a model is useful only on adversarial examples which are crafted on the original model. The defense is not robust for black-box attacks where an adversarygenerates malicious examples on a locally trained substitute model. 
+
+Another way is gradient hiding which consists of hiding information about model's gradient from adversary by using non-differentiable models such as a Decision Tree, a NearestNeighbor Classifier, or a Random Forest. However, this defense are easily fooled by learning a surrogate Black-Box model having gradient and crafting examples using it. The attacker can train their own model, a smooth model that has a gradient, make adversarial examples for their model, and then deploy those adversarial examples against our non-smooth model.
+
+There are many different defenses such as [Defensive Distillation](), image processing methods such as [scalar quantization, spatial smoothing filter](), [squeezing color bits and local/non-local spatial smoothing]() 
+
 
 Nicholas Carlini et al [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf)
 
@@ -269,6 +286,8 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 
 [Here]() is video demonstrating adversarial example in speech recognition.
 
+Below is example demonstrating adversarial example in question answering system.
+
 <p align="center">
 <img src='/images/adv_learning/text_adv.png' width="50%"/> 
 </p>
@@ -278,11 +297,9 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 
 ## Conclusion
 
-
 - The study of adversarial examples is exciting because many of the most important problems remain open, both in terms of theory and in terms of applications. 
-- On the theoretical side, no one yet knows whether defending against adversarial examples is a theoretically hopeless endeavour (like trying to find a universal machine learning algorithm) or if an optimal strategy would give the defender the upper ground (like in cryptography and differential privacy). 
-- On the applied side, no one has yet designed a truly powerful defense algorithm that can resist a wide variety of adversarial example attack algorithms.
-
+- On the theoretical side, no one yet knows whether defending against adversarial examples is a theoretically hopeless endeavour (like trying to find a universal machine learning algorithm) or if an optimal strategy would give the defender the upper ground (like in cryptography and differential privacy). The lacking of proper theoretical tools to describe the solution to these complex optimization problems make it even harder to make any theoretical argument that a particular defense will rule out a set of adversarial examples.
+- On the applied side, no one has yet designed a truly powerful defense algorithm that can resist a wide variety of adversarial example attack algorithms. Most of the current defense strategies are not adaptive to all types of adversarial attack as one method may block one kind of attack but leaves another vulnerability open to an attacker who knows the underlying defense mechanism.
 
 Well that really concludes adversarial machine learning. Where to next? <span class='purple'>Power of GAN</span>. 
 
@@ -322,9 +339,11 @@ Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.
 
 [Synthesizing Robust Adversarial Examples](https://arxiv.org/pdf/1707.07397)
 
+[One Pixel Attack for Fooling Deep Neural Networks](https://arxiv.org/pdf/1710.08864.pdf)
+
 [Black-box Adversarial Attacks with Limited Queries and Information](https://arxiv.org/pdf/1804.08598)
 
-[Wild Patterns: Ten Years After the Rise ofAdversarial Machine Learning](https://arxiv.org/pdf/1712.03141.pdf)
+[Wild Patterns: Ten Years After the Rise of Adversarial Machine Learning](https://arxiv.org/pdf/1712.03141.pdf)
 
 [Threat of Adversarial Attacks on Deep Learningin Computer Vision: A Survey](https://arxiv.org/pdf/1801.00553.pdf)
 
@@ -334,7 +353,7 @@ Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.
 
 [Are Adversarial Examples Inevitable?](https://openreview.net/pdf?id=r1lWUoA9FQ)
 
-[Safety and Trustworthiness of Deep Neural Networks:  A Survey](https://arxiv.org/pdf/1812.08342v1.pdf)
+[Safety and Trustworthiness of Deep Neural Networks: A Survey](https://arxiv.org/pdf/1812.08342v1.pdf)
 
 cleverhans blog: [Breaking things is easy](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html), [Is attacking machine learning easier than defending it?](www.cleverhans.io/security/privacy/ml/2017/02/15/why-attacking-machine-learning-is-easier-than-defending-it.html) and [The challenge of verification and testing of machine learning](http://www.cleverhans.io/security/privacy/ml/2017/06/14/verification.html)
 
