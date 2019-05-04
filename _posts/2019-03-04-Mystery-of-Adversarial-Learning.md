@@ -85,7 +85,6 @@ There are mainly 3 types of adversarial attacks. We will explain why is it so ea
 1. Gradient-based adversarial attack
 2. Optimization-based adversarial attack 
 3. Model stealing techniques
-4. One pixel Attack
 
 ## Adversarial Attacks
 
@@ -113,7 +112,7 @@ $$
 
 ### Gradient-based adversarial attack
 
-These are the simplest technique that demonstrate the linearity of neural networks using Fast-Gradient Sign Method(FGSM) and as the name suggest they are Gradient-based methods.
+These are the simplest technique that demonstrate the linearity of neural networks using Fast-Gradient Sign Method(FGSM) and as the name suggest these are gradient-based methods.
 
 #### Non-targeted adversarial attack
 
@@ -232,21 +231,18 @@ In the black-box settings, the machine learning model is said to act as an *orac
 
 Here is one example from [lab six](https://www.labsix.org/) where they use [Partial Information Attacks on Real-world AI](https://www.labsix.org/partial-information-adversarial-examples/) another black-box attack,
 
-
 <p align="center">
 <img src='/images/adv_learning/black_box.gif' width="50%"/> 
 </p>
 
-
-### One pixel Attack
-
-Sometimes perturbing too many pixels can make the modified image seem perceptible to human eye. Su et al proposed [a method](https://arxiv.org/pdf/1710.08864.pdf) by perturbing only one pixel with differential evolution. 
-
-
+Sometimes perturbing too many pixels can make the modified image seem perceptible to human eye. Su et al proposed [a method](https://arxiv.org/pdf/1710.08864.pdf) by perturbing only one pixel with differential evolution using black-box setting.  
 
 <p align="center">
 <img src='/images/adv_learning/one_pixel.png' width="50%"/> 
 </p>
+
+Changing one pixel turns ship into 99.7% car, horse into 99.9% frog or a deer into airplane. This means we cannot just randomly select any pixel from image, it has to be specific for it to work. This is where Differential Evolution comes into play. DE belongs to the general class of evolutionary algorithms which does not use the gradient information for optimizing and therefore  does not require the objective function to be differentiable. As with typical EA algorithms during each iteration, set of candidate solutions is generated according to current population. Then children are compared with their corresponding parent  surviving if they are more fitted than their parents. And this is how from random pixels DE chooses one pixel which confidently changes the class to input image.
+
 
 ## Real World Examples
 
@@ -268,13 +264,13 @@ And imagination is limit. There are so many bad examples which can be exploited.
 
 ## Defenses against Adversarial Attacks
 
-What can be done? How can we avoid Adversarial attacks? From above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed. *Adversarial training* can defend against FGSM attack by causing gradient masking, where locally the gradient around a given image may point in a direction that is not useful for generating an adversarial example. 
+What can be done? How can we avoid Adversarial attacks? From criticality of above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed. *Adversarial training* can defend against FGSM attack by causing gradient masking, where locally the gradient around a given image may point in a direction that is not useful for generating an adversarial example. 
 
-One way for Adversarial Training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. Adversarial training is a standard brute force approach where the defender simply generates a lot of adversarial examples and augments these perturbed data while training the targeted model. Adversarial training of a model is useful only on adversarial examples which are crafted on the original model. The defense is not robust for black-box attacks where an adversarygenerates malicious examples on a locally trained substitute model. 
+One way for Adversarial Training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. Adversarial training is a standard brute force approach where the defender simply generates a lot of adversarial examples and augments these perturbed data while training the targeted model. Adversarial training of a model is useful only on adversarial examples which are crafted on the original model. The defense is not robust for black-box attacks where an adversary generates malicious examples on a locally trained substitute model. 
 
 Another way is gradient hiding which consists of hiding information about model's gradient from adversary by using non-differentiable models such as a Decision Tree, a NearestNeighbor Classifier, or a Random Forest. However, this defense are easily fooled by learning a surrogate Black-Box model having gradient and crafting examples using it. The attacker can train their own model, a smooth model that has a gradient, make adversarial examples for their model, and then deploy those adversarial examples against our non-smooth model.
 
-There are many different defenses such as [Defensive Distillation](), image processing methods such as [scalar quantization, spatial smoothing filter](), [squeezing color bits and local/non-local spatial smoothing]() 
+There are many different defenses such as [Defensive Distillation](https://arxiv.org/pdf/1511.04508), image processing methods such as [scalar quantization, spatial smoothing filter](https://arxiv.org/pdf/1705.08378.pdf), [squeezing color bits and local/non-local spatial smoothing](https://arxiv.org/pdf/1704.01155.pdf) 
 
 
 Nicholas Carlini et al [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf)
@@ -282,9 +278,9 @@ Nicholas Carlini et al [On Evaluating Adversarial Robustness](https://arxiv.org/
 
 ## Beyond Images
 
-Adversarial examples are not limited to image classification. Adversarial examples are seen in [speech recognition](https://arxiv.org/pdf/1801.01944), [question answering systems](https://arxiv.org/pdf/1707.07328), [reinforcement learning](https://arxiv.org/abs/1702.02284), and other tasks.
+Adversarial examples are not limited to image classification. Adversarial examples are seen in [speech recognition](https://arxiv.org/pdf/1801.01944), [question answering systems](https://arxiv.org/pdf/1707.07328), [reinforcement learning](https://arxiv.org/abs/1702.02284), [object detection and semantic segmentation](https://openaccess.thecvf.com/content_iccv_2017/html/Xie_Adversarial_Examples_for_ICCV_2017_paper.html) and other tasks.
 
-[Here]() is video demonstrating adversarial example in speech recognition.
+[Here](https://www.youtube.com/watch?v=HvZAZFztlO0) is video demonstrating adversarial example in speech recognition.
 
 Below is example demonstrating adversarial example in question answering system.
 
@@ -363,6 +359,7 @@ Gradient Science's blog: [A Brief Introduction to Adversarial Examples](http://g
 
 Elie's blog on [Attacks against machine learning — an overview](https://elie.net/blog/ai/attacks-against-machine-learning-an-overview/)
 
+[CAMOU: Learning a Vehicle camouflage for physical adversarial attack on object detectors in the wild](https://openreview.net/pdf?id=SJgEl3A5tm)
 
 
 ---
