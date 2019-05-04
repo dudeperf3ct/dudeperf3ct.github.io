@@ -333,13 +333,21 @@ Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.
 
 [Adversarial Examples in Real Physical World](https://bengio.abracadoudou.com/publications/pdf/kurakin_2017_iclr_physical.pdf)
 
-[On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf)
+[Adversarial Examples: Attacks and Defenses for Deep Learning](https://arxiv.org/pdf/1712.07107.pdf)
 
-[Towards Deep Learning Models Resistant to Adversarial Attacks](https://arxiv.org/pdf/1706.06083.pdf)
+[Adversarial Examples for Evaluating Reading Comprehension Systems](https://arxiv.org/pdf/1707.07328.pdf)
+
+[On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf)
 
 [Towards Evaluating the Robustness of Neural Networks](https://arxiv.org/pdf/1608.04644.pdf)
 
 [Synthesizing Robust Adversarial Examples](https://arxiv.org/pdf/1707.07397)
+
+[Towards Deep Learning Models Resistant to Adversarial Attacks](https://arxiv.org/pdf/1706.06083.pdf)
+
+[The limitations of adversarial training and the blind-spot attack](https://openreview.net/pdf?id=HylTBhA5tQ)
+
+[The Limitations of Deep Learningin Adversarial Settings](https://arxiv.org/pdf/1511.07528.pdf)
 
 [One Pixel Attack for Fooling Deep Neural Networks](https://arxiv.org/pdf/1710.08864.pdf)
 
@@ -347,19 +355,19 @@ Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.
 
 [Wild Patterns: Ten Years After the Rise of Adversarial Machine Learning](https://arxiv.org/pdf/1712.03141.pdf)
 
-[Threat of Adversarial Attacks on Deep Learning in Computer Vision: A Survey](https://arxiv.org/pdf/1801.00553.pdf)
-
-[The limitations of adversarial training and the blind-spot attack](https://openreview.net/pdf?id=HylTBhA5tQ)
-
-[Adversarial Attacks and Defences: A Survey](https://arxiv.org/pdf/1810.00069.pdf)
+[CAMOU: Learning a Vehicle camouflage for physical adversarial attack on object detectors in the wild](https://openreview.net/pdf?id=SJgEl3A5tm)
 
 [Practical Black-Box Attacks against Machine Learning](https://arxiv.org/pdf/1602.02697.pdf)
 
 [Are Adversarial Examples Inevitable?](https://openreview.net/pdf?id=r1lWUoA9FQ)
 
-[Safety and Trustworthiness of Deep Neural Networks: A Survey](https://arxiv.org/pdf/1812.08342v1.pdf)
-
 [Towards the first adversarially robust neural network model on MNIST](https://openreview.net/pdf?id=S1EHOsC9tX)
+
+[Adversarial Attacks and Defences: A Survey](https://arxiv.org/pdf/1810.00069.pdf)
+
+[Threat of Adversarial Attacks on Deep Learning in Computer Vision: A Survey](https://arxiv.org/pdf/1801.00553.pdf)
+
+[Adversarial Attacks on Deep Learning Models in Natural Language Processing: A Survey](https://arxiv.org/pdf/1901.06796.pdf)
 
 cleverhans blog: [Breaking things is easy](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html), [Is attacking machine learning easier than defending it?](www.cleverhans.io/security/privacy/ml/2017/02/15/why-attacking-machine-learning-is-easier-than-defending-it.html) and [The challenge of verification and testing of machine learning](http://www.cleverhans.io/security/privacy/ml/2017/06/14/verification.html)
 
@@ -369,8 +377,7 @@ Gradient Science's blog: [A Brief Introduction to Adversarial Examples](http://g
 
 Elie's blog on [Attacks against machine learning — an overview](https://elie.net/blog/ai/attacks-against-machine-learning-an-overview/)
 
-[CAMOU: Learning a Vehicle camouflage for physical adversarial attack on object detectors in the wild](https://openreview.net/pdf?id=SJgEl3A5tm)
-
+[Safety and Trustworthiness of Deep Neural Networks: A Survey](https://arxiv.org/pdf/1812.08342v1.pdf)
 
 ---
 
