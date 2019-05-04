@@ -241,7 +241,7 @@ Sometimes perturbing too many pixels can make the modified image seem perceptibl
 <img src='/images/adv_learning/one_pixel.png' width="50%"/> 
 </p>
 
-Changing one pixel turns ship into 99.7% car, horse into 99.9% frog or a deer into airplane. This means we cannot just randomly select any pixel from image, it has to be specific for it to work. This is where Differential Evolution comes into play. DE belongs to the general class of evolutionary algorithms which does not use the gradient information for optimizing and therefore  does not require the objective function to be differentiable. As with typical EA algorithms during each iteration, set of candidate solutions is generated according to current population. Then children are compared with their corresponding parent  surviving if they are more fitted than their parents. And this is how from random pixels DE chooses one pixel which confidently changes the class to input image.
+Changing one pixel turns ship into 99.7% car, horse into 99.9% frog or a deer into airplane. This means we cannot just randomly select any pixel from image, it has to be specific for it to work. This is where Differential Evolution comes into play. DE belongs to the general class of evolutionary algorithms which does not use the gradient information for optimizing and therefore  does not require the objective function to be differentiable. As with typical EA algorithms during each iteration, set of candidate solutions is generated according to current population. Then children are compared with their corresponding parent  surviving if they are more fitted than their parents. And this is how from random pixels DE chooses one pixel which confidently changes the class to input image. The last surviving child is used to alter the pixel in the image.
 
 
 ## Real World Examples
@@ -258,7 +258,7 @@ Changing one pixel turns ship into 99.7% car, horse into 99.9% frog or a deer in
 <img src='/images/adv_learning/traffic_sign.png' width="50%"/> 
 </p>
 
-Here is a recent [demo](https://v.qq.com/x/page/x0855xzykn4.html) by Tencent Keen Security Lab which conducted research on Autopilot of Tesla Model S and achieved 3 flaws, *Auto-wipers Vision Recognition Flaw*, *Lane Recognition Flaw* and *Control Steering System with Gamepad*. For more details on the technical details, [here](https://keenlab.tencent.com/en/whitepapers/Experimental_Security_Research_of_Tesla_Autopilot.pdf) is the paper and must watch [video](https://www.youtube.com/watch?v=6QSsKy0I9LE) demonstrating each of the flaws. *Controlling Tesla steering with Gamepad, finally all GTA practise paying off. So cool*
+Here is a recent [demo](https://v.qq.com/x/page/x0855xzykn4.html) by Tencent Keen Security Lab which conducted research on Autopilot of Tesla Model S and achieved 3 flaws, *Auto-wipers Vision Recognition Flaw*, *Lane Recognition Flaw* and *Control Steering System with Gamepad*. For more details on the technical details, [here](https://keenlab.tencent.com/en/whitepapers/Experimental_Security_Research_of_Tesla_Autopilot.pdf) is the paper and must watch [video](https://www.youtube.com/watch?v=6QSsKy0I9LE) demonstrating each of the flaws. *Controlling Tesla steering with Gamepad, finally all GTA practise paying off.*
 
 And imagination is limit. There are so many bad examples which can be exploited. Just like any new technology not designed with security in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).
 
@@ -270,7 +270,7 @@ One way for Adversarial Training is to proactively generate adversarial examples
 
 Another way is gradient hiding which consists of hiding information about model's gradient from adversary by using non-differentiable models such as a Decision Tree, a NearestNeighbor Classifier, or a Random Forest. However, this defense are easily fooled by learning a surrogate Black-Box model having gradient and crafting examples using it. The attacker can train their own model, a smooth model that has a gradient, make adversarial examples for their model, and then deploy those adversarial examples against our non-smooth model.
 
-There are many different defenses such as [Defensive Distillation](https://arxiv.org/pdf/1511.04508), image processing methods such as [scalar quantization, spatial smoothing filter](https://arxiv.org/pdf/1705.08378.pdf), [squeezing color bits and local/non-local spatial smoothing](https://arxiv.org/pdf/1704.01155.pdf) 
+There are many different defenses such as [Defensive Distillation](https://arxiv.org/pdf/1511.04508), image processing methods such as [scalar quantization, spatial smoothing filter](https://arxiv.org/pdf/1705.08378.pdf), [squeezing color bits and local/non-local spatial smoothing](https://arxiv.org/pdf/1704.01155.pdf) and [many more]().
 
 
 Nicholas Carlini et al [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf)
@@ -289,6 +289,12 @@ Below is example demonstrating adversarial example in question answering system.
 </p>
 
 [Here](https://www.youtube.com/watch?&v=r2jm0nRJZdI) is video demonstrating adversarial example in RL.
+
+Below is example demonstrating adversarial example in object detection and semantic segmentation.
+
+<p align="center">
+<img src='/images/adv_learning/detection.png' width="50%"/> 
+</p>
 
 
 ## Conclusion
@@ -323,7 +329,7 @@ Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.
 
 [Explaining and Harnessing Adversarial Examples](https://arxiv.org/pdf/1412.6572.pdf)
 
-[Adversarial Examples Are Not Easily Detected:Bypassing Ten Detection Methods](https://nicholas.carlini.com/papers/2017_aisec_breakingdetection.pdf)
+[Adversarial Examples Are Not Easily Detected: Bypassing Ten Detection Methods](https://nicholas.carlini.com/papers/2017_aisec_breakingdetection.pdf)
 
 [Adversarial Examples in Real Physical World](https://bengio.abracadoudou.com/publications/pdf/kurakin_2017_iclr_physical.pdf)
 
@@ -341,7 +347,9 @@ Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.
 
 [Wild Patterns: Ten Years After the Rise of Adversarial Machine Learning](https://arxiv.org/pdf/1712.03141.pdf)
 
-[Threat of Adversarial Attacks on Deep Learningin Computer Vision: A Survey](https://arxiv.org/pdf/1801.00553.pdf)
+[Threat of Adversarial Attacks on Deep Learning in Computer Vision: A Survey](https://arxiv.org/pdf/1801.00553.pdf)
+
+[The limitations of adversarial training and the blind-spot attack](https://openreview.net/pdf?id=HylTBhA5tQ)
 
 [Adversarial Attacks and Defences: A Survey](https://arxiv.org/pdf/1810.00069.pdf)
 
@@ -350,6 +358,8 @@ Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.
 [Are Adversarial Examples Inevitable?](https://openreview.net/pdf?id=r1lWUoA9FQ)
 
 [Safety and Trustworthiness of Deep Neural Networks: A Survey](https://arxiv.org/pdf/1812.08342v1.pdf)
+
+[Towards the first adversarially robust neural network model on MNIST](https://openreview.net/pdf?id=S1EHOsC9tX)
 
 cleverhans blog: [Breaking things is easy](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html), [Is attacking machine learning easier than defending it?](www.cleverhans.io/security/privacy/ml/2017/02/15/why-attacking-machine-learning-is-easier-than-defending-it.html) and [The challenge of verification and testing of machine learning](http://www.cleverhans.io/security/privacy/ml/2017/06/14/verification.html)
 
