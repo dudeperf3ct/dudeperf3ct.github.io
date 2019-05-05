@@ -2,7 +2,7 @@
 layout:     post
 title:      Mystery of Adversarial Learning
 date:       2019-03-04 12:00:00
-summary:    This post will provide a brief introduction to adversarial machine learning where we introduce to different attacks and defense methods and give the examples in real-world scenarios.
+summary:    This post will provide a brief introduction to adversarial machine learning where we introduce to different attacks and defense methods and give the examples of real-world scenarios.
 categories: adversarial learning
 published : false
 ---
@@ -253,7 +253,7 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 
 **Speech Recognition**
 
-[![Speech Recognition](http://img.youtube.com/vi/HvZAZFztlO0/0.jpg)](http://www.youtube.com/watch?v=HvZAZFztlO0 "")
+[![Speech Recognition](http://img.youtube.com/vi/HvZAZFztlO0/0.jpg)](http://www.youtube.com/watch?v=HvZAZFztlO0 "Video")
 
 
 **Question Answering Systems**
@@ -264,7 +264,7 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 
 **RL**
 
-[![RL](http://img.youtube.com/vi/r2jm0nRJZdI/0.jpg)](http://www.youtube.com/watch?v=r2jm0nRJZdI "")
+[![RL](http://img.youtube.com/vi/r2jm0nRJZdI/0.jpg)](http://www.youtube.com/watch?v=r2jm0nRJZdI "Video")
 
 **Object Detection and Semantic Segmentation**
 
@@ -372,7 +372,11 @@ Elie's blog on [Attacks against machine learning — an overview](https://elie.n
 
 [Turtle Video](https://www.labsix.org/physical-objects-that-fool-neural-nets/)
 
+[Washing Machine Example](https://bengio.abracadoudou.com/publications/pdf/kurakin_2017_iclr_physical.pdf)
+
 [Traffic sign](https://www.cc.gatech.edu/news/611783/erasing-stop-signs-shapeshifter-shows-self-driving-cars-can-still-be-manipulated)
+
+[One-pixel attack example](https://arxiv.org/pdf/1710.08864.pdf)
 
 ---
 
