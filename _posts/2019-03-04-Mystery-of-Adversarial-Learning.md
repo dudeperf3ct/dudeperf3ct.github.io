@@ -42,7 +42,7 @@ Feel free to jump anywhere,
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
-# Adversarial Training
+# Adversarial Learning
 
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
