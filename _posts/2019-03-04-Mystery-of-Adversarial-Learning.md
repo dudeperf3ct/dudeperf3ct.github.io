@@ -35,6 +35,7 @@ Feel free to jump anywhere,
     - [Model stealing techniques](#model-stealing-techniques)
   - [Real World Examples](#real-world-examples)
   - [Defenses against Adversarial Attacks](#defenses-against-adversarial-attacks)
+  - [Evaluating Adversarial Robustness](#evaluating-adversarial-robustness)
   - [Beyond Images](#beyond-images)
   - [Conclusion](#conclusion)  
 - [Further Reading](#further-reading)
@@ -190,7 +191,7 @@ These are not only the gradient-based adversarial attacks but are the simplest.
 
 ### Optimization-based adversarial attack
 
-C&W attack introduced in [Towards Evaluating the Robustnessof Neural Networks](https://arxiv.org/pdf/1608.04644.pdf) is by far one of the strongest attacks. 
+C&W attack introduced in [Towards Evaluating the Robustnessof Neural Networks](https://arxiv.org/pdf/1608.04644.pdf) is by far one of the strongest attacks. They formulate targeted adversarial attacks as an optimization problem, take advantage of the internal configurations of a targeted DNN for attack guidance, and use the $$L_{2}$$ norm (i.e. Euclidean distance) to quantify the difference between the adversarial and the original examples. In particular, the representation in the logit layer (the layer prior to the final fully connected layer) is used as an indicator of attack effectiveness. Consequently, the C&W attack can be viewed as a gradient-descent based targeted adversarial attack driven by the representation of the logit layer of a targeted DNN and the $$L_{2}$$ distortion. C&W attack picks random multiple random starting points close to the original image and run gradient descent from each of those points for a fixed number of iterations. They tried three optimizers — standard gradient descent, gradient descent with momentum, and Adam — and all three produced identical-quality solutions. However, Adam converges substantially more quickly than the others.
 
 
 ### Model stealing techniques
@@ -242,10 +243,9 @@ Another way is gradient hiding which consists of hiding information about model'
 
 There are many different defenses such as [Defensive Distillation](https://arxiv.org/pdf/1511.04508), image processing methods such as [scalar quantization, spatial smoothing filter](https://arxiv.org/pdf/1705.08378.pdf), [squeezing color bits and local/non-local spatial smoothing](https://arxiv.org/pdf/1704.01155.pdf) and [many more](https://paperswithcode.com/task/adversarial-defense).
 
+## Evaluating Adversarial Robustness
 
-The competition between attacks and defenses for adversarial examples becomes an “arms race”: a defensive method that was  proposed to prevent existing attacks was later shown to be vulnerable to some new attacks, and vice versa. Some defenses showed that they could defend a  particular attack, but later failed with a slight change of the attack. Hence, the evaluation on the robustness of a deep neural network is necessary. 
-
-Nicholas Carlini et al [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf)
+The competition between attacks and defenses for adversarial examples becomes an “arms race”: a defensive method that was  proposed to prevent existing attacks was later shown to be vulnerable to some new attacks, and vice versa. Some defenses showed that they could defend a  particular attack, but later failed with a slight change of the attack. Hence, the evaluation on the robustness of a deep neural network is necessary. Nicholas Carlini et al in [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf) outlines three common reasons why one might be interested in evaluating the robustness of a machine learning model which are, *To defend against an adversary who will attack the system*, *to test the worst-case robustness of machine learning algorithms* and *to measure progress of machine learning algorithms towards human-level abilities*. Adversarial robustness is a measure of progress in machine learning that is orthogonal to performance.
 
 
 ## Beyond Images
