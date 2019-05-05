@@ -27,7 +27,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 
-- [Adversarial Learning](#adversarial-learning)
+- [Introduction to Adversarial Learning](#introduction-to-adversarial-learning)
   - [Clever Hans](#clever-hans)
   - [Adversarial Attacks](#adversarial-attacks)
     - [Gradient-based adversarial attack](#gradient-based-adversarial-attack)
@@ -42,7 +42,7 @@ Feel free to jump anywhere,
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
-# Adversarial Learning
+# Introduction to Adversarial Learning
 
 <span class='blue'> A long time ago in a galaxy far, far away.... </span>
 
