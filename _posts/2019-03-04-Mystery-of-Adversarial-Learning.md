@@ -4,7 +4,7 @@ title:      Mystery of Adversarial Learning
 date:       2019-03-04 12:00:00
 summary:    This post will provide a brief introduction to adversarial machine learning where we introduce to different attacks and defense methods and give the examples of real-world scenarios.
 categories: adversarial learning
-published : false
+published : true
 ---
 
 
@@ -55,7 +55,7 @@ Feel free to jump anywhere,
 
 <span class='green'>I-know-nothing:</span> Horse doing arithmetic? For real?  
 
-<span class='red'>I-know-everything:</span> Here is the picture of clever hans with its owner lived in 1900s.
+<span class='red'>I-know-everything:</span> Here is the picture of clever hans with its owner (from 1900s).
 
 <p align="center">
 <img src='/images/adv_learning/cleverhans.jpg' width="50%"/> 
