@@ -302,7 +302,7 @@ GAN - Generative Adversarial Networks
 
 # Further Reading
 
-Stanford CS231n 2017 [Lecture 16 | Adversarial Examples and Adversarial Training](https://www.youtube.com/watch?v=CIfsB_EYsVI)
+Stanford CS231n 2017 [Lecture 16 Adversarial Examples and Adversarial Training](https://www.youtube.com/watch?v=CIfsB_EYsVI)
 
 Nicholas Carlini's [Adversarial Machine Learning Reading List](https://nicholas.carlini.com/writing/2018/adversarial-machine-learning-reading-list.html)
 
