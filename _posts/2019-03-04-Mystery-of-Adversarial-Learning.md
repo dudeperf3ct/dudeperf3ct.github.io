@@ -190,7 +190,7 @@ These are not only the gradient-based adversarial attacks but are the simplest.
 
 ### Optimization-based adversarial attack
 
-
+C&W attack introduced in [Towards Evaluating the Robustnessof Neural Networks](https://arxiv.org/pdf/1608.04644.pdf) is by far one of the strongest attacks. 
 
 
 ### Model stealing techniques
