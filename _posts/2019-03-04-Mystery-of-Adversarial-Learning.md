@@ -77,7 +77,7 @@ So, clever hans was trained to answer these questions. And he found a way of doi
 
 <span class='purple'>An Adversarial Example is an example that has been carefully computed to be misclassified. To make a new image indistinguishable to human obeserver from original image. Adversaries can craftily manipulate legitimate inputs, which may be imperceptible to human eye, but can force a trained model to produce incorrect outputs.</span>
 
-<span class='green'>I-know-nothing:</span> So what is really going on? *Did the classifier cheat with us the same way Clever hans did? Are there any other methods which we can cheat? Is there any way to defend this cheating? Is it only in images or also in other tasks such as NLP and RL?* This cheating can really put the state of the art classifier in a very difficult position as to *Are they really state of the art(SOTA) in classification?*. If someone misuses these techniques in fooling the classifier, this certainly has some serious after effects.
+<span class='green'>I-know-nothing:</span> So what is really going on? *Did the classifier cheat with us the same way Clever hans did? Are there any other methods which we can cheat? Is there any way to defend this cheating? Is it only in images or also in other tasks such as NLP and RL?* This cheating can really put the state of the art classifier in a very difficult position as to *Are they really state of the art(SOTA) in classification?* What if someone misuses these techniques of fooling the classifier, this certainly has some serious after effects.
 
 <span class='red'>I-know-everything:</span> That is certainly true. This issue of adversarial example does put the mark on SOTA classifier really in a jeopardy! <span class='purple'>Are they really good as they claim, beating humans?</span>
 
@@ -113,7 +113,7 @@ $$
 
 ### Gradient-based adversarial attack
 
-These are the simplest technique that demonstrate the linearity of neural networks using Fast-Gradient Sign Method(FGSM) and as the name suggest these are gradient-based methods.
+These are the simplest technique that demonstrate the linearity of neural networks using Fast-Gradient Sign Method(FGSM) and as the name suggest they make use of gradients for successful attacks.
 
 #### Non-targeted adversarial attack
 
