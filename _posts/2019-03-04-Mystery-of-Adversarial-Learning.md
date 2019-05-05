@@ -8,7 +8,7 @@ published : true
 ---
 
 
-# Mystery of Adversarial Learning
+# Adversarial Learning
 
 In this notebook, 
 
@@ -99,7 +99,7 @@ A better way to illustrate the two, non-targeted and targeted attack is explaine
 
 > Suppose Professor Moriarty wishes to frame Sherlock Holmes for a crime. He may arrange for an unsuspected accomplice to give Sherlock Holmes a pair of very unique and ornate boots. After Sherlock has worn these boots in the presence of the policemen he routinely assists, the policemen will learn to associate the unique boots with him. Professor Moriarty may then commit a crime while wearing a second copy of the same pair of boots, leaving behind tracks that will cause Holmes to fall under suspicion.
 
-In machine learning, the strategy followed by the adversary is to perturb training points in a way that increases the prediction error of the machine learning when it is used in production. The simplest yet still very efficient algorithm is known as Fast Gradient Step Method (FGSM) is used by both the attacks to generate adversarial examples(*very fast*) introduced in [this](https://arxiv.org/pdf/1412.6572.pdf) paper by Goodfellow and colleagues at Google. <span class='saddlebrown'>The core idea is to add some defined $$\epsilon$$ weak noise on every step of optimization, drifting towards the desired class (targeted) — or, if you wish, away from the correct one (non-targeted).</span>
+In machine learning, the strategy followed by the adversary is to perturb training points in a way that increases the prediction error of the machine learning when it is used in production. The simplest yet still very efficient algorithm is known as Fast Gradient Step Method (FGSM) is used by both the attacks to generate adversarial examples(*very fast*) introduced in [this](https://arxiv.org/pdf/1412.6572.pdf) paper by Goodfellow and colleagues at Google. <span class='saddlebrown'>The core idea is to add some defined $$\epsilon$$ weak noise on every step of optimization, drifting towards the desired class (targeted) — or, away from the correct one (non-targeted).</span>
 
 $$
 \begin{aligned}
@@ -148,7 +148,7 @@ def non_targeted_attack(img):
 
 #### Targeted adversarial attack
 
-<span class='saddlebrown'>Targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of specific class for given input image.</span> The main change is the sign of the gradient. As opposed to the non-targeted attack, where the goal was to increase the error assuming that the targeted model is almost always correct, here we are going to minimize the error. Here we minimize the error by computing loss with respect to given (incorrect target) label such that when attack completes, the image outputs that it belongs to the specific class making the attack successful.
+<span class='saddlebrown'>Targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of specific class for given input image.</span> The main change is the sign of the gradient. As opposed to the non-targeted attack, where the goal was to increase the error assuming that the targeted model is almost always correct, here we are going to minimize the error. Here we minimize the error by computing loss with respect to given (incorrect target) label such that when attack completes, the image outputs that it belongs to the specific class, making the attack successful.
 
 ```python
 def targeted_attack(img, label_idx):
