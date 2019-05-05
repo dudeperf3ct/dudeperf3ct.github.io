@@ -55,7 +55,7 @@ Feel free to jump anywhere,
 
 <span class='green'>I-know-nothing:</span> Horse doing arithmetic? For real?  
 
-<span class='red'>I-know-everything:</span> Here is the picture of clever hans (a horse) with its owner lived in 1900s.
+<span class='red'>I-know-everything:</span> Here is the picture of clever hans with its owner lived in 1900s.
 
 <p align="center">
 <img src='/images/adv_learning/cleverhans.jpg' width="50%"/> 
@@ -63,7 +63,7 @@ Feel free to jump anywhere,
 
 ### Clever Hans
 
-There was a horse named Clever Hans who could do arithmetic (*Yes you read it right*). The trainer of horse was not any kind of charlatan, didn't want to make any money of any sort but gained a lot of attention and also believed it to be true. You could ask the horse to do *2+2* and then the horse would tap his foot 4 times. Huge crowd of people would gather and watch the horse perform. As far as anybody could tell, it really was able to actually answer wide variety of arithmetic questions people ask the horse. Later a psychologist decided to examine the horse. He went to an enclosed area with no other people and wore a mask and he asked the horse to do arithmetic and the horse couldn't do it at all. <span class='red'>It turned out what was happening that the horse had not learned arithmetic but *horse had learned how to read people's emotional reactions*.</span> So, you would ask the horse add 1 plus 2 and horse would tap his hoof once and crowd would stare at him in expectation. Then the horse would tap his hoof the second time and everybody in the crowd would sit on the edge and see, then he would tap his hoof the third time and everybody would be like oh my good he knows arithmetic. And then he would stop taping.
+There was a horse named Kluger Hans (clever hans) who could do arithmetic (*Yes you read it right*). The trainer of horse, Wilhelm von Osten, was not any kind of charlatan, didn't want to make any money of any sort but gained a lot of attention and also believed it to be true. You could ask the horse to do *2+2* and then the horse would tap his foot 4 times. Huge crowd of people would gather and watch the horse perform. As far as anybody could tell, it really was able to actually answer wide variety of arithmetic questions people ask the horse. Later a psychologist decided to examine the horse. He went to an enclosed area with no other people and wore a mask and he asked the horse to do arithmetic and the horse couldn't do it at all. <span class='red'>It turned out what was happening that the horse had not learned arithmetic but *horse had learned how to read people's emotional reactions*.</span> So, you would ask the horse add 1 plus 2 and horse would tap his hoof once and crowd would stare at him in expectation. Then the horse would tap his hoof the second time and everybody in the crowd would sit on the edge and see, then he would tap his hoof the third time and everybody would be like oh my good he knows arithmetic. And then he would stop taping.
 
 So, clever hans was trained to answer these questions. And he found a way of doing it that made him appear to be successful by metric of "Can he provide the right answer where roomful of people are watching him?". He hadn't learned arithmetic and so could not generalise to unusual situations when there weren't a room of people to provide the reactions that he needed to solve the problem. 
 
@@ -228,7 +228,7 @@ Changing one pixel turns ship into 99.7% car, horse into 99.9% frog or a deer in
 <img src='/images/adv_learning/traffic_sign.png' width="50%"/> 
 </p>
 
-Here is a recent [demo](https://v.qq.com/x/page/x0855xzykn4.html) by Tencent Keen Security Lab which conducted research on Autopilot of Tesla Model S and achieved 3 flaws, *Auto-wipers Vision Recognition Flaw*, *Lane Recognition Flaw* and *Control Steering System with Gamepad*. For more details on the technical details, [here](https://keenlab.tencent.com/en/whitepapers/Experimental_Security_Research_of_Tesla_Autopilot.pdf) is the paper and must watch [video](https://www.youtube.com/watch?v=6QSsKy0I9LE) demonstrating each of the flaws. *Controlling Tesla steering with Gamepad, finally all GTA practise paying off.*
+Here is a recent [demo](https://v.qq.com/x/page/x0855xzykn4.html) by **Tencent Keen Security Lab which conducted research on Autopilot of Tesla Model S and achieved 3 flaws**, *Auto-wipers Vision Recognition Flaw*, *Lane Recognition Flaw* and *Control Steering System with Gamepad*. For more details on the technical details, [here](https://keenlab.tencent.com/en/whitepapers/Experimental_Security_Research_of_Tesla_Autopilot.pdf) is the paper and must watch [video](https://www.youtube.com/watch?v=6QSsKy0I9LE) demonstrating each of the flaws. *Controlling Tesla steering with Gamepad, finally all GTA practise paying off.*
 
 And imagination is limit. There are so many bad examples which can be exploited. <span class='red'>Just like any new technology not designed with security in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).</span>
 
@@ -240,11 +240,11 @@ One way for Adversarial training is to proactively generate adversarial examples
 
 <span class='saddlebrown'>Another way is gradient hiding which consists of hiding information about model's gradient from adversary by using non-differentiable models such as a Decision Tree, a NearestNeighbor Classifier, or a Random Forest.</span> However, this defense are easily fooled by learning a surrogate Black-Box model having gradient and crafting examples using it. The attacker can train their own model, a smooth model that has a gradient, make adversarial examples for their model, and then deploy those adversarial examples against our non-smooth model.
 
-There are many different defenses such as [Defensive Distillation](https://arxiv.org/pdf/1511.04508), image processing methods such as [scalar quantization, spatial smoothing filter](https://arxiv.org/pdf/1705.08378.pdf), [squeezing color bits and local/non-local spatial smoothing](https://arxiv.org/pdf/1704.01155.pdf) and [many more](https://paperswithcode.com/task/adversarial-defense).
+There are many different defenses such as [Defensive Distillation](https://arxiv.org/pdf/1511.04508), image processing methods such as [scalar quantization, spatial smoothing filter](https://arxiv.org/pdf/1705.08378.pdf), [squeezing color bits and local/non-local spatial smoothing](https://arxiv.org/pdf/1704.01155.pdf) and [many more](https://paperswithcode.com/task/adversarial-defense) where each is good against specific attacks.
 
 ## Evaluating Adversarial Robustness
 
-<span class='saddlebrown'>The competition between attacks and defenses for adversarial examples becomes an “arms race”: a defensive method that was  proposed to prevent existing attacks was later shown to be vulnerable to some new attacks, and vice versa. Some defenses showed that they could defend a  particular attack, but later failed with a slight change of the attack. Hence, the evaluation on the robustness of a deep neural network is necessary.</span> Nicholas Carlini et al in [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf) outlines three common reasons why one might be interested in evaluating the robustness of a machine learning model which are, *To defend against an adversary who will attack the system*, *to test the worst-case robustness of machine learning algorithms* and *to measure progress of machine learning algorithms towards human-level abilities*. Adversarial robustness is a measure of progress in machine learning that is orthogonal to performance.
+<span class='saddlebrown'>The competition between attacks and defenses for adversarial examples becomes an “arms race”: a defensive method that was  proposed to prevent existing attacks was later shown to be vulnerable to some new attacks, and vice versa. Some defenses showed that they could defend a particular attack, but later failed with a slight change of the attack. Hence, the evaluation on the robustness of a deep neural network is necessary.</span> Nicholas Carlini et al in [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf) outlines three common reasons why one might be interested in evaluating the robustness of a machine learning model which are, *To defend against an adversary who will attack the system*, *to test the worst-case robustness of machine learning algorithms* and *to measure progress of machine learning algorithms towards human-level abilities*. **Adversarial robustness is a measure of progress in machine learning that is orthogonal to performance.**
 
 
 ## Beyond Images
@@ -253,7 +253,8 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 
 **Speech Recognition**
 
-[Here](https://www.youtube.com/watch?v=HvZAZFztlO0) is video demonstrating adversarial example in speech recognition.
+[![Speech Recognition](http://img.youtube.com/vi/HvZAZFztlO0/0.jpg)](http://www.youtube.com/watch?v=HvZAZFztlO0 "")
+
 
 **Question Answering Systems**
 
@@ -263,7 +264,7 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 
 **RL**
 
-[Here](https://www.youtube.com/watch?&v=r2jm0nRJZdI) is video demonstrating adversarial example in RL.
+[![RL](http://img.youtube.com/vi/r2jm0nRJZdI/0.jpg)](http://www.youtube.com/watch?v=r2jm0nRJZdI "")
 
 **Object Detection and Semantic Segmentation**
 
@@ -288,11 +289,14 @@ Well that really concludes adversarial machine learning. Where to next? <span cl
 
 FGSM - Fast Gradient Sign Method
 
+C&W - Carlini and Wagner
+
 CNN - Convolution Neural Networks
 
 RL - Reinforcement Learning
 
 GAN - Generative Adversarial Networks
+
 
 ---
 
@@ -363,6 +367,8 @@ Elie's blog on [Attacks against machine learning — an overview](https://elie.n
 [Meme](https://medium.com/@ml.at.berkeley/tricking-neural-networks-create-your-own-adversarial-examples-a61eb7620fd8)
 
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
+
+[Clever hans](https://www.kaggle.com/allunia/how-to-attack-a-machine-learning-model)
 
 [Turtle Video](https://www.labsix.org/physical-objects-that-fool-neural-nets/)
 
