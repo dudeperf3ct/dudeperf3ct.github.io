@@ -253,7 +253,7 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 
 **Speech Recognition**
 
-[![Speech Recognition](http://img.youtube.com/vi/HvZAZFztlO0/0.jpg)](http://www.youtube.com/watch?v=HvZAZFztlO0 "Video")
+[![Speech Recognition](https://img.youtube.com/vi/HvZAZFztlO0/0.jpg)](http://www.youtube.com/watch?v=HvZAZFztlO0 "Video")
 
 
 **Question Answering Systems**
@@ -264,7 +264,7 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 
 **RL**
 
-[![RL](http://img.youtube.com/vi/r2jm0nRJZdI/0.jpg)](http://www.youtube.com/watch?v=r2jm0nRJZdI "Video")
+[![RL](https://img.youtube.com/vi/r2jm0nRJZdI/0.jpg)](http://www.youtube.com/watch?v=r2jm0nRJZdI "Video")
 
 **Object Detection and Semantic Segmentation**
 
@@ -272,7 +272,7 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 <img src='/images/adv_learning/detection.png' width="50%"/> 
 </p>
 
-[![RL](http://img.youtube.com/vi/MIbFvK2S9g8/0.jpg)](https://www.youtube.com/watch?v=MIbFvK2S9g8 "Video")
+[![RL](https://img.youtube.com/vi/MIbFvK2S9g8/0.jpg)](https://www.youtube.com/watch?v=MIbFvK2S9g8 "Video")
 
 
 
