@@ -941,7 +941,7 @@ I couldn't make any conversation like a Walter White subject... Reject madmen of
 | Unfreeze whole and train | 8   |  7 |  0.474538  |	0.446159  | 82.9293 |
 
 
-Next, we will move back to vision and understand one of the very serious problem in next post on <span class='purple'>Mystery of Adversarial Learning</span>.
+Next, we will move back to vision and understand one of the very serious problem in next post on <span class='purple'>[Mystery of Adversarial Learning](https://dudeperf3ct.github.io/adversarial/learning/2019/03/04/Mystery-of-Adversarial-Learning/)</span>.
 
 <span class='orange'>Happy Learning!</span>
 
