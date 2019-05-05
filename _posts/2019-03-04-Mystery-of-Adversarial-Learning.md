@@ -2,7 +2,7 @@
 layout:     post
 title:      Mystery of Adversarial Learning
 date:       2019-03-04 12:00:00
-summary:    This post will provide a brief introduction to 
+summary:    This post will provide a brief introduction to adversarial machine learning where we introduce to different attacks and defense methods and give the examples in real-world scenarios.
 categories: adversarial learning
 published : false
 ---
@@ -51,11 +51,11 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span> My dear young padwan, you are learning quite a lot and honestly, keeping up with the pace of reasearch is really a challenge in itself. But we have tried to cover and focus on the basic concepts in Deep Learning and its application. The journey so far has been like visting a lot of cool stations. We visited MLP, CNN, RNN, LSTM & GRU, and also we visited one the very famous places Transfer Learning in CNN and Transfer Learning in NLP. Hope you enjoyed the journey. A lot is still waiting to be explored. One such topic of interest today is about Adversarial Training. But before that let me tell you a story about *clever horse named Clever Hans who could do arithmetic*.
+<span class='red'>I-know-everything:</span> My dear young padwan, you are learning quite a lot and honestly, keeping up with the pace of on-going reasearch in the field of deep learning, it's is really a challenge in itself. But we have tried to cover and focus on the basic concepts in Deep Learning and its application. The journey so far has been like visting a lot of cool stations. We visited [MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/), [CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/), [RNN](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/), [LSTM & GRU](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/), and also we visited one the very famous places [Transfer Learning in CNN](https://dudeperf3ct.github.io/transfer/learning/catsvsdogs/2018/11/20/Power-of-Transfer-Learning/) and [Transfer Learning in NLP](https://dudeperf3ct.github.io/nlp/transfer/learning/2019/02/22/Power-of-Transfer-Learning-in-NLP/). Hope you enjoyed the journey. A lot is still waiting to be explored. One such topic of interest today is about *Adversarial Learning*. But before that let me tell you a story about *clever horse named Clever Hans who could do arithmetic*.
 
 <span class='green'>I-know-nothing:</span> Horse doing arithmetic? For real?  
 
-<span class='red'>I-know-everything:</span> Here is the picture of clever hans (a horse) with its owner lived in 1900s. The story of Clever Hans goes like this: 
+<span class='red'>I-know-everything:</span> Here is the picture of clever hans (a horse) with its owner lived in 1900s.
 
 <p align="center">
 <img src='/images/adv_learning/cleverhans.jpg' width="50%"/> 
@@ -63,25 +63,25 @@ Feel free to jump anywhere,
 
 ### Clever Hans
 
-There was a horse named Clever Hans who could do arithmetic (*Yes you read it right*). The trainer of horse was not any kind of charlatan, didn't want to make any money of any sort but gained a lot of attention but also believed it to be true. You could ask the horse to do *2+2* and then the horse would tap his foot 4 times. Huge crowd of people would gather and watch the horse perform. As far as anybody could tell, it really was able to actually answer wide variety of questions people ask the horse. Later a psychologist decided to examine the horse. He went to an enclosed area with no other people and wore a mask and he asked the horse to do arithmetic and the horse couldn't do it at all. It turned out what was happening that the horse had not learned arithmetic but *horse had learned how to read people's emotional reactions*. So, you would ask the horse add 1 plus 2 and horse would tap his hoof once and crowd would stare at him in expectation. Then the horse would tap his hoof the second time and everybody in the crowd would sit on the edge and see, then he would tap his hoof the third time and everybody would be like oh my good he knows arithmetic. And then he would stop taping.
+There was a horse named Clever Hans who could do arithmetic (*Yes you read it right*). The trainer of horse was not any kind of charlatan, didn't want to make any money of any sort but gained a lot of attention and also believed it to be true. You could ask the horse to do *2+2* and then the horse would tap his foot 4 times. Huge crowd of people would gather and watch the horse perform. As far as anybody could tell, it really was able to actually answer wide variety of arithmetic questions people ask the horse. Later a psychologist decided to examine the horse. He went to an enclosed area with no other people and wore a mask and he asked the horse to do arithmetic and the horse couldn't do it at all. <span class='red'>It turned out what was happening that the horse had not learned arithmetic but *horse had learned how to read people's emotional reactions*.</span> So, you would ask the horse add 1 plus 2 and horse would tap his hoof once and crowd would stare at him in expectation. Then the horse would tap his hoof the second time and everybody in the crowd would sit on the edge and see, then he would tap his hoof the third time and everybody would be like oh my good he knows arithmetic. And then he would stop taping.
 
 So, clever hans was trained to answer these questions. And he found a way of doing it that made him appear to be successful by metric of "Can he provide the right answer where roomful of people are watching him?". He hadn't learned arithmetic and so could not generalise to unusual situations when there weren't a room of people to provide the reactions that he needed to solve the problem. 
 
-<span class='green'>I-know-nothing:</span> Ahh now I see, the horse was clever indeed in reading people's emotional reactions. But how does this relate to Machine Learning I wonder?
+<span class='green'>I-know-nothing:</span> Ahh now I see, the horse indeed was clever in reading people's emotional reactions. But how does this relate to Machine Learning I wonder?
 
-<span class='red'>I-know-everything:</span> Great! So, we have seen how a vision model, where we use CNN, was able to attain human level accuracy in classifying images and we also saw what the model is actually looking at when it is classifying the image. If we given the following image of "panda" to the classifier it correctly predicts that image as "panda" but if we add a little(*calculated and not random*) noise to the same image, as you can see the resultant image(*original image + noise*) isn't much different from the original panda image. If we pass this resultant image to the classifier, it predicts the image as "gibbon" with 99% confidence.(😞) This resultant image is called "Adversarial Example". This example is *fooling CNN into thinking that panda is a gibbon.*
+<span class='red'>I-know-everything:</span> Great! So, we have seen how a vision model, where we use CNN, was able to attain human level accuracy in classifying images and we also saw [what the model is actually looking](https://dudeperf3ct.github.io/visualize/cnn/catsvsdogs/2018/12/02/Power-of-Visualizing-Convolution-Neural-Networks/) at when it is classifying the image. If we give the following image of "panda" to the classifier it correctly predicts that image as "panda" but if we add a little(*calculated and not random*) noise to the same image, as you can see the resultant image(*original image + noise*) isn't much different from the original panda image. If we pass this resultant image to the classifier, it predicts the image as "gibbon" with 99% confidence.(😞) This resultant image is called "Adversarial Example". This example is *fooling CNN into thinking that panda is a gibbon.*
 
 <p align="center">
 <img src='/images/adv_learning/panda.jpg' width="50%"/> 
 </p>
 
-An Adversarial Example is an example that has been carefully computed to be misclassified. To make a new image indistinguishable to human obeserver from original image. Adversaries can craftily manipulate legitimate inputs, which may be imperceptible to human eye, but can force a trained model to produce incorrect outputs.
+<span class='green'>An Adversarial Example is an example that has been carefully computed to be misclassified. To make a new image indistinguishable to human obeserver from original image. Adversaries can craftily manipulate legitimate inputs, which may be imperceptible to human eye, but can force a trained model to produce incorrect outputs.</span>
 
-<span class='green'>I-know-nothing:</span> So what is really going on? Did the classifier cheat with us the same way Clever hans did? Are there any other methods which we can cheat? Is there any way to defend this cheating? Is it only in images or also in other tasks such as NLP and RL? This cheating can really put the state of the art classifier in a very difficult position as to are they really state of the art(SOTA) in classification and if someone misuses these techniques in fooling the classifier. This certainly has some serious after effects.
+<span class='green'>I-know-nothing:</span> So what is really going on? *Did the classifier cheat with us the same way Clever hans did? Are there any other methods which we can cheat? Is there any way to defend this cheating? Is it only in images or also in other tasks such as NLP and RL?* This cheating can really put the state of the art classifier in a very difficult position as to are they really state of the art(SOTA) in classification and if someone misuses these techniques in fooling the classifier. This certainly has some serious after effects.
 
-<span class='red'>I-know-everything:</span> That is certainly true. This issue of adversarial example does put the mark of SOTA  on classifier really in a jeopardy! Are they really good as they claim, beating humans?
+<span class='red'>I-know-everything:</span> That is certainly true. This issue of adversarial example does put the mark on SOTA classifier really in a jeopardy! <span class='purple'>Are they really good as they claim, beating humans?</span>
 
-There are mainly 3 types of adversarial attacks. We will explain why is it so easy to perform them, and discuss the security implications that stem from these attacks.
+There are mainly **3 types of adversarial attacks**. We will explain why is it so easy to perform them, and discuss the security implications that stem from these attacks.
 
 1. Gradient-based adversarial attack
 2. Optimization-based adversarial attack 
@@ -89,17 +89,17 @@ There are mainly 3 types of adversarial attacks. We will explain why is it so ea
 
 ## Adversarial Attacks
 
-A trained CNN model acts as a linear seperator for high dimensional data for different classes where every point(image) is associated with its class. Of course, the boundary of seperation is not perfect. This provides an opportunity to push one image from one class to another (*cross the boundary*) i.e. perturbing the input data in the direction of another class.
+A trained CNN model acts as a linear seperator for high dimensional data for different classes, where every point(image) is associated with its class. Of course, the boundary of seperation is not perfect. <span class='green'>This provides an opportunity to push one image from one class to another (*cross the boundary*) i.e. perturbing the input data in the direction of another class.</span>
 
 <p align="center">
 <img src='/images/adv_learning/boundary.png' width="50%"/> 
 </p>
 
-A better way to illustrate the two, non-targeted and targeted attack is explained by this story of Sherlock Holmes on [cleverhans](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html) blog :
+A better way to illustrate the two, non-targeted and targeted attack is explained by the story of Sherlock Holmes on [cleverhans](http://www.cleverhans.io/security/privacy/ml/2016/12/16/breaking-things-is-easy.html) blog :
 
 > Suppose Professor Moriarty wishes to frame Sherlock Holmes for a crime. He may arrange for an unsuspected accomplice to give Sherlock Holmes a pair of very unique and ornate boots. After Sherlock has worn these boots in the presence of the policemen he routinely assists, the policemen will learn to associate the unique boots with him. Professor Moriarty may then commit a crime while wearing a second copy of the same pair of boots, leaving behind tracks that will cause Holmes to fall under suspicion.
 
-In machine learning, the strategy followed by the adversary is to perturb training points in a way that increases the prediction error of the machine learning when it is used in production. The simplest yet still very efficient algorithm is known as Fast Gradient Step Method (FGSM) is used by both the attacks to generate adversarial examples(*very fast*) introduced in [this](https://arxiv.org/pdf/1412.6572.pdf) paper by Goodfellow and colleagues at Google. The core idea is to add some defined $$\epsilon$$ weak noise on every step of optimization, drifting towards the desired class (targeted) — or, if you wish, away from the correct one (non-targeted).
+In machine learning, the strategy followed by the adversary is to perturb training points in a way that increases the prediction error of the machine learning when it is used in production. The simplest yet still very efficient algorithm is known as Fast Gradient Step Method (FGSM) is used by both the attacks to generate adversarial examples(*very fast*) introduced in [this](https://arxiv.org/pdf/1412.6572.pdf) paper by Goodfellow and colleagues at Google. <span class='saddlebrown'>The core idea is to add some defined $$\epsilon$$ weak noise on every step of optimization, drifting towards the desired class (targeted) — or, if you wish, away from the correct one (non-targeted).</span>
 
 $$
 \begin{aligned}
@@ -117,7 +117,7 @@ These are the simplest technique that demonstrate the linearity of neural networ
 
 #### Non-targeted adversarial attack
 
-Non-targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of any other class than input image class. Here the objective is to perturb the input image in direction where the gradient increases error by some $$\epsilon$$ in such a way that when we reconstruct the resultant adversarial image it looks indistinguishable than the original image.
+<span class='saddlebrown'>Non-targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of any other class than input image class.</span> Here the objective is to perturb the input image in direction where the gradient increases error by some $$\epsilon$$ in such a way that when we reconstruct the resultant adversarial image it looks indistinguishable than the original image.
 
 ```python
 def non_targeted_attack(img):
@@ -148,7 +148,7 @@ def non_targeted_attack(img):
 
 #### Targeted adversarial attack
 
-Targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of specific class for given input image. The main change is the sign of the gradient. As opposed to the non-targeted attack, where the goal was to increase the error assuming that the targeted model is almost always correct, here we are going to minimize the error. Here we minimize the error by computing loss with respect to given (incorrect target) label such that when attack completes, the image outputs that it belongs to the specific class making the attack successful.
+<span class='saddlebrown'>Targeted adversarial attack uses FGSM to makes the classifier to give incorrect result of specific class for given input image.</span> The main change is the sign of the gradient. As opposed to the non-targeted attack, where the goal was to increase the error assuming that the targeted model is almost always correct, here we are going to minimize the error. Here we minimize the error by computing loss with respect to given (incorrect target) label such that when attack completes, the image outputs that it belongs to the specific class making the attack successful.
 
 ```python
 def targeted_attack(img, label_idx):
@@ -191,12 +191,12 @@ These are not only the gradient-based adversarial attacks but are the simplest.
 
 ### Optimization-based adversarial attack
 
-C&W attack introduced in [Towards Evaluating the Robustnessof Neural Networks](https://arxiv.org/pdf/1608.04644.pdf) is by far one of the strongest attacks. They formulate targeted adversarial attacks as an optimization problem, take advantage of the internal configurations of a targeted DNN for attack guidance, and use the $$L_{2}$$ norm (i.e. Euclidean distance) to quantify the difference between the adversarial and the original examples. In particular, the representation in the logit layer (the layer prior to the final fully connected layer) is used as an indicator of attack effectiveness. Consequently, the C&W attack can be viewed as a gradient-descent based targeted adversarial attack driven by the representation of the logit layer of a targeted DNN and the $$L_{2}$$ distortion. C&W attack picks random multiple random starting points close to the original image and run gradient descent from each of those points for a fixed number of iterations. They tried three optimizers — standard gradient descent, gradient descent with momentum, and Adam — and all three produced identical-quality solutions. However, Adam converges substantially more quickly than the others.
+<span class='saddlebrown'>C&W attack introduced in [Towards Evaluating the Robustnessof Neural Networks](https://arxiv.org/pdf/1608.04644.pdf) is by far one of the strongest attacks.</span> They formulate targeted adversarial attacks as an optimization problem, take advantage of the internal configurations of a targeted DNN for attack guidance, and use the $$L_{2}$$ norm (i.e. Euclidean distance) to quantify the difference between the adversarial and the original examples. In particular, the representation in the logit layer (the layer prior to the final fully connected layer) is used as an indicator of attack effectiveness. Consequently, the C&W attack can be viewed as a gradient-descent based targeted adversarial attack driven by the representation of the logit layer of a targeted DNN and the $$L_{2}$$ distortion. <span class='saddlebrown'>C&W attack picks random multiple random starting points close to the original image and run gradient descent from each of those points for a fixed number of iterations.</span> They tried three optimizers — standard gradient descent, gradient descent with momentum, and Adam — and all three produced identical-quality solutions. However, Adam converges substantially more quickly than the others.
 
 
 ### Model stealing techniques
 
-Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing. Both the above attacks can be considered as whitebox attacks where the attacker has access to the model’s parameters (gradient in this case) whereas in black box attacks, the attacker has no access to these parameters, i.e., it uses a different model or no model at all to generate adversarial images with the hope that these will transfer to the target model. 
+<span class='saddlebrown'>Model stealing Techniques are used to “steal” (i.e., duplicate) models or recover training data membership via blackbox probing.</span> Both the above attacks can be considered as whitebox attacks where the attacker has access to the model’s parameters (gradient in this case) whereas in black box attacks, the attacker has no access to these parameters, i.e., it uses a different model or no model at all to generate adversarial images with the hope that these will transfer to the target model. 
 
 In the black-box settings, the machine learning model is said to act as an *oracle*. One strategy in using black-box setting for stealing called *oracle attack* is to first query the oracle in order to extract an approximation of its decision boundaries—the substitute model—and then use that extracted model to craft adversarial examples that are misclassified by the oracle. This is one of the attacks that exploit the transferability of adversarial examples: they are often misclassified simultaneously across different models solving the same machine learning task, despite the fact that these models differ in their architecture or training data.
 
@@ -212,8 +212,7 @@ Sometimes perturbing too many pixels can make the modified image seem perceptibl
 <img src='/images/adv_learning/one_pixel.png' width="50%"/> 
 </p>
 
-Changing one pixel turns ship into 99.7% car, horse into 99.9% frog or a deer into airplane. This means we cannot just randomly select any pixel from image, it has to be specific for it to work. This is where Differential Evolution comes into play. DE belongs to the general class of evolutionary algorithms which does not use the gradient information for optimizing and therefore  does not require the objective function to be differentiable. As with typical EA algorithms during each iteration, set of candidate solutions is generated according to current population. Then children are compared with their corresponding parent  surviving if they are more fitted than their parents. And this is how from random pixels DE chooses one pixel which confidently changes the class to input image. The last surviving child is used to alter the pixel in the image.
-
+Changing one pixel turns ship into 99.7% car, horse into 99.9% frog or a deer into airplane. This means we cannot just randomly select any pixel from image, it has to be specific for it to work. This is where Differential Evolution comes into play. DE belongs to the general class of evolutionary algorithms which does not use the gradient information for optimizing and therefore  do not require the objective function to be differentiable. As with typical EA algorithms during each iteration, set of candidate solutions is generated according to current population. Then children are compared with their corresponding parent surviving if they are more fitted than their parents. The last surviving child is used to alter the pixel in the image. And this is how from random pixels DE chooses one pixel which confidently changes the class to input image. 
 
 ## Real World Examples
 
@@ -231,38 +230,42 @@ Changing one pixel turns ship into 99.7% car, horse into 99.9% frog or a deer in
 
 Here is a recent [demo](https://v.qq.com/x/page/x0855xzykn4.html) by Tencent Keen Security Lab which conducted research on Autopilot of Tesla Model S and achieved 3 flaws, *Auto-wipers Vision Recognition Flaw*, *Lane Recognition Flaw* and *Control Steering System with Gamepad*. For more details on the technical details, [here](https://keenlab.tencent.com/en/whitepapers/Experimental_Security_Research_of_Tesla_Autopilot.pdf) is the paper and must watch [video](https://www.youtube.com/watch?v=6QSsKy0I9LE) demonstrating each of the flaws. *Controlling Tesla steering with Gamepad, finally all GTA practise paying off.*
 
-And imagination is limit. There are so many bad examples which can be exploited. Just like any new technology not designed with security in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).
+And imagination is limit. There are so many bad examples which can be exploited. <span class='red'>Just like any new technology not designed with security in mind, when deploying a machine learning system in the real-world, there will be adversaries who wish to cause harm as long as there exist incentives(i.e., they benefit from the system misbehaving).</span>
 
 ## Defenses against Adversarial Attacks
 
-What can be done? How can we avoid Adversarial attacks? From criticality of above examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed. *Adversarial training* can defend against FGSM attack by causing gradient masking, where locally the gradient around a given image may point in a direction that is not useful for generating an adversarial example. 
+What can be done? How can we avoid Adversarial attacks? From criticality of above real-world examples we can infer that Adversarial Examples are security concern. Thus there is need to create a robust machine learning algorithm such that if a powerful adversary who is intentionally trying to cause a system to misbehave cannot succeed. *Adversarial training* can defend against FGSM attack by causing gradient masking, where locally the gradient around a given image may point in a direction that is not useful for generating an adversarial example. 
 
-One way for Adversarial Training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. Adversarial training is a standard brute force approach where the defender simply generates a lot of adversarial examples and augments these perturbed data while training the targeted model. Adversarial training of a model is useful only on adversarial examples which are crafted on the original model. The defense is not robust for black-box attacks where an adversary generates malicious examples on a locally trained substitute model. 
+One way for Adversarial training is to proactively generate adversarial examples as part of the training procedure. We have already seen how we can leverage FGSM to generate adversarial examples inexpensively in large batches. The model is then trained to assign the same label to the adversarial example as to the original example—for example, we might take a picture of a cat, and adversarially perturb it to fool the model into thinking it is a vulture, then tell the model it should learn that this picture is still a cat. <span class='saddlebrown'>Adversarial training is a standard brute force approach where the defender simply generates a lot of adversarial examples and augments these perturbed data while training the targeted model.</span> Adversarial training of a model is useful only on adversarial examples which are crafted on the original model. The defense is not robust for black-box attacks where an adversary generates malicious examples on a locally trained substitute model. 
 
-Another way is gradient hiding which consists of hiding information about model's gradient from adversary by using non-differentiable models such as a Decision Tree, a NearestNeighbor Classifier, or a Random Forest. However, this defense are easily fooled by learning a surrogate Black-Box model having gradient and crafting examples using it. The attacker can train their own model, a smooth model that has a gradient, make adversarial examples for their model, and then deploy those adversarial examples against our non-smooth model.
+<span class='saddlebrown'>Another way is gradient hiding which consists of hiding information about model's gradient from adversary by using non-differentiable models such as a Decision Tree, a NearestNeighbor Classifier, or a Random Forest.</span> However, this defense are easily fooled by learning a surrogate Black-Box model having gradient and crafting examples using it. The attacker can train their own model, a smooth model that has a gradient, make adversarial examples for their model, and then deploy those adversarial examples against our non-smooth model.
 
 There are many different defenses such as [Defensive Distillation](https://arxiv.org/pdf/1511.04508), image processing methods such as [scalar quantization, spatial smoothing filter](https://arxiv.org/pdf/1705.08378.pdf), [squeezing color bits and local/non-local spatial smoothing](https://arxiv.org/pdf/1704.01155.pdf) and [many more](https://paperswithcode.com/task/adversarial-defense).
 
 ## Evaluating Adversarial Robustness
 
-The competition between attacks and defenses for adversarial examples becomes an “arms race”: a defensive method that was  proposed to prevent existing attacks was later shown to be vulnerable to some new attacks, and vice versa. Some defenses showed that they could defend a  particular attack, but later failed with a slight change of the attack. Hence, the evaluation on the robustness of a deep neural network is necessary. Nicholas Carlini et al in [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf) outlines three common reasons why one might be interested in evaluating the robustness of a machine learning model which are, *To defend against an adversary who will attack the system*, *to test the worst-case robustness of machine learning algorithms* and *to measure progress of machine learning algorithms towards human-level abilities*. Adversarial robustness is a measure of progress in machine learning that is orthogonal to performance.
+<span class='saddlebrown'>The competition between attacks and defenses for adversarial examples becomes an “arms race”: a defensive method that was  proposed to prevent existing attacks was later shown to be vulnerable to some new attacks, and vice versa. Some defenses showed that they could defend a  particular attack, but later failed with a slight change of the attack. Hence, the evaluation on the robustness of a deep neural network is necessary.</span> Nicholas Carlini et al in [On Evaluating Adversarial Robustness](https://arxiv.org/pdf/1902.06705.pdf) outlines three common reasons why one might be interested in evaluating the robustness of a machine learning model which are, *To defend against an adversary who will attack the system*, *to test the worst-case robustness of machine learning algorithms* and *to measure progress of machine learning algorithms towards human-level abilities*. Adversarial robustness is a measure of progress in machine learning that is orthogonal to performance.
 
 
 ## Beyond Images
 
 Adversarial examples are not limited to image classification. Adversarial examples are seen in [speech recognition](https://arxiv.org/pdf/1801.01944), [question answering systems](https://arxiv.org/pdf/1707.07328), [reinforcement learning](https://arxiv.org/abs/1702.02284), [object detection and semantic segmentation](https://openaccess.thecvf.com/content_iccv_2017/html/Xie_Adversarial_Examples_for_ICCV_2017_paper.html) and other tasks.
 
+**Speech Recognition**
+
 [Here](https://www.youtube.com/watch?v=HvZAZFztlO0) is video demonstrating adversarial example in speech recognition.
 
-Below is example demonstrating adversarial example in question answering system.
+**Question Answering Systems**
 
 <p align="center">
 <img src='/images/adv_learning/text_adv.png' width="50%"/> 
 </p>
 
+**RL**
+
 [Here](https://www.youtube.com/watch?&v=r2jm0nRJZdI) is video demonstrating adversarial example in RL.
 
-Below is example demonstrating adversarial example in object detection and semantic segmentation.
+**Object Detection and Semantic Segmentation**
 
 <p align="center">
 <img src='/images/adv_learning/detection.png' width="50%"/> 
@@ -272,8 +275,8 @@ Below is example demonstrating adversarial example in object detection and seman
 ## Conclusion
 
 - The study of adversarial examples is exciting because many of the most important problems remain open, both in terms of theory and in terms of applications. 
-- On the theoretical side, no one yet knows whether defending against adversarial examples is a theoretically hopeless endeavour (like trying to find a universal machine learning algorithm) or if an optimal strategy would give the defender the upper ground (like in cryptography and differential privacy). The lacking of proper theoretical tools to describe the solution to these complex optimization problems make it even harder to make any theoretical argument that a particular defense will rule out a set of adversarial examples.
-- On the applied side, no one has yet designed a truly powerful defense algorithm that can resist a wide variety of adversarial example attack algorithms. Most of the current defense strategies are not adaptive to all types of adversarial attack as one method may block one kind of attack but leaves another vulnerability open to an attacker who knows the underlying defense mechanism.
+- **On the theoretical side**, <span class='saddlebrown'>no one yet knows whether defending against adversarial examples is a theoretically hopeless endeavour (like trying to find a universal machine learning algorithm) or if an optimal strategy would give the defender the upper ground (like in cryptography and differential privacy).</span> The lacking of proper theoretical tools to describe the solution to these complex optimization problems make it even harder to make any theoretical argument that a particular defense will rule out a set of adversarial examples.
+- **On the applied side**, <span class='saddlebrown'>no one has yet designed a truly powerful defense algorithm that can resist a wide variety of adversarial example attack algorithms.</span> Most of the current defense strategies are not adaptive to all types of adversarial attack as one method may block one kind of attack but leaves another vulnerability open to an attacker who knows the underlying defense mechanism.
 
 Well that really concludes adversarial machine learning. Where to next? <span class='purple'>Power of GAN</span>. 
 
