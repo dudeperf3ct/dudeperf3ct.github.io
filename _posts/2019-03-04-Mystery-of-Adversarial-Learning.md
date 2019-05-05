@@ -272,6 +272,9 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 <img src='/images/adv_learning/detection.png' width="50%"/> 
 </p>
 
+[![RL](http://img.youtube.com/vi/MIbFvK2S9g8/0.jpg)](https://www.youtube.com/watch?v=MIbFvK2S9g8 "Video")
+
+
 
 ## Conclusion
 
