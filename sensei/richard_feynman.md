@@ -82,6 +82,8 @@ A second good way to check rules is in terms of less specific rules derived from
 
 The third way to tell whether our ideas are right is relatively crude but probably the most powerful of them all. That is, by rough approximation. While we may not be able to tell why Alekhine moves this particular piece, perhaps we can roughly understand that he is gathering his pieces around the king to protect it, more or less, since that is the sensible thing to do in the circumstances. In the same way, we can often understand nature, more or less, without being able to see what every little piece is doing, in terms of our understanding of the game.
 
+The difficulties of science are to a large extent the difficulties of notations, the units, and all the other artificialities which are invented by man, not by nature.
+
 Quotes
 ==========================
 
