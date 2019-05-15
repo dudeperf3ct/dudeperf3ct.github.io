@@ -95,6 +95,12 @@ Look for the simplest, most elementary solution to a problem that was possible. 
 
 I can live with doubt and uncertainty and not knowing. I think it’s much more interesting to live not knowing than to have answers which might be wrong. 
 
+He was the most original mind of his generation — Freeman Dyson
+
+There are two types of genius. Ordinary geniuses do great things, but they leave you room to believe that you could do the same if only you worked hard enough. Then there are magicians, and you can have no idea how they do it. Feynman was a magician. — Hans Bethe
+
+Both a showman and a very practical thinker. It is unlikely that the world will see another Richard Feynman. — Paul Davies
+
 I learned very early the difference between knowing the name of something and knowing something.
 
 Just the runner gets kick out of sweating, I get the run out of thinking.
