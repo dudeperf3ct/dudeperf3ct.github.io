@@ -90,6 +90,8 @@ A business should be viewed as an unfolding movie, not as a still photograph tex
 
 Chains of habit are too light to be felt, until they are too heavy to be broken.
 
+As they say in poker, “If you’ve been in the game 30 minutes and you don’t know who the patsy is, you’re the patsy.”
+
 Stories
 ===========================
 
