@@ -104,6 +104,8 @@ The great philosopher who said 'A man never steps into the same river twice,' yo
 
 <span class='red'>You can argue that if you're not willing to react with equanimity to a market price decline of 50% two or three times a century you're not fit to be a common shareholder, and you deserve the mediocre result you're going to get compared to the people who can be more philosophical about these market fluctuations.</span>
 
+Charlie Munger on Charles Darwin: “He trained himself to consider any evidence tending to disconfirm any hypothesis of his, especially if he thought his hypothesis was a particularly good one.”
+
 Quotes
 ===========================
 
