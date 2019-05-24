@@ -42,9 +42,12 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span> In our last post, we saw how we can use Adversarial Machine Learning in context of security. 
+<span class='red'>I-know-everything:</span> In our last post, we saw how we can use Adversarial Machine Learning in context of security. We discussed how adversaries can abuse the model and produce malicious results in real world. This name "Adversarial" has different meaning depending on the context. The previous post used Adversarial Training where neural network is used to correctly classify adversarial examples by training the network on adversarial examples. In context of RL, "self play" can be seen as Adversarial Training where the network learns to play with itself. In our today's topic, which is GAN i.e. Generative Adversarial Networks, we will use Adversarial Training where a model is trained on the inputs produced by adversary. Now all the names are cleared, let's get back to the revolutionary GANs. As all posts with GANs start with [quoting](https://www.quora.com/What-are-some-recent-and-potentially-upcoming-breakthroughs-in-deep-learning) [Yann LeCunn](http://twitter.com/ylecun/), "The most important one, in my opinion, is adversarial training (also called GAN for Generative Adversarial Networks). This is an idea that was originally proposed by Ian Goodfellow when he was a student with Yoshua Bengio at the University of Montreal (he since moved to Google Brain and recently to OpenAI).This, and the variations that are now being proposed is the most interesting idea in the last 10 years in ML, in my opinion." Tradition not broken. 
 
-<span class='green'>I-know-nothing:</span>
+<span class='green'>I-know-nothing:</span> Holding up the tradition, what are GANs? Specifically, what is generative part?
+
+<span class='red'>I-know-everything:</span> 
+
 
 
 
@@ -62,6 +65,35 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 
 # Further Reading
 
+[NIPS 2016 Tutorial : Generative Adversarial Network](https://arxiv.org/pdf/1701.00160.pdf)
+
+[Generative Learning algorithms](http://cs229.stanford.edu/notes/cs229-notes2.pdf)
+
+[Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661.pdf)
+
+[WGAN]()
+
+[DCGAN]()
+
+[CycleGAN]()
+
+[StyleGAN]()
+
+[BigGAN]()
+
+[Wasserstein GAN from depthfirstlearning](http://www.depthfirstlearning.com/2019/WassersteinGAN)
+
+[Open Questions about Generative Adversarial Networks](https://distill.pub/2019/gan-open-problems/)
+
+[Image Completion with Deep Learning in TensorFlow](http://bamos.github.io/2016/08/09/deep-completion/#step-1-interpreting-images-as-samples-from-a-probability-distribution)
+
+[From GAN to WGAN](https://lilianweng.github.io/lil-log/2017/08/20/from-GAN-to-WGAN.html)
+
+[A Beginner's Guide to Generative Adversarial Networks (GANs)](https://skymind.ai/wiki/generative-adversarial-network-gan#zero)
+
+[Understanding Generative Adversarial Networks](https://danieltakeshi.github.io/2017/03/05/understanding-generative-adversarial-networks/#fn:goodfellow)
+
+[Understanding Generative Adversarial Networks (GANs)](https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29)
 
 ---
 
