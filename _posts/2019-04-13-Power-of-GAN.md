@@ -80,11 +80,31 @@ Here is the game which is played in two scenarios. In first scenario, left side 
 
 ## Cost Functions
 
+Above, we mentioned that GAN sets up a supervised learning problem in order to do unsupervised learning. Here is where we will see how that is true. 
+
 ### Discriminator's Cost
 
+The discriminative network is a classifier which takes in an input and classifies it to be fake or real ,i.e. 0 or 1. We have seen these types of problems in supervisied learning which go by name binary classifiers. The output of neural network is binary which is constrained by adding sigmoid as last classification layer. As with all supervised algorithms we require objective function to minimize, we also know that there is a particular loss function which corresponds to binary classification, binary cross entropy(BCE). The cost function used for discriminator $$J^{(D)}$$($$\theta^{(D)}$$, $$\theta^{(G)}$$) for parameters $$\theta^{(D)}$$ for discriminative network and $$\theta^{(G)}$$ for generative network is,
+
+We will first define cost function for one data point ($$\mathbf{x}_{1}$$, $$\mathbf{y}_{1}$$) and then generalize over entire dataset for N elements.
+
+$$
+\begin{aligned}
+J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\mathbf{y}_{1}\log_{}D(\mathbf{x}_{1})-(1-\mathbf{y}_{1})(1-D(\mathbf{x}_{1})) \\
+&= -\sum_{i=1}^{N}\mathbf{y}_{i}\log_{}D(\mathbf{x}_{i})-\sum_{i=1}^{N}(1-\mathbf{y}_{i})(1-D(\mathbf{x}_{i})) 
+\end{aligned}
+$$
+
+In GANs, $$x_{i}$$ either come two sources: either $$x_{i}$$ $$\sim$$ $$p_{data}$$, the true distribution, or $$x_{i}$$ = G($$\mathbf{z}$$) where $$\mathbf{z}$$ $$\sim$$ $$p_{model}$$, the generator's distribution, $$\mathbf{z}$$ is sample from some prior distribution. Discriminator sees exactly half of the data coming from each source i.e. half samples are real and remaining half are fake.
+
+$$
+\begin{aligned}
+J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim \mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
+\end{aligned}
+$$
 
 
-### Generator's Cost
+
 
 
 
