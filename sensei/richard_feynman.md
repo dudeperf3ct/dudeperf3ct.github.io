@@ -113,6 +113,8 @@ I was a ordinary person who studied hard. There is no miracle people.
 
 Study hard what interests you the most in the most undisciplined, irreverent and original manner possible. 
 
+If our small minds, for some convenience, divide this universe, into parts — physics, biology, geology, astronomy, psychology, and so on — remember that nature does not know it!
+
 
 Stories
 ===========================
