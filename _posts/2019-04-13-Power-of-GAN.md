@@ -42,13 +42,13 @@ Feel free to jump anywhere,
 </p>
 
 
-<span class='red'>I-know-everything:</span>  
+<span class='red'>I-know-everything:</span> In our last post, we saw how we can use Adversarial Machine Learning in context of security. 
 
 <span class='green'>I-know-nothing:</span>
 
 
 
-In next post, we explore the shortcomings of RNN by introducing <span class='purple'>[Force of LSTM and GRU](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/)</span>.
+In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Paper dissection.
 
 <span class='orange'>Happy Learning!</span>
 
