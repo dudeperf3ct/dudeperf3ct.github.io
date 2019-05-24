@@ -101,7 +101,7 @@ In GANs, $$x_{i}$$ either come two sources: either $$x_{i}$$ $$\sim$$ $$p_{data}
 
 $$
 \begin{aligned}
-J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim \mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
+J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
 \end{aligned}
 $$
 
@@ -110,14 +110,25 @@ $$
 
 To play the game, we need to complete generator's cost function $$J^{(G)}$$. We assume that we are playing the simplest zero-sum game, where the sum of all player's cost is zero. In this zero-sum game, we get $$J^{(D)}$$ + $$J^{(G)}$$ = 0. This gives us $$J^{(G)}$$ = - $$J^{(D)}$$.
 
-From looking at the equations above for $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ and figure explaining two scenarios of game, the discriminator decision are accurate when it correctly classifies fake and real samples. 
+From looking at the equations above for $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ and figure explaining two scenarios of game, the discriminator decision are accurate when it correctly classifies fake and real samples. In terms of cost function, in first scenario with real samples, D($$\mathbf{x}$$) tries to be near 1, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim p_{data}}\log_{}D(\mathbf{x})$$ and in second scenario with fake samples, D($$\mathbf{x}$$) tries to be near 0, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim \mathbf{z}}\log_{}(1-D(G(\mathbf{z})))$$. The generator on other hand is trained to increase the chances of D producing a high probability for a fake example, thus to minimize $$\mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))$$, the part of cost function ($$\mathbb{E}_{\mathbf{x} \sim p_{data}}\log_{}D(\mathbf{x})$$) which deals with real samples will have no effect on generator as it is not sampled from generator.
+
+So, combining both the conclusions from above, <span class='green'>to maximize the cost function for D and minimze the second part of cost function for G, we are essentially playing minmax game.</span>
+
+$$
+\begin{aligned}
+\min_{G} \max_{D} J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
+\end{aligned}
+$$
 
 
+<span class='saddlebrown'>The cost used for the generator in the minimax game (equation 10) is useful fortheoretical analysis, but does not perform especially well in practice. In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence, the generator’s gradient vanishes.</span>
 
-<span class='saddlebrown'>In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence, the generator’s gradient vanishes.</span>
-
-
-
+To solve this problem, one approach is to continue to use cross-entropy minimization for the generator. Instead of flipping the sign on the discriminator’s cost to obtain a cost for the generator, we flip the target used to construct the cross-entropy cost.  The cost for the generator then becomes:
+$$
+\begin{aligned}
+J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
+\end{aligned}
+$$
 
 In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Paper dissection.
 
