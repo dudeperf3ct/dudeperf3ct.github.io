@@ -101,7 +101,7 @@ In GANs, $$x_{i}$$ either come two sources: either $$x_{i}$$ $$\sim$$ $$p_{data}
 
 $$
 \begin{aligned}
-J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
+J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}\log_{}(1-D(G(\mathbf{z})))
 \end{aligned}
 $$
 
@@ -116,7 +116,7 @@ So, combining both the conclusions from above, <span class='green'>to maximize t
 
 $$
 \begin{aligned}
-\min_{G} \max_{D} J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
+\min_{G} \max_{D} V(D, G) &= \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[\log_{}(1-D(G(\mathbf{z})))]
 \end{aligned}
 $$
 
@@ -124,11 +124,39 @@ $$
 <span class='saddlebrown'>The cost used for the generator in the minimax game (equation 10) is useful fortheoretical analysis, but does not perform especially well in practice. In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence, the generator’s gradient vanishes.</span>
 
 To solve this problem, one approach is to continue to use cross-entropy minimization for the generator. Instead of flipping the sign on the discriminator’s cost to obtain a cost for the generator, we flip the target used to construct the cross-entropy cost.  The cost for the generator then becomes:
+
 $$
 \begin{aligned}
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
 \end{aligned}
 $$
+
+Also, maximum likelihood can be used as cost function for generator,
+
+$$
+\begin{aligned}
+J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\exp({\sigma^{-1}(D(G(\mathbf{z})))})
+\end{aligned}
+$$
+
+What is advantage of different cost functions for generators?
+
+
+
+
+## Optimal D
+
+We want to find best or the optimal value for D. So, we have cost function, 
+\int
+
+$$
+\begin{aligned}
+\mathbb{E}_{\mathbf{x} ~ p}[f(\mathbf{x})] &= \int p(\mathbf{x})f(\mathbf{x})\,dx  \\   
+V(G, D) &= \int p_{data}(\mathbf{x}) \log_{}D(\mathbf{x})\,dx + \int p_{z}(\mathbf{z})\log_{}(1-D(G(\mathbf{z})))\,dz
+\end{aligned}
+$$
+
+
 
 In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Paper dissection.
 
