@@ -84,6 +84,14 @@ The third way to tell whether our ideas are right is relatively crude but probab
 
 The difficulties of science are to a large extent the difficulties of notations, the units, and all the other artificialities which are invented by man, not by nature.
 
+<span class='purple'>FEYNMAN learning strategy in THREE points: 1. Continually ask "Why?" 2. When you learn something, learn it to where you can explain it to a child. 3. Instead of arbitrarily memorizing things, look for the explanation that makes it obvious.</span>
+
+<span class='saddlebrown'>FOUR Productivity FEYNMAN- strategies: i) Stop trying to know-it-all. ii) Don't worry about what others are thinking. iii) Don't think about what you want to be, but what you want to do. iv) Have a sense of humor and talk honestly.</span>
+
+<span class='red'>It doesn't matter how beautiful your theory is, it doesn't matter how smart you are. If it doesn't agree with experiment, it's wrong. In that simple statement is the key to science.</span>
+
+To those who do not know mathematics it is difficult to get across a real feeling as to the beauty, the deepest beauty, of nature. If you want to learn about nature, to appreciate nature, it is necessary to understand the language that she speaks in.
+
 Quotes
 ==========================
 
@@ -91,7 +99,11 @@ What I cannot create I do not understand.
  
 The first principle is that you must not fool yourself — and you are the easiest person to fool.
 
+The trick to learning is enjoying.
+
 Look for the simplest, most elementary solution to a problem that was possible. If it wasn't possible, you use something fancier.
+
+I'm smart enough to know that I'm dumb.
 
 I can live with doubt and uncertainty and not knowing. I think it’s much more interesting to live not knowing than to have answers which might be wrong. 
 
@@ -113,7 +125,13 @@ I was a ordinary person who studied hard. There is no miracle people.
 
 Study hard what interests you the most in the most undisciplined, irreverent and original manner possible. 
 
+If you want to master something, teach it.
+
+I don't know anything, but I do know that everything is interesting if you go into it deeply enough.
+
 If our small minds, for some convenience, divide this universe, into parts — physics, biology, geology, astronomy, psychology, and so on — remember that nature does not know it!
+
+I would rather have questions that cannot be answered than answers that cannot be questioned.
 
 
 Stories
