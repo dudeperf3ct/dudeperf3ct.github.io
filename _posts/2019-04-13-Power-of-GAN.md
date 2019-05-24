@@ -28,6 +28,8 @@ Well sit tight and buckle up. I will go through everything in-detail.
 Feel free to jump anywhere,
 
 - [Introduction to GAN](#introduction-to-gan)
+  - [GAN Framework](#gam-framework)
+  - [Cost Functions](#cost-functions)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -104,6 +106,15 @@ J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim 
 $$
 
 
+## Minmax
+
+To play the game, we need to complete generator's cost function $$J^{(G)}$$. We assume that we are playing the simplest zero-sum game, where the sum of all player's cost is zero. In this zero-sum game, we get $$J^{(D)}$$ + $$J^{(G)}$$ = 0. This gives us $$J^{(G)}$$ = - $$J^{(D)}$$.
+
+From looking at the equations above for $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ and figure explaining two scenarios of game, the discriminator decision are accurate when it correctly classifies fake and real samples. 
+
+
+
+<span class='saddlebrown'>In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence, the generator’s gradient vanishes.</span>
 
 
 
@@ -125,6 +136,8 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 [NIPS 2016 Tutorial : Generative Adversarial Network](https://arxiv.org/pdf/1701.00160.pdf)
 
 [Generative Learning algorithms](http://cs229.stanford.edu/notes/cs229-notes2.pdf)
+
+[Generative Models by OpenAI](https://blog.openai.com/generative-models/#gan)
 
 [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661.pdf)
 
@@ -151,6 +164,8 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 [Understanding Generative Adversarial Networks](https://danieltakeshi.github.io/2017/03/05/understanding-generative-adversarial-networks/#fn:goodfellow)
 
 [Understanding Generative Adversarial Networks (GANs)](https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29)
+
+[An intuitive introduction to Generative Adversarial Networks (GANs)](https://medium.freecodecamp.org/an-intuitive-introduction-to-generative-adversarial-networks-gans-7a2264a81394)
 
 ---
 
