@@ -58,7 +58,7 @@ Feel free to jump anywhere,
 
 Here is an example, where an ideal generative model would be able to train on examples shown on left and then create more examples from the same distribution as shown on the right.
 
-<span class='green'>I-know-nothing:</span> This approach taken by GANs is certainly new compared to our previous approaches of supervised learning. I wonder in what bucket of learning does GAN go in? What's so special about them? What learning function do they use if any? What is procedure for training GANs?
+<span class='green'>I-know-nothing:</span> This approach taken by GANs is certainly new compared to our previous approaches of supervised learning. I wonder in what bucket of learning does GAN go in? What's so special about them? What learning function do they use if any?
 
 <span class='red'>I-know-everything:</span> Here's a interesting thing, they belong to both buckets of supervised learning and unsupervised learning. The GAN sets up a supervised learning problem in order to do unsupervised learning. You will understand why so once we introduce different parts of GAN. Let's do that! The basic idea of GAN is setting up game between two players. The two players are <span class='saddlebrown'>generator</span> and <span class='saddlebrown'>discriminator</span>. <span class='purple'>The generator creates samples that are intended to come from the same distribution as the training set. The discriminator examines the samples to determine whether they are real or fake as in, does the input samples belong to the training set or not?</span> So, what is the game between the two players? The generator is trained to fool the discriminator i.e. generator generates a sample and passes it to discriminator. The discriminator using traditional supervised learning is trained to classify the input sample in two classes (real or fake), fooling the discriminator means that discriminator will classify the sample generator to be real instead of fake. And hence, the name "Adversarial". Here we can see that generator wants to be good at fooling discriminator and discriminator wants to be good at classifying samples correctly. This corresponds to [Nash Equilibrium](https://www.youtube.com/watch?v=LJS7Igvk6ZM) from Game Theory. Borrowing example of Alice and Bob from Wikipedia, Alice and Bob are in Nash equilibrium if Alice is making the best decision she can, taking into account Bob's decision while his decision remains unchanged, and Bob is making the best decision he can, taking into account Alice's decision while her decision remains unchanged. Likewise, a group of players are in Nash equilibrium if each one is making the best decision possible, taking into account the decisions of the others in the game as long as the other parties' decisions remain unchanged. GAN requires finding the Nash Equilibrium of the game, which is more difficult than optimizing an objective function as done in traditional machine learning.
 
@@ -182,7 +182,16 @@ V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\lo
 \end{aligned}
 $$
 
+
+<span class='green'>I-know-nothing:</span> What is training procedure given that we have two neural networks for D and G? How does backpropogation work? How does G tweak it's parameters based on signal from D?
+
+
+<span class='red'>I-know-everything:</span> Ahh, excellent questions. The trend in training will be very different than the once observed in standard machine learning algorithms.
+
 ## Problem in Training GANs
+
+
+
 
 
 
