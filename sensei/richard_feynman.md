@@ -13,6 +13,7 @@ published: true
 
 > <span class='purple'>Feynman’s *last words* I’d hate to die twice. It’s so boring.</span>
 
+> <span class='purple'>The imagination of nature is far, far greater than the imagination of man.</span>
 
 Feel free to jump anywhere,
 - [Feynmanism](#feynmanism)
