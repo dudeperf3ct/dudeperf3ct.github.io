@@ -216,6 +216,13 @@ GAN literature is filled with different types of GANs or anynameGAN. We will tak
 
 
 
+## Problems in GANs
+
+
+## Cool Results
+
+Of course, you can't implement all of them. So, let's steal some of the results from all sort of cool GANs.
+
 
 In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Paper dissection.
 
@@ -260,6 +267,8 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 [A Beginner's Guide to Generative Adversarial Networks (GANs)](https://skymind.ai/wiki/generative-adversarial-network-gan#zero)
 
 [Understanding Generative Adversarial Networks](https://danieltakeshi.github.io/2017/03/05/understanding-generative-adversarial-networks/#fn:goodfellow)
+
+[Generative Adversarial Networks — A Theoretical Walk-Through](https://medium.com/@samramasinghe/generative-adversarial-networks-a-theoretical-walk-through-5889d5a8f2bb)
 
 [Understanding Generative Adversarial Networks (GANs)](https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29)
 
