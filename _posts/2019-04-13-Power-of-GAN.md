@@ -252,7 +252,7 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 
 [CycleGAN]()
 
-[StyleGAN]()
+[StyleGAN](https://arxiv.org/pdf/1812.04948)
 
 [BigGAN]()
 
