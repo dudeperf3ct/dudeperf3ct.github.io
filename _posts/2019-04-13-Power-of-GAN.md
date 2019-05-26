@@ -185,11 +185,16 @@ $$
 
 <span class='green'>I-know-nothing:</span> What is training procedure given that we have two neural networks for D and G? How does backpropogation work? How does G tweak it's parameters based on signal from D?
 
-
 <span class='red'>I-know-everything:</span> Ahh, excellent questions. The trend in training will be very different than the once observed in standard machine learning algorithms.
+
+## Training GANs
+
+In each step of training, two minibatches are sampled: one minibatch of $$\mathbf{x}$$ values from the dataset for which D will classify as real and another minibatch of $$\mathbf{z}$$ values drawn from the model's prior over latent variables. The two gradient steps are made simultaneously: one updating $$\theta^{(D)}$$ to reduce $$J^{(D)}$$ and one updating $$\theta^{(G)}$$ to reduce $$J^{(G)}$$. In both cases, we use Adam as optimizer.
+
 
 ## Problem in Training GANs
 
+Of course, the training procedure we described above is very unstable. 
 
 
 
@@ -197,7 +202,19 @@ $$
 
 ## Different types of GANs
 
-GAN literature is filled with different types of GANs. 
+GAN literature is filled with different types of GANs or anynameGAN. We will take a peek into some of the GANs.
+
+### WGAN
+
+### DCGAN
+
+### CycleGAN
+
+### StyleGAN
+
+### BigGAN
+
+
 
 
 In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Paper dissection.
