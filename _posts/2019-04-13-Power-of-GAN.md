@@ -224,7 +224,7 @@ GAN literature is filled with different types of GANs or anynameGAN. We will tak
 Of course, you can't implement all of them. So, let's steal some of the results from all sort of cool GANs.
 
 
-In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Paper dissection.
+In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Paper dissection. And further build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!
 
 <span class='orange'>Happy Learning!</span>
 
