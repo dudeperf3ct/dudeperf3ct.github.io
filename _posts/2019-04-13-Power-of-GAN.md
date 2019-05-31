@@ -72,7 +72,7 @@ In the example above, the blue region shows the true data distribution ($$p_{dat
 <img src='/images/gan/distances.png' width="50%"/> 
 </p>
 
-Most generative models have this basic setup, but differ in the details.
+Most generative models have this basic setup, but differ in the details. Also, [GANs and Divergence Minimization](https://colinraffel.com/blog/gans-and-divergence-minimization.html) blog by Colin explains F-divergence class through amazing visualizations.
 
 <span class='green'>I-know-nothing:</span> The approach taken by GANs is certainly new compared to our previous approaches of supervised learning. I wonder in what bucket of learning does GAN go in? What's so special about them? What learning function do they use if any?
 
@@ -126,9 +126,9 @@ $$
 
 To play the game, we need to complete generator's cost function $$J^{(G)}$$. We assume that we are playing the simplest zero-sum game, where the sum of all player's cost is zero. In this zero-sum game, we get $$J^{(D)}$$ + $$J^{(G)}$$ = 0. This gives us $$J^{(G)}$$ = - $$J^{(D)}$$.
 
-From looking at the equations above for $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ and figure explaining two scenarios of game, the discriminator decision are accurate when it correctly classifies fake and real samples. In terms of cost function, in first scenario with real samples, D($$\mathbf{x}$$) tries to be near 1, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim p_{data}}\log_{}D(\mathbf{x})$$. That is, when D($$\mathbf{x}$$) becomes close to 1, $$\mathbb{E}(\log(D(\mathbf{x})))$$ becomes close to 0 and when D($$\mathbf{x}$$) tries to be near 1, $$\mathbb{E}(\log(D(\mathbf{x})))$$ becomes close to $$-\infty$$.  In second scenario with fake samples, D($$\mathbf{x}$$) tries to be near 0, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim \mathbf{z}}\log_{}(1-D(G(\mathbf{z})))$$.
+From looking at the equations above for $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ and figure explaining two scenarios of game, the discriminator decision are accurate when it correctly classifies fake and real samples. In terms of cost function, in first scenario with real samples, D($$\mathbf{x}$$) tries to be near 1, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim p_{data}}[D(\mathbf{x})]$$. That is, when D($$\mathbf{x}$$) becomes close to 1, $$\mathbb{E}[(D(\mathbf{x}))]$$ becomes close to 0 and when D($$\mathbf{x}$$) tries to be near 1, $$\mathbb{E}[(D(\mathbf{x}))]$$ becomes close to $$-\infty$$.  In second scenario with fake samples, D($$\mathbf{x}$$) tries to be near 0, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim \mathbf{z}}[1-D(G(\mathbf{z}))]$$.
 
-The generator on other hand is trained to increase the chances of D producing a high probability i.e. 1, to classify it as real, for a fake example, thus to minimize $$\mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))$$, the part of cost function ($$\mathbb{E}_{\mathbf{x} \sim p_{data}}\log_{}D(\mathbf{x})$$) which deals with real samples will have no effect on generator as it is not sampled from generator.
+The generator on other hand is trained to increase the chances of D producing a high probability i.e. 1, to classify it as real, for a fake example, i.e. maximizing $$\mathbb{E}_{\mathbf{z}}[D(G(\mathbf{z}))]$$ or to minimize $$\mathbb{E}_{\mathbf{z}}[1-D(G(\mathbf{z}))]$$, the part of cost function ($$\mathbb{E}_{\mathbf{x} \sim p_{data}}[D(\mathbf{x})]$$) which deals with real samples will have no effect on generator as it is not sampled from generator.
 
 So, combining both the conclusions from above, <span class='green'>to maximize the cost function for D and minimze the second part of cost function for G, G and D are essentially playing minmax game.</span>
 
@@ -140,9 +140,9 @@ $$
 \end{aligned}
 $$
 
-<span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to complete it's own objective. The discriminator tries to maximize tweaking only it's parameter and G tries to minimze tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images. Can it get any better than this?
+<span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to complete it's own objective. The discriminator tries to maximize tweaking only it's parameter and G tries to minimze tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images. Can it get any better than this? Question for curious readers is will doing maxmin produce same results?
 
-<span class='saddlebrown'>On a sad note, the cost used for the generator in the minimax game is useful for theoretical analysis, but does not perform especially well in practice. In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence, the generator’s gradient vanishes.</span>
+<span class='saddlebrown'>On a sad note, the cost used for the generator in the minimax game is useful for theoretical analysis, but does not perform especially well in practice. In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence producing a perfect discriminator, the generator’s gradient vanishes, it will produce zero everywhere, leading to vanishing gradient problem.</span>
 
 To solve this problem, one approach is to continue to use cross-entropy minimization for the generator. Instead of flipping the sign on the discriminator’s cost to obtain a cost for the generator, we flip the target used to construct the cross-entropy cost.  The cost for the generator then becomes:
 
@@ -160,7 +160,7 @@ J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\exp({\sigma^{-1}(D(G(\mathbf{z})
 \end{aligned}
 $$
 
-Many such cost functions can be tried depending on the task at hand and not limited to above.
+Different cost functions such as feature matching, minibatch discrimination, etc produces good results in GANs. Many such cost functions can be tried depending on the task at hand and not limited to above. 
 
 
 ## Therotical Limits
@@ -227,11 +227,15 @@ Of course, the training procedure we described above is very unstable and diffic
 
 GAN literature is filled (overflowing) with different types of GANs or anynameGAN. We will take a peek into some of the GANs and some of it's application.
 
-### GAN for semi-supervised learning
 
 ### WGAN
 
+
+
+
 ### DCGAN
+
+ DCGAN stands for “deep, convolution GAN.
 
 ### CycleGAN
 
@@ -241,7 +245,9 @@ GAN literature is filled (overflowing) with different types of GANs or anynameGA
 
 ### Image translation
 
-### Image infilling
+### GAN semi-supervised learning
+
+In paper [Improving GAN by training](https://arxiv.org/pdf/1606.03498.pdf), authors demonstrate they are able to achieve 99.14% accuracy with only 10 labeled examples per class with a fully connected neural network on MNIST dataset. The basic idea of semi-supervised learning with GANs is to use feature matching objective and turn add extra task for discriminator i.e. in addition to classify it will also predict the label of the image. The fake samples of generator can be used as dataset for which discriminator will predict a class corresponding to that image. The feature matching objective is a new objective for G is to train the generator to match the expected value of the features on an intermediate layer of the discriminator. If $$f(\mathbf{x})$$ denote activations on an intermediate layer of the discriminator, then new objective for generator is defined as $$||\mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[f(\mathbf{x})] - \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[f(G(\mathbf{z}))]||^{2}_{2}$$. Feature matching is effective in situations where regular GAN becomes unstable.
 
 
 ## Problems in GANs
@@ -268,6 +274,10 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 
 [NIPS 2016 Tutorial : Generative Adversarial Network](https://arxiv.org/pdf/1701.00160.pdf)
 
+[A Short Introduction to Entropy, Cross-Entropy and KL-Divergence](https://www.youtube.com/watch?v=ErfnhcEV1O8)
+
+Chapter 3, 5 and 20 of [Deep Learning Book](https://www.deeplearningbook.org/)
+
 [Generative Learning algorithms](http://cs229.stanford.edu/notes/cs229-notes2.pdf)
 
 [Generative Models by OpenAI](https://blog.openai.com/generative-models/#gan)
@@ -276,7 +286,7 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 
 [Improved Techniques for Training GANs](https://arxiv.org/pdf/1606.03498.pdf)
 
-[WGAN]()
+[WGAN](https://arxiv.org/pdf/1701.07875.pdf)
 
 [DCGAN]()
 
