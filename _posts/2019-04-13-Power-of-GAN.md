@@ -167,7 +167,7 @@ Many such cost functions can be tried depending on the task at hand and not limi
 
 We claimed above that after several steps of training, if G and D have enough capacity, they will reach a point at which both cannot improve because $$p_{g}$$ = $$p_{data}$$. The discriminator is unable to differentiate betweenthe two distributions, i.e.D(x) = $$\frac{1}{2}$$.
 
-## Optimal D
+### Optimal D
 
 We want to find best or the optimal value for D, i.e. D* for fixed G. So, we have cost function, 
 
@@ -189,12 +189,12 @@ $$
 
 If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain optimal D* = $$\frac{1}{2}$$.
 
-## Optimal G
+### Optimal G
 
 We want to 
 
 
-## Global Optimal
+### Global Optimal
 
 When both G and D are at optimal values, we have $$p_{data}$$ = $$p_{g}$$ and D* = $$\frac{1}{2}$$, the cost function becomes,
 
@@ -215,18 +215,19 @@ $$
 
 Having defined both discriminator (a classifier that takes in input as image and outputs a scalar 1 or 0 depending on input is real or fake), and generator (a neural network that takes in input random noise and produces an image). The next step is to sample minibatch m, first minibatch of m noise samples and second minibatch of m examples from dataset. Then we pass the minibatch of samples containing noise through G to obtain minibatch size of fake images. Next, we train discriminator first on real images whose labels are 1 as they are drawn from true distribution of dataset and then train the same D on fake sample produced from previous step and here pass the labels as 0 as they are fake. Then we calculate the total loss of D which is sum of both losses produced above. Then we set keep D's parameters fixed and pass the minibatch of m samples to G and the fake sample generated whose parameters are trainable are passed to D. But here's the catch. This time we set the labels of these samples as 1, fooling the D, such that they should be classified as real. This way D is guiding G telling it how to tweak it's weights so as to produce good example such that D is fooled. And this process continues for a lot many training epochs.
 
-
 ## Problem in Training GANs
 
-Of course, the training procedure we described above is very unstable. 
-
+Of course, the training procedure we described above is very unstable and difficult. I mean Is D doing good job in classifying?, Is G generating good samples?, How long should I train to get good examples?, How should we evaluate GANs and when should we use them? How does GAN training scale with batch size? Can we Scale GANs Beyond Image Synthesis? Do GANs attain Nash Equilibrium?
+ 
 
 
 
 
 ## Different types of GANs
 
-GAN literature is filled with different types of GANs or anynameGAN. We will take a peek into some of the GANs.
+GAN literature is filled (overflowing) with different types of GANs or anynameGAN. We will take a peek into some of the GANs and some of it's application.
+
+### GAN for semi-supervised learning
 
 ### WGAN
 
@@ -238,6 +239,9 @@ GAN literature is filled with different types of GANs or anynameGAN. We will tak
 
 ### BigGAN
 
+### Image translation
+
+### Image infilling
 
 
 ## Problems in GANs
@@ -270,6 +274,8 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 
 [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661.pdf)
 
+[Improved Techniques for Training GANs](https://arxiv.org/pdf/1606.03498.pdf)
+
 [WGAN]()
 
 [DCGAN]()
@@ -280,7 +286,7 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 
 [BigGAN]()
 
-[Wasserstein GAN from depthfirstlearning](http://www.depthfirstlearning.com/2019/WassersteinGAN)
+Curriculum for learning [Wasserstein GAN from depthfirstlearning](http://www.depthfirstlearning.com/2019/WassersteinGAN)
 
 [Open Questions about Generative Adversarial Networks](https://distill.pub/2019/gan-open-problems/)
 
