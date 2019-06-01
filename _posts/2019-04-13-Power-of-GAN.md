@@ -220,43 +220,112 @@ Having defined both discriminator (a classifier that takes in input as image and
 Of course, the training procedure we described above is very unstable and difficult. I mean Is D doing good job in classifying?, Is G generating good samples?, How long should I train to get good examples?, 
  
 
+Walking on the manifold (latent space) that is learnt can usually tell us about signs of memorization (if there are sharp transitions)and about the way in which the space is hierarchically collapsed. If walking in this latent space results in semantic changes to the image generations (such as objects being added and removed), we can reason that the model has learned relevant and interesting representations.
 
+
+## Recap
+
+Okay, let's breathe for a moment and compress everything in few lines if we can!
+
+- 
 
 
 ## Different types of GANs
 
-GAN literature is filled (overflowing) with different types of GANs or anynameGAN. We will take a peek into some of the GANs and some of it's application.
+GAN literature is filled (overflowing) with different types of GANs or anynameGAN across different domains. We will take a peek into some of the GANs. As we will see each different types of GANs, we will observe how they vary from standard GANs which is similar to ways we discussed what generative models are and what makes GAN different from other types of generative models.
+
+# Images
 
 ### DCGAN
 
- DCGAN stands for “deep, convolution GAN.
+DCGAN stands for "Deep Convolution GAN". LAPGAN [paper](https://arxiv.org/pdf/1506.05751) developed an alternative approach to iteratively scale low resolution generated images give that CNN had not great success to provide great image outputs with GAN in previous attempts. The authors of [DCGAN](https://arxiv.org/pdf/1511.06434) also after exploring several models, identified a family of CNN architectures which train GAN stably and generate high quality images. For that to achieve, they proposed 3 major changes to CNN architecures. First, replace all pooling functions with strided convolutions for D and fractional convolutions for G, allowing the network to learn its own spatial downsampling. Second, get rid of any fully-connected layers in both G and D CNN architectures. Third, use batchnorm in both G and D, which stabilizes model learning by normalizing input to each unit to have zero mean and unit variance. Also, using ReLU as activation for all layers in G with exception of output which uses tanh as activation and using LeakyReLU as activation for all layers in D. Authors also use GAN as feature extractor and use it for classifying CIFAR-10 dataset and achieve accuracy of 82% which is about 2% less than CNN.  
 
 
+### Results
+
+First result compars DCGAN samples with GAN samples, where DCGAN achieves error rate of 2.98% on 50K samples and GAN achieves 6.28% error rate.
+
+<p align="center">
+<img src='/images/gan/dcgan_res1.png' width="50%"/> 
+</p>
+
+The second most interesting result obtained from paper is, we can perform arithmetic on images to obtain meaningful representation. For e.g. if we take smiling woman, subtract neutral woman and add netural man, we get smiling man as output. Another one is man with glasses - man without glasses + woman without glasses = woman with glasses. Amazing right? The same we saw in case of [word vectors](), remember?
+
+
+<p align="center">
+<img src='/images/gan/dcgan_res2.png' width="50%"/> 
+<img src='/images/gan/dcgan_res3.png' width="40%"/>
+</p>
+
+This results walks through the latent space to see if model has not simply memorized training sample. In first row, we see a room without a window slowly transforming into a room with a giant window and in last row, we see what appears to be a TV slowly being transformed into a window.
+
+<p align="center">
+<img src='/images/gan/dcgan_res4.png' width="50%"/> 
+</p>
 
 ### WGAN
 
-The generative models to make the model's distribution close to data distribution either by optimizing distribution using maximum likelihood (Question: Prove that this is equal to minimizing KL divergence.) or learn a function that transforms existing Z (latent variable) into model's distribution. Authors of the [paper](https://arxiv.org/pdf/1701.07875.pdf) propose a different distance metrics to measure the distance between distributions i.e d($$P_{data}$$, $$P_{model}$$). We have seen that there are many other ways to measure the closeness of distribution like KL-divergence, Reverse KL-divergence, Jenson-Shannon(JS) divergence for generative model but each of the above methods don't really converge for some sequence of distribution. (We haven't provided any formal definition of each of method above and leave it as exercise to explore.) Hence, bring in the Earth Mover(EM) distance or Wasserstein-1. [Alex Irpan](https://www.alexirpan.com/2017/02/22/wasserstein-gan.html) provides a great overview of WAN's in general and are great starting point before heading to paper. The intution behind the EM distance is we want our model's distribution $$P_{model}$$ to move close to $$P_{data}$$ true data distribution. Moving mass $$\mathbf{m}$$ by distance $$\mathbf{d}$$ requires effort $$\mathbf{m}\dot\mathbf{d}$$. The earth mover distance is minimal effort we need to spend to bring these distributions close to each other. Authors prove why Wasserstein distance is more compelling than other methods and hence a better fit as loss function for generative models. But Wasserstein distance is intractable in practise. Authors propose alternative approximation which  a result from [Kantorovich-Rubinstein duality](https://en.wikipedia.org/wiki/Wasserstein_metric#Dual_representation_of_W1). Here is WGAN algorithm, 
+The generative models to make the model's distribution close to data distribution either by optimizing distribution using maximum likelihood (Question: Prove that this is equal to minimizing KL divergence.) or learn a function that transforms existing Z (latent variable) into model's distribution. Authors of the [paper](https://arxiv.org/pdf/1701.07875.pdf) propose a different distance metrics to measure the distance between distributions i.e d($$P_{data}$$, $$P_{model}$$). We have seen that there are many other ways to measure the closeness of distribution like KL-divergence, Reverse KL-divergence, Jenson-Shannon(JS) divergence for generative model but each of the above methods don't really converge for some sequence of distribution. (We haven't provided any formal definition of each of method above and leave it as exercise to explore.) Hence, bring in the Earth Mover(EM) distance or Wasserstein-1. [Alex Irpan](https://www.alexirpan.com/2017/02/22/wasserstein-gan.html) provides a great overview of WAN's in general and are great starting point before heading to paper. The intution behind the EM distance is we want our model's distribution $$P_{model}$$ to move close to $$P_{data}$$ true data distribution. Moving mass $$\mathbf{m}$$ by distance $$\mathbf{d}$$ requires effort $$\mathbf{m}\dot\mathbf{d}$$. The earth mover distance is minimal effort we need to spend to bring these distributions close to each other. Authors prove why Wasserstein distance is more compelling than other methods and hence a better fit as loss function for generative models. But Wasserstein distance is intractable in practise. Authors propose alternative approximation which  a result from [Kantorovich-Rubinstein duality](https://en.wikipedia.org/wiki/Wasserstein_metric#Dual_representation_of_W1). [Sebastion Nowozin](https://www.youtube.com/watch?v=eDWjfrD7nJY) provides very excellent introduction to each of the obscure terms above. Here is WGAN algorithm, 
 
 <p align="center">
 <img src='/images/gan/wgan.png' width="50%"/> 
 </p>
 
-Notice, there is no discriminator and there is something extra term of clipping in the algorithm. The discriminator in GAN is known as critic in WGAN because the critic here is not classifier of real and fake trained on binary cross entropy but is trained on Wasserstein loss 
- Since the loss for the critic is non-stationary, momentum based methods seemed to perform worse. Hence algorithm uses RMSProp instead of Adam as WGAN training becomes unstable at times when one uses a momentum based optimizer.
+Notice, there is no discriminator and there is something extra term of clipping in the algorithm. Also, we train critic for more time $$n_{critic}$$ times more than generator. The discriminator in GAN is known as critic in WGAN because the critic here is not classifier of real and fake trained on binary cross entropy but is trained on Wasserstein loss. $$\mathbf{f_{w}}$$ doesn't give output {0, 1} and that is reason why authors call it critic rather than discriminator. Since the loss for the critic is non-stationary, momentum based methods seemed to perform worse. Hence algorithm uses RMSProp instead of Adam as WGAN training becomes unstable at times when one uses a momentum based optimizer. One of the benefits of WGAN is that it allows us to train the critic till optimality. The better the critic,the higher quality the gradients we use to train the generator. This tells us that we no longer need to balance generator and discriminator’s capacity properly unlike in standard GAN.
 
+In short, take GAN change training procedure a little and replace cost function in GANs with Wasserstein loss function.
 
+### Results
+
+After training in LSUN dataset of bedrooms, here are the results produced. Left from WGAN with DCGAN architecture and right from DCGAN.
+
+<p align="center">
+<img src='/images/gan/wgan_res1.png' width="50%"/> 
+<img src='/images/gan/wgan_res2.png' width="40%"/>
+</p>
+
+The result below has on left side WGAN with DCGAN architecture and DCGAN on right with both not using batch norm. If we remove batch norm from the generator, WGAN still generates okay samples, but DCGAN fails completely.
+
+<p align="center">
+<img src='/images/gan/wgan_res3.png' width="50%"/> 
+<img src='/images/gan/wgan_res4.png' width="40%"/>
+</p>
+
+Comparing WGAN on left with standard GAN. GAN suffers from mode collapse. This is the phenomenon that after learning for few epochs dataset, the model goes to failure mode and stops learning. The model starts producing same number of images everywhere with very tiny variations.
+
+<p align="center">
+<img src='/images/gan/wgan_res5.png' width="50%"/> 
+<img src='/images/gan/wgan_res6.png' width="40%"/>
+</p>
 
 ### CycleGAN
 
+
+
 ### StyleGAN
+
+
+
 
 ### BigGAN
 
-### Image translation
+
 
 ### GAN semi-supervised learning
 
 In paper [Improving GAN by training](https://arxiv.org/pdf/1606.03498.pdf), authors demonstrate they are able to achieve 99.14% accuracy with only 10 labeled examples per class with a fully connected neural network on MNIST dataset. The basic idea of semi-supervised learning with GANs is to use feature matching objective and turn add extra task for discriminator i.e. in addition to classify it will also predict the label of the image. The fake samples of generator can be used as dataset for which discriminator will predict a class corresponding to that image. The feature matching objective is a new objective for G is to train the generator to match the expected value of the features on an intermediate layer of the discriminator. If $$f(\mathbf{x})$$ denote activations on an intermediate layer of the discriminator, then new objective for generator is defined as $$||\mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[f(\mathbf{x})] - \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[f(G(\mathbf{z}))]||^{2}_{2}$$. Feature matching is effective in situations where regular GAN becomes unstable.
+
+# Speech
+
+
+
+# Text
+
+
+
+# Video
+
+
 
 
 ## Problems in GANs
@@ -299,9 +368,17 @@ Chapter 3, 5 and 20 of [Deep Learning Book](https://www.deeplearningbook.org/)
 
 [Improved Techniques for Training GANs](https://arxiv.org/pdf/1606.03498.pdf)
 
+[LAPGAN](https://arxiv.org/pdf/1506.05751)
+
+[DCGAN](https://arxiv.org/pdf/1511.06434.pdf)
+
 [WGAN](https://arxiv.org/pdf/1701.07875.pdf)
 
-[DCGAN]()
+Alex Irpan's blog [Read-through: Wasserstein GAN](https://www.alexirpan.com/2017/02/22/wasserstein-gan.html)
+
+[Sebastion Nowozin Generative Adversarial Networks](https://www.youtube.com/watch?v=eDWjfrD7nJY)
+
+Curriculum for learning [Wasserstein GAN from depthfirstlearning](http://www.depthfirstlearning.com/2019/WassersteinGAN)
 
 [CycleGAN]()
 
@@ -309,7 +386,6 @@ Chapter 3, 5 and 20 of [Deep Learning Book](https://www.deeplearningbook.org/)
 
 [BigGAN]()
 
-Curriculum for learning [Wasserstein GAN from depthfirstlearning](http://www.depthfirstlearning.com/2019/WassersteinGAN)
 
 [Open Questions about Generative Adversarial Networks](https://distill.pub/2019/gan-open-problems/)
 
