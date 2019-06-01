@@ -240,6 +240,7 @@ GAN literature is filled (overflowing) with different types of GANs or anynameGA
 
 DCGAN stands for "Deep Convolution GAN". LAPGAN [paper](https://arxiv.org/pdf/1506.05751) developed an alternative approach to iteratively scale low resolution generated images give that CNN had not great success to provide great image outputs with GAN in previous attempts. The authors of [DCGAN](https://arxiv.org/pdf/1511.06434) also after exploring several models, identified a family of CNN architectures which train GAN stably and generate high quality images. For that to achieve, they proposed 3 major changes to CNN architecures. First, replace all pooling functions with strided convolutions for D and fractional convolutions for G, allowing the network to learn its own spatial downsampling. Second, get rid of any fully-connected layers in both G and D CNN architectures. Third, use batchnorm in both G and D, which stabilizes model learning by normalizing input to each unit to have zero mean and unit variance. Also, using ReLU as activation for all layers in G with exception of output which uses tanh as activation and using LeakyReLU as activation for all layers in D. Authors also use GAN as feature extractor and use it for classifying CIFAR-10 dataset and achieve accuracy of 82% which is about 2% less than CNN.  
 
+In short, make some changes to original GAN architecture and boom better results than standard GAN.
 
 ### Results
 
@@ -298,7 +299,71 @@ Comparing WGAN on left with standard GAN. GAN suffers from mode collapse. This i
 <img src='/images/gan/wgan_res6.png' width="40%"/>
 </p>
 
+
+### Pix2Pix
+
+The [researchers](https://arxiv.org/pdf/1611.07004.pdf) at BAIR laboratory devised a method for image to image translation using conditional adversarial networks. The figure below clearly shows what's going on. 
+
+<p align="center">
+<img src='/images/gan/pix2pix.png' width="50%"/> 
+</p>
+
+Here we model learns to map edges -> photo. The discriminator D, learn to classify between fake(produced by G) and real {edge, photo} tuples. The generator G, learns to fool D. The only difference with previous approach of standard GAN is using conditional GAN. In case of standard GAN, we generator learns mapping from random noise z to output image y, i.e. G : z -> y. In contrast, connditional GANs learns a mapping from observed image x, random noise z to output image y, i.e. G : {x, z} -> y. The new loss function to optimize then becomes,  $$\mathcal{L}_{cGAN} = \mathbb{E}_{\mathbf{x,y}}[\log_{}(D(x,y)] + \mathbb{E}_{\mathbf{x,z}}[\log_{}(1-D(x, G(\mathbf{x, z})))]$$, which is again minmax game G minimizing and D maximizing this objective function.
+
+In short, instead of using standard GAN we use variant called cGAN and accordinly new objective function.
+
+### Results
+
+Paper showed some of the fantasic results obtained by using cGANs.
+
+This figure shows how different domains like segmentation, aerial mapping, colorization, etc can be learned using cGANs.
+
+<p align="center">
+<img src='/images/gan/pix2pix_res1.png' width="50%"/> 
+</p>
+
+Applying cGANs in domain of semantic segmentation, the result obtained from L1 + cGANs are better than other approaches.
+
+<p align="center">
+<img src='/images/gan/pix2pix_res2.png' width="50%"/> 
+</p>
+
+This figure shows input, output i.e. {aerial, map} and {map, aerial} tuples which can both be learned by using cGANs.
+
+<p align="center">
+<img src='/images/gan/pix2pix_res3.png' width="50%"/> 
+</p>
+
+This figure shows the result after applying cGAN for colorization along with results from other approaches.
+
+<p align="center">
+<img src='/images/gan/pix2pix_res4.png' width="50%"/> 
+</p>
+
+This figure shows uses cGAN for image completion.
+
+<p align="center">
+<img src='/images/gan/pix2pix_res6.png' width="50%"/> 
+</p>
+
+This shows how to convert sketch to image resembling the sketch. Also, use of cGANs to remove background and transferring of pose in "Do as I do" example shown below.
+
+<p align="center">
+<img src='/images/gan/pix2pix_res5.png' width="50%"/> 
+</p>
+
+
 ### CycleGAN
+
+
+
+
+
+
+
+### Results
+
+This paper produced most amazing results.
 
 
 
