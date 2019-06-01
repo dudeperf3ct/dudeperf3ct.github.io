@@ -140,7 +140,7 @@ $$
 \end{aligned}
 $$
 
-<span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to complete it's own objective. The discriminator tries to maximize tweaking only it's parameter and G tries to minimze tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images. Can it get any better than this? Question for curious readers is will doing maxmin produce same results?
+<span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to complete it's own objective. This game continues till we get a state, in which each model becomes an expert on what it is doing, the generative model increases its ability to get the actual data distribution and produces data like it, and the discriminative becomes expert in identifying the real samples, which increases the system’s classification task. The discriminator tries to maximize tweaking only it's parameter and G tries to minimze tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images.  Can it get any better than this? Question for curious readers is will doing maxmin produce same results?
 
 <span class='saddlebrown'>On a sad note, the cost used for the generator in the minimax game is useful for theoretical analysis, but does not perform especially well in practice. In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence producing a perfect discriminator, the generator’s gradient vanishes, it will produce zero everywhere, leading to vanishing gradient problem.</span>
 
@@ -217,7 +217,7 @@ Having defined both discriminator (a classifier that takes in input as image and
 
 ## Problem in Training GANs
 
-Of course, the training procedure we described above is very unstable and difficult. I mean Is D doing good job in classifying?, Is G generating good samples?, How long should I train to get good examples?, How should we evaluate GANs and when should we use them? How does GAN training scale with batch size? Can we Scale GANs Beyond Image Synthesis? Do GANs attain Nash Equilibrium?
+Of course, the training procedure we described above is very unstable and difficult. I mean Is D doing good job in classifying?, Is G generating good samples?, How long should I train to get good examples?, 
  
 
 
@@ -229,6 +229,7 @@ GAN literature is filled (overflowing) with different types of GANs or anynameGA
 
 
 ### WGAN
+
 
 
 
@@ -251,6 +252,8 @@ In paper [Improving GAN by training](https://arxiv.org/pdf/1606.03498.pdf), auth
 
 
 ## Problems in GANs
+
+How should we evaluate GANs and when should we use them? How does GAN training scale with batch size? Can we Scale GANs Beyond Image Synthesis? Can GANs attain Nash Equilibrium?
 
 
 ## Cool Results
