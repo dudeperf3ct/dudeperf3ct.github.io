@@ -314,7 +314,7 @@ In short, instead of using standard GAN we use variant called cGAN and accordinl
 
 ### Results
 
-Paper showed some of the fantasic results obtained by using cGANs.
+Paper showed some of the fantasic results obtained by using cGANs or CoGAN.
 
 This figure shows how different domains like segmentation, aerial mapping, colorization, etc can be learned using cGANs.
 
@@ -355,16 +355,65 @@ This shows how to convert sketch to image resembling the sketch. Also, use of cG
 
 ### CycleGAN
 
+Above we visited pix2pix method where we provided pairs input and output to cGAN to learn mapping. [CycleGAN](https://arxiv.org/pdf/1703.10593.pdf) on other hand performs same task in unsupervised fashion without paired examples of transformation from source to target domain. The trick used by CycleGAN that makes them get rid of expensive supervised label in target domain is to double mapping i.e. two-step transformation of source domain image - first by trying to map it to target domain and then back to the original image. Hence, we don't need to explicitly give target domain image. The goal in CycleGAN is to learn the mapping from G : X -> Y such that distribution of images from G(X) is indistinguishable from from the distribution of images of Y. But because this mapping is under-constrained (or not guided), we couple it with an inverse mapping F : Y -> X where we converted the generated image from above mapping back to original image and introduce a cycle consistency loss to enforce F(G(X)) $$\approx$$ X and G(F(Y)) $$\approx$$ Y. Combining this loss along with individual losses of G and F, we get the full objective for unpaired image-to-image translation. This is so good that we will repeat again with the figure below.
 
+<p align="center">
+<img src='/images/gan/cyclegan.png' width="50%"/> 
+</p>
 
+There are two generators(mapping functions) G : X -> Y and F : Y -> X, and two discriminators $$D_{X}$$ which aims to distinguish images of X(real) & F(Y)(fake) samples and $$D_{Y}$$ which aims to distinguish images of Y(real) & G(X)(fake) samples. $$D_{Y}$$ encourages G to translate X into outputs indistinguishable to Y, and similarly $$D_{X}$$ encourages F to translate Y into outputs indistinguishable to X. The (b) and (c) part are forward and backward cycle-consistency loss introduced to capture the intuition that if we translate from one domain to the other and back again we should arrive at where we started. Forward cycle-consistency in (b) is x -> G(x) -> F(G(x)) $$\approx$$ x and backward cycle-consistency in (c) is y -> F(y) -> G(F(y)) $$\approx$$ y. If we want to write the total loss mathematically, 
 
+$$
+\begin{aligned}
+\mathcal{L}_{GAN}(G, D_{Y}, X, Y) &= \mathbb{E}_{\mathbf{y} \sim p_{data}(y)}[\log_{}(D_{Y}(y)] + \mathbb{E}_{\mathbf{x} \sim p_{data}(x)}[\log_{}(1 - D_{Y}(G(x)))] \\
+\mathcal{L}_{GAN}(F, D_{X}, Y, X) &= \mathbb{E}_{\mathbf{x} \sim p_{data}(x)}[\log_{}(D_{X}(x)] + \mathbb{E}_{\mathbf{y} \sim p_{data}(y)}[\log_{}(1 - D_{X}(F(y)))] \\
+\mathcal{L}_{cyc}(G, F) &= \mathbb{E}_{\mathbf{x} \sim p_{data}(x)} ||F(G(x)) - x|| + \mathbb{E}_{\mathbf{y} \sim p_{data}(y)} ||G(F(y)) - y|| \\
+\mathcal{L}(G, F, D_{X}, D_{Y}) &= \mathcal{L}_{GAN}(G, D_{Y}, X, Y) + \mathcal{L}_{GAN}(F, D_{X}, Y, X) + \lambda\mathcal{L}_{cyc}(G, F)
+\end{aligned}
+$$
 
+In short, cycle GAN is another unsupervised learning variant of standard GAN where we learn to translate images from source to target domain. 
 
 
 ### Results
 
-This paper produced most amazing results.
+This paper produced most amazing results. Just keep watching.
 
+Horse -> Zebra, really?
+
+<p align="center">
+<img src='/images/gan/horse2zebra.gif' width="50%"/> 
+</p>
+
+Image-to-image translation can be done in many ways. For example, turning winter images to summer and vice versa, turning horses to zebras and vice versa, turning any photo into Monet style and vice versa. 
+
+<p align="center">
+<img src='/images/gan/cyclegan_res1.png' width="50%"/> 
+</p>
+
+Here is result of mapping Monet style paintings into photos.
+
+<p align="center">
+<img src='/images/gan/cyclegan_res2.png' width="50%"/> 
+</p>
+
+Here is the opposite result of turning photos into different styles of painting like Monet, Van Gogh, etc.
+
+<p align="center">
+<img src='/images/gan/cyclegan_res3.png' width="50%"/> 
+</p>
+
+Who says we need apple to apple comparison? 
+
+<p align="center">
+<img src='/images/gan/cyclegan_res4.png' width="50%"/> 
+</p>
+
+This result shows photo enhancement achieved by mapping snaps from smartphone to the ones taken on DSLR.
+
+<p align="center">
+<img src='/images/gan/cyclegan_res5.png' width="50%"/> 
+</p>
 
 
 ### StyleGAN
