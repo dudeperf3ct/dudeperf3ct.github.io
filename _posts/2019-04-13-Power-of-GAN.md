@@ -420,9 +420,13 @@ This result shows photo enhancement achieved by mapping snaps from smartphone to
 
 
 
+### Results
+
 
 ### BigGAN
 
+
+### Results
 
 
 ### GAN semi-supervised learning
@@ -494,12 +498,11 @@ Alex Irpan's blog [Read-through: Wasserstein GAN](https://www.alexirpan.com/2017
 
 Curriculum for learning [Wasserstein GAN from depthfirstlearning](http://www.depthfirstlearning.com/2019/WassersteinGAN)
 
-[CycleGAN]()
+[CycleGAN](https://arxiv.org/pdf/1703.10593.pdf)
 
 [StyleGAN](https://arxiv.org/pdf/1812.04948)
 
 [BigGAN]()
-
 
 [Open Questions about Generative Adversarial Networks](https://distill.pub/2019/gan-open-problems/)
 
@@ -510,6 +513,10 @@ Curriculum for learning [Wasserstein GAN from depthfirstlearning](http://www.dep
 [A Beginner's Guide to Generative Adversarial Networks (GANs)](https://skymind.ai/wiki/generative-adversarial-network-gan#zero)
 
 [Understanding Generative Adversarial Networks](https://danieltakeshi.github.io/2017/03/05/understanding-generative-adversarial-networks/#fn:goodfellow)
+
+[Understanding and Implementing CycleGAN in TensorFlow](https://hardikbansal.github.io/CycleGANBlog/)
+
+[Turning Fortnite into PUBG with Deep Learning (CycleGAN)](https://towardsdatascience.com/turning-fortnite-into-pubg-with-deep-learning-cyclegan-2f9d339dcdb0)
 
 [Generative Adversarial Networks — A Theoretical Walk-Through](https://medium.com/@samramasinghe/generative-adversarial-networks-a-theoretical-walk-through-5889d5a8f2bb)
 
