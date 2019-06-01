@@ -230,7 +230,7 @@ GAN literature is filled (overflowing) with different types of GANs or anynameGA
 
 ### WGAN
 
-
+The generative models to make the model's distribution close to data distribution either by optimizing distribution using maximum likelihood (prove that this is equal to minimizing KL divergence) or learn a function that transforms existing Z (latent variable) into model's distribution. But both the methods provide a challenge to be tractable.
 
 
 
