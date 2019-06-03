@@ -391,7 +391,7 @@ Image-to-image translation can be done in many ways. For example, turning winter
 <img src='/images/gan/cyclegan_res1.png' width="50%"/> 
 </p>
 
-Here is result of mapping Monet style paintings into photos.
+Here is result of mapping Monet style paintings into photos. Does this seem similar to something we did previously? Yes, [Neural Style Transfer](https://dudeperf3ct.github.io/style/transfer/2018/12/23/Magic-of-Style-Transfer/).
 
 <p align="center">
 <img src='/images/gan/cyclegan_res2.png' width="50%"/> 
@@ -480,7 +480,18 @@ ProGAN as pretty mouthful, right? The authors of Nvidia came out with this paper
 <img src='/images/gan/stylegan_1.jpg' width="50%"/> 
 </p>
 
-We are copying the styles from different resolutions of source B to the images from source A. Copying the styles corresponding to coarse spatial resolutions ($$4^{2}$$–$$8^{2}$$) brings high-level aspects such as pose, general hair style, face shape, and eyeglasses from source B, while all colors(eyes, hair, lighting) and finer facial features resemble A. If we instead copy the styles of middle resolutions ($$16^{2}$$–$$32^{2}$$) from B, we inherit smaller scale facial features, hair style, eyes open/closed from B, while the pose, general face shape, and eyeglasses from A are preserved. Finally, copying the fine styles ($$64^{2}$$–$$1024^{2}$$) from B brings mainly the color scheme and microstructure.
+We are copying the styles from different resolutions of source B to the images from source A. Copying the styles corresponding to coarse spatial resolutions ($$4^{2}$$–$$8^{2}$$) brings high-level aspects such as pose, general hair style, face shape, and eyeglasses from source B, while all colors(eyes, hair, lighting) and finer facial features resemble A. If we instead copy the styles of middle resolutions ($$16^{2}$$–$$32^{2}$$) from B, we inherit smaller scale facial features, hair style, eyes open/closed from B, while the pose, general face shape, and eyeglasses from A are preserved. Finally, copying the fine styles ($$64^{2}$$–$$1024^{2}$$) from B brings mainly the color scheme and microstructure. 
+
+<p align="center">
+<img src='/images/gan/stylegan_arch.png' width="50%"/> 
+</p>
+
+How does it work then? StyleGANs are upgraded version of ProGAN where we can each progessive layers can be utilized to control different visual features of image. As we saw from above example, coarse styles can be controlled using $$4^{2}$$–$$8^{2}$$ resolution, middle styles controlled by $$16^{2}$$–$$32^{2}$$ resolution layers and finer styles using $$64^{2}$$–$$1024^{2}$$ resolutions. The typical ProGAN shown on the left side in image above uses progressive layer training to produce high resolution images but StyleGAN uses a different generator approach. Instead of mapping latent code z to resolution, it uses Mapping Network, which maps the latent code z to an intermediate vector w. The latent vector is sort of like a style specification for the image.
+
+<p align="center">
+<img src='/images/gan/stylegan_arch_1.png' width="50%"/> 
+</p>
+
 
 
 
@@ -523,10 +534,10 @@ In paper [Improving GAN by training](https://arxiv.org/pdf/1606.03498.pdf), auth
 
 How should we evaluate GANs and when should we use them? How does GAN training scale with batch size? Can we Scale GANs Beyond Image Synthesis? Can GANs attain Nash Equilibrium?
 
+## Are we doomed?
 
-## Cool Results
 
-Of course, you can't implement all of them. So, let's steal some of the results from all sort of cool GANs.
+
 
 
 In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Paper dissection. And further build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!
