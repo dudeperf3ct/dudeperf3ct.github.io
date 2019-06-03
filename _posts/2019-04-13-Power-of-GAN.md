@@ -415,6 +415,60 @@ This result shows photo enhancement achieved by mapping snaps from smartphone to
 <img src='/images/gan/cyclegan_res5.png' width="50%"/> 
 </p>
 
+### ProGAN
+
+Generating images from 32x32 upto 128x128 with all the new fancy losses seemed cool but generating images of large resolution say 512x512 remained a challenge. The problem with large resolution is that large size implies small minibatches which in turn lead to training instability. We have already visited how training GANs can lead to mode collapse where every output of gan is some number of same images where discriminator wins and generator loses and it's game over.  These all problems are the reason why GANs cannot achieve high quality even if we try to make GANs deeper or bigger. The team at Nvidia tackled this challenge through new GANs called ProGAN and bunch of other tricks. The idea behind ProGAN is we start with low resolution images, and then progressively increase the resolution by adding layers to the networks. What happens is instead of using standard GANs where we would have used deep networks to generate high res from latent code, and as the networks are deep it would have taken a lot of time for G to come up with good high res images as D will be already better in rejecting in these samples. This increase in amount of time can lead to mode collapse as already D is better at what it is doing and G is failing to learn anything as layers are deeper and going from randomly intialized weights of each layer to good weight will take a lot of time, if at all possible. So, instead of using standard GANs, the team at Nvidia came up with something called ProGAN. ProGAN starts with tiny images of size 4x4 images and correspondingly shallow networks. The network is trained with this size for sometime until they are more or less converged, next shallow network corresponding to size 8x8 is added which is again trained till convergence and further 16x16 image size network is added. This continues till sizes upto image resolution of 1024x1024 and after 2 days of training these ProGANs we get amazing results. How would G and D look? They would be mirror of each other. That is, in case of 4x4, G will take latent code and produce 4x4 images and D wil take 4x4 and produce real output number(unbounded), as authors use WGAN-GP as loss instead of real and fake. Let's see how it looks,
+
+<p align="center">
+<img src='/images/gan/progan.png' width="50%"/> 
+</p>
+
+This is how typical training in ProGAN looks like.
+
+<p align="center">
+<img src='/images/gan/progan_train.gif' width="50%"/> 
+</p>
+
+ProGAN generally trained about 2–6 times faster than a corresponding traditional GAN, depending on the output resolution.
+
+<p align="center">
+<img src='/images/gan/progan_train.png' width="50%"/> 
+</p>
+
+Here is a typical architecture of ProGAN shown below. The generator architecture for k resolution follows same pattern where each set of layers doubles the representation size and halves the number of channels and discriminator doing the exact oppposite. The ProGAN uses uses nearest neighbors for upscaling and average pooling for downscaling whereas DCGAN uses transposed convolution to change the representation size.
+
+<p align="center">
+<img src='/images/gan/progan_arch.png' width="50%"/> 
+</p>
+
+That's a very high level overview, but let's dwell on this a bit because they are so cool! Let's look at one such architecture of ProGAN.
+
+<p align="center">
+<img src='/images/gan/progan_one_step.png' width="40%"/>
+<img src='/images/gan/progan_one_step_D.png' width="40%"/>
+</p>
+
+Look at the architecture G and D on left side, we see that they are exact mirrors of each other. Let's walkthrough upto some kxk resolution and see what happens in detail. First generator starts with producing 4x4 image resolution and passing it to D and all backpropogation of error and learning of G and D takes place until some degree of convergence. So, we trained for only 3 layers in G and 3 layers in D for 4x4 resolution. Next, to generate double the resolution 8x8 image, we add 3 more layer to each side of G and D. Now, all the layers in G and D are trainable. To prevent shocks in the pre-existing lower layers from the sudden addition of a new top layer, the top layer is linearly “faded in”. This fading in is controlled by a parameter α, which is linearly interpolated from 0 to 1 over the course of many training iterations. So, there is no problem of catastrophic forgetting and only new layers are learned from scratch. This reduces the training time. Next time when we add 3 more layers to increase the resolution of size to 16x16, they are faded-in with already present 4x4 and 8x8 blocks and this ways G and D fight each other using WGAN-GP as loss function upto a desired number of resolution.
+
+To further increase the quality of images and variation, authors propose 3 tricks such as pixel normalization(not batch or layer or adaptive instance), minibatch standard deviation and equalized learning rate. In minibatch standard deviation, D is given a superpower to penalize G if the variation between training images and the once produced by G is high. G will be forced to produce same variation as in training data. To achieve this equalized learning rate, they scale the weights of a layer according to how many weights that layer has using. This makes sure all the layers are updated at same speed to ensure fair competition between G and D. Pixelwise feature normalization prevents training from spiraling out of control and discourages G from generating broken images.
+
+
+### Results
+
+I will let the results speak for themselves. Remember none of these faces are real. They are synthesized by G.
+
+<p align="center">
+<img src='/images/gan/progan_res.png' width="50%"/> 
+</p>
+
+
+After walking the latent space which is continuous, one such output is this. Notice the changes to hairs, expression, shape of face. Amazing. 
+
+<p align="center">
+<img src='/images/gan/progan_res.gif' width="50%"/> 
+</p>
+
+
 
 ### StyleGAN
 
@@ -499,6 +553,12 @@ Alex Irpan's blog [Read-through: Wasserstein GAN](https://www.alexirpan.com/2017
 Curriculum for learning [Wasserstein GAN from depthfirstlearning](http://www.depthfirstlearning.com/2019/WassersteinGAN)
 
 [CycleGAN](https://arxiv.org/pdf/1703.10593.pdf)
+
+[ProGAN](https://arxiv.org/pdf/1710.10196.pdf)
+
+[ProGAN talk by Tero Karras, NVIDIA](https://www.youtube.com/watch?v=ReZiqCybQPA)
+
+[Blog on ProGAN: How NVIDIA Generated Images of Unprecedented Quality by Sarah Wolf](https://towardsdatascience.com/progan-how-nvidia-generated-images-of-unprecedented-quality-51c98ec2cbd2)
 
 [StyleGAN](https://arxiv.org/pdf/1812.04948)
 
