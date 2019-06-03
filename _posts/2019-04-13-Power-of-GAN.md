@@ -450,8 +450,9 @@ That's a very high level overview, but let's dwell on this a bit because they ar
 
 Look at the architecture G and D on left side, we see that they are exact mirrors of each other. Let's walkthrough upto some kxk resolution and see what happens in detail. First generator starts with producing 4x4 image resolution and passing it to D and all backpropogation of error and learning of G and D takes place until some degree of convergence. So, we trained for only 3 layers in G and 3 layers in D for 4x4 resolution. Next, to generate double the resolution 8x8 image, we add 3 more layer to each side of G and D. Now, all the layers in G and D are trainable. To prevent shocks in the pre-existing lower layers from the sudden addition of a new top layer, the top layer is linearly “faded in”. This fading in is controlled by a parameter α, which is linearly interpolated from 0 to 1 over the course of many training iterations. So, there is no problem of catastrophic forgetting and only new layers are learned from scratch. This reduces the training time. Next time when we add 3 more layers to increase the resolution of size to 16x16, they are faded-in with already present 4x4 and 8x8 blocks and this ways G and D fight each other using WGAN-GP as loss function upto a desired number of resolution.
 
-To further increase the quality of images and variation, authors propose 3 tricks such as pixel normalization(not batch or layer or adaptive instance), minibatch standard deviation and equalized learning rate. In minibatch standard deviation, D is given a superpower to penalize G if the variation between training images and the once produced by G is high. G will be forced to produce same variation as in training data. To achieve this equalized learning rate, they scale the weights of a layer according to how many weights that layer has using. This makes sure all the layers are updated at same speed to ensure fair competition between G and D. Pixelwise feature normalization prevents training from spiraling out of control and discourages G from generating broken images.
+To further increase the quality of images and variation, authors propose 3 tricks such as pixel normalization(different from batch or layer or adaptive instance normalization), minibatch standard deviation and equalized learning rate. In minibatch standard deviation, D is given a superpower to penalize G if the variation between training images and the once produced by G is high. G will be forced to produce same variation as in training data. To achieve this equalized learning rate, they scale the weights of a layer according to how many weights that layer has using. This makes sure all the layers are updated at same speed to ensure fair competition between G and D. Pixelwise feature normalization prevents training from spiraling out of control and discourages G from generating broken images.
 
+And the last contribution made was how to evaluate two G's, which one is better? This can be done through Sliced Wasserstein Distance (SWD) where we generate large number of images and extract random 7x7 pixels neighbourhood. We interpret these neighbourhood points as in 7x7x3 dimensional space and comparing this point cloud against the real images(same process) point cloud which can be repeated for each scale.
 
 ### Results
 
@@ -461,26 +462,44 @@ I will let the results speak for themselves. Remember none of these faces are re
 <img src='/images/gan/progan_res.png' width="50%"/> 
 </p>
 
-
-After walking the latent space which is continuous, one such output is this. Notice the changes to hairs, expression, shape of face. Amazing. 
+After walking the latent space which is continuous, one such output is this. Notice the changes to hairs, expression, shape of face. Amazing!
 
 <p align="center">
 <img src='/images/gan/progan_res.gif' width="50%"/> 
 </p>
 
 
-
 ### StyleGAN
+
+ProGAN as pretty mouthful, right? The authors of Nvidia came out with this paper called StyleGAN where we can by modifying the input of each level separately, control the visual features that are expressed in that level, from coarse features (pose, face shape) to fine details (hair color), without affecting other levels. What this means? Let's look at example below and understand what this means. 
+
+<p align="center">
+<img src='/images/gan/stylegan.jpg' width="50%"/> 
+</p>
+<p align="center">
+<img src='/images/gan/stylegan_1.jpg' width="50%"/> 
+</p>
+
+We are copying the styles from different resolutions of source B to the images from source A. Copying the styles corresponding to coarse spatial resolutions ($$4^{2}$$–$$8^{2}$$) brings high-level aspects such as pose, general hair style, face shape, and eyeglasses from source B, while all colors(eyes, hair, lighting) and finer facial features resemble A. If we instead copy the styles of middle resolutions ($$16^{2}$$–$$32^{2}$$) from B, we inherit smaller scale facial features, hair style, eyes open/closed from B, while the pose, general face shape, and eyeglasses from A are preserved. Finally, copying the fine styles ($$64^{2}$$–$$1024^{2}$$) from B brings mainly the color scheme and microstructure.
+
 
 
 
 ### Results
+
+
+
 
 
 ### BigGAN
 
 
+
+
 ### Results
+
+Jaw-dropping moment.
+
 
 
 ### GAN semi-supervised learning
