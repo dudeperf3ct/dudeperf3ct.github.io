@@ -529,8 +529,9 @@ The team at Deepmind showed that GANs benefits from scaling and trained models w
 <img src='/images/gan/biggan_arch.png' width="50%"/> 
 </p>
 
-BigGAN also employed few tricks such as Truncation Trick, where in previous literature of GAN latent vectors z are drawn from either $$\mathcal{N}$$(0, 1) or $$\mathcal{U}$$[-1, 1]. Instead BigGAN latent vectors are sampled from truncated normal distribution where values which fall outside a range are resampled to fall inside that range. Authors observe that using this sampling strategy does not work well with large models and hence add a Orthogonal Regularization as penalty. One important conclusion drawn from this is that we do not need to use explicit multiscale method as used in ProGAN and StyleGAN for producing higher resolution images. Despite these improvements, BigGAN undergoes training collapse. The authors explore in great-detail why it happens so through colorful plots.
+BigGAN also employed few tricks such as Truncation Trick, where in previous literature of GAN latent vectors z are drawn from either $$\mathcal{N}$$(0, 1) or $$\mathcal{U}$$[-1, 1]. Instead BigGAN latent vectors are sampled from truncated normal distribution where values which fall outside a range are resampled to fall inside that range. Authors observe that using this sampling strategy does not work well with large models and hence add a Orthogonal Regularization as penalty. One important conclusion drawn from this is that we do not need to use explicit multiscale method as used in ProGAN and StyleGAN for producing higher resolution images. Despite these improvements, BigGAN undergoes training collapse. The authors explore in great-detail why it happens so through colorful plots. They also provide results and conclusion of large amount of experiements performed from which a lot can be learned.
 
+In short, BigGAN could do what ProGAN thought would require multi-scale approach in single-scale by using some tricks.
 
 ### Results
 
@@ -572,33 +573,44 @@ Here is example of walking in latent space for specific z and c pairs,
 </p>
 
 
-
 ### GAN semi-supervised learning
 
 In paper [Improving GAN by training](https://arxiv.org/pdf/1606.03498.pdf), authors demonstrate they are able to achieve 99.14% accuracy with only 10 labeled examples per class with a fully connected neural network on MNIST dataset. The basic idea of semi-supervised learning with GANs is to use feature matching objective and turn add extra task for discriminator i.e. in addition to classify it will also predict the label of the image. The fake samples of generator can be used as dataset for which discriminator will predict a class corresponding to that image. The feature matching objective is a new objective for G is to train the generator to match the expected value of the features on an intermediate layer of the discriminator. If $$f(\mathbf{x})$$ denote activations on an intermediate layer of the discriminator, then new objective for generator is defined as $$||\mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[f(\mathbf{x})] - \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[f(G(\mathbf{z}))]||^{2}_{2}$$. Feature matching is effective in situations where regular GAN becomes unstable.
 
 # Speech
 
+Okay, enough images. Show me(GAN) what else you got. Synthesizing speech is one the cool areas GAN have played a significant role. 
+
 
 
 # Text
 
+What else you got? 
 
 
 # Video
+
+GANs for video has mindblowing applications. Remember deepfakes, the one which everyone is worried about. Yes, it was born here.
 
 
 
 
 ## Problems in GANs
 
-How should we evaluate GANs and when should we use them? How does GAN training scale with batch size? Can we Scale GANs Beyond Image Synthesis? Can GANs attain Nash Equilibrium?
+How should we evaluate GANs and when should we use them? 
+How does GAN training scale with batch size? 
+Can we Scale GANs Beyond Image Synthesis? 
+Can GANs attain Nash Equilibrium?
 
 ## Are we doomed?
 
+You are showing all these cool results with images and videos, the one with the deepfakes, fake speech, etc. This does have serious implications on the society. Are there any counter measures we should be aware of? 
+
+- Images : Worry not if you possess [Art of Observation](https://fs.blog/2013/04/the-art-of-observation/).
 
 
 
+Look at the progress, introducing paper in 2014 to worrying about dangerous impact on society caused by GAN in 2017, what can I say more? And this is the story of GANs.
 
 In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Paper dissection. And further build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!
 
@@ -608,6 +620,13 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 
 ### Note: Caveats on terminology
 
+GANs - Generative Adversarial Networks
+
+D - Discriminator
+
+G - Generator
+
+z - Latent vector, code or noise vector
 
 
 ---
