@@ -272,13 +272,17 @@ The generative models to make the model's distribution close to data distributio
 <img src='/images/gan/wgan.png' width="50%"/> 
 </p>
 
-Notice, there is no discriminator and there is something extra term of clipping in the algorithm. Also, we train critic for more time $$n_{critic}$$ times more than generator. The discriminator in GAN is known as critic in WGAN because the critic here is not classifier of real and fake trained on binary cross entropy but is trained on Wasserstein loss. $$\mathbf{f_{w}}$$ doesn't give output {0, 1} and that is reason why authors call it critic rather than discriminator. Since the loss for the critic is non-stationary, momentum based methods seemed to perform worse. Hence algorithm uses RMSProp instead of Adam as WGAN training becomes unstable at times when one uses a momentum based optimizer. One of the benefits of WGAN is that it allows us to train the critic till optimality. The better the critic,the higher quality the gradients we use to train the generator. This tells us that we no longer need to balance generator and discriminator’s capacity properly unlike in standard GAN.
+Notice, there is no discriminator and there is something extra term of clipping in the algorithm. Also, we train critic for more time $$n_{critic}$$ times more than generator. The discriminator in GAN is known as critic in WGAN because the critic here is not classifier of real and fake but is trained on Wasserstein loss to output unbounded real number. $$\mathbf{f_{w}}$$ doesn't give output {0, 1} and that is reason why authors call it critic rather than discriminator. Since the loss for the critic is non-stationary, momentum based methods seemed to perform worse. Hence algorithm uses RMSProp instead of Adam as WGAN training becomes unstable at times when one uses a momentum based optimizer. One of the benefits of WGAN is that it allows us to train the critic till optimality. The better the critic,the higher quality the gradients we use to train the generator. This tells us that we no longer need to balance generator and discriminator’s capacity properly unlike in standard GAN.
 
 In short, take GAN change training procedure a little and replace cost function in GANs with Wasserstein loss function.
 
+After 19 days of proposing WGAN, the authors of paper came up with improved and stable method for training GAN as opposed to WGAN which sometimes yielded poor samples or fail to converge. In this method, authors get rid of use of clipping the weights of critic in WGAN and use a different method which is to penalize the norm of gradient of the critic with respect to its input. This new loss is WGAN-GP. 
+
+In short, take GAN change training procedure a little and replace cost function in GANs with WGAN-GP loss function i.e. add gradient penalty term to the previous critic loss.
+
 ### Results
 
-After training in LSUN dataset of bedrooms, here are the results produced. Left from WGAN with DCGAN architecture and right from DCGAN.
+After training in LSUN dataset, here are the results produced. Left from WGAN with DCGAN architecture and right from DCGAN.
 
 <p align="center">
 <img src='/images/gan/wgan_res1.png' width="50%"/> 
@@ -298,6 +302,14 @@ Comparing WGAN on left with standard GAN. GAN suffers from mode collapse. This i
 <img src='/images/gan/wgan_res5.png' width="50%"/> 
 <img src='/images/gan/wgan_res6.png' width="40%"/>
 </p>
+
+The comparison of results of WGAN with WGAN-GP, DCGAN and LSGAN on LSUN dataset,
+
+<p align="center">
+<img src='/images/gan/wgan_gp_res.png' width="50%"/> 
+</p>
+
+
 
 
 ### Pix2Pix
