@@ -326,7 +326,7 @@ In short, instead of using standard GAN we use variant called cGAN and accordinl
 
 ### Results
 
-Paper showed some of the fantasic results obtained by using cGANs or CoGAN.
+Paper showed some of the fantasic results obtained by using cGANs.
 
 This figure shows how different domains like segmentation, aerial mapping, colorization, etc can be learned using cGANs.
 
@@ -403,7 +403,7 @@ Image-to-image translation can be done in many ways. For example, turning winter
 <img src='/images/gan/cyclegan_res1.png' width="50%"/> 
 </p>
 
-Here is result of mapping Monet style paintings into photos. Does this seem similar to something we did previously? Yes, [Neural Style Transfer](https://dudeperf3ct.github.io/style/transfer/2018/12/23/Magic-of-Style-Transfer/).
+Here is result of mapping Monet style paintings into photos. Do they look familiar to something we did previously? Yes, [Neural Style Transfer](https://dudeperf3ct.github.io/style/transfer/2018/12/23/Magic-of-Style-Transfer/).
 
 <p align="center">
 <img src='/images/gan/cyclegan_res2.png' width="50%"/> 
@@ -429,7 +429,7 @@ This result shows photo enhancement achieved by mapping snaps from smartphone to
 
 ### ProGAN
 
-Generating images from 32x32 upto 128x128 with all the new fancy losses seemed cool but generating images of large resolution say 512x512 remained a challenge. The problem with large resolution is that large size implies small minibatches which in turn lead to training instability. We have already visited how training GANs can lead to mode collapse where every output of gan is some number of same images where discriminator wins and generator loses and it's game over.  These all problems are the reason why GANs cannot achieve high quality even if we try to make GANs deeper or bigger. The team at Nvidia tackled this challenge through new GANs called ProGAN and bunch of other tricks. The idea behind ProGAN is we start with low resolution images, and then progressively increase the resolution by adding layers to the networks. What happens is instead of using standard GANs where we would have used deep networks to generate high res from latent code, and as the networks are deep it would have taken a lot of time for G to come up with good high res images as D will be already better in rejecting in these samples. This increase in amount of time can lead to mode collapse as already D is better at what it is doing and G is failing to learn anything as layers are deeper and going from randomly intialized weights of each layer to good weight will take a lot of time, if at all possible. So, instead of using standard GANs, the team at Nvidia came up with something called ProGAN. ProGAN starts with tiny images of size 4x4 images and correspondingly shallow networks. The network is trained with this size for sometime until they are more or less converged, next shallow network corresponding to size 8x8 is added which is again trained till convergence and further 16x16 image size network is added. This continues till sizes upto image resolution of 1024x1024 and after 2 days of training these ProGANs we get amazing results. How would G and D look? They would be mirror of each other. That is, in case of 4x4, G will take latent code and produce 4x4 images and D wil take 4x4 and produce real output number(unbounded), as authors use WGAN-GP as loss instead of real and fake. Let's see how it looks,
+Generating images from 32x32 upto 128x128 with all the new fancy losses seemed cool but generating images of large resolution say 512x512 remained a challenge. The problem with large resolution is that large size implies small minibatches which in turn lead to training instability. We have already visited how training GANs can lead to mode collapse where every output of gan is some number of same images where discriminator wins and generator loses and it's game over. These all problems are the reason why GANs cannot achieve high quality even if we try to make GANs deeper or bigger. The team at Nvidia tackled this challenge through new GANs called ProGAN and bunch of other tricks. The idea behind ProGAN is we start with low resolution images, and then progressively increase the resolution by adding layers to the networks. What happens is instead of using standard GANs where we would have used deep networks to generate high res from latent code, and as the networks are deep it would have taken a lot of time for G to come up with good high res images as D will be already better in rejecting in these samples. This increase in amount of time can lead to mode collapse as already D is better at what it is doing and G is failing to learn anything as layers are deeper and going from randomly intialized weights of each layer to good weight will take a lot of time, if at all possible. So, instead of using standard GANs, the team at Nvidia came up with something called ProGAN. ProGAN starts with tiny images of size 4x4 images and correspondingly shallow networks. The network is trained with this size for sometime until they are more or less converged, next shallow network corresponding to size 8x8 is added which is again trained till convergence and further 16x16 image size network is added. This continues till sizes upto image resolution of 1024x1024 and after 2 days of training these ProGANs we get amazing results. How would G and D look? They would be mirror of each other. That is, in case of 4x4, G will take latent code and produce 4x4 images and D wil take 4x4 and produce real output number(unbounded), as authors use WGAN-GP as loss instead of real and fake. Let's see how it looks,
 
 <p align="center">
 <img src='/images/gan/progan.png' width="50%"/> 
@@ -522,6 +522,12 @@ We can view the mapping network and affine transformations as a way to draw samp
 
 ### BigGAN
 
+The team at Deepmind showed that GANs benefits from scaling and trained models with two to four times as many parameters and eight times the batch size compared to prior art. BigGANs uses class-conditional GANs where they pass class-information to G  and to D using projection as shown below where they pass class information using inner-product with output of D. The objective used by BigGAN is hinge loss. BigGAN adds direct skip-connections from noise vector z to multiple layers of G rather than just initial layer in standard GANs. The intuition behind this design is to allow G to use the latent space to directly influence features at different resolutions and levels of hierarchy. The latent vector z is concatenated with class embeddings and passed to each residual block through skip connections. Residual Up used for upsampling in BigGAN G's shown in (b) and Residual Down for downsampling in BigGAN D's is shown in (c). 
+
+<p align="center">
+<img src='/images/gan/bigan_project.png' width="40%"/> 
+<img src='/images/gan/biggan_arch.png' width="50%"/> 
+</p>
 
 
 
@@ -612,7 +618,11 @@ Curriculum for learning [Wasserstein GAN from depthfirstlearning](http://www.dep
 
 [StyleGAN](https://arxiv.org/pdf/1812.04948)
 
-[BigGAN]()
+[BigGAN](https://arxiv.org/pdf/1809.11096.pdf)
+
+[BigGanEx: A Dive into the Latent Space of BigGan](https://thegradient.pub/bigganex-a-dive-into-the-latent-space-of-biggan/)
+
+[Are GANs Created Equal? A Large-Scale Study](https://arxiv.org/pdf/1711.10337.pdf)
 
 [Open Questions about Generative Adversarial Networks](https://distill.pub/2019/gan-open-problems/)
 
