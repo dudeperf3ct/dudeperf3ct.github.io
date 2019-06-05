@@ -578,8 +578,13 @@ In paper [Improving GAN by training](https://arxiv.org/pdf/1606.03498.pdf), auth
 
 # Speech
 
-Okay, enough images. Show me(GAN) what else you got. Synthesizing speech is one the cool areas GAN have played a significant role. And with good comes bad, "deepfake" voice technology.
+Okay, enough images. Show me(GAN) what else you got. Synthesizing speech is one the cool areas GAN have played a significant role. And with good comes bad, "deepfake" voice technology. 
 
+### GANSynth
+
+Magenta has a [great blog](https://magenta.tensorflow.org/gansynth) detailing examples definitely worth a look! To be frank, I didn't get a lot out of paper. Previous approach for speech synthesis was using Autoregressive models -- another type of generative model -- like [WaveNet](https://deepmind.com/blog/wavenet-generative-model-raw-audio/), which have slow iterative sampling and lack global structure(no idea what this means). They make use of ProGAN(which we looked above) to generate audio spectra. Briefly,   Rather than generate audio sequentially as done in WaveNet, GANSynth generates an entire sequence in parallel, synthesizing audio significantly faster than real-time on a modern GPU and ~50,000 times faster than a standard WaveNet.
+
+### Results
 
 
 # Text
@@ -668,6 +673,8 @@ z - Latent vector, code or noise vector
 
 # Further Reading
 
+[GAN Lab: An Interactive, Visual Experimentation Tool for Generative Adversarial Networks](https://poloclub.github.io/ganlab/)
+
 [NIPS 2016 Tutorial : Generative Adversarial Network](https://arxiv.org/pdf/1701.00160.pdf)
 
 Fastai [Lesson 12: Deep Learning Part 2 2018 - Generative Adversarial Networks (GANs)](https://www.youtube.com/watch?v=ondivPiwQho&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia&index=5)
@@ -735,6 +742,12 @@ Curriculum for learning [Wasserstein GAN from depthfirstlearning](http://www.dep
 [Understanding Generative Adversarial Networks (GANs)](https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29)
 
 [An intuitive introduction to Generative Adversarial Networks (GANs)](https://medium.freecodecamp.org/an-intuitive-introduction-to-generative-adversarial-networks-gans-7a2264a81394)
+
+Magenta Project = Awesomeness in-built [GANSynth: Making music with GANs](https://magenta.tensorflow.org/gansynth)
+
+[GANSynth: Adversarial Neural Audio Synthesis](https://arxiv.org/pdf/1902.08710.pdf)
+
+[Adversarial Audio Synthesis](https://arxiv.org/pdf/1802.04208.pdf)
 
 [Everybody Dance Now](https://arxiv.org/pdf/1808.07371.pdf)
 
