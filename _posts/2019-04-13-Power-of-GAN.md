@@ -721,11 +721,30 @@ The progress of image generating quality of GANs is shown below.
 <img src='/images/gan/gan_progress.png' width="50%"/> 
 </p>
 
-In an excellent [blog](https://medium.com/@kcimc/how-to-recognize-fake-ai-generated-images-4d1f6f9a2842) by Kyle McDonald helps us to observe.
+In an excellent [blog](https://medium.com/@kcimc/how-to-recognize-fake-ai-generated-images-4d1f6f9a2842) by Kyle McDonald helps us to observe. I will mention 2-3 observations. In addition to test your skills you can play [this game].
 
+**Asymmetry**
 
+<p align="center">
+<img src='/images/gan/fake_img_1.png' width="50%"/> 
+</p>
+
+**Weird Teeth**
+
+<p align="center">
+<img src='/images/gan/fake_img_2.png' width="50%"/> 
+</p>
+
+**Missing Earing**
+
+<p align="center">
+<img src='/images/gan/fake_img_3.gif' width="50%"/> 
+</p>
+
+Also, reseachers at University of Washington in their [Calling Bullshit](https://callingbullshit.org) project have complied [some more list]([http://www.whichfaceisreal.com/learn.html]) of such observations.
 
 ### Speech
+
 
 
 
@@ -847,9 +866,13 @@ Magenta Project = Awesomeness in-built [GANSynth: Making music with GANs](https:
 
 [Deepfakes for dancing](https://www.theverge.com/2018/8/26/17778792/deepfakes-video-dancing-ai-synthesis)
 
+[Which Face is Real?](http://www.whichfaceisreal.com/learn.html)
+
 Game: [Who is Real?](http://www.whichfaceisreal.com/index.php)
 
 [Nic Cage Everyone!](http://niccageaseveryone.blogspot.com/)
+
+Startups: [Modulate]() [Dessa RealTalk]() [Lybird](), [DataGrid](https://datagrid.co.jp/), [Synthesia](https://www.synthesia.io/), [DeepTrace](https://www.deeptracelabs.com/)
 
 
 ---
