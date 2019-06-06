@@ -786,6 +786,8 @@ Fastai [Lesson 12: Deep Learning Part 2 2018 - Generative Adversarial Networks (
 
 [CVPR 2018 Tutorial on GANs](https://sites.google.com/view/cvpr2018tutorialongans/)
 
+[Few-Shot Adversarial Learning of Realistic Neural Talking Head Models Video](https://www.youtube.com/watch?v=p1b5aiTrGzY&feature=youtu.be)
+
 [A Short Introduction to Entropy, Cross-Entropy and KL-Divergence](https://www.youtube.com/watch?v=ErfnhcEV1O8)
 
 Chapter 3, 5 and 20 of [Deep Learning Book](https://www.deeplearningbook.org/)
