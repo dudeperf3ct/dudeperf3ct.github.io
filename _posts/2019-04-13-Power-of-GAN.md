@@ -609,31 +609,6 @@ We have seen previously how RNN and seq2seq language models are conditioned on p
 
 GANs for video has mindblowing applications. Remember deepfakes, the one which everyone is worried about. Yes, it was born here. The literature for GANs in video is large, we will particularly cover 2 applications, deepfakes and everybody can dance.
 
-## Deepfakes
-
-Deepfakes created a [lot](https://edition.cnn.com/2019/04/26/tech/ai-deepfake-detection-2020/index.html) of [buzz](https://www.nytimes.com/2018/03/04/technology/fake-videos-deepfakes.html) and I mean a [lot](https://www.vice.com/en_us/article/594qx5/there-is-no-tech-solution-to-deepfakes), [lot](https://www.economist.com/science-and-technology/2017/07/01/fake-news-you-aint-seen-nothing-yet) and there is a [YouTube channel](https://www.youtube.com/channel/UCUix6Sk2MZkVOr5PWQrtH1g/videos) for it too. There are two types of deepfake : the face-swapping one and mona-lisa speaking one. We will explore both. 
-
-### Faceswap GANs
-
-Let's start with face-swapping GANs. Many of you can guess what GANs will be particularly helpful here. Did I hear CycleGANs? Yes, absolutely correct. 
-
-
-### Results
-
-
-
-### Mona Lisa speaking GANs
-
-
-
-### Results
-
-Speaking Mona Lisa how about that?
-
-<p align="center">
-<img src='/images/gan/mona_lisa.gif' width="50%"/> 
-</p>
-
 ### Everybody can dance
 
 Can you dance? Don't worry if you can't. The researchers at Berkely presented a simple method for "do as I do" motion transfer : given a source video of a person dancing we can transfer that performance to anovel (amateur) target after only a few minutes of the target subject performing standard moves. Cool right?? How can be pose this problem looking that above approaches in GAN images? Yes, image-to-image translation between source and target sets. But we do not have corresponding pairs of images of the two subjects performing the same motion to perform supervise translation directly. In pix2pix method, we had {edge, photo} as tuple where edge is passed to both G and D and G generates a fake photo and passes to D to fool it. Even if both subjects were performing same motion, it would difficult to have exact frame body-pose correspondence between source to target due to body shape and stylistic differences unique to each subject. How can we proceed further? Keypoint-based pose. Keypoints encode body position irrespective of shape and styles, hence keypoint can act as our intermediate representation between two subjects. Obtaining pose for each frame from target video we get pairs of (pose stick figure, target person image). Here is one such example, 
@@ -660,6 +635,45 @@ First training pipeline, for a given frame $$\mathbf{y}$$ from target video, it 
 This video is sufficient enough to convey the awesomeness achieved.
 
 https://youtu.be/PCBTZh41Ris
+
+
+### Deepfakes
+
+Deepfakes created a [lot](https://edition.cnn.com/2019/04/26/tech/ai-deepfake-detection-2020/index.html) of [buzz](https://www.nytimes.com/2018/03/04/technology/fake-videos-deepfakes.html) and I mean a [lot](https://www.vice.com/en_us/article/594qx5/there-is-no-tech-solution-to-deepfakes), [lot](https://www.economist.com/science-and-technology/2017/07/01/fake-news-you-aint-seen-nothing-yet) and there is a [YouTube channel](https://www.youtube.com/channel/UCUix6Sk2MZkVOr5PWQrtH1g/videos) for it too. We will be looking at two types of deepfake : the face-swapping one and mona-lisa speaking one. We will explore both. 
+
+### Faceswap GANs
+
+Let's start with face-swapping GANs. Many of you can guess what GANs will be particularly helpful here. Did I hear CycleGANs? Yes, absolutely correct. All we need to do is unsupervised training to two sequences of unaligned video frames from each person. But authors of the [paper](https://arxiv.org/pdf/1712.03451.pdf) suggested some improvements to CycleGAN that deals with the common problem of model collapse, to capture details in facial expressions and head poses, and thus transfer facial expressions with higher consistency and stability. The loss function used in CycleGAN, $$\mathcal{L}(G, F, D_{X}, D_{Y}) &= \mathcal{L}_{GAN}(G, D_{Y}, X, Y) + \mathcal{L}_{GAN}(F, D_{X}, Y, X) + \lambda\mathcal{L}_{cyc}(G, F)$$ proved to be challenging to get good transferring results on unaligned datasets. So in order to generate better face-off sequences on unaligned datasets instead authors proposed adding two losses, WGAN loss to prevent mode collapse in adversarial training and to achieve more stable results. SSIM Loss (Structural Similarity) matches the luminance(l), contrast(c), and structure(s) information of the generated image and the input image, and it’s proved to be very helpful to improve the quality of image generation. Here is how the architecture looks with new addded loss of WGAN, SSIM in addition to cyclic consistency loss($$L_{cyc}$$).
+
+<p align="center">
+<img src='/images/gan/faceoff_arch' width="50%"/> 
+</p>
+
+While transferring face one thing to be noted is how we will deal with foreground and background i.e. the background of the source video should remain the same only the face of the subject from the source video should be swapped with that of target subject. So, authors propose a trick to segment the input faces and then fed the mask as weight on pixel-reconstruction error. Generator uses variant of U-Net architecture and discriminator 5-layer Conv and also experiemented with using two discriminator whose losses will be averaged given some weight $$\lambda$$ in final loss function. The results obtained from the experimented were noisy and does not deal with scale, very shaky and inconsitent between the frames.
+
+
+### Results
+
+How about we settle for video as a result? This result is not obtained from the model trained on above paper. But it sure uses CycleGAN just with some modifications(which I don't know what, will have to ask [author](https://github.com/tjwei/GANotebooks)?).
+
+https://www.youtube.com/watch?v=Fea4kZq0oFQ
+
+
+### Mona Lisa speaking GANs
+
+
+
+
+
+### Results
+
+Speaking Mona Lisa how about that?
+
+<p align="center">
+<img src='/images/gan/mona_lisa.gif' width="50%"/> 
+</p>
+
+
 
 
 
@@ -787,6 +801,12 @@ Magenta Project = Awesomeness in-built [GANSynth: Making music with GANs](https:
 
 [Adversarial Audio Synthesis](https://arxiv.org/pdf/1802.04208.pdf)
 
+[MaskGAN: Better Text Generation via Filling in the ______](https://arxiv.org/pdf/1801.07736)
+
+[CycleGAN Face-off](https://arxiv.org/pdf/1712.03451.pdf)
+
+[Few-Shot Adversarial Learning of Realistic Neural Talking Head Models](https://arxiv.org/pdf/1905.08233.pdf)
+
 [Everybody Dance Now](https://arxiv.org/pdf/1808.07371.pdf)
 
 [David Beckham deepfake for a malaria campaign](https://www.prweek.com/article/1581457/deepfake-voice-tech-used-good-david-beckham-malaria-campaign)
@@ -794,6 +814,8 @@ Magenta Project = Awesomeness in-built [GANSynth: Making music with GANs](https:
 [Deepfakes for dancing](https://www.theverge.com/2018/8/26/17778792/deepfakes-video-dancing-ai-synthesis)
 
 Game: [Who is Real?](http://www.whichfaceisreal.com/index.php)
+
+[Nic Cage Everyone!](http://niccageaseveryone.blogspot.com/)
 
 
 ---
