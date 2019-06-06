@@ -596,7 +596,7 @@ What else you got? We have seen a lot of NLP but now the question is are GANs go
 
 ### MaskGAN
 
-We have seen previously how RNN and seq2seq language models are conditioned on previous words to generated words sequentially.
+We have seen previously how RNN and seq2seq language models are conditioned on previous words to generated words sequentially. This makes them difficult to generate samples that were not present in the training.
 
 ### Results
 
