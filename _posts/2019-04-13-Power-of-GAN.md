@@ -752,12 +752,13 @@ Also, reseachers at University of Washington in their [Calling Bullshit](https:/
 
 
 
-You can generated fake video about Mr. Former POTUS as shown here but it's not using GAN but another form of deepfake http://www.washington.edu/news/2017/07/11/lip-syncing-obama-new-tools-turn-audio-clips-into-realistic-video/
+You can [generate a fake video](http://www.washington.edu/news/2017/07/11/lip-syncing-obama-new-tools-turn-audio-clips-into-realistic-video/) about Mr. Former POTUS
+as shown here but it's not using GAN but another form of deepfake 
 
 
 Look at the progress, introducing paper in 2014 to worrying about dangerous impact on society caused by GAN in 2017, what can I say more? And this is the story of GANs.
 
-In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Paper dissection. And further build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!
+In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Fun of Paper dissection. And further build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!
 
 <span class='orange'>Happy Learning!</span>
 
@@ -870,7 +871,7 @@ Magenta Project = Awesomeness in-built [GANSynth: Making music with GANs](https:
 
 [Which Face is Real?](http://www.whichfaceisreal.com/learn.html)
 
-Game: [Who is Real?](http://www.whichfaceisreal.com/index.php)
+Game: [Who is Real?](http://www.whichfaceisreal.com/index.php), [FauxRogan](http://fakejoerogan.com/)
 
 [Nic Cage Everyone!](http://niccageaseveryone.blogspot.com/)
 
