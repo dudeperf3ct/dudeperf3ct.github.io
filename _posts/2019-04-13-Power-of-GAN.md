@@ -778,6 +778,13 @@ https://www.youtube.com/embed/yVCgUYe4JTM?rel=0&autoplay=1
 
 You can also play with very cool interactive demo on (gandissect.res.ibm.com)[http://gandissect.res.ibm.com/ganpaint.html?project=churchoutdoor&layer=layer4].
 
+[DiscoGAN](https://arxiv.org/pdf/1703.05192)
+
+
+<p align="center">
+<img src='/images/gan/discogan.png' width="50%"/> 
+</p>
+
 Okay we have to stop somewhere, let stop with last mention to a type of conditional GAN to synthesize High-Resolution Image and Semantic Manipulation aka [pix2pixHD](https://arxiv.org/pdf/1711.11585.pdf). And results they sure [don't disappoint](https://youtu.be/3AIpPlzM_qs).
 
 <p align="center">
@@ -863,6 +870,8 @@ Curriculum for learning [Wasserstein GAN from depthfirstlearning](http://www.dep
 [IAN](https://arxiv.org/pdf/1609.07093)
 
 [GAN Dissection](https://arxiv.org/pdf/1811.10597.pdf)
+
+[DiscoGAN](https://arxiv.org/pdf/1703.05192)
 
 [pix2pixHD](https://arxiv.org/pdf/1711.11585.pdf)
 
