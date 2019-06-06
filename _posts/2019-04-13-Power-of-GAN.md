@@ -699,13 +699,21 @@ Can GANs attain Nash Equilibrium?
 
 ## GANs Rule
 
-GANs are getting better and better as if they are on steroids. Does this mean we are doomed? Will GANs rule the world? We are seeing all these cool results with images and videos, the one with the deepfakes, fake speech, etc. This does have serious implications on the society. Are there any counter measures we should be aware of? 
+GANs are getting better and better as if they are on steroids. Does this mean we are doomed? Will GANs rule the world? We are seeing all these cool results with images and videos, the one with the deepfakes, fake speech, etc. This does have serious implications on the society. Are there any counter measures we should be aware of? Worry not if you possess [Art of Observation](https://fs.blog/2013/04/the-art-of-observation/).
+
 
 ### Images
 
-Worry not if you possess [Art of Observation](https://fs.blog/2013/04/the-art-of-observation/).
+The progress of image generating quality of GANs is shown below.
+
+<p align="center">
+<img src='/images/gan/gan_progress.png' width="50%"/> 
+</p>
+
+
 
 ### Speech
+
 
 
 ### Videos
