@@ -639,7 +639,7 @@ https://youtu.be/PCBTZh41Ris
 
 ### Deepfakes
 
-Deepfakes created a [lot](https://edition.cnn.com/2019/04/26/tech/ai-deepfake-detection-2020/index.html) of [buzz](https://www.nytimes.com/2018/03/04/technology/fake-videos-deepfakes.html) and I mean a [lot](https://www.vice.com/en_us/article/594qx5/there-is-no-tech-solution-to-deepfakes), [lot](https://www.economist.com/science-and-technology/2017/07/01/fake-news-you-aint-seen-nothing-yet) and there is a [YouTube channel](https://www.youtube.com/channel/UCUix6Sk2MZkVOr5PWQrtH1g/videos) for it too. We will be looking at two types of deepfake : the face-swapping one and mona-lisa speaking one. We will explore both. 
+Deepfakes created a [lot](https://edition.cnn.com/2019/04/26/tech/ai-deepfake-detection-2020/index.html) of [buzz](https://www.nytimes.com/2018/03/04/technology/fake-videos-deepfakes.html) and I mean a [lot](https://www.vice.com/en_us/article/594qx5/there-is-no-tech-solution-to-deepfakes), [lot](https://www.economist.com/science-and-technology/2017/07/01/fake-news-you-aint-seen-nothing-yet) and there is a [YouTube channel](https://www.youtube.com/channel/UCUix6Sk2MZkVOr5PWQrtH1g/videos) for it too. We will be looking at two types of deepfakes : the face-swapping one and mona-lisa speaking one. We will explore both. 
 
 ### Faceswap GANs
 
@@ -649,17 +649,23 @@ Let's start with face-swapping GANs. Many of you can guess what GANs will be par
 <img src='/images/gan/faceoff_arch' width="50%"/> 
 </p>
 
-While transferring face one thing to be noted is how we will deal with foreground and background i.e. the background of the source video should remain the same only the face of the subject from the source video should be swapped with that of target subject. So, authors propose a trick to segment the input faces and then fed the mask as weight on pixel-reconstruction error. Generator uses variant of U-Net architecture and discriminator 5-layer Conv and also experiemented with using two discriminator whose losses will be averaged given some weight $$\lambda$$ in final loss function. The results obtained from the experimented were noisy and does not deal with scale, very shaky and inconsitent between the frames.
+While transferring face one thing to be noted is how we will deal with foreground and background i.e. the background of the source video should remain the same only the face of the subject from the source video should be swapped with that of target subject. So, authors propose a trick to segment the input faces and then fed the mask as weight on pixel-reconstruction error. Generator uses variant of U-Net architecture and discriminator 5-layer Conv and also experiemented with using two discriminator whose losses will be averaged given some weight $$\lambda$$ in final loss function. The results obtained from the experiments were noisy, don't deal with scale, very shaky and inconsitent between the frames.
 
 
 ### Results
 
-How about we settle for video as a result? This result is not obtained from the model trained on above paper. But it sure uses CycleGAN just with some modifications(which I don't know what, will have to ask [author](https://github.com/tjwei/GANotebooks)?).
+How about we settle for video as a result? This result *is not* obtained from the model trained on above paper. But it surely uses CycleGAN just with some modifications(which I don't know what, will have to ask [author](https://github.com/tjwei/GANotebooks)?).
 
 https://www.youtube.com/watch?v=Fea4kZq0oFQ
 
 
 ### Mona Lisa speaking GANs
+
+We have seen how brilliant GANs are spitting out beautiful and realistic looking image. The team of researchers at Samsung AI published a [paper](https://arxiv.org/pdf/1905.08233.pdf) where they create a personalized talking head model with only few-images. The few-shot learning ability is obtained through extensive pre-training (meta-learning) on a large corpus of talking head videos corresponding to different speakers with diverse appearance. In the course of meta-learning, system simulates few-shot learning tasks and learns to transform landmark positions into realistically-looking personalized photographs, given  a small training set of images with this person. After that, a handful of photographs of a new person sets up a new adversarial  learning problem with high-capacity generator and discriminator pre-trained via meta-learning. The new adversarial problem converges to the state that generates realistic and personalized images after a few training steps. If nothing made sense so far, no worries we will break down everything. Starting from architecture,
+
+<p align="center">
+<img src='/images/gan/fewshot_arch.png' width="50%"/> 
+</p>
 
 
 
