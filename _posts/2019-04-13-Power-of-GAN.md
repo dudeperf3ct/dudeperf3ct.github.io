@@ -126,11 +126,11 @@ $$
 
 To play the game, we need to complete generator's cost function $$J^{(G)}$$. We assume that we are playing the simplest zero-sum game, where the sum of all player's cost is zero. In this zero-sum game, we get $$J^{(D)}$$ + $$J^{(G)}$$ = 0. This gives us $$J^{(G)}$$ = - $$J^{(D)}$$.
 
-From looking at the equations above for $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ and figure explaining two scenarios of game, the discriminator decision are accurate when it correctly classifies fake and real samples. In terms of cost function, in first scenario with real samples, D($$\mathbf{x}$$) tries to be near 1, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim p_{data}}[D(\mathbf{x})]$$. That is, when D($$\mathbf{x}$$) becomes close to 1, $$\mathbb{E}[(D(\mathbf{x}))]$$ becomes close to 0 and when D($$\mathbf{x}$$) tries to be near 1, $$\mathbb{E}[(D(\mathbf{x}))]$$ becomes close to $$-\infty$$.  In second scenario with fake samples, D($$\mathbf{x}$$) tries to be near 0, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim \mathbf{z}}[1-D(G(\mathbf{z}))]$$. (Question:  Show that in the limit, the maximum of the discriminator objective above is the Jenson-Shannon divergence, up to scaling and constant factors.)
+From looking at the equations above for $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ and figure explaining two scenarios of game, the discriminator decision are accurate when it correctly classifies fake and real samples. In terms of cost function, in first scenario with real samples, D($$\mathbf{x}$$) tries to be near 1, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim p_{data}}[D(\mathbf{x})]$$. When D($$\mathbf{x}$$) becomes close to 1, $$\mathbb{E}[(D(\mathbf{x}))]$$ becomes close to 0 and when D($$\mathbf{x}$$) tries to be near 1, $$\mathbb{E}[(D(\mathbf{x}))]$$ becomes close to $$-\infty$$.  In second scenario with fake samples, D(G($$\mathbf{x}$$)) tries to be near 0, i.e. maximize $$\mathbb{E}_{\mathbf{z} \sim p_{\mathbf{z}}}[1-D(G(\mathbf{z}))]$$. (**Question:  Show that in the limit, the maximum of the discriminator objective above is the Jenson-Shannon divergence, up to scaling and constant factors.**)
 
 The generator on other hand is trained to increase the chances of D producing a high probability i.e. 1, to classify it as real, for a fake example, i.e. maximizing $$\mathbb{E}_{\mathbf{z}}[D(G(\mathbf{z}))]$$ or to minimize $$\mathbb{E}_{\mathbf{z}}[1-D(G(\mathbf{z}))]$$, the part of cost function ($$\mathbb{E}_{\mathbf{x} \sim p_{data}}[D(\mathbf{x})]$$) which deals with real samples will have no effect on generator as it is not sampled from generator.
 
-So, combining both the conclusions from above, <span class='green'>to maximize the cost function for D and minimze the second part of cost function for G, G and D are essentially playing minmax game.</span>
+So, combining both the conclusions from above, <span class='red'>to maximize the cost function for D and minimze the second part of cost function for G, G and D are essentially playing minmax game.</span>
 
 We substitute V(D, G) = - $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ in cost function to get the minmax of value function as follows,
 
@@ -140,9 +140,9 @@ $$
 \end{aligned}
 $$
 
-<span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to complete it's own objective. This game continues till we get a state, in which each model becomes an expert on what it is doing, the generative model increases its ability to get the actual data distribution and produces data like it, and the discriminative becomes expert in identifying the real samples, which increases the system’s classification task. The discriminator tries to maximize tweaking only it's parameter and G tries to minimze tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images.  Can it get any better than this? Question for curious readers is will doing maxmin produce same results?
+<span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to complete it's own objective. This game continues till we get a state, in which each model becomes an expert on what it is doing, the generative model increases its ability to get the actual data distribution and produces data similar to it, and the discriminative becomes expert in identifying the real samples. The discriminator tries to maximize tweaking only it's parameter and G tries to minimze tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images. Can it get any better than this? (**Question: Is will doing maxmin produce same results?**)
 
-<span class='saddlebrown'>On a sad note, the cost used for the generator in the minimax game is useful for theoretical analysis, but does not perform especially well in practice. In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence producing a perfect discriminator, the generator’s gradient vanishes, it will produce zero everywhere, leading to vanishing gradient problem.</span>
+<span class='saddlebrown'>On a sad note, the cost used for the generator in the minimax game is useful for theoretical analysis, but does not perform especially well in practice. In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence producing a perfect discriminator, the generator’s gradient vanishes, it will produce zero everywhere, leading to vanishing gradient problem. This is main problem in training GANs called "mode collapse".</span>
 
 To solve this problem, one approach is to continue to use cross-entropy minimization for the generator. Instead of flipping the sign on the discriminator’s cost to obtain a cost for the generator, we flip the target used to construct the cross-entropy cost.  The cost for the generator then becomes:
 
@@ -160,7 +160,7 @@ J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\exp({\sigma^{-1}(D(G(\mathbf{z})
 \end{aligned}
 $$
 
-Different cost functions such as feature matching, minibatch discrimination, etc produces good results in GANs. Many such cost functions can be tried depending on the task at hand and not limited to above. 
+Different adversarial loss functions such as feature matching, minibatch discrimination, etc produces good results in GANs. Many such adversarial losses can be experimented with depending on the task at hand and not limited to above. 
 
 
 ## Therotical Limits
@@ -220,19 +220,22 @@ Having defined both discriminator (a classifier that takes in input as image and
 Of course, the training procedure we described above is very unstable and difficult. I mean Is D doing good job in classifying?, Is G generating good samples?, How long should I train to get good examples?, 
  
 
-Walking on the manifold (latent space) that is learnt can usually tell us about signs of memorization (if there are sharp transitions)and about the way in which the space is hierarchically collapsed. If walking in this latent space results in semantic changes to the image generations (such as objects being added and removed), we can reason that the model has learned relevant and interesting representations.
-
+**Latent space of z** : Walking on the manifold (latent space) that is learnt can usually tell us about signs of memorization (if there are sharp transitions)and about the way in which the space is hierarchically collapsed. If walking in this latent space results in semantic changes to the image generations (such as objects being added and removed), we can reason that the model has learned relevant and interesting representations.
 
 ## Recap
 
 Okay, let's breathe for a moment and compress everything in few lines if we can!
 
-- 
+- There are two types of models : discriminative models and generative models
+- GANs are type of geneartive models which consists of two parts G and D
+- G creates fake images and D classifies which images are real and fake
+- Both fight each other to see who will win and in process of this fighting G becomes so good that it ends up fooling D that fake images are real images
+- Training GANs and evaluating if G is producing good samples or not is hard
 
 
 ## Different types of GANs
 
-GAN literature is filled (overflowing) with different types of GANs or anynameGAN across different domains. We will take a peek into some of the GANs. As we will see each different types of GANs, we will observe how they vary from standard GANs which is similar to ways we discussed what generative models are and what makes GAN different from other types of generative models.
+<span class='red'>GAN literature is filled (overflowing) with different types of GANs or anynameGAN across different domains. We will take a peek into some of the GANs. As we will see each different types of GANs, we will observe how they vary from standard GANs which is similar to ways we discussed what generative models are and what makes GAN different from other types of generative models.</span> We will look GANs across 4 domains starting with Images, Speech, Text and crowd's favourite Video.
 
 # Images
 
