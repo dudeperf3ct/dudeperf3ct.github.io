@@ -588,11 +588,11 @@ Okay, enough images. Show me(GAN) what else you got. Synthesizing speech is one 
 
 ### GANSynth
 
-Magenta has a [great blog](https://magenta.tensorflow.org/gansynth) detailing examples definitely worth a look! To be frank, I didn't get a lot out of paper. Previous approach for speech synthesis was using Autoregressive models -- another type of generative model -- like [WaveNet](https://deepmind.com/blog/wavenet-generative-model-raw-audio/), which have slow iterative sampling and lack global structure(no idea what this means). They make use of ProGAN(which we looked above) to generate audio spectra. Briefly, model samples a random vector z from from a spherical Gaussian and runs it through a stack of transposed convolutions to upsample and generate output data, x = G(z). This generated output is fed into discriminator D of downsampling convolutions (whose architecture mirrors the generator’s) to estimate a divergence measure between the real and generated distribution. WGAN-GP is used as objective function same as ProGAN. Rather than generate audio sequentially as done in WaveNet, GANSynth generates an entire sequence in parallel, synthesizing audio significantly faster than real-time on a modern GPU and ~50,000 times faster than a standard WaveNet.
+Magenta has a [great blog](https://magenta.tensorflow.org/gansynth) detailing examples definitely worth a look! To be frank, I didn't get a lot out of paper. Previous approach for speech synthesis was using Autoregressive models -- another type of generative model -- like [WaveNet](https://deepmind.com/blog/wavenet-generative-model-raw-audio/), which have slow iterative sampling and lack global structure(no idea what this means). They make use of ProGAN(which we looked above) to generate audio spectra. Briefly, model samples a random vector z from from a spherical Gaussian and runs it through a stack of transposed convolutions to upsample and generate output data, x = G(z). This generated output is fed into discriminator D of downsampling convolutions (whose architecture mirrors the generator’s) to estimate a divergence measure between the real and generated distribution. WGAN-GP is used as objective function same as used in ProGAN. Rather than generate audio sequentially as done in WaveNet, GANSynth generates an entire sequence in parallel, synthesizing audio significantly faster than real-time on a modern GPU and ~50,000 times faster than a standard WaveNet.
 
-In short, is it works. GANs synthesize musics. Mozart we(Magenta) are coming for you!
+In short, it works. GANs synthesize musics. Mozart we(Magenta) are coming for you!
 
-GANs can be also used to impersonate someone. Don't belive me, here [it](https://www.technologyreview.com/s/613033/this-ai-lets-you-deepfake-your-voice-to-speak-like-barack-obama/) is. Using this approach, it is possible to assume any age, gender, or tone you’d like, all in real time. Or to take on the voice of a celebrity. Now how about that?
+GANs can be also used to impersonate someone. Don't belive me, read [it here](https://www.technologyreview.com/s/613033/this-ai-lets-you-deepfake-your-voice-to-speak-like-barack-obama/). Using this approach, it is possible to assume any age, gender, or tone you’d like, all in real time. Or to take on the voice of a celebrity. Now how about that?
 
 ### Results
 
@@ -620,7 +620,7 @@ Here are some of the results produced by MaskGAN along with MaskMLE.
 
 # Video
 
-GANs for video has mindblowing applications. Remember deepfakes, the one which everyone is worried about. Yes, it was born here. The literature for GANs in video is large, we will particularly cover 2 applications, deepfakes and everybody can dance.
+GANs for video has mindblowing applications. [Remember deepfakes](https://www.youtube.com/watch?v=dMF2i3A9Lzw), the one which everyone is worried about. Yes, it was born here. The literature for GANs in video is large, we will particularly cover 2 applications, deepfakes using faceswap and everybody can dance.
 
 ### Everybody can dance
 
