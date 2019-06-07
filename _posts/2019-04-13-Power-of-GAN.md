@@ -53,7 +53,7 @@ Feel free to jump anywhere,
 <span class='red'>I-know-everything:</span> Consider the example where are we are teaching a model to distinguish between dog(y=0) and cat(y=1). The way traditional machine learning classification algorithms like logistic regression or perceptron algorithm tries to find a straight line - a decision boundary - such that when a test image of dog is passed, model checks on which side of decision boundary does the animal falls and makes prediction accordinly. This is what we have learned so far from our past journey, nothing new. But consider a different approach. Instead of learning a decision boundary, what if network learns a model of dog looking at lots of different images of dog and same with cat, a different model of what a cat looks like. Now, when we pass a test image of dog to classify, the test image is matched against the model of dog and model of cat to make prediction. It's like opposite instead of predicting what class it belongs we predict the features from given image. These featuers will tell us who close it resembles to a dog or cat. Algorithms like logistic regression and perceptron learns mappings directly from space of inputs $$\chi$$ to labels {0, 1} i.e. p(y|x) where y $$\in$$ {0, 1} and these are called <span class='purple'>discriminative learning algorithms.</span> Now, instead of learning the mapping from input space, what if model learns the distribution of input features? This is the idea behind <span class='purple'>generative learning algorithms.</span> They learn p(x|y), for example, if y=0 indicates it's a dog then p(x|y=0) models the distribution of dog's features and p(x|y=1) modelling the distribution of cat's features. GANs belong to the family of generative models. This means that GANs samples data from training set, a distribution of $$p_{data}$$, and learns to represent an estimate of that distribution, resulting in probability distribution $$p_{model}$$. There are cases where model estimates $$p_{model}$$ explicitly and in other cases model is only able to generate samples from $$p_{model}$$. <span class='red'>GAN primarily focuses on the second case generating samples from the model distribution</span> although it is possible to design GANs that can do both.
 
 <p align="center">
-<img src='/images/gan/sample_gan.jpg' width="50%"/> 
+<img src='/images/gan/sample_gan.jpg' width="70%"/> 
 </p>
 
 Here is an example, where an ideal generative model would be able to train on examples shown on left and then create more examples from the same distribution as shown on the right.
@@ -63,13 +63,13 @@ Here is an example, where an ideal generative model would be able to train on ex
 <span class='red'>I-know-everything:</span> The information we gained from above discussion about generative models is that they are about comparing $$p_{model}$$ which is data distribution learned by model with $$p_{data}$$ which is true data distribution. Let's see an example.
 
 <p align="center">
-<img src='/images/gan/generative_model.svg' width="50%"/> 
+<img src='/images/gan/generative_model.svg' width="70%"/> 
 </p>
 
 In the example above, the blue region shows the true data distribution ($$p_{data}$$), where black dot represents each image in dataset. Now our model, a neural network in yellow draws points from unit Gaussian, red in color, and generates a distribution as shown in green color which is the distribution learned by model ($$p_{model}$$ or $$\hat{p_{\theta}}$$). Our goal then is find parameters $$\theta$$ of model that produce a distribution that closely matches the true data distribution. Therefore, you can imagine the green distribution starting out random and then the training process iteratively changing the parameters $$\theta$$ to stretch and squeeze it to better match the blue distribution. There are many loss function as in case of supervised learning which deal with comparing two distribution such as Kullback-Liebler (KL) divergence, Reverse-KL divergence and Jenson-Shannon Divergence (JSD). They belong to F-divergence class of probability distance metrics. The other class is Integral Probability Metrics (IPMs). For the IPMS, we have the Wassterstein distance(which is used in the WGAN) and the Maximum Mean Discrepancy (MMD). Difference between F-divergence and IPMs is F-divergences determine distance using division of two probability distributions, $$\frac{P(x)}{Q(x)}$$ and IPMs use the difference, P(x) - Q(x).
 
 <p align="center">
-<img src='/images/gan/distances.png' width="50%"/> 
+<img src='/images/gan/distances.png' width="70%"/> 
 </p>
 
 Most generative models have this basic setup, but differ in the details. Also, [GANs and Divergence Minimization](https://colinraffel.com/blog/gans-and-divergence-minimization.html) blog by Colin explains F-divergence class through amazing visualizations.
@@ -91,7 +91,7 @@ Now let's dive in-detail into generator and discriminator.
 
 
 <p align="center">
-<img src='/images/gan/gan.jpg' width="50%"/> 
+<img src='/images/gan/gan.jpg' width="70%"/> 
 </p>
 
 Here is the game which is played in two scenarios. In first scenario, left side of the figure, training examples $$\mathbf{x}$$ are randomly sampled from training dataset and used as input for first player, the discriminator(D). The goal of discriminator(D) is to output the probability that its input is real rather than fake. In first scenario, D($$\mathbf{x}$$) tries to be near 1, classifying it to be a real. In second scenario, inputs $$\mathbf{z}$$ to the generator(G) are sampled from model's prior over latent variables. The discriminator then receives the output from generator(G), G($$\mathbf{z}$$), a fake sample generated by generator. Here, the discriminator(D) tries to make D(G($$\mathbf{z}$$)) near 0, as it is fake sample and generator(G) tries to make D(G($$\mathbf{z}$$)) near 1 to fool discriminator in classifying the fake sample as real. If both models have sufficient capacity, then the Nash equilibrium of this game corresponds to the G($$\mathbf{z}$$) being drawn from the same distribution as the training data, and D($$\mathbf{x}$$) = $$\frac{1}{2}$$ for all $$\mathbf{x}$$. How? We will prove this shortly.
@@ -247,7 +247,7 @@ In short, make some changes to original GAN architecture and boom better results
 First result compars DCGAN samples with GAN samples, where DCGAN achieves error rate of 2.98% on 50K samples and GAN achieves 6.28% error rate.
 
 <p align="center">
-<img src='/images/gan/dcgan_res1.png' width="50%"/> 
+<img src='/images/gan/dcgan_res1.png' width="70%"/> 
 </p>
 
 The second most interesting result obtained from paper is, we can perform arithmetic on images to obtain meaningful representation. For e.g. if we take smiling woman, subtract neutral woman and add netural man, we get smiling man as output. Another one is man with glasses - man without glasses + woman without glasses = woman with glasses. Amazing right? The same we saw in case of [word vectors](), remember?
@@ -261,7 +261,7 @@ The second most interesting result obtained from paper is, we can perform arithm
 This results walks through the latent space to see if model has not simply memorized training sample. In first row, we see a room without a window slowly transforming into a room with a giant window and in last row, we see what appears to be a TV slowly being transformed into a window.
 
 <p align="center">
-<img src='/images/gan/dcgan_res4.png' width="50%"/> 
+<img src='/images/gan/dcgan_res4.png' width="70%"/> 
 </p>
 
 ### WGAN
@@ -269,7 +269,7 @@ This results walks through the latent space to see if model has not simply memor
 The generative models to make the model's distribution close to data distribution either by optimizing distribution using maximum likelihood (Question: Prove that this is equal to minimizing KL divergence.) or learn a function that transforms existing Z (latent variable) into model's distribution. Authors of the [paper](https://arxiv.org/pdf/1701.07875.pdf) propose a different distance metrics to measure the distance between distributions i.e d($$P_{data}$$, $$P_{model}$$). We have seen that there are many other ways to measure the closeness of distribution like KL-divergence, Reverse KL-divergence, Jenson-Shannon(JS) divergence for generative model but each of the above methods don't really converge for some sequence of distribution. (We haven't provided any formal definition of each of method above and leave it as exercise to explore.) Hence, bring in the Earth Mover(EM) distance or Wasserstein-1. [Alex Irpan](https://www.alexirpan.com/2017/02/22/wasserstein-gan.html) provides a great overview of WAN's in general and are great starting point before heading to paper. The intution behind the EM distance is we want our model's distribution $$P_{model}$$ to move close to $$P_{data}$$ true data distribution. Moving mass $$\mathbf{m}$$ by distance $$\mathbf{d}$$ requires effort $$\mathbf{m}\dot\mathbf{d}$$. The earth mover distance is minimal effort we need to spend to bring these distributions close to each other. Authors prove why Wasserstein distance is more compelling than other methods and hence a better fit as loss function for generative models. But Wasserstein distance is intractable in practise. Authors propose alternative approximation which  a result from [Kantorovich-Rubinstein duality](https://en.wikipedia.org/wiki/Wasserstein_metric#Dual_representation_of_W1). [Sebastion Nowozin](https://www.youtube.com/watch?v=eDWjfrD7nJY) provides very excellent introduction to each of the obscure terms above. Here is WGAN algorithm, 
 
 <p align="center">
-<img src='/images/gan/wgan.png' width="50%"/> 
+<img src='/images/gan/wgan.png' width="70%"/> 
 </p>
 
 Notice, there is no discriminator and there is something extra term of clipping in the algorithm. Also, we train critic for more time $$n_{critic}$$ times more than generator. The discriminator in GAN is known as critic in WGAN because the critic here is not classifier of real and fake but is trained on Wasserstein loss to output unbounded real number. $$\mathbf{f_{w}}$$ doesn't give output {0, 1} and that is reason why authors call it critic rather than discriminator. Since the loss for the critic is non-stationary, momentum based methods seemed to perform worse. Hence algorithm uses RMSProp instead of Adam as WGAN training becomes unstable at times when one uses a momentum based optimizer. One of the benefits of WGAN is that it allows us to train the critic till optimality. The better the critic,the higher quality the gradients we use to train the generator. This tells us that we no longer need to balance generator and discriminator’s capacity properly unlike in standard GAN.
@@ -306,7 +306,7 @@ Comparing WGAN on left with standard GAN. GAN suffers from mode collapse. This i
 The comparison of results of WGAN with WGAN-GP, DCGAN and LSGAN on LSUN dataset,
 
 <p align="center">
-<img src='/images/gan/wgan_gp_res.png' width="50%"/> 
+<img src='/images/gan/wgan_gp_res.png' width="70%"/> 
 </p>
 
 
@@ -316,7 +316,7 @@ The comparison of results of WGAN with WGAN-GP, DCGAN and LSGAN on LSUN dataset,
 The [researchers](https://arxiv.org/pdf/1611.07004.pdf) at BAIR laboratory devised a method for image to image translation using conditional adversarial networks. The figure below clearly shows what's going on. 
 
 <p align="center">
-<img src='/images/gan/pix2pix.png' width="50%"/> 
+<img src='/images/gan/pix2pix.png' width="70%"/> 
 </p>
 
 Here we model learns to map edges -> photo. The discriminator D, learn to classify between fake(produced by G) and real {edge, photo} tuples. The generator G, learns to fool D. The only difference with previous approach of standard GAN is using conditional GAN. In case of standard GAN, we generator learns mapping from random noise z to output image y, i.e. G : z -> y. In contrast, connditional GANs learns a mapping from observed image x, random noise z to output image y, i.e. G : {x, z} -> y and D : {x, y} will classify if the tuple is real or fake depending on whether y is generated by GAN or is taken from real dataset. Both G and D oberserve input x. The new loss function to optimize then becomes,  $$\mathcal{L}_{cGAN} = \mathbb{E}_{\mathbf{x,y}}[\log_{}(D(x,y)] + \mathbb{E}_{\mathbf{x,z}}[\log_{}(1-D(x, G(\mathbf{x, z})))]$$, which is again minmax game G minimizing and D maximizing this objective function.
@@ -369,7 +369,7 @@ This shows how to convert sketch to image resembling the sketch. Also, use of cG
 Above we visited pix2pix method where we provided pairs input and output to cGAN to learn mapping. [CycleGAN](https://arxiv.org/pdf/1703.10593.pdf) on other hand performs same task in unsupervised fashion without paired examples of transformation from source to target domain. The trick used by CycleGAN that makes them get rid of expensive supervised label in target domain is to double mapping i.e. two-step transformation of source domain image - first by trying to map it to target domain and then back to the original image. Hence, we don't need to explicitly give target domain image. The goal in CycleGAN is to learn the mapping from G : X -> Y such that distribution of images from G(X) is indistinguishable from from the distribution of images of Y. But because this mapping is under-constrained (or not guided), we couple it with an inverse mapping F : Y -> X where we converted the generated image from above mapping back to original image and introduce a cycle consistency loss to enforce F(G(X)) $$\approx$$ X and G(F(Y)) $$\approx$$ Y. Combining this loss along with individual losses of G and F, we get the full objective for unpaired image-to-image translation. This is so good that we will repeat again with the figure below.
 
 <p align="center">
-<img src='/images/gan/cyclegan.png' width="50%"/> 
+<img src='/images/gan/cyclegan.png' width="70%"/> 
 </p>
 
 There are two generators(mapping functions) G : X -> Y and F : Y -> X, and two discriminators $$D_{X}$$ which aims to distinguish images of X(real) & F(Y)(fake) samples and $$D_{Y}$$ which aims to distinguish images of Y(real) & G(X)(fake) samples. $$D_{Y}$$ encourages G to translate X into outputs indistinguishable to Y, and similarly $$D_{X}$$ encourages F to translate Y into outputs indistinguishable to X. The (b) and (c) part are forward and backward cycle-consistency loss introduced to capture the intuition that if we translate from one domain to the other and back again we should arrive at where we started. Forward cycle-consistency in (b) is x -> G(x) -> F(G(x)) $$\approx$$ x and backward cycle-consistency in (c) is y -> F(y) -> G(F(y)) $$\approx$$ y. If we want to write the total loss mathematically, 
@@ -393,37 +393,37 @@ This paper produced most amazing results. Just keep watching.
 Horse -> Zebra, really?
 
 <p align="center">
-<img src='/images/gan/horse2zebra.gif' width="50%"/> 
+<img src='/images/gan/horse2zebra.gif' width="70%"/> 
 </p>
 
 Image-to-image translation can be done in many ways. For example, turning winter images to summer and vice versa, turning horses to zebras and vice versa, turning any photo into Monet style and vice versa. 
 
 <p align="center">
-<img src='/images/gan/cyclegan_res1.png' width="50%"/> 
+<img src='/images/gan/cyclegan_res1.png' width="70%"/> 
 </p>
 
 Here is result of mapping Monet style paintings into photos. Do they look familiar to something we did previously? Yes, [Neural Style Transfer](https://dudeperf3ct.github.io/style/transfer/2018/12/23/Magic-of-Style-Transfer/).
 
 <p align="center">
-<img src='/images/gan/cyclegan_res2.png' width="50%"/> 
+<img src='/images/gan/cyclegan_res2.png' width="70%"/> 
 </p>
 
 Here is the opposite result of turning photos into different styles of painting like Monet, Van Gogh, etc.
 
 <p align="center">
-<img src='/images/gan/cyclegan_res3.png' width="50%"/> 
+<img src='/images/gan/cyclegan_res3.png' width="70%"/> 
 </p>
 
 Who says we need apple to apple comparison? 
 
 <p align="center">
-<img src='/images/gan/cyclegan_res4.png' width="50%"/> 
+<img src='/images/gan/cyclegan_res4.png' width="70%"/> 
 </p>
 
 This result shows photo enhancement achieved by mapping snaps from smartphone to the ones taken on DSLR.
 
 <p align="center">
-<img src='/images/gan/cyclegan_res5.png' width="50%"/> 
+<img src='/images/gan/cyclegan_res5.png' width="70%"/> 
 </p>
 
 ### ProGAN
@@ -756,6 +756,8 @@ The threats of deepfakes may seem innocuous for now but what happens if we when 
 
 Let's not paint a picture that GANs are bad, I mean they are most interesting idea in last 10 years but there is always a bad side for good side. Let's work put some counter measures and learn from past mistakes so as to not repeat the same history all over again. "With great innovation, comes a great responsibility."
 
+### Special Mentions
+
 Lastly, we apologize to the rest of the GAN family for not mentioning them. But here are some results of special mentions worth showing.
 
 SRGAN [paper](https://arxiv.org/pdf/1609.04802) demonstrates excellent single-image superresolution results that show the benefit of using a generative model trained to generate realistic samples.
@@ -776,10 +778,9 @@ https://www.youtube.com/watch?v=FDELBFSeqQs
 
 https://www.youtube.com/embed/yVCgUYe4JTM?rel=0&autoplay=1
 
-You can also play with very cool interactive demo on (gandissect.res.ibm.com)[http://gandissect.res.ibm.com/ganpaint.html?project=churchoutdoor&layer=layer4].
+You can also play with very cool interactive demo on [gandissect.res.ibm.com](http://gandissect.res.ibm.com/ganpaint.html?project=churchoutdoor&layer=layer4).
 
-[DiscoGAN](https://arxiv.org/pdf/1703.05192)
-
+[DiscoGAN](https://arxiv.org/pdf/1703.05192) has lot like CycleGAN, where DiscoGAN successfully transfers style from one domain to another while preserving key attributes such as orientation and face identity. Suppose we have collected two sets of images, one containing handbags and another containing only shoes. DiscoGAN trains on sets independently and learn how to map two domains without any extra label. So, we can convert a handbag into shoe which will have same color and any such attribute, all we need to pass DiscoGAN is a handbag. Difference between in DiscoGAN and CycleGAN is what losses are used to reconstruction. CycleGAN uses cycle consistency loss while DiscoGAN uses reconstruction loss seperate for both domains.
 
 <p align="center">
 <img src='/images/gan/discogan.png' width="50%"/> 
@@ -788,7 +789,7 @@ You can also play with very cool interactive demo on (gandissect.res.ibm.com)[ht
 Okay we have to stop somewhere, let stop with last mention to a type of conditional GAN to synthesize High-Resolution Image and Semantic Manipulation aka [pix2pixHD](https://arxiv.org/pdf/1711.11585.pdf). And results they sure [don't disappoint](https://youtu.be/3AIpPlzM_qs).
 
 <p align="center">
-<img src='/images/gan/pix2pixHD.png' width="50%"/> 
+<img src='/images/gan/pix2pixhd.png' width="50%"/> 
 </p>
 
 
