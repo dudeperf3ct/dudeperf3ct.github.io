@@ -54,7 +54,7 @@ Feel free to jump anywhere,
     - [Faceswap GAN](#faceswap-gan)
     - [Mona Lisa speaking GAN](#mona-lisa-speaking-gan)
 - [Problems in GANs](#problems-in-gans)
-- [Will GANs Rule?](#will-gans-rule?)
+- [Will GANs Rule?](#will-gans-rule)
   - [Images](#images)
   - [Speech](#speech)
   - [Videos](#videos)
