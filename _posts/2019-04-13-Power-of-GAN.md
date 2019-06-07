@@ -30,6 +30,35 @@ Feel free to jump anywhere,
 - [Introduction to GAN](#introduction-to-gan)
   - [GAN Framework](#gam-framework)
   - [Cost Functions](#cost-functions)
+  - [MinMax](#minmax)
+  - [Therotical Limits](#therotical-limits)
+  - [Training GANs](#training-gans)  
+  - [Problem in Training GANs](#problem-in-training-gans)
+- [Recap](#recap)
+- [Different types of GANs](#different-types-of-gans)
+  - [Images](#images)
+    - [DCGAN](#dcgan)
+    - [WGAN](#wgan)
+    - [Pix2Pix](#pix2pix)
+    - [CycleGAN](#cyclegan)
+    - [ProGAN](#progan)
+    - [StyleGAN](stylegan)
+    - [BigGAN](#bigan)
+    - [GAN semi-supervised learning](#gan-semi-supervised-learning)
+  - [Speech](#speech)
+    - [GanSynth](#gansynth)
+  - [Text](#speech)
+    - [MaskGAN](#maskgan)
+  - [Videos](#videos)
+    - [Everybody can dance](#everybody-can-dance)
+    - [Faceswap GAN](#faceswap-gan)
+    - [Mona Lisa speaking GAN](#mona-lisa-speaking-gan)
+- [Problems in GANs](#problems-in-gans)
+- [Will GANs Rule?](#will-gans-rule?)
+  - [Images](#images)
+  - [Speech](#speech)
+  - [Videos](#videos)
+- [Special Mentions](#special-mentions)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -430,7 +459,7 @@ This result shows photo enhancement achieved by mapping snaps from smartphone to
 
 ### ProGAN
 
-Generating images from 32x32 upto 128x128 with all the new fancy losses seemed cool but generating images of large resolution say 512x512 remained a challenge. The problem with large resolution is that large size implies small minibatches which in turn lead to training instability. We have already visited how training GANs can lead to mode collapse where every output of gan is some fixed number of same images where discriminator wins and generator loses and it's game over. These all problems are the reason why GANs cannot achieve high quality even if we try to make GANs deeper or bigger. The [team]() at Nvidia tackled this challenge through new GANs called ProGAN and bunch of other tricks. The idea behind ProGAN is we start with low resolution images, and then progressively increase the resolution by adding layers to the networks. What happens is instead of using standard GANs where we would have used deep networks to generate high res from latent code, and as the networks are deep it would have taken a lot of time for G to come up with good high res images as D will be already better in rejecting in these samples. This increase in amount of time can lead to mode collapse as already D is better at what it is doing and G is failing to learn anything as layers are deeper and going from randomly intialized weights of each layer to good weight will take a lot of time, if at all possible. So, instead of using standard GANs, the team at Nvidia came up with something called ProGAN. ProGAN starts with tiny images of size 4x4 images and correspondingly shallow networks. The network is trained with this size for sometime until they are more or less converged which will be lot less as network is small, next shallow network corresponding to size 8x8 is added which is again trained till convergence and further 16x16 image size network is added. This continues till sizes upto image resolution of 1024x1024 and after 2 days of training these ProGANs we get amazing results. How would G and D look? They would be mirror of each other. That is, in case of 4x4, G will take latent code and produce 4x4 images and D wil take 4x4 and produce real output number(unbounded), as authors use WGAN-GP as loss instead of real and fake. Let's see how it looks,
+Generating images from 32x32 upto 128x128 with all the new fancy losses seemed cool but generating images of large resolution say 512x512 remained a challenge. The problem with large resolution is that large size implies small minibatches which in turn lead to training instability. We have already visited how training GANs can lead to mode collapse where every output of gan is some fixed number of same images where discriminator wins and generator loses and it's game over. These all problems are the reason why GANs cannot achieve high quality even if we try to make GANs deeper or bigger. The [team](https://arxiv.org/pdf/1710.10196.pdf) at Nvidia tackled this challenge through new GANs called ProGAN and bunch of other tricks. The idea behind ProGAN is we start with low resolution images, and then progressively increase the resolution by adding layers to the networks. What happens is instead of using standard GANs where we would have used deep networks to generate high res from latent code, and as the networks are deep it would have taken a lot of time for G to come up with good high res images as D will be already better in rejecting in these samples. This increase in amount of time can lead to mode collapse as already D is better at what it is doing and G is failing to learn anything as layers are deeper and going from randomly intialized weights of each layer to good weight will take a lot of time, if at all possible. So, instead of using standard GANs, the team at Nvidia came up with something called ProGAN. ProGAN starts with tiny images of size 4x4 images and correspondingly shallow networks. The network is trained with this size for sometime until they are more or less converged which will be lot less as network is small, next shallow network corresponding to size 8x8 is added which is again trained till convergence and further 16x16 image size network is added. This continues till sizes upto image resolution of 1024x1024 and after 2 days of training these ProGANs we get amazing results. How would G and D look? They would be mirror of each other. That is, in case of 4x4, G will take latent code and produce 4x4 images and D wil take 4x4 and produce real output number(unbounded), as authors use WGAN-GP as loss instead of real and fake. Let's see how it looks,
 
 <p align="center">
 <img src='/images/gan/progan.png' width="70%"/> 
@@ -484,7 +513,7 @@ After walking the latent space which is continuous, one such output is this. Not
 
 ### StyleGAN
 
-ProGAN as pretty mouthful, right? The [authors]() of Nvidia came out with this paper called StyleGAN where we can by modifying the input of each level separately, control the visual features that are expressed in that level, from coarse features (pose, face shape) to fine details (hair color), without affecting other levels. What this means? Let's look at example below and understand what this means. 
+ProGAN as pretty mouthful, right? The [authors](https://arxiv.org/pdf/1812.04948) of Nvidia came out with this paper called StyleGAN where we can by modifying the input of each level separately, control the visual features that are expressed in that level, from coarse features (pose, face shape) to fine details (hair color), without affecting other levels. What this means? Let's look at example below and understand what this means. 
 
 <p align="center">
 <img src='/images/gan/stylegan.jpg' width="70%"/> 
@@ -592,8 +621,6 @@ Magenta has a [great blog](https://magenta.tensorflow.org/gansynth) detailing ex
 
 In short, it works. GANs synthesize musics. Mozart we(Magenta) are coming for you!
 
-GANs can be also used to impersonate someone. Don't belive me, read [it here](https://www.technologyreview.com/s/613033/this-ai-lets-you-deepfake-your-voice-to-speak-like-barack-obama/). Using this approach, it is possible to assume any age, gender, or tone you’d like, all in real time. Or to take on the voice of a celebrity. Now how about that?
-
 ### Results
 
 A lot many [audio samples](https://storage.googleapis.com/magentadata/papers/gansynth/index.html) generated by GANSynth and it's comparison with real audio samples can be found on the blog.
@@ -618,13 +645,13 @@ Here are some of the results produced by MaskGAN along with MaskMLE.
 </p>
 
 
-# Video
+# Videos
 
-GANs for video has mindblowing applications. [Remember deepfakes](https://www.youtube.com/watch?v=dMF2i3A9Lzw), the one which everyone is worried about. Yes, it was born here. The literature for GANs in video is large, we will particularly cover 2 applications, deepfakes using faceswap and everybody can dance.
+GANs for video has mindblowing applications. [Remember deepfakes](https://www.youtube.com/watch?v=dMF2i3A9Lzw), the one which everyone is worried about. Yes, it was born here. The literature for GANs in video is large, we will particularly cover 2 applications, deepfakes and everybody can dance.
 
 ### Everybody can dance
 
-Can you dance? Don't worry if you can't. The researchers at Berkely presented a simple method for "do as I do" motion transfer : given a source video of a person dancing we can transfer that performance to anovel (amateur) target after only a few minutes of the target subject performing standard moves. Cool right?? How can be pose this problem looking that above approaches in GAN images? Yes, image-to-image translation between source and target sets. But we do not have corresponding pairs of images of the two subjects performing the same motion to perform supervise translation directly. In pix2pix method, we had {edge, photo} as tuple where edge is passed to both G and D and G generates a fake photo and passes to D to fool it. Even if both subjects were performing same motion, it would difficult to have exact frame body-pose correspondence between source to target due to body shape and stylistic differences unique to each subject. How can we proceed further? Keypoint-based pose. Keypoints encode body position irrespective of shape and styles, hence keypoint can act as our intermediate representation between two subjects. Obtaining pose for each frame from target video we get pairs of (pose stick figure, target person image). Here is one such example, 
+<span class='purple'>Can you dance? Don't worry if you can't. The [researchers](https://arxiv.org/pdf/1808.07371.pdf) at Berkely presented a simple method for "do as I do" motion transfer : given a source video of a person dancing we can transfer that performance to a novel (amateur) target after only a few minutes of the target subject performing standard moves.</span> Cool right?? How can be pose this problem looking that above approaches in GAN images? Yes, image-to-image translation between source and target sets. But we do not have corresponding pairs of images of the two subjects performing the same motion to perform supervise translation directly. In pix2pix method, we had {edge, photo} as tuple where edge is passed to both G and D and G generates a fake photo and passes to D to fool it. Even if both subjects were performing same motion, it would difficult to have exact frame body-pose correspondence between source to target due to body shape and stylistic differences unique to each subject. How can we proceed further? Keypoint-based pose. Keypoints encode body position irrespective of shape and styles, hence keypoint can act as our intermediate representation between two subjects. Obtaining pose for each frame from target video we get pairs of (pose stick figure, target person image). Here is one such example, 
 
 <p align="center">
 <img src='/images/gan/ecd_pose.png' width="70%"/> 
@@ -633,7 +660,7 @@ Can you dance? Don't worry if you can't. The researchers at Berkely presented a 
 As trained in pix2pix, we can train a image-to-image translation model between pose stick figures and target person image. To transfer the motion of source to target, we input pose stick figure of source and output the same pose for specific target subject as a image. To encourage the temporal smoothness of generated videos, the authors condition the prediction at each frame on that of the previous time step. To increase facial realism in their results they include a specialized GAN trained to generate the target person‘s face. Let's take a close look at the training and inference pipeline.
 
 <p align="center">
-<img src='/images/gan/ecd_arch.png' width="80%"/> 
+<img src='/images/gan/ecd_arch.png' width="90%"/> 
 </p>
 
 First training pipeline, for a given frame $$\mathbf{y}$$ from target video, it passed through pose detector P to obtain a corresponding target pose stick figure, $$\mathbf{x} = P(\mathbf{y})$$. We have pairs of ($$\mathbf{x}$$, $$\mathbf{y}$$) which we can pass through G which learns the mapping and synthesizes target image pairs given pose stick figure. Now, the generated image G($$\mathbf{x}$$) is passed along with pose stick figure to D, where D learns to distinguish the real and fake pairs i.e. "real pairs" as (pose stick figure $$\mathbf{x}$$, ground truth target image $$\mathbf{y}$$) and "fake pairs" as (pose stick figure $$\mathbf{x}$$, generated target image G($$\mathbf{x}$$)). This training is done end-to-end with adversarial loss with objective function similar to that in pix2pixHD and perceptual reconstruction loss (dist) from VGGNet to make G($$\mathbf{x}$$)) resemble more like ground truth image ($$\mathbf{y}$$). Next transfer pipeline, similar to training pose detector P extracts pose information from source video frame $$\mathbf{y}^{'}$$ yielding pose stick figure $$\mathbf{x}^{'}$$. However, in their video the source subject likely appears bigger, or smaller, and standing in a different position than the subject in the target video. In order for the source pose to better align with the filming setup of the target, we apply a global pose normalization Norm to transform the source's original pose $$\mathbf{x}^{'}$$ to be more consistent with the poses in the target video $$\mathbf{x}$$. Then we pass the normalized pose stick figure $$\mathbf{x}$$ into our trained model G to obtain an image G($$\mathbf{x}$$) of our target person which corresponds with the original image of the source $$\mathbf{y}$$. To further improve the quality of video, authors use GANs for temporal coherence and adding more detail and realism to face. Here is comparison of different results, such as use only pix2pixHD objective, temporal smoothing and finally both TS & face approach as described in paper as compared to ground truth. Clearly, using TS and Face GAN we obtain better results.
@@ -654,9 +681,9 @@ https://youtu.be/PCBTZh41Ris
 
 Deepfakes created a [lot](https://edition.cnn.com/2019/04/26/tech/ai-deepfake-detection-2020/index.html) of [buzz](https://www.nytimes.com/2018/03/04/technology/fake-videos-deepfakes.html) and I mean a [lot](https://www.vice.com/en_us/article/594qx5/there-is-no-tech-solution-to-deepfakes), [lot](https://www.economist.com/science-and-technology/2017/07/01/fake-news-you-aint-seen-nothing-yet) and there is a [YouTube channel](https://www.youtube.com/channel/UCUix6Sk2MZkVOr5PWQrtH1g/videos) for it too. We will be looking at two types of deepfakes : the face-swapping one and mona-lisa speaking one. We will explore both. 
 
-### Faceswap GANs
+### Faceswap GAN
 
-Let's start with face-swapping GANs. Many of you can guess what GANs will be particularly helpful here. Did I hear CycleGANs? Yes, absolutely correct. All we need to do is unsupervised training to two sequences of unaligned video frames from each person. But authors of the [paper](https://arxiv.org/pdf/1712.03451.pdf) suggested some improvements to CycleGAN that deals with the common problem of model collapse, to capture details in facial expressions and head poses, and thus transfer facial expressions with higher consistency and stability. The loss function used in CycleGAN, $$\mathcal{L}(G, F, D_{X}, D_{Y}) &= \mathcal{L}_{GAN}(G, D_{Y}, X, Y) + \mathcal{L}_{GAN}(F, D_{X}, Y, X) + \lambda\mathcal{L}_{cyc}(G, F)$$ proved to be challenging to get good transferring results on unaligned datasets. So in order to generate better face-off sequences on unaligned datasets instead authors proposed adding two losses, WGAN loss to prevent mode collapse in adversarial training and to achieve more stable results. SSIM Loss (Structural Similarity) matches the luminance(l), contrast(c), and structure(s) information of the generated image and the input image, and it’s proved to be very helpful to improve the quality of image generation. Here is how the architecture looks with new addded loss of WGAN, SSIM in addition to cyclic consistency loss($$L_{cyc}$$).
+Let's start with face-swapping GANs. Many of you can guess what GANs will be particularly helpful here. Did I hear CycleGANs? Yes, absolutely correct. All we need to do is unsupervised training to two sequences of unaligned video frames from each person. But authors of the [paper](https://arxiv.org/pdf/1712.03451.pdf) suggested some improvements to CycleGAN that deals with the common problem of mode collapse, to capture details in facial expressions and head poses, and thus transfer facial expressions with higher consistency and stability. The loss function used in CycleGAN, $$\mathcal{L}(G, F, D_{X}, D_{Y}) &= \mathcal{L}_{GAN}(G, D_{Y}, X, Y) + \mathcal{L}_{GAN}(F, D_{X}, Y, X) + \lambda\mathcal{L}_{cyc}(G, F)$$ proved to be challenging to get good transferring results on unaligned datasets. So in order to generate better face-off sequences on unaligned datasets instead authors proposed adding two losses, WGAN loss to prevent mode collapse in adversarial training and to achieve more stable results. SSIM Loss (Structural Similarity) matches the luminance(l), contrast(c), and structure(s) information of the generated image and the input image, and it’s proved to be very helpful to improve the quality of image generation. Here is how the architecture looks with new addded loss of WGAN, SSIM in addition to cyclic consistency loss($$L_{cyc}$$).
 
 <p align="center">
 <img src='/images/gan/faceoff_arch.png' width="70%"/> 
@@ -672,7 +699,7 @@ How about we settle for video as a result? This result *is not* obtained from th
 https://www.youtube.com/watch?v=Fea4kZq0oFQ
 
 
-### Mona Lisa speaking GANs
+### Mona Lisa speaking GAN
 
 We have seen how brilliant GANs are spitting out beautiful and realistic looking image. The team of researchers at Samsung AI published a [paper](https://arxiv.org/pdf/1905.08233.pdf) where they create a personalized talking head model with only few-images. The few-shot learning ability is obtained through extensive pretraining (meta-learning) on a large corpus of talking head videos corresponding to different speakers with diverse appearance. In the course of meta-learning, system simulates few-shot learning tasks and learns to transform landmark positions into realistically-looking personalized photographs, given a small training set of images with this person. After that, a handful of photographs of a new person sets up a new adversarial learning problem with high-capacity generator and discriminator pretrained via meta-learning. The new adversarial problem converges to the state that generates realistic and personalized images after a few training steps. If nothing made sense so far, no worries we will break down everything. Starting from architecture,
 
@@ -680,7 +707,7 @@ We have seen how brilliant GANs are spitting out beautiful and realistic looking
 <img src='/images/gan/fewshot_arch.png' width="80%"/> 
 </p>
 
-There will be two pipelines, training and fine-tuning for inference. First training, also meta-learning stage assumes that we have M video sequences, containing talking heads of different people. We denote $$\mathbf{x_{i}}$$ the i-th video sequence and with $$\mathbf{x_{i}(t)}$$ it's t-th frame. All the training happens in episodes of K-shot learning (K=8). In each episode, we randomly draw a training video sequence i and a single frame t from that sequence. In addition to t, we randomly sample additional K such frames $$s_{1},...s_{K}$$ from the same sequence. Let's consider one frame $$\mathbf{x_{i}(t)}$$ which is passed through landmark detection algorithm to get resultant landmark image $$\mathbf{y_{i}(t)}$$. Then embedder E($$\mathbf{x_{i}(s)}$$, $$\mathbf{y_{i}(s)}$$, $$\phi$$) takes video frame and produces a output N-dimensional vector $$\mathbf{\hat{e}_{i}(s)}$$. The $$\phi$$ are networks learning parameters and $$\mathbf{\hat{e}_{i}(s)}$$ contains video-specific information such as person's identity independent of pose. $$\mathbf{\hat{e}_{i}}$$ is sent to generator G($$\mathbf{y_{i}(t)}$$, $$\mathbf{\hat{e}_{i}}$$ ; $$\psi$$, P) takes in input landmark information of video frame i.e. $$\mathbf{y_{i}(t)}$$ not seen by embedder, predicted video embeddding $$\mathbf{\hat{e}_{i}}$$ and produces output $$\mathbf{\hat{x}_{t}}$$. There is one catch in G, all the parameters in G are split into 2 groups: the person-generic parameters $$\psi$$, and the person-specific parameters $$\hat{\psi}_{i}$$. During meta-learning only $$\psi$$ is trained and $$\hat{\psi}_{i}$$ are predicted from $$\mathbf{\hat{e}_{i}}$$ and P : $$\hat{\psi}_{i}$$=P$$\mathbf{\hat{e}_{i}}$$. We will shortly see why. The discriminator D($$\mathbf{x_{i}(t)}$$, $$\mathbf{y_{i}(t)}$$, i) now plays the same role it played in pix2pix or bigGAN i.e. conditional projector discriminator takes input the frame, landmarks corresponding to that frame and learns to distinguish if they are real or fake. The input frame can be real or generated by G. G learns to maximize the similarity of generated image and real frame. Discriminator D learns to distingusih real pair and fake pair. Here pair consists of landmark image of the frame and ground truth image of that frame or generated output corresponding to that landmark image. The loss function contains 3 parts : (i) Content loss term, which measures the distance between ground truth image $$\mathbf{x_{i}(t)}$$ and reconstruction by G $$\mathbf{\hat{x}_{t}}$$ using specific layer from VGG16 and VGGFace, L1-loss is combined together with predefined given weight. (ii) The usual adversarial loss term, in addition to realism score which is the output of D contains a additional term of feature matching. This term is introduced to ensure perceptual similarity and also helps in stabilizing the training. (iii) The projection discriminator contains matrix W whose columns correspond to the embeddings to the individual videos. But we already have embedding vector $$\mathbf{\hat{e}_{i}}$$ which also contains embeddings of the video, so what the last term in loss does is encourage the similarity of the two embeddings. In addition to above losses, discriminator is updated by minimization of hinge loss. That completes the training pipeline.
+There will be two pipelines, training and fine-tuning for inference. First training, also [meta-learning](https://blog.fastforwardlabs.com/2019/05/22/metalearners-learning-how-to-learn.html) stage assumes that we have M video sequences, containing talking heads of different people. We denote $$\mathbf{x_{i}}$$ the i-th video sequence and with $$\mathbf{x_{i}(t)}$$ it's t-th frame. All the training happens in episodes of K-shot learning (K=8). In each episode, we randomly draw a training video sequence i and a single frame t from that sequence. In addition to t, we randomly sample additional K such frames $$s_{1},...s_{K}$$ from the same sequence. Let's consider one frame $$\mathbf{x_{i}(t)}$$ which is passed through landmark detection algorithm to get resultant landmark image $$\mathbf{y_{i}(t)}$$. Then embedder E($$\mathbf{x_{i}(s)}$$, $$\mathbf{y_{i}(s)}$$, $$\phi$$) takes video frame and produces a output N-dimensional vector $$\mathbf{\hat{e}_{i}(s)}$$. The $$\phi$$ are networks learning parameters and $$\mathbf{\hat{e}_{i}(s)}$$ contains video-specific information such as person's identity independent of pose. $$\mathbf{\hat{e}_{i}}$$ is sent to generator G($$\mathbf{y_{i}(t)}$$, $$\mathbf{\hat{e}_{i}}$$ ; $$\psi$$, P) takes in input landmark information of video frame i.e. $$\mathbf{y_{i}(t)}$$ not seen by embedder, predicted video embeddding $$\mathbf{\hat{e}_{i}}$$ and produces output $$\mathbf{\hat{x}_{t}}$$. There is one catch in G, all the parameters in G are split into 2 groups: the person-generic parameters $$\psi$$, and the person-specific parameters $$\hat{\psi}_{i}$$. During meta-learning only $$\psi$$ is trained and $$\hat{\psi}_{i}$$ are predicted from $$\mathbf{\hat{e}_{i}}$$ and P : $$\hat{\psi}_{i}$$=P$$\mathbf{\hat{e}_{i}}$$. We will shortly see why. The discriminator D($$\mathbf{x_{i}(t)}$$, $$\mathbf{y_{i}(t)}$$, i) now plays the same role it played in pix2pix or bigGAN i.e. conditional projector discriminator takes input the frame, landmarks corresponding to that frame and learns to distinguish if they are real or fake. The input frame can be real or generated by G. G learns to maximize the similarity of generated image and real frame. Discriminator D learns to distingusih real pair and fake pair. Here pair consists of landmark image of the frame and ground truth image of that frame or generated output corresponding to that landmark image. The loss function contains 3 parts : (i) Content loss term, which measures the distance between ground truth image $$\mathbf{x_{i}(t)}$$ and reconstruction by G $$\mathbf{\hat{x}_{t}}$$ using specific layer from VGG16 and VGGFace, L1-loss is combined together with predefined given weight. (ii) The usual adversarial loss term, in addition to realism score which is the output of D contains a additional term of feature matching. This term is introduced to ensure perceptual similarity and also helps in stabilizing the training. (iii) The projection discriminator contains matrix W whose columns correspond to the embeddings to the individual videos. But we already have embedding vector $$\mathbf{\hat{e}_{i}}$$ which also contains embeddings of the video, so what the last term in loss does is encourage the similarity of the two embeddings. In addition to above losses, discriminator is updated by minimization of hinge loss. That completes the training pipeline.
 
 Next, once the meta-learning is converged we can leverage this to synthesize talking head sequences for a new person, unseen during meta-learning stage. This is what is covered in fine-tuning step using few-shots. We will use the embedder E from above trained model to calculate embedding vector for some predefined T frames of unseen video. Now the G will take the new E embedding vector to generate the image of unseen person but there appears to be some identity gap(person appears to be different than video) so to resolve that we fine-tune using some frame of that video. The generator G now uses $$\hat{\psi}$$ which is person-specific parameter along with $$\psi$$. This new output frame when trained resembles more like that of person in unseen video. There are some tricks which are done while initalizing the weight of D, and D as before outputs a realism score. The new objective contains first two terms from above loss function and also the hinge loss of D.
 
@@ -702,7 +729,6 @@ This is the output of fewshot learning for T frames on video of person not seen 
 <img src='/images/gan/fewshot_res.png' width="70%"/> 
 </p>
 
-
 ## Problems in GANs
 
 How should we evaluate GANs and when should we use them? 
@@ -710,7 +736,7 @@ How does GAN training scale with batch size?
 Can we Scale GANs Beyond Image Synthesis? 
 Can GANs attain Nash Equilibrium?
 
-## GANs Rule
+## Will GANs Rule?
 
 GANs are getting better and better as if they are on steroids. Does this mean we are doomed? Will GANs rule the world? We are seeing all these cool results with images and videos, the one with the deepfakes, fake speech, etc. This does have serious implications on the society. Are there any counter measures we should be aware of? Worry not if you possess [Art of Observation](https://fs.blog/2013/04/the-art-of-observation/).
 
@@ -747,53 +773,50 @@ Also, reseachers at University of Washington in their [Calling Bullshit](https:/
 
 ### Speech
 
-What do you think about [this](https://www.buzzfeednews.com/article/charliewarzel/i-used-ai-to-clone-my-voice-and-trick-my-mom-into-thinking)?
+What do you think about [this](https://www.buzzfeednews.com/article/charliewarzel/i-used-ai-to-clone-my-voice-and-trick-my-mom-into-thinking)? GANs can be also used to impersonate someone. Don't belive me, read [it here](https://www.technologyreview.com/s/613033/this-ai-lets-you-deepfake-your-voice-to-speak-like-barack-obama/). Using this approach it is possible to assume any age, gender, or tone you’d like, all in real time. Or to take on the voice of a celebrity. Now how about that?
 
 
 ### Videos
 
-Videos particularly deepfakes well know for their realistic impersonation of any person generated by deep learning algorithms such as [GANs](https://arxiv.org/pdf/1905.08233v1.pdf) or [other algorithms](https://grail.cs.washington.edu/projects/AudioToObama/siggraph17_obama.pdf) have surely been a very much [topic of interest](https://www.reputationinstitute.com/blog/emerging-ai-tech-threat-corporate-reputation). The former POTUS was surprised with the [fake sync lip](http://www.washington.edu/news/2017/07/11/lip-syncing-obama-new-tools-turn-audio-clips-into-realistic-video/) that circulated internet last year. One can only imagine what [devious ways](https://www.huffingtonpost.co.uk/entry/deepfake-porn_uk_5bf2c126e4b0f32bd58ba316) we can manipulate "information age" in thinking into.
+Videos particularly deepfakes well know for their realistic impersonation of any person generated by deep learning algorithms such as [GANs](https://arxiv.org/pdf/1905.08233v1.pdf) or [other algorithms](https://grail.cs.washington.edu/projects/AudioToObama/siggraph17_obama.pdf) have surely been a very much [topic of interest](https://www.reputationinstitute.com/blog/emerging-ai-tech-threat-corporate-reputation). Even the former POTUS was surprised with the [fake sync lip](http://www.washington.edu/news/2017/07/11/lip-syncing-obama-new-tools-turn-audio-clips-into-realistic-video/) that circulated internet last year and expressed [concern](https://www.huffingtonpost.ca/entry/obama-deepfake-video_ca_5cf29aafe4b0e8085e3ad233) against such technologies. One can only imagine what [devious ways](https://www.huffingtonpost.co.uk/entry/deepfake-porn_uk_5bf2c126e4b0f32bd58ba316) we can use it for and potentially amplify it using social media. The threats of deepfakes may seem innocuous for now but what happens if we when one day when we cannot distinguish what is fake or what is real? What if G become so good that we as D become fooled by generated samples?
 
-The threats of deepfakes may seem innocuous for now but what happens if we when one day when we cannot distinguish what is fake or what is real? What if G become so good that we as D become fooled by generated samples?
+<span class='purple'>Let's not paint a picture that GANs are bad, I mean they are most interesting idea in last 10 years but there is always a bad side for good side. Let's work put some counter measures and learn from past mistakes so as to not repeat the same history all over again. "With great innovation, comes a great responsibility." </span>
 
-Let's not paint a picture that GANs are bad, I mean they are most interesting idea in last 10 years but there is always a bad side for good side. Let's work put some counter measures and learn from past mistakes so as to not repeat the same history all over again. "With great innovation, comes a great responsibility."
+## Special Mentions
 
-### Special Mentions
+<span class='red'>Lastly, we apologize to the rest of the GAN family for not mentioning them.</span> But here are some results of special mentions worth showing.
 
-Lastly, we apologize to the rest of the GAN family for not mentioning them. But here are some results of special mentions worth showing.
-
-SRGAN [paper](https://arxiv.org/pdf/1609.04802) demonstrates excellent single-image superresolution results that show the benefit of using a generative model trained to generate realistic samples.
+**SRGAN** : SRGAN [paper](https://arxiv.org/pdf/1609.04802) demonstrates excellent single-image superresolution results that show the benefit of using a generative model trained to generate realistic samples.
 
 <p align="center">
 <img src='/images/gan/srgan_results.png' width="70%"/> 
 </p>
 
-A user can draw a rough sketch of an image,and [iGAN](https://arxiv.org/pdf/1609.03552.pdf) uses a GAN to produce the most similar realistic image. Here is a video demonstration of iGAN,
+**iGAN**: A user can draw a rough sketch of an image,and [iGAN](https://arxiv.org/pdf/1609.03552.pdf) uses a GAN to produce the most similar realistic image. Here is a video demonstration of iGAN,
 
 https://www.youtube.com/watch?v=9c4z6YsBGQ0
 
-Using [IAN](https://arxiv.org/pdf/1609.07093), the user paints rough modifications to a photo, such as painting with black paint in an area where the user would like to add black hair, and IAN turns these rough paint strokes into photorealistic imagery  matching the user’s desires. Here is one such demonstration,
+**IAN**: Using [IAN](https://arxiv.org/pdf/1609.07093), the user paints rough modifications to a photo, such as painting with black paint in an area where the user would like to add black hair, and IAN turns these rough paint strokes into photorealistic imagery  matching the user’s desires. Here is one such demonstration,
 
 https://www.youtube.com/watch?v=FDELBFSeqQs
 
-[GAN Dissection](https://arxiv.org/pdf/1811.10597.pdf) is a visualization tool that helps researchers and practitionersbetter understand their GAN models.
+**GAN Dissection** : [GAN Dissection](https://arxiv.org/pdf/1811.10597.pdf) is a visualization tool that helps researchers and practitionersbetter understand their GAN models.
 
 https://www.youtube.com/embed/yVCgUYe4JTM?rel=0&autoplay=1
 
 You can also play with very cool interactive demo on [gandissect.res.ibm.com](http://gandissect.res.ibm.com/ganpaint.html?project=churchoutdoor&layer=layer4).
 
-[DiscoGAN](https://arxiv.org/pdf/1703.05192) has lot like CycleGAN, where DiscoGAN successfully transfers style from one domain to another while preserving key attributes such as orientation and face identity. Suppose we have collected two sets of images, one containing handbags and another containing only shoes. DiscoGAN trains on sets independently and learn how to map two domains without any extra label. So, we can convert a handbag into shoe which will have same color and any such attribute, all we need to pass DiscoGAN is a handbag. Difference between in DiscoGAN and CycleGAN is what losses are used to reconstruction. CycleGAN uses cycle consistency loss while DiscoGAN uses reconstruction loss seperate for both domains.
+**DiscoGAN**: [DiscoGAN](https://arxiv.org/pdf/1703.05192) has lot like CycleGAN, where DiscoGAN successfully transfers style from one domain to another while preserving key attributes such as orientation and face identity. Suppose we have collected two sets of images, one containing handbags and another containing only shoes. DiscoGAN trains on sets independently and learn how to map two domains without any extra label. So, we can convert a handbag into shoe which will have same color and any such attribute, all we need to pass DiscoGAN is a handbag. Difference between in DiscoGAN and CycleGAN is what losses are used to reconstruction. CycleGAN uses cycle consistency loss while DiscoGAN uses reconstruction loss seperate for both domains.
 
 <p align="center">
 <img src='/images/gan/discogan.png' width="70%"/> 
 </p>
 
-Okay we have to stop somewhere, let stop with last mention to a type of conditional GAN to synthesize High-Resolution Image and Semantic Manipulation aka [pix2pixHD](https://arxiv.org/pdf/1711.11585.pdf). And results they sure [don't disappoint](https://youtu.be/3AIpPlzM_qs).
+**pix2pixHD**: Okay we have to stop somewhere, let stop with last mention to a type of conditional GAN to synthesize High-Resolution Image and Semantic Manipulation aka [pix2pixHD](https://arxiv.org/pdf/1711.11585.pdf). And results they sure [don't disappoint](https://youtu.be/3AIpPlzM_qs).
 
 <p align="center">
 <img src='/images/gan/pix2pixhd.gif' width="80%"/> 
 </p>
-
 
 Look at the progress introducing paper about GAN in 2014 to worrying about dangerous impact on society caused by GAN in 2017, this speaks more than I can make you understand. And this is the story of GANs.
 
