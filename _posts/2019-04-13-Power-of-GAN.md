@@ -330,7 +330,7 @@ Paper showed some of the fantasic results obtained by using cGANs.
 This figure shows how different domains like segmentation, aerial mapping, colorization, etc can be learned using cGANs.
 
 <p align="center">
-<img src='/images/gan/pix2pix_res1.png' width="80%"/> 
+<img src='/images/gan/pix2pix_res1.png' width="90%"/> 
 </p>
 
 Applying cGANs in domain of semantic segmentation, the result obtained from L1 + cGANs are better than other approaches.
@@ -631,7 +631,7 @@ Can you dance? Don't worry if you can't. The researchers at Berkely presented a 
 As trained in pix2pix, we can train a image-to-image translation model between pose stick figures and target person image. To transfer the motion of source to target, we input pose stick figure of source and output the same pose for specific target subject as a image. To encourage the temporal smoothness of generated videos, the authors condition the prediction at each frame on that of the previous time step. To increase facial realism in their results they include a specialized GAN trained to generate the target person‘s face. Let's take a close look at the training and inference pipeline.
 
 <p align="center">
-<img src='/images/gan/ecd_arch.png' width="50%"/> 
+<img src='/images/gan/ecd_arch.png' width="80%"/> 
 </p>
 
 First training pipeline, for a given frame $$\mathbf{y}$$ from target video, it passed through pose detector P to obtain a corresponding target pose stick figure, $$\mathbf{x} = P(\mathbf{y})$$. We have pairs of ($$\mathbf{x}$$, $$\mathbf{y}$$) which we can pass through G which learns the mapping and synthesizes target image pairs given pose stick figure. Now, the generated image G($$\mathbf{x}$$) is passed along with pose stick figure to D, where D learns to distinguish the real and fake pairs i.e. "real pairs" as (pose stick figure $$\mathbf{x}$$, ground truth target image $$\mathbf{y}$$) and "fake pairs" as (pose stick figure $$\mathbf{x}$$, generated target image G($$\mathbf{x}$$)). This training is done end-to-end with adversarial loss with objective function similar to that in pix2pixHD and perceptual reconstruction loss (dist) from VGGNet to make G($$\mathbf{x}$$)) resemble more like ground truth image ($$\mathbf{y}$$). Next transfer pipeline, similar to training pose detector P extracts pose information from source video frame $$\mathbf{y}^{'}$$ yielding pose stick figure $$\mathbf{x}^{'}$$. However, in their video the source subject likely appears bigger, or smaller, and standing in a different position than the subject in the target video. In order for the source pose to better align with the filming setup of the target, we apply a global pose normalization Norm to transform the source's original pose $$\mathbf{x}^{'}$$ to be more consistent with the poses in the target video $$\mathbf{x}$$. Then we pass the normalized pose stick figure $$\mathbf{x}$$ into our trained model G to obtain an image G($$\mathbf{x}$$) of our target person which corresponds with the original image of the source $$\mathbf{y}$$. To further improve the quality of video, authors use GANs for temporal coherence and adding more detail and realism to face. Here is comparison of different results, such as use only pix2pixHD objective, temporal smoothing and finally both TS & face approach as described in paper as compared to ground truth. Clearly, using TS and Face GAN we obtain better results.
@@ -789,7 +789,7 @@ You can also play with very cool interactive demo on [gandissect.res.ibm.com](ht
 Okay we have to stop somewhere, let stop with last mention to a type of conditional GAN to synthesize High-Resolution Image and Semantic Manipulation aka [pix2pixHD](https://arxiv.org/pdf/1711.11585.pdf). And results they sure [don't disappoint](https://youtu.be/3AIpPlzM_qs).
 
 <p align="center">
-<img src='/images/gan/pix2pixhd.gif' width="50%"/> 
+<img src='/images/gan/pix2pixhd.gif' width="80%"/> 
 </p>
 
 
