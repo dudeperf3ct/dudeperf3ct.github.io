@@ -729,10 +729,17 @@ This is the output of fewshot learning for T frames on video of person not seen 
 
 ## Problems in GANs
 
-How should we evaluate GANs and when should we use them? 
-How does GAN training scale with batch size? 
-Can we Scale GANs Beyond Image Synthesis? 
-Can GANs attain Nash Equilibrium?
+As always another [fantastic blog](https://distill.pub/2019/gan-open-problems/) on distil.pub details some of the questions with answers about what we know about GANs. Here are the questions :
+
+1. [What are the trade-offs between GANs and other generative models?](https://distill.pub/2019/gan-open-problems/#tradeoffs)
+2. [What sorts of distributions can GANs model?](https://distill.pub/2019/gan-open-problems/#distros)
+3. [How can we Scale GANs beyond image synthesis?](https://distill.pub/2019/gan-open-problems/#scaling)
+4. [What can we say about the global convergence of the training dynamics?](https://distill.pub/2019/gan-open-problems/#convergence)
+5. [How should we evaluate GANs and when should we use them?](https://distill.pub/2019/gan-open-problems/#eval)
+6. [How does GAN training scale with batch size?](https://distill.pub/2019/gan-open-problems/#batchsize)
+7. [What is the relationship between GANs and adversarial examples?](https://distill.pub/2019/gan-open-problems/#advx)
+
+
 
 ## Will GANs Rule?
 
