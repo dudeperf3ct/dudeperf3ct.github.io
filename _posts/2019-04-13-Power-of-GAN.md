@@ -244,11 +244,30 @@ $$
 
 Having defined both discriminator (a classifier that takes in input as image and outputs a scalar 1 or 0 depending on input is real or fake), and generator (a neural network that takes in input random noise and produces an image). The next step is to sample minibatch m, first minibatch of m noise samples and second minibatch of m examples from dataset. Then we pass the minibatch of samples containing noise through G to obtain minibatch size of fake images. Next, we train discriminator first on real images whose labels are 1 as they are drawn from true distribution of dataset and then train the same D on fake sample produced from previous step and here pass the labels as 0 as they are fake. Then we calculate the total loss of D which is sum of both losses produced above. Then we set keep D's parameters fixed and pass the minibatch of m samples to G and the fake sample generated whose parameters are trainable are passed to D. But here's the catch. This time we set the labels of these samples as 1, fooling the D, such that they should be classified as real. This way D is guiding G telling it how to tweak it's weights so as to produce good example such that D is fooled. And this process continues for a lot many training epochs.
 
+**Latent space of z** : Walking on the manifold (latent space) that is learnt can usually tell us about signs of memorization (if there are sharp transitions)and about the way in which the space is hierarchically collapsed. If walking in this latent space results in semantic changes to the image generations (such as objects being added and removed), we can reason that the model has learned relevant and interesting representations.
+
 ## Problem in Training GANs
 
-Of course, the training procedure we described above is very unstable and difficult. I mean Is D doing good job in classifying?, Is G generating good samples?, How long should I train to get good examples?, 
+Of course, the training procedure we described above is very unstable and difficult. 
 
-**Latent space of z** : Walking on the manifold (latent space) that is learnt can usually tell us about signs of memorization (if there are sharp transitions)and about the way in which the space is hierarchically collapsed. If walking in this latent space results in semantic changes to the image generations (such as objects being added and removed), we can reason that the model has learned relevant and interesting representations.
+- How much to train G with respect to D and vice versa? For how long? 
+- What is ideal way to track the progress of training for both G and D?
+- Mode collapse is another issue which leads generator to collapse by generating only few sample everytime.
+- Diminishing gradients occurs in case discriminator wins and that in turn causes geneartor to learn nothing and its gradient vanishes
+- The balance between D and G is crucial.
+- Setting hyperparameter is of paramount important for GANs.
+
+[Tips and tricks to make GANs work](https://github.com/soumith/ganhacks) offers some hacks which we can use to train GANs.
+
+- Normalize the inputs between -1 and 1
+- Use tanh as last layer as output of generator
+- Use batchnorm
+- Avoid using ReLU and MaxPool, use LeakyReLU
+- For Downsampling, use: Average Pooling, Conv2d + stride
+- For Upsampling, use: PixelShuffle, ConvTranspose2d + stride
+- Use SGD for discriminator and ADAM for generator
+- If you have labels available, training the discriminator to also classify the samples: auxillary GANs
+
 
 ## Recap
 
@@ -848,6 +867,8 @@ z - Latent vector, code or noise vector
 [NIPS 2016 Tutorial : Generative Adversarial Network](https://arxiv.org/pdf/1701.00160.pdf)
 
 Fastai [Lesson 12: Deep Learning Part 2 2018 - Generative Adversarial Networks (GANs)](https://www.youtube.com/watch?v=ondivPiwQho&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia&index=5)
+
+[GANocracy Workshop 2019](http://ganocracy.csail.mit.edu/)
 
 [CVPR 2018 Tutorial on GANs](https://sites.google.com/view/cvpr2018tutorialongans/)
 
