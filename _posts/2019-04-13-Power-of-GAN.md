@@ -55,7 +55,7 @@ Feel free to jump anywhere,
 		- [Faceswap GAN](#faceswap-gan)
 		- [Mona Lisa speaking GAN](#mona-lisa-speaking-gan)
 - [Problems in GANs](#problems-in-gans)
-- [Will GANs Rule?](#will-gans-rule)
+- [Will GANs Rule the World?](#will-gans-rule-the-world)
 	- [Images](#images)
 	- [Speech](#speech)
 	- [Videos](#videos)
@@ -579,8 +579,7 @@ In short, this paper using StyleGANs details not only how to generate high quali
 
 Video contains a lot many examples of style mixing, interpolation and various ablation studies of different parameters.
 
-https://youtu.be/kSLJriaOumA
-
+[![stylegan](https://img.youtube.com/vi/kSLJriaOumA/0.jpg)](https://www.youtube.com/watch?vkSLJriaOumA "Video")
 
 
 ### BigGAN
@@ -683,7 +682,7 @@ GANs for video has mind blowing applications. [Remember deepfakes](https://www.y
 
 ### Everybody can dance
 
-<span class='purple'>Can you dance? Don't worry if you can't. The [researchers](https://arxiv.org/pdf/1808.07371.pdf) at Berkely presented a simple method for "do as I do" motion transfer : given a source video of a person dancing we can transfer that performance to a novel (amateur) target after only a few minutes of the target subject performing standard moves.</span> Cool right?? How can be pose this problem looking that above approaches in GAN images? Yes, image-to-image translation between source and target sets. But we do not have corresponding pairs of images of the two subjects performing the same motion to perform supervise translation directly. In pix2pix method, we had {edge, photo} as tuple where edge is passed to both G and D and G generates a fake photo and passes to D to fool it. Even if both subjects were performing same motion, it would difficult to have exact frame body-pose correspondence between source to target due to body shape and stylistic differences unique to each subject. How can we proceed further? Keypoint-based pose. Keypoints encode body position irrespective of shape and styles, hence keypoint can act as our intermediate representation between two subjects. Obtaining pose for each frame from target video we get pairs of (pose stick figure, target person image). Here is one such example, 
+<span class='purple'>Can you dance? Don't worry if you can't. We will let GANs teach us alright ready? The [researchers](https://arxiv.org/pdf/1808.07371.pdf) at Berkely presented a simple method for "do as I do" motion transfer : given a source video of a person dancing we can transfer that performance to a novel (amateur) target after only a few minutes of the target subject performing standard moves.</span> Cool right?? How can be pose this problem looking that above approaches in GAN images? Yes, image-to-image translation between source and target sets. But we do not have corresponding pairs of images of the two subjects performing the same motion to perform supervise translation directly. In pix2pix method, we had {edge, photo} as tuple where edge is passed to both G and D and G generates a fake photo and passes to D to fool it. Even if both subjects were performing same motion, it would difficult to have exact frame body-pose correspondence between source to target due to body shape and stylistic differences unique to each subject. How can we proceed further? Keypoint-based pose. Keypoints encode body position irrespective of shape and styles, hence keypoint can act as our intermediate representation between two subjects. Obtaining pose for each frame from target video we get pairs of (pose stick figure, target person image). Here is one such example, 
 
 <p align="center">
 <img src='/images/gan/ecd_pose.png' width="70%"/> 
@@ -707,7 +706,8 @@ First training pipeline, for a given frame $$\mathbf{y}$$ from target video, it 
 
 This video is sufficient enough to convey the awesomeness achieved.
 
-https://youtu.be/PCBTZh41Ris
+[![dance](https://img.youtube.com/vi/PCBTZh41Ris/0.jpg)](https://www.youtube.com/watch?v=PCBTZh41Ris "Video")
+
 
 ### Deepfakes
 
@@ -727,7 +727,8 @@ While transferring face one thing to be noted is how we will deal with foregroun
 
 How about we settle for video as a result? This result *is not* obtained from the model trained on above paper. But it surely uses CycleGAN just with some modifications(which I don't know what, will have to ask [author](https://github.com/tjwei/GANotebooks)?).
 
-https://www.youtube.com/watch?v=Fea4kZq0oFQ
+[![faceswap](https://img.youtube.com/vi/Fea4kZq0oFQ/0.jpg)](https://www.youtube.com/watch?v=Fea4kZq0oFQ "Video")
+
 
 ### Mona Lisa speaking GAN
 
@@ -761,7 +762,7 @@ This is the output of fewshot learning for T frames on video of person not seen 
 
 ## Problems in GANs
 
-As always another [fantastic blog](https://distill.pub/2019/gan-open-problems/) on distil.pub details some of the questions with answers about what we know about GANs. Here are the questions :
+As always in an another [fantastic blog](https://distill.pub/2019/gan-open-problems/) on [distill.pub](http://distill.pub/), the authors of the blog details and discusses some of the open questions in the field of GANs and about what we know about GANs. Here are the questions :
 
 1. [What are the trade-offs between GANs and other generative models?](https://distill.pub/2019/gan-open-problems/#tradeoffs)
 2. [What sorts of distributions can GANs model?](https://distill.pub/2019/gan-open-problems/#distros)
@@ -772,8 +773,7 @@ As always another [fantastic blog](https://distill.pub/2019/gan-open-problems/) 
 7. [What is the relationship between GANs and adversarial examples?](https://distill.pub/2019/gan-open-problems/#advx)
 
 
-
-## Will GANs Rule?
+## Will GANs Rule the World?
 
 GANs are getting better and better as if they are on steroids. Does this mean we are doomed? Will GANs rule the world? We are seeing all these cool results with images and videos, the one with the deepfakes, fake speech, etc. This does have serious implications on the society. Are there any counter measures we should be aware of? Worry not if you possess [Art of Observation](https://fs.blog/2013/04/the-art-of-observation/).
 
@@ -829,15 +829,18 @@ Videos particularly deepfakes well know for their realistic impersonation of any
 
 **iGAN**: A user can draw a rough sketch of an image,and [iGAN](https://arxiv.org/pdf/1609.03552.pdf) uses a GAN to produce the most similar realistic image. Here is a video demonstration of iGAN,
 
-https://www.youtube.com/watch?v=9c4z6YsBGQ0
+[![iGAN](https://img.youtube.com/vi/Fea4kZq0oFQ/0.jpg)](https://www.youtube.com/watch?v=Fea4kZq0oFQ "Video")
+
 
 **IAN**: Using [IAN](https://arxiv.org/pdf/1609.07093), the user paints rough modifications to a photo, such as painting with black paint in an area where the user would like to add black hair, and IAN turns these rough paint strokes into photo realistic imagery  matching the user’s desires. Here is one such demonstration,
 
-https://www.youtube.com/watch?v=FDELBFSeqQs
+[![IAN](https://img.youtube.com/vi/FDELBFSeqQs/0.jpg)](https://www.youtube.com/watch?v=FDELBFSeqQs "Video")
+
 
 **GAN Dissection** : [GAN Dissection](https://arxiv.org/pdf/1811.10597.pdf) is a visualization tool that helps researchers and practitioners better understand their GAN models.
 
-https://www.youtube.com/embed/yVCgUYe4JTM?rel=0&autoplay=1
+[![GANDissection](https://img.youtube.com/vi/yVCgUYe4JTM/0.jpg)](https://www.youtube.com/watch?v=yVCgUYe4JTM "Video")
+
 
 You can also play with very cool interactive demo on [gandissect.res.ibm.com](http://gandissect.res.ibm.com/ganpaint.html?project=churchoutdoor&layer=layer4).
 
@@ -853,7 +856,9 @@ You can also play with very cool interactive demo on [gandissect.res.ibm.com](ht
 <img src='/images/gan/pix2pixhd.gif' width="80%"/> 
 </p>
 
-Look at the progress introducing paper about GAN in 2014 to worrying about dangerous impact on society caused by GAN in 2017, this speaks more than I can make you understand. And this is the story of GANs.
+<span class='saddlebrown'>Further apologizes to remaining GAN family for not mentioning them in special mentions.</span> Shall we do one more section special special mentions 😛?
+
+<span class='purple'>Look at the progress from introducing GANs to the world in 2014 to worrying about dangerous impact on society caused by GAN in 2017, this speaks more than I can make you understand. And this is the story of GANs.</span>
 
 In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that Fun of Paper dissection. And further build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!
 
@@ -879,9 +884,15 @@ z - Latent vector, code or noise vector
 
 [NIPS 2016 Tutorial : Generative Adversarial Network](https://arxiv.org/pdf/1701.00160.pdf)
 
+[The GANfather](https://www.technologyreview.com/s/610253/the-ganfather-the-man-whos-given-machines-the-gift-of-imagination/)
+
+[CS231n Lecture 16 Adversarial Examples and Adversarial Training](https://www.youtube.com/watch?v=CIfsB_EYsVI)
+
 Fastai [Lesson 12: Deep Learning Part 2 2018 - Generative Adversarial Networks (GANs)](https://www.youtube.com/watch?v=ondivPiwQho&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia&index=5)
 
 [GANocracy Workshop 2019](http://ganocracy.csail.mit.edu/)
+
+[AAAI-19 Invited Talk: Ian Goodfellow (Google AI)](https://vimeo.com/313941176)
 
 [CVPR 2018 Tutorial on GANs](https://sites.google.com/view/cvpr2018tutorialongans/)
 
@@ -889,7 +900,9 @@ Fastai [Lesson 12: Deep Learning Part 2 2018 - Generative Adversarial Networks (
 
 [A Short Introduction to Entropy, Cross-Entropy and KL-Divergence](https://www.youtube.com/watch?v=ErfnhcEV1O8)
 
-Chapter 3, 5 and 20 of [Deep Learning Book](https://www.deeplearningbook.org/)
+Play with GANs online [Karpathy GAN](https://cs.stanford.edu/people/karpathy/gan/)
+
+Chapter [3](https://www.deeplearningbook.org/contents/prob.htmlhttps://www.deeplearningbook.org/contents/ml.html), [5]() and [20](https://www.deeplearningbook.org/contents/generative_models.html) of [Deep Learning Book](https://www.deeplearningbook.org/)
 
 [Generative Learning algorithms](http://cs229.stanford.edu/notes/cs229-notes2.pdf)
 
@@ -942,6 +955,8 @@ Curriculum for learning [Wasserstein GAN from depthfirstlearning](http://www.dep
 [Are GANs Created Equal? A Large-Scale Study](https://arxiv.org/pdf/1711.10337.pdf)
 
 [Open Questions about Generative Adversarial Networks](https://distill.pub/2019/gan-open-problems/)
+
+[An Annotated Proof of Generative Adversarial Networks with Implementation Notes](https://srome.github.io/An-Annotated-Proof-of-Generative-Adversarial-Networks-with-Implementation-Notes/)
 
 [Image Completion with Deep Learning in TensorFlow](http://bamos.github.io/2016/08/09/deep-completion/#step-1-interpreting-images-as-samples-from-a-probability-distribution)
 
