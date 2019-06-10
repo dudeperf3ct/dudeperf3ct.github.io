@@ -6,6 +6,7 @@ summary:    This post will provide a brief introduction of GANs.
 categories: gan
 published : false
 
+
 ---
 
 # Generative Adversarial Networks
@@ -32,7 +33,7 @@ Feel free to jump anywhere,
 	- [GAN Framework](#gam-framework)
 	- [Cost Functions](#cost-functions)
 	- [MinMax](#minmax)
-	- [Therotical Limits](#therotical-limits)
+	- [Theoretical Limits](#theoretical-limits)
 	- [Training GANs](#training-gans)  
 	- [Problem in Training GANs](#problem-in-training-gans)
 - [Recap](#recap)
@@ -75,19 +76,19 @@ Feel free to jump anywhere,
 
 
 
-<span class='red'>I-know-everything:</span> In our last post, we saw how we can use Adversarial Machine Learning in context of security. We discussed how adversaries can abuse the model and produce malicious results which can have serious consequences in real world. <span class='purple'>The name "Adversarial" has different meaning depending on the context.</span> In the previous post we used Adversarial Training where neural network is used to correctly classify adversarial examples by training the network on adversarial examples. In context of RL, "self play" can be seen as Adversarial Training where the network learns to play with itself. <span class='purple'>In our today's topic which is GAN i.e. Generative Adversarial Networks, we will use Adversarial Training where a model is trained on the inputs produced by adversary.</span> Now if there is no more gossips about the name "Adversarial", let's get back to the revolutionary GANs. As all posts on GANs starts with the [quote](https://www.quora.com/What-are-some-recent-and-potentially-upcoming-breakthroughs-in-deep-learning) from [Yann LeCunn](http://twitter.com/ylecun/), 
+<span class='red'>I-know-everything:</span> In our [last post](https://dudeperf3ct.github.io/adversarial/learning/2019/03/04/Mystery-of-Adversarial-Learning/), we saw how we can use Adversarial Machine Learning in context of security. We discussed how adversaries can abuse the model and produce malicious results which can have serious consequences in real world. <span class='purple'>The name "Adversarial" has different meaning depending on the context.</span> In the previous post we used Adversarial Training where neural network is used to correctly classify adversarial examples by training the network on adversarial examples. In context of RL, "self play" can be seen as Adversarial Training where the network learns to play with itself. <span class='purple'>In our today's topic which is GAN i.e. Generative Adversarial Networks, we will use Adversarial Training where a model is trained on the inputs produced by adversary.</span> Now if there is no more gossips about the name "Adversarial", let's get back to the revolutionary GANs. As all posts on GANs starts with the [quote](https://www.quora.com/What-are-some-recent-and-potentially-upcoming-breakthroughs-in-deep-learning) from [Yann LeCunn](http://twitter.com/ylecun/), 
 
 > <span class='purple'>"The most important one, in my opinion, is adversarial training (also called GAN for Generative Adversarial Networks). This is an idea that was originally proposed by Ian Goodfellow when he was a student with Yoshua Bengio at the University of Montreal (he since moved to Google Brain and recently to OpenAI).This, and the variations that are now being proposed is the most interesting idea in the last 10 years in ML, in my opinion."</span> #Tradition#not#broken. 
 
 <span class='green'>I-know-nothing:</span> Holding up the tradition, what are GANs? Specifically, what does generative mean?
 
-<span class='red'>I-know-everything:</span> Consider the example where are we are teaching a model to distinguish between dog(y=0) and cat(y=1). <span class='saddlebrown'>The way traditional machine learning classification algorithms like logistic regression or perceptron algorithm tries is to find a straight line - a decision boundary - such that when a test image of dog is passed, model checks on which side of decision boundary does it fall and gives prediction accordingly.</span> This is what we have learned from our past journey nothing new so far. <span class='saddlebrown'>But consider a different approach. Instead of learning a decision boundary, what if network learns a model of dog looking at lots of different images of dog and same with cat, a different model of what a cat looks like. Now, when we pass a test image of dog to classify, the test image is matched against the model of dog and model of cat to make prediction.</span> It's like opposite instead of predicting what class it belongs we predict the features from given image. These features will tell us how close it resembles to a dog or cat. Algorithms like logistic regression and perceptron learns mappings directly from space of inputs $$\chi$$ to labels {0, 1} i.e. p(y|x) where y $$\in$$ {0, 1} and these are called <span class='purple'>discriminative learning algorithms.</span> Now, instead of learning the mapping from input space, what if model learns the distribution of input features? This is the idea behind <span class='purple'>generative learning algorithms.</span> They learn p(x|y), for example, if y=0 indicates it's a dog then p(x|y=0) models the distribution of dog's features and p(x|y=1) modelling the distribution of cat's features. GANs belong to the family of generative models. This means that GANs samples data from training set, a distribution of $$p_{data}$$, and learns to represent an estimate of that distribution, resulting in probability distribution $$p_{model}$$. There are cases where GAN estimates $$p_{model}$$ explicitly and in other cases model is only able to generate samples from $$p_{model}$$. <span class='red'>GAN primarily focuses on the second case generating samples from the model distribution</span> although it is possible to design GANs that can do both.
+<span class='red'>I-know-everything:</span> Consider the example where are we are teaching a model to distinguish between dog(y=0) and cat(y=1). <span class='saddlebrown'>The traditional machine learning classification algorithms like logistic regression or perceptron algorithm tries is to find a straight line - a decision boundary - such that when a test image of dog is passed, model checks on which side of decision boundary does it falls and gives predictions accordingly.</span> This is what we have learned from our past journey nothing new so far. <span class='saddlebrown'>But consider a different approach. Instead of learning a decision boundary, what if network learns a model of dog by looking at lot many different images of dog and same with cat, a different model of what a cat looks like. Now, when we pass a test image of dog to classify, the test image is matched against the model of dog and model of cat to make prediction.</span> It's simply opposite approach, instead of using features for predicting what class it belongs we predict the features from given image. These features will tell us how close it resembles to a dog or cat. Algorithms like logistic regression and perceptron learns mappings directly from space of inputs $$\chi$$ to labels {0, 1} i.e. p(y|x) where y $$\in$$ {0, 1} and these are called <span class='purple'>discriminative learning algorithms.</span> Now, instead of learning the mapping from input space, what if model learns the distribution of input features? This is the idea behind <span class='purple'>generative learning algorithms.</span> They learn p(x|y), for example, if y=0 indicates it's a dog then p(x|y=0) models the distribution of dog's features and p(x|y=1) modeling the distribution of cat's features. GANs belong to the family of generative models. This means that GANs samples data from training set, a distribution $$p_{data}$$, and learns to represent an estimate of that distribution, resulting in probability distribution $$p_{model}$$. There are cases where GAN estimates $$p_{model}$$ explicitly and in other cases model is only able to generate samples from $$p_{model}$$. <span class='red'>GAN primarily focuses on the second case generating samples from the model distribution</span> although it is possible to design GANs that can do both.
 
 <p align="center">
 <img src='/images/gan/sample_gan.png' width="70%"/> 
 </p>
 
-Here is an example, where an ideal generative model would be able to train on examples shown on left and then create more examples from the same distribution as shown on the right.
+Here is an example where an ideal generative model would be able to train on examples shown on left and then create more examples from the same distribution as shown on the right.
 
 <span class='green'>I-know-nothing:</span> Discriminative learning are fairly straight forward, we get data and labels and we train and get state-of-the-art results. I wonder how generative models are trained and why have they not yet been used as first go-to models?
 
@@ -97,7 +98,7 @@ Here is an example, where an ideal generative model would be able to train on ex
 <img src='/images/gan/generative_model.svg' width="70%"/> 
 </p>
 
-In the example above, the blue region shows the true data distribution ($$p_{data}$$), where black dot represents each image in dataset. Now our model, a neural network in yellow draws points from unit Gaussian, red in color, and generates a distribution as shown in green color which is the distribution learned by model ($$p_{model}$$ or $$\hat{p_{\theta}}$$). Our goal then is find parameters $$\theta$$ of model that produce a distribution that closely matches the true data distribution. Therefore, you can imagine the green distribution starting out random and then the training process iteratively changing the parameters $$\theta$$ to stretch and squeeze it to better match the blue distribution. There are many loss function as in case of supervised learning which deal with comparing two distribution such as Kullback-Liebler (KL) divergence, Reverse-KL divergence and Jenson-Shannon Divergence (JSD). These belong to F-divergence class of probability distance metrics. The other class is Integral Probability Metrics (IPMs). For the IPMS, we have the Wassterstein distance(which is used in the WGAN) and the Maximum Mean Discrepancy (MMD). Difference between F-divergence and IPMs is F-divergences determine distance using division of two probability distributions, $$\frac{P(x)}{Q(x)}$$ and IPMs use the difference, P(x) - Q(x).
+In the example above, the blue region shows the true data distribution ($$p_{data}$$), where black dot represents each image in dataset. Now our model, a neural network in yellow draws points from unit Gaussian, red in color, and generates a distribution as shown in green color which is the distribution learned by model ($$p_{model}$$ or $$\hat{p}_{\theta}$$). Our goal then is find parameters $$\theta$$ of model that produce a distribution that closely matches the true data distribution. Therefore, you can imagine the green distribution starting out random and then the training process iteratively changing the parameters $$\theta$$ to stretch and squeeze it to better match the blue distribution. There are many loss function --as in case of supervised learning-- which deal with comparing two distribution such as Kullback-Liebler (KL) divergence, Reverse-KL divergence and Jenson-Shannon Divergence (JSD). These belong to F-divergence class of probability distance metrics. The other class is Integral Probability Metrics (IPMs). For the IPMS, we have the Wassterstein distance(which is used in the WGAN) and the Maximum Mean Discrepancy (MMD). Difference between F-divergence and IPMs is F-divergences determine distance using division of two probability distributions, $$\frac{P(x)}{Q(x)}$$ and IPMs use the difference, P(x) - Q(x).
 
 <p align="center">
 <img src='/images/gan/distances.png' width="70%"/> 
@@ -105,24 +106,26 @@ In the example above, the blue region shows the true data distribution ($$p_{dat
 
 Most generative models like GAN, Autoregressive models or VAE have this basic setup, but differ in the details. [GANs and Divergence Minimization](https://colinraffel.com/blog/gans-and-divergence-minimization.html) blog by Colin explains F-divergence class using amazing visualizations.
 
-<span class='green'>I-know-nothing:</span> The approach taken by GANs is certainly new as compared to previous approaches of supervised learning. I wonder in what bucket of learning does GAN go in? What's so special about them? What learning function do they use if any?
+<span class='green'>I-know-nothing:</span> The approach taken by GANs is certainly new when compared to previous approaches of supervised learning. I wonder in what bucket of learning does GAN go in? What's so special about them? What learning function do they use if any?
 
-<span class='red'>I-know-everything:</span> Here's a interesting thing, <span class='saddlebrown'>they belong to both buckets of supervised learning and unsupervised learning. The GAN sets up a supervised learning problem in order to do unsupervised learning.</span> You will understand why so once we introduce different parts of GAN. Let's do that! <span class='saddlebrown'>The basic idea of GAN is setting up game between two players. The two players are generator and discriminator</span>. <span class='purple'>The generator creates samples that are intended to come from the same distribution as the training set. The discriminator examines the samples to determine whether they are real or fake as in, does the input samples are similar to that in training set or not?</span> So, what is the game between the two players? <span class='purple'>The generator is trained to fool the discriminator i.e. generator generates a sample and passes it to discriminator. The discriminator using traditional supervised learning is trained to classify the input sample in two classes (real or fake), fooling the discriminator means that discriminator will classify the sample generator to be real instead of fake. And this is where the name "Adversarial" in GAN comes from (They are both adversaries of each other :P).</span> Here we can see that generator wants to be good at fooling discriminator and discriminator wants to be good at classifying samples correctly. This corresponds to [Nash Equilibrium](https://www.youtube.com/watch?v=LJS7Igvk6ZM) from Game Theory. Borrowing example of Alice and Bob from Wikipedia, Alice and Bob are in Nash equilibrium if Alice is making the best decision she can, taking into account Bob's decision while his decision remains unchanged, and Bob is making the best decision he can, taking into account Alice's decision while her decision remains unchanged. Likewise, a group of players are in Nash equilibrium if each one is making the best decision possible, taking into account the decisions of the others in the game as long as the other parties' decisions remain unchanged. <span class='purple'>GAN requires finding the Nash Equilibrium of the game, which is more difficult than optimizing an objective function as done in traditional machine learning.</span>
+<span class='red'>I-know-everything:</span> Here's a interesting thing, <span class='saddlebrown'>they belong to both buckets of supervised learning and unsupervised learning. The GAN sets up a supervised learning problem in order to do unsupervised learning.</span> You will understand why so once when we introduce different parts of GAN. Let's do that! <span class='saddlebrown'>The basic idea of GAN is setting up a game between two players. The two players are generator and discriminator</span>. <span class='purple'>The generator creates samples that are intended to come from the same distribution as the training set. The discriminator examines the samples to determine whether they are real or fake (Are the input samples similar to that in training set or not?)</span> 
 
-Okay, let's try to explain this notion of game through more examples. Suppose the generator to be a counterfeiter, trying to make fake money, and the discriminator as being like police, trying to allow legitimate money and catch counterfeit money. To succeed in this game, the counterfeiter must learn to make money that is indistinguishable from genuine money. Another example, where the generator is person signing cheques using fake signatures and discriminator is bank person, trying to identify if the signature is authentic or not. To succeed in passing the cheque, the person needs to produce signature very real to the original such that bank person gets conned into thinking that fake signature is authentic. You get it right?
+So, what is the game between the two players? <span class='purple'>The generator is trained to fool the discriminator i.e. generator generates a sample and passes it to discriminator. The discriminator using traditional supervised learning is trained to classify the input sample in two classes (real or fake), fooling the discriminator means that discriminator will classify the sample generated by generator to be real instead of fake. And this is where the name "Adversarial" in GAN comes from (They are both adversaries of each other 😛).</span> Here we see that generator wants to be good at fooling discriminator and discriminator wants to be good at classifying samples correctly. This fight scenario corresponds to [Nash Equilibrium](https://www.youtube.com/watch?v=LJS7Igvk6ZM) from Game Theory. Borrowing example of Alice and Bob from Wikipedia, Alice and Bob are in Nash equilibrium if Alice is making the best decision she can, taking into account Bob's decision while his decision remains unchanged, and Bob is making the best decision he can, taking into account Alice's decision while her decision remains unchanged. Likewise, a group of players are in Nash equilibrium if each one is making the best decision possible, taking into account the decisions of the others in the game as long as the other parties' decisions remain unchanged. <span class='purple'>GAN requires finding the Nash Equilibrium of the game, which is more difficult than optimizing an objective function as done in traditional machine learning.</span>
+
+Okay, let's try to explain this notion of game through more examples. Suppose the generator to be a counterfeiter, trying to make fake money, and the discriminator as being like police, trying to allow legitimate money and catch counterfeit money. To succeed in this game, the counterfeiter must learn to make money that is indistinguishable from genuine money. Another example, where the generator is person signing cheques using fake signatures and the discriminator is a bank person, trying to identify if the signature is authentic or not. To succeed in passing the cheque, the person needs to produce signature very real to the original such that bank person gets conned into thinking that fake signature is authentic. You get it right?
 
 Now let's dive in-detail into generator and discriminator.
 
 ## GAN Framework
 
-- **Discriminator(D)** is a differentiable function, usually a neural network with parameter $$\theta^{(D)}$$. Discriminative network which takes in input, $$\mathbf{x}$$ "real" which comes from training set or output from generator G($$\mathbf{z}$$) "fake". The goal of discriminator is to classify the input from training set as real and the one from generator as fake. Discriminator is shown half of inputs which are real and remaining half as fakes generated by G.
+- **Discriminator(D)** is a differentiable function, usually a neural network with parameter $$\theta^{(D)}$$. Discriminative network which takes in input, $$\mathbf{x}$$ "real sample" which comes from training set or output from generator G($$\mathbf{z}$$) "fake sample". The goal of discriminator is to classify the input from training set as real and the one from generator as fake. Discriminator is shown half of inputs which are real and remaining half as fakes generated by G.
 - **Generator(G)** is also differential function, another neural network with parameter $$\theta^{(G)}$$. Generative network takes in input $$\mathbf{z}$$, where $$\mathbf{z}$$ is sample from some prior distribution, G($$\mathbf{z}$$) yields a sample $$\mathbf{x}$$ drawn from $$p_{model}$$. The goal of generator is to fool discriminator.
 
 <p align="center">
 <img src='/images/gan/gan.png' width="70%"/> 
 </p>
 
-Here is the game which is played in two scenarios. In first scenario left side of the figure, training examples $$\mathbf{x}$$ are randomly sampled from training dataset and used as input for first player, the discriminator(D). The goal of discriminator(D) is to output the probability that its input is real rather than fake. In first scenario, D($$\mathbf{x}$$) tries to be near 1, classifying it to be a real. In second scenario, the inputs $$\mathbf{z}$$ to the generator(G) are sampled from model's prior over latent variables. The discriminator then receives the output from generator(G), G($$\mathbf{z}$$), a fake sample generated by generator(G). Here, the discriminator(D) tries to make D(G($$\mathbf{z}$$)) near 0, as it is fake sample and generator(G) tries to make D(G($$\mathbf{z}$$)) near 1 to fool discriminator in classifying the fake sample as real. If both models have sufficient capacity, then the Nash equilibrium of this game corresponds to the G($$\mathbf{z}$$) being drawn from the same distribution as the training data, and D($$\mathbf{x}$$) = $$\frac{1}{2}$$ for all $$\mathbf{x}$$. How? We will prove this shortly.
+Here is the game which is played in two scenarios. In first scenario left side of the figure, training examples $$\mathbf{x}$$ are randomly sampled from training dataset and used as input for first player, the discriminator(D). The goal of discriminator(D) is to output the probability that its input is real rather than fake. In first scenario, D($$\mathbf{x}$$) tries to be near 1, classifying it to be a real. In second scenario, the inputs $$\mathbf{z}$$ to the generator(G) are sampled from model's prior over latent variables. The discriminator then receives the output from generator(G), G($$\mathbf{z}$$) a fake sample generated by generator(G). Here, the discriminator(D) tries to make D(G($$\mathbf{z}$$)) near 0, as it is fake sample and generator(G) tries to make D(G($$\mathbf{z}$$)) near 1 to fool discriminator in classifying the fake sample as real. If both models have sufficient capacity, then the Nash equilibrium of this game corresponds to the G($$\mathbf{z}$$) being drawn from the same distribution as the training data, and D($$\mathbf{x}$$) = $$\frac{1}{2}$$ for all $$\mathbf{x}$$. How? We will prove this shortly.
 
 ## Cost Functions
 
@@ -130,7 +133,7 @@ Above, we mentioned that GAN sets up a supervised learning problem in order to d
 
 ### Discriminator's Cost
 
-The discriminative network is a classifier which takes in an input and classifies it to be fake or real i.e. 0 or 1. We have seen these types of problems in supervised learning which go by name binary classifiers. The output of neural network is binary which is constrained by adding sigmoid as last classification layer. As with all supervised algorithms we require objective function to minimize, we also know that there is a particular loss function which corresponds to binary classification, binary cross entropy(BCE). The cost function used for discriminator $$J^{(D)}$$($$\theta^{(D)}$$, $$\theta^{(G)}$$) for parameters $$\theta^{(D)}$$ for discriminative network and $$\theta^{(G)}$$ for generative network is,
+The discriminative network is a classifier which takes in an input and classifies it to be fake or real i.e. 0 or 1. We have seen these types of problems in supervised learning which go by name binary classifiers. The output of neural network is binary which is obtained by adding sigmoid as last classification layer. As with all supervised algorithms, we require objective function to minimize. We also know that there is a particular loss function which corresponds to binary classification, binary cross entropy(BCE). The cost function used for discriminator(D) is $$J^{(D)}$$($$\theta^{(D)}$$, $$\theta^{(G)}$$), for parameters $$\theta^{(D)}$$ of discriminative network and $$\theta^{(G)}$$ of generative network.
 
 We will first define cost function for one data point ($$\mathbf{x}_{1}$$, $$\mathbf{y}_{1}$$) and then generalize over entire dataset for N elements.
 $$
@@ -139,7 +142,7 @@ J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\mathbf{y}_{1}\log_{}D(\mathbf{x}_{1})-(
 &= -\sum_{i=1}^{N}\mathbf{y}_{i}\log_{}D(\mathbf{x}_{i})-\sum_{i=1}^{N}(1-\mathbf{y}_{i})(1-D(\mathbf{x}_{i})) 
 \end{aligned}
 $$
-In GANs, $$x_{i}$$ either come two sources: either $$x_{i}$$ $$\sim$$ $$p_{data}$$, the true distribution, or $$x_{i}$$ = G($$\mathbf{z}$$) where $$\mathbf{z}$$ $$\sim$$ $$p_{model}$$, the generator's distribution, $$\mathbf{z}$$ is sample from some prior distribution. Discriminator sees exactly half of the data coming from each source i.e. half samples are real and remaining half are fake.
+In GANs, $$x_{i}$$ either come two sources: either $$x_{i}$$ $$\sim$$ $$p_{data}$$, the true distribution, or $$x_{i}$$ = G($$\mathbf{z}$$) where $$\mathbf{z}$$ $$\sim$$ $$p_{model}$$, the generator's distribution, $$\mathbf{z}$$ is sample drawn from some prior distribution. Discriminator sees exactly half of the data coming from each source i.e. half samples are real and remaining half are fake.
 $$
 \begin{aligned}
 J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}\log_{}(1-D(G(\mathbf{z})))
@@ -148,11 +151,11 @@ $$
 
 ## Minmax
 
-To play the game, we need to complete generator's cost function $$J^{(G)}$$. We assume that we are playing the simplest zero-sum game, where the sum of all player's cost is zero. In this zero-sum game, we get $$J^{(D)}$$ + $$J^{(G)}$$ = 0. This gives us $$J^{(G)}$$ = - $$J^{(D)}$$.
+To play the game, we need to complete generator's cost function $$J^{(G)}$$ too. We assume that we are playing the simplest zero-sum game, where the sum of all player's cost is zero. In this zero-sum game, we get $$J^{(D)}$$ + $$J^{(G)}$$ = 0. This gives us $$J^{(G)}$$ = - $$J^{(D)}$$.
 
-From looking at the equations above for $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ and figure explaining two scenarios of game, the discriminator decision are accurate when it correctly classifies fake and real samples. In terms of cost function, in first scenario with real samples, D($$\mathbf{x}$$) tries to be near 1, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim p_{data}}[D(\mathbf{x})]$$. When D($$\mathbf{x}$$) becomes close to 1, $$\mathbb{E}[(D(\mathbf{x}))]$$ becomes close to 0 and when D($$\mathbf{x}$$) tries to be near 1, $$\mathbb{E}[(D(\mathbf{x}))]$$ becomes close to $$-\infty$$.  In second scenario with fake samples, D(G($$\mathbf{x}$$)) tries to be near 0, i.e. maximize $$\mathbb{E}_{\mathbf{z}}[1-D(G(\mathbf{z}))]$$. (**Question:  Show that in the limit, the maximum of the discriminator objective above is the Jenson-Shannon divergence, up to scaling and constant factors.**)
+From looking at the equations above for $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ and figure explaining two scenarios of game, the discriminator decision are accurate when it correctly classifies fake and real samples. In terms of cost function, in first scenario with real samples, D($$\mathbf{x}$$) tries to be near 1, i.e. maximize $$\mathbb{E}_{\mathbf{x} \sim p_{data}}[D(\mathbf{x})]$$. When D($$\mathbf{x}$$) becomes close to 1, $$\mathbb{E}[\log_{}(D(\mathbf{x}))]$$ becomes close to 0 and when D($$\mathbf{x}$$) tries to be near 0, $$\mathbb{E}[\log_{}(D(\mathbf{x}))]$$ becomes close to $$-\infty$$.  In second scenario with fake samples, D(G($$\mathbf{x}$$)) tries to be near 0, i.e. maximize $$\mathbb{E}_{\mathbf{z}}[\log_{}(1-D(G(\mathbf{z})))]$$. (**Question:  Show that in the limit, the maximum of the discriminator objective above is the Jenson-Shannon divergence, up to scaling and constant factors.**)
 
-The generator on other hand is trained to increase the chances of D producing a high probability i.e. 1, to classify it as real, for a fake example, i.e. maximizing $$\mathbb{E}_{\mathbf{z}}[D(G(\mathbf{z}))]$$ or to minimize $$\mathbb{E}_{\mathbf{z}}[1-D(G(\mathbf{z}))]$$, the part of cost function ($$\mathbb{E}_{\mathbf{x} \sim p_{data}}[D(\mathbf{x})]$$) which deals with real samples will have no effect on generator as it is not sampled from generator.
+The generator on other hand is trained to increase the chances of D producing a high probability i.e. 1, to classify it as real for a fake example, i.e. maximizing $$\mathbb{E}_{\mathbf{z}}[D(G(\mathbf{z}))]$$ or to minimize $$\mathbb{E}_{\mathbf{z}}[1-D(G(\mathbf{z}))]$$, the part of cost function ($$\mathbb{E}_{\mathbf{x} \sim p_{data}}[D(\mathbf{x})]$$) which deals with real samples will have no effect on generator as it is not sampled from generator.
 
 So, combining both the conclusions from above, <span class='red'>to maximize the cost function for D and minimze the second part of cost function for G, G and D are essentially playing minmax game.</span>
 
@@ -162,11 +165,11 @@ $$
 \min_{G} \max_{D} V(D, G) &= \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[\log_{}(1-D(G(\mathbf{z})))]
 \end{aligned}
 $$
-<span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to complete it's own objective. This game continues till we get a state, in which each model becomes an expert on what it is doing, the generative model increases its ability to get the actual data distribution and produces data similar to it, and the discriminative becomes expert in identifying the real samples. The discriminator tries to maximize tweaking only it's parameter and G tries to minimize tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images. Can it get any better than this? (**Question: Is will doing maxmin produce same results?**)
+<span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to succeed in completing it's own objective. This game continues till we get a state, in which each model becomes an expert on what it is doing, the generative model increases its ability to get the actual data distribution and produces data similar to it, and the discriminative becomes expert in identifying the real samples. The discriminator tries to maximize tweaking only it's parameter and G tries to minimize tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images. Can it get any better than this? (**Question: Will doing maxmin produce same results?**)
 
 Another way to look at above cost function is, we require D that correctly classifies real samples x, where $$\mathbf{x} \sim p_{data}(\mathbf{x})$$, hence $$\mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[\log_{}D(\mathbf{x})]$$. Maximizing this term corresponds to D being able to predict when $$\mathbf{x} \sim p_{data}(\mathbf{x})$$. This is the first term of value function. Next term G fooling D in passing generated sample z, where $$\mathbf{z} \sim p_{z}(\mathbf{z})$$ as real samples, hence $$\mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[\log_{}(1-D(G(\mathbf{z})))]$$. Maximizing this term means $$D(G(\mathbf{z})) \approx 0$$ implying G is NOT fooling D, therefore minimize $$-D(G(\mathbf{z}))$$. This again confirms the above minmax game between D and G where optimal D is maximizing the above equation and optimal G is minimizing the above equation.
 
-<span class='saddlebrown'>On a sad note, the cost used for the generator in the minimax game is useful for theoretical analysis, but does not perform especially well in practice. In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence producing a perfect discriminator, the generator’s gradient vanishes, it will produce zero everywhere, leading to vanishing gradient problem. This is main problem in training GANs called "mode collapse".</span>
+<span class='saddlebrown'>On a sad note, the cost used for the generator in the minimax game is useful for theoretical analysis, but does not perform especially well in practice. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence producing a perfect discriminator, the generator’s gradient vanishes, it will produce zero everywhere, leading to vanishing gradient problem. This is main problem in training GANs called "mode collapse".</span>
 
 To solve this problem, one approach is to continue to use cross-entropy minimization for the generator. Instead of flipping the sign on the discriminator’s cost to obtain a cost for the generator, we flip the target used to construct the cross-entropy cost.  The cost for the generator then becomes:
 $$
@@ -180,11 +183,11 @@ $$
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\exp({\sigma^{-1}(D(G(\mathbf{z})))})
 \end{aligned}
 $$
-Different adversarial loss functions such as feature matching, minibatch discrimination, etc produces good results in GANs. Many such adversarial losses can be experimented with depending on the task at hand and not limited to above. 
+Different adversarial loss functions such as feature matching, minibatch discrimination, etc produces good results in GANs. Many such adversarial losses are proposed for stable training of GANs and can be experimented with depending on the task at hand and not limited to above. 
 
 ## Therotical Limits
 
-We claimed above that after several steps of training, if G and D have enough capacity, they will reach a point at which both cannot improve because $$p_{g}$$ = $$p_{data}$$. The discriminator is unable to differentiate between the two distributions, i.e.D(x) = $$\frac{1}{2}$$.
+We claimed above that after several steps of training, if G and D have enough capacity, they will reach a point at which both cannot improve when $$p_{g}$$ = $$p_{data}$$. The discriminator is unable to differentiate between the two distributions, i.e. D(x) = $$\frac{1}{2}$$.
 
 ### Optimal D
 
@@ -206,7 +209,7 @@ D(\mathbf{x}) &= \frac{p_{data}}{p_{g}+p_{data}}
 $$
 Optimal $$D_{G}^{*}$$ will be $$argmax_{D}(V(D, G))$$ for given generator G. Hence from above, $$D = D_{G}^{*}$$.
 
-If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain optimal D* = $$\frac{1}{2}$$. This is situation where D cannot identify whether the sample is real or fake or D is confused.
+If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain optimal $$D_{G}^{*} = \frac{1}{2}$$. This is situation where D cannot identify whether the sample is real or fake or D is confused.
 
 ### Optimal G
 
@@ -235,7 +238,7 @@ $$
 V(D_{G}^{*}, G)&= \int_{x}-2log_{}2 + KL(p_{data}|\frac{p_{g}+p_{data}}{2}) + KL(p_{g}|\frac{p_{g}+p_{data}}{2})\,dx \\
 \end{aligned}
 $$
-KL divergence is non-negative and when global optimum is reached i.e. $$V(D_{G}^{*}, G) = -2\log_{}2$$ if and only if $$p_{data}=p_{g}$$.
+KL divergence is non-negative and global minimum is reached i.e. $$V(D_{G}^{*}, G) = -2\log_{}2$$ if and only if $$p_{data}=p_{g}$$.
 
 ### Global Optimal
 
@@ -247,7 +250,6 @@ V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\lo
 &=-2\log_{}2
 \end{aligned}
 $$
-
 *Flexing those calculus muscles 🧠*
 
 <span class='green'>I-know-nothing:</span> What is training procedure given that we have two neural networks for D and G? How does backpropogation work? How does G tweak it's parameters based on signal from D?
@@ -256,22 +258,22 @@ $$
 
 ## Training GANs
 
-Having defined both discriminator (a classifier that takes in input as image and outputs a scalar 1 or 0 depending on input is real or fake), and generator (a neural network that takes in input random noise and produces an image). The next step is to sample minibatch m, first minibatch of m noise samples and second minibatch of m examples from dataset. Then we pass the minibatch of samples containing noise through G to obtain minibatch size of fake images. Next, we train discriminator first on real images whose labels are 1 as they are drawn from true distribution of dataset and then train the same D on fake sample produced from previous step and here pass the labels as 0 as they are fake. Then we calculate the total loss of D which is sum of both losses produced above. Then we set keep D's parameters fixed and pass the minibatch of m samples to G and the fake sample generated whose parameters are trainable are passed to D. But here's the catch. This time we set the labels of these samples as 1, fooling the D, such that they should be classified as real. This way D is guiding G telling it how to tweak it's weights so as to produce good example such that D is fooled. And this process continues for a lot many training epochs.
+Having defined both discriminator (a classifier that takes in input as image and outputs a scalar 1 or 0 depending on input is real or fake), and generator (a neural network that takes in input random noise and produces an image). The next step is to sample minibatch m, first minibatch of m noise samples and second minibatch of m examples from dataset. Then we pass the minibatch of samples containing noise through G to obtain minibatch size of fake images. Next, we train discriminator first on real images whose labels are 1 as they are drawn from true distribution of dataset and then train the same D on fake sample produced from previous step and here pass the labels as 0 as they are fake. Then we calculate the total loss of D which is sum of both losses produced above. Then we set D's parameters fixed and pass the minibatch of m samples to G and the fake sample generated are passed to D. But here's the catch. This time we set the labels of these samples as 1, fooling the D, such that they should be classified as real. This way D is guiding G telling it how to tweak G's weights so as to produce good example such that D is fooled. And this process continues for a lot many training epochs.
 
-**Latent space of z** : Walking on the manifold (latent space) that is learnt can usually tell us about signs of memorization (if there are sharp transitions)and about the way in which the space is hierarchically collapsed. If walking in this latent space results in semantic changes to the image generations (such as objects being added and removed), we can reason that the model has learned relevant and interesting representations.
+**Latent space of z** : Walking on the manifold (latent space) that is learnt from G can usually tell us about signs of memorization (if there are sharp transitions)and about the way in which the space is hierarchically collapsed. If walking in this latent space results in semantic changes to the image generations (such as objects being added and removed), we can reason that the model has learned relevant and interesting representations.
 
 ## Problem in Training GANs
 
 Of course, the training procedure we described above is very unstable and difficult. 
 
 - How much to train G with respect to D and vice versa? For how long? 
-- What is ideal way to track the progress of training for both G and D?
-- Mode collapse is another issue which leads generator to collapse by generating only few sample everytime.
-- Diminishing gradients occurs in case discriminator wins and that in turn causes geneartor to learn nothing and its gradient vanishes
+- What is ideal way to track the progress of training for both G and D? Is there a way to evaluate G  and D?
+- Mode collapse is another issue which leads generator to collapse by generating only few sample every time.
+- Diminishing gradients occurs in case discriminator wins and that in turn causes generator to learn nothing and its gradient vanishes
 - The balance between D and G is crucial.
 - If the discriminator behaves badly, the generator does not have accurate feedback and the loss function cannot represent the reality.
 - If the discriminator does a great job, the gradient of the loss function drops down to close to zero and the learning becomes super slow or even jammed.
-- Setting hyperparameter is of paramount important for GANs.
+- Setting hyper parameter is of paramount important for GANs.
 
 [Tips and tricks to make GANs work](https://github.com/soumith/ganhacks) offers some hacks which we can use to train GANs.
 
@@ -289,20 +291,20 @@ Of course, the training procedure we described above is very unstable and diffic
 Okay, let's breathe for a moment and compress everything in few lines if we can!
 
 - There are two types of models : discriminative models and generative models
-- GANs are type of geneartive models which consists of two parts G and D
+- GANs are type of generative models which consists of two parts G and D which play game with each other
 - G creates fake images and D classifies which images are real and fake
 - Both fight each other to see who will win and in process of this fighting G becomes so good that it ends up fooling D that fake images are real images
-- Training GANs and evaluating if G is producing good samples or not is hard but using some tricks we can generate good samples for low resolution images
+- Training GANs and evaluating if G is producing good samples is hard but using some tricks we can for stable training
 
 ## Different types of GANs
 
-<span class='red'>GAN literature is filled (overflowing) with different types of GANs or anynameGAN across different domains. We will take a peek into some of the GANs. As we will see each different types of GANs, we will observe how they vary from standard GANs which is similar to ways we discussed what generative models are and what makes GAN different from other types of generative models.</span> We will look GANs across 4 domains starting with Images, Speech, Text and recently everybodys favourite Video.
+<span class='red'>GAN literature is filled (overflowing) with different types of GANs or anynameGAN across different domains. We will take a peek into some of the GANs. Looking at different types of GANs we will observe how they vary from standard GANs.</span> We will look GANs across 4 domains starting with Images, Speech, Text and recently everybody's favorite Video.
 
 # Images
 
 ### DCGAN
 
-DCGAN stands for "Deep Convolution GAN". LAPGAN [paper](https://arxiv.org/pdf/1506.05751) developed an approach to iteratively scale low resolution generated images give that CNN had not great success to provide great image outputs with GAN in previous attempts. The authors of [DCGAN](https://arxiv.org/pdf/1511.06434) also after exploring several models identified a family of CNN architectures which train GAN stably and generate high quality images. To achieve that they proposed 3 major changes to CNN architectures. <span class='saddlebrown'>First, replace all pooling functions with strided convolutions for D and fractional convolutions for G, allowing the network to learn its own spatial downsampling. Second, get rid of any fully-connected layers in both G and D CNN architectures. Third, use batchnorm in both G and D, which stabilizes model learning by normalizing input to each unit to have zero mean and unit variance. Also, using ReLU as activation for all layers in G with exception of output which uses tanh as activation and using LeakyReLU as activation for all layers in D.</span> Authors also use GAN as feature extractor and use it for classifying CIFAR-10 dataset and achieve accuracy of 82% which is about 2% less than SoTA CNN classifier.  
+DCGAN stands for "Deep Convolution GAN". LAPGAN [paper](https://arxiv.org/pdf/1506.05751) developed an approach to iteratively scale low resolution generated images give that CNN had not great success to provide great image outputs with GAN in previous attempts. The authors of [DCGAN](https://arxiv.org/pdf/1511.06434) after exploring several models identified a family of CNN architectures which train GAN stably and generate high quality images. To achieve that they proposed 3 major changes to CNN architectures. <span class='saddlebrown'>First, replace all pooling functions with strided convolutions for D and fractional convolutions for G, allowing the network to learn its own spatial downsampling. Second, get rid of any fully-connected layers in both G and D CNN architectures. Third, use batchnorm in both G and D, which stabilizes model learning by normalizing input to each unit to have zero mean and unit variance. Also, using ReLU as activation for all layers in G with exception of output which uses tanh as activation and using LeakyReLU as activation for all layers in D.</span> Authors also use GAN as feature extractor and use it for classifying CIFAR-10 dataset and achieve accuracy of 82% which is about 2% less than SoTA CNN classifier.  
 
 In short, replace original GAN architecture with family of CNN architectures belonging to DCGAN and boom better results than standard GAN.
 
@@ -314,14 +316,14 @@ First result compares DCGAN samples with GAN samples, where DCGAN achieves error
 <img src='/images/gan/dcgan_res1.png' width="80%"/> 
 </p>
 
-The second most interesting result obtained from paper is, we can perform arithmetic on images to obtain meaningful representation. For e.g. if we take smiling woman, subtract neutral woman and add neutral man, we get smiling man as output. Another one is man with glasses - man without glasses + woman without glasses = woman with glasses. Amazing right? The same we saw in case of [word vectors](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#word2vec), remember?
+The second most interesting result obtained from paper is, we can perform arithmetic on images to obtain meaningful representation. For e.g. if we take smiling woman subtract neutral woman and add neutral man, we get smiling man as output. Another one is man with glasses - man without glasses + woman without glasses = woman with glasses. Amazing right? Does this remind you of something familiar in case of [word vectors](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#word2vec), remember?
 
 <p align="center">
 <img src='/images/gan/dcgan_res2.png' width="50%"/> 
 <img src='/images/gan/dcgan_res3.png' width="40%"/>
 </p>
 
-This result walks through the latent space to see if model has not simply memorized training sample. In first row, we see a room without a window slowly transforming into a room with a giant window and in last row, we see what appears to be a TV slowly being transformed into a window.
+The third result walks through the latent space to see if model has not simply memorized training sample. In first row, we see a room without a window slowly transforming into a room with a giant window and in last row, we see what appears to be a TV slowly being transformed into a window.
 
 <p align="center">
 <img src='/images/gan/dcgan_res4.png' width="90%"/> 
@@ -329,13 +331,13 @@ This result walks through the latent space to see if model has not simply memori
 
 ### WGAN
 
-The generative models makes the model's distribution close to data distribution either by optimizing distribution using maximum likelihood (**Question: Prove that this is equal to minimizing KL divergence.**) or learn a function that transforms existing z (latent variable) into model's distribution. Authors of the WGAN [paper](https://arxiv.org/pdf/1701.07875.pdf) propose a different distance metrics to measure the distance between distributions i.e d($$P_{data}$$, $$P_{model}$$). We have seen that there are many other ways to measure the similarity of two distribution like KL-divergence, Reverse KL-divergence, Jenson-Shannon(JS) divergence for generative model but each of the above methods don't really converge for some sequence of distribution. (*We haven't provided any formal definition of each of method above and leave it as exercise to explore.*) Hence, bring in the Earth Mover(EM) distance or Wasserstein-1. [Alex Irpan](https://www.alexirpan.com/2017/02/22/wasserstein-gan.html) provides a great overview of WAN's in general and is great starting point to study WGAN before heading to paper. The intuition behind the EM distance is we want our model's distribution $$P_{model}$$ to move close to $$P_{data}$$ true data distribution. Moving mass $$\mathbf{m}$$ by distance $$\mathbf{d}$$ requires effort $$\mathbf{m}\cdot\mathbf{d}$$. The earth mover distance is minimal effort we need to spend to bring these distributions close to each other. Authors provide a proof in paper to why Wasserstein distance is more compelling than other methods and hence a better fit as loss function for generative models. But Wasserstein distance is intractable in practice. So, authors propose alternative approximation which a result from [Kantorovich-Rubinstein duality](https://en.wikipedia.org/wiki/Wasserstein_metric#Dual_representation_of_W1). [Sebastion Nowozin](https://www.youtube.com/watch?v=eDWjfrD7nJY) provides very excellent introduction to each of the obscure terms above. Finally feast your eyes with WGAN algorithm, 
+The generative models makes the model's distribution close to data distribution either by optimizing distribution using maximum likelihood (**Question: Prove that this is equal to minimizing KL divergence**) or learn a function that transforms existing z (latent variable) into model's distribution. Authors of the WGAN [paper](https://arxiv.org/pdf/1701.07875.pdf) propose a different distance metrics to measure the distance between distributions i.e d($$P_{data}$$, $$P_{model}$$). We have seen that there are many other ways to measure the similarity of two distribution like KL-divergence, Reverse KL-divergence, Jenson-Shannon(JS) divergence for generative model but each of the above methods don't really converge for some sequence of distribution. (*We haven't provided any formal definition of each of method above and leave it as exercise for readers to explore.*) Hence, bring in the Earth Mover(EM) distance or Wasserstein-1. [Alex Irpan](https://www.alexirpan.com/2017/02/22/wasserstein-gan.html) provides a great overview of WAN's in general and is great starting point to study WGAN before heading to paper. The intuition behind the EM distance is we want our model's distribution $$p_{model}$$ to move close to $$p_{data}$$ true data distribution. Moving mass $$\mathbf{m}$$ by distance $$\mathbf{d}$$ requires effort $$\mathbf{m}\cdot\mathbf{d}$$. The earth mover distance is minimal effort we need to spend to bring these distributions close to each other. Authors provide a proof in paper to why Wasserstein distance is more compelling than other methods and hence a better fit as loss function for generative models. But Wasserstein distance is intractable in practice. So, authors propose alternative approximation which a result from [Kantorovich-Rubinstein duality](https://en.wikipedia.org/wiki/Wasserstein_metric#Dual_representation_of_W1). [Sebastion Nowozin](https://www.youtube.com/watch?v=eDWjfrD7nJY) provides very excellent introduction to each of the obscure terms above. Finally feast your eyes with WGAN algorithm, 
 
 <p align="center">
 <img src='/images/gan/wgan.png' width="70%"/> 
 </p>
 
-Notice, there is no discriminator but a critic and there is something extra term of clipping weights in the algorithm. Also, we train critic for more time $$n_{critic}$$ times more than generator. The discriminator in GAN is known as critic in WGAN because the critic here is not classifier of real and fake but is trained on Wasserstein loss to output unbounded real number. $$\mathbf{f_{w}}$$ doesn't give output {0, 1} and that is reason why authors call it critic rather than discriminator. Since the loss for the critic is non-stationary, momentum based methods seemed to perform worse. Hence algorithm uses RMSProp instead of Adam as WGAN training becomes unstable at times when one uses a momentum based optimizer. One of the benefits of WGAN is that it allows us to train the critic till optimality. The better the critic,the higher quality the gradients we use to train the generator. This tells us that we no longer need to balance generator and discriminator’s capacity properly unlike in standard GAN.
+Notice there is no discriminator but a critic and there is something extra term of clipping weights in the algorithm. Also, we train critic for more time $$n_{critic}$$ times more than generator. The discriminator in GAN is known as critic in WGAN because the critic here is not classifier of real and fake but is trained on Wasserstein loss to output unbounded real number. $$\mathbf{f_{w}}$$ doesn't give output {0, 1} and that is reason why authors call it critic rather than discriminator. Since the loss for the critic is non-stationary, momentum based methods seemed to perform worse. Hence algorithm uses RMSprop instead of Adam as WGAN training becomes unstable at times when one uses a momentum based optimizer. One of the benefits of WGAN is that it allows us to train the critic till optimality. The better the critic,the higher quality the gradients we use to train the generator. This tells us that we no longer need to balance generator and discriminator’s capacity properly unlike in standard GAN.
 
 In short, take GAN change training procedure a little and replace cost function in GANs with Wasserstein loss function.
 
@@ -345,7 +347,7 @@ In short, take GAN change training procedure a little and replace cost function 
 
 ### Results
 
-After training in LSUN dataset, here are the results produced. Left from WGAN with DCGAN architecture and right from DCGAN.
+After training on LSUN dataset, here are the results produced. Left from WGAN with DCGAN architecture and right from DCGAN.
 
 <p align="center">
 <img src='/images/gan/wgan_res1.png' width="50%"/> 
@@ -376,13 +378,13 @@ The comparison of results of WGAN with WGAN-GP, DCGAN and LSGAN on LSUN dataset,
 
 ### Pix2Pix
 
-The [researchers](https://arxiv.org/pdf/1611.07004.pdf) at BAIR laboratory devised a method for image to image translation using conditional adversarial networks. The figure below clearly shows what's going on.
+The [researchers](https://arxiv.org/pdf/1611.07004.pdf) at BAIR laboratory devised <span class='saddlebrown'>a method for image to image translation using conditional adversarial networks.</span>The figure below clearly shows what's going on.
 
 <p align="center">
 <img src='/images/gan/pix2pix.png' width="70%"/> 
 </p>
 
-Here Conditional GAN model learns to map edges -> photo. The discriminator D, learn to classify between fake(produced by G) and real {edge, photo} tuples. The generator G, learns to fool D. The only difference with previous approach of standard GAN is using conditional GAN. In case of standard GAN, we generator learns mapping from random noise z to output image y, i.e. G : z -> y. In contrast, conditional GANs learns a mapping from observed image x, random noise z to output image y, i.e. G : {x, z} -> y and D : {x, y} will classify if the tuple is real or fake depending on whether y is generated by GAN or is taken from real dataset. Both G and D observe input x. The new loss function to optimize then becomes,  $$\mathcal{L}_{cGAN} = \mathbb{E}_{\mathbf{x,y}}[\log_{}(D(x,y)] + \mathbb{E}_{\mathbf{x,z}}[\log_{}(1-D(x, G(\mathbf{x, z})))]$$, which is again minmax game G minimizing and D maximizing this objective function.
+Here Conditional GAN model learns to map edges -> photo. The discriminator D, learn to classify between fake(produced by G) and real {edge, photo} tuples. The generator G learns to fool D. The only difference with previous approach of standard GAN is using conditional GAN. In case of standard GAN, we generator learns mapping from random noise z to output image y, i.e. G : z -> y. In contrast, conditional GANs learns a mapping from observed image x, random noise z to output image y, i.e. G : {x, z} -> y and D : {x, y} will classify if the tuple is real or fake depending on whether y is generated by GAN or is taken from real dataset. Both G and D observe input x. The new loss function to optimize then becomes,  $$\mathcal{L}_{cGAN} = \mathbb{E}_{\mathbf{x,y}}[\log_{}(D(x,y)] + \mathbb{E}_{\mathbf{x,z}}[\log_{}(1-D(x, G(\mathbf{x, z})))]$$, which is again minmax game G minimizing and D maximizing this objective function.
 
 In short, instead of using standard GAN we use variant called cGAN and accordingly new objective function.
 
@@ -430,7 +432,7 @@ This shows how to convert sketch to image resembling the sketch. Also, use of cG
 
 ### CycleGAN
 
-Above we visited pix2pix method where we provided pairs input and output to cGAN to learn mapping. [CycleGAN](https://arxiv.org/pdf/1703.10593.pdf) on other hand performs same task in unsupervised fashion without paired examples of transformation from source to target domain. The trick used by CycleGAN that makes them get rid of expensive supervised label in target domain is to double mapping i.e. two-step transformation of source domain image - first by trying to map it to target domain and then back to the original image. Hence, we don't need to explicitly give target domain image. The goal in CycleGAN is to learn the mapping from G : X -> Y such that distribution of images from G(X) is indistinguishable from from the distribution of images of Y. But because this mapping is under-constrained (or not guided), we couple it with an inverse mapping F : Y -> X where we converted the generated image from above mapping back to original image and introduce a cycle consistency loss to enforce F(G(X)) $$\approx$$ X and G(F(Y)) $$\approx$$ Y. Combining this loss along with individual losses of G and F, we get the full objective for unpaired image-to-image translation. This is so good that we will repeat again with the figure below.
+Above we visited pix2pix method where we provided pairs input and output to cGAN to learn mapping. [CycleGAN](https://arxiv.org/pdf/1703.10593.pdf) on other hand performs same task in unsupervised fashion without paired examples of transformation from source to target domain. The trick used by CycleGAN that makes them get rid of expensive supervised label in target domain is double mapping i.e. two-step transformation of source domain image - first by trying to map it to target domain and then back to the original image. Hence, we don't need to explicitly give target domain image. The goal in CycleGAN is to learn the mapping from G : X -> Y such that distribution of images from G(X) is indistinguishable from from the distribution of images of Y. But because this mapping is under-constrained (or not guided), we couple it with an inverse mapping F : Y -> X where we converted the generated image from above mapping back to original image and introduce a cycle consistency loss to enforce F(G(X)) $$\approx$$ X and G(F(Y)) $$\approx$$ Y. Combining this loss along with individual losses of G and F, we get the full objective for unpaired image-to-image translation. This is so good that we will repeat again with the figure below.
 
 <p align="center">
 <img src='/images/gan/cyclegan.png' width="80%"/> 
@@ -463,13 +465,13 @@ Image-to-image translation can be done in many ways. For example, turning winter
 <img src='/images/gan/cyclegan_res1.png' width="80%"/> 
 </p>
 
-Here is result of mapping Monet style paintings into photos. Do they look familiar to something we did previously? Yes, [Neural Style Transfer](https://dudeperf3ct.github.io/style/transfer/2018/12/23/Magic-of-Style-Transfer/).
+Here is result of mapping Monet style paintings into photos. 
 
 <p align="center">
 <img src='/images/gan/cyclegan_res2.png' width="70%"/> 
 </p>
 
-Here is the opposite result of turning photos into different styles of painting like Monet, Van Gogh, etc.
+Here is the opposite result of turning photos into different styles of painting like Monet, Van Gogh, etc. Do they look familiar to something we did previously? Yes, [Neural Style Transfer](https://dudeperf3ct.github.io/style/transfer/2018/12/23/Magic-of-Style-Transfer/).
 
 <p align="center">
 <img src='/images/gan/cyclegan_res3.png' width="70%"/> 
@@ -489,7 +491,9 @@ This result shows photo enhancement achieved by mapping snaps from smartphone to
 
 ### ProGAN
 
-Generating images from 32x32 upto 128x128 with all the new fancy losses seemed cool but generating images of large resolution say 512x512 remained a challenge. The problem with large resolution is that large size implies small minibatches which in turn lead to training instability. We have already visited how training GANs can lead to mode collapse where every output of GAN is some fixed number of same images where discriminator wins and generator loses and it's game over. These all problems are the reason why GANs cannot achieve high quality even if we try to make GANs deeper or bigger. The [team](https://arxiv.org/pdf/1710.10196.pdf) at Nvidia tackled this challenge through new GANs called ProGAN and bunch of other tricks. The idea behind ProGAN is we start with low resolution images, and then progressively increase the resolution by adding layers to the networks. What happens is instead of using standard GANs where we would have used deep networks to generate high res from latent code, and as the networks are deep it would have taken a lot of time for G to come up with good high res images as D will be already better in rejecting in these samples. This increase in amount of time can lead to mode collapse as already D is better at what it is doing and G is failing to learn anything as layers are deeper and going from randomly initialized weights of each layer to good weight will take a lot of time, if at all possible. So, instead of using standard GANs, the team at Nvidia came up with something called ProGAN. ProGAN starts with tiny images of size 4x4 images and correspondingly shallow networks. The network is trained with this size for sometime until they are more or less converged which will be lot less as network is small, next shallow network corresponding to size 8x8 is added which is again trained till convergence and further 16x16 image size network is added. This continues till sizes up to image resolution of 1024x1024 and after 2 days of training these ProGANs we get amazing results. How would G and D look? They would be mirror of each other. That is, in case of 4x4, G will take latent code and produce 4x4 images and D will take 4x4 and produce real output number(unbounded), as authors use WGAN-GP as loss instead of real and fake. Let's see how it looks,
+Generating images from 32x32 upto 128x128 with all the new fancy losses seemed cool but generating images of large resolution say 512x512 remained a challenge. The problem with large resolution is that large size implies small minibatches which in turn lead to training instability. We have already visited how training GANs can lead to mode collapse where every output of GAN is some fixed number of same images where discriminator wins and generator loses and it's game over. These all problems are the reason why GANs cannot achieve high quality even if we try to make GANs deeper or bigger. 
+
+The [team](https://arxiv.org/pdf/1710.10196.pdf) at Nvidia tackled this challenge through new GANs called ProGAN and bunch of other tricks. <span class='saddlebrown'>The idea behind ProGAN is we start with low resolution images, and then progressively increase the resolution by adding layers to the networks.</span> What happens is instead of using standard GANs where we would have used deep networks to generate high res from latent code, and as the networks are deep it would have taken a lot of time for G to come up with good high res images as D will be already better in rejecting in these samples. This increase in amount of time can lead to mode collapse as already D is better at what it is doing and G is failing to learn anything as layers are deeper and going from randomly initialized weights of each layer to good weight will take a lot of time, if at all possible. So, instead of using standard GANs, the team at Nvidia came up with something called ProGAN. ProGAN starts with tiny images of size 4x4 images and correspondingly shallow networks. The network is trained with this size for sometime until they are more or less converged which will be lot less as network is small, next shallow network corresponding to size 8x8 is added which is again trained till convergence and further 16x16 image size network is added. This continues till sizes up to image resolution of 1024x1024 and after 2 days of training these ProGANs we get amazing results. How would G and D look? They would be mirror of each other. In case of 4x4, G will take latent code and produce 4x4 images and D will take 4x4 and produce real output number(unbounded), as authors use WGAN-GP as loss instead of real and fake. Let's see how it looks,
 
 <p align="center">
 <img src='/images/gan/progan.png' width="70%"/> 
@@ -501,13 +505,13 @@ This is how typical training in ProGAN looks like.
 <img src='/images/gan/progran_train.gif' width="70%"/> 
 </p>
 
-ProGAN generally trained about 2–6 times faster than a corresponding traditional GAN, depending on the output resolution.
+ProGAN generally trained about 2–6 times faster than a corresponding traditional GAN depending on the output resolution.
 
 <p align="center">
 <img src='/images/gan/progan_train.png' width="70%"/> 
 </p>
 
-Here is a typical architecture of ProGAN shown below. The generator architecture for k resolution follows same pattern where each set of layers doubles the representation size and halves the number of channels and discriminator doing the exact opposite. The ProGAN uses uses nearest neighbors for upscaling and average pooling for downscaling whereas DCGAN uses transposed convolution to change the representation size.
+Here is a typical architecture of ProGAN shown below. The generator architecture for k resolution follows same pattern where each set of layers doubles the representation size and halves the number of channels and discriminator doing the exact opposite. The ProGAN uses nearest neighbors for upscaling and average pooling for downscaling whereas DCGAN uses transposed convolution to change the representation size.
 
 <p align="center">
 <img src='/images/gan/progan_arch.png' width="50%"/> 
@@ -520,7 +524,7 @@ That's a very high level overview, but let's dwell on this a bit because they ar
 <img src='/images/gan/progran_one_step_D.png' width="40%"/>
 </p>
 
-Look at the architecture G and D on left side, we see that they are exact mirrors of each other. Let's walk through up to some kxk resolution and see what happens in detail. First generator starts with producing 4x4 image resolution and passing it to D and all backpropogation of error and learning of G and D takes place until some degree of convergence. So, we trained for only 3 layers in G and 3 layers in D for 4x4 resolution. Next, to generate double the resolution 8x8 image, we add 3 more layer to each side of G and D. Now, all the layers in G and D are trainable. To prevent shocks in the pre-existing lower layers from the sudden addition of a new top layer, the top layer is linearly “faded in”. This fading in is controlled by a parameter $$\alpha$$, which is linearly interpolated from 0 to 1 over the course of many training iterations. So, there is no problem of catastrophic forgetting and only new layers are learned from scratch. This reduces the training time. Next time when we add 3 more layers to increase the resolution of size to 16x16, they are faded-in with already present 4x4 and 8x8 blocks and this ways G and D fight each other using WGAN-GP as loss function up to a desired number of resolution.
+Look at the architecture G and D on left side we see that they are exact mirrors of each other. Let's walk through up to some kxk resolution and see what happens in detail. First generator starts with producing 4x4 image resolution and passing it to D and all backpropogation of error and learning of G and D takes place until some degree of convergence. So we trained for only 3 layers in G and 3 layers in D for 4x4 resolution which takes a lot less time. Next, to generate double the resolution 8x8 image, we add 3 more layer to each side of G and D. Now, all the layers in G and D are trainable. To prevent shocks in the pre-existing lower layers from the sudden addition of a new top layer, the top layer is linearly “faded in”. This fading in is controlled by a parameter $$\alpha$$, which is linearly interpolated from 0 to 1 over the course of many training iterations. So, there is no problem of catastrophic forgetting and only new layers are learned from scratch. This reduces the training time. Next time when we add 3 more layers to increase the resolution of size to 16x16, they are faded-in with already present 4x4 and 8x8 blocks and this ways G and D fight each other using WGAN-GP as loss function up to a desired number of resolution.
 
 To further increase the quality of images and variation, authors propose 3 tricks such as pixel normalization(different from batch or layer or adaptive instance normalization), minibatch standard deviation and equalized learning rate. In minibatch standard deviation, D is given a superpower to penalize G if the variation between training images and the once produced by G is high. G will be forced to produce same variation as in training data. To achieve this equalized learning rate, they scale the weights of a layer according to how many weights that layer has using. This makes sure all the layers are updated at same speed to ensure fair competition between G and D. Pixelwise feature normalization prevents training from spiraling out of control and discourages G from generating broken images.
 
@@ -581,17 +585,16 @@ Video contains a lot many examples of style mixing, interpolation and various ab
 
 [![stylegan](https://img.youtube.com/vi/kSLJriaOumA/0.jpg)](https://www.youtube.com/watch?vkSLJriaOumA "Video")
 
-
 ### BigGAN
 
-The team at Deepmind showed that GANs benefits from scaling and trained models with two to four times as many parameters and eight times the batch size compared to prior art. BigGANs uses class-conditional GANs where they pass class-information to G  and to D using projection, as shown in image below on left side, where they pass class information using inner-product with output of D. The objective used by BigGAN is hinge loss. BigGAN adds direct skip-connections from noise vector z to multiple layers of G rather than just initial layer in standard GANs. The intuition behind this design is to allow G to use the latent space to directly influence features at different resolutions and levels of hierarchy. The latent vector z is concatenated with class embeddings and passed to each residual block through skip connections. Skip-z provides a modest performance improvement of around 4%, and improves training speed by 18%. Residual Up used for upsampling in BigGAN G's shown in (b) and Residual Down for downsampling in BigGAN D's is shown in (c). 
+The team at Deepmind showed that GANs benefits from scaling and trained models with two to four times as many parameters and eight times the batch size compared to prior art. BigGANs uses class-conditional GANs where they pass class-information to G  and to D using projection as shown in image below on left side, where they pass class information using inner-product with output of D. The objective used by BigGAN is hinge loss. BigGAN adds direct skip-connections from noise vector z to multiple layers of G rather than just initial layer in standard GANs. The intuition behind this design is to allow G to use the latent space to directly influence features at different resolutions and levels of hierarchy. The latent vector z is concatenated with class embeddings and passed to each residual block through skip connections. Skip-z provides a modest performance improvement of around 4%, and improves training speed by 18%. Residual Up used for upsampling in BigGAN G's shown in (b) and Residual Down for downsampling in BigGAN D's is shown in (c). 
 
 <p align="center">
 <img src='/images/gan/bigan_project.png' width="40%"/> 
 <img src='/images/gan/biggan_arch.png' width="50%"/> 
 </p>
 
-BigGAN also employed few tricks such as Truncation Trick, where in previous literature of GAN latent vectors z are drawn from either $$\mathcal{N}$$(0, 1) or $$\mathcal{U}$$[-1, 1]. Instead BigGAN latent vectors are sampled from truncated normal distribution where values which fall outside a range are resampled to fall inside that range. Authors observe that using this sampling strategy does not work well with large models and hence add a Orthogonal Regularization as penalty. One important conclusion drawn from this is that we do not need to use explicit multiscale method as used in ProGAN and StyleGAN for producing higher resolution images. Despite these improvements, BigGAN undergoes training collapse. The authors explore in great-detail why it happens so through colorful plots. They also provide results and conclusion of large amount of experiments performed from which a lot can be learned.
+BigGAN also employed few tricks such as Truncation Trick, where in previous literature of GAN latent vectors z are drawn from either $$\mathcal{N}$$(0, 1) or $$\mathcal{U}$$[-1, 1]. Instead BigGAN latent vectors are sampled from truncated normal distribution where values which fall outside a range are resampled to fall inside that range. Authors observe that using this sampling strategy does not work well with large models and hence add a Orthogonal Regularization as penalty. <span class='saddlebrown'>One important conclusion drawn from this is that we do not need to use explicit multiscale method as used in ProGAN and StyleGAN for producing higher resolution images.</span> Despite these improvements, BigGAN undergoes training collapse. The authors explore in great-detail why it happens so through colorful plots. They also provide results and conclusion of large amount of experiments performed from which a lot can be learned.
 
 In short, BigGAN could do what ProGAN thought would require multi-scale approach in single-scale by using some tricks.
 
@@ -622,6 +625,7 @@ Jaw-dropping moment 🤪. All the images generated by generator from scratch. Ge
 </p>
 
 
+
 - **Natural Zoom** : We zoom into certain generated image to look into finer details. It's amazing.
 
 <p align="center">
@@ -638,7 +642,7 @@ Here is example of walking in latent space for specific z and c pairs,
 
 ### GAN semi-supervised learning
 
-In paper [Improving GAN by training](https://arxiv.org/pdf/1606.03498.pdf), authors demonstrate they are able to achieve 99.14% accuracy with only 10 labeled examples per class with a fully connected neural network on MNIST dataset. The basic idea of semi-supervised learning with GANs is to use feature matching objective and turn add extra task for discriminator i.e. in addition to classify it will also predict the label of the image. The fake samples of generator can be used as dataset for which discriminator will predict a class corresponding to that image. The feature matching objective is a new objective for G, to train the generator to match the expected value of the features on an intermediate layer of the discriminator. If $$f(\mathbf{x})$$ denote activations on an intermediate layer of the discriminator, then new objective for generator is defined as $$||\mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[f(\mathbf{x})] - \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[f(G(\mathbf{z}))]||^{2}_{2}$$. Feature matching is effective in situations where regular GAN becomes unstable.
+In paper [Improving GAN by training](https://arxiv.org/pdf/1606.03498.pdf), authors demonstrate they are able to achieve 99.14% accuracy with only 10 labeled examples per class with a fully connected neural network on MNIST dataset. The basic idea of semi-supervised learning with GANs is to use feature matching objective and add extra task for discriminator i.e. in addition to classify it will also predict the label of the image. The fake samples of generator can be used as dataset for which discriminator will predict a class corresponding to that image. The feature matching objective is a new objective for G, to train the generator to match the expected value of the features on an intermediate layer of the discriminator. If $$f(\mathbf{x})$$ denote activations on an intermediate layer of the discriminator, then new objective for generator is defined as $$||\mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[f(\mathbf{x})] - \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[f(G(\mathbf{z}))]||^{2}_{2}$$. Feature matching is effective in situations where regular GAN becomes unstable.
 
 # Speech
 
@@ -700,12 +704,12 @@ First training pipeline, for a given frame $$\mathbf{y}$$ from target video, it 
 </p>
 
 
+
 ### Results
 
 This video is sufficient enough to convey the awesomeness achieved.
 
 [![dance](https://img.youtube.com/vi/PCBTZh41Ris/0.jpg)](https://www.youtube.com/watch?v=PCBTZh41Ris "Video")
-
 
 ### Deepfakes
 
@@ -726,7 +730,6 @@ While transferring face one thing to be noted is how we will deal with foregroun
 How about we settle for video as a result? This result *is not* obtained from the model trained on above paper. But it surely uses CycleGAN just with some modifications(which I don't know what, will have to ask [author](https://github.com/tjwei/GANotebooks)?).
 
 [![faceswap](https://img.youtube.com/vi/Fea4kZq0oFQ/0.jpg)](https://www.youtube.com/watch?v=Fea4kZq0oFQ "Video")
-
 
 ### Mona Lisa speaking GAN
 
@@ -769,7 +772,6 @@ As always in an another [fantastic blog](https://distill.pub/2019/gan-open-probl
 5. [How should we evaluate GANs and when should we use them?](https://distill.pub/2019/gan-open-problems/#eval)
 6. [How does GAN training scale with batch size?](https://distill.pub/2019/gan-open-problems/#batchsize)
 7. [What is the relationship between GANs and adversarial examples?](https://distill.pub/2019/gan-open-problems/#advx)
-
 
 ## Will GANs Rule the World?
 
@@ -829,16 +831,13 @@ Videos particularly deepfakes well know for their realistic impersonation of any
 
 [![iGAN](https://img.youtube.com/vi/Fea4kZq0oFQ/0.jpg)](https://www.youtube.com/watch?v=Fea4kZq0oFQ "Video")
 
-
 **IAN**: Using [IAN](https://arxiv.org/pdf/1609.07093), the user paints rough modifications to a photo, such as painting with black paint in an area where the user would like to add black hair, and IAN turns these rough paint strokes into photo realistic imagery  matching the user’s desires. Here is one such demonstration,
 
 [![IAN](https://img.youtube.com/vi/FDELBFSeqQs/0.jpg)](https://www.youtube.com/watch?v=FDELBFSeqQs "Video")
 
-
 **GAN Dissection** : [GAN Dissection](https://arxiv.org/pdf/1811.10597.pdf) is a visualization tool that helps researchers and practitioners better understand their GAN models.
 
 [![GANDissection](https://img.youtube.com/vi/yVCgUYe4JTM/0.jpg)](https://www.youtube.com/watch?v=yVCgUYe4JTM "Video")
-
 
 You can also play with very cool interactive demo on [gandissect.res.ibm.com](http://gandissect.res.ibm.com/ganpaint.html?project=churchoutdoor&layer=layer4).
 
@@ -854,7 +853,7 @@ You can also play with very cool interactive demo on [gandissect.res.ibm.com](ht
 <img src='/images/gan/pix2pixhd.gif' width="80%"/> 
 </p>
 
-<span class='saddlebrown'>Lastly again we apologize to remaining GAN family for not mentioning them in special mentions.</span> Shall we do one more section special special mentions 😛?
+<span class='saddlebrown'>Further apologizes to remaining GAN family for not mentioning them in special mentions.</span> Shall we do one more section special special mentions 😛?
 
 <span class='purple'>Look at the progress from introducing GANs to the world in 2014 to worrying about dangerous impact on society caused by GAN in 2017, this speaks more than I can make you understand. And this is the story of GANs.</span>
 
