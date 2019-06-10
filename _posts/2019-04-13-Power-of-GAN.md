@@ -223,14 +223,13 @@ $$
 V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}}) + (\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx \\
 \end{aligned}
 $$
-Rearranging terms we get,
+Rearranging the terms we get,
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x} -\log_{}2(p_{data}+p_{g})\,dx + \int_{x}p_{data}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{data}}{p_{g}+p_{data}})) + p_{g}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{g}}{p_{g}+p_{data}}))\,dx \\
 \end{aligned}
 $$
-Probability 101 teaches integrating over distribution equals 1, hence first terms becomes equal to $$-2log_{}2$$ and second terms becomes KL distribution between two distributions we get, KL($$p_{data}|\frac{p_{g}+p_{data}}{2}
-$$) + KL($$p_{g}|\frac{p_{g}+p_{data}}{2}$$). 
+Probability 101 teaches integrating over distribution equals 1, hence first terms becomes equal to $$-2log_{}2$$ and second terms becomes KL distribution between two distributions we get, KL($$p_{data}|\frac{p_{g}+p_{data}}{2}$$) + KL($$p_{g}|\frac{p_{g}+p_{data}}{2}$$). 
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x}-2log_{}2 + KL(p_{data}|\frac{p_{g}+p_{data}}{2}) + KL(p_{g}|\frac{p_{g}+p_{data}}{2})\,dx \\
@@ -248,6 +247,9 @@ V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\lo
 &=-2\log_{}2
 \end{aligned}
 $$
+
+*Flexing those calculus muscles 🧠*
+
 <span class='green'>I-know-nothing:</span> What is training procedure given that we have two neural networks for D and G? How does backpropogation work? How does G tweak it's parameters based on signal from D?
 
 <span class='red'>I-know-everything:</span> Ahh, excellent questions. The trend in training will be very different than the once observed in standard machine learning algorithms.
@@ -267,6 +269,8 @@ Of course, the training procedure we described above is very unstable and diffic
 - Mode collapse is another issue which leads generator to collapse by generating only few sample everytime.
 - Diminishing gradients occurs in case discriminator wins and that in turn causes geneartor to learn nothing and its gradient vanishes
 - The balance between D and G is crucial.
+- If the discriminator behaves badly, the generator does not have accurate feedback and the loss function cannot represent the reality.
+- If the discriminator does a great job, the gradient of the loss function drops down to close to zero and the learning becomes super slow or even jammed.
 - Setting hyperparameter is of paramount important for GANs.
 
 [Tips and tricks to make GANs work](https://github.com/soumith/ganhacks) offers some hacks which we can use to train GANs.
@@ -288,7 +292,7 @@ Okay, let's breathe for a moment and compress everything in few lines if we can!
 - GANs are type of geneartive models which consists of two parts G and D
 - G creates fake images and D classifies which images are real and fake
 - Both fight each other to see who will win and in process of this fighting G becomes so good that it ends up fooling D that fake images are real images
-- Training GANs and evaluating if G is producing good samples or not is hard
+- Training GANs and evaluating if G is producing good samples or not is hard but using some tricks we can generate good samples for low resolution images
 
 ## Different types of GANs
 
