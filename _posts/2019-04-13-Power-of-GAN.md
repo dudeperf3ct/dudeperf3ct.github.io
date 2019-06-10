@@ -854,7 +854,7 @@ You can also play with very cool interactive demo on [gandissect.res.ibm.com](ht
 <img src='/images/gan/pix2pixhd.gif' width="80%"/> 
 </p>
 
-<span class='saddlebrown'>Further apologizes to remaining GAN family for not mentioning them in special mentions.</span> Shall we do one more section special special mentions 😛?
+<span class='saddlebrown'>Lastly again we apologize to remaining GAN family for not mentioning them in special mentions.</span> Shall we do one more section special special mentions 😛?
 
 <span class='purple'>Look at the progress from introducing GANs to the world in 2014 to worrying about dangerous impact on society caused by GAN in 2017, this speaks more than I can make you understand. And this is the story of GANs.</span>
 
