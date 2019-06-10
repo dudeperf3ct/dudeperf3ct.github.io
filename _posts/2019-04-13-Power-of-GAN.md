@@ -21,7 +21,7 @@ Hey yo, but how?
 Well sit tight and buckle up. I will go through everything in-detail.
 
 <p align="center">
-<img src='/images/gan/gans_meme.jpg' width="50%"/> 
+<img src='/images/gan/gans_meme.png' width="50%"/> 
 </p>
 
 
