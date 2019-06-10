@@ -5,14 +5,14 @@ date:       2019-04-13 12:00:00
 summary:    This post will provide a brief introduction of GANs.
 categories: gan
 published : false
----
 
+---
 
 # Generative Adversarial Networks
 
 In this notebook, 
 
-> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb) and [Fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_fastai.ipynb).
+> All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/GAN/gan_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/GAN/gan_pytorch.ipynb) and [Fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/GAN/gan_fastai.ipynb).
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -25,39 +25,40 @@ Well sit tight and buckle up. I will go through everything in-detail.
 </p>
 
 
+
 Feel free to jump anywhere,
 
 - [Introduction to GAN](#introduction-to-gan)
-  - [GAN Framework](#gam-framework)
-  - [Cost Functions](#cost-functions)
-  - [MinMax](#minmax)
-  - [Therotical Limits](#therotical-limits)
-  - [Training GANs](#training-gans)  
-  - [Problem in Training GANs](#problem-in-training-gans)
+	- [GAN Framework](#gam-framework)
+	- [Cost Functions](#cost-functions)
+	- [MinMax](#minmax)
+	- [Therotical Limits](#therotical-limits)
+	- [Training GANs](#training-gans)  
+	- [Problem in Training GANs](#problem-in-training-gans)
 - [Recap](#recap)
 - [Different types of GANs](#different-types-of-gans)
-  - [Images](#images)
-    - [DCGAN](#dcgan)
-    - [WGAN](#wgan)
-    - [Pix2Pix](#pix2pix)
-    - [CycleGAN](#cyclegan)
-    - [ProGAN](#progan)
-    - [StyleGAN](stylegan)
-    - [BigGAN](#bigan)
-    - [GAN semi-supervised learning](#gan-semi-supervised-learning)
-  - [Speech](#speech)
-    - [GanSynth](#gansynth)
-  - [Text](#speech)
-    - [MaskGAN](#maskgan)
-  - [Videos](#videos)
-    - [Everybody can dance](#everybody-can-dance)
-    - [Faceswap GAN](#faceswap-gan)
-    - [Mona Lisa speaking GAN](#mona-lisa-speaking-gan)
+	- [Images](#images)
+		- [DCGAN](#dcgan)
+		- [WGAN](#wgan)
+		- [Pix2Pix](#pix2pix)
+		- [CycleGAN](#cyclegan)
+		- [ProGAN](#progan)
+		- [StyleGAN](stylegan)
+		- [BigGAN](#bigan)
+		- [GAN semi-supervised learning](#gan-semi-supervised-learning)
+	- [Speech](#speech)
+		- [GanSynth](#gansynth)
+	- [Text](#speech)
+		- [MaskGAN](#maskgan)
+	- [Videos](#videos)
+		- [Everybody can dance](#everybody-can-dance)
+		- [Faceswap GAN](#faceswap-gan)
+		- [Mona Lisa speaking GAN](#mona-lisa-speaking-gan)
 - [Problems in GANs](#problems-in-gans)
 - [Will GANs Rule?](#will-gans-rule)
-  - [Images](#images)
-  - [Speech](#speech)
-  - [Videos](#videos)
+	- [Images](#images)
+	- [Speech](#speech)
+	- [Videos](#videos)
 - [Special Mentions](#special-mentions)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
@@ -71,6 +72,7 @@ Feel free to jump anywhere,
 <p align="center">
 <img src='/images/transfer_learning_files/master_student.gif' /> 
 </p>
+
 
 
 <span class='red'>I-know-everything:</span> In our last post, we saw how we can use Adversarial Machine Learning in context of security. We discussed how adversaries can abuse the model and produce malicious results which can have serious consequences in real world. <span class='purple'>The name "Adversarial" has different meaning depending on the context.</span> In the previous post we used Adversarial Training where neural network is used to correctly classify adversarial examples by training the network on adversarial examples. In context of RL, "self play" can be seen as Adversarial Training where the network learns to play with itself. <span class='purple'>In our today's topic which is GAN i.e. Generative Adversarial Networks, we will use Adversarial Training where a model is trained on the inputs produced by adversary.</span> Now if there is no more gossips about the name "Adversarial", let's get back to the revolutionary GANs. As all posts on GANs starts with the [quote](https://www.quora.com/What-are-some-recent-and-potentially-upcoming-breakthroughs-in-deep-learning) from [Yann LeCunn](http://twitter.com/ylecun/), 
@@ -111,13 +113,10 @@ Okay, let's try to explain this notion of game through more examples. Suppose th
 
 Now let's dive in-detail into generator and discriminator.
 
-
 ## GAN Framework
 
 - **Discriminator(D)** is a differentiable function, usually a neural network with parameter $$\theta^{(D)}$$. Discriminative network which takes in input, $$\mathbf{x}$$ "real" which comes from training set or output from generator G($$\mathbf{z}$$) "fake". The goal of discriminator is to classify the input from training set as real and the one from generator as fake. Discriminator is shown half of inputs which are real and remaining half as fakes generated by G.
-
 - **Generator(G)** is also differential function, another neural network with parameter $$\theta^{(G)}$$. Generative network takes in input $$\mathbf{z}$$, where $$\mathbf{z}$$ is sample from some prior distribution, G($$\mathbf{z}$$) yields a sample $$\mathbf{x}$$ drawn from $$p_{model}$$. The goal of generator is to fool discriminator.
-
 
 <p align="center">
 <img src='/images/gan/gan.png' width="70%"/> 
@@ -134,22 +133,18 @@ Above, we mentioned that GAN sets up a supervised learning problem in order to d
 The discriminative network is a classifier which takes in an input and classifies it to be fake or real i.e. 0 or 1. We have seen these types of problems in supervised learning which go by name binary classifiers. The output of neural network is binary which is constrained by adding sigmoid as last classification layer. As with all supervised algorithms we require objective function to minimize, we also know that there is a particular loss function which corresponds to binary classification, binary cross entropy(BCE). The cost function used for discriminator $$J^{(D)}$$($$\theta^{(D)}$$, $$\theta^{(G)}$$) for parameters $$\theta^{(D)}$$ for discriminative network and $$\theta^{(G)}$$ for generative network is,
 
 We will first define cost function for one data point ($$\mathbf{x}_{1}$$, $$\mathbf{y}_{1}$$) and then generalize over entire dataset for N elements.
-
 $$
 \begin{aligned}
 J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\mathbf{y}_{1}\log_{}D(\mathbf{x}_{1})-(1-\mathbf{y}_{1})(1-D(\mathbf{x}_{1})) \\
 &= -\sum_{i=1}^{N}\mathbf{y}_{i}\log_{}D(\mathbf{x}_{i})-\sum_{i=1}^{N}(1-\mathbf{y}_{i})(1-D(\mathbf{x}_{i})) 
 \end{aligned}
 $$
-
 In GANs, $$x_{i}$$ either come two sources: either $$x_{i}$$ $$\sim$$ $$p_{data}$$, the true distribution, or $$x_{i}$$ = G($$\mathbf{z}$$) where $$\mathbf{z}$$ $$\sim$$ $$p_{model}$$, the generator's distribution, $$\mathbf{z}$$ is sample from some prior distribution. Discriminator sees exactly half of the data coming from each source i.e. half samples are real and remaining half are fake.
-
 $$
 \begin{aligned}
 J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}\log_{}(1-D(G(\mathbf{z})))
 \end{aligned}
 $$
-
 
 ## Minmax
 
@@ -162,35 +157,30 @@ The generator on other hand is trained to increase the chances of D producing a 
 So, combining both the conclusions from above, <span class='red'>to maximize the cost function for D and minimze the second part of cost function for G, G and D are essentially playing minmax game.</span>
 
 We substitute V(D, G) = - $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ in cost function to get the minmax of value function as follows,
-
 $$
 \begin{aligned}
 \min_{G} \max_{D} V(D, G) &= \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[\log_{}(1-D(G(\mathbf{z})))]
 \end{aligned}
 $$
-
 <span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to complete it's own objective. This game continues till we get a state, in which each model becomes an expert on what it is doing, the generative model increases its ability to get the actual data distribution and produces data similar to it, and the discriminative becomes expert in identifying the real samples. The discriminator tries to maximize tweaking only it's parameter and G tries to minimize tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images. Can it get any better than this? (**Question: Is will doing maxmin produce same results?**)
+
+Another way to look at above cost function is, we require D that correctly classifies real samples x, where $$\mathbf{x} \sim p_{data}(\mathbf{x})$$, hence $$\mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[\log_{}D(\mathbf{x})]$$. Maximizing this term corresponds to D being able to predict when $$\mathbf{x} \sim p_{data}(\mathbf{x})$$. This is the first term of value function. Next term G fooling D in passing generated sample z, where $$\mathbf{z} \sim p_{z}(\mathbf{z})$$ as real samples, hence $$\mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[\log_{}(1-D(G(\mathbf{z})))]$$. Maximizing this term means $$D(G(\mathbf{z})) \approx 0$$ implying G is NOT fooling D, therefore minimize $$-D(G(\mathbf{z}))$$. This again confirms the above minmax game between D and G where optimal D is maximizing the above equation and optimal G is minimizing the above equation.
 
 <span class='saddlebrown'>On a sad note, the cost used for the generator in the minimax game is useful for theoretical analysis, but does not perform especially well in practice. In the minimax game, the discriminator minimizes a cross-entropy, but the generator maximizes the same cross-entropy. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence producing a perfect discriminator, the generator’s gradient vanishes, it will produce zero everywhere, leading to vanishing gradient problem. This is main problem in training GANs called "mode collapse".</span>
 
 To solve this problem, one approach is to continue to use cross-entropy minimization for the generator. Instead of flipping the sign on the discriminator’s cost to obtain a cost for the generator, we flip the target used to construct the cross-entropy cost.  The cost for the generator then becomes:
-
 $$
 \begin{aligned}
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
 \end{aligned}
 $$
-
 Also, maximum likelihood can be used as cost function for generator,
-
 $$
 \begin{aligned}
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\exp({\sigma^{-1}(D(G(\mathbf{z})))})
 \end{aligned}
 $$
-
 Different adversarial loss functions such as feature matching, minibatch discrimination, etc produces good results in GANs. Many such adversarial losses can be experimented with depending on the task at hand and not limited to above. 
-
 
 ## Therotical Limits
 
@@ -198,35 +188,59 @@ We claimed above that after several steps of training, if G and D have enough ca
 
 ### Optimal D
 
-We want to find best or the optimal value for D, i.e. D* for fixed G. So, we have cost function, 
-
+We want to find best or the optimal value for D, i.e. $$D_{G}^{*}$$ for fixed G. So, we have cost function, 
 $$
 \begin{aligned}
 \mathbb{E}_{\mathbf{x} \sim p}[f(\mathbf{x})] &= \int p(\mathbf{x})f(\mathbf{x})\,dx  \\   
 V(D, G) &= \mathbb{E}_{data}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{generator}[\log_{}(1-D(G(\mathbf{z})))] \\
-&= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx
+&= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + p_{g}(\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx
 \end{aligned}
 $$
+One important switch as pointed by elegant blog on [mathematical proofs of GAN](https://srome.github.io/An-Annotated-Proof-of-Generative-Adversarial-Networks-with-Implementation-Notes/) by Scott Rome we made from $$E_{z}$$ to $$E_{generator}$$ notes that for this switch G need not be invertible. But argues that this is incorrect as to [change the variables](https://en.wikipedia.org/wiki/Probability_density_function#Dependent_variables_and_change_of_variables), one must calculate $$G^{-1}$$ which is not assumed to exist (and in practice for neural networks– does not exist!). 
 
 To find maximum of above equation, we take derivate and obtain D as,
-
 $$
 \begin{aligned}
 D(\mathbf{x}) &= \frac{p_{data}}{p_{g}+p_{data}}
 \end{aligned}
 $$
+Optimal $$D_{G}^{*}$$ will be $$argmax_{D}(V(D, G))$$ for given generator G. Hence from above, $$D = D_{G}^{*}$$.
 
-If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain optimal D* = $$\frac{1}{2}$$.
+If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain optimal D* = $$\frac{1}{2}$$. This is situation where D cannot identify whether the sample is real or fake or D is confused.
 
 ### Optimal G
 
-We want to 
-
+We want to prove that optimal value of G occurs when $$p_{data} = p_{g}$$ for optimal $$D_{G}^{*}$$.  Plugging the value of optimal D in cost function we get,
+$$
+\begin{aligned}
+V(D, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + p_{g}(\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx \\
+V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}})\,dx \\
+\end{aligned}
+$$
+We add and subtract $$\log_{}2$$ from each integral, multiplied by the probability densities $$p_{data}$$ and $$p_{g}$$. 
+$$
+\begin{aligned}
+V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}}) + (\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx \\
+\end{aligned}
+$$
+Rearranging terms we get,
+$$
+\begin{aligned}
+V(D_{G}^{*}, G)&= \int_{x} -\log_{}2(p_{data}+p_{g})\,dx + \int_{x}p_{data}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{data}}{p_{g}+p_{data}})) + p_{g}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{g}}{p_{g}+p_{data}}))\,dx \\
+\end{aligned}
+$$
+Probability 101 teaches integrating over distribution equals 1, hence first terms becomes equal to $$-2log_{}2$$ and second terms becomes KL distribution between two distributions we get, KL($$p_{data}|\frac{p_{g}+p_{data}}{2}
+$$) + KL($$p_{g}|\frac{p_{g}+p_{data}}{2}$$). 
+$$
+\begin{aligned}
+V(D_{G}^{*}, G)&= \int_{x}-2log_{}2 + KL(p_{data}|\frac{p_{g}+p_{data}}{2}) + KL(p_{g}|\frac{p_{g}+p_{data}}{2})\,dx \\
+\end{aligned}
+$$
+KL divergence is non-negative and when global optimum is reached i.e. $$V(D_{G}^{*}, G) = -2\log_{}2$$ if and only if $$p_{data}=p_{g}$$.
 
 ### Global Optimal
 
 When both G and D are at optimal values, we have $$p_{data}$$ = $$p_{g}$$ and D* = $$\frac{1}{2}$$, the cost function becomes,
-
 $$
 \begin{aligned}
 V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx\\
@@ -234,8 +248,6 @@ V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\lo
 &=-2\log_{}2
 \end{aligned}
 $$
-
-
 <span class='green'>I-know-nothing:</span> What is training procedure given that we have two neural networks for D and G? How does backpropogation work? How does G tweak it's parameters based on signal from D?
 
 <span class='red'>I-know-everything:</span> Ahh, excellent questions. The trend in training will be very different than the once observed in standard machine learning algorithms.
@@ -268,7 +280,6 @@ Of course, the training procedure we described above is very unstable and diffic
 - Use SGD for discriminator and ADAM for generator
 - If you have labels available, training the discriminator to also classify the samples: auxillary GANs
 
-
 ## Recap
 
 Okay, let's breathe for a moment and compress everything in few lines if we can!
@@ -278,7 +289,6 @@ Okay, let's breathe for a moment and compress everything in few lines if we can!
 - G creates fake images and D classifies which images are real and fake
 - Both fight each other to see who will win and in process of this fighting G becomes so good that it ends up fooling D that fake images are real images
 - Training GANs and evaluating if G is producing good samples or not is hard
-
 
 ## Different types of GANs
 
@@ -301,7 +311,6 @@ First result compares DCGAN samples with GAN samples, where DCGAN achieves error
 </p>
 
 The second most interesting result obtained from paper is, we can perform arithmetic on images to obtain meaningful representation. For e.g. if we take smiling woman, subtract neutral woman and add neutral man, we get smiling man as output. Another one is man with glasses - man without glasses + woman without glasses = woman with glasses. Amazing right? The same we saw in case of [word vectors](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/#word2vec), remember?
-
 
 <p align="center">
 <img src='/images/gan/dcgan_res2.png' width="50%"/> 
@@ -414,6 +423,7 @@ This shows how to convert sketch to image resembling the sketch. Also, use of cG
 </p>
 
 
+
 ### CycleGAN
 
 Above we visited pix2pix method where we provided pairs input and output to cGAN to learn mapping. [CycleGAN](https://arxiv.org/pdf/1703.10593.pdf) on other hand performs same task in unsupervised fashion without paired examples of transformation from source to target domain. The trick used by CycleGAN that makes them get rid of expensive supervised label in target domain is to double mapping i.e. two-step transformation of source domain image - first by trying to map it to target domain and then back to the original image. Hence, we don't need to explicitly give target domain image. The goal in CycleGAN is to learn the mapping from G : X -> Y such that distribution of images from G(X) is indistinguishable from from the distribution of images of Y. But because this mapping is under-constrained (or not guided), we couple it with an inverse mapping F : Y -> X where we converted the generated image from above mapping back to original image and introduce a cycle consistency loss to enforce F(G(X)) $$\approx$$ X and G(F(Y)) $$\approx$$ Y. Combining this loss along with individual losses of G and F, we get the full objective for unpaired image-to-image translation. This is so good that we will repeat again with the figure below.
@@ -423,7 +433,6 @@ Above we visited pix2pix method where we provided pairs input and output to cGAN
 </p>
 
 There are two generators(mapping functions) G : X -> Y and F : Y -> X, and two discriminators $$D_{X}$$ which aims to distinguish images of X(real) & F(Y)(fake) samples and $$D_{Y}$$ which aims to distinguish images of Y(real) & G(X)(fake) samples. $$D_{Y}$$ encourages G to translate X into outputs indistinguishable to Y, and similarly $$D_{X}$$ encourages F to translate Y into outputs indistinguishable to X. The (b) and (c) part are forward and backward cycle-consistency loss introduced to capture the intuition that if we translate from one domain to the other and back again we should arrive at where we started. Forward cycle-consistency in (b) is x -> G(x) -> F(G(x)) $$\approx$$ x and backward cycle-consistency in (c) is y -> F(y) -> G(F(y)) $$\approx$$ y. If we want to write the total loss mathematically, 
-
 $$
 \begin{aligned}
 \mathcal{L}_{GAN}(G, D_{Y}, X, Y) &= \mathbb{E}_{\mathbf{y} \sim p_{data}(y)}[\log_{}(D_{Y}(y)] + \mathbb{E}_{\mathbf{x} \sim p_{data}(x)}[\log_{}(1 - D_{Y}(G(x)))] \\
@@ -432,7 +441,6 @@ $$
 \mathcal{L}(G, F, D_{X}, D_{Y}) &= \mathcal{L}_{GAN}(G, D_{Y}, X, Y) + \mathcal{L}_{GAN}(F, D_{X}, Y, X) + \lambda\mathcal{L}_{cyc}(G, F)
 \end{aligned}
 $$
-
 In short, cycle GAN is unsupervised learning variant of standard GAN where we learn to translate images from source to target domain. 
 
 ### Results
@@ -529,6 +537,7 @@ After walking the latent space which is continuous, one such output is this. Not
 </p>
 
 
+
 ### StyleGAN
 
 ProGAN as pretty mouthful, right? The [authors](https://arxiv.org/pdf/1812.04948) of Nvidia came out with this paper called StyleGAN where we can by modifying the input of each level separately, control the visual features that are expressed in that level, from coarse features (pose, face shape) to fine details (hair color), without affecting other levels. What this means? Let's look at example below and understand what this means. 
@@ -560,9 +569,7 @@ We can view the mapping network and affine transformations as a way to draw samp
 
 There are other tricks such as style mixing which is used as regularization to reduce the correlation between the level in synthesis network. Interesting thing which we can perform with style mixing is to see what happens when we combine two images. The model combines two images A and B generated by taking low level-features from A and high-level features from B. Another trick used in paper is truncation trick in W. The authors use a different sampling method such as truncated or shrunk sampling to sample latent vectors.
 
-
 In short, this paper using StyleGANs details not only how to generate high quality images but how to control different styles of the generated image making them more unbelievable fake images.
-
 
 ### Results
 
@@ -596,6 +603,7 @@ Jaw-dropping moment 🤪. All the images generated by generator from scratch. Ge
 <p align="center">
 <img src='/images/gan/biggan_res_1.png' width="70%"/> 
 </p>
+
 [Zaid Alyafeai](https://thegradient.pub/bigganex-a-dive-into-the-latent-space-of-biggan/) provides different tricks we can perform in latent space. 
 
 - **Breeding** : In this we breed between two different classes, i.e we create intermediate classes using a combination of two different classes. 
@@ -611,6 +619,7 @@ Jaw-dropping moment 🤪. All the images generated by generator from scratch. Ge
 </p>
 
 
+
 - **Natural Zoom** : We zoom into certain generated image to look into finer details. It's amazing.
 
 <p align="center">
@@ -622,6 +631,7 @@ Here is example of walking in latent space for specific z and c pairs,
 <p align="center">
 <img src='/images/gan/biggan_res_5.png' width="50%"/> 
 </p>
+
 
 
 ### GAN semi-supervised learning
@@ -662,6 +672,7 @@ Here are some of the results produced by MaskGAN along with MaskMLE.
 </p>
 
 
+
 # Videos
 
 GANs for video has mind blowing applications. [Remember deepfakes](https://www.youtube.com/watch?v=dMF2i3A9Lzw), the one which everyone is worried about. Yes, it was born here. The literature for GANs in video is large, we will particularly cover 2 applications, deepfakes and everybody can dance.
@@ -687,12 +698,12 @@ First training pipeline, for a given frame $$\mathbf{y}$$ from target video, it 
 </p>
 
 
+
 ### Results
 
 This video is sufficient enough to convey the awesomeness achieved.
 
 https://youtu.be/PCBTZh41Ris
-
 
 ### Deepfakes
 
@@ -708,13 +719,11 @@ Let's start with face-swapping GANs. Many of you can guess what GANs will be par
 
 While transferring face one thing to be noted is how we will deal with foreground and background i.e. the background of the source video should remain the same only the face of the subject from the source video should be swapped with that of target subject. So, authors propose a trick to segment the input faces and then fed the mask as weight on pixel-reconstruction error. Generator uses variant of U-Net architecture and discriminator 5-layer Conv and also experimented with using two discriminator whose losses will be averaged given some weight $$\lambda$$ in final loss function. The results obtained from the experiments were noisy, don't deal with scale, very shaky and inconsistent between the frames.
 
-
 ### Results
 
 How about we settle for video as a result? This result *is not* obtained from the model trained on above paper. But it surely uses CycleGAN just with some modifications(which I don't know what, will have to ask [author](https://github.com/tjwei/GANotebooks)?).
 
 https://www.youtube.com/watch?v=Fea4kZq0oFQ
-
 
 ### Mona Lisa speaking GAN
 
@@ -764,7 +773,6 @@ As always another [fantastic blog](https://distill.pub/2019/gan-open-problems/) 
 
 GANs are getting better and better as if they are on steroids. Does this mean we are doomed? Will GANs rule the world? We are seeing all these cool results with images and videos, the one with the deepfakes, fake speech, etc. This does have serious implications on the society. Are there any counter measures we should be aware of? Worry not if you possess [Art of Observation](https://fs.blog/2013/04/the-art-of-observation/).
 
-
 ### Images
 
 The progress of image generating quality of GANs is shown below.
@@ -799,7 +807,6 @@ Also, researchers at University of Washington in their [Calling Bullshit](https:
 
 What do you think about [this](https://www.buzzfeednews.com/article/charliewarzel/i-used-ai-to-clone-my-voice-and-trick-my-mom-into-thinking)? GANs can be also used to impersonate someone. Don't believe me, read [it here](https://www.technologyreview.com/s/613033/this-ai-lets-you-deepfake-your-voice-to-speak-like-barack-obama/). Using this approach it is possible to assume any age, gender, or tone you’d like, all in real time. Or to take on the voice of a celebrity. Now how about that?
 
-
 ### Videos
 
 Videos particularly deepfakes well know for their realistic impersonation of any person generated by deep learning algorithms such as [GANs](https://arxiv.org/pdf/1905.08233v1.pdf) or [other algorithms](https://grail.cs.washington.edu/projects/AudioToObama/siggraph17_obama.pdf) have surely been a very much [topic of interest](https://www.reputationinstitute.com/blog/emerging-ai-tech-threat-corporate-reputation). Even the former POTUS was surprised with the [fake sync lip](http://www.washington.edu/news/2017/07/11/lip-syncing-obama-new-tools-turn-audio-clips-into-realistic-video/) that circulated Internet last year and expressed [concern](https://www.huffingtonpost.ca/entry/obama-deepfake-video_ca_5cf29aafe4b0e8085e3ad233) against such technologies. One can only imagine what [devious ways](https://www.huffingtonpost.co.uk/entry/deepfake-porn_uk_5bf2c126e4b0f32bd58ba316) we can use it for and potentially amplify it using social media. The threats of deepfakes may seem innocuous for now but what happens if we when one day when we cannot distinguish what is fake or what is real? What if G become so good that we as D become fooled by generated samples?
@@ -815,6 +822,7 @@ Videos particularly deepfakes well know for their realistic impersonation of any
 <p align="center">
 <img src='/images/gan/srgan_results.png' width="70%"/> 
 </p>
+
 **iGAN**: A user can draw a rough sketch of an image,and [iGAN](https://arxiv.org/pdf/1609.03552.pdf) uses a GAN to produce the most similar realistic image. Here is a video demonstration of iGAN,
 
 https://www.youtube.com/watch?v=9c4z6YsBGQ0
@@ -834,6 +842,7 @@ You can also play with very cool interactive demo on [gandissect.res.ibm.com](ht
 <p align="center">
 <img src='/images/gan/discogan.png' width="70%"/> 
 </p>
+
 **pix2pixHD**: Okay we have to stop somewhere, let stop with last mention to a type of conditional GAN to synthesize High-Resolution Image and Semantic Manipulation aka [pix2pixHD](https://arxiv.org/pdf/1711.11585.pdf). And results they sure [don't disappoint](https://youtu.be/3AIpPlzM_qs).
 
 <p align="center">
@@ -846,7 +855,7 @@ In next post, we will do something <span class='yellow'>different</span>. We wil
 
 <span class='orange'>Happy Learning!</span>
 
----
+------
 
 ### Note: Caveats on terminology
 
@@ -858,7 +867,7 @@ G - Generator
 
 z - Latent vector, code or noise vector
 
----
+------
 
 # Further Reading
 
@@ -974,17 +983,16 @@ Game: [Who is Real?](http://www.whichfaceisreal.com/index.php), [FauxRogan](http
 
 Startups: [Modulate]() [Dessa RealTalk]() [Lyrebird](), [DataGrid](https://datagrid.co.jp/), [Synthesia](https://www.synthesia.io/), [DeepTrace](https://www.deeptracelabs.com/)
 
----
+------
 
 # Footnotes and Credits
 
-
 [Star Wars gif](https://www.behance.net/gallery/30412489/Star-Wars-Luke-Yoda-R2D2-in-Dagobah-Animated-Gif)
 
----
+------
 
 **NOTE**
 
 Questions, comments, other feedback? E-mail [the author](mailto:imdudeperf3ct@gmail.com)
 
----
+------
