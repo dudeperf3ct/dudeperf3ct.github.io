@@ -2,7 +2,7 @@
 layout:     post
 title:      Power of GAN
 date:       2019-04-13 12:00:00
-summary:    This post will provide a brief introduction of GANs. We will go into different types of GANs in domains of Image, Speech, Text and Video. We discuss the good, bad and problems of GANs. On both good and bad side, there will be a lot many cool results to see.
+summary:    This post will provide a brief introduction of GANs. We will go into different types of GANs in domains of Image, Speech, Text and Video. We discuss the good and bad about GANs on each of these domain. On plus side about GANs, a lot many cool results to see.
 categories: gan
 published : true
 
