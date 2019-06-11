@@ -174,6 +174,7 @@ Another way to look at above cost function is, we require D that correctly class
 <span class='saddlebrown'>On a sad note, the cost used for the generator in the minimax game is useful for theoretical analysis, but does not perform especially well in practice. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence producing a perfect discriminator, the generator’s gradient vanishes, it will produce zero everywhere, leading to vanishing gradient problem. This is main problem in training GANs called "mode collapse".</span>
 
 To solve this problem, one approach is to continue to use cross-entropy minimization for the generator. Instead of flipping the sign on the discriminator’s cost to obtain a cost for the generator, we flip the target used to construct the cross-entropy cost.  The cost for the generator then becomes:
+
 $$
 \begin{aligned}
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
@@ -196,7 +197,8 @@ We claimed above that after several steps of training, if G and D have enough ca
 
 ### Optimal D
 
-We want to find best or the optimal value for D, i.e. $$D_{G}^{*}$$ for fixed G. So, we have cost function, 
+We want to find best or the optimal value for D, i.e. $$D_{G}^{*}$$ for fixed G. So, we have cost function,
+
 $$
 \begin{aligned}
 \mathbb{E}_{\mathbf{x} \sim p}[f(\mathbf{x})] &= \int p(\mathbf{x})f(\mathbf{x})\,dx  \\   
@@ -208,6 +210,7 @@ $$
 One important switch as pointed by elegant blog on [mathematical proofs of GAN](https://srome.github.io/An-Annotated-Proof-of-Generative-Adversarial-Networks-with-Implementation-Notes/) by Scott Rome we made from $$E_{z}$$ to $$E_{generator}$$ notes that for this switch G need not be invertible. But argues that this is incorrect as to [change the variables](https://en.wikipedia.org/wiki/Probability_density_function#Dependent_variables_and_change_of_variables), one must calculate $$G^{-1}$$ which is not assumed to exist (and in practice for neural networks– does not exist!). 
 
 To find maximum of above equation, we take derivate and obtain D as,
+
 $$
 \begin{aligned}
 D(\mathbf{x}) &= \frac{p_{data}}{p_{g}+p_{data}}
@@ -221,6 +224,7 @@ If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain op
 ### Optimal G
 
 We want to prove that optimal value of G occurs when $$p_{data} = p_{g}$$ for optimal $$D_{G}^{*}$$.  Plugging the value of optimal D in cost function we get,
+
 $$
 \begin{aligned}
 V(D, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + p_{g}(\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx \\
@@ -229,6 +233,7 @@ V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{
 $$
 
 We add and subtract $$\log_{}2$$ from each integral, multiplied by the probability densities $$p_{data}$$ and $$p_{g}$$. 
+
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}}) + (\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx \\
@@ -236,6 +241,7 @@ V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{
 $$
 
 Rearranging the terms we get,
+
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x} -\log_{}2(p_{data}+p_{g})\,dx + \int_{x}p_{data}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{data}}{p_{g}+p_{data}})) + p_{g}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{g}}{p_{g}+p_{data}}))\,dx \\
@@ -243,6 +249,7 @@ V(D_{G}^{*}, G)&= \int_{x} -\log_{}2(p_{data}+p_{g})\,dx + \int_{x}p_{data}(\mat
 $$
 
 Probability 101 teaches integrating over distribution equals 1, hence first terms becomes equal to $$-2log_{}2$$ and second terms becomes KL distribution between two distributions we get, KL($$p_{data}|\frac{p_{g}+p_{data}}{2}$$) + KL($$p_{g}|\frac{p_{g}+p_{data}}{2}$$). 
+
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x}-2log_{}2 + KL(p_{data}|\frac{p_{g}+p_{data}}{2}) + KL(p_{g}|\frac{p_{g}+p_{data}}{2})\,dx \\
@@ -254,6 +261,7 @@ KL divergence is non-negative and global minimum is reached i.e. $$V(D_{G}^{*}, 
 ### Global Optimal
 
 When both G and D are at optimal values, we have $$p_{data}$$ = $$p_{g}$$ and D* = $$\frac{1}{2}$$, the cost function becomes,
+
 $$
 \begin{aligned}
 V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx\\
