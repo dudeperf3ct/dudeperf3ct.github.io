@@ -764,7 +764,7 @@ While transferring face one thing to be noted is how we will deal with foregroun
 
 ### Results
 
-How about we settle for video as a result? This result *is not* obtained from the model trained on above paper. But it surely uses CycleGAN just with some modifications(which I don't know what, will have to ask [author](https://github.com/tjwei/GANotebooks)?).
+How about we settle for video as a result? This result *is not* obtained from the model trained on above paper. But it surely uses CycleGAN just with some modifications (which I don't know what, will have to ask [author](https://github.com/tjwei/GANotebooks)?).
 
 [![faceswap](https://img.youtube.com/vi/Fea4kZq0oFQ/0.jpg)](https://www.youtube.com/watch?v=Fea4kZq0oFQ "Video")
 
