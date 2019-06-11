@@ -78,7 +78,7 @@ Feel free to jump anywhere,
 
 <span class='red'>I-know-everything:</span> In our [last post](https://dudeperf3ct.github.io/adversarial/learning/2019/03/04/Mystery-of-Adversarial-Learning/), we saw how we can use Adversarial Machine Learning in context of security. We discussed how adversaries can abuse the model and produce malicious results which can have serious consequences in real world. <span class='purple'>The name "Adversarial" has different meaning depending on the context.</span> In the previous post we used Adversarial Training where neural network is used to correctly classify adversarial examples by training the network on adversarial examples. In context of RL, "self play" can be seen as Adversarial Training where the network learns to play with itself. <span class='purple'>In our today's topic which is GAN i.e. Generative Adversarial Networks, we will use Adversarial Training where a model is trained on the inputs produced by adversary.</span> Now if there is no more gossips about the name "Adversarial", let's get back to the revolutionary GANs. As all posts on GANs starts with the [quote](https://www.quora.com/What-are-some-recent-and-potentially-upcoming-breakthroughs-in-deep-learning) from [Yann LeCunn](http://twitter.com/ylecun/), 
 
-> <span class='purple'>"The most important one, in my opinion, is adversarial training (also called GAN for Generative Adversarial Networks). This is an idea that was originally proposed by Ian Goodfellow when he was a student with Yoshua Bengio at the University of Montreal (he since moved to Google Brain and recently to OpenAI).This, and the variations that are now being proposed is the most interesting idea in the last 10 years in ML, in my opinion."</span> #Tradition#not#broken. 
+> <span class='purple'>"The most important one, in my opinion, is adversarial training (also called GAN for Generative Adversarial Networks). This is an idea that was originally proposed by Ian Goodfellow when he was a student with Yoshua Bengio at the University of Montreal (he since moved to Google Brain and recently to OpenAI).This, and the variations that are now being proposed is the most interesting idea in the last 10 years in ML, in my opinion." #Tradition#not#broken.</span>
 
 <span class='green'>I-know-nothing:</span> Holding up the tradition, what are GANs? Specifically, what does generative mean?
 
@@ -98,7 +98,7 @@ Here is an example where an ideal generative model would be able to train on exa
 <img src='/images/gan/generative_model.svg' width="70%"/> 
 </p>
 
-In the example above, the blue region shows the true data distribution ($$p_{data}$$), where black dot represents each image in dataset. Now our model, a neural network in yellow draws points from unit Gaussian, red in color, and generates a distribution as shown in green color which is the distribution learned by model ($$p_{model}$$ or $$\hat{p}_{\theta}$$). Our goal then is find parameters $$\theta$$ of model that produce a distribution that closely matches the true data distribution. Therefore, you can imagine the green distribution starting out random and then the training process iteratively changing the parameters $$\theta$$ to stretch and squeeze it to better match the blue distribution. There are many loss function --as in case of supervised learning-- which deal with comparing two distribution such as Kullback-Liebler (KL) divergence, Reverse-KL divergence and Jenson-Shannon Divergence (JSD). These belong to F-divergence class of probability distance metrics. The other class is Integral Probability Metrics (IPMs). For the IPMS, we have the Wassterstein distance(which is used in the WGAN) and the Maximum Mean Discrepancy (MMD). Difference between F-divergence and IPMs is F-divergences determine distance using division of two probability distributions, $$\frac{P(x)}{Q(x)}$$ and IPMs use the difference, P(x) - Q(x).
+In the example above, the blue region shows the true data distribution ($$p_{data}$$), where black dot represents each image in dataset. Now our model, a neural network in yellow draws points from unit Gaussian, red in color, and generates a distribution as shown in green color which is the distribution learned by model ($$p_{model}$$ or $$\hat{p}_{\theta}$$). Our goal then is find parameters $$\theta$$ of model that produce a distribution that closely matches the true data distribution. Therefore, you can imagine the green distribution starting out random and then the training process iteratively changing the parameters $$\theta$$ to stretch and squeeze it to better match the blue distribution. There are many loss function --as in case of supervised learning-- which deal with comparing two distribution such as Kullback-Liebler (KL) divergence, Reverse-KL divergence and Jenson-Shannon Divergence (JSD). These belong to F-divergence class of probability distance metrics. The other class is Integral Probability Metrics (IPMs). For the IPMS, we have the Wassterstein distance(which is used in the WGAN) and the Maximum Mean Discrepancy (MMD). <span class='saddlebrown'>Difference between F-divergence and IPMs is F-divergences determine distance using division of two probability distributions,</span> $$\frac{P(x)}{Q(x)}$$ and <span class='saddlebrown'>IPMs use the difference,</span> P(x) - Q(x).
 
 <p align="center">
 <img src='/images/gan/distances.png' width="70%"/> 
@@ -137,24 +137,23 @@ The discriminative network is a classifier which takes in an input and classifie
 
 We will first define cost function for one data point ($$\mathbf{x}_{1}$$, $$\mathbf{y}_{1}$$) and then generalize over entire dataset for N elements.
 
-</br>
 $$
 \begin{aligned}
 J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\mathbf{y}_{1}\log_{}D(\mathbf{x}_{1})-(1-\mathbf{y}_{1})(1-D(\mathbf{x}_{1})) \\
 &= -\sum_{i=1}^{N}\mathbf{y}_{i}\log_{}D(\mathbf{x}_{i})-\sum_{i=1}^{N}(1-\mathbf{y}_{i})(1-D(\mathbf{x}_{i})) 
 \end{aligned}
 $$
-</br>
+
 
 In GANs, $$x_{i}$$ either come two sources: either $$x_{i}$$ $$\sim$$ $$p_{data}$$, the true distribution, or $$x_{i}$$ = G($$\mathbf{z}$$) where $$\mathbf{z}$$ $$\sim$$ $$p_{model}$$, the generator's distribution, $$\mathbf{z}$$ is sample drawn from some prior distribution. Discriminator sees exactly half of the data coming from each source i.e. half samples are real and remaining half are fake.
 
-</br>
 $$
 \begin{aligned}
 J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}\log_{}(1-D(G(\mathbf{z})))
 \end{aligned}
 $$
-</br>
+
+
 ## Minmax
 
 To play the game, we need to complete generator's cost function $$J^{(G)}$$ too. We assume that we are playing the simplest zero-sum game, where the sum of all player's cost is zero. In this zero-sum game, we get $$J^{(D)}$$ + $$J^{(G)}$$ = 0. This gives us $$J^{(G)}$$ = - $$J^{(D)}$$.
@@ -167,13 +166,12 @@ So, combining both the conclusions from above, <span class='red'>to maximize the
 
 We substitute V(D, G) = - $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ in cost function to get the minmax of value function as follows,
 
-</br>
 $$
 \begin{aligned}
 \min_{G} \max_{D} V(D, G) &= \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[\log_{}(1-D(G(\mathbf{z})))]
 \end{aligned}
 $$
-</br>
+
 
 <span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to succeed in completing it's own objective. This game continues till we get a state, in which each model becomes an expert on what it is doing, the generative model increases its ability to get the actual data distribution and produces data similar to it, and the discriminative becomes expert in identifying the real samples. The discriminator tries to maximize tweaking only it's parameter and G tries to minimize tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images. Can it get any better than this? (**Question: Will doing maxmin produce same results?**)
 
@@ -183,23 +181,21 @@ Another way to look at above cost function is, we require D that correctly class
 
 To solve this problem, one approach is to continue to use cross-entropy minimization for the generator. Instead of flipping the sign on the discriminator’s cost to obtain a cost for the generator, we flip the target used to construct the cross-entropy cost. The cost for the generator then becomes:
 
-</br>
 $$
 \begin{aligned}
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
 \end{aligned}
 $$
-</br>
+
 
 Also, maximum likelihood can be used as cost function for generator,
 
-</br>
 $$
 \begin{aligned}
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\exp({\sigma^{-1}(D(G(\mathbf{z})))})
 \end{aligned}
 $$
-</br>
+
 
 Different adversarial loss functions such as feature matching, minibatch discrimination, etc produces good results in GANs. Many such adversarial losses are proposed for stable training of GANs and can be experimented with depending on the task at hand and not limited to above. 
 
@@ -211,7 +207,7 @@ We claimed above that after several steps of training, if G and D have enough ca
 
 We want to find best or the optimal value for D, i.e. $$D_{G}^{*}$$ for fixed G. So, we have cost,
 
-</br>
+
 $$
 \begin{aligned}
 \mathbb{E}_{\mathbf{x} \sim p}[f(\mathbf{x})] &= \int p(\mathbf{x})f(\mathbf{x})\,dx  \\   
@@ -219,19 +215,17 @@ V(D, G) &= \mathbb{E}_{data}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{generator}[\log_
 &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + p_{g}(\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx
 \end{aligned}
 $$
-</br>
 
 One important switch as pointed by elegant blog on [mathematical proofs of GAN](https://srome.github.io/An-Annotated-Proof-of-Generative-Adversarial-Networks-with-Implementation-Notes/) by Scott Rome we made from $$E_{z}$$ to $$E_{generator}$$ notes that for this switch G need not be invertible. But argues that this is incorrect as to [change the variables](https://en.wikipedia.org/wiki/Probability_density_function#Dependent_variables_and_change_of_variables), one must calculate $$G^{-1}$$ which is not assumed to exist (and in practice for neural networks– does not exist!). 
 
 To find maximum of above equation, we take derivate and obtain D as,
 
-</br>
 $$
 \begin{aligned}
 D(\mathbf{x}) &= \frac{p_{data}}{p_{g}+p_{data}}
 \end{aligned}
 $$
-</br>
+
 
 Optimal $$D_{G}^{*}$$ will be $$argmax_{D}(V(D, G))$$ for given generator G. Hence from above, $$D = D_{G}^{*}$$.
 
@@ -241,44 +235,39 @@ If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain op
 
 We want to prove that optimal value of G occurs when $$p_{data} = p_{g}$$ for optimal $$D_{G}^{*}$$.  Plugging the value of optimal D in cost function we get,
 
-</br>
 $$
 \begin{aligned}
 V(D, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + p_{g}(\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx \\
-V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}})\,dx \\
+V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}})\,dx
 \end{aligned}
 $$
-</br>
+
 
 We add and subtract $$\log_{}2$$ from each integral, multiplied by the probability densities $$p_{data}$$ and $$p_{g}$$. 
 
-</br>
 $$
 \begin{aligned}
-V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}}) + (\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx \\
+V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}}) + (\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx
 \end{aligned}
 $$
-</br>
 
 Rearranging the terms we get,
 
-</br>
 $$
 \begin{aligned}
-V(D_{G}^{*}, G)&= \int_{x} -\log_{}2(p_{data}+p_{g})\,dx + \int_{x}p_{data}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{data}}{p_{g}+p_{data}})) + p_{g}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{g}}{p_{g}+p_{data}}))\,dx \\
+V(D_{G}^{*}, G)&= \int_{x} -\log_{}2(p_{data}+p_{g})\,dx + \int_{x}p_{data}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{data}}{p_{g}+p_{data}})) + p_{g}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{g}}{p_{g}+p_{data}}))\,dx
 \end{aligned}
 $$
-</br>
+
 
 Probability 101 teaches integrating over distribution equals 1, hence first terms becomes equal to $$-2log_{}2$$ and second terms becomes KL distribution between two distributions we get, KL($$p_{data}\vert\frac{p_{g}+p_{data}}{2}$$) + KL($$p_{g}\vert\frac{p_{g}+p_{data}}{2}$$). 
 
-</br>
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x}-2log_{}2 + KL(p_{data}\vert\frac{p_{g}+p_{data}}{2}) + KL(p_{g}\vert\frac{p_{g}+p_{data}}{2})\,dx \\
 \end{aligned}
 $$
-</br>
+
 
 KL divergence is non-negative and global minimum is reached i.e. $$V(D_{G}^{*}, G) = -2\log_{}2$$ if and only if $$p_{data}=p_{g}$$.
 
@@ -901,11 +890,11 @@ You can also play with very cool interactive demo on [gandissect.res.ibm.com](ht
 <img src='/images/gan/pix2pixhd.gif' width="80%"/> 
 </p>
 
-<span class='saddlebrown'>Further apologizes to remaining GAN family for not mentioning them in special mentions.</span> Shall we do one more section special special mentions 😛?
+<span class='saddlebrown'>Further apologizes to remaining GAN family for not mentioning them in special mentions. Shall we do one more section special special mentions 😛?</span>
 
 <span class='purple'>Look at the progress from introducing GANs to the world in 2014 to worrying about dangerous impact on society caused by GAN in 2017, this speaks more than I can make you understand. And this is the story of GANs.</span>
 
-In next post, we will do something <span class='yellow'>different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call that <span class='purple'>Fun of paper dissection.</span> And further build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!
+In next post, we will do <span class='yellow'>something different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call our next adventure <span class='purple'>Fun of paper dissection.</span> And further build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!
 
 <span class='orange'>Happy Learning!</span>
 
