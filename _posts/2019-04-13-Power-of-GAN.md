@@ -1025,13 +1025,13 @@ Startups: [Modulate](https://modulate.ai/) [Dessa RealTalk](https://dessa.com/re
 
 [cyclegan results and architecture](https://junyanz.github.io/CycleGAN/)
 
-[ProGAN gifs](https://towardsdatascience.com/progan-how-nvidia-generated-images-of-unprecedented-quality-51c98ec2cbd2))
+[ProGAN gifs](https://towardsdatascience.com/progan-how-nvidia-generated-images-of-unprecedented-quality-51c98ec2cbd2)
 
 [StyleGAN results](https://arxiv.org/pdf/1812.04948)
 
 [BigGAN results](https://arxiv.org/pdf/1809.11096.pdf)
 
-[BiGAN latent space](https://thegradient.pub/bigganex-a-dive-into-the-latent-space-of-biggan/))
+[BiGAN latent space](https://thegradient.pub/bigganex-a-dive-into-the-latent-space-of-biggan/)
 
 [Can everybody dance images](https://arxiv.org/pdf/1808.07371.pdf)
 
