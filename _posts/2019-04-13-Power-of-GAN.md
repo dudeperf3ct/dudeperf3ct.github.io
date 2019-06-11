@@ -229,7 +229,7 @@ $$
 
 Optimal $$D_{G}^{*}$$ will be $$argmax_{D}(V(D, G))$$ for given generator G. Hence from above, $$D = D_{G}^{*}$$.
 
-If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain optimal $$D_{G}^{*} = \frac{1}{2}$$. This is situation where D cannot identify whether the sample is real or fake or D is confused.
+<span class='saddlebrown'>If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain optimal $$D_{G}^{*} = \frac{1}{2}$$. This is situation where D cannot identify whether the sample is real or fake or D is confused.</span>
 
 ### Optimal G
 
@@ -269,7 +269,7 @@ V(D_{G}^{*}, G)&= \int_{x}-2log_{}2 + KL(p_{data}\vert\frac{p_{g}+p_{data}}{2}) 
 $$
 
 
-KL divergence is non-negative and global minimum is reached i.e. $$V(D_{G}^{*}, G) = -2\log_{}2$$ if and only if $$p_{data}=p_{g}$$.
+<span class='saddlebrown'>KL divergence is non-negative and global minimum is reached i.e. $$V(D_{G}^{*}, G) = -2\log_{}2$$ if and only if $$p_{data}=p_{g}$$.</span>
 
 ### Global Optimal
 
@@ -339,9 +339,9 @@ Okay, let's breathe for a moment and compress everything in few lines if we can!
 
 ### DCGAN
 
-DCGAN stands for "Deep Convolution GAN". LAPGAN [paper](https://arxiv.org/pdf/1506.05751) developed an approach to iteratively scale low resolution generated images give that CNN had not great success to provide great image outputs with GAN in previous attempts. The authors of [DCGAN](https://arxiv.org/pdf/1511.06434) after exploring several models identified a family of CNN architectures which train GAN stably and generate high quality images. To achieve that they proposed 3 major changes to CNN architectures. <span class='saddlebrown'>First, replace all pooling functions with strided convolutions for D and fractional convolutions for G, allowing the network to learn its own spatial downsampling. Second, get rid of any fully-connected layers in both G and D CNN architectures. Third, use batchnorm in both G and D, which stabilizes model learning by normalizing input to each unit to have zero mean and unit variance. Also, using ReLU as activation for all layers in G with exception of output which uses tanh as activation and using LeakyReLU as activation for all layers in D.</span> Authors also use GAN as feature extractor and use it for classifying CIFAR-10 dataset and achieve accuracy of 82% which is about 2% less than SoTA CNN classifier.  
+DCGAN stands for "Deep Convolution GAN". LAPGAN [paper](https://arxiv.org/pdf/1506.05751) developed an approach to iteratively scale low resolution generated images give that CNN had not great success to provide great image outputs with GAN in previous attempts. The authors of [DCGAN](https://arxiv.org/pdf/1511.06434) after exploring several models identified a family of CNN architectures which train GAN stably and generate high quality images. To achieve that they proposed 3 major changes to CNN architectures. <span class='green'>First, replace all pooling functions with strided convolutions for D and fractional convolutions for G, allowing the network to learn its own spatial downsampling. Second, get rid of any fully-connected layers in both G and D CNN architectures. Third, use batchnorm in both G and D, which stabilizes model learning by normalizing input to each unit to have zero mean and unit variance. Also, using ReLU as activation for all layers in G with exception of output which uses tanh as activation and using LeakyReLU as activation for all layers in D.</span> Authors also use GAN as feature extractor and use it for classifying CIFAR-10 dataset and achieve accuracy of 82% which is about 2% less than SoTA CNN classifier.  
 
-In short, replace original GAN architecture with family of CNN architectures belonging to DCGAN and boom better results than standard GAN.
+<span class='saddlebrown'>In short, replace original GAN architecture with family of CNN architectures belonging to DCGAN and boom better results than standard GAN.</span>
 
 ### Results
 
@@ -374,11 +374,11 @@ The generative models makes the model's distribution close to data distribution 
 
 Notice there is no discriminator but a critic and there is something extra term of clipping weights in the algorithm. Also, we train critic for more time $$n_{critic}$$ times more than generator. The discriminator in GAN is known as critic in WGAN because the critic here is not classifier of real and fake but is trained on Wasserstein loss to output unbounded real number. $$\mathbf{f_{w}}$$ doesn't give output {0, 1} and that is reason why authors call it critic rather than discriminator. Since the loss for the critic is non-stationary, momentum based methods seemed to perform worse. Hence algorithm uses RMSprop instead of Adam as WGAN training becomes unstable at times when one uses a momentum based optimizer. One of the benefits of WGAN is that it allows us to train the critic till optimality. The better the critic,the higher quality the gradients we use to train the generator. This tells us that we no longer need to balance generator and discriminator’s capacity properly unlike in standard GAN.
 
-In short, take GAN change training procedure a little and replace cost function in GANs with Wasserstein loss function.
+<span class='saddlebrown'>In short, take GAN change training procedure a little and replace cost function in GANs with Wasserstein loss function.</span>
 
-<span class='saddlebrown'>After 19 days of proposing WGAN, the authors of paper came up with improved and stable method for training GAN as opposed to WGAN which sometimes yielded poor samples or fail to converge. In this method, authors get rid of use of clipping the weights of critic in WGAN and use a different method which is to penalize the norm of gradient of the critic with respect to its input. This new loss is WGAN-GP.</span> 
+After 19 days of proposing WGAN, the authors of paper came up with improved and stable method for training GAN as opposed to WGAN which sometimes yielded poor samples or fail to converge. <span class='orange'>In this method, authors get rid of use of clipping the weights of critic in WGAN and use a different method which is to penalize the norm of gradient of the critic with respect to its input. This new loss is WGAN-GP.</span> 
 
-In short, take GAN change training procedure a little and replace cost function in GANs with WGAN-GP loss function i.e. add gradient penalty term to the previous critic loss.
+<span class='saddlebrown'>In short, take GAN change training procedure a little and replace cost function in GANs with WGAN-GP loss function i.e. add gradient penalty term to the previous critic loss.</span>
 
 ### Results
 
@@ -420,8 +420,9 @@ The [researchers](https://arxiv.org/pdf/1611.07004.pdf) at BAIR laboratory devis
 </p>
 
 Here Conditional GAN model learns to map edges -> photo. The discriminator D, learn to classify between fake(produced by G) and real {edge, photo} tuples. The generator G learns to fool D. The only difference with previous approach of standard GAN is using conditional GAN. In case of standard GAN, we generator learns mapping from random noise z to output image y, i.e. G : z -> y. In contrast, conditional GANs learns a mapping from observed image x, random noise z to output image y, i.e. G : {x, z} -> y and D : {x, y} will classify if the tuple is real or fake depending on whether y is generated by GAN or is taken from real dataset. Both G and D observe input x. The new loss function to optimize then becomes,  $$\mathcal{L}_{cGAN} = \mathbb{E}_{\mathbf{x,y}}[\log_{}(D(x,y)] + \mathbb{E}_{\mathbf{x,z}}[\log_{}(1-D(x, G(\mathbf{x, z})))]$$, which is again minmax game G minimizing and D maximizing this objective function.
-</br>
-In short, instead of using standard GAN we use variant called cGAN and accordingly new objective function.
+
+
+<span class='saddlebrown'>In short, instead of using standard GAN we use variant called cGAN and accordingly new objective function.</span>
 
 ### Results
 
@@ -474,6 +475,7 @@ Above we visited pix2pix method where we provided pairs input and output to cGAN
 </p>
 
 There are two generators(mapping functions) G : X -> Y and F : Y -> X, and two discriminators $$D_{X}$$ which aims to distinguish images of X(real) & F(Y)(fake) samples and $$D_{Y}$$ which aims to distinguish images of Y(real) & G(X)(fake) samples. $$D_{Y}$$ encourages G to translate X into outputs indistinguishable to Y, and similarly $$D_{X}$$ encourages F to translate Y into outputs indistinguishable to X. The (b) and (c) part are forward and backward cycle-consistency loss introduced to capture the intuition that if we translate from one domain to the other and back again we should arrive at where we started. Forward cycle-consistency in (b) is x -> G(x) -> F(G(x)) $$\approx$$ x and backward cycle-consistency in (c) is y -> F(y) -> G(F(y)) $$\approx$$ y. If we want to write the total loss mathematically, 
+
 $$
 \begin{aligned}
 \mathcal{L}_{GAN}(G, D_{Y}, X, Y) &= \mathbb{E}_{\mathbf{y} \sim p_{data}(y)}[\log_{}(D_{Y}(y)] + \mathbb{E}_{\mathbf{x} \sim p_{data}(x)}[\log_{}(1 - D_{Y}(G(x)))] \\
@@ -482,7 +484,8 @@ $$
 \mathcal{L}(G, F, D_{X}, D_{Y}) &= \mathcal{L}_{GAN}(G, D_{Y}, X, Y) + \mathcal{L}_{GAN}(F, D_{X}, Y, X) + \lambda\mathcal{L}_{cyc}(G, F)
 \end{aligned}
 $$
-In short, cycle GAN is unsupervised learning variant of standard GAN where we learn to translate images from source to target domain. 
+
+<span class='saddlebrown'>In short, cycle GAN is unsupervised learning variant of standard GAN where we learn to translate images from source to target domain.</span>
 
 ### Results
 
@@ -565,6 +568,8 @@ To further increase the quality of images and variation, authors propose 3 trick
 
 And the last contribution made was how to evaluate two G's, which one is better? This can be done through Sliced Wasserstein Distance (SWD) where we generate large number of images and extract random 7x7 pixels neighborhood. We interpret these neighborhood points as in 7x7x3 dimensional space and comparing this point cloud against the real images(same process) point cloud which can be repeated for each scale.
 
+<span class='saddlebrown'>In short, using ProGAN we can generate high res images.</span>
+
 ### Results
 
 I will let the results speak for themselves. Remember none of these faces are real or from training dataset. They are synthesized by G totally from scratch.
@@ -612,7 +617,7 @@ We can view the mapping network and affine transformations as a way to draw samp
 
 There are other tricks such as style mixing which is used as regularization to reduce the correlation between the level in synthesis network. Interesting thing which we can perform with style mixing is to see what happens when we combine two images. The model combines two images A and B generated by taking low level-features from A and high-level features from B. Another trick used in paper is truncation trick in W. The authors use a different sampling method such as truncated or shrunk sampling to sample latent vectors.
 
-In short, this paper using StyleGANs details not only how to generate high quality images but how to control different styles of the generated image making them more unbelievable fake images.
+<span class='saddlebrown'>In short, this paper using StyleGANs details not only how to generate high quality images but how to control different styles of the generated image making them more unbelievable fake images.</span>
 
 ### Results
 
@@ -631,7 +636,7 @@ The team at Deepmind showed that GANs benefits from scaling and trained models w
 
 BigGAN also employed few tricks such as Truncation Trick, where in previous literature of GAN latent vectors z are drawn from either $$\mathcal{N}$$(0, 1) or $$\mathcal{U}$$[-1, 1]. Instead BigGAN latent vectors are sampled from truncated normal distribution where values which fall outside a range are resampled to fall inside that range. Authors observe that using this sampling strategy does not work well with large models and hence add a Orthogonal Regularization as penalty. <span class='saddlebrown'>One important conclusion drawn from this is that we do not need to use explicit multiscale method as used in ProGAN and StyleGAN for producing higher resolution images.</span> Despite these improvements, BigGAN undergoes training collapse. The authors explore in great-detail why it happens so through colorful plots. They also provide results and conclusion of large amount of experiments performed from which a lot can be learned.
 
-In short, BigGAN could do what ProGAN thought would require multi-scale approach in single-scale by using some tricks.
+<span class='saddlebrown'>In short, BigGAN could do what ProGAN thought would require multi-scale approach in single-scale by using some tricks.</span>
 
 ### Results
 
@@ -659,8 +664,6 @@ Jaw-dropping moment 🤪. All the images generated by generator from scratch. Ge
 <img src='/images/gan/biggan_res_3.png' width="50%"/> 
 </p>
 
-
-
 - **Natural Zoom** : We zoom into certain generated image to look into finer details. It's amazing.
 
 <p align="center">
@@ -672,8 +675,6 @@ Here is example of walking in latent space for specific z and c pairs,
 <p align="center">
 <img src='/images/gan/biggan_res_5.png' width="50%"/> 
 </p>
-
-
 
 ### GAN semi-supervised learning
 
@@ -711,7 +712,6 @@ Here are some of the results produced by MaskGAN along with MaskMLE.
 <p align="center">
 <img src='/images/gan/maskgan_res_2.png' width="50%"/> 
 </p>
-
 
 
 # Videos
