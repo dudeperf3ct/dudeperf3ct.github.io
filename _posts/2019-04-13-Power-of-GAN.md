@@ -136,6 +136,7 @@ Above, we mentioned that GAN sets up a supervised learning problem in order to d
 The discriminative network is a classifier which takes in an input and classifies it to be fake or real i.e. 0 or 1. We have seen these types of problems in supervised learning which go by name binary classifiers. The output of neural network is binary which is obtained by adding sigmoid as last classification layer. As with all supervised algorithms, we require objective function to minimize. We also know that there is a particular loss function which corresponds to binary classification, binary cross entropy(BCE). The cost function used for discriminator(D) is $$J^{(D)}$$($$\theta^{(D)}$$, $$\theta^{(G)}$$), for parameters $$\theta^{(D)}$$ of discriminative network and $$\theta^{(G)}$$ of generative network.
 
 We will first define cost function for one data point ($$\mathbf{x}_{1}$$, $$\mathbf{y}_{1}$$) and then generalize over entire dataset for N elements.
+
 $$
 \begin{aligned}
 J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\mathbf{y}_{1}\log_{}D(\mathbf{x}_{1})-(1-\mathbf{y}_{1})(1-D(\mathbf{x}_{1})) \\
@@ -144,6 +145,7 @@ J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\mathbf{y}_{1}\log_{}D(\mathbf{x}_{1})-(
 $$
 
 In GANs, $$x_{i}$$ either come two sources: either $$x_{i}$$ $$\sim$$ $$p_{data}$$, the true distribution, or $$x_{i}$$ = G($$\mathbf{z}$$) where $$\mathbf{z}$$ $$\sim$$ $$p_{model}$$, the generator's distribution, $$\mathbf{z}$$ is sample drawn from some prior distribution. Discriminator sees exactly half of the data coming from each source i.e. half samples are real and remaining half are fake.
+
 $$
 \begin{aligned}
 J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}\log_{}(1-D(G(\mathbf{z})))
@@ -161,6 +163,7 @@ The generator on other hand is trained to increase the chances of D producing a 
 So, combining both the conclusions from above, <span class='red'>to maximize the cost function for D and minimze the second part of cost function for G, G and D are essentially playing minmax game.</span>
 
 We substitute V(D, G) = - $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ in cost function to get the minmax of value function as follows,
+
 $$
 \begin{aligned}
 \min_{G} \max_{D} V(D, G) &= \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[\log_{}(1-D(G(\mathbf{z})))]
@@ -197,8 +200,9 @@ We claimed above that after several steps of training, if G and D have enough ca
 
 ### Optimal D
 
-We want to find best or the optimal value for D, i.e. $$D_{G}^{*}$$ for fixed G. So, we have cost function,
+We want to find best or the optimal value for D, i.e. $$D_{G}^{*}$$ for fixed G. So, we have cost,
 
+</br>
 $$
 \begin{aligned}
 \mathbb{E}_{\mathbf{x} \sim p}[f(\mathbf{x})] &= \int p(\mathbf{x})f(\mathbf{x})\,dx  \\   
@@ -206,17 +210,18 @@ V(D, G) &= \mathbb{E}_{data}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{generator}[\log_
 &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + p_{g}(\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx
 \end{aligned}
 $$
+</br>
 
 One important switch as pointed by elegant blog on [mathematical proofs of GAN](https://srome.github.io/An-Annotated-Proof-of-Generative-Adversarial-Networks-with-Implementation-Notes/) by Scott Rome we made from $$E_{z}$$ to $$E_{generator}$$ notes that for this switch G need not be invertible. But argues that this is incorrect as to [change the variables](https://en.wikipedia.org/wiki/Probability_density_function#Dependent_variables_and_change_of_variables), one must calculate $$G^{-1}$$ which is not assumed to exist (and in practice for neural networks– does not exist!). 
 
 To find maximum of above equation, we take derivate and obtain D as,
-
+</br>
 $$
 \begin{aligned}
 D(\mathbf{x}) &= \frac{p_{data}}{p_{g}+p_{data}}
 \end{aligned}
 $$
-
+</br>
 Optimal $$D_{G}^{*}$$ will be $$argmax_{D}(V(D, G))$$ for given generator G. Hence from above, $$D = D_{G}^{*}$$.
 
 If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain optimal $$D_{G}^{*} = \frac{1}{2}$$. This is situation where D cannot identify whether the sample is real or fake or D is confused.
@@ -233,29 +238,29 @@ V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{
 $$
 
 We add and subtract $$\log_{}2$$ from each integral, multiplied by the probability densities $$p_{data}$$ and $$p_{g}$$. 
-
+</br>
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}}) + (\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx \\
 \end{aligned}
 $$
-
+</br>
 Rearranging the terms we get,
-
+</br>
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x} -\log_{}2(p_{data}+p_{g})\,dx + \int_{x}p_{data}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{data}}{p_{g}+p_{data}})) + p_{g}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{g}}{p_{g}+p_{data}}))\,dx \\
 \end{aligned}
 $$
-
+</br>
 Probability 101 teaches integrating over distribution equals 1, hence first terms becomes equal to $$-2log_{}2$$ and second terms becomes KL distribution between two distributions we get, KL($$p_{data}|\frac{p_{g}+p_{data}}{2}$$) + KL($$p_{g}|\frac{p_{g}+p_{data}}{2}$$). 
-
+</br>
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x}-2log_{}2 + KL(p_{data}|\frac{p_{g}+p_{data}}{2}) + KL(p_{g}|\frac{p_{g}+p_{data}}{2})\,dx \\
 \end{aligned}
 $$
-
+</br>
 KL divergence is non-negative and global minimum is reached i.e. $$V(D_{G}^{*}, G) = -2\log_{}2$$ if and only if $$p_{data}=p_{g}$$.
 
 ### Global Optimal
