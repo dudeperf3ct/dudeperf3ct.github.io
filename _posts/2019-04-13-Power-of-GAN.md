@@ -30,7 +30,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 Feel free to jump anywhere,
 
 - [Introduction to GAN](#introduction-to-gan)
-	- [GAN Framework](#gam-framework)
+	- [GAN Framework](#gan-framework)
 	- [Cost Functions](#cost-functions)
 	- [MinMax](#minmax)
 	- [Theoretical Limits](#theoretical-limits)
