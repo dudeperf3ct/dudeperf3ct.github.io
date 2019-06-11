@@ -245,10 +245,12 @@ $$
 
 We add and subtract $$\log_{}2$$ from each integral, multiplied by the probability densities $$p_{data}$$ and $$p_{g}$$. 
 
+$$
 \begin{aligned}
 V(D_{G}^{*}, G)= & \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}})\,dx \\
 & + \int_{x}(\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx \\
 \end{aligned}
+$$
 
 Rearranging the terms we get,
 
@@ -275,7 +277,6 @@ $$
 
 When both G and D are at optimal values, we have $$p_{data}$$ = $$p_{g}$$ and D* = $$\frac{1}{2}$$, the cost function becomes,
 
-</br>
 $$
 \begin{aligned}
 V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx\\
@@ -283,7 +284,7 @@ V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\lo
 &=-2\log_{}2
 \end{aligned}
 $$
-</br>
+
 
 *Flexing those calculus muscles 🧠*
 
