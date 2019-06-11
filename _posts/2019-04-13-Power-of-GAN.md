@@ -4,7 +4,7 @@ title:      Power of GAN
 date:       2019-04-13 12:00:00
 summary:    This post will provide a brief introduction of GANs.
 categories: gan
-published : false
+published : true
 
 
 ---
