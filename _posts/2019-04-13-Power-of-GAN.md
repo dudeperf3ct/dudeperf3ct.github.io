@@ -137,21 +137,24 @@ The discriminative network is a classifier which takes in an input and classifie
 
 We will first define cost function for one data point ($$\mathbf{x}_{1}$$, $$\mathbf{y}_{1}$$) and then generalize over entire dataset for N elements.
 
+</br>
 $$
 \begin{aligned}
 J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\mathbf{y}_{1}\log_{}D(\mathbf{x}_{1})-(1-\mathbf{y}_{1})(1-D(\mathbf{x}_{1})) \\
 &= -\sum_{i=1}^{N}\mathbf{y}_{i}\log_{}D(\mathbf{x}_{i})-\sum_{i=1}^{N}(1-\mathbf{y}_{i})(1-D(\mathbf{x}_{i})) 
 \end{aligned}
 $$
+</br>
 
 In GANs, $$x_{i}$$ either come two sources: either $$x_{i}$$ $$\sim$$ $$p_{data}$$, the true distribution, or $$x_{i}$$ = G($$\mathbf{z}$$) where $$\mathbf{z}$$ $$\sim$$ $$p_{model}$$, the generator's distribution, $$\mathbf{z}$$ is sample drawn from some prior distribution. Discriminator sees exactly half of the data coming from each source i.e. half samples are real and remaining half are fake.
 
+</br>
 $$
 \begin{aligned}
 J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\frac{1}{2} \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}\log_{}D(\mathbf{x}) -\frac{1}{2} \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}\log_{}(1-D(G(\mathbf{z})))
 \end{aligned}
 $$
-
+</br>
 ## Minmax
 
 To play the game, we need to complete generator's cost function $$J^{(G)}$$ too. We assume that we are playing the simplest zero-sum game, where the sum of all player's cost is zero. In this zero-sum game, we get $$J^{(D)}$$ + $$J^{(G)}$$ = 0. This gives us $$J^{(G)}$$ = - $$J^{(D)}$$.
@@ -164,11 +167,13 @@ So, combining both the conclusions from above, <span class='red'>to maximize the
 
 We substitute V(D, G) = - $$J^{(D)}(\theta^{(D)}, \theta^{(G)})$$ in cost function to get the minmax of value function as follows,
 
+</br>
 $$
 \begin{aligned}
 \min_{G} \max_{D} V(D, G) &= \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[\log_{}(1-D(G(\mathbf{z})))]
 \end{aligned}
 $$
+</br>
 
 <span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to succeed in completing it's own objective. This game continues till we get a state, in which each model becomes an expert on what it is doing, the generative model increases its ability to get the actual data distribution and produces data similar to it, and the discriminative becomes expert in identifying the real samples. The discriminator tries to maximize tweaking only it's parameter and G tries to minimize tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images. Can it get any better than this? (**Question: Will doing maxmin produce same results?**)
 
@@ -176,21 +181,25 @@ Another way to look at above cost function is, we require D that correctly class
 
 <span class='saddlebrown'>On a sad note, the cost used for the generator in the minimax game is useful for theoretical analysis, but does not perform especially well in practice. This is unfortunate for the generator, because when the discriminator successfully rejects generator samples with high confidence producing a perfect discriminator, the generator’s gradient vanishes, it will produce zero everywhere, leading to vanishing gradient problem. This is main problem in training GANs called "mode collapse".</span>
 
-To solve this problem, one approach is to continue to use cross-entropy minimization for the generator. Instead of flipping the sign on the discriminator’s cost to obtain a cost for the generator, we flip the target used to construct the cross-entropy cost.  The cost for the generator then becomes:
+To solve this problem, one approach is to continue to use cross-entropy minimization for the generator. Instead of flipping the sign on the discriminator’s cost to obtain a cost for the generator, we flip the target used to construct the cross-entropy cost. The cost for the generator then becomes:
 
+</br>
 $$
 \begin{aligned}
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
 \end{aligned}
 $$
+</br>
 
 Also, maximum likelihood can be used as cost function for generator,
 
+</br>
 $$
 \begin{aligned}
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\exp({\sigma^{-1}(D(G(\mathbf{z})))})
 \end{aligned}
 $$
+</br>
 
 Different adversarial loss functions such as feature matching, minibatch discrimination, etc produces good results in GANs. Many such adversarial losses are proposed for stable training of GANs and can be experimented with depending on the task at hand and not limited to above. 
 
@@ -215,6 +224,7 @@ $$
 One important switch as pointed by elegant blog on [mathematical proofs of GAN](https://srome.github.io/An-Annotated-Proof-of-Generative-Adversarial-Networks-with-Implementation-Notes/) by Scott Rome we made from $$E_{z}$$ to $$E_{generator}$$ notes that for this switch G need not be invertible. But argues that this is incorrect as to [change the variables](https://en.wikipedia.org/wiki/Probability_density_function#Dependent_variables_and_change_of_variables), one must calculate $$G^{-1}$$ which is not assumed to exist (and in practice for neural networks– does not exist!). 
 
 To find maximum of above equation, we take derivate and obtain D as,
+
 </br>
 $$
 \begin{aligned}
@@ -222,6 +232,7 @@ D(\mathbf{x}) &= \frac{p_{data}}{p_{g}+p_{data}}
 \end{aligned}
 $$
 </br>
+
 Optimal $$D_{G}^{*}$$ will be $$argmax_{D}(V(D, G))$$ for given generator G. Hence from above, $$D = D_{G}^{*}$$.
 
 If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain optimal $$D_{G}^{*} = \frac{1}{2}$$. This is situation where D cannot identify whether the sample is real or fake or D is confused.
@@ -230,14 +241,17 @@ If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain op
 
 We want to prove that optimal value of G occurs when $$p_{data} = p_{g}$$ for optimal $$D_{G}^{*}$$.  Plugging the value of optimal D in cost function we get,
 
+</br>
 $$
 \begin{aligned}
 V(D, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + p_{g}(\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx \\
 V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}})\,dx \\
 \end{aligned}
 $$
+</br>
 
 We add and subtract $$\log_{}2$$ from each integral, multiplied by the probability densities $$p_{data}$$ and $$p_{g}$$. 
+
 </br>
 $$
 \begin{aligned}
@@ -245,7 +259,9 @@ V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{
 \end{aligned}
 $$
 </br>
+
 Rearranging the terms we get,
+
 </br>
 $$
 \begin{aligned}
@@ -253,20 +269,24 @@ V(D_{G}^{*}, G)&= \int_{x} -\log_{}2(p_{data}+p_{g})\,dx + \int_{x}p_{data}(\mat
 \end{aligned}
 $$
 </br>
-Probability 101 teaches integrating over distribution equals 1, hence first terms becomes equal to $$-2log_{}2$$ and second terms becomes KL distribution between two distributions we get, KL($$p_{data}|\frac{p_{g}+p_{data}}{2}$$) + KL($$p_{g}|\frac{p_{g}+p_{data}}{2}$$). 
+
+Probability 101 teaches integrating over distribution equals 1, hence first terms becomes equal to $$-2log_{}2$$ and second terms becomes KL distribution between two distributions we get, KL($$p_{data}\vert\frac{p_{g}+p_{data}}{2}$$) + KL($$p_{g}\vert\frac{p_{g}+p_{data}}{2}$$). 
+
 </br>
 $$
 \begin{aligned}
-V(D_{G}^{*}, G)&= \int_{x}-2log_{}2 + KL(p_{data}|\frac{p_{g}+p_{data}}{2}) + KL(p_{g}|\frac{p_{g}+p_{data}}{2})\,dx \\
+V(D_{G}^{*}, G)&= \int_{x}-2log_{}2 + KL(p_{data}\vert\frac{p_{g}+p_{data}}{2}) + KL(p_{g}\vert\frac{p_{g}+p_{data}}{2})\,dx \\
 \end{aligned}
 $$
 </br>
+
 KL divergence is non-negative and global minimum is reached i.e. $$V(D_{G}^{*}, G) = -2\log_{}2$$ if and only if $$p_{data}=p_{g}$$.
 
 ### Global Optimal
 
 When both G and D are at optimal values, we have $$p_{data}$$ = $$p_{g}$$ and D* = $$\frac{1}{2}$$, the cost function becomes,
 
+</br>
 $$
 \begin{aligned}
 V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx\\
@@ -274,7 +294,7 @@ V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\lo
 &=-2\log_{}2
 \end{aligned}
 $$
-
+</br>
 
 *Flexing those calculus muscles 🧠*
 
