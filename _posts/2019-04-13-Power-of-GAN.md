@@ -247,7 +247,8 @@ We add and subtract $$\log_{}2$$ from each integral, multiplied by the probabili
 
 $$
 \begin{aligned}
-V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}}) + (\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx
+V(D_{G}^{*}, G)= & \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}}) \\
+& + (\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx \\
 \end{aligned}
 $$
 
@@ -255,7 +256,8 @@ Rearranging the terms we get,
 
 $$
 \begin{aligned}
-V(D_{G}^{*}, G)&= \int_{x} -\log_{}2(p_{data}+p_{g})\,dx + \int_{x}p_{data}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{data}}{p_{g}+p_{data}})) + p_{g}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{g}}{p_{g}+p_{data}}))\,dx
+V(D_{G}^{*}, G)= & \int_{x} -\log_{}2(p_{data}+p_{g})\,dx \\
+& + \int_{x}p_{data}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{data}}{p_{g}+p_{data}})) + p_{g}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{g}}{p_{g}+p_{data}}))\,dx \\
 \end{aligned}
 $$
 
