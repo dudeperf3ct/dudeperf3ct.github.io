@@ -245,12 +245,10 @@ $$
 
 We add and subtract $$\log_{}2$$ from each integral, multiplied by the probability densities $$p_{data}$$ and $$p_{g}$$. 
 
-$$
 \begin{aligned}
-V(D_{G}^{*}, G)= & \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}}) \\
-& + (\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx \\
+V(D_{G}^{*}, G)= & \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}})\,dx \\
+& + \int_{x}(\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx \\
 \end{aligned}
-$$
 
 Rearranging the terms we get,
 
