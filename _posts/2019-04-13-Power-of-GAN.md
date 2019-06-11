@@ -142,6 +142,7 @@ J^{(D)}(\theta^{(D)}, \theta^{(G)}) &= -\mathbf{y}_{1}\log_{}D(\mathbf{x}_{1})-(
 &= -\sum_{i=1}^{N}\mathbf{y}_{i}\log_{}D(\mathbf{x}_{i})-\sum_{i=1}^{N}(1-\mathbf{y}_{i})(1-D(\mathbf{x}_{i})) 
 \end{aligned}
 $$
+
 In GANs, $$x_{i}$$ either come two sources: either $$x_{i}$$ $$\sim$$ $$p_{data}$$, the true distribution, or $$x_{i}$$ = G($$\mathbf{z}$$) where $$\mathbf{z}$$ $$\sim$$ $$p_{model}$$, the generator's distribution, $$\mathbf{z}$$ is sample drawn from some prior distribution. Discriminator sees exactly half of the data coming from each source i.e. half samples are real and remaining half are fake.
 $$
 \begin{aligned}
@@ -165,6 +166,7 @@ $$
 \min_{G} \max_{D} V(D, G) &= \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[\log_{}(1-D(G(\mathbf{z})))]
 \end{aligned}
 $$
+
 <span class='blue'>It's like generator and discriminator are fighting each other on who will win.</span> Each wants to succeed in completing it's own objective. This game continues till we get a state, in which each model becomes an expert on what it is doing, the generative model increases its ability to get the actual data distribution and produces data similar to it, and the discriminative becomes expert in identifying the real samples. The discriminator tries to maximize tweaking only it's parameter and G tries to minimize tweaking only it's parameters. How amazing? And this setup helps G to produce jaw-dropping images. Can it get any better than this? (**Question: Will doing maxmin produce same results?**)
 
 Another way to look at above cost function is, we require D that correctly classifies real samples x, where $$\mathbf{x} \sim p_{data}(\mathbf{x})$$, hence $$\mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})}[\log_{}D(\mathbf{x})]$$. Maximizing this term corresponds to D being able to predict when $$\mathbf{x} \sim p_{data}(\mathbf{x})$$. This is the first term of value function. Next term G fooling D in passing generated sample z, where $$\mathbf{z} \sim p_{z}(\mathbf{z})$$ as real samples, hence $$\mathbb{E}_{\mathbf{z} \sim p_{z}(\mathbf{z})}[\log_{}(1-D(G(\mathbf{z})))]$$. Maximizing this term means $$D(G(\mathbf{z})) \approx 0$$ implying G is NOT fooling D, therefore minimize $$-D(G(\mathbf{z}))$$. This again confirms the above minmax game between D and G where optimal D is maximizing the above equation and optimal G is minimizing the above equation.
@@ -177,12 +179,15 @@ $$
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\log_{}(1-D(G(\mathbf{z})))
 \end{aligned}
 $$
+
 Also, maximum likelihood can be used as cost function for generator,
+
 $$
 \begin{aligned}
 J^{(G)} &= -\frac{1}{2} \mathbb{E}_{\mathbf{z}}\exp({\sigma^{-1}(D(G(\mathbf{z})))})
 \end{aligned}
 $$
+
 Different adversarial loss functions such as feature matching, minibatch discrimination, etc produces good results in GANs. Many such adversarial losses are proposed for stable training of GANs and can be experimented with depending on the task at hand and not limited to above. 
 
 ## Theoretical Limits
@@ -199,6 +204,7 @@ V(D, G) &= \mathbb{E}_{data}[\log_{}D(\mathbf{x})]+ \mathbb{E}_{generator}[\log_
 &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + p_{g}(\mathbf{x})\log_{}(1-D(G(\mathbf{x})))\,dx
 \end{aligned}
 $$
+
 One important switch as pointed by elegant blog on [mathematical proofs of GAN](https://srome.github.io/An-Annotated-Proof-of-Generative-Adversarial-Networks-with-Implementation-Notes/) by Scott Rome we made from $$E_{z}$$ to $$E_{generator}$$ notes that for this switch G need not be invertible. But argues that this is incorrect as to [change the variables](https://en.wikipedia.org/wiki/Probability_density_function#Dependent_variables_and_change_of_variables), one must calculate $$G^{-1}$$ which is not assumed to exist (and in practice for neural networks– does not exist!). 
 
 To find maximum of above equation, we take derivate and obtain D as,
@@ -207,6 +213,7 @@ $$
 D(\mathbf{x}) &= \frac{p_{data}}{p_{g}+p_{data}}
 \end{aligned}
 $$
+
 Optimal $$D_{G}^{*}$$ will be $$argmax_{D}(V(D, G))$$ for given generator G. Hence from above, $$D = D_{G}^{*}$$.
 
 If G is trained to be optimal i.e. when $$p_{data} \approx p_{g}$$, we obtain optimal $$D_{G}^{*} = \frac{1}{2}$$. This is situation where D cannot identify whether the sample is real or fake or D is confused.
@@ -220,24 +227,28 @@ V(D, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + p_{g}(\mathbf{x}
 V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}})\,dx \\
 \end{aligned}
 $$
+
 We add and subtract $$\log_{}2$$ from each integral, multiplied by the probability densities $$p_{data}$$ and $$p_{g}$$. 
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x} p_{data}(\mathbf{x})\log_{}(\frac{p_{data}}{p_{g}+p_{data}}) + p_{g}(\mathbf{x})\log_{}(\frac{p_{g}}{p_{g}+p_{data}}) + (\log_{}2-\log_{}2)p_{data} + (\log_{}2-\log_{}2)p_{g}\,dx \\
 \end{aligned}
 $$
+
 Rearranging the terms we get,
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x} -\log_{}2(p_{data}+p_{g})\,dx + \int_{x}p_{data}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{data}}{p_{g}+p_{data}})) + p_{g}(\mathbf{x})(\log_{}2 + \log_{}(\frac{p_{g}}{p_{g}+p_{data}}))\,dx \\
 \end{aligned}
 $$
+
 Probability 101 teaches integrating over distribution equals 1, hence first terms becomes equal to $$-2log_{}2$$ and second terms becomes KL distribution between two distributions we get, KL($$p_{data}|\frac{p_{g}+p_{data}}{2}$$) + KL($$p_{g}|\frac{p_{g}+p_{data}}{2}$$). 
 $$
 \begin{aligned}
 V(D_{G}^{*}, G)&= \int_{x}-2log_{}2 + KL(p_{data}|\frac{p_{g}+p_{data}}{2}) + KL(p_{g}|\frac{p_{g}+p_{data}}{2})\,dx \\
 \end{aligned}
 $$
+
 KL divergence is non-negative and global minimum is reached i.e. $$V(D_{G}^{*}, G) = -2\log_{}2$$ if and only if $$p_{data}=p_{g}$$.
 
 ### Global Optimal
@@ -250,6 +261,8 @@ V(D*, G) &= \int_{x} p_{data}(\mathbf{x})\log_{}D(\mathbf{x})  + (\mathbf{x})\lo
 &=-2\log_{}2
 \end{aligned}
 $$
+
+
 *Flexing those calculus muscles 🧠*
 
 <span class='green'>I-know-nothing:</span> What is training procedure given that we have two neural networks for D and G? How does backpropogation work? How does G tweak it's parameters based on signal from D?
