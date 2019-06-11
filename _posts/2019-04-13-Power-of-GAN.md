@@ -688,7 +688,7 @@ Okay, enough about images. Show me(GAN) what else you got. Synthesizing speech i
 
 Magenta has a [great blog](https://magenta.tensorflow.org/gansynth) with example outputs of audio generated, definitely worth a look! To be frank, I didn't get a lot out of paper. Previous approach for speech synthesis was using Autoregressive models -- another type of generative model -- like [WaveNet](https://deepmind.com/blog/wavenet-generative-model-raw-audio/), which have slow iterative sampling and lack global structure(no idea what this means). They make use of ProGAN(which we looked above) to generate audio spectra. Briefly, model samples a random vector z from from a spherical Gaussian and runs it through a stack of transposed convolutions to upsample and generate output data, x = G(z). This generated output is fed into discriminator D of downsampling convolutions (whose architecture mirrors the generator’s) to estimate a divergence measure between the real and generated distribution. WGAN-GP is used as objective function same as used in ProGAN. Rather than generate audio sequentially as done in WaveNet, GANSynth generates an entire sequence in parallel, synthesizing audio significantly faster than real-time on a modern GPU and ~50,000 times faster than a standard WaveNet.
 
-In short, it works. GANs synthesize musics. Mozart we(Magenta) are coming for you!
+<span class='saddlebrown'>In short, it works. GANs synthesize musics. Mozart we(Magenta) are coming for you!</span>
 
 ### Results
 
@@ -741,7 +741,6 @@ Next transfer pipeline, similar to training pose detector P extracts pose inform
 </p>
 
 
-
 ### Results
 
 This video is sufficient enough to convey the awesomeness achieved.
@@ -782,7 +781,7 @@ Next, once the [meta-learning](https://blog.fastforwardlabs.com/2019/05/22/metal
 
 All of this is simplified a bit but paper details all the necessary steps and different ablation studies with respect to losses.
 
-In short, using [meta-learning](https://blog.fastforwardlabs.com/2019/05/22/metalearners-learning-how-to-learn.html) we send the K-frames to embedding network which send output information about person in video irrespective of person's pose. Given landmarks and pose independent vector, G learns to map these input to generate a image that looks similar to that of person in video for given landmark. Now, D which is a conditional projector discriminator(same as seen in BigGAN) takes these as inputs and learns to distinguish if the pairs are real or fake. The training objective contains 3 loss terms. When we want to output for new unseen video, we finetune the unseen video for some T frames by modifying G and D a bit and training with new loss function.
+<span class='saddlebrown'>In short, using [meta-learning](https://blog.fastforwardlabs.com/2019/05/22/metalearners-learning-how-to-learn.html) we send the K-frames to embedding network which send output information about person in video irrespective of person's pose. Given landmarks and pose independent vector, G learns to map these input to generate a image that looks similar to that of person in video for given landmark. Now, D which is a conditional projector discriminator(same as seen in BigGAN) takes these as inputs and learns to distinguish if the pairs are real or fake. The training objective contains 3 loss terms. When we want to output for new unseen video, we finetune the unseen video for some T frames by modifying G and D a bit and training with new loss function.</span>
 
 ### Results
 
@@ -894,7 +893,7 @@ You can also play with very cool interactive demo on [gandissect.res.ibm.com](ht
 
 <span class='purple'>Look at the progress from introducing GANs to the world in 2014 to worrying about dangerous impact on society caused by GAN in 2017, this speaks more than I can make you understand. And this is the story of GANs.</span>
 
-In next post, we will do <span class='yellow'>something different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call our next adventure <span class='purple'>Fun of paper dissection.</span> And further build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!
+In next post, we will do <span class='yellow'>something different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call our next adventure <span class='purple'>Fun of paper dissection.</span> And further <span class='purple'>build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!</span>
 
 <span class='orange'>Happy Learning!</span>
 
