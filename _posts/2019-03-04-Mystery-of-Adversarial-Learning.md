@@ -282,7 +282,7 @@ Adversarial examples are not limited to image classification. Adversarial exampl
 - **On the theoretical side**, <span class='saddlebrown'>no one yet knows whether defending against adversarial examples is a theoretically hopeless endeavour (like trying to find a universal machine learning algorithm) or if an optimal strategy would give the defender the upper ground (like in cryptography and differential privacy).</span> The lacking of proper theoretical tools to describe the solution to these complex optimization problems make it even harder to make any theoretical argument that a particular defense will rule out a set of adversarial examples.
 - **On the applied side**, <span class='saddlebrown'>no one has yet designed a truly powerful defense algorithm that can resist a wide variety of adversarial example attack algorithms.</span> Most of the current defense strategies are not adaptive to all types of adversarial attack as one method may block one kind of attack but leaves another vulnerability open to an attacker who knows the underlying defense mechanism.
 
-Well that really concludes adversarial machine learning. Where to next? <span class='purple'>Power of GAN</span>. 
+Well that concludes adversarial machine learning. Where to next? <span class='purple'>[Power of GAN](https://dudeperf3ct.github.io/gan/2019/04/13/Power-of-GAN/)</span>. 
 
 <span class='orange'>Happy Learning!</span>
 
