@@ -47,6 +47,8 @@ There's second kind of critic which is self-interested critic, they come in all 
 The work lige balance has a strict trade-off, if I am happy at home, I come into the office with tremendous energy and if I am happy at work, I come home with tremendous energy. And so, it actually is a circle, it is not a balance. And I think that is worth everybody paying attention to. This work life harmony is what I try to teach young employees and senior executives at Amazon.
 
 <span class='red'>For 21 years whenever we have an all-hands meeting at Amazon I say, "Look, when stock is up 30% in month, don't feel 30% smarter. Because when stock is down 30% in a month, it's not going to feel so good to be 30% dumber". I never spent any time thinking about daily stock price.</span>
+
+Invention requires a long-term willingness to be misunderstood. You do something that you genuinely believe in, that you have conviction about, but for a long period of time, well-meaning people may criticize that effort … if you really have conviction that they’re not right, you need to have that long-term willingness to be misunderstood. It’s a key part of invention.
  
 
 Quotes
