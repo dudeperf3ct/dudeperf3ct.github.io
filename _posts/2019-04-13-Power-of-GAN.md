@@ -1047,7 +1047,7 @@ Magenta Project = Awesomeness in-built [GANSynth: Making music with GANs](https:
 
 [Which Face is Real?](http://www.whichfaceisreal.com/learn.html)
 
-Game: [Who is Real?](http://www.whichfaceisreal.com/index.php) and [FauxRogan](http://fakejoerogan.com/) 
+Game: [Who is Real?](http://www.whichfaceisreal.com/index.php), [FauxRogan](http://fakejoerogan.com/), [GLTR](http://gltr.io/dist/index.html) and [GROVER](https://grover.allenai.org/detect)
 
 [Nic Cage Everyone!](http://niccageaseveryone.blogspot.com/)
 
