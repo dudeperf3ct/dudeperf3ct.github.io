@@ -22,6 +22,9 @@ Okay enough talk, I tried to declutter almost the sources and arrange it in such
 
 Knowing the name of something doesn’t mean you understand it. The first and foremost is to understand the [difference between](https://blogs.nvidia.com/blog/2016/07/29/whats-difference-artificial-intelligence-machine-learning-deep-learning-ai/) [DL, ML](https://skymind.ai/wiki/ai-vs-machine-learning-vs-deep-learning) and [AI](https://medium.com/@mijordan3/artificial-intelligence-the-revolution-hasnt-happened-yet-5e1d5812e1e7). 
 
+Here I present to you the list of courses that I would recommend depending on the expertise in DL. 
+
+I will keep updating the list with latest courses as they come.
 
 
 |   	|   	|   	|
@@ -34,6 +37,8 @@ Knowing the name of something doesn’t mean you understand it. The first and fo
 | [CS230: Deep Learning Autumn 2018](https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb) | | |
 
 
+
+
 Do you want to learn DL all day along? Here are some of my favourite "Unwinding Tracks" which you can switch from now and then to avoid information overload.
 
 |   	|   	|   	|
@@ -43,8 +48,13 @@ Do you want to learn DL all day along? Here are some of my favourite "Unwinding 
 |[MIT 6.868J The Society of Mind, Fall 2011](https://www.youtube.com/playlist?list=PLUl4u3cNGP61E-vNcDV0w5xpsIBYNJDkU)|[MIT 6.034 Artificial Intelligence, Fall 2010](https://www.youtube.com/playlist?list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi)| [MIT 18.065 Matrix Methods in Data Analysis, Signal Processing, and Machine Learning, Spring 2018](https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k)|
 |[9.11 The Human Brain](https://www.youtube.com/playlist?list=PLyGKBDfnk-iAQx4Kw9JeVqspbg77sfAK0) |[6.HT 2019](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuiujH1lpn8cA9dsyulbYRv)| [Full Stack Deep Learning Bootcamp](https://fullstackdeeplearning.com/march2019)|
 
+And the books(don't just read books about DL okay?).
 
-
+|   	|   	|   	|
+|:---:	|:---:	|:---:	|
+| [Deep Learning Book](https://www.deeplearningbook.org/) | [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)	| [Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow, 2nd Edition](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/)  |
+| [Deep Learning with Python (Keras)](http://amzn.to/2oBWcYV) | [Reinforcement Learning: An Introduction (2nd Edition)](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)	|  [Artificial Intelligence: A Modern Approach](http://aima.cs.berkeley.edu/) |
+| [Deep Learning for Computer Vision with Python](https://www.pyimagesearch.com/deep-learning-computer-vision-python-book/) | [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/)	|  [Speech and Language Processing](http://www.cs.colorado.edu/~martin/slp2.html) |
 
 
 
