@@ -27,14 +27,29 @@ Knowing the name of something doesn’t mean you understand it. The first and fo
 |   	|   	|   	|
 |:---:	|:---:	|:---:	|
 | [Coursera Machine Learning](https://www.coursera.org/learn/machine-learning)  |   [Stanford CS231n Winter 2016](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC)	|  [UCL Advanced Deep Learning & Reinforcement Learning](https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs) |
-| [Introduction to Machine Learning for Coders!](https://course18.fast.ai/ml) 	|  [Stanford CS224N: NLP with Deep Learning Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z) 	|   	|
+| [Introduction to Machine Learning for Coders!](https://course18.fast.ai/ml) 	|  [Stanford CS224N: NLP with Deep Learning Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z) 	|  [Cornell's Machine Learning](https://www.youtube.com/playlist?list=PLl8OlHZGYOQ7bkVbuRthEsaLr7bONzbXS) 	|
 | [Deeplearning.ai Specialization](https://www.coursera.org/specializations/deep-learning)    |  [Stanford CS224U: Natural Language Understanding Spring 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rObpMCir6rNNUlFAn56Js20)   |         |
 | [TensorFlow Specialization by deeplearning.ai](https://www.coursera.org/collections/tensorflow-deeplearning-ai) 	|  [UCL Reinforcement Learning](https://www.youtube.com/playlist?list=PLzuuYNsE1EZAXYR4FJ75jcJseBmo4KQ9-) 	|   	|
 | [Introduction to Deep Learning with PyTorch](https://www.udacity.com/course/deep-learning-pytorch--ud188) | | |
-
+| [CS230: Deep Learning Autumn 2018](https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb) | | |
 
 
 Do you want to learn DL all day along? Here are some of my favourite "Unwinding Tracks" which you can switch from now and then to avoid information overload.
+
+|   	|   	|   	|
+|:---:	|:---:	|:---:	|
+| [Learning How to Learn - Barbara Oakley](https://www.coursera.org/learn/learning-how-to-learn) | [Justice with Michael Sandel](https://www.youtube.com/playlist?list=PL30C13C91CFFEFEA6)	| [A Brief History of Humankind - Yuval Noah Harari](https://www.youtube.com/playlist?list=PLfc2WtGuVPdmhYaQjd449k-YeY71fiaFp)  |
+|[The Ethics and Governance of Artificial Intelligence](https://www.media.mit.edu/courses/the-ethics-and-governance-of-artificial-intelligence/) | [Calling Bullshit in the Age of Big Data](https://www.youtube.com/playlist?list=PLPnZfvKID1Sje5jWxt-4CSZD7bUI4gSPS) | [Quantum computing for the determined](https://www.youtube.com/playlist?list=PL1826E60FD05B44E4) |
+|[MIT 6.868J The Society of Mind, Fall 2011](https://www.youtube.com/playlist?list=PLUl4u3cNGP61E-vNcDV0w5xpsIBYNJDkU)
+ |[MIT 6.034 Artificial Intelligence, Fall 2010](https://www.youtube.com/playlist?list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi)
+ | [MIT 18.065 Matrix Methods in Data Analysis, Signal Processing, and Machine Learning, Spring 2018](https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k)|
+|[9.11 The Human Brain](https://www.youtube.com/playlist?list=PLyGKBDfnk-iAQx4Kw9JeVqspbg77sfAK0) |[6.HT 2019](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuiujH1lpn8cA9dsyulbYRv)| [Full Stack Deep Learning Bootcamp](https://fullstackdeeplearning.com/march2019)|
+
+
+
+
+
+
 
 
 
