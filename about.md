@@ -26,10 +26,11 @@ Knowing the name of something doesn’t mean you understand it. The first and fo
 
 |   	|   	|   	|
 |:---:	|:---:	|:---:	|
-| [Coursera Machine Learning](https://www.coursera.org/learn/machine-learning)  |   [CS231n Winter 2016](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC)	|  [UCL Advanced Deep Learning & Reinforcement Learning](https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs) |
-| [Introduction to Machine Learning for Coders!](https://course18.fast.ai/ml) 	|  [CS224N: Natural Language Processing with Deep Learning Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z) 	|   	|
-|     |  [Stanford CS224U: Natural Language Understanding Spring 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rObpMCir6rNNUlFAn56Js20)   |         |
-|  	|  [UCL Reinforcement Learning](https://www.youtube.com/playlist?list=PLzuuYNsE1EZAXYR4FJ75jcJseBmo4KQ9-) 	|   	|
+| [Coursera Machine Learning](https://www.coursera.org/learn/machine-learning)  |   [Stanford CS231n Winter 2016](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC)	|  [UCL Advanced Deep Learning & Reinforcement Learning](https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs) |
+| [Introduction to Machine Learning for Coders!](https://course18.fast.ai/ml) 	|  [Stanford CS224N: NLP with Deep Learning Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z) 	|   	|
+| [Deeplearning.ai Specialization](https://www.coursera.org/specializations/deep-learning)    |  [Stanford CS224U: Natural Language Understanding Spring 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rObpMCir6rNNUlFAn56Js20)   |         |
+| [TensorFlow Specialization by deeplearning.ai](https://www.coursera.org/collections/tensorflow-deeplearning-ai) 	|  [UCL Reinforcement Learning](https://www.youtube.com/playlist?list=PLzuuYNsE1EZAXYR4FJ75jcJseBmo4KQ9-) 	|   	|
+| [Introduction to Deep Learning with PyTorch](https://www.udacity.com/course/deep-learning-pytorch--ud188) | | |
 
 
 
