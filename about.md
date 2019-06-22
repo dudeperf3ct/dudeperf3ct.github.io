@@ -41,7 +41,7 @@ I will keep updating the list with latest courses as they come.
 
 Do you want to learn DL all day along? Here are some of my favourite "Unwinding Tracks" which you can switch from now and then to avoid information overload.
 
-|   	|   	|   	|
+||||
 |:---:	|:---:	|:---:	|
 | [Learning How to Learn - Barbara Oakley](https://www.coursera.org/learn/learning-how-to-learn) | [Justice with Michael Sandel](https://www.youtube.com/playlist?list=PL30C13C91CFFEFEA6)	| [A Brief History of Humankind - Yuval Noah Harari](https://www.youtube.com/playlist?list=PLfc2WtGuVPdmhYaQjd449k-YeY71fiaFp)  |
 |[The Ethics and Governance of Artificial Intelligence](https://www.media.mit.edu/courses/the-ethics-and-governance-of-artificial-intelligence/) | [Calling Bullshit in the Age of Big Data](https://www.youtube.com/playlist?list=PLPnZfvKID1Sje5jWxt-4CSZD7bUI4gSPS) | [Quantum computing for the determined](https://www.youtube.com/playlist?list=PL1826E60FD05B44E4) |
