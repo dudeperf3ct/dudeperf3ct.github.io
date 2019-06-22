@@ -27,7 +27,7 @@ Here I present to you the list of courses that I would recommend depending on th
 I will keep updating the list with latest courses as they come.
 
 
-|   	|   	|   	|
+|  Casual 	| Hardcore  	|  Insane 	|
 |:---:	|:---:	|:---:	|
 | [Coursera Machine Learning](https://www.coursera.org/learn/machine-learning)  |   [Stanford CS231n Winter 2016](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC)	|  [UCL Advanced Deep Learning & Reinforcement Learning](https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs) |
 | [Introduction to Machine Learning for Coders!](https://course18.fast.ai/ml) 	|  [Stanford CS224N: NLP with Deep Learning Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z) 	|  [Cornell's Machine Learning](https://www.youtube.com/playlist?list=PLl8OlHZGYOQ7bkVbuRthEsaLr7bONzbXS) 	|
