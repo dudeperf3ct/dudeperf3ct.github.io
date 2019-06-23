@@ -39,7 +39,7 @@ Knowing the name of something doesn’t mean you understand it. The first and fo
 | [Stanford CS230: Deep Learning, Autumn 2018](https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb) | [Stanford CS231n: Convolutional Neural Networks for Visual Recognition, Spring 2017](https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv) | |
 | [fastai Practical Deep Learning for Coders v3 part 1](https://course.fast.ai/videos/?lesson=1) part 2 coming soon | | |
 
-<span class='saddlebrown'>Do you want to learn DL all day along? Here are some of my favourite "Unwinding Tracks" which you can switch to avoid information overload.</span>
+<span class='saddlebrown'>Do you want to learn DL all day? Here are some of my favourite "Unwinding Tracks" which you can switch to avoid information overload 🤯.</span>
 
 ||||
 |:---:	|:---:	|:---:	|
@@ -49,7 +49,7 @@ Knowing the name of something doesn’t mean you understand it. The first and fo
 |[MIT 9.11: The Human Brain](https://www.youtube.com/playlist?list=PLyGKBDfnk-iAQx4Kw9JeVqspbg77sfAK0)|[Full Stack Deep Learning Bootcamp](https://fullstackdeeplearning.com/march2019) |[Project Tuva: Richard Feynman’s Messenger Lecture Series](https://www.microsoft.com/en-us/research/project/tuva-richard-feynman/)| 
 |[Principal wise-ass](https://fs.blog/charlie-munger/)|[Paul Graham Essays](http://www.paulgraham.com/articles.html) |[The Pmarca Blog](https://pmarchive.com/)| 
 
-<span class='saddlebrown'>And what about any recommendation for books?</span>
+<span class='saddlebrown'>And what about any recommendation for books📚 ?</span>
 
 |   	|   	|   	|
 |:---:	|:---:	|:---:	|
