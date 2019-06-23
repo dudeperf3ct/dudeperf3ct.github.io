@@ -22,19 +22,19 @@ Okay enough talk, I tried to declutter almost the sources and arrange it in such
 
 Knowing the name of something doesn’t mean you understand it. The first and foremost is to understand the [difference between](https://blogs.nvidia.com/blog/2016/07/29/whats-difference-artificial-intelligence-machine-learning-deep-learning-ai/) [DL, ML](https://skymind.ai/wiki/ai-vs-machine-learning-vs-deep-learning) and [AI](https://medium.com/@mijordan3/artificial-intelligence-the-revolution-hasnt-happened-yet-5e1d5812e1e7). 
 
-Here I present to you the list of courses that I would recommend depending on the expertise in DL. 
+Here I present to you the list of courses that I would recommend with increasing level of difficulty. 
 
 I will keep updating the list with latest courses as they come.
 
 
 |  Casual 	| Hardcore  	|  Insane 	|
 |:---:	|:---:	|:---:	|
-| [Coursera Machine Learning](https://www.coursera.org/learn/machine-learning)  |   [Stanford CS231n Winter 2016](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC)	|  [UCL Advanced Deep Learning & Reinforcement Learning](https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs) |
-| [Introduction to Machine Learning for Coders!](https://course18.fast.ai/ml) 	|  [Stanford CS224N: NLP with Deep Learning Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z) 	|  [Cornell's Machine Learning](https://www.youtube.com/playlist?list=PLl8OlHZGYOQ7bkVbuRthEsaLr7bONzbXS) 	|
-| [Deeplearning.ai Specialization](https://www.coursera.org/specializations/deep-learning)    |  [Stanford CS224U: Natural Language Understanding Spring 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rObpMCir6rNNUlFAn56Js20)   |         |
+| [Coursera Machine Learning](https://www.coursera.org/learn/machine-learning)  |   [Stanford CS231n : Convolutional Neural Networks for Visual Recognition Winter 2016](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC)	|  [UCL Advanced Deep Learning & Reinforcement Learning](https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs) |
+| [Introduction to Machine Learning for Coders!](https://course18.fast.ai/ml) 	|  [Stanford CS224N: NLP with Deep Learning Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z) 	|  [Cornell CS4780 : Machine Learning for Intelligent Systems Spring 2017](https://www.youtube.com/playlist?list=PLl8OlHZGYOQ7bkVbuRthEsaLr7bONzbXS) 	|
+| [Deeplearning.ai Specialization](https://www.coursera.org/specializations/deep-learning)    |  [Stanford CS224U: Natural Language Understanding Spring 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rObpMCir6rNNUlFAn56Js20)   |  [CS885 Reinforcement Learning - Spring 2018 - University of Waterloo](https://www.youtube.com/playlist?list=PLdAoL1zKcqTXFJniO3Tqqn6xMBBL07EDc) |
 | [TensorFlow Specialization by deeplearning.ai](https://www.coursera.org/collections/tensorflow-deeplearning-ai) 	|  [UCL Reinforcement Learning](https://www.youtube.com/playlist?list=PLzuuYNsE1EZAXYR4FJ75jcJseBmo4KQ9-) 	|   	|
-| [Introduction to Deep Learning with PyTorch](https://www.udacity.com/course/deep-learning-pytorch--ud188) | | |
-| [CS230: Deep Learning Autumn 2018](https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb) | | |
+| [Introduction to Deep Learning with PyTorch](https://www.udacity.com/course/deep-learning-pytorch--ud188) | [Stanford CS234: Reinforcement Learning Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOSOPzutgyCTapiGlY2Nd8u) | |
+| [Stanford CS230: Deep Learning Autumn 2018](https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb) | | |
 
 
 
@@ -48,7 +48,7 @@ Do you want to learn DL all day along? Here are some of my favourite "Unwinding 
 |[MIT 6.868J The Society of Mind, Fall 2011](https://www.youtube.com/playlist?list=PLUl4u3cNGP61E-vNcDV0w5xpsIBYNJDkU)|[MIT 6.034 Artificial Intelligence, Fall 2010](https://www.youtube.com/playlist?list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi)| [MIT 18.065 Matrix Methods in Data Analysis, Signal Processing, and Machine Learning, Spring 2018](https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k)|
 |[9.11 The Human Brain](https://www.youtube.com/playlist?list=PLyGKBDfnk-iAQx4Kw9JeVqspbg77sfAK0) |[6.HT 2019](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuiujH1lpn8cA9dsyulbYRv)| [Full Stack Deep Learning Bootcamp](https://fullstackdeeplearning.com/march2019)|
 
-And the books(don't just read books about DL okay?).
+And what about any recommendation for books?
 
 |   	|   	|   	|
 |:---:	|:---:	|:---:	|
