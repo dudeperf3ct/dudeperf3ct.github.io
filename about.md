@@ -10,9 +10,9 @@ published : false
 
 That's what not this page is about.
 
-What happens when you ask someone, "What is the best way to learn deep learning?" You will most likely be bombared with tons of courses online. But what the question meant was, "Where to start?"
+What happens when you ask someone, "What is the best way to learn deep learning?" You will most likely be bombared with tons of courses online. What the question meant was, "Where to start?"
 
-<span class='red'>IMO the best way to learn data science is not through earning a degree(nothing wrong with that), I mean weigh all the pros you can get, that is to learn from so many different courses from so many awesome professors around the world not bound to specific university per se. It's like we can go to MIT for one course, Stanford or Harvard for another, CMU or Cornell or land in USF next day for another. I mean how cool is that! And the best thing is all that is free of cost, no traveling, no accommodation, now what can you ask more for? (Ask Geoff Hinton to teach every course covering every topic :P)</span>
+<span class='red'>IMO the best way to learn data science is not through earning a degree(nothing wrong with that), I mean weigh all the pros you can get, that is to learn from so many different courses from so many awesome professors around the world not bound to specific university per se. It's like we can go to MIT for one course, Stanford or Harvard for another, CMU or Cornell or land in USF next day for another. I mean how cool is that! And the best thing is all that is free of cost, no traveling, no accommodation, now what can you ask more for?</span>(Ask Geoff Hinton to teach every course covering every topic 😛)
 
 Okay enough talk, I tried to declutter various sources and arrange it in such that <span class='saddlebrown'>anyone can start learning about DL if put in enough efforts and following every course + assignments religiously.</span> But before that remember what [Richard Feynman](https://dudeperf3ct.github.io/sensei/richard-feynman/) said about knowing the name of something and understanding it.
 
@@ -31,7 +31,7 @@ Knowing the name of something doesn’t mean you understand it. The first and fo
 | [TensorFlow Specialization by deeplearning.ai](https://www.coursera.org/collections/tensorflow-deeplearning-ai) 	|  [UCL Reinforcement Learning](https://www.youtube.com/playlist?list=PLzuuYNsE1EZAXYR4FJ75jcJseBmo4KQ9-) |   	|
 | [Introduction to Deep Learning with PyTorch](https://www.udacity.com/course/deep-learning-pytorch--ud188) | [Stanford CS234: Reinforcement Learning, Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOSOPzutgyCTapiGlY2Nd8u) | |
 | [Stanford CS230: Deep Learning, Autumn 2018](https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb) | [Stanford CS231n: Convolutional Neural Networks for Visual Recognition, Spring 2017](https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv) | |
-| fastai course v3 [part 1](https://course.fast.ai/videos/?lesson=1) part 2 coming soon | | |
+| fastai Practical Deep Learning for Coders v3 [part 1](https://course.fast.ai/videos/?lesson=1) part 2 coming soon | | |
 
 <span class='saddlebrown'>Do you want to learn DL all day along? Here are some of my favourite "Unwinding Tracks" which you can switch from now and then to avoid information overload.</span>
 
