@@ -52,6 +52,10 @@ Knowing the name of something doesn’t mean you understand it. The first and fo
 | [Pattern Recognition and Machine Learning](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) | [Grokking Deep Learning](https://github.com/iamtrask/Grokking-Deep-Learning)	|  [Python Machine Learning Sebastian Raschka](https://github.com/rasbt/python-machine-learning-book) |
 
 
+<blockquote>
+  <p><span class='purple'>The first principle is that you must not fool yourself — and you are the easiest person to fool.</span></p>
+  <footer>— <span class='blue'>Richard P. Feynman from <a href="http://calteches.library.caltech.edu/3043/1/CargoCult.pdf">1974 Calteh's commencement address</a></span></footer>
+</blockquote>
 
 
 
