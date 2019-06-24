@@ -12,13 +12,13 @@ published : true
 </blockquote>
 
 
-<span class='purple'>The obvious question when you visit About page you expect to get answered is, "Who Are You?"</span>
+<span class='purple'>The obvious question expected to get answered when you visit About page is, "Who Are You?"</span>
 
-<span class='saddlebrown'>That's what not this page is about.</span>
+<span class='saddlebrown'>But that's what not this page is about.</span>
 
 <span class='green'>What happens when you ask someone, "What is the best way to learn deep learning?" You will most likely be bombared with tons of courses online. What the question meant was, "Where to start?"</span>
 
-<span class='red'>IMO the best way to learn data science is not through earning a degree(nothing wrong with that), I mean weigh all the pros you can get, that is to learn from so many different courses from so many awesome professors around the world not bound to specific university per se. It's like we can go to MIT for one course, Stanford or Harvard for another, CMU or Cornell or land in USF next day for another. I mean how cool is that! And the best thing is all that is free of cost, no traveling, no accommodation, now what can you ask more for?</span>(Ask Geoffrey Hinton to teach every course covering every topic 😛)
+<span class='red'>IMO the best way to learn data science is not through earning a degree(nothing wrong with that). I mean weigh all the pros you can get through MOOCs, that is to learn from so many different courses from so many awesome professors around the world not bound to specific university. It's like we can go to MIT for one course, Stanford or Harvard for another, CMU or Cornell or land in USF next day for another. I mean how cool is that! And the best thing is all that is free of cost, no traveling, no accommodation, now what can you ask more for?</span>(Ask Geoffrey Hinton to teach every course covering every topic 😛)
 
 Okay enough talk, I tried to declutter various sources and arrange it in such a way that <span class='saddlebrown'>anyone can start learning about DL if put in enough efforts and complete every course + assignments religiously.</span> But before that, remember what [Richard Feynman](https://dudeperf3ct.github.io/sensei/richard-feynman/) said about knowing the name of something and understanding it.
 
