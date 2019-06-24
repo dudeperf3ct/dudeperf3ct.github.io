@@ -533,7 +533,7 @@ Notice how biLM s able to disambiguate both the part of speech and word sense in
 
 ELMo improves task performance over word vectors as the biLM’s contextual representations encodes information generally useful for NLP tasks that is not captured in word vectors.
 
-Once pretrained, the biLM can compute representations for any task. In some cases, fine tuning the biLM on domain specific data leads to significant drops in perplexity and an increase in downstream task performance. <span class='green'>Given a pretrained LM and a supervised architecture for a target NLP task, it is a simple process to use the biLM to improve the task model. We simply run the biLM and record all of the layer representations for each word. Then, we let the end task model learn a linear combination of these representations.</span>
+Once pretrained, the biLM can compute representations for any task. In some cases, fine tuning the biLM on domain specific data leads to significant drops in [perplexity](http://sjmielke.com/comparing-perplexities.htm) and an increase in downstream task performance. <span class='green'>Given a pretrained LM and a supervised architecture for a target NLP task, it is a simple process to use the biLM to improve the task model. We simply run the biLM and record all of the layer representations for each word. Then, we let the end task model learn a linear combination of these representations.</span>
 
 To add ELMo to the supervised model, we first freeze the weights of the biLM and then concatenate the ELMo vector $$\text{ELMo}^{task}$$ with $$x_{k}$$ and pass the ELMo enhanced representation [$$x_{k}; \text{ELMo}^{task}$$] into task RNN.
 
@@ -1018,6 +1018,8 @@ Must Read! Havard NLP [The Annotated Transformer](http://nlp.seas.harvard.edu/20
 [GPT-2](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
 
 [OpenAI GPT-2 Blog](https://openai.com/blog/better-language-models/)
+
+[Can you compare perplexity across different segmentations?](http://sjmielke.com/comparing-perplexities.htm)
 
 ---
 
