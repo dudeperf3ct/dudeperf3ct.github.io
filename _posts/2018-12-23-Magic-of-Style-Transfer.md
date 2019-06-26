@@ -69,7 +69,7 @@ More curious audience: [Check this recent paper on Batchnorm](https://arxiv.org/
 <img src='/images/style_transfer/dropout_effect.png' width="60%"/>
 </p>
 
-Curious Readers: [Did you know?](https://raw.githubusercontent.com/dudeperf3ct/dudeperf3ct.github.io/master/images/style_transfer/dropout_paper.png?token=AKPtOvWA9jXskz_ajvvIa0C5FdTJHUFmks5cVCb2wA%3D%3D)
+Curious Readers: [Did you know?](https://github.com/dudeperf3ct/dudeperf3ct.github.io/blob/master/images/style_transfer/dropout_paper.png)
 
 ### Data Augmentation
 
