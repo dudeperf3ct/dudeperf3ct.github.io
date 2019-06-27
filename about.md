@@ -38,6 +38,7 @@ Knowing the name of something doesn’t mean you understand it. The first and fo
 | [Introduction to Deep Learning with PyTorch](https://www.udacity.com/course/deep-learning-pytorch--ud188) | [Stanford CS234: Reinforcement Learning, Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOSOPzutgyCTapiGlY2Nd8u) | |
 | [Stanford CS230: Deep Learning, Autumn 2018](https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb) | [Stanford CS231n: Convolutional Neural Networks for Visual Recognition, Spring 2017](https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv) | |
 | [fastai Practical Deep Learning for Coders v3 part 1](https://course.fast.ai/videos/?lesson=1) part 2 coming soon | | |
+| Crash Course [Introduction to Machine Learning by Google](https://developers.google.com/machine-learning/crash-course/ml-intro) | | |
 
 <span class='saddlebrown'>Do you want to learn DL all day? Here are some of my favourite "Unwinding Tracks" which you can switch to avoid information overload 🤯.</span>
 
