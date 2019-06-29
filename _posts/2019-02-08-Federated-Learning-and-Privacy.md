@@ -7,7 +7,7 @@ categories: federated learning privacy
 published : true
 ---
 
-In this notebook, we will see if we can make use of Federated Learning to make our lives more private.
+In this post, we will see if we can make use of Federated Learning to make our lives more private.
 
 > All the codes implemented in Jupyter notebook in [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Federated%20Learning/federated_learning_tensorflow.ipynb) and [PyTorch + PySyft Library](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Federated%20Learning/federated_learning_pysyft.ipynb)
 
