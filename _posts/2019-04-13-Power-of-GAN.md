@@ -11,7 +11,7 @@ published : true
 
 # Generative Adversarial Networks
 
-In this notebook, 
+In this post, we will see how GANs have disrupted every domain. 
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/GAN/gan_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/GAN/gan_pytorch.ipynb) and [Fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/GAN/gan_fastai.ipynb).
 
