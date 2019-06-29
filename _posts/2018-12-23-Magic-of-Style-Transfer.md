@@ -10,7 +10,7 @@ published : true
 
 # Neural Style Transfer
 
-In this notebook, we will try to answer the question "Can we paint as good as Master Picasso?"
+In this post, we will try to answer the question "Can we paint as good as Master Picasso?"
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_pytorch.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Style%20Transfer/style_transfer_fastai.ipynb).  
 
