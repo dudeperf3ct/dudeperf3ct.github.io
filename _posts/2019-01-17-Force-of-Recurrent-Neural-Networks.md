@@ -10,7 +10,7 @@ published : true
 
 # Recurrent Neural Networks
 
-In this notebook, we will see if Neural Networks can write as good as Shakespeare?
+In this post, we will see if Neural Networks can write as good as Shakespeare?
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_pytorch.ipynb) and [Fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/RNN/char_rnn_fastai.ipynb).
 
