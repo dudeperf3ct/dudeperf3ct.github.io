@@ -10,7 +10,7 @@ published : true
 
 # Long-Short Term Memory and Gated Recurrent Unit
 
-In this notebook, we will see if we can analyse the sentiment in reviews of movies on [IMDB dataset](https://www.kaggle.com/c/word2vec-nlp-tutorial/data).
+In this post, we will see if we can analyse the sentiment in reviews of movies on [IMDB dataset](https://www.kaggle.com/c/word2vec-nlp-tutorial/data).
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_flair.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/lstm_and_gru/lstm_and_gru_fastai.ipynb).
 
