@@ -10,7 +10,7 @@ published : true
 
 # Adversarial Learning
 
-In this notebook, 
+In this post, we will see how one noisy image can break our state of the art deep learning algorithms.
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Adversarial%20Learning/adv_learning_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Adversarial%20Learning/adv_learning_pytorch.ipynb) and [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Adversarial%20Learning/adv_learning_tf.ipynb).
 
