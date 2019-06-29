@@ -10,7 +10,7 @@ published : true
 
 # CNN
 
-In this notebook, we will go through basics of CNN using MNIST dataset. We will implement this using two popular deep learning frameworks <span class='yellow'>Keras</span> and <span class='orange'>PyTorch</span>. 
+In this post, we will go through basics of CNN using MNIST dataset. We will implement this using two popular deep learning frameworks <span class='yellow'>Keras</span> and <span class='orange'>PyTorch</span>. 
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_pytorch.ipynb), [Tensorflow](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_tensorflow.ipynb) and [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/CNN/mnist_cnn_fastai.ipynb).  
 
