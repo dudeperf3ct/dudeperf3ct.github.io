@@ -10,7 +10,7 @@ published : true
 
 # Transfer Learning in NLP
 
-In this notebook, we will understand the true power of transfer learning in NLP, why it matters and how they compare with recurrent architectures in [previous posts](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/) using a dataset of [Tweets on US Airlines](https://www.kaggle.com/crowdflower/twitter-airline-sentiment/).
+In this post, we will understand the true power of transfer learning in NLP, why it matters and how they compare with recurrent architectures in [previous posts](https://dudeperf3ct.github.io/lstm/gru/nlp/2019/01/28/Force-of-LSTM-and-GRU/) using a dataset of [Tweets on US Airlines](https://www.kaggle.com/crowdflower/twitter-airline-sentiment/).
 
 > All the codes implemented in Jupyter notebook in [Keras](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tl_nlp_keras.ipynb), [PyTorch](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tl_nlp_pytorch.ipynb), [Flair](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tl_nlp_flair.ipynb), [fastai](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tl_nlp_fastai.ipynb) and [allennlp](https://github.com/dudeperf3ct/DL_notebooks/blob/master/tl_nlp/tl_nlp_allennlp.ipynb).
 
