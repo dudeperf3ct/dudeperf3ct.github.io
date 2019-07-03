@@ -85,7 +85,7 @@ Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supe
 
 [Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks by Finn et al](https://arxiv.org/pdf/1703.03400) aka MAML
 
-[Prototypical Networks for Few-shot Learning]() aka ProtoNet
+[Prototypical Networks for Few-shot Learning](http://papers.nips.cc/paper/6996-prototypical-networks-for-few-shot-learning.pdf) aka ProtoNet
 
 ### Blog
 
@@ -100,11 +100,14 @@ Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supe
 ### Questions
 
 
+
 ## Week 3
 
 ### Paper
 
 [Meta-Dataset: A Dataset of Datasets for Learning to Learn from Few Examples](https://arxiv.org/pdf/1903.03096.pdf)
+
+[A Closer Look at Few-shot Classification](https://openreview.net/pdf?id=HkxLXnAcFQ)
 
 ### Video and Slides
 
@@ -117,8 +120,30 @@ Video [Meta Learning for Reinforcement Learning NeurIPS 2019]()
 
 ### Code
 
+MAML 
+
+[https://github.com/cbfinn/maml](https://github.com/cbfinn/maml)
+
+[https://github.com/dragen1860/MAML-Pytorch](https://github.com/dragen1860/MAML-Pytorch)
+
+[https://github.com/katerakelly/pytorch-maml](https://github.com/katerakelly/pytorch-maml)
+
+Prototypical Nets
+
+[https://github.com/jakesnell/prototypical-networks](https://github.com/jakesnell/prototypical-networks)
+
+Relational Nets
+
+[https://github.com/floodsung/LearningToCompare_FSL]( https://github.com/floodsung/LearningToCompare_FSL)
 
 
+### Datasets
+
+[Omniglot](https://github.com/brendenlake/omniglot/)
+
+[Mini-Imagenet]()
+
+[Meta-Dataset]()
 
 
 In next post, we 
