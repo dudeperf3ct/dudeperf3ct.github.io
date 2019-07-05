@@ -39,7 +39,7 @@ Ah, you must be wondering why is <span class='red'>I-know-everything</span> not 
 
 # How to Learn Meta-Learning
 
-## Week 1
+## Week 1  (Getting Started)
 
 ### Video 
 
@@ -67,7 +67,7 @@ Ah, you must be wondering why is <span class='red'>I-know-everything</span> not 
 - How is meta-learning different from supervised learning?
 
 
-## Week 2
+## Week 2 (Diving into specifics)
 
 ### Video
 
@@ -101,7 +101,7 @@ Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supe
 
 
 
-## Week 3
+## Week 3 (Coding Challenge)
 
 ### Paper
 
