@@ -39,7 +39,7 @@ Ah, you must be wondering why is <span class='red'>I-know-everything</span> not 
 
 # How to Learn Learning to Learn?
 
-This is an experiement or say different approach to learning a new topic. 
+This is an experiement or say different approach to learning a new topic. We will divide the task in 3-week long learning journey. First week, we will focus on getting familiar with the term meta-learning and various termninologies associated with it. We will jump into 3 papers which explore meta-learning through learning metrics.
 
 ## Week 1  (Getting Started)
 
@@ -117,17 +117,17 @@ Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supe
 
 ## Week 3 (Coding Challenge)
 
-### Paper
-
-[Meta-Dataset: A Dataset of Datasets for Learning to Learn from Few Examples](https://arxiv.org/pdf/1903.03096.pdf)
-
-[A Closer Look at Few-shot Classification](https://openreview.net/pdf?id=HkxLXnAcFQ)
-
 ### Video & Slides
 
 Slides [What’s Wrong with Meta-Learning(and how we might fix it)](http://metalearning.ml/2018/slides/meta_learning_2018_Levine.pdf)
 
 Slides [Meta-Learning Frontiers:Universal, Uncertain, and Unsupervised](http://people.eecs.berkeley.edu/~cbfinn/_files/metalearning_frontiers_2018_small.pdf)
+
+### Paper
+
+[Meta-Dataset: A Dataset of Datasets for Learning to Learn from Few Examples](https://arxiv.org/pdf/1903.03096.pdf)
+
+[A Closer Look at Few-shot Classification](https://openreview.net/pdf?id=HkxLXnAcFQ)
 
 ### Code
 
@@ -179,7 +179,11 @@ In next post, we
 
 # Further Reading
 
+[NeurIPS 2017 Meta-learning symposium](http://metalearning-symposium.ml/)
+
 [NeurIPS 2017 Workshop on Meta-Learning](https://nips.cc/Conferences/2017/Schedule?showEvent=8767)
+
+[Online Meta-Learning](https://arxiv.org/pdf/1902.08438)
 
 [SNAIL Paper](https://openreview.net/forum?id=B1DmUzWAW)
 
