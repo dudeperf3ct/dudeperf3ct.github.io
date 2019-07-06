@@ -27,7 +27,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 
-- [How to Learn Meta-Learning](#how-to-learn-meta-learning)
+- [How to Learn Learning to Learn?](#how-to-learn-learning-to-learn)
   - [Week 1](#week-1)
   - [Week 2](#week-2)
   - [Week 3](#week-3)
@@ -37,15 +37,15 @@ Feel free to jump anywhere,
 
 Ah, you must be wondering why is <span class='red'>I-know-everything</span> not present to teach the disciple <span class='green'>I-know-nothing</span> dissect the papers. 
 
-# How to Learn Meta-Learning
+# How to Learn Learning to Learn?
 
 ## Week 1  (Getting Started)
 
 ### Video 
 
-[Introductory talk by Oriol Vinyals](https://www.facebook.com/nipsfoundation/videos/1552060484885185/) and [Slides](http://metalearning-symposium.ml/files/vinyals.pdf)
+Video [Introductory talk by Oriol Vinyals](https://www.facebook.com/nipsfoundation/videos/1552060484885185/) last 30 minutes and [Slides](http://metalearning-symposium.ml/files/vinyals.pdf)
 
-[On Learning How to Learn Learning Strategies](https://vimeo.com/250399374)
+Video [On Learning How to Learn Learning Strategies](https://vimeo.com/250399374)
 
 
 ### Blog 
@@ -66,6 +66,12 @@ Ah, you must be wondering why is <span class='red'>I-know-everything</span> not 
 
 - How is meta-learning different from supervised learning?
 
+- How is dataset for training and testing setup different from typical setting?
+
+- What does names like meta-training, meta-testing, support, query mean?
+
+- What does "Go beyond train from samples from a single distribution" mean in meta-learning?
+
 
 ## Week 2 (Diving into specifics)
 
@@ -73,7 +79,7 @@ Ah, you must be wondering why is <span class='red'>I-know-everything</span> not 
 
 [Few-Shot Learning with Meta-Learning: Progress Made and Challenges Ahead - Hugo Larochelle](https://www.youtube.com/watch?v=b8JlilRnhM4) and [Slides](http://metalearning.ml/2018/slides/meta_learning_2018_Larochelle.pdf)
 
-[Meta-Learning NeurIPS 2019]()
+ICML 2019 [Meta-Learning: From Few-Shot Learning to Rapid Reinforcement Learning](https://www.facebook.com/icml.imls/videos/meta-learning-from-few-shot-learning-to-rapid-reinforcement-learning/400619163874853/)
 
 [Panel discussion](https://vimeo.com/250399623)
 
@@ -115,9 +121,6 @@ Slides [What’s Wrong with Meta-Learning(and how we might fix it)](http://metal
 
 Slides [Meta-Learning Frontiers:Universal, Uncertain, and Unsupervised](http://people.eecs.berkeley.edu/~cbfinn/_files/metalearning_frontiers_2018_small.pdf)
 
-Video [Meta Learning for Reinforcement Learning NeurIPS 2019]()
-
-
 ### Code
 
 MAML 
@@ -141,9 +144,9 @@ Relational Nets
 
 [Omniglot](https://github.com/brendenlake/omniglot/)
 
-[Mini-Imagenet]()
+[Mini-Imagenet](https://github.com/y2l/mini-imagenet-tools)
 
-[Meta-Dataset]()
+[Meta-Dataset](https://github.com/google-research/meta-dataset)
 
 
 In next post, we 
