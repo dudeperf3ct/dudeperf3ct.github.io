@@ -163,7 +163,7 @@ In next post, we
 
 # Further Reading
 
-
+[NeurIPS 2017 Workshop on Meta-Learning](https://nips.cc/Conferences/2017/Schedule?showEvent=8767)
 
 ---
 
