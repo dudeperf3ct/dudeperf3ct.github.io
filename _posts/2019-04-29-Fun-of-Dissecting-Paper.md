@@ -89,6 +89,13 @@ Video NeurIPS 2017 [Panel discussion](https://vimeo.com/250399623)
 
 Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supervision](http://metalearning.ml/2017/slides/metalearn2017_finn.pdf)
 
+### Blog
+
+[Learning to Learn](https://bair.berkeley.edu/blog/2017/07/18/learning-to-learn/)
+
+[Reptile: A Scalable Meta-Learning Algorithm](https://openai.com/blog/reptile/)
+
+
 ### Paper
 
 [Optimization as a model for Few-Shot Learning by Ravi & Larochelle](https://openreview.net/pdf?id=rJY0-Kcll) aka Meta-Learner LSTM
@@ -97,11 +104,7 @@ Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supe
 
 [Prototypical Networks for Few-shot Learning](http://papers.nips.cc/paper/6996-prototypical-networks-for-few-shot-learning.pdf) aka ProtoNet
 
-### Blog
-
-[Learning to Learn](https://bair.berkeley.edu/blog/2017/07/18/learning-to-learn/)
-
-[Reptile: A Scalable Meta-Learning Algorithm](https://openai.com/blog/reptile/)
+[On First-Order Meta-Learning Algorithms](https://arxiv.org/pdf/1803.02999) aka Reptile
 
 ### Book 
 
@@ -128,7 +131,7 @@ Slides [Meta-Learning Frontiers:Universal, Uncertain, and Unsupervised](http://p
 
 ### Code
 
-MAML 
+**MAML**
 
 [https://github.com/cbfinn/maml](https://github.com/cbfinn/maml)
 
@@ -136,14 +139,21 @@ MAML
 
 [https://github.com/katerakelly/pytorch-maml](https://github.com/katerakelly/pytorch-maml)
 
-Prototypical Nets
+**Prototypical Nets**
 
 [https://github.com/jakesnell/prototypical-networks](https://github.com/jakesnell/prototypical-networks)
 
-Relational Nets
+**Reptile**
+
+[https://github.com/openai/supervised-reptile](https://github.com/openai/supervised-reptile)
+
+**Relational Nets**
 
 [https://github.com/floodsung/LearningToCompare_FSL]( https://github.com/floodsung/LearningToCompare_FSL)
 
+**4 Few-Shot Classification Algorithms**
+
+[https://github.com/wyharveychen/CloserLookFewShot](https://github.com/wyharveychen/CloserLookFewShot)
 
 ### Datasets
 
@@ -170,8 +180,6 @@ In next post, we
 # Further Reading
 
 [NeurIPS 2017 Workshop on Meta-Learning](https://nips.cc/Conferences/2017/Schedule?showEvent=8767)
-
-[Reptile Blog by OpenAI](https://blog.openai.com/reptile/)
 
 [SNAIL Paper](https://openreview.net/forum?id=B1DmUzWAW)
 
