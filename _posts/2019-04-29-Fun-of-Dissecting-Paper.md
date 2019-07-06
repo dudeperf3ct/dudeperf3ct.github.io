@@ -10,7 +10,7 @@ published : true
 
 # Fun of Dissecting Paper
 
-In this post, we will take a different approach in learning a topic. We will be looking at various papers in the topic of Learning to learn aka Meta-Learning but here we will provide a [curriculum](http://www.depthfirstlearning.com/), starting with introduction to the meta-learning and then diving into specifics of different algorithms in meta-learning and finally implementing them.
+In this post, we will take a different approach to learn a topic. We will be looking at various papers in the topic of <span class='purple'>Learning to learn aka Meta-Learning</span> but here we will provide a [curriculum](http://www.depthfirstlearning.com/), starting with introduction to the meta-learning and then diving into specifics of different algorithms in meta-learning and finally implementing them.
 
 > All the codes implemented in Jupyter notebook in PyTorch -- [meta_learning_baseline](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_baseline.ipynb), [meta_learning_baseline++](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_baseline%2B%2B.ipynb) and [meta_learning_maml](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_maml.ipynb)
 
@@ -35,11 +35,11 @@ Feel free to jump anywhere,
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
-Ah, you must be wondering why is <span class='red'>I-know-everything</span> not present to teach the disciple <span class='green'>I-know-nothing</span> dissect the papers. 
+Ah, you must be wondering why is <span class='red'>I-know-everything</span> not present to teach the disciple <span class='green'>I-know-nothing</span> dissect the papers. Before leaving for a nice summer holiday, <span class='red'>I-know-everything</span> has outlined a different approach to learn a topic.
 
 # How to Learn Learning to Learn?
 
-We will divide the task into a 3-week long learning journey. In the first week, we will focus on getting familiar with the term meta-learning and various terminologies associated with it. We will jump into 3 papers which explore meta-learning through metrics-based algorithms. In the following week, we will dive into some other types of learning algorithms namely model-based and optimization-based meta-learning algorithms and learn in-detail about them. In the third week, we will implement some of the algorithms we looked at in the previous week.
+<span class='saddlebrown'>We will divide the task into a 3-week long learning journey. In the first week, we will focus on getting familiar with the term meta-learning and various terminologies associated with it. We will jump into 3 papers which explore meta-learning through metrics-based algorithms. In the following week, we will dive into some other types of learning algorithms namely model-based and optimization-based meta-learning algorithms and learn in-detail about them. In the third week, we will implement some of the algorithms we looked at in the previous week.</span>
 
 ## Week 1  (Getting Started)
 
