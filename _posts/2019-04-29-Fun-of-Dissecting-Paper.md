@@ -10,7 +10,7 @@ published : false
 
 # Fun of Dissecting Paper
 
-In this post, we will take a different approach in learning. We will be looking at the topic of Learning to learn aka meta-learning but here we will provide a curriculum or sort of outline, starting with introducing to the meta-learning and then diving into specifics of different algorithms in meta-learning and finally implementing them.
+In this post, we will take a different approach in learning a topic. We will be looking at various papers in the topic of Learning to learn aka Meta-Learning but here we will provide a [curriculum](http://www.depthfirstlearning.com/), starting with introduction to the meta-learning and then diving into specifics of different algorithms in meta-learning and finally implementing them.
 
 > All the codes implemented in Jupyter notebook in PyTorch [meta_learning_baseline](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_baseline.ipynb), [meta_learning_baseline++](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_baseline++.ipynb) and [meta_learning_maml](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_maml.ipynb)
 
@@ -113,7 +113,15 @@ Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supe
 
 ### Questions
 
+<p align="center">
+<img src='/images/meta_learning/meta_taxonomy.png' width="50%"/> 
+</p>
 
+- How is Meta-Learner LSTM different from Matching Networks?
+
+- How is MAML different from Meta-Learner LSTM? 
+
+- 
 
 ## Week 3 (Coding Challenge)
 
@@ -128,6 +136,10 @@ Slides [Meta-Learning Frontiers:Universal, Uncertain, and Unsupervised](http://p
 [Meta-Dataset: A Dataset of Datasets for Learning to Learn from Few Examples](https://arxiv.org/pdf/1903.03096.pdf)
 
 [A Closer Look at Few-shot Classification](https://openreview.net/pdf?id=HkxLXnAcFQ)
+
+### Challenge
+
+Challenge for this week will be to implement 3 algorithms from the paper [A Closer Look at Few-shot Classification](https://openreview.net/pdf?id=HkxLXnAcFQ). We will implement baseline, baseline++ and MAML algorithms using Omniglot dataset and try to replicate the results shown in the paper.
 
 ### Code
 
