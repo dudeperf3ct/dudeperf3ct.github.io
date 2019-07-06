@@ -2,7 +2,7 @@
 layout:     post
 title:      Fun of dissecting paper
 date:       2019-04-29 12:00:00
-summary:    This post will provide a brief introduction to meta-learning.
+summary:    This post will provide a brief introduction to meta-learning. We will be looking at various papers in the topic of Learning to learn aka Meta-Learning.
 categories: meta learning
 published : true
 ---
@@ -12,7 +12,7 @@ published : true
 
 In this post, we will take a different approach in learning a topic. We will be looking at various papers in the topic of Learning to learn aka Meta-Learning but here we will provide a [curriculum](http://www.depthfirstlearning.com/), starting with introduction to the meta-learning and then diving into specifics of different algorithms in meta-learning and finally implementing them.
 
-> All the codes implemented in Jupyter notebook in PyTorch [meta_learning_baseline](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_baseline.ipynb), [meta_learning_baseline++](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_baseline%2B%2B.ipynb) and [meta_learning_maml](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_maml.ipynb)
+> All the codes implemented in Jupyter notebook in PyTorch -- [meta_learning_baseline](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_baseline.ipynb), [meta_learning_baseline++](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_baseline%2B%2B.ipynb) and [meta_learning_maml](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_maml.ipynb)
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
