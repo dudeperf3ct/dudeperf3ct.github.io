@@ -2,7 +2,7 @@
 layout:     post
 title:      Fun of dissecting paper
 date:       2019-04-29 12:00:00
-summary:    This post will provide a brief introduction
+summary:    This post will provide a brief introduction to meta-learning.
 categories: meta learning
 published : false
 ---
@@ -39,7 +39,7 @@ Ah, you must be wondering why is <span class='red'>I-know-everything</span> not 
 
 # How to Learn Learning to Learn?
 
-This is an experiement or say different approach to learning a new topic. We will divide the task in 3-week long learning journey. First week, we will focus on getting familiar with the term meta-learning and various termninologies associated with it. We will jump into 3 papers which explore meta-learning through learning metrics.
+This is an experiement or say different approach to learning a new topic. We will divide the task in 3-week long learning journey. First week, we will focus on getting familiar with the term meta-learning and various termninologies associated with it. We will jump into 3 papers which explore meta-learning through learning metrics. In the following week, we will deep dive into some other types of learning algorithms namely model-based and optimization-based meta-learning algorithms and learn about them. In the third week, we will implement some of the algorithms we looked at in the previous week.
 
 ## Week 1  (Getting Started)
 
@@ -119,9 +119,8 @@ Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supe
 
 - How is Meta-Learner LSTM different from Matching Networks?
 
-- How is MAML different from Meta-Learner LSTM? 
+- How is MAML different from Meta-Learner LSTM?
 
-- 
 
 ## Week 3 (Coding Challenge)
 
@@ -176,8 +175,7 @@ Challenge for this week will be to implement 3 algorithms from the paper [A Clos
 [Meta-Dataset](https://github.com/google-research/meta-dataset)
 
 
-
-In next post, we 
+In next post, we will look work on a project of <span class='purple'>building a text recognizer application</span>.
 
 <span class='orange'>Happy Learning!</span>
 
@@ -215,6 +213,7 @@ In next post, we
 
 [Meta meme](https://twitter.com/joavanschoren/status/1072429608014897153)
 
+[Meta Learning Taxonomy](http://metalearning-symposium.ml/files/vinyals.pdf)
 
 ---
 
