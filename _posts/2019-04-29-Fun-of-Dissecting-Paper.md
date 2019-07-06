@@ -21,7 +21,7 @@ Hey yo, but how?
 Well sit tight and buckle up. I will go through everything in-detail.
 
 <p align="center">
-<img src='/images/meta_learning/meta_meme.jpg' width="50%"/> 
+<img src='/images/meta_learning/meta_meme.jpg' width="40%"/> 
 </p>
 
 
@@ -114,7 +114,7 @@ Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supe
 ### Questions
 
 <p align="center">
-<img src='/images/meta_learning/meta_taxonomy.png' width="50%"/> 
+<img src='/images/meta_learning/meta_taxonomy.png' width="80%"/> 
 </p>
 
 - How is Meta-Learner LSTM different from Matching Networks?
