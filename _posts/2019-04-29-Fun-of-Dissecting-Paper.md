@@ -10,7 +10,7 @@ published : false
 
 # Fun of Dissecting Paper
 
-In this post, we will 
+In this post, we will take a different approach in learning. We will be looking at the topic of Learning to learn aka meta-learning but here we will provide a curriculum or sort of outline, starting with introducing to the meta-learning and then diving into specifics of different algorithms in meta-learning and finally implementing them.
 
 > All the codes implemented in Jupyter notebook in PyTorch [meta_learning_baseline](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_baseline.ipynb), [meta_learning_baseline++](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_baseline++.ipynb) and [meta_learning_maml](https://github.com/dudeperf3ct/DL_notebooks/blob/master/Meta%20Learning/meta_learning_maml.ipynb)
 
@@ -39,13 +39,17 @@ Ah, you must be wondering why is <span class='red'>I-know-everything</span> not 
 
 # How to Learn Learning to Learn?
 
+This is an experiement or say different approach to learning a new topic. 
+
 ## Week 1  (Getting Started)
 
 ### Video & Slides
 
-Video [Introductory talk by Oriol Vinyals](https://www.facebook.com/nipsfoundation/videos/1552060484885185/) last 30 minutes and [Slides](http://metalearning-symposium.ml/files/vinyals.pdf)
+Video [Introductory talk by Oriol Vinyals](https://www.facebook.com/nipsfoundation/videos/1552060484885185/) if in hurry jump yo last 30 minutes and [Slides](http://metalearning-symposium.ml/files/vinyals.pdf)
 
 Video [On Learning How to Learn Learning Strategies](https://vimeo.com/250399374)
+
+Video [Siamese Network](https://www.coursera.org/lecture/convolutional-neural-networks/siamese-network-bjhmj) and [One Shot Learning](https://www.coursera.org/lecture/convolutional-neural-networks/one-shot-learning-gjckG)
 
 
 ### Blog 
@@ -77,11 +81,11 @@ Video [On Learning How to Learn Learning Strategies](https://vimeo.com/250399374
 
 ### Video & Slides
 
-Video [Few-Shot Learning with Meta-Learning: Progress Made and Challenges Ahead - Hugo Larochelle](https://www.youtube.com/watch?v=b8JlilRnhM4) and [Slides](http://metalearning.ml/2018/slides/meta_learning_2018_Larochelle.pdf)
+Video MILA Talks [Few-Shot Learning with Meta-Learning: Progress Made and Challenges Ahead - Hugo Larochelle](https://www.youtube.com/watch?v=b8JlilRnhM4) and [Slides](http://metalearning.ml/2018/slides/meta_learning_2018_Larochelle.pdf)
 
 Video ICML 2019 [Meta-Learning: From Few-Shot Learning to Rapid Reinforcement Learning](https://www.facebook.com/icml.imls/videos/meta-learning-from-few-shot-learning-to-rapid-reinforcement-learning/400619163874853/)
 
-Video [Panel discussion](https://vimeo.com/250399623)
+Video NeurIPS 2017 [Panel discussion](https://vimeo.com/250399623)
 
 Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supervision](http://metalearning.ml/2017/slides/metalearn2017_finn.pdf)
 
@@ -97,6 +101,7 @@ Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supe
 
 [Learning to Learn](https://bair.berkeley.edu/blog/2017/07/18/learning-to-learn/)
 
+[Reptile: A Scalable Meta-Learning Algorithm](https://openai.com/blog/reptile/)
 
 ### Book 
 
@@ -147,6 +152,7 @@ Relational Nets
 [Mini-Imagenet](https://github.com/y2l/mini-imagenet-tools)
 
 [Meta-Dataset](https://github.com/google-research/meta-dataset)
+
 
 
 In next post, we 
