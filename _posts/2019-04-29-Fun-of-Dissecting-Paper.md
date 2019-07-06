@@ -41,7 +41,7 @@ Ah, you must be wondering why is <span class='red'>I-know-everything</span> not 
 
 ## Week 1  (Getting Started)
 
-### Video 
+### Video & Slides
 
 Video [Introductory talk by Oriol Vinyals](https://www.facebook.com/nipsfoundation/videos/1552060484885185/) last 30 minutes and [Slides](http://metalearning-symposium.ml/files/vinyals.pdf)
 
@@ -75,13 +75,13 @@ Video [On Learning How to Learn Learning Strategies](https://vimeo.com/250399374
 
 ## Week 2 (Diving into specifics)
 
-### Video
+### Video & Slides
 
-[Few-Shot Learning with Meta-Learning: Progress Made and Challenges Ahead - Hugo Larochelle](https://www.youtube.com/watch?v=b8JlilRnhM4) and [Slides](http://metalearning.ml/2018/slides/meta_learning_2018_Larochelle.pdf)
+Video [Few-Shot Learning with Meta-Learning: Progress Made and Challenges Ahead - Hugo Larochelle](https://www.youtube.com/watch?v=b8JlilRnhM4) and [Slides](http://metalearning.ml/2018/slides/meta_learning_2018_Larochelle.pdf)
 
-ICML 2019 [Meta-Learning: From Few-Shot Learning to Rapid Reinforcement Learning](https://www.facebook.com/icml.imls/videos/meta-learning-from-few-shot-learning-to-rapid-reinforcement-learning/400619163874853/)
+Video ICML 2019 [Meta-Learning: From Few-Shot Learning to Rapid Reinforcement Learning](https://www.facebook.com/icml.imls/videos/meta-learning-from-few-shot-learning-to-rapid-reinforcement-learning/400619163874853/)
 
-[Panel discussion](https://vimeo.com/250399623)
+Video [Panel discussion](https://vimeo.com/250399623)
 
 Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supervision](http://metalearning.ml/2017/slides/metalearn2017_finn.pdf)
 
@@ -115,7 +115,7 @@ Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supe
 
 [A Closer Look at Few-shot Classification](https://openreview.net/pdf?id=HkxLXnAcFQ)
 
-### Video and Slides
+### Video & Slides
 
 Slides [What’s Wrong with Meta-Learning(and how we might fix it)](http://metalearning.ml/2018/slides/meta_learning_2018_Levine.pdf)
 
@@ -164,6 +164,20 @@ In next post, we
 # Further Reading
 
 [NeurIPS 2017 Workshop on Meta-Learning](https://nips.cc/Conferences/2017/Schedule?showEvent=8767)
+
+[Reptile Blog by OpenAI](https://blog.openai.com/reptile/)
+
+[SNAIL Paper](https://openreview.net/forum?id=B1DmUzWAW)
+
+[Learning to Optimize with Reinforcement Learning](https://bair.berkeley.edu/blog/2017/09/12/learning-to-optimize-with-rl/)
+
+[Learning to Optimize](https://arxiv.org/pdf/1606.01885)
+
+[Meta-Learning a Dynamical Language Model](https://arxiv.org/pdf/1803.10631)
+
+[Learning Unsupervised Learning Rules](https://arxiv.org/pdf/1804.00222)
+
+[Learning to learn by gradient descent by gradient descent](https://arxiv.org/pdf/1606.04474)
 
 ---
 
