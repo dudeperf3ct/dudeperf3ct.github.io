@@ -140,6 +140,11 @@ Slides [Meta-Learning Frontiers:Universal, Uncertain, and Unsupervised](http://p
 
 Challenge for this week will be to implement 3 algorithms from the paper [A Closer Look at Few-shot Classification](https://openreview.net/pdf?id=HkxLXnAcFQ). We will implement baseline, baseline++ and MAML algorithms using Omniglot dataset and try to replicate the results shown in the paper.
 
+<p align="center">
+<img src='/images/meta_learning/results_total.png' width="40%"/> 
+</p>
+
+
 ### Code
 
 **MAML**
