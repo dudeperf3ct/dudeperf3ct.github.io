@@ -4,7 +4,7 @@ title:      Fun of dissecting paper
 date:       2019-04-29 12:00:00
 summary:    This post will provide a brief introduction to meta-learning.
 categories: meta learning
-published : false
+published : true
 ---
 
 
