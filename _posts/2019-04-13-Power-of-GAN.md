@@ -911,7 +911,7 @@ You can also play with very cool interactive demo on [gandissect.res.ibm.com](ht
 
 <span class='purple'>Look at the progress from introducing GANs to the world in 2014 to worrying about dangerous impact on society caused by GAN in 2017, this speaks more than I can make you understand. And this is the story of GANs.</span>
 
-In next post, we will do <span class='yellow'>something different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call our next adventure <span class='purple'>Fun of paper dissection.</span> And further <span class='purple'>build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!</span>
+In next post, we will do <span class='yellow'>something different</span>. We will attempt to dissect any one or two papers. Any suggestions? So, let's call our next adventure <span class='purple'>[Fun of paper dissection](https://dudeperf3ct.github.io/meta/learning/2019/04/29/Fun-of-Dissecting-Paper/).</span> And further <span class='purple'>build a text recognizer application and deploy it for fun. A lot to come, a lot of fun!</span>
 
 <span class='orange'>Happy Learning!</span>
 
