@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Fun of dissecting paper
+title:      Fun of Dissecting Paper
 date:       2019-04-29 12:00:00
 summary:    This post will provide a brief introduction to meta-learning. We will be looking at various papers in the topic of Learning to learn aka Meta-Learning.
 categories: meta learning
