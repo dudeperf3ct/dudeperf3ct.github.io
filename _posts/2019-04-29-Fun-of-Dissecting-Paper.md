@@ -39,7 +39,7 @@ Ah, you must be wondering why is <span class='red'>I-know-everything</span> not 
 
 # How to Learn Learning to Learn?
 
-This is an experiemental post or a different approach to learning a new topic. We will divide the task into a 3-week long learning journey. In the first week, we will focus on getting familiar with the term meta-learning and various terminologies associated with it. We will jump into 3 papers which explore meta-learning through learning metrics. In the following week, we will dive into some other types of learning algorithms namely model-based and optimization-based meta-learning algorithms and learn in-detail about them. In the third week, we will implement some of the algorithms we looked at in the previous week.
+This is an experiemental post or a different approach to learning a new topic. We will divide the task into a 3-week long learning journey. In the first week, we will focus on getting familiar with the term meta-learning and various terminologies associated with it. We will jump into 3 papers which explore meta-learning through metrics-based algorithms. In the following week, we will dive into some other types of learning algorithms namely model-based and optimization-based meta-learning algorithms and learn in-detail about them. In the third week, we will implement some of the algorithms we looked at in the previous week.
 
 ## Week 1  (Getting Started)
 
