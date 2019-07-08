@@ -45,7 +45,7 @@ Ah, you must be wondering why is <span class='red'>I-know-everything</span> not 
 
 ### Video & Slides
 
-Video [Introductory talk by Oriol Vinyals](https://www.facebook.com/nipsfoundation/videos/1552060484885185/) if in hurry jump yo last 30 minutes and [Slides](http://metalearning-symposium.ml/files/vinyals.pdf)
+Video [Introductory talk by Oriol Vinyals](https://www.facebook.com/nipsfoundation/videos/1552060484885185/) if in hurry jump to last 30 minutes and [Slides](http://metalearning-symposium.ml/files/vinyals.pdf)
 
 Video [On Learning How to Learn Learning Strategies](https://vimeo.com/250399374)
 
