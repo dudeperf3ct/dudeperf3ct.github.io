@@ -136,6 +136,8 @@ Slides [Meta-Learning Frontiers:Universal, Uncertain, and Unsupervised](http://p
 
 [A Closer Look at Few-shot Classification](https://openreview.net/pdf?id=HkxLXnAcFQ)
 
+[How to train your MAML](https://arxiv.org/pdf/1810.09502)
+
 ### Challenge
 
 Challenge for this week will be to implement 3 algorithms from the paper [A Closer Look at Few-shot Classification](https://openreview.net/pdf?id=HkxLXnAcFQ). We will implement baseline, baseline++ and MAML algorithms using Omniglot dataset and try to replicate the results shown in the paper.
@@ -154,6 +156,8 @@ Challenge for this week will be to implement 3 algorithms from the paper [A Clos
 [https://github.com/dragen1860/MAML-Pytorch](https://github.com/dragen1860/MAML-Pytorch)
 
 [https://github.com/katerakelly/pytorch-maml](https://github.com/katerakelly/pytorch-maml)
+
+[https://github.com/AntreasAntoniou/HowToTrainYourMAMLPytorch](https://github.com/AntreasAntoniou/HowToTrainYourMAMLPytorch)
 
 **Prototypical Nets**
 
