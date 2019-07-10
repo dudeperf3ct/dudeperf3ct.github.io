@@ -959,7 +959,7 @@ Machine Learning Mastery [How to Identify and Diagnose GAN Failure Modes](https:
 
 Play with GANs online [Karpathy GAN](https://cs.stanford.edu/people/karpathy/gan/)
 
-Chapter [3](https://www.deeplearningbook.org/contents/prob.htmlhttps://www.deeplearningbook.org/contents/ml.html), [5]() and [20](https://www.deeplearningbook.org/contents/generative_models.html) of [Deep Learning Book](https://www.deeplearningbook.org/)
+Chapter [3](https://www.deeplearningbook.org/contents/prob.html), [5](https://www.deeplearningbook.org/contents/ml.html) and [20](https://www.deeplearningbook.org/contents/generative_models.html) of [Deep Learning Book](https://www.deeplearningbook.org/)
 
 [Generative Learning algorithms](http://cs229.stanford.edu/notes/cs229-notes2.pdf)
 
