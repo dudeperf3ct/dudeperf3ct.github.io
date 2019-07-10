@@ -945,6 +945,8 @@ Fastai [Lesson 12: Deep Learning Part 2 2018 - Generative Adversarial Networks (
 
 Machine Learning Mastery [How to Explore the GAN Latent Space When Generating Faces](https://machinelearningmastery.com/how-to-interpolate-and-perform-vector-arithmetic-with-faces-using-a-generative-adversarial-network/)
 
+Machine Learning Mastery [How to Develop a Conditional GAN (cGAN) From Scratch](https://machinelearningmastery.com/how-to-develop-a-conditional-generative-adversarial-network-from-scratch/)
+
 [AAAI-19 Invited Talk: Ian Goodfellow (Google AI)](https://vimeo.com/313941176)
 
 [CVPR 2018 Tutorial on GANs](https://sites.google.com/view/cvpr2018tutorialongans/)
