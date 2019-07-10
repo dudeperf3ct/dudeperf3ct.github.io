@@ -943,6 +943,8 @@ Fastai [Lesson 12: Deep Learning Part 2 2018 - Generative Adversarial Networks (
 
 [GANocracy Workshop 2019](http://ganocracy.csail.mit.edu/)
 
+Machine Learning Mastery [A Tour of Generative Adversarial Network Models](https://machinelearningmastery.com/tour-of-generative-adversarial-network-models/)
+
 Machine Learning Mastery [How to Explore the GAN Latent Space When Generating Faces](https://machinelearningmastery.com/how-to-interpolate-and-perform-vector-arithmetic-with-faces-using-a-generative-adversarial-network/)
 
 Machine Learning Mastery [How to Develop a Conditional GAN (cGAN) From Scratch](https://machinelearningmastery.com/how-to-develop-a-conditional-generative-adversarial-network-from-scratch/)
