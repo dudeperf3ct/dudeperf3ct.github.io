@@ -947,6 +947,8 @@ Machine Learning Mastery [How to Explore the GAN Latent Space When Generating Fa
 
 Machine Learning Mastery [How to Develop a Conditional GAN (cGAN) From Scratch](https://machinelearningmastery.com/how-to-develop-a-conditional-generative-adversarial-network-from-scratch/)
 
+Machine Learning Mastery [How to Identify and Diagnose GAN Failure Modes](https://machinelearningmastery.com/practical-guide-to-gan-failure-modes/)
+
 [AAAI-19 Invited Talk: Ian Goodfellow (Google AI)](https://vimeo.com/313941176)
 
 [CVPR 2018 Tutorial on GANs](https://sites.google.com/view/cvpr2018tutorialongans/)
