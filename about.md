@@ -24,7 +24,7 @@ Okay enough talk, I tried to declutter various sources and arrange it in such a 
 
 > <span class='purple'>See that bird? It’s a brown-throated thrush, but in Germany it’s called a halzenfugel, and in Chinese they call it a chung ling and even if you know all those names for it, you still know nothing about the bird. You only know something about people; what they call the bird. Now that thrush sings, and teaches its young to fly, and flies so many miles away during the summer across the country, and nobody knows how it finds its way.</span>
 
-Knowing the name of something doesn’t mean you understand it. The first and foremost is to understand the [difference between](https://blogs.nvidia.com/blog/2016/07/29/whats-difference-artificial-intelligence-machine-learning-deep-learning-ai/) [DL, ML](https://skymind.ai/wiki/ai-vs-machine-learning-vs-deep-learning) and [AI](https://medium.com/@mijordan3/artificial-intelligence-the-revolution-hasnt-happened-yet-5e1d5812e1e7). 
+[Knowing the name of something doesn’t mean you understand it.](https://www.youtube.com/watch?v=NM-zWTU7X-k) The first and foremost is to understand the [difference between](https://blogs.nvidia.com/blog/2016/07/29/whats-difference-artificial-intelligence-machine-learning-deep-learning-ai/) [DL, ML](https://skymind.ai/wiki/ai-vs-machine-learning-vs-deep-learning) and [AI](https://medium.com/@mijordan3/artificial-intelligence-the-revolution-hasnt-happened-yet-5e1d5812e1e7). 
 
 <span class='saddlebrown'>Here I present to you the list of courses that I would recommend with increasing level of difficulty. I will keep updating the table with latest courses as they come.</span>
 
