@@ -37,7 +37,7 @@ Knowing the name of something doesn’t mean you understand it. The first and fo
 | [TensorFlow Specialization by deeplearning.ai](https://www.coursera.org/collections/tensorflow-deeplearning-ai) 	|  [UCL Reinforcement Learning](https://www.youtube.com/playlist?list=PLzuuYNsE1EZAXYR4FJ75jcJseBmo4KQ9-) |  [University of California, Berkeley CS294-158: Deep Unsupervised Learning, Spring 2019](https://sites.google.com/view/berkeley-cs294-158-sp19/home)	|
 | [Introduction to Deep Learning with PyTorch](https://www.udacity.com/course/deep-learning-pytorch--ud188) | [Stanford CS234: Reinforcement Learning, Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOSOPzutgyCTapiGlY2Nd8u) | |
 | [Stanford CS230: Deep Learning, Autumn 2018](https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb) | [Stanford CS231n: Convolutional Neural Networks for Visual Recognition, Spring 2017](https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv) | |
-| [2019 fastai Practical Deep Learning for Coders v3 part 1](https://course.fast.ai/videos/?lesson=1) and [part 2](https://course.fast.ai/part2) | | |
+| [2019 fastai Practical Deep Learning for Coders v3 part 1](https://course.fast.ai/videos/?lesson=1) and [part 2](https://course.fast.ai/part2) | [new fast.ai course: A Code-First Introduction to Natural Language Processing ](https://www.fast.ai/2019/07/08/fastai-nlp/) | |
 | Crash Course [Introduction to Machine Learning by Google](https://developers.google.com/machine-learning/crash-course/ml-intro) | | |
 
 <span class='saddlebrown'>Do you want to learn DL all day? Here are some of my favourite "Unwinding Tracks" which you can switch to avoid information overload 🤯.</span>
