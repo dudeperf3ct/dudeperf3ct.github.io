@@ -87,6 +87,8 @@ Video ICML 2019 [Meta-Learning: From Few-Shot Learning to Rapid Reinforcement Le
 
 Video NeurIPS 2017 [Panel discussion](https://vimeo.com/250399623)
 
+Video ICML 2019 [Meta-Learning: Challenges and Frontiers by Chelsea Finn](https://slideslive.com/38917665/metalearning-challenges-and-frontiers)
+
 Slides [Model-Agnostic Meta-Learning Universality, Inductive Bias, and Weak Supervision](http://metalearning.ml/2017/slides/metalearn2017_finn.pdf)
 
 ### Blog
