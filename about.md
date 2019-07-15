@@ -12,9 +12,9 @@ published : true
 </blockquote>
 
 
-<span class='purple'>The obvious question expected to get answered when you visit About page is, "Who Are You?"</span>
+<span class='purple'>The obvious question expected to get answered is "Who Are You?" when you visit any About page.</span>
 
-<span class='saddlebrown'>But that's what not this page is about.</span>
+<span class='saddlebrown'>But that's not what this page is about.</span>
 
 <span class='green'>What happens when you ask someone, "What is the best way to learn deep learning?" You will most likely be bombared with tons of courses online. What the question meant was, "Where to start?"</span>
 
