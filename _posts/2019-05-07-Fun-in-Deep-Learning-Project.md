@@ -32,6 +32,12 @@ Feel free to jump anywhere,
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
+Full Stack Deep Learning Bootcamp provides an excellent guide on many different questions keeping up DL practitioner such as, "How to "
+
+We will steal some of the slides from the lectures that serve as an excellent do-to's as a starting point of any DL project. We will apply all these ideas and answer all the questions in context of our project.
+
+
+
 
 <span class='orange'>Happy Learning!</span>
 
@@ -50,6 +56,7 @@ Feel free to jump anywhere,
 
 # Footnotes and Credits
 
+[Meme](https://hackernoon.com/latest-deep-learning-ocr-with-keras-and-supervisely-in-15-minutes-34aecd630ed8)
 
 
 ---
