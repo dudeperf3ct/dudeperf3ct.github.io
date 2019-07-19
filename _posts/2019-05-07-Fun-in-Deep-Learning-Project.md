@@ -93,6 +93,7 @@ Notice the flow is not linear or sequential, there is a lot of backtracking and 
 
 [Meme](https://hackernoon.com/latest-deep-learning-ocr-with-keras-and-supervisely-in-15-minutes-34aecd630ed8)
 
+[Steps and detailed steps](https://full-stack-deep-learning.aerobaticapp.com/e372_52326459-3750-4663-b795-e78e05f84f0c/assets/slides/fsdl_2_projects.pdf)
 
 ---
 
