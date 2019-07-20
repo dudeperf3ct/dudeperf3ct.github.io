@@ -40,7 +40,7 @@ Full Stack Deep Learning Bootcamp provides an excellent guide on many different 
 </p>
 
 
-We will also look at an amazing case-study done at Dropbox
+We will also look at an amazing case-study done at Dropbox, [Creating a Modern OCR Pipeline Using Computer Vision and Deep Learning](https://blogs.dropbox.com/tech/2017/04/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning/). This post takes us behind the scenes on how they built a state-of-the-art Optical Character Recognition (OCR) pipeline.
 
 We will steal some of the slides from the lectures that serve as an excellent to-do's as a starting point of any DL project. We will apply all these ideas and answer all the questions in context of our project.
 
@@ -70,6 +70,21 @@ Notice the flow is not linear or sequential, there is a lot of backtracking and 
 
 <p align="center">
 <img src='/images/dl_project/more_steps.png' width="50%"/> 
+</p>
+
+
+### Drop-box Case Study
+
+Here I will take you through the journey of how guys at Dropbox followed all the 5 steps mentioned above.
+
+
+
+
+
+### Our Application
+
+<p align="center">
+<img src='/images/dl_project/full_project.png' width="50%"/> 
 </p>
 
 
