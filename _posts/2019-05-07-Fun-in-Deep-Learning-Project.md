@@ -70,7 +70,7 @@ In this step, we start with implementing baselines. We look for any SoTA models 
 
 In last step, we write test functions to test out the model in some version control (not after deploying in real-world but before) to check the robustness of the model and once happy with the results we are ready to deploy.
 
-Notice the flow is not linear or sequential, there is a lot of backtracking and improving as we improve our beliefs about the project. One example could be that having decided goal and collected data, we moved on to training step but once there we realize that our labels are unreliable or realize that goal is too hard and thus we backtrack to second or first step from third step.
+Notice the flow is not linear or sequential, there is a lot of backtracking and improving as we improve our beliefs about the project. One example could be that having decided goal and collected data, we moved on to training step but once there we realize that our labels are unreliable or realize that goal is too hard and thus we backtrack to second or first step from third step. We keep updating everything as new information keeps poping everytime
 
 <p align="center">
 <img src='/images/dl_project/more_steps.png' width="50%"/> 
@@ -105,9 +105,30 @@ Using this platform, the team collected both word-level dataset, which has image
 
 - [x] Training & Debugging
 
+Start with simple network and simple version of the goal. The team at Dropbox started with simple goal to turning an image of a single word into text. To train this network, they needed data. Back to previous step, they decided to use synthetic data. To gather synthetic data, they created a pipeline of 3 pieces, first a corpus of words to use, second a collection of fonts for drawing the words and third a set of geometric and photometric transformations meant to simulate real world distortions. 
+
+Here is a sample of synthetic dataset for generating word images,
+
+<p align="center">
+<img src='/images/dl_project/synthetic_sample.png' width="50%"/> 
+</p>
+
+The team started with with words coming from a collection of [Project Gutenberg](https://www.gutenberg.org/) books from the 19th century, about a thousand fonts they collected, and some simple distortions like rotations, underlines, and blurs. They generated about a million synthetic words, trained a deep net, and then tested the accuracy, which was around 79%. 
+
+Here are some highlights which the team provides to improve the recognition accuracy. 
+
+- The network didn't perform well on receipts, so word corpus was expanded to add [Uniform Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code) (UPC) database.
+- The network was struggling with letters with disconnected segments. Receipts are often printed with thermal fonts that have stippled, disconnected, or ink smudged letters, but the network had only been given training data with smooth continuous fonts (like from a laser printer) or lightly bit-mapped characters. To overcome this, they included words on thermal printer fonts to get same effect as the characters appear on any receipt.
+- The team did research on top 50 fonts in the world and created a font frequency system that allowed them to sample from common fonts (such as Helvetica or Times New Roman) more frequently, while still retaining a long tail of rare fonts (such as some ornate logo fonts). They discovered that some fonts have incorrect symbols or limited support, resulting in just squares, or their lower or upper case letters are mismatched and thus incorrect. By manually going through all 2000 fonts, they marked the fonts that had invalid symbols.
+- From a histogram of the synthetically generated words, the team discovered that many symbols were underrepresented, such as / or &. They artifically boosted the frequency of these in the synthetic corpus, by synthetically generating representative dates, prices, URLs, etc.
+- They added a large number of visual transformations, such as warping, fake shadows, and fake creases, and much more.
+
+
 
 
 ### Our Application
+
+Here is image that gives an overview of what needs to be done for our application.
 
 <p align="center">
 <img src='/images/dl_project/full_project.png' width="50%"/> 
