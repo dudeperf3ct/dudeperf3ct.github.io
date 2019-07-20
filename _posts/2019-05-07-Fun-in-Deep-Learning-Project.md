@@ -10,7 +10,9 @@ published : false
 
 # Fun in Deep Learning Project
 
-In this post, we will create a project, a text recognizer application. Here we will detail all the process that takes place in creating a deep learning project and various practices. This post will be updated multiple times as we will deal with a lot of experiments spanning multiple weeks. 
+In this post, we will create a project, a text recognizer application. Here we will detail all the process that takes place in creating a deep learning project and various practices. We will also look at an amazing case-study done at Dropbox, [Creating a Modern OCR Pipeline Using Computer Vision and Deep Learning](https://blogs.dropbox.com/tech/2017/04/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning/). This case-study takes us behind the scenes on how the team at Dropbox built a state-of-the-art Optical Character Recognition (OCR) pipeline.  
+
+This post will be updated multiple times as we will deal with a lot of experiments spanning multiple weeks. 
 
 > All the codes safely stored in github repo [Keras]()
 
@@ -42,7 +44,7 @@ Full Stack Deep Learning Bootcamp provides an excellent guide on many different 
 </p>
 
 
-We will also look at an amazing case-study done at Dropbox, [Creating a Modern OCR Pipeline Using Computer Vision and Deep Learning](https://blogs.dropbox.com/tech/2017/04/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning/). This post takes us behind the scenes on how they built a state-of-the-art Optical Character Recognition (OCR) pipeline.
+
 
 We will steal some of the slides from the lectures that serve as an excellent to-do's as a starting point of any DL project. We will apply all these ideas and answer all the questions in context of our project.
 
