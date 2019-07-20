@@ -75,7 +75,12 @@ Notice the flow is not linear or sequential, there is a lot of backtracking and 
 
 ### Drop-box Case Study
 
-Here I will take you through the journey of how guys at Dropbox followed all the 5 steps mentioned above.
+Here I will take you through the journey of how guys at Dropbox built and deployed a state-of-the-art OCR pipeline to millions of users.
+
+The goal of the project was to enable following features for Dropbox Business users
+- Extract all the text in scanned documents and index it, so that it can be searched for later
+- Create a hidden overlay so text can be copied and pasted from the scans saved as PDFs
+
 
 
 
