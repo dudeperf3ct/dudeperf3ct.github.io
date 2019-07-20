@@ -54,7 +54,7 @@ We start with outlining these steps that are performed for every project in Deep
 <img src='/images/dl_project/steps.png' width="50%"/> 
 </p>
 
-1. Planning & Project Setup 
+1. Planning & Project setup 
 
 In this first step, we lay out what are the goals of the project. We determine what the requirement the project needs and make sure have enough resources allocated for the project.
 
@@ -79,7 +79,9 @@ Notice the flow is not linear or sequential, there is a lot of backtracking and 
 
 ### Dropbox Case Study
 
-Here I will take you through the journey of how guys at Dropbox built and deployed a state-of-the-art OCR pipeline to millions of users.
+Here I will take you through the journey of how the team at Dropbox built and deployed a state-of-the-art OCR pipeline to millions of users.
+
+- [x] Planning & Project setup
 
 The goal of the project was to enable following features for Dropbox Business users
 - Extract all the text in scanned documents and index it, so that it can be searched for later
@@ -89,8 +91,19 @@ The first version used a commerical off-the-shelf OCR Library before creating ow
 
 Another aspect of encourage the project was cost consideration. Having own OCR system would save them significant money as the licensed commercial OCR SDK charged them based on the number of scans.
 
-- [x] First step
+- [x] Data collection & labelling
 
+To collect data, they asked a small percentage of users whether they would donate some of their image files to improve OCR algorithms. The most important factor taken into consideration at Dropbox was privacy. The donated files were kept private and secure by not keeping donated data on local machines in permanent storage, maintaining extensive auditing, requiring strong authentication to access any of it, and more.
+
+Next step was how to label this user-donated data. One way is to use platform such as [Amazon’s Mechanical Turk](https://www.mturk.com/mturk/welcome) (MTurk) but the dataset would be exposed in the wild to workers. To navigate this challenge, the team created their own platform for data annotation, named DropTurk. They hired contractors under a strict non-disclosure agreement (NDA) to ensure that they cannot keep or share any of the data they label. Here is an example of DropTurk UI for adding ground truth for word images.
+
+<p align="center">
+<img src='/images/dl_project/dropturk.png' width="50%"/> 
+</p>
+
+Using this platform, the team collected both word-level dataset, which has images of individual words and their annotated text, as well as a full document-level dataset, which has images of full documents (like receipts) and fully transcribed text.
+
+- [x] Training & Debugging
 
 
 
