@@ -28,7 +28,9 @@ Well sit tight and buckle up. I will go through everything in-detail.
 
 Feel free to jump anywhere,
 
-- [](#)
+- [Steps in DL Project](#steps-in-dl-project)
+- [Dropbox Case Study](#dropbox-case-study)
+- [Our Application](#our-application)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -43,6 +45,8 @@ Full Stack Deep Learning Bootcamp provides an excellent guide on many different 
 We will also look at an amazing case-study done at Dropbox, [Creating a Modern OCR Pipeline Using Computer Vision and Deep Learning](https://blogs.dropbox.com/tech/2017/04/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning/). This post takes us behind the scenes on how they built a state-of-the-art Optical Character Recognition (OCR) pipeline.
 
 We will steal some of the slides from the lectures that serve as an excellent to-do's as a starting point of any DL project. We will apply all these ideas and answer all the questions in context of our project.
+
+### Steps in DL Project
 
 We start with outlining these steps that are performed for every project in Deep Learning.
 
@@ -73,7 +77,7 @@ Notice the flow is not linear or sequential, there is a lot of backtracking and 
 </p>
 
 
-### Drop-box Case Study
+### Dropbox Case Study
 
 Here I will take you through the journey of how guys at Dropbox built and deployed a state-of-the-art OCR pipeline to millions of users.
 
@@ -81,7 +85,11 @@ The goal of the project was to enable following features for Dropbox Business us
 - Extract all the text in scanned documents and index it, so that it can be searched for later
 - Create a hidden overlay so text can be copied and pasted from the scans saved as PDFs
 
+The first version used a commerical off-the-shelf OCR Library before creating own machine-learning OCR system. Once they confirmed that there was indeed strong user demand for the mobile document scanner and OCR, they decided to build our own in-house OCR system.
 
+Another aspect of encourage the project was cost consideration. Having own OCR system would save them significant money as the licensed commercial OCR SDK charged them based on the number of scans.
+
+- [x] First step
 
 
 
