@@ -125,6 +125,43 @@ Here are some highlights which the team provides to improve the recognition accu
 - From a histogram of the synthetically generated words, the team discovered that many symbols were underrepresented, such as / or &. They artifically boosted the frequency of these in the synthetic corpus, by synthetically generating representative dates, prices, URLs, etc.
 - They added a large number of visual transformations, such as warping, fake shadows, and fake creases, and much more.
 
+Next, step they divided OCR problem into two steps : First, they would use computer vision to take an image of a document and segment it into lines and words; which they called the Word Detector. Then, they would take each word and feed it into a deep net to turn the word image into actual text; which they called the Word Deep Net.
+
+Word Detector did not use a deep net-based approach. They used a classic computer vision approach named Maximally Stable Extremal Regions (MSERs), using OpenCV’s implementation. The MSER algorithm finds connected regions at different thresholds, or levels, of the image. Essentially, they detect blobs in images, and are thus particularly good for text. Word Detector first detects MSER features in an image, then strings these together into word and line detections.
+
+The team tracked everything needed for machine learning reproducibility, such as a unique git hash for the code that was used, pointers to S3 with generated data sets and results, evaluation results, graphs, a high-level description of the goal of that experiment, and more. Week over week, they tracked how well they were doing. The team divided the dataset into different categories, such as register_tapes (receipts), screenshots, scanned_docs, etc., and computed accuracies both individually for each category and overall across all data. For example, the entry below shows early work in the lab notebook for first full end-to-end test, with a real Word Detector coupled to our real Word Deep Net. 
+
+<p align="center">
+<img src='/images/dl_project/exp.png' width="50%"/> 
+</p>
+
+Synthetic data pipeline was resulting in a Single Word Accuracy (SWA) percentage in the high-80s on their OCR benchmark set. The team then collected about 20,000 real images of words (compared to 1 million synthetically generated words) and used these to fine tune the Word Deep Net. This took them to an SWA in the mid-90s.
+
+Next, and final network was to chain together Word Detector and Word Deep Net and benchmark the entire combined system end-to-end against document-level images rather than older Single Word Accuracy benchmarking suite. This gave an end-to-end accuracy of 44%. The primary issues were spacing and spurious garbage text from noise in the image. Sometimes the system would incorrectly combine two words, such as “helloworld”, or incorrectly fragment a single word, such as “wo rld”. The solution to this problem was to modify the Connectionist Temporal Classification (CTC) layer of the network to also give us a confidence score in addition to the predicted text. They then use this confidence score to bucket predictions in three ways:
+- If the confidence was high, we kept the prediction as is.
+- If the confidence was low, we simply filtered them out, making a bet that these were noise predictions.
+- If the confidence was somewhere in the middle, we then ran it through a lexicon generated from the Oxford English Dictionary, applying different transformations between and within word prediction boxes, attempting to combine words or split them in various ways to see if they were in the lexicon.
+
+The team created a module called Wordinator, which gives discrete bounding boxes for each individual OCRed word. This results in individual word coordinates along with their OCRed text. Here is a sample output after passing through Wordinator.
+
+<p align="center">
+<img src='/images/dl_project/wordinator.png' width="50%"/> 
+</p>
+
+The Wordinator will break some of these boxes into individual word coordinate boxes, such as “of” and “Engineering”, which are currently part of the same box. 
+
+Now that the team had a fully working end-to-end system, they generated more than ten million synthetic words and trained the neural net for a very large number of iterations to squeeze out as much accuracy as they could. All of this gave them all the metrics that exceeded the OCR state-of-the-art.
+
+The final end-to-end system was ready to be depolyed.
+
+- [x] Deploying & Testing
+
+Team needed to create a distributed pipeline suitable for use by millions of users and a system replacing their prototype scripts. In addition, they had to do this without disrupting the existing OCR system using the commercial off the shelf SDK
+
+<p align="center">
+<img src='/images/dl_project/production.png' width="50%"/> 
+</p>
+
 
 
 
