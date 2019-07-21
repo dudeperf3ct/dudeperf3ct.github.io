@@ -162,17 +162,32 @@ Team needed to create a distributed pipeline suitable for use by millions of use
 <img src='/images/dl_project/production.png' width="50%"/> 
 </p>
 
+In the pipeline shown above, mobile clients upload scanned document images to the in-house asynchronous work queue. When the upload is finished, it then sends the image via a Remote Procedure Call (RPC) to a cluster of servers running the OCR service. The actual OCR service uses OpenCV and TensorFlow, both written in C++ and with complicated library dependencies; so security exploits are a real concern. The team has isolated the actual OCR portion into jails using technologies like [LXC](https://en.wikipedia.org/wiki/LXC), [CGroups](https://en.wikipedia.org/wiki/Cgroups), [Linux Namespaces](https://en.wikipedia.org/wiki/Linux_namespaces), and [Seccomp](https://en.wikipedia.org/wiki/Seccomp) to provide isolation and syscall whitelisting, using IPCs to talk into and out of the isolated container. If someone compromises the jail they will still be completely separated from the rest of the system.
+
+Once we get word bounding boxes and their OCRed text, we merge them back into the original PDF produced by the mobile document scanner as an OCR hidden layer. The user thus gets a PDF that has both the scanned image and the detected text. The OCRed text is also added to Dropbox’s search index. The user can now highlight and copy-paste text from the PDF, with the highlights going in the correct place due to our hidden word box coordinates. They can also search for the scanned PDF via its OCRed text on Dropbox.
+
+The team now had an actual engineering pipeline (with unit tests and continual integration!), but still had performance issues. The first question was whether to would use CPUs or GPUs in production at inference time. The team did an extensive analysis of how Word Detector and Word Deep Net performed on CPUs vs GPUs, assuming full use of all cores on each CPU and the characteristics of the CPU. After much analysis, they decided that they could hit their performance targets on just CPUs at similar or lower costs than with GPU machines. After that, did some rewriting of libraries to make use of all CPU cores.
+
+Having everything in place running silently in production side-by-side with the commercial OCR system, the team needed to confirm that our system was truly better, as measured on real user data. The team performed a qualitative blackbox test of both OCR systems end-to-end on the user-donated images and found that they indeed performed the same or better than the older commercial OCR SDK, allowing them to ramp up our system to 100% of Dropbox Business users.
 
 
+This entire round of took about 8 months, at the end of which the team had built and deployed a state-of-the-art OCR pipeline to millions of users using modern computer vision and deep neural network techniques. 
 
 ### Our Application
 
-Here is image that gives an overview of what needs to be done for our application.
+Here is image that gives an overview of flow and different components for our application.
 
 <p align="center">
 <img src='/images/dl_project/full_project.png' width="50%"/> 
 </p>
 
+We have divided the task of recognition into two pieces : Line detector and Line Text Recognizer. 
+
+Experiment - 1
+
+The goal of this experiment will be simple which is to solve a simplified version of line text recognition problem, a character recognizer.
+The dataset we will be using for this task will be [EMNIST](https://www.nist.gov/node/1298471/emnist-dataset), which thanks [Cohen and et al](http://arxiv.org/pdf/1702.05373) it is labelled.
+We wil use different network architectures while training the model.
 
 
 <span class='orange'>Happy Learning!</span>
