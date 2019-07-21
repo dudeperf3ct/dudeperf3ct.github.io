@@ -37,14 +37,11 @@ Feel free to jump anywhere,
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
-Full Stack Deep Learning Bootcamp provides an excellent guide on many different questions keeping up DL practitioner such as, "How to " As the graphics below describes, this course was really about practices in creating production-ready projects.
+Full Stack Deep Learning Bootcamp provides an excellent guide on many different questions keeping up DL practitioner such as, "How to start with ML Projects?", "What steps are involved?" As the graphics below describes this course was about practices in creating production-ready projects.
 
 <p align="center">
 <img src='/images/dl_project/course.png' width="50%"/> 
 </p>
-
-
-
 
 We will steal some of the slides from the lectures that serve as an excellent to-do's as a starting point of any DL project. We will apply all these ideas and answer all the questions in context of our project.
 
@@ -53,7 +50,7 @@ We will steal some of the slides from the lectures that serve as an excellent to
 We start with outlining these steps that are performed for every project in Deep Learning.
 
 <p align="center">
-<img src='/images/dl_project/steps.png' width="50%"/> 
+<img src='/images/dl_project/steps.png' width="30%"/> 
 </p>
 
 1. Planning & Project setup 
@@ -75,7 +72,7 @@ In last step, we write test functions to test out the model in some version cont
 Notice the flow is not linear or sequential, there is a lot of backtracking and improving as we improve our beliefs about the project. One example could be that having decided goal and collected data, we moved on to training step but once there we realize that our labels are unreliable or realize that goal is too hard and thus we backtrack to second or first step from third step. We keep updating everything as new information keeps poping everytime
 
 <p align="center">
-<img src='/images/dl_project/more_steps.png' width="50%"/> 
+<img src='/images/dl_project/more_steps.png' width="80%"/> 
 </p>
 
 
@@ -100,7 +97,7 @@ To collect data, they asked a small percentage of users whether they would donat
 Next step was how to label this user-donated data. One way is to use platform such as [Amazon’s Mechanical Turk](https://www.mturk.com/mturk/welcome) (MTurk) but the dataset would be exposed in the wild to workers. To navigate this challenge, the team created their own platform for data annotation, named DropTurk. They hired contractors under a strict non-disclosure agreement (NDA) to ensure that they cannot keep or share any of the data they label. Here is an example of DropTurk UI for adding ground truth for word images.
 
 <p align="center">
-<img src='/images/dl_project/dropturk.png' width="50%"/> 
+<img src='/images/dl_project/dropturk.png' width="80%"/> 
 </p>
 
 Using this platform, the team collected both word-level dataset, which has images of individual words and their annotated text, as well as a full document-level dataset, which has images of full documents (like receipts) and fully transcribed text.
@@ -112,7 +109,7 @@ Start with simple network and simple version of the goal. The team at Dropbox st
 Here is a sample of synthetic dataset for generating word images,
 
 <p align="center">
-<img src='/images/dl_project/synthetic_sample.png' width="50%"/> 
+<img src='/images/dl_project/synthetic_sample.png' width="80%"/> 
 </p>
 
 The team started with with words coming from a collection of [Project Gutenberg](https://www.gutenberg.org/) books from the 19th century, about a thousand fonts they collected, and some simple distortions like rotations, underlines, and blurs. They generated about a million synthetic words, trained a deep net, and then tested the accuracy, which was around 79%. 
@@ -132,7 +129,7 @@ Word Detector did not use a deep net-based approach. They used a classic compute
 The team tracked everything needed for machine learning reproducibility, such as a unique git hash for the code that was used, pointers to S3 with generated data sets and results, evaluation results, graphs, a high-level description of the goal of that experiment, and more. Week over week, they tracked how well they were doing. The team divided the dataset into different categories, such as register_tapes (receipts), screenshots, scanned_docs, etc., and computed accuracies both individually for each category and overall across all data. For example, the entry below shows early work in the lab notebook for first full end-to-end test, with a real Word Detector coupled to our real Word Deep Net. 
 
 <p align="center">
-<img src='/images/dl_project/exp.png' width="50%"/> 
+<img src='/images/dl_project/exp.png' width="80%"/> 
 </p>
 
 Synthetic data pipeline was resulting in a Single Word Accuracy (SWA) percentage in the high-80s on their OCR benchmark set. The team then collected about 20,000 real images of words (compared to 1 million synthetically generated words) and used these to fine tune the Word Deep Net. This took them to an SWA in the mid-90s.
@@ -145,7 +142,7 @@ Next, and final network was to chain together Word Detector and Word Deep Net an
 The team created a module called Wordinator, which gives discrete bounding boxes for each individual OCRed word. This results in individual word coordinates along with their OCRed text. Here is a sample output after passing through Wordinator.
 
 <p align="center">
-<img src='/images/dl_project/wordinator.png' width="50%"/> 
+<img src='/images/dl_project/wordinator.png' width="80%"/> 
 </p>
 
 The Wordinator will break some of these boxes into individual word coordinate boxes, such as “of” and “Engineering”, which are currently part of the same box. 
@@ -159,7 +156,7 @@ The final end-to-end system was ready to be depolyed.
 Team needed to create a distributed pipeline suitable for use by millions of users and a system replacing their prototype scripts. In addition, they had to do this without disrupting the existing OCR system using the commercial off the shelf SDK
 
 <p align="center">
-<img src='/images/dl_project/production.png' width="50%"/> 
+<img src='/images/dl_project/production.png' width="80%"/> 
 </p>
 
 In the pipeline shown above, mobile clients upload scanned document images to the in-house asynchronous work queue. When the upload is finished, it then sends the image via a Remote Procedure Call (RPC) to a cluster of servers running the OCR service. The actual OCR service uses OpenCV and TensorFlow, both written in C++ and with complicated library dependencies; so security exploits are a real concern. The team has isolated the actual OCR portion into jails using technologies like [LXC](https://en.wikipedia.org/wiki/LXC), [CGroups](https://en.wikipedia.org/wiki/Cgroups), [Linux Namespaces](https://en.wikipedia.org/wiki/Linux_namespaces), and [Seccomp](https://en.wikipedia.org/wiki/Seccomp) to provide isolation and syscall whitelisting, using IPCs to talk into and out of the isolated container. If someone compromises the jail they will still be completely separated from the rest of the system.
@@ -178,7 +175,7 @@ This entire round of took about 8 months, at the end of which the team had built
 Here is image that gives an overview of flow and different components for our application.
 
 <p align="center">
-<img src='/images/dl_project/full_project.png' width="50%"/> 
+<img src='/images/dl_project/full_project.png' width="80%"/> 
 </p>
 
 We have divided the task of recognition into two pieces : Line detector and Line Text Recognizer. 
