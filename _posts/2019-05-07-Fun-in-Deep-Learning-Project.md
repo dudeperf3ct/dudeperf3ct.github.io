@@ -72,7 +72,7 @@ In last step, we write test functions to test out the model in some version cont
 Notice the flow is not linear or sequential, there is a lot of backtracking and improving as we improve our beliefs about the project. One example could be that having decided goal and collected data, we moved on to training step but once there we realize that our labels are unreliable or realize that goal is too hard and thus we backtrack to second or first step from third step. We keep updating everything as new information keeps poping everytime
 
 <p align="center">
-<img src='/images/dl_project/more_steps.png' width="80%"/> 
+<img src='/images/dl_project/more_steps.png' width="60%"/> 
 </p>
 
 
@@ -109,7 +109,7 @@ Start with simple network and simple version of the goal. The team at Dropbox st
 Here is a sample of synthetic dataset for generating word images,
 
 <p align="center">
-<img src='/images/dl_project/synthetic_sample.png' width="80%"/> 
+<img src='/images/dl_project/synthetic_sample.png' width="60%"/> 
 </p>
 
 The team started with with words coming from a collection of [Project Gutenberg](https://www.gutenberg.org/) books from the 19th century, about a thousand fonts they collected, and some simple distortions like rotations, underlines, and blurs. They generated about a million synthetic words, trained a deep net, and then tested the accuracy, which was around 79%. 
@@ -129,7 +129,7 @@ Word Detector did not use a deep net-based approach. They used a classic compute
 The team tracked everything needed for machine learning reproducibility, such as a unique git hash for the code that was used, pointers to S3 with generated data sets and results, evaluation results, graphs, a high-level description of the goal of that experiment, and more. Week over week, they tracked how well they were doing. The team divided the dataset into different categories, such as register_tapes (receipts), screenshots, scanned_docs, etc., and computed accuracies both individually for each category and overall across all data. For example, the entry below shows early work in the lab notebook for first full end-to-end test, with a real Word Detector coupled to our real Word Deep Net. 
 
 <p align="center">
-<img src='/images/dl_project/exp.png' width="80%"/> 
+<img src='/images/dl_project/exp.png' width="60%"/> 
 </p>
 
 Synthetic data pipeline was resulting in a Single Word Accuracy (SWA) percentage in the high-80s on their OCR benchmark set. The team then collected about 20,000 real images of words (compared to 1 million synthetically generated words) and used these to fine tune the Word Deep Net. This took them to an SWA in the mid-90s.
