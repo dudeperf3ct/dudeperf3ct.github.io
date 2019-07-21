@@ -97,7 +97,7 @@ To collect data, they asked a small percentage of users whether they would donat
 Next step was how to label this user-donated data. One way is to use platform such as [Amazon’s Mechanical Turk](https://www.mturk.com/mturk/welcome) (MTurk) but the dataset would be exposed in the wild to workers. To navigate this challenge, the team created their own platform for data annotation, named DropTurk. They hired contractors under a strict non-disclosure agreement (NDA) to ensure that they cannot keep or share any of the data they label. Here is an example of DropTurk UI for adding ground truth for word images.
 
 <p align="center">
-<img src='/images/dl_project/dropturk.png' width="80%"/> 
+<img src='/images/dl_project/dropturk.png' width="60%"/> 
 </p>
 
 Using this platform, the team collected both word-level dataset, which has images of individual words and their annotated text, as well as a full document-level dataset, which has images of full documents (like receipts) and fully transcribed text.
