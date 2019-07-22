@@ -38,7 +38,7 @@ Okay enough talk, I tried to declutter various sources and arrange it in such a 
 | [Introduction to Deep Learning with PyTorch](https://www.udacity.com/course/deep-learning-pytorch--ud188) | [Stanford CS234: Reinforcement Learning, Winter 2019](https://www.youtube.com/playlist?list=PLoROMvodv4rOSOPzutgyCTapiGlY2Nd8u) | [CMU Neural Nets for NLP 2019](https://www.youtube.com/playlist?list=PL8PYTP1V4I8Ajj7sY6sdtmjgkt7eo2VMs) |
 | [Stanford CS230: Deep Learning, Autumn 2018](https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb) | [Stanford CS231n: Convolutional Neural Networks for Visual Recognition, Spring 2017](https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv) | |
 | [2019 fast.ai Practical Deep Learning for Coders v3 part 1](https://course.fast.ai/videos/?lesson=1) and [part 2](https://course.fast.ai/part2) | [2019 fast.ai course: A Code-First Introduction to Natural Language Processing ](https://www.fast.ai/2019/07/08/fastai-nlp/) | |
-| Crash Course [Introduction to Machine Learning by Google](https://developers.google.com/machine-learning/crash-course/ml-intro) | | |
+| [AI Education Resources by Google](https://ai.google/education/) | | |
 
 <span class='saddlebrown'>Do you want to learn DL all day? Here are some of my favourite "Unwinding Tracks" which you can switch to avoid information overload 🤯.</span>
 
