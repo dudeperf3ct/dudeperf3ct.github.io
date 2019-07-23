@@ -32,7 +32,7 @@ Feel free to jump anywhere,
 - [Steps in DL Project](#steps-in-dl-project)
 - [Dropbox Case Study](#dropbox-case-study)
 - [Our Application](#our-application)
-  - [Experiement-1](#experiment-1)
+  - [Experiment-1](#experiment-1)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -180,7 +180,7 @@ Here is image that gives an overview of flow and different components for our ap
 
 We have divided the task of recognition into two pieces : Line detector and Line Text Recognizer. 
 
-#### Experiment - 1
+#### Experiment-1
 
 The goal of this experiment will be simple which is to solve a simplified version of line text recognition problem, a character recognizer.
 
