@@ -14,7 +14,7 @@ In this post, we will create a project, a text recognizer application. Here we w
 
 This post will be updated multiple times as we will deal with a lot of experiments spanning multiple weeks. 
 
-> All the codes safely stored in github repo [Keras]()
+> All the codes safely stored in github repo [TextRecognizer](https://github.com/dudeperf3ct/TextRecognizer)
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
@@ -27,7 +27,6 @@ Well sit tight and buckle up. I will go through everything in-detail.
 </p>
 
 
-
 Feel free to jump anywhere,
 
 - [Steps in DL Project](#steps-in-dl-project)
@@ -37,7 +36,7 @@ Feel free to jump anywhere,
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
-Full Stack Deep Learning Bootcamp provides an excellent guide on many different questions keeping up DL practitioner such as, "How to start with ML Projects?", "What steps are involved?" As the graphics below describes this course was about practices in creating production-ready projects.
+Full Stack Deep Learning Bootcamp provides an excellent guide on many different questions keeping up DL practitioner such as, "How to start with ML Projects?", "What steps are involved?" As the graphics below describes, this course was about practices in creating production-ready projects.
 
 <p align="center">
 <img src='/images/dl_project/course.png' width="50%"/> 
@@ -53,19 +52,19 @@ We start with outlining these steps that are performed for every project in Deep
 <img src='/images/dl_project/steps.png' width="30%"/> 
 </p>
 
-1. Planning & Project setup 
+1. **Planning & Project setup**
 
 In this first step, we lay out what are the goals of the project. We determine what the requirement the project needs and make sure have enough resources allocated for the project.
 
-2. Data collection & labelling
+2. **Data collection & labelling**
 
 Here comes the most critical step, we look for different ways in which we can collect appropriate data for our project and look for cheap ways to label the data. Here we focus on the questions, How hard is to get data?, How expensive is data labelling? or How much data will be needed?
 
-3. Training & Debugging
+3. **Training & Debugging**
 
 In this step, we start with implementing baselines. We look for any SoTA models and reproduce those. All we need is to make our model more robust and effective. We also look at what metric do we care about and decide which metric to the model optimize for.
 
-4. Deploying & Testing
+4. **Deploying & Testing**
 
 In last step, we write test functions to test out the model in some version control (not after deploying in real-world but before) to check the robustness of the model and once happy with the results we are ready to deploy.
 
@@ -80,7 +79,7 @@ Notice the flow is not linear or sequential, there is a lot of backtracking and 
 
 Here I will take you through the journey of how the team at Dropbox built and deployed a state-of-the-art OCR pipeline to millions of users.
 
-- [x] Planning & Project setup
+- [x] **Planning & Project setup**
 
 The goal of the project was to enable following features for Dropbox Business users
 - Extract all the text in scanned documents and index it, so that it can be searched for later
@@ -90,7 +89,7 @@ The first version used a commerical off-the-shelf OCR Library before creating ow
 
 Another aspect of encourage the project was cost consideration. Having own OCR system would save them significant money as the licensed commercial OCR SDK charged them based on the number of scans.
 
-- [x] Data collection & labelling
+- [x] **Data collection & labelling**
 
 To collect data, they asked a small percentage of users whether they would donate some of their image files to improve OCR algorithms. The most important factor taken into consideration at Dropbox was privacy. The donated files were kept private and secure by not keeping donated data on local machines in permanent storage, maintaining extensive auditing, requiring strong authentication to access any of it, and more.
 
@@ -102,7 +101,7 @@ Next step was how to label this user-donated data. One way is to use platform su
 
 Using this platform, the team collected both word-level dataset, which has images of individual words and their annotated text, as well as a full document-level dataset, which has images of full documents (like receipts) and fully transcribed text.
 
-- [x] Training & Debugging
+- [x] **Training & Debugging**
 
 Start with simple network and simple version of the goal. The team at Dropbox started with simple goal to turning an image of a single word into text. To train this network, they needed data. Back to previous step, they decided to use synthetic data. To gather synthetic data, they created a pipeline of 3 pieces, first a corpus of words to use, second a collection of fonts for drawing the words and third a set of geometric and photometric transformations meant to simulate real world distortions. 
 
@@ -151,7 +150,7 @@ Now that the team had a fully working end-to-end system, they generated more tha
 
 The final end-to-end system was ready to be depolyed.
 
-- [x] Deploying & Testing
+- [x] **Deploying & Testing**
 
 Team needed to create a distributed pipeline suitable for use by millions of users and a system replacing their prototype scripts. In addition, they had to do this without disrupting the existing OCR system using the commercial off the shelf SDK
 
@@ -180,11 +179,13 @@ Here is image that gives an overview of flow and different components for our ap
 
 We have divided the task of recognition into two pieces : Line detector and Line Text Recognizer. 
 
-Experiment - 1
+#### Experiment - 1
 
 The goal of this experiment will be simple which is to solve a simplified version of line text recognition problem, a character recognizer.
+
 The dataset we will be using for this task will be [EMNIST](https://www.nist.gov/node/1298471/emnist-dataset), which thanks [Cohen and et al](http://arxiv.org/pdf/1702.05373) it is labelled.
-We wil use different network architectures while training the model.
+
+We will experiment with different network architectures while training the model.
 
 
 <span class='orange'>Happy Learning!</span>
@@ -199,6 +200,11 @@ We wil use different network architectures while training the model.
 
 # Further Reading
 
+[Spring 2019 Full Stack Deep Learning Bootcamp](https://fullstackdeeplearning.com/march2019)
+
+[Creating a Modern OCR Pipeline Using Computer Vision and Deep Learning](https://blogs.dropbox.com/tech/2017/04/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning/)
+
+[Augmented camera previews for the Dropbox Android document scanner](https://blogs.dropbox.com/tech/tag/doc-scanner/)
 
 ---
 
