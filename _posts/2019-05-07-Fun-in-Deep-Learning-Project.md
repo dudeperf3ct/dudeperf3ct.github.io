@@ -74,7 +74,7 @@ In this step, we start with implementing baselines. We look for any SoTA models 
 
 In last step, we write test functions to test out the model in some version control (not after deploying in real-world but before) to check the robustness of the model and once happy with the results we are ready to deploy.
 
-<span class='red'>Notice the flow is not linear or sequential, there is a lot of backtracking and improving as we improve our beliefs about the project.</span> One example could be that having decided goal and collected data, we moved on to training step but once there we realize that our labels are unreliable or realize that goal is too hard and thus we backtrack to second or first step from third step. We keep updating everything as new information keeps poping everytime
+<span class='red'>Notice the flow is not linear or sequential, there is a lot of backtracking and improving as we improve our beliefs about the project.</span> One example could be that having decided goal and collected data, we moved on to training step but once there we realize that our labels are unreliable or realize that goal is too hard and thus we backtrack to second or first step from third step. We keep updating different steps as new information keeps popping up everytime.
 
 <p align="center">
 <img src='/images/dl_project/more_steps.png' width="60%"/> 
