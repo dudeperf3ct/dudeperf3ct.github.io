@@ -49,23 +49,28 @@ We will steal some of the slides from the lectures that serve as an excellent to
 
 We start with outlining these steps that are performed for every project in Deep Learning.
 
+1. Planning & Project Setup
+2. Data collection & Labelling
+3. Training & Debugging
+4. Deploying & Testing
+
 <p align="center">
 <img src='/images/dl_project/steps.png' width="30%"/> 
 </p>
 
-1. **Planning & Project setup**
+- **Planning & Project setup**
 
 In this first step, we lay out what are the goals of the project. We determine what the requirement the project needs and make sure have enough resources allocated for the project.
 
-2. **Data collection & labelling**
+- **Data collection & labelling**
 
 Here comes the most critical step, we look for different ways in which we can collect appropriate data for our project and look for cheap ways to label the data. Here we focus on the questions, How hard is to get data?, How expensive is data labelling? or How much data will be needed?
 
-3. **Training & Debugging**
+- **Training & Debugging**
 
 In this step, we start with implementing baselines. We look for any SoTA models and reproduce those. All we need is to make our model more robust and effective. We also look at what metric do we care about and decide which metric to the model optimize for.
 
-4. **Deploying & Testing**
+- **Deploying & Testing**
 
 In last step, we write test functions to test out the model in some version control (not after deploying in real-world but before) to check the robustness of the model and once happy with the results we are ready to deploy.
 
