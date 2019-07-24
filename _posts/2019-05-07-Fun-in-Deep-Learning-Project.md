@@ -2,9 +2,9 @@
 layout:     post
 title:      Fun in Deep Learning Project
 date:       2019-05-17 12:00:00
-summary:    This post will provide a 
+summary:    This post will provide a journey of creating a deep learning project. In this post, we will create a deep learning project, all famous OCR aka Text Recognizer. We will also look at many lessons and process that needs to be adopted to go from planning to final deployed product and also present a case study of Creating modern OCR pipeline using Computer Vision and Deep Learning done at Dropbox.
 categories: project
-published : false
+published : true
 ---
 
 
@@ -37,7 +37,7 @@ Feel free to jump anywhere,
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
-Full Stack Deep Learning Bootcamp provides an excellent guide on many different questions keeping up DL practitioner such as, "How to start with ML Projects?", "What steps are involved?" As the graphics below describes, this course was about practices in creating production-ready projects.
+Full Stack Deep Learning Bootcamp provides an excellent guide on many different questions keeping up DL practitioner such as, "How to start with ML Projects?", "What steps are involved?" As the graphics below describes, <span class='red'>this course was about practices in creating production-ready projects.</span>
 
 <p align="center">
 <img src='/images/dl_project/course.png' width="50%"/> 
@@ -69,7 +69,7 @@ In this step, we start with implementing baselines. We look for any SoTA models 
 
 In last step, we write test functions to test out the model in some version control (not after deploying in real-world but before) to check the robustness of the model and once happy with the results we are ready to deploy.
 
-Notice the flow is not linear or sequential, there is a lot of backtracking and improving as we improve our beliefs about the project. One example could be that having decided goal and collected data, we moved on to training step but once there we realize that our labels are unreliable or realize that goal is too hard and thus we backtrack to second or first step from third step. We keep updating everything as new information keeps poping everytime
+<span class='red'>Notice the flow is not linear or sequential, there is a lot of backtracking and improving as we improve our beliefs about the project.</span> One example could be that having decided goal and collected data, we moved on to training step but once there we realize that our labels are unreliable or realize that goal is too hard and thus we backtrack to second or first step from third step. We keep updating everything as new information keeps poping everytime
 
 <p align="center">
 <img src='/images/dl_project/more_steps.png' width="60%"/> 
@@ -104,7 +104,7 @@ Using this platform, the team collected both word-level dataset, which has image
 
 - [x] **Training & Debugging**
 
-Start with simple network and simple version of the goal. The team at Dropbox started with simple goal to turning an image of a single word into text. To train this network, they needed data. Back to previous step, they decided to use synthetic data. To gather synthetic data, they created a pipeline of 3 pieces, first a corpus of words to use, second a collection of fonts for drawing the words and third a set of geometric and photometric transformations meant to simulate real world distortions. 
+<span class='yellow'>Start with simple network and simple version of the goal.</span> The team at Dropbox started with simple goal to turning an image of a single word into text. To train this network, they needed data. Back to previous step, they decided to use synthetic data. To gather synthetic data, they created a pipeline of 3 pieces, first a corpus of words to use, second a collection of fonts for drawing the words and third a set of geometric and photometric transformations meant to simulate real world distortions. 
 
 Here is a sample of synthetic dataset for generating word images,
 
@@ -167,7 +167,6 @@ The team now had an actual engineering pipeline (with unit tests and continual i
 
 Having everything in place running silently in production side-by-side with the commercial OCR system, the team needed to confirm that our system was truly better, as measured on real user data. The team performed a qualitative blackbox test of both OCR systems end-to-end on the user-donated images and found that they indeed performed the same or better than the older commercial OCR SDK, allowing them to ramp up our system to 100% of Dropbox Business users.
 
-
 This entire round of took about 8 months, at the end of which the team had built and deployed a state-of-the-art OCR pipeline to millions of users using modern computer vision and deep neural network techniques. 
 
 ### Our Application
@@ -187,6 +186,7 @@ The goal of this experiment will be simple which is to solve a simplified versio
 The dataset we will be using for this task will be [EMNIST](https://www.nist.gov/node/1298471/emnist-dataset), which thanks [Cohen and et al](http://arxiv.org/pdf/1702.05373) it is labelled.
 
 We will experiment with different network architectures while training the model.
+
 
 
 <span class='orange'>Happy Learning!</span>
@@ -214,6 +214,8 @@ We will experiment with different network architectures while training the model
 [Meme](https://hackernoon.com/latest-deep-learning-ocr-with-keras-and-supervisely-in-15-minutes-34aecd630ed8)
 
 [Steps and detailed steps](https://full-stack-deep-learning.aerobaticapp.com/e372_52326459-3750-4663-b795-e78e05f84f0c/assets/slides/fsdl_2_projects.pdf)
+
+[Overview of our project](https://full-stack-deep-learning.aerobaticapp.com/1372_52326459-3750-4663-b795-e78e05f84f0c/assets/slides/fsdl_3_project_intro.pdf)
 
 ---
 
