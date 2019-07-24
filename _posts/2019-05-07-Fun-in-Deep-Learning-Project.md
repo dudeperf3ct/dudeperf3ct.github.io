@@ -192,15 +192,9 @@ The dataset we will be using for this task will be [EMNIST](https://www.nist.gov
 
 We will experiment with different network architectures while training the model.
 
-
+Stay tuned for more updates as the project progresses!
 
 <span class='orange'>Happy Learning!</span>
-
----
-
-### Note: Caveats on terminology
-
-
 
 ---
 
