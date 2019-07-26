@@ -396,7 +396,7 @@ To overcome shortcomings of Fast R-CNN, Grishick(again!) et al proposes faster a
 
 ### Region Propsal Network (RPN)
 
-RPN were introduce to replace slow selective search which proposes region proposals with fast neural networks. Here is how RPN works:
+RPN were introduced to replace slow selective search which proposes region proposals with fast neural networks. Here is how RPN works:
 
 
 - <span class="saddlebrown">First, the picture goes through conv layers and feature maps are extracted</span>
@@ -510,11 +510,11 @@ As [Joyce Xu](https://towardsdatascience.com/@joycex99) explains above example a
 <img src='/images/object_detection/ssd.png' width="70%"/> 
 </p>
 
-To put simply, SSD approach is based on a feed-forward convolutional network that produces a fixed-size collection of bounding boxes and scores for the presence of object class instances in those boxes, followed by a non-maximum suppression step to produce the final detections.
+To put it simply, SSD approach is based on a feed-forward convolutional network that produces a fixed-size collection of bounding boxes and scores for the presence of object class instances in those boxes, followed by a non-maximum suppression step to produce the final detections.
 
 ### Choosing scales and aspect ratios for default boxes
 
-There are “extra feature layers” as seen in above architecture at the end that scale down in size. These varying-size feature maps help capture objects of different sizes, where each feature map is associated with a set of default bouding boxes. At each feature map cell, network predict the offsets relative to the default box shapes in the cell, as well as the per-class scores that indicate the presence of a class instance in each of those boxes. Specifically, for each box out of k at a given location, network computes c class scores and the 4 offsets relative to the original default box shape. This results in a total of (c + 4)k filters that are applied around each location in the feature map, yielding (c + 4)kmn outputs for a m × n feature map. Default boxes are similar to the anchor boxes used in Faster R-CNN only they are applied them to several feature maps of different resolutions.
+There are “extra feature layers” as seen in above architecture at the end that scale down in size. These varying-size feature maps help capture objects of different sizes, where each feature map is associated with a set of default bouding boxes. At each feature map cell, network predict the offsets relative to the default box shapes in the cell, as well as the per-class scores that indicate the presence of a class instance in each of those boxes. Specifically, for each box out of k at a given location, network computes c class scores and the 4 offsets relative to the original default box shape. This results in a total of (c + 4)k filters that are applied around each location in the feature map, yielding (c + 4)kmn outputs for a m × n feature map. Default boxes are similar to the anchor boxes used in Faster R-CNN only they are applied to several feature maps of different resolutions.
 
 <p align="center">
 <img src='/images/object_detection/ssd_feature_map.png' width="60%"/> 
@@ -550,7 +550,7 @@ Here are some results using SSD and Inception as backbone architecture,
 
 ## YOLO
 
-<span class='red'>You Only Live Once. No, it's not that. YOLO is You Only Look Once. So, cool.</span> Wonder how would have they come with such cool acroynm.(*I mean reuse it*). Over the period of 3 years, 3 different versions of same algorithm with variations were proposed. Let's have a look at them one by one.
+<span class='red'>You Only Live Once. No, it's not that. YOLO is You Only Look Once. So, cool.</span> Wonder how would have they come with such cool acroynm. Over the period of 3 years, 3 different versions of same algorithm with slight variations were proposed. Let's have a look at them one by one.
 
 ## YOLOv1
 
