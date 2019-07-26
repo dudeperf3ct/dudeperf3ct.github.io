@@ -834,6 +834,8 @@ R-CNN - Region CNN
 
 Fastai 2018 part 2 lesson [8](https://www.youtube.com/watch?v=Z0ssNAbe81M&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia) and [9](https://www.youtube.com/watch?v=0frKXR-2PBY&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia&index=2)
 
+[AI2 Academy: The Beginners Guide to Computer Vision - Part 2](https://www.youtube.com/watch?v=a25YnS1LjB8)
+
 [Intel's introduction to face recognition ](https://software.intel.com/en-us/articles/finding-missing-kids-through-code)
 
 [FaceNet](https://arxiv.org/pdf/1503.03832v3) 
