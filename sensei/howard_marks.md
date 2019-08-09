@@ -109,6 +109,9 @@ I think I’ve been the luckiest person on the planet. And I think it was to tha
 
 <span class='purple'>First-level thinking is simplistic and superficial, and just about everyone can do it (a bad sign for anything involving an attempt at superiority). All the first-level thinker needs is an opinion about the future, as in “The outlook for the company is favorable, meaning the stock will go up.” Second-level thinking is deep, complex and convoluted.</span>
 
+Every investment approach, even if skillfully applied, will run into environments for which it is ill suited. By and hold. Growth stocks. Value stocks. Small stocks. Large stocks. Foreign. Domestic. And that means that even the best of investors will have periods of poor performance. Nobody performs great all the time. Buffett was considered over with. Now, even if you are correct in identifying a divergence of popular opinion from eventual reality, that varying perception that I mentioned, it can take a long time for the price to converge with value and it can require something that acts as the catalyst. Underpriced does not mean “Going up tomorrow.”. Overpriced does not mean “Going down tomorrow.”. And we, everybody has to know that. And in order to be able to stick with an approach or decision until it proves out, which can be a long time, investors have to be able to weather periods when the results are embarrassing. This can be very difficult.
+
+
 Quotes
 ===========================
 
