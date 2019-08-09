@@ -112,6 +112,8 @@ If you are not willing to react with equanimity to a market price decline of 50%
 
 <span class='purple'>Life will have terrible blows, horrible blows, unfair blows, it doesn’t matter. Some people recover and others don’t. There I think the attitude of Epictetus is the best. He thought that every mischance in life was an opportunity to behave well. Every mischance in life was an opportunity to learn something and that your duty was not to be immersed in self-pity, but to utilize the terrible blow in a constructive fashion. That is a very good idea.</span>
 
+You know what Rudyard Kipling said? Treat those two imposters just the same success and failure. Of course, there’s going to be some failure in making the correct decisions. Nobody bats a thousand. I think it’s important to review your past stupidities so you are less likely to repeat them, but I’m not gnashing my teeth over it or suffering or enduring it. I regard it as perfectly normal to fail and make bad decisions. I think the tragedy in life is to be so timid that you don’t play hard enough so you have some reverses. 
+
 Quotes
 ===========================
 
