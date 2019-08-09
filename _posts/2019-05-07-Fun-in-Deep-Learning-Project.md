@@ -274,9 +274,11 @@ Breakdown of classification for test dataset using above 3 architectures.
 
 #### Experiment-2
 
+Next, we will build a Line Text Recognizer. Given a image of line of words, the task will be to output what characters are present in the line.
 
+We will use sliding window of CNN and LSTM along with [CTC loss](https://distill.pub/2017/ctc/) function.
 
-
+For this we will use a synthetic dataset by constructing sentences using EMNIST dataset and also use [IAM dataset](http://www.fki.inf.unibe.ch/databases/iam-handwriting-database) for training.
 
 Stay tuned for more updates as the project progresses!
 
@@ -292,6 +294,8 @@ Stay tuned for more updates as the project progresses!
 
 [Augmented camera previews for the Dropbox Android document scanner](https://blogs.dropbox.com/tech/tag/doc-scanner/)
 
+[Sequence Modeling With CTC](https://distill.pub/2017/ctc/)
+
 ---
 
 # Footnotes and Credits
@@ -301,6 +305,10 @@ Stay tuned for more updates as the project progresses!
 [Steps and detailed steps](https://full-stack-deep-learning.aerobaticapp.com/e372_52326459-3750-4663-b795-e78e05f84f0c/assets/slides/fsdl_2_projects.pdf)
 
 [Overview of our project](https://full-stack-deep-learning.aerobaticapp.com/1372_52326459-3750-4663-b795-e78e05f84f0c/assets/slides/fsdl_3_project_intro.pdf)
+
+[EMNIST dataset](https://www.nist.gov/node/1298471/emnist-dataset)
+
+[IAM Handwriting Dataset](http://www.fki.inf.unibe.ch/databases/iam-handwriting-database)
 
 ---
 
