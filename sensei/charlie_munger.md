@@ -108,6 +108,10 @@ Charlie Munger on Charles Darwin: “He trained himself to consider any evidence
 
 If you are not willing to react with equanimity to a market price decline of 50% 2 or 3 times a century, you are not fit to be a common shareholder and you deserve the mediocre result you are going to get.
 
+<span class='red'>Generally speaking, envy, resentment, revenge, and self-pity are disastrous modes of thought. Self-pity gets pretty close to paranoia…Every time you find your drifting into self-pity, I don’t care what the cause, your child could be dying from cancer, self-pity is not going to improve the situation. It’s a ridiculous way to behave.</span>
+
+<span class='purple'>Life will have terrible blows, horrible blows, unfair blows, it doesn’t matter. Some people recover and others don’t. There I think the attitude of Epictetus is the best. He thought that every mischance in life was an opportunity to behave well. Every mischance in life was an opportunity to learn something and that your duty was not to be immersed in self-pity, but to utilize the terrible blow in a constructive fashion. That is a very good idea.</span>
+
 Quotes
 ===========================
 
