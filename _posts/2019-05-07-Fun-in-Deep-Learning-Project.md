@@ -260,7 +260,7 @@ Here we experimented with 3 different architecture lenet, resnet and a custom CN
 - Initially we trained all models with a constant learning rate
 - Instead of using constant learning rate, we implemented cyclic learning rate and learning rate finder which provided a great boost in terms of both speed and accuracy for performing various experiements.
 - Transfer learning with resnet-18 performed poorly
-- From above results of test evaluation, we can see that model performs poorly on specific characters as there can be confusion due to similarity like digit 1 and letter l, digit 0 and letter o or O.
+- From above results of test evaluation, we can see that model performs poorly on specific characters as there can be confusion due to similarity like digit 1 and letter l, digit 0 and letter o or O, digit 5 and letter s or S or digit 9 and letter q or Q .
 - Look for new ways to increase accuracy
 
 
