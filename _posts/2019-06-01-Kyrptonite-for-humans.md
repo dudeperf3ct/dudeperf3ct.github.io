@@ -26,8 +26,9 @@ Feel free to jump anywhere,
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
+Eliezer Yudkowsky in [What Do We Mean By "Rationality"?](https://www.lesswrong.com/s/5g5TkQTe9rmPS5vvM/p/RcZCwxFiZzE6X7nsv) 
 
-
+This is why there is a whole site called “Less Wrong,” rather than a single page that simply states the formal axioms and calls it a day. There’s a whole further art to finding the truth and accomplishing value from inside a human mind: we have to learn our own flaws, overcome our biases, prevent ourselves from self-deceiving, get ourselves into good emotional shape to confront the truth and do what needs doing, et cetera, et cetera.
 
 
 <span class='orange'>Happy Learning!</span>
