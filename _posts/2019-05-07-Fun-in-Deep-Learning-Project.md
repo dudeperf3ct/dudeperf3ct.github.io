@@ -222,6 +222,7 @@ Here we experimented with 3 different architecture lenet, resnet and a custom CN
 
 - **Evaluation on Test dataset**
 
+Breakdown of classification for test dataset using above 3 architectures.
 
 <p>
 <img src='/images/dl_project/lenet_1.png' width="30%"/>
@@ -260,7 +261,12 @@ Here we experimented with 3 different architecture lenet, resnet and a custom CN
 - Initially we trained all models with a constant learning rate
 - Instead of using constant learning rate, we implemented cyclic learning rate and learning rate finder which provided a great boost in terms of both speed and accuracy for performing various experiements.
 - Transfer learning with resnet-18 performed poorly
-- From above results of test evaluation, we can see that model performs poorly on specific characters as there can be confusion due to similarity like digit 1 and letter l, digit 0 and letter o or O, digit 5 and letter s or S or digit 9 and letter q or Q .
+- From above results of test evaluation, we can see that model performs poorly on specific characters as there can be confusion due to similarity like digit 1 and letter l, digit 0 and letter o or O, digit 5 and letter s or S or digit 9 and letter q or Q.
+- Accuracies on train dataset are 78% on lenet, 83% on resnet and 84% on custom.
+- Accuracies on val dataset are 80% on lenet, 81% on resnet and 82% on custom.
+- Accuracies on test dataset are 62% on lenet, 36% on resnet and 66% on custom.
+- Custom architecture performs well but resnet perform poorly (Why?)
+- There is a lot of gap in train-val and test even when val distribution is same as test distribution i.e. val set is taken from 10% of test set.
 - Look for new ways to increase accuracy
 
 
