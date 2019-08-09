@@ -57,6 +57,8 @@ When people come to me with wonderful bussiness and they do, they talk about sel
 
 <span class='purple'>I don't try to predict markets. I don't try to predict business. I just try to adapt what comes along.</span>
 
+If I was running $1 million today, or $10 million for that matter, I’d be fully invested. Anyone who says that size does not hurt investment performance is selling. The highest rates of return I’ve ever achieved were in the 1950s. I killed the Dow. You ought to see the numbers. But I was investing peanuts then. It’s a huge structural advantage not to have a lot of money. I think I could make you 50% a year on $1 million. No, I know I could. I guarantee that.
+
 Quotes
 ===========================
 
