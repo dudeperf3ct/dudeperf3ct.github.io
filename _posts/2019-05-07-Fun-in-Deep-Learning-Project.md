@@ -190,7 +190,79 @@ The goal of this experiment will be simple which is to solve a simplified versio
 
 The dataset we will be using for this task will be [EMNIST](https://www.nist.gov/node/1298471/emnist-dataset), which thanks [Cohen and et al](http://arxiv.org/pdf/1702.05373) it is labelled.
 
-We will experiment with different network architectures while training the model.
+Here we experimented with 3 different architecture lenet, resnet and a custom CNN architecture. 
+
+**Results**
+
+- **Lenet**
+
+<p>
+<img src='/images/dl_project/lenet_lr.png' width="30%"/>
+<img src='/images/dl_project/train_lenet.png' width="30%"/>
+<img src='/images/dl_project/val_lenet.png' width="30%"/>
+</p>
+
+
+- **Resnet**
+
+<p>
+<img src='/images/dl_project/resnet_lr.png' width="30%"/>
+<img src='/images/dl_project/train_resnet.png' width="30%"/>
+<img src='/images/dl_project/val_resnet.png' width="30%"/>
+</p>
+
+- **Custom**
+
+<p>
+<img src='/images/dl_project/customCNN_lr.png' width="30%"/>
+<img src='/images/dl_project/train_customCNN.png' width="30%"/>
+<img src='/images/dl_project/val_customCNN.png' width="30%"/>
+</p>
+
+
+- **Evaluation on Test dataset**
+
+
+<p>
+<img src='/images/dl_project/lenet_1.png' width="30%"/>
+<img src='/images/dl_project/resnet_1.png' width="30%"/>
+<img src='/images/dl_project/custom_1.png' width="30%"/>
+</p>
+
+
+<p>
+<img src='/images/dl_project/lenet_2.png' width="30%"/>
+<img src='/images/dl_project/resnet_2.png' width="30%"/>
+<img src='/images/dl_project/custom_2.png' width="30%"/>
+</p>
+
+
+<p>
+<img src='/images/dl_project/lenet_3.png' width="30%"/>
+<img src='/images/dl_project/resnet_3.png' width="30%"/>
+<img src='/images/dl_project/custom_3.png' width="30%"/>
+</p>
+
+
+<p align="center">
+<img src='/images/dl_project/lenet_sample.png' width="100%"/> 
+</p>
+
+
+**Learnings**
+
+- Initially we trained all models with a constant learning rate
+- Instead of using constant learning rate, we implemented cyclic learning rate and learning rate finder which provided a great boost in terms of both speed and accuracy for performing various experiements.
+- Transfer learning with resnet-18 performed poorly
+- From above results of test evaluation, we can see that model performs poorly on specific characters as there can be confusion due to similarity like digit 1 and letter l, digit 0 and letter o or O.
+- Look for new ways to increase accuracy
+
+
+#### Experiment-2
+
+
+
+
 
 Stay tuned for more updates as the project progresses!
 
