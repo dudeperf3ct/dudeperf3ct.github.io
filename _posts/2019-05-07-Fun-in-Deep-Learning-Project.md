@@ -18,6 +18,8 @@ This post will be updated multiple times as we will deal with a lot of experimen
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
+> *All the results of experiments can be tracked and reproduced using [comet.ml](https://www.comet.ml/dudeperf3ct/emnist).*
+
 Hey yo, but how?
 
 Well sit tight and buckle up. I will go through everything in-detail.
