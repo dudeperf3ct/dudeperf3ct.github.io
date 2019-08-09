@@ -244,6 +244,12 @@ Here we experimented with 3 different architecture lenet, resnet and a custom CN
 </p>
 
 
+<p>
+<img src='/images/dl_project/lenet_4.png' width="30%"/>
+<img src='/images/dl_project/resnet_4.png' width="30%"/>
+<img src='/images/dl_project/custom_4.png' width="30%"/>
+</p>
+
 <p align="center">
 <img src='/images/dl_project/lenet_sample.png' width="100%"/> 
 </p>
