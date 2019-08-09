@@ -278,6 +278,10 @@ Next, we will build a Line Text Recognizer. Given a image of line of words, the 
 
 We will use sliding window of CNN and LSTM along with [CTC loss](https://distill.pub/2017/ctc/) function.
 
+<p align="center">
+<img src='/images/dl_project/line_text.png' width="60%"/> 
+</p>
+
 For this we will use a synthetic dataset by constructing sentences using EMNIST dataset and also use [IAM dataset](http://www.fki.inf.unibe.ch/databases/iam-handwriting-database) for training.
 
 Stay tuned for more updates as the project progresses!
@@ -309,6 +313,8 @@ Stay tuned for more updates as the project progresses!
 [EMNIST dataset](https://www.nist.gov/node/1298471/emnist-dataset)
 
 [IAM Handwriting Dataset](http://www.fki.inf.unibe.ch/databases/iam-handwriting-database)
+
+[Line Text architecture](https://towardsdatascience.com/intuitively-understanding-connectionist-temporal-classification-3797e43a86c)
 
 ---
 
