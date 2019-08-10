@@ -44,6 +44,10 @@ Cognitive Dissonance
 
 Conjuction fallacy pg. 158
 
+Certainity Effect pg. 311
+
+Endownment Effect pg. 292
+
 Halo Effect pg. 199
 
 Hindsight bias pg. 204
@@ -57,6 +61,8 @@ Linda Problem pg. 156
 Narrative fallacy pg. 199
 
 Planning fallacy pg. 250
+
+Possibility Effect pg. 311
 
 Regression to the mean pg. 175
 
