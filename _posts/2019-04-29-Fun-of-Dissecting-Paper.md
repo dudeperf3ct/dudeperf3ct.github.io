@@ -186,7 +186,7 @@ Challenge for this week will be to implement 3 algorithms from the paper [A Clos
 [Meta-Dataset](https://github.com/google-research/meta-dataset)
 
 
-In next post, we will work on a project of <span class='purple'>building a text recognizer application</span>.
+In next post, we will work on a project of <span class='purple'>[building a text recognizer application](https://dudeperf3ct.github.io/project/2019/05/17/Fun-in-Deep-Learning-Project/)</span>.
 
 <span class='orange'>Happy Learning!</span>
 
