@@ -3,14 +3,14 @@ layout:     post
 title:      Kyrptonite for humans
 date:       2019-06-01 12:00:00
 summary:    This post will 
-categories: human biases
+categories: human biases cognitive biases
 published : false
 ---
 
 
 # Kryptonite for humans
 
-In this post, 
+In this post, we will discuss some the biases 
 
 
 
@@ -25,6 +25,13 @@ Feel free to jump anywhere,
 
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
+
+Everyday we hear left and right about "how an AI beat human at something". Humans are 
+
+
+This post will be a collection of biases collected from Daniel Kahneman's [Thinking Fast and Slow](https://www.worldcat.org/title/thinking-fast-and-slow/oclc/917473664&referer=brief_results)(public library), Eliezer Yudkowsky's [Rationality :  A-Z](https://www.lesswrong.com/rationality)(*free read*), Nassim Taleb's Black Swan](https://www.worldcat.org/title/black-swan-the-impact-of-the-highly-improbable/oclc/1079759045&referer=brief_results)(public library) and Charlie Munger's [The Psychology of Human Misjudgment](http://web.archive.org/web/20151004200748/http://law.indiana.edu/instruction/profession/doc/16_1.pdf)(*free read*).
+
+
 
 Eliezer Yudkowsky in [What Do We Mean By "Rationality"?](https://www.lesswrong.com/s/5g5TkQTe9rmPS5vvM/p/RcZCwxFiZzE6X7nsv) 
 
