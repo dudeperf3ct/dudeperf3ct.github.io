@@ -63,6 +63,8 @@ Incentives are everything. Charlie Munger said incentives are everything. Incent
 
 These days I’ve become a master at evading meetings that suck up time. The reality is time is all you have in this world. When you’re young, you’re seeking out opportunities, so you look forward to serendipity. You’re taking new meetings; dynamic is energizing you meeting new people. As you get older, you’re too much opportunity, you’re too many people, you have too much family obligations, you have too many things to do, too many places you could be. You just end up busy, busy, busy, busy, busy. Busy is a death of productivity and happiness.
 
+I'm not in this to make money. Money is just a piece of paper and every time I see one of these building our founders you know giving away to a hospital or whatever you know they overshot they didn't need that much money. So there's a huge diminishing returns the money after a certain point especially now that I'm going to freedom from rather than freedom to their thing all I do that I can't do so literally money in that sense is a boat anchor around my neck because it is something that I've been fearful of losing something I'm getting in jealousy debates, about so many people want from me. So I'm not even in for the money. It's like can I do something interesting and new, can I create something brand new the world has never seen that it gets value out of that it uses that it's congruent with my morals? So, I never had problems sleeping at night and I never have to worry about selling something that I wouldn't buy so much more into that. 
+
 Quotes
 ===========================
 
