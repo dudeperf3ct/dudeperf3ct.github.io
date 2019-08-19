@@ -148,7 +148,7 @@ Here is another application of [next word prediction](https://arxiv.org/pdf/1811
 
 # Privacy 
 
-Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*). It's no surprise that, <span class='blue'>*In Age of Internet, with great promises of personalization comes greater responsibility to privacy*</span>.   (Thanks privacy vigilant Uncle Ben)
+Privacy, the one word which is promised by everyone but delievered by ... (*I will let you complete it*). It's no surprise that, <span class='blue'>*In Age of Internet, with great promises of personalization comes greater responsibility of privacy*</span>.   (Thanks privacy vigilant Uncle Ben)
 
 <p align="center">
 <img src='/images/fl/apple.jpg' width="50%"/> 
