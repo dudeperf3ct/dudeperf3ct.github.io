@@ -363,7 +363,7 @@ And the results.
 
 #### Experiment-3
 
-Ahh .. almost done. We have compeleted Line Text predictor Now comes the part of implementing Line Detector.
+Almost done! We have completed Line Text predictor. Now comes the part of implementing Line Detector.
 
 For this, we will use IAM again but paragraph dataset.
 
