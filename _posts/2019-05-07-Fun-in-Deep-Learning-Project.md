@@ -35,6 +35,8 @@ Feel free to jump anywhere,
 - [Dropbox Case Study](#dropbox-case-study)
 - [Our Application](#our-application)
   - [Experiment-1](#experiment-1)
+  - [Experiment-2](#experiment-2)
+  - [Experiment-3](#experiment-3)  
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -283,6 +285,89 @@ We will use sliding window of CNN and LSTM along with [CTC loss](https://distill
 </p>
 
 For this we will use a synthetic dataset by constructing sentences using EMNIST dataset and also use [IAM dataset](http://www.fki.inf.unibe.ch/databases/iam-handwriting-database) for training.
+
+We first constructed EMNIST Lines dataset. 
+
+<p align="center">
+<img src='/images/dl_project/emnist_lines_sample.png' width="90%"/> 
+</p>
+
+We started with simplest model i.e. to use only CNN to predict the characters in the lines. We tried using 3 different architectures same as above lenet, resent and custom. We achieved character accuracy of 1%, 0.017% and 3.6%. 
+
+<p>
+<img src='/images/dl_project/lenet_cnn.png' width="90%"/>
+</p>
+<p>
+<img src='/images/dl_project/resnet_cnn.png' width="90%"/>
+</p>
+<p>
+<img src='/images/dl_project/custom_cnn.png' width="90%"/>
+</p>
+
+Next, building a complex model. We created a CNN-LSTM model with CTC loss with 3 different CNN architectures like lenet, resnet and custom as backbone. The results were remarkable. We achieved an character accuracy of 95% with lenet and 96% with custom architecture.
+
+<p>
+<img src='/images/dl_project/lenet_ctc_1.png' width="40%"/>
+<img src='/images/dl_project/custom_ctc_1.png' width="40%"/>
+</p>
+
+<p>
+<img src='/images/dl_project/lenet_ctc_2.png' width="40%"/>\
+<img src='/images/dl_project/custom_ctc_2.png' width="40%"/>
+</p>
+
+<p>
+<img src='/images/dl_project/lenet_ctc_3.png' width="40%"/>
+<img src='/images/dl_project/custom_ctc_3.png' width="40%"/>
+</p>
+
+
+<p>
+<img src='/images/dl_project/lenet_ctc.png' width="90%"/>
+</p>
+<p>
+<img src='/images/dl_project/custom_ctc.png' width="90%"/>
+</p>
+
+Now we tried the same model with just changing the data. We replaced EMNIST Lines with IAM Lines dataset.
+
+<p align="center">
+<img src='/images/dl_project/iam_lines_sample.png' width="90%"/> 
+</p>
+
+And the results.
+
+<p>
+<img src='/images/dl_project/lenet_iam_1.png' width="40%"/>
+<img src='/images/dl_project/custom_iam_1.png' width="40%"/>
+</p>
+
+<p>
+<img src='/images/dl_project/lenet_iam_2.png' width="40%"/>\
+<img src='/images/dl_project/custom_iam_2.png' width="40%"/>
+</p>
+
+<p>
+<img src='/images/dl_project/lenet_iam.png' width="90%"/>
+</p>
+<p>
+<img src='/images/dl_project/custom_iam.png' width="90%"/>
+</p>
+
+
+**Learnings**
+
+- Switching datasets worked but still requires a lot of time to train for further fine prediction i.e Train more.
+- LSTM involves a lot many experiements use bidirectional or not, use gru or lstm. Trying different combinations might help get even better results.
+
+
+#### Experiment-3
+
+Ahh .. almost done. We have compeleted Line Text predictor Now comes the part of implementing Line Detector.
+
+For this, we will use IAM again but paragraph dataset.
+
+
 
 Stay tuned for more updates as the project progresses!
 
