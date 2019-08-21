@@ -589,7 +589,7 @@ After walking the latent space which is continuous, one such output is this. Not
 
 ### StyleGAN
 
-ProGAN as pretty mouthful, right? The [authors](https://arxiv.org/pdf/1812.04948) of Nvidia came out with this paper called StyleGAN where we can by modifying the input of each level separately, control the visual features that are expressed in that level, from coarse features (pose, face shape) to fine details (hair color), without affecting other levels. What this means? Let's look at example below and understand what this means. 
+ProGAN was pretty mouthful, right? The [authors](https://arxiv.org/pdf/1812.04948) of Nvidia came out with this paper called StyleGAN where we can by modifying the input of each level separately, control the visual features that are expressed in that level, from coarse features (pose, face shape) to fine details (hair color), without affecting other levels. What this means? Let's look at example below and understand what this means. 
 
 <p align="center">
 <img src='/images/gan/stylegan.jpg' width="70%"/> 
