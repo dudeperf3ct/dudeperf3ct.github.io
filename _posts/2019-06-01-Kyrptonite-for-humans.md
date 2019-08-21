@@ -29,8 +29,7 @@ Feel free to jump anywhere,
 Everyday we hear left and right about "how an AI beat human at something". Humans are 
 
 
-This post will be a collection of biases collected from Daniel Kahneman's [Thinking Fast and Slow](https://www.worldcat.org/title/thinking-fast-and-slow/oclc/917473664&referer=brief_results), Eliezer Yudkowsky's [Rationality :  A-Z](https://www.lesswrong.com/rationality)(*free read*), Nassim Taleb's [Black Swan](https://www.worldcat.org/title/black-swan-the-impact-of-the-highly-improbable/oclc/1079759045&referer=brief_results) and Charlie Munger's [The Psychology of Human Misjudgment](http://web.archive.org/web/20151004200748/http://law.indiana.edu/instruction/profession/doc/16_1.pdf)(*free read*).
-
+This post will be a collection of biases collected from Daniel Kahneman's [Thinking Fast and Slow](https://www.worldcat.org/title/thinking-fast-and-slow/oclc/917473664&referer=brief_results), Eliezer Yudkowsky's [Rationality :  A-Z](https://www.lesswrong.com/rationality)(*free read*), Nassim Taleb's [Black Swan](https://www.worldcat.org/title/black-swan-the-impact-of-the-highly-improbable/oclc/1079759045&referer=brief_results), Charlie Munger's [The Psychology of Human Misjudgment](http://web.archive.org/web/20151004200748/http://law.indiana.edu/instruction/profession/doc/16_1.pdf)(*free read*) and Sanjay Bakshi's class on [Behavioral Finance and Business Valuation](https://www.sanjaybakshi.net/bfbv-v14/)(*free to read*).
 
 
 Eliezer Yudkowsky in [What Do We Mean By "Rationality"?](https://www.lesswrong.com/s/5g5TkQTe9rmPS5vvM/p/RcZCwxFiZzE6X7nsv) 
@@ -66,6 +65,10 @@ Law of Small Numbers
 Linda Problem pg. 156
 
 Narrative fallacy pg. 199
+
+Omission neglect
+
+When we fail to think about what we do not know, we underestimate the importance of missing information, and this leads us to form strong opinions even when the available evidence is weak. This can lead to bad decisions that we later regret.
 
 Planning fallacy pg. 250
 
