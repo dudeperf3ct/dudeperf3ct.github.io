@@ -58,6 +58,10 @@ Halo Effect pg. 199
 
 Hindsight bias pg. 204
 
+Inattention Blindness Bias
+
+![video](https://youtu.be/vJG698U2Mvo)
+
 Intensity Matching
 
 Law of Small Numbers
