@@ -263,9 +263,9 @@ Breakdown of classification for test dataset using above 3 architectures.
 
 **Learnings**
 
-- Initially we trained all models with a constant learning rate
+- Initially we trained all models with a constant learning rate.
 - Instead of using constant learning rate, we implemented cyclic learning rate and learning rate finder which provided a great boost in terms of both speed and accuracy for performing various experiments.
-- Transfer learning with resnet-18 performed poorly
+- Transfer learning with resnet-18 performed poorly.
 - From above results of test evaluation, we can see that model performs poorly on specific characters as there can be confusion due to similarity like digit 1 and letter l, digit 0 and letter o or O, digit 5 and letter s or S or digit 9 and letter q or Q.
 - Accuracies on train dataset are 78% on lenet, 83% on resnet and 84% on custom.
 - Accuracies on val dataset are 80% on lenet, 81% on resnet and 82% on custom.
@@ -379,7 +379,7 @@ And the results.
 
 **Learnings**
 
-- Switching datasets worked but still requires a lot of time to train for further fine prediction i.e Train more.
+- Switching datasets worked but still requires a lot of time to train for further fine prediction i.e train more.
 - LSTM involves a lot many experiments use bidirectional or not, use gru or lstm. Trying different combinations might help get even better results for each CNN architecture.
 - Further, we can make use of attention-based model and use language models which will make model more robust.
 
