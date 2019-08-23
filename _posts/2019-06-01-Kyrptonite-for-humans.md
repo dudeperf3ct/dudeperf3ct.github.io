@@ -26,10 +26,11 @@ Feel free to jump anywhere,
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
-Everyday we hear left and right about "how an AI beat human at something". Humans are 
+Everyday we hear left and right about "how an AI will suprass human intelligence, AI will be more human-like and on and on...". We are just shown the good side of being human but there is another side about what makes us humans. We humans aren't god, the perfect beings, we do have weaknesses (*and no, not kryptonite*). It's just that we tend to ignore it. To make machines "intelligent", we have 
+What are our strengths? Where are we lacking?
 
 
-This post will be a collection of biases collected from Daniel Kahneman's [Thinking Fast and Slow](https://www.worldcat.org/title/thinking-fast-and-slow/oclc/917473664&referer=brief_results), Eliezer Yudkowsky's [Rationality :  A-Z](https://www.lesswrong.com/rationality)(*free read*), Nassim Taleb's [Black Swan](https://www.worldcat.org/title/black-swan-the-impact-of-the-highly-improbable/oclc/1079759045&referer=brief_results), Charlie Munger's [The Psychology of Human Misjudgment](http://web.archive.org/web/20151004200748/http://law.indiana.edu/instruction/profession/doc/16_1.pdf)(*free read*) and Sanjay Bakshi's class on [Behavioral Finance and Business Valuation](https://www.sanjaybakshi.net/bfbv-v14/)(*free to read*).
+This post will be a collection of biases collected from Daniel Kahneman's [Thinking Fast and Slow](https://www.worldcat.org/title/thinking-fast-and-slow/oclc/917473664&referer=brief_results), Eliezer Yudkowsky's [Rationality : A-Z](https://www.lesswrong.com/rationality)(*free read*), Nassim Taleb's [Black Swan](https://www.worldcat.org/title/black-swan-the-impact-of-the-highly-improbable/oclc/1079759045&referer=brief_results), Charlie Munger's [The Psychology of Human Misjudgment](http://web.archive.org/web/20151004200748/http://law.indiana.edu/instruction/profession/doc/16_1.pdf)(*free read*) and Sanjay Bakshi's class on [Behavioral Finance and Business Valuation](https://www.sanjaybakshi.net/bfbv-v14/)(*free to read*).
 
 
 Eliezer Yudkowsky in [What Do We Mean By "Rationality"?](https://www.lesswrong.com/s/5g5TkQTe9rmPS5vvM/p/RcZCwxFiZzE6X7nsv) 
