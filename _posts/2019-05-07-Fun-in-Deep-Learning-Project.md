@@ -38,6 +38,7 @@ Feel free to jump anywhere,
   - [Experiment-2](#experiment-2)
   - [Experiment-3](#experiment-3)
   - [Experiment-4](#experiment-4)
+  - [Experiment-5](#experiment-5)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
@@ -382,6 +383,7 @@ And the results.
 - Switching datasets worked but still requires a lot of time to train for further fine prediction i.e train more.
 - LSTM involves a lot many experiments use bidirectional or not, use gru or lstm. Trying different combinations might help get even better results for each CNN architecture.
 - Further, we can make use of attention-based model and use language models which will make model more robust.
+- Using beam search decoding for CTC Models
 
 
 #### Experiment-3
@@ -470,6 +472,10 @@ Do you see the whole picture coming together? No?
 3. We will extract crops of the image corresponding to the line regions obtained from above line and pass it to Line Predictor Model which will predict what characters are present in the line region.
 4. Sure enough if both the models are well trained, we will get excellent results!
 
+
+#### Experiment-5
+
+Now that we have full end-to-end model, we can run the same model on a web server or create an android app.
 
 Stay tuned for more updates as the project progresses!
 
