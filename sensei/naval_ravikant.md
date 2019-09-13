@@ -105,6 +105,56 @@ I think learning should be about learning the basics in all the fields and learn
 
 Then there’s finally a what to learn. There’s a whole set of things we don’t even bother trying to teach. We don’t teach nutrition. We don’t teach cooking. We don’t teach how to be in happy, positive relationships. We don’t teach how to keep your body healthy and fit. We just say sports. We don’t teach happiness. We don’t teach meditation. Maybe we shouldn’t teach some of these things because different kids will have different aptitudes, but maybe we should. Maybe we should teach practical construction of technology. Maybe everyone in their science project, instead of building a little chemistry volcano, maybe you should be building a smartphone.
 
+Science is, to me, the study of truth. It is the only true discipline because it makes falsifiable predictions. It actually changes the world. Applied science becomes technology and technology is what separates us from the animals and allows us to have things like cell phones and houses and cars and heat and electricity. Science to me is the study of truth and mathematics is the language of science and nature.
+
+I view my books on the Kindle, I skip 2/3 of them. The reason I skip 2/3 is because they’re kind of embarrassing. They don’t sound like good books to read. They’ll sound like trivial or silly or whatever. Who cares? I don’t have to tell everybody everything I read. I read all kinds of stuff that other people consider junk or even reprehensible. I read all kinds of stuff that I disagree with because they’re mind bending.
+
+To some level, you almost have to read the stuff you’re reading because you’re into it and that’s it. You don’t need any other reason. There’s no mission here to accomplish. Just read because you enjoy it.
+
+I think almost everything that people read these days is designed for social approval. All of the best sellers are about social approval and social conditioning. If you really wanted to be successful, happy, blah, blah, blah, all those external metrics, you’re looking for a non-average outcome. You can’t be reading the average things, to your point.
+
+At some level, you’re doing it for social approval. You’re doing it to fit in with the other monkeys. You’re fitting in to get along with the herd. That’s not where the returns are in life. The returns in life are being out of the herd. Social approval is inside the herd. If you want social approval, definitely go read what the herd is reading. It takes a level of contrarianism in saying, “Nope. I’m just going to do my own thing, regardless of the social outcome to learn anything, I think, that’s interesting.”
+
+I think that’s why the smartest and the most successful people I know started out as losers. If you view yourself as a loser, as someone who was cast out by society and has no role in normal society, then you will do your own thing and you’re much more likely to find that winning path. It helps to start out by saying, “I’m never going to be popular. I’m never going to be accepted. I’m already a loser. I’m not going to get what all the other kids have. I’ve just got to be happy being me.”
+
+Decision-making is everything. In fact, someone who makes decisions right 80% of the time instead of 70% of the time will be valued and compensated in the market hundreds of times more. Decision-making, what is going on, the brain is a memory prediction machine. It has a memory of things that worked in the past and what it’s read and it’s trying to predict the future.
+
+I don’t believe in specific goals. Scott Adams said, famously also, “Set up systems, not goals.” Use your judgment to figure out what kinds of environments you can thrive in and then build a system to create that environment around you so that you’re statistically likely to succeed. I’m not going to be the most successful person on the planet, nor do I want to be. I just want to be the most successful version of me while working the least hard possible. I want to be in 1000 universes, Naval is successful in 999 of them. He’s not a billionaire, but he’s done pretty well in all of them. Whatever the metric is, or he’s happily married in most of them. He may not have nailed it in every regard, but he set up systems such that he’s failed in very few places.
+
+Basically, I try and set up good systems and then the individual decisions don’t matter that matter much. I think our ability to make individual decisions is actually not great. For example, as an investor, my system is I want to see 10,000 companies and I want to pick 500 that have a shot of being huge. Then I want the option to double down on the five winners. I don’t want to just look at 100 companies and pick 10 that I think are winners and go all in on those. I don’t think I have that capability.
+
+I’m not in this to make money. Money is just a piece of paper. Every time I see one of these billionaire founders giving away to a hospital or whatever, you know they overshot. They don’t need that much money. There’s huge diminishing returns to money after a certain point, especially now that I’m more into freedom from rather than freedom to. There’s nothing I want to do that I can’t do. Literally, money in that sense is a boat anchor around my neck. All it is something that I’m then fearful of losing, something I’m getting into jealousy debates about, something that people want from me.
+
+A lot of what goes on today is a lot of your listeners are right now, beating themselves up and scribbling notes and saying, “I need to do this and I need to do that and I need to do ...” No, you don’t need to do anything. <span color='saddlebrown'>All you should do is what you want to do.</span> If you stop trying to figure out how to do things the way other people want you to do them, then you get to listen to that little voice inside of your head that wants to do things a certain way and then you get to be you.
+
+<span color='blue'>No one in the world is going to beat you at being you. You’re never going to be as good at being me as I am. I’m never going to be as good at being you as you are. Certainly listen, absorb, but don’t try and emulate. It’s a fool’s errand. Instead, each person is uniquely qualified at something.</span> They have some specific knowledge, capability, and desire that nobody else in the world does. That’s just purely from the combinatorics of human DNA and development.
+
+<span color='red'>Your goal in life is to find out the people who need you the most, to find out the business that needs you the most, to find the project and the art that needs you the most. There is something out there just for you.</span> What you don’t want to do is be building checklists and decision frameworks built on what other people are doing. You’re never going to be that. You’ll never be good at being somebody else.
+
+I think it’s the mark of a charlatan to try and explain simple things in complicated ways. It’s the mark of a genius to explain complicated things in simple ways. Really they should be able to do it very, very, very simply. The really smart thinkers are clear thinkers and they understand the basics at a very, very fundamental level. I would rather understand the basics really well than have memorized all kinds of complicated concepts that I can’t stitch together and I can’t rederive them from the basics. If you can’t rederive them from the basics as you need it, you’re lost. You’re just memorizing.
+
+I think the hard thing here is seeing the truth. To see the truth, you have to get your ego out of the way because your ego doesn’t want to face the truth. The smaller you can make your ego, the less conditioned you can make your reactions, the less desires you can have about the outcome you want, the easier it to see the reality.
+
+The clear example of this is when we’re going through difficult things, like a breakup or a job loss or business failure or a health problem and our friends are advising us. When we’re advising them, the answer is so obvious. It comes to us in a minute and we tell them exactly, “Oh that girl, get over her, she wasn’t good for you anyway. You’ll be happier. Trust me. You’ll find someone.” You know what the correct answer is, but that person can’t see it because they’re in that moment of suffering and pain. They’re still wishing that reality was different. The problem isn’t reality. The problem is their desire colliding with reality is preventing them from seeing the truth, no matter how much you say it. The same thing happens when I’m making decisions.
+
+The best founders I’ve found are the ones who are very long-term thinkers. Even decisions that maybe they shouldn’t care that much about early on, they fix it because they are not building a house, they’re putting bricks in the foundation of the skyscraper, at least in their minds. What you’re looking for is looking for someone who knows the space well, who understands how difficult it’s going to be, but doesn’t care because they just love whatever they’re doing, they’re into it, and they commit to it for the long haul. Passion and vision alone are not enough. I think Steve Case said that vision without execution is a hallucination. Execution alone isn’t enough.
+
+All the ideas have been thought of. It’s about the combination of the idea plus the execution plus the passion. Like Steve Jobs was a visionary and a great designer, not because he came up with the idea to build the smartphone.
+
+You have to be really, really good at it, which means that you probably love it so much that you’re willing to put in the time before there’s even any return on it.
+
+I meet a lot of entrepreneurs who are either short-term thinkers, in which case, that’s okay. It just means this is not the thing for you. Go find the thing you can commit to for 10 years because that’s how long it’s going to take, minimum, to get a good outcome. You have to enjoy the journey because there’s no guarantee on the outcome.
+
+One thing I figured out kind of late is that generally, at least in the tech business in Silicon Valley, great people have great outcomes. You just have to be patient. Every person that I met at the beginning of my career 20 years ago, where I looked at them and said, “Wow, that guy or that gal is super capable. They’re so smart and dedicated and blah, blah, blah. Now we’ll just be friends or hang out or whatever”, and then I kind of forgot about them, all of them, almost without exception, became extremely successful. You just had to give them a long enough timescale. It never happens in the timescale you want or they want, but it does happen.
+
+If I had one wish, the most important thing to me would be I would constantly be running my mind in debug mode. I would literally be watching every single thought I have and letting no reaction pass without it being stopped, inspected, strip searched, examined, understood, and then let go. The reality is that takes a lot of time and we’re highly conditioned creatures. I do view a lot of my goals over the next few years of unconditioning previous learned responses or habituated responses, so that I can make decisions more cleanly in the moment without relying on memory or prepackaged heuristics and judgments.
+
+The idea that you’re going to change something in the outside world and that is going to bring you the peace and everlasting joy and the happiness that you deserve, that is a fundamental delusion that we all suffer from, including me. The mistake over and over and over is to say, “Oh, I’ll be happy when I get that thing, whatever that is.” That’s the fundamental mistake that we all make, including me, 24/7, all day long.
+
+What is the meaning and purpose of life? That’s a big question. Because it’s a big question, I’ll give you three answers. One is it’s personal. You have to find your meaning. Any piece of wisdom that anybody else gives you, whether it’s Buddha or you or me, is going to sound like nonsense. I think fundamentally you just have to find it for yourself, so the important part is not the answer, it’s the question. You just have to sit there and dig with the question. It might take you years or decades. When you find an answer you’re happy with, that will be fundamental to your life. The second answer I would give is there is no meaning to life. There is no purpose to life. Osho said, “It’s like writing on water or building houses on sand.” The reality is you’ve been dead for the history of the universe, it’s 10 billion years or more. You will be dead for the next 70 billion years or so until the heat death of universe. Anything you do will fade. It will disappear, just like the human race will disappear and the planet will disappear. Get to Mars, even that group will disappear. No one is going to remember you past a certain number of generations, whether you’re an artist or a poet or a conqueror or a pauper or nothing. There’s no meaning. You have to create your own meaning, which is what it boils down to. You have to decide. Is this a play that I’m going to that I’m just watching? Is there a self-actualization dance that I’m doing? Is there a specific thing that I desire just for the heck of it? These are all meanings you are making up. The last answer I’ll give you is a little more complicated than that. From what I’ve been reading in science, friends of mine have written books on this, and I’ve kind of stitched together some theories. Maybe there is a meaning to life, but it’s not a very satisfying purpose. Basically, in physics, the arrow of time comes from entropy. Second law of thermodynamics says that entropy only goes up, which means disorder in the universe only goes up, which means concentrated free energy only goes down. If you look at what living things are, living systems, humans, plants, civilizations, what have you, these are systems that are locally reversing entropy. Humans locally reverse entropy because we have action. In the process, we globally accelerate entropy until the heat death of the universe. You could come up with some fanciful theory, which I like, that we’re headed towards the heat death of the universe, where there’s no concentrated energy, where everything is sort of at the same energy level. Therefore, we’re all one thing. We’re essentially indistinguishable. What we are doing, as living systems, is we’re accelerating getting to that state. The more complex of a system you create, whether it’s through computers and civilization or through art or mathematics or just through creating a family, you’re actually accelerating the heat death of the universe. You’re pushing us to towards this point where we end up as one thing. I think that’s kind of an unsatisfying answer if you’re looking for personal meaning today in your life.
+
+
+
 
 Quotes
 ===========================
@@ -116,6 +166,8 @@ Valuation is temporary. Control is forever.
 Guard your time. Forget the money.
 
 You have two lives, and the second one begins when you realize you only have one. ~ Confucius
+
+To find a worthy mate, be worthy of a worthy mate. ~ Charlie Munger
 
 If you can’t see yourself working with somebody for life, don’t work with them for a day. ~ Random Famous Tweet
 
@@ -139,9 +191,19 @@ I think that the mind itself is a muscle and it can be trained and it can be con
 
 I think everybody has values and a lot of finding great relationships, great coworkers, great lovers, wives, husbands, is finding other people where your values line up and then the little things don’t matter.
 
+The more of a desire that I have that it work out a certain way, the less likely I am to see the truth.
+
 The moment you tell somebody else something that’s not honest, you’ve lied to yourself. Then you’ll start believing your own lie. Then that will disconnect you from reality and take you down the wrong road
 
 The ability to learn, the means of learning, the tools of learning, are abundant and infinite. It’s the desire that’s incredibly scarce.
+
+A lot of our unhappiness also comes from comparing things from the past to the present.
+
+No one in the world is going to beat you at being you.
+
+I think the number one thing that clouds us from being able to see reality is that we have preconceived notions of the way it should be.
+
+I think the best founders, they have a deep understanding of the space they’re going into, enough to be contrarian. They have a deep passion for it, so that they’ll just keep working on it. They have execution skills. They just get things done. They solve problems. They’re capable.
 
 Stories
 ===========================
