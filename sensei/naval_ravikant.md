@@ -65,6 +65,19 @@ These days I’ve become a master at evading meetings that suck up time. The rea
 
 I'm not in this to make money. Money is just a piece of paper and every time I see one of these building our founders you know giving away to a hospital or whatever you know they overshot they didn't need that much money. So there's a huge diminishing returns the money after a certain point especially now that I'm going to freedom from rather than freedom to their thing all I do that I can't do so literally money in that sense is a boat anchor around my neck because it is something that I've been fearful of losing something I'm getting in jealousy debates, about so many people want from me. So I'm not even in for the money. It's like can I do something interesting and new, can I create something brand new the world has never seen that it gets value out of that it uses that it's congruent with my morals? So, I never had problems sleeping at night and I never have to worry about selling something that I wouldn't buy so much more into that. 
 
+I’m actually even trying to get rid of this concept of having to be in a specific place at a specific time. All I care about is am I doing what I want to do and am I being productive and am I happy. I really want to break away from this idea of 40 hour weeks, or 60 hour weeks, or 80 hour weeks, or 9-to-5, or roles, or jobs, or identities. It just all feels like a straitjacket.
+
+I always spent money on books. I never viewed that as an expense. That’s an investment to me. I read when I’m bored of everything else. The good news is I get bored very easily. There is always a book to capture the imagination. Usually at night time before I go to bed I’ll read, but it’s not a flawless thing. When I’m on vacation I’ll read. If I’m sitting in a Lyft or an Uber, I’ll read. Sometimes in the morning at home, after I’ve worked out, I’ll just read. Sometimes when I wake up, I’ll just grab my phone and read. I’m not a very disciplined person. I don’t really set these hard and fast rules for myself. The good news is I just love to read.
+
+The reality is I don’t actually read that much compared to what people think. I probably read one to two hours a day. That puts me in the top .00001%. I think that alone accounts for any material success that I’ve had in my life and any intelligence that I might have. Real people don’t read an hour a day. Real people, I think, read a minute a day or less. Making it an actual habit is the most important thing.
+
+How you make it a habit doesn’t matter. It’s very much like exercise or working out. Do something every day. It almost doesn’t matter what you do. The people who are obsessing over should I be weight training or should I be doing tennis or should I be doing Pilates or should I be doing the high-intensity training method versus the happy body versus whatever, they’re missing the point. The important thing is to do something every day. It doesn’t matter what it is. I would argue the important thing is to read every day. It almost doesn’t matter what you read. Eventually you will read enough things, and your interests will lead your there, that it will dramatically improve your life.
+
+The reality is if you walk down the street and there are a thousand people in the street, I think all thousand are talking to themselves in their head at any given point. They’re constantly judging everything that they see. They’re playing back movies of things that happened to them yesterday. They’re living in fantasy worlds of what’s going to happen tomorrow. They’re just pulled out of base reality. That could be good when you’re doing long-range planning. It can be good when you’re solving problems. It’s good for the survival and replication machines that we are. I think it’s actually very bad for your happiness. In my mind, the mind should be a servant and a tool, not a master. It’s not something that should be controlling me and driving me 24/7
+
+
+
+
 Quotes
 ===========================
 
@@ -82,9 +95,13 @@ You just get up early in the morning, you work really hard, you learn something 
 
 I think all the greatness in life comes from compound interest, whether it’s in investments or it’s in relationships.
 
+Everybody says they’re reading a book. They can answer which book they’re reading. The reality is very few people actually read and actually finish books.
+
 Stories
 ===========================
 
 There’s a great line that my brother Kamal quoted in his book, he has a great book called, Love Yourself Like Your Life Depends on It and another one called Live Your Truth. <span class='blue'>I once asked a monk, "What is your secret to peace and happiness?" And the monk said, I say "Yes." To everything that happens, I say Yes.</span>
+
+Reading was my first love. I know that in my childhood, when I was around nine, ten, eleven years old, I was a latchkey kid. My mom was working multiple jobs and then she was going to school at night. We were raised by a single mother, my brother and I were, in New York City. We were in a part of New York City that isn’t very safe. Basically the library was my after school center. After I’d come back from school, I’d just go straight to the library and I’d hang out there until they closed. Then I’d come home. That was my daily routine. I think even by that point in time I’d already loved books. I was reading books as a child.
 
 
