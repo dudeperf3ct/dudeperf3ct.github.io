@@ -75,7 +75,35 @@ How you make it a habit doesn’t matter. It’s very much like exercise or work
 
 The reality is if you walk down the street and there are a thousand people in the street, I think all thousand are talking to themselves in their head at any given point. They’re constantly judging everything that they see. They’re playing back movies of things that happened to them yesterday. They’re living in fantasy worlds of what’s going to happen tomorrow. They’re just pulled out of base reality. That could be good when you’re doing long-range planning. It can be good when you’re solving problems. It’s good for the survival and replication machines that we are. I think it’s actually very bad for your happiness. In my mind, the mind should be a servant and a tool, not a master. It’s not something that should be controlling me and driving me 24/7
 
+Basically whenever you throw any so-called good habit at somebody, they’ll have an excuse for themselves. Usually the most common is, I don’t have time. I don’t have time is just another way of saying, it’s not a priority. What you really have to do is say is it a priority or not. If something is your number one priority then you will get it. That’s just the way life works. If you’ve got a fuzzy basket of 10 or 15 different priorities, you’re going to end up getting none of them.
 
+What I did there was I basically just said, “My number one priority in life, above my happiness, above my family, above my work, is my own health. It starts with my physical health.” Second, it’s my mental health. Third, it’s my spiritual health. Then it’s my family’s health. Then it’s my family’s wellbeing. After that, I can go out and do whatever I need to do with the rest of the world. There’s a series of concentric circles starting out from me. Because my physical health became my number one priority, then I could never say I don’t have time. In the morning, I work out and however long it takes is how long it takes. I do not start my day, and I don’t care if the world is imploding and melting down, it can wait another 30 minutes until I’m done working out.
+
+When you’re a little kid and you go to your mom and you say, “What happens when we die? Is there a Santa Claus? Is there a God? Should be I happy? Who should I marry?” Those kinds of things. There are no glib answers to that because there are no answers that apply to everybody. These questions, the search for truth, these kind of questions, they ultimately do have answers, but they have personal answers. The answer that works for me is going to be nonsense to you and vice versa. Whatever happiness means to me, it means something different to you and it means something different to the listener. I think it’s very important to explore what it is.
+
+I’ve also come to believe in the complete and utter insignificance of the self, and I think that helps a lot. For example, if you thought you were the most important thing in the universe, then you would have to bend the entire universe to your will. If you’re the most important thing in the universe, then how could it not conform to your desires. If it doesn’t conform to your desires, something is wrong. However, if you view yourself as a bacteria or an amoeba or if you view all of your works as writing on water or building castles in the sand, then you have no expectation from how life should actually be. Life is just the way it is. Then you accept that and you have no cause to be happy or unhappy. Those things almost don’t apply.
+
+What you’re left with in that neutral state is not neutrality. I think people think, “Oh, that would be a very bland existence.” No, this is the existence that little children live. If you look at little children, on balance, they’re generally pretty happy because they are really immersed into the environment and the moment without any thought of how it should be given their personal preferences and desires. I think the neutral state is actually a perfection state. One can be very happy as long as one isn’t too caught up in their own heads.
+
+I don’t believe in any short-term thinking or dealing. Let’s say I’m doing business with somebody and they think in a short-term manner with somebody else, then I don’t want to do business with that person anymore. I think all the benefits in life come from compound interest, whether in money or in relationships or love or health or activities or habits. I only want to be around people that I know I’m going to be around with for the rest of my life. I only want to work on things that I know have long-term payout.
+
+I don’t believe in hierarchical relationships. I don’t want to be above anybody and I don’t want to be below anybody. If I can’t treat someone like a peer and if they can’t treat me like peer, then I just don’t want to interact with that human.
+
+I don’t believe in anger anymore. That was something that was good when I was young and full of testosterone, but now I always like the Buddhist saying that anger is a hot coal that you hold in your hand while waiting to throw it at somebody. I don’t want to be angry and I don’t want to be around angry people. I just cut them out of my life. I’m not judging them. I went through a lot of anger, too, and they have to work through it on their own. Go be angry at someone else somewhere else.
+
+I would combine radical honesty with an old rule that Warren Buffet has, which is praise specifically, criticize generally. I try to follow this. I don’t always follow it, but I think I follow it enough that it made a difference in my life. If you have a criticism of someone, then don’t criticize the person, criticize the general approach or criticize that class of activities. If you have to praise somebody, then always try and find the person who is the best example of what you’re praising and then that praise that person, specifically. That way people’s egos and identities, which we all have, don’t work against you, they work for you.
+
+Socially, we’re told, “Go work out. Go look good.” That’s a multi-player competitive game. Other people can see if I’m doing a good job or not. We’re told, “Go make money. Go buy a big house.” Again, external monkey-player competitive game. When it comes to learn to be happy, train yourself to be happy, completely internal, no external progress, no external validation, 100% you’re competing against yourself, single-player game. We are such social creatures, we’re more like bees or ants, that we’re externally programmed and driven, that we just don’t know how to play and win at these single-player games anymore. We compete purely on multi-player games. The reality is life is a single-player game. You’re born alone. You’re going to die alone. All of your interpretations are alone. All your memories are alone. You’re gone in three generations and nobody cares. Before you showed up, nobody cared. It’s all single-player.
+
+The most practical one is I gave up macro and I embraced micro. I don’t believe in macro-environmentalism, I believe in micro- environmentalism. I don’t believe in macro-charity. I believe in micro-charity. I don’t believe in macro improving the world. There’s a lot of people out there who get really fired up about I’m going to change the world, I’m going to change this person, I’m going to change the way people think. I think it’s all micro. It’s like change yourself, then maybe change your family and your neighbor before you get into abstract concepts about I’m going to change the world.
+
+<span color='purple'>At any given time, when you’re walking down the streets, a very small percentage of your brain is focused on the present. The rest is future planning or regretting the past. That’s keeping you from an incredible experience. It’s keeping you from seeing the beauty in everything and for being grateful for where you are.</span>
+
+<span color='purple'>There is actually nothing but this moment. No one has ever gone back in time and no one has ever been able to predict the future successfully in any way that matters. Literally, the only thing that exists is this exact point where you are in space at that the exact time that you happen to be. Like all the great profound truths, it’s all paradoxes. Any two points are infinitely different. Any moment is perfectly unique. That moment itself slips by so quickly that you can’t grab it.</span>
+
+I think learning should be about learning the basics in all the fields and learning them really well over and over. Life is mostly about applying the basics and only doing the advanced stuff in the things that you truly love and where you understand the basics inside out. That’s not how our system is built.
+
+Then there’s finally a what to learn. There’s a whole set of things we don’t even bother trying to teach. We don’t teach nutrition. We don’t teach cooking. We don’t teach how to be in happy, positive relationships. We don’t teach how to keep your body healthy and fit. We just say sports. We don’t teach happiness. We don’t teach meditation. Maybe we shouldn’t teach some of these things because different kids will have different aptitudes, but maybe we should. Maybe we should teach practical construction of technology. Maybe everyone in their science project, instead of building a little chemistry volcano, maybe you should be building a smartphone.
 
 
 Quotes
@@ -96,6 +124,24 @@ You just get up early in the morning, you work really hard, you learn something 
 I think all the greatness in life comes from compound interest, whether it’s in investments or it’s in relationships.
 
 Everybody says they’re reading a book. They can answer which book they’re reading. The reality is very few people actually read and actually finish books.
+
+I don’t believe in the words like never and always. I think that’s a way of limiting yourself and self-disciplining yourself.
+
+Happiness is that state when nothing is missing. When nothing is missing, your mind shuts down and your mind stops running into the future or running into the past to regret something or to plan something.
+
+You have to view the negative before you can aspire to and then appreciate the positive.
+
+Everything is perfect exactly the way it is.
+
+I think the ability is to singularly focus is related to the ability to lose yourself and be present, happy, and actually, ironically, more effective.
+
+I think that the mind itself is a muscle and it can be trained and it can be conditioned. It has just been haphazardly conditioned by society out of our control.
+
+I think everybody has values and a lot of finding great relationships, great coworkers, great lovers, wives, husbands, is finding other people where your values line up and then the little things don’t matter.
+
+The moment you tell somebody else something that’s not honest, you’ve lied to yourself. Then you’ll start believing your own lie. Then that will disconnect you from reality and take you down the wrong road
+
+The ability to learn, the means of learning, the tools of learning, are abundant and infinite. It’s the desire that’s incredibly scarce.
 
 Stories
 ===========================
