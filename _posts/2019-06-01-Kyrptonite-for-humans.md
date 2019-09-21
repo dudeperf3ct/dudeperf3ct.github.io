@@ -60,6 +60,9 @@ The word *fallacy* is used, in general, when people fail to apply a logical rule
 
 ### Halo Effect pg. 199
 
+The tendency to like (or dislike) everything about a person including things you have not observed is known as the halo effect.
+
+
 ### Hindsight bias pg. 204
 
 ### Inattention Blindness Bias
@@ -82,15 +85,16 @@ Experimenting extended version of this questionnaire found that 89% of undergrad
 Lets consider the judgements of likelihood of two scenarios. Think in terms of Venn diagrams. The set of feminist bank tellers is wholly included in the set of bank tellers. as every feminist bank teller is a bank teller. *Therefore the probability othat Linda is a feminist bank teller must be lower than the probability of her being a bank teller.* 
 
 
-### Muller-Lyer Illusion pg.159
-
-
-
 ### Narrative fallacy pg. 199
+
+Naravtive fallacy are used to describe how flawed stories of the past shape our views of the world and our expectations for the future. Taleb suggests that we humans constantly fool ourselves by constructing filmsy accounts of the past and believing they are true.
+
 
 ### Omission neglect
 
 When we fail to think about what we do not know, we underestimate the importance of missing information, and this leads us to form strong opinions even when the available evidence is weak. This can lead to bad decisions that we later regret.
+
+### Outcome bias pg. 202
 
 ### Planning fallacy pg. 250
 
@@ -104,6 +108,7 @@ One sin of representativeness is an excessive willingness to predict the occuren
 
 
 ### Substitution
+
 
 ### WYSIATI
 
