@@ -10,8 +10,7 @@ published : false
 
 # Kryptonite for humans
 
-In this post, we will stop and ponder over the question, "What is that makes us human, supposedly a complete being?". This 
-
+In this post, we will stop and ponder over the question, "What is that makes us human, supposedly a complete being?". Puzzling limitation of our mind: our excessive confidence in what we believe we know, and our apparent inability to acknowledge the full extent of our ignorance and the uncertainty of the world we live in.
 
 
 <p align="center">
@@ -50,7 +49,7 @@ It occurs when people consider a particular value for an unknown quantity before
 
 People let their likes and dislikes determine their beliefs about the world. People make judgements and decisions consulting their emotions. If you like current health policy, you believe its benefits are substantial and its costs are more manageable than the costs of alternatives.
 
-### Availablity bias
+### Availiablity bias
 
 ### Cognitive Dissonance
 
@@ -72,7 +71,7 @@ You met a woman named Joan at a party and find her personable and easy to talk t
 
 ### Hindsight bias pg. 204
 
-Also know as "I-knew-it-all-along" effect
+Also know as "I-knew-it-all-along" effect.
 
 ### Inattention Blindness Bias
 
@@ -87,6 +86,10 @@ Halfway through the video, a woman wearing a gorilla suit appears, crosses the c
 The gorilla study illustrates two important facts about our minds: we can be blind to the obvious, and we are also blind to our blindness.
 
 ### Intensity Matching
+
+Questions about your happiness, the president's popularity, the proper punishment of financial evildoers, and the future prospects of a politician share an important characteristic: they all refer to an underlying dimension of intensity or amount, which permits the use of the word more: more happy, more popular, more severe, or more powerful(for a politician).
+
+For example, How much would you contribute to save an endangered species? is replaced by How much emotion do I feel when I think of dying dolphins? The feelings about dying dolphins must be expressed in dollars. Intensity matching is available to solve that problem. Both feelings and contribution dollars are intensity scales. I can feel more or less strongly about dolphins and there is a contribution that matches the intensity of my feelings. The dollar amount that will come to my mind is the matching amount.
 
 ### Law of Small Numbers
 
@@ -113,11 +116,19 @@ When we fail to think about what we do not know, we underestimate the importance
 
 ### Outcome bias pg. 202
 
+
+
 ### Planning fallacy pg. 250
+
+
 
 ### Possibility Effect pg. 311
 
+
+
 ### Regression to the mean pg. 175
+
+
 
 ### Representativeness
 
@@ -131,9 +142,10 @@ The most representative outcomes combine with the personality description to pro
 ### Substitution
 
 
+
 ### WYSIATI pg. 85
 
-What You See Is All There Is. WYSIATI facilitates the achievement of choerence and of the cognitive ease that causes us to accept a statement is true. It explains why we can think fast, and how we are able to make sense of partial information in a complex world. Much of the time, the coherent story we put together is close enough to reality to support resonable action.
+What You See Is All There Is. WYSIATI facilitates the achievement of coherence and of the cognitive ease that causes us to accept a statement is true. It explains why we can think fast, and how we are able to make sense of partial information in a complex world. Much of the time, the coherent story we put together is close enough to reality to support reasonable action.
 
 Consider the following : "Will Mindik be a good leader? She is intelligent and strong..." An answer quickly came to your mind, and it was yes. You picked the best answer based on the very limited information available, but you jumped the gun. What if the next two adjectives were corrput and cruel?
 
