@@ -71,7 +71,10 @@ You met a woman named Joan at a party and find her personable and easy to talk t
 
 ### Hindsight bias pg. 204
 
-Also know as "I-knew-it-all-along" effect.
+Also know as "I-knew-it-all-along" effect. 
+
+The worse the consequence, the greater the hindsight bias. In the case of a catastrophe, such  as 9/11, we are especially ready to believe that the officials who failed to anticipate it were negligent or blind. On July 10, 2001, CIA obtained information that al-Qaeda might be planning a major attack against US. When the facts later emerged, Ben Bradlee, legendary executive of The Washington Post, declared, "It seems to me elementary that if you've got the story that's going to dominate history you might as well go right to the president." But on July 10, no one knew - or could have known 0 that this tidbit of intelligence would turn out to dominate history.
+
 
 ### Inattention Blindness Bias
 
@@ -89,7 +92,7 @@ The gorilla study illustrates two important facts about our minds: we can be bli
 
 Questions about your happiness, the president's popularity, the proper punishment of financial evildoers, and the future prospects of a politician share an important characteristic: they all refer to an underlying dimension of intensity or amount, which permits the use of the word more: more happy, more popular, more severe, or more powerful(for a politician).
 
-For example, How much would you contribute to save an endangered species? is replaced by How much emotion do I feel when I think of dying dolphins? The feelings about dying dolphins must be expressed in dollars. Intensity matching is available to solve that problem. Both feelings and contribution dollars are intensity scales. I can feel more or less strongly about dolphins and there is a contribution that matches the intensity of my feelings. The dollar amount that will come to my mind is the matching amount.
+For example, the question of How much would you contribute to save an endangered species? is replaced by How much emotion do I feel when I think of dying dolphins? The feelings about dying dolphins is expressed in dollars. Intensity matching is available to solve that problem. Both feelings and contribution dollars are intensity scales. I can feel more or less strongly about dolphins and there is a contribution that matches the intensity of my feelings. The dollar amount that will come to my mind is the matching amount.
 
 ### Law of Small Numbers
 
@@ -116,6 +119,7 @@ When we fail to think about what we do not know, we underestimate the importance
 
 ### Outcome bias pg. 202
 
+We are prone to blame decision makers for good decisions that worked out badly and to give them too little credit for successful moves that appear obvious only after the fact. There is a clear outcome bias. When the outcomes are bad, the clients often blame their agents for not seeing the handwriting on the wall - forgetting that it was written in invisible ink that became legible only afterwards.
 
 
 ### Planning fallacy pg. 250
