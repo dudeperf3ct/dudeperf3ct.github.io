@@ -51,6 +51,11 @@ People let their likes and dislikes determine their beliefs about the world. Peo
 
 ### Availiablity bias
 
+
+### Availiablity cascade pg 323
+
+
+
 ### Cognitive Dissonance
 
 ### Conjuction fallacy pg. 158
@@ -64,6 +69,10 @@ The word *fallacy* is used, in general, when people fail to apply a logical rule
 ### Certainity Effect pg. 311
 
 ### Endownment Effect pg. 292
+
+Suppose you hold a ticket to a sold-out concert by a popular band, which you bought at the regular price of $200. You are an avid fan and would have been willing to pay up to $500 for the ticket. Now you have have your ticket and you learn on the Internet that richer or more desperate fans are offering $3,000. Would you sell?
+
+If you resemble most of the audience at sold-out events you do not sell. Your lowest selling price is above $3,000 and your maximum buying price is $500. This is an example of an endownment effect.
 
 ### Halo Effect pg. 199
 
@@ -96,6 +105,14 @@ The gorilla study illustrates two important facts about our minds: we can be bli
 Questions about your happiness, the president's popularity, the proper punishment of financial evildoers, and the future prospects of a politician share an important characteristic: they all refer to an underlying dimension of intensity or amount, which permits the use of the word more: more happy, more popular, more severe, or more powerful(for a politician).
 
 For example, the question of How much would you contribute to save an endangered species? is replaced by How much emotion do I feel when I think of dying dolphins? The feelings about dying dolphins is expressed in dollars. Intensity matching is available to solve that problem. Both feelings and contribution dollars are intensity scales. I can feel more or less strongly about dolphins and there is a contribution that matches the intensity of my feelings. The dollar amount that will come to my mind is the matching amount.
+
+### Illusion of Pundits pg. 219
+
+
+
+
+### Illusion of Skill pg. 217
+
 
 ### Law of Small Numbers
 
