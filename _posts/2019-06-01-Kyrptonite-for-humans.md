@@ -18,13 +18,6 @@ In this post, we will stop and ponder over the question, "What is that makes us 
 </p>
 
 
-Feel free to jump anywhere,
-
-- [](#)
-
-- [Further Reading](#further-reading)
-- [Footnotes and Credits](#footnotes-and-credits)
-
 Everyday we hear left and right about "how AI will suprass human intelligence, AI will be more human-like and on and on...". We are just shown the good side of being human but there is another side about what makes us humans. How familiar are to that side? How much do we understand what is that makes us humans? Will AI really beat humans, understand humans?
 
 To be a good diagnostician, a physician needs to acquire a large set of labels for diseases, each of which binds an idea of the illness and its symptoms, possible antecedents and causes, possible developments and consequences, and possible interventions to cure or mitigate the illness. Learning medicine consists in part of learning the language of medicine. A deeper understanding of human minds, their judgements and choices also requires a richer vocabulary than is available in everyday language. Much of this post aims to improve the ability to identify and understand errors of judgement and choice, in others and eventually in ourselves, by providing a richer and more precise language to discuss them.
@@ -66,7 +59,18 @@ The word *fallacy* is used, in general, when people fail to apply a logical rule
 
 
 
-### Certainity Effect pg. 311
+### Certainty Effect pg. 311
+
+In the four examples below, your chances of receiving $1 million improve by 5%. Is the news equally good in each case?
+A. From 0 to 5%
+B. From 5 to 10%
+C. From 60 to 65%
+D. From 95 to 100%
+
+The improvement from 95% to 100% is qualitative change that has a large impact, the certainty effect. Outcomes that are almost certain are given less weight than their probability justifies. 
+
+Imagine that you inherited $1 million, but your greedy stepsister has contested the will in court. The decision is expected tomorrow. Your lawyer assures you that you have a strong case and that you have a 95% chance to win, but he takes pains to remind you that judicial decisions are never perfectly predictable. Now you are approached by a risk-adjustment company, which offers to buy your case for $910,000 outright -take it or leave it. The offer is lower (by $40,000) than the expected value for waiting for the judgement ($950,000), but are you quite sure you would want to reject it? If such an event actually happens in your life, you should know that a large industry of "structured settlements" exists to provide a certainty at hefty price, by taking advantage of the certainty effects.
+
 
 ### Endownment Effect pg. 292
 
@@ -108,13 +112,31 @@ For example, the question of How much would you contribute to save an endangered
 
 ### Illusion of Pundits pg. 219
 
+Philip Tetlock, a psychologist at the University of Pennsylvania, explored so-called expert predictions in a landmark twenty-year study, which he published in his book Expert Political Judgment: How Good Is It? How Can We Know?. In an experiment consisting of 284 people who made their living "commenting or offering advice on political and economic trends", Tetlock asked themto assess their probabilities that certain events would occur in the not too distant future, both in areas of the world in which they specialized and in regions about which they had less knowledge.
 
+The results were devastating. The experts performed worse than they would have if they had simply assigned equal probabilities to each of the 3 possible outcomes. The person who acquires more knowledge develops an enhanced illusion of their skill and becomes unrealistically overconfident. The experts resisted admitting that they had been wrong, and when they were compelled to admit error, they had a large collection of excuses. Experts are human in the end. They are dazzled by their own brilliance and hate to be wrong. Experts are led astray not by what they believe, but by how they think, says Tetlock. 
+
+He uses the terminology from Isaiah Berlin's essay on Tolstoy, "The Hedgehog and the Fox". Hedgehogs "know one big thing" and have a theory about the world; they account for particular events within a coherent framework, bristle with impatience toward those who don't see things their way and are confident in their forecasts. Foxes, by contrast, are complex thinkers. They don't believe that one big thing drives the march of history. Instead the foxes recognize that reality emerges from the interactions of many different agents and forces, including blind luck, often producing large and unpredictable outcomes.
 
 
 ### Illusion of Skill pg. 217
 
+A major industry appears to be built largely on an *illusion of skill*. The diagnostic for the existence of any skill is the consistency of individual differences in achievement. The logic is simple: if individual differences in any one year are due entirely to luck, the ranking of investors and funds will vary erratically and the year-to-year correalation will be zero. When there is skill, however, the rankings will be more stable. The persistence of individual difference is the measure by which we confirm the existence of skill among golfers, car salespeople, orthodontists, or speedy toll collectors on the turnpike.
+
+#### Illusion of validity
+
+
 
 ### Law of Small Numbers
+
+People are not adequately sensitive to the sample size. 
+
+In a telephone poll of 300 seniors, 60% support the president.
+
+If you had to summarize this message in exactly 3 words, it almost certainly would be "elderly support president". The omitted details of the poll, that it was done on the phone with a sample of 300, are of no interest in themselves. Your summary would be same if the sample size would be different. The exaggerated faith of researchers in what can be learned from a few oberservations is closelt related to halo effect, the sense we often get that we know and understand a person about whom we actually know very little.
+
+A well known example of this is the supposed ‘Mozart effect’. A study suggested that playing classical music to babies and young children might make them smarter. The findings spawned a whole cottage industry of books, CD and videos. The study by psychologist Frances Rauscher was based upon observations of just 36 college students. In just one test students who had listened to Mozart “seemed” to show a significant improvement in their performance in an IQ test. This was picked up by the media and various organizations involved in promoting music. However, in 2007 a review of relevant studies by the Ministry of Education and Research in Germany concluded that the phenomenon was “nonexistent”.
+
 
 ### Linda Problem pg. 156
 
@@ -156,10 +178,27 @@ In July 1997, the proposed new Scottish Parliament building in Edinburgh was est
 
 ### Possibility Effect pg. 311
 
+In the four examples below, your chances of receiving $1 million improve by 5%. Is the news equally good in each case?
+A. From 0 to 5%
+B. From 5 to 10%
+C. From 60 to 65%
+D. From 95 to 100%
 
+Increasing the chances from 0 to 5% transforms the situation, creating a possibility that did not exist earlier, a hope of winning the prize. It is a qualitative change. Ther large impact of 0 to 5% illustrates the possibility effect.
+
+Possibility effect causes highly unlikely outcomes to be weighted disproportionately more than they "deserve". People who buy a lottery tickets in vast amounts show themselves willing to pay much more than expected value for very small chance to win a large prize. 
+
+When a loved one is wheeled into surgery, a 5% risk that an amputation will be necessary is very bad -much more than half as bad as a 10% risk. Because of the possiblity effect, we tend to overweight small risks and are willing to pay far more than expected value to eliminate them altogether.
 
 ### Regression to the mean pg. 175
 
+Highly intelligent women tend to marry men who are less intelligent than they are.
+
+You can get a good conversation started at a party by asking for a explaination. Some may think of highly intelligent women wanting to avoid the competition of equally intelligent men, or being forced to compromise in thier choice of spouse because intelligent men do not want to compete with intelligent women.
+
+Consider this statement: *The correlation between the intelligence scores of spouses is less than perfect.* This statement is obviously true and not interesting at all. If the correlation between the intelligence of spouses is less than perfect (and if men and women onaverage do not differ in intelligence) then it is a mathematical inevitability that highly intelligent women will be married to husbands who are on average less intelligent than they are. The observed regression to the mean cannot be more interesting or more explainable than the imperfect correlation. 
+
+Our mind is strongly biased toward causal explanationsand does not deal well with "mere statistics." When our attention is called to an event, associative memory will look for its cause -more preciselyl activation will automatically spread to any cause that it already stored in memory. Causal explainations will be evoked when regression is detected, but they will be wrong because the truth is that regression to the mean has an explaination but does not have a cause. The event that attracts our attention in golfing tournament is the frequent deterioration of the performance of the golfers who were successful on day 1. The best explaination of it is that those golfers were unusually lucky that day but this explaination lacks the causal force that our minds prefer.
 
 
 ### Representativeness
