@@ -57,6 +57,9 @@ People let their likes and dislikes determine their beliefs about the world. Peo
 
 The word *fallacy* is used, in general, when people fail to apply a logical rule that is obviously relevant. Conjuction fallacy which people commit when they judge a conjuction of two events to be more probable than one of the events in a direct comparison. For example, Which alternative is more probable? a) Linda is a bank teller. b) Linda is a bank teller and is active in the feminist movement. Here bank teller and feminist is more probable than one of the events bank teller in direct comparison.
 
+### Competition neglect pg 260
+
+
 
 ### Certainity Effect pg. 311
 
@@ -117,6 +120,11 @@ Naravtive fallacy are used to describe how flawed stories of the past shape our 
 
 When we fail to think about what we do not know, we underestimate the importance of missing information, and this leads us to form strong opinions even when the available evidence is weak. This can lead to bad decisions that we later regret.
 
+### Optimistic bias pg 252
+
+Optimistic bias can be both a blessing and a risk, you should be both happy and wary if you are temperamentally optimistic.
+
+
 ### Outcome bias pg. 202
 
 We are prone to blame decision makers for good decisions that worked out badly and to give them too little credit for successful moves that appear obvious only after the fact. There is a clear outcome bias. When the outcomes are bad, the clients often blame their agents for not seeing the handwriting on the wall - forgetting that it was written in invisible ink that became legible only afterwards.
@@ -124,6 +132,9 @@ We are prone to blame decision makers for good decisions that worked out badly a
 
 ### Planning fallacy pg. 250
 
+Overly optimistic forecasts of the outcome of projects are found everywhere. Examples of planning fallacy abound in the experiences of individuals, governments, and businesses. The list of horror stories is endless. 
+
+In July 1997, the proposed new Scottish Parliament building in Edinburgh was estimated to cost up to ￡40 million. By June 1999, budget for building was ￡109 million. In April 2000, legislators imposed a ￡195 million "caps on costs." By November 2001, they demanded an estimate of "final cost," which was set at ￡241 million. That estimated finak cost rose twice in 2002, ending the year at ￡294.6 million. It rose three times more in 2003, reaching ￡375.8 million by June. The building was finally completed in 2004 at an ultimate cost of roughly ￡431 million.
 
 
 ### Possibility Effect pg. 311
@@ -145,6 +156,16 @@ The most representative outcomes combine with the personality description to pro
 
 ### Substitution
 
+
+### Sunk cost fallacy
+
+
+
+### Turkey Problem
+
+Consider a turkey that is fed every day. Every single feeding will firm up the bird's belief that it is the general rule of life to be fed every day by friendly members of the human race. On the afternoon of the Wednesday before Thanksgiving, something *unexpected* will happen to the turkey, It will incur a revision of belief.
+
+Something that has worked in the past, until -well, it unexpectedly no longer does, and what we have learned from the past turns out to be at best irrelevant or false, at worst viciously misleading. You subsequently derive *solely from past data* a few conclusions concerning the properties of pattern with projections for the next thousand, even five thousand, days, On the one thousand and first day -boom!
 
 
 ### WYSIATI pg. 85
