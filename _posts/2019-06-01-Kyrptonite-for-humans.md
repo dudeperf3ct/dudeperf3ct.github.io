@@ -112,6 +112,9 @@ The tendency to like (or dislike) everything about a person including things you
 
 You met a woman named Joan at a party and find her personable and easy to talk to. Now her name comes up as someone who could be asked to contribute to a charity. What do you know about Joan's generosity? *The correct answer is that you know virtually nothing*, because there is little reason to believe that people who are agreeable in social situations are also generous contributors to charities. But you like Joan and you will retrieve the feeling of liking her when you think of her. You also like generous people and generosity. By association, you are predisposed to believe that Joan is generous. And now that you believe she is generous, you probably like Joan even better than you did earlier, becaise you have added generosity to her pleasant attributes. Real evidence of generosity is missing in the story of Joan, and the gap is filled by a guess that fits one's emotional response to her.
 
+### Hedonic Treadmill
+
+The hedonic treadmill, also known as hedonic adaptation, is the observed tendency of humans to quickly return to a relatively stable level of happiness despite major positive or negative events or life changes. According to this theory, as a person makes more money, expectations and desires rise in tandem, which results in no permanent gain in happiness.
 
 ### Hindsight bias pg. 204
 
@@ -131,6 +134,15 @@ The following video demonstration was offered by Christopher Chabris and Daniel 
 Halfway through the video, a woman wearing a gorilla suit appears, crosses the court, thumps her chest, and moves on. The gorilla is in view for 9 seconds. Many thousands of people have seen the video, and about half of them do not notice anything unusual. It is the counting task - and especially the instruction to ignore one of the teams - that casuses the blindness.
 
 The gorilla study illustrates two important facts about our minds: we can be blind to the obvious, and we are also blind to our blindness.
+
+### Incentive-caused bias
+
+How much sugar is in a Coca- Cola supersize cup? In the video below, BBC Newsnight's Jeremy Paxman asks the same question to James Quincey, president of Coca Cola Europe.
+
+![video](https://youtu.be/ugFock3p2xE)
+
+Whose bread I eat, his song I sing.
+
 
 ### Intensity Matching
 
