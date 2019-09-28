@@ -37,6 +37,7 @@ Eliezer Yudkowsky explains in [What Do We Mean By "Rationality"?](https://www.le
 
 It occurs when people consider a particular value for an unknown quantity before estimating that quantity. In many situayions, people make estimates by starting from an initial value that is adjusted to yield the final answer. Different starting points yield different estimates, which are biased toward the initial values. This phenomenon is called anchoring.
 
+In an experiment Kahneman and Tversky had their subjects spin a wheel of fortune. The subjects first looked at the number on the wheel, which they knew was random, then they were asked to estimate the number of African countries in United Nations. Those who had a low number on the wheel estimated a low number of African nations; those with a high number produced a higher estimate.
 
 ### Affect Heuristic 
 
@@ -59,13 +60,11 @@ In today's world, terrorists are the most significant practitioners of the art o
 
 ### Confirmatory bias 
 
+Cognitive scientists have studied our natural tendency to look only for corroboration; they call this vulnerability to the corroboration error the confirmation bias. Once your mind is inhabited with a certain view of the world, you will tend to only consider instances proving you to be right.
+
 ### Conjuction fallacy pg. 158
 
 The word *fallacy* is used, in general, when people fail to apply a logical rule that is obviously relevant. Conjuction fallacy which people commit when they judge a conjuction of two events to be more probable than one of the events in a direct comparison. For example, Which alternative is more probable? a) Linda is a bank teller. b) Linda is a bank teller and is active in the feminist movement. Here bank teller and feminist is more probable than one of the events bank teller in direct comparison.
-
-### Competition neglect pg 260
-
-
 
 ### Certainty Effect pg. 311
 
@@ -85,11 +84,18 @@ The idea of denominator nelect helps explain why different ways of communication
 
 As predicted by denominator neglect, low-probability events are much more heavily weighted when decribed in terms of relative frequencies (how many) than when stated in more abstract terms of "chances," "risk," or "probability" (how likely).
 
-### Endownment Effect pg. 292
+### Endowment Effect pg. 292
+
+Endowment effect is used to describe the relunctance of people to part from assets that belong to their endowment. When it is more painful to give up an asset than it is pleasurable to obtain it.
 
 Suppose you hold a ticket to a sold-out concert by a popular band, which you bought at the regular price of $200. You are an avid fan and would have been willing to pay up to $500 for the ticket. Now you have have your ticket and you learn on the Internet that richer or more desperate fans are offering $3,000. Would you sell?
 
-If you resemble most of the audience at sold-out events you do not sell. Your lowest selling price is above $3,000 and your maximum buying price is $500. This is an example of an endownment effect.
+If you resemble most of the audience at sold-out events you do not sell. Your lowest selling price is above $3,000 and your maximum buying price is $500. This is an example of an endowment effect.
+
+### Epistemic Arrogance
+
+Epistemic Arrogance refers to our hubris concerning limitation of our knowledge. Epistēmē is a Greek word that refers to knowledge. True, our knowledge does grow, but it is threatened by greater increases in confidence, which make our increase in knowledge at the same time an increase in confusion, ignorance, and conceit.
+
 
 ### Gambler's fallacy
 
@@ -129,7 +135,7 @@ Questions about your happiness, the president's popularity, the proper punishmen
 
 For example, the question of How much would you contribute to save an endangered species? is replaced by How much emotion do I feel when I think of dying dolphins? The feelings about dying dolphins is expressed in dollars. Intensity matching is available to solve that problem. Both feelings and contribution dollars are intensity scales. I can feel more or less strongly about dolphins and there is a contribution that matches the intensity of my feelings. The dollar amount that will come to my mind is the matching amount.
 
-### Illusion of Pundits pg. 219
+### Illusion of Pundits or Expert Problem
 
 Philip Tetlock, a psychologist at the University of Pennsylvania, explored so-called expert predictions in a landmark twenty-year study, which he published in his book Expert Political Judgment: How Good Is It? How Can We Know?. In an experiment consisting of 284 people who made their living "commenting or offering advice on political and economic trends", Tetlock asked themto assess their probabilities that certain events would occur in the not too distant future, both in areas of the world in which they specialized and in regions about which they had less knowledge.
 
@@ -169,6 +175,14 @@ Experimenting extended version of this questionnaire found that 89% of undergrad
 
 Lets consider the judgements of likelihood of two scenarios. Think in terms of Venn diagrams. The set of feminist bank tellers is wholly included in the set of bank tellers. as every feminist bank teller is a bank teller. *Therefore the probability othat Linda is a feminist bank teller must be lower than the probability of her being a bank teller.* 
 
+### Ludic fallacy
+
+Ludic comes from *ludus*, Latin for games. The attributes of the uncertainty we face in real life have little connection to the sterilized ones we encounter in exames and games.
+
+
+### Naïve empiricism
+
+We have a natural tendency to look for instances that confirm our story and our vision of the world -these instances are always easy to find. Alas, with tools, and fools, anything can be be easy to find.
 
 ### Narrative fallacy pg. 199
 
@@ -232,12 +246,20 @@ The most representative outcomes combine with the personality description to pro
 
 ### Substitution
 
+Substituting one question for another can be a good strategy for solving difficult problems. Geroge Pólya included subsitution in his classic *How to Solve It*: "If you can't solve a problem, then there is an easier problem you can solve: find it."
 
 ### Sunk cost fallacy
 
+The decision to invest additional resources in a losing account, when better investments are available, is known as sunk-cost fallacy, a costly mistake that is observed in decisions large and small. Driving into the blizzard because one paid for tickets is a sunk-cost error. The sunk-cost fallacy keeps people for too long in poor jobs, unhappy marriages, and unpromising research projects.
+
+Imagine a company that has already spent $50 million on a project. The project is now behind schedule and the forecasts of it ultimate returns are less favorable than at the initial plaaning stage. An additional investmentof $60 million is required to give the project a chance. An alternative proposal is to invest the same amount in a new project that currently looks likely to bring higher returns. What will company do? All too often a company afflicted by sunk costs drives into the blizzard, throwing good money after bad rather than accepting the humiliation of closing the account of a costly failure.
 
 
-### Turkey Problem
+### Theory-induced blindness
+
+Once you have accepted a theory and used it as a tool in your thinking, it is extraordinarily difficult to notice its flaws. If you come upon an observation that does not seem to fit the model, you assume that there must be a perfectly good explaination that you are somehow missing. You give theory the benefit of the doubt, trusting the community of experts who have accepted it.
+
+### Turkey Problem or Riddle of Induction
 
 Consider a turkey that is fed every day. Every single feeding will firm up the bird's belief that it is the general rule of life to be fed every day by friendly members of the human race. On the afternoon of the Wednesday before Thanksgiving, something *unexpected* will happen to the turkey, It will incur a revision of belief.
 
