@@ -86,7 +86,7 @@ As predicted by denominator neglect, low-probability events are much more heavil
 
 ### Endowment Effect pg. 292
 
-Endowment effect is used to describe the relunctance of people to part from assets that belong to their endowment. When it is more painful to give up an asset than it is pleasurable to obtain it.
+Endowment effect is used to describe the relunctance of people to part from assets that belong to their endowment. People tend to overvalue what belongs to them relative to the value they would place on the same possession if it belonged to someone else.
 
 Suppose you hold a ticket to a sold-out concert by a popular band, which you bought at the regular price of $200. You are an avid fan and would have been willing to pay up to $500 for the ticket. Now you have have your ticket and you learn on the Internet that richer or more desperate fans are offering $3,000. Would you sell?
 
@@ -257,6 +257,9 @@ One sin of representativeness is an excessive willingness to predict the occuren
 Here is an example : you see a person reading *The New York Times* on the New York subway. Which of the following is better bet about the reading stranger? She has a PhD or She does not have a college degree.  
 
 The most representative outcomes combine with the personality description to produce the most coherent stories. The most coherent stories are not necessarily the most probable, but they are plausible, and the notions of *coherence*, *plausibility*, and *probability* are easily confused by the unwary.
+
+### Social Proof
+
 
 
 ### Substitution
