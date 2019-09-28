@@ -44,12 +44,20 @@ People let their likes and dislikes determine their beliefs about the world. Peo
 
 ### Availiablity bias
 
+In a famous study, spouses were asked, "How large was your personal contribution to keeping the place tidy, in percentages?" They also answered similar questions about "taking out garbages," "initiating social engagements", etc. Would the self-estimated contributions add up to 100%, or more, or less? As expected, the self-assessed contributions added up to more than 100%. The explaination is a simple availability bias: both spouses remember their own individual efforts and contributions much more clearly than those of the other,and the difference in availability leads to difference in judged frequency. The same bias contributes to common observation that many members of a collaborative team feel they have done more than their share and also feel that the others are not adequately grateful for their individual contributions.
+
+A professor in UCLA found an ingenious way to exploit the availability bias. He asked different groups of students to list ways to improve the course, and he varied the required number of improvements. As expected, the students who listed more ways to improve the class rated it higher.
 
 ### Availiablity cascade pg 323
 
+An availability cascade is a slef-sustaining chain of events, which may start from media reports of a relatively minor event and lead up to public panic and large-scale government action.
+
+In today's world, terrorists are the most significant practitioners of the art of inducing availability cascades. With a few horrible exceptions such as 9/11, the number of casualties from terror attacks is very small relative to other causes of death. Even in countries that have been targets of intensive terror campaings, such as Israel, the weekly number of casualties almost never come close to the number of traffic deaths. The difference is in availability of the two risks, the ease and the frequency with which they come to mind. Gruesome images, endlessly repeated in the media, cause everyone to be on edge.
 
 
 ### Cognitive Dissonance
+
+### Confirmatory bias 
 
 ### Conjuction fallacy pg. 158
 
@@ -71,12 +79,23 @@ The improvement from 95% to 100% is qualitative change that has a large impact, 
 
 Imagine that you inherited $1 million, but your greedy stepsister has contested the will in court. The decision is expected tomorrow. Your lawyer assures you that you have a strong case and that you have a 95% chance to win, but he takes pains to remind you that judicial decisions are never perfectly predictable. Now you are approached by a risk-adjustment company, which offers to buy your case for $910,000 outright -take it or leave it. The offer is lower (by $40,000) than the expected value for waiting for the judgement ($950,000), but are you quite sure you would want to reject it? If such an event actually happens in your life, you should know that a large industry of "structured settlements" exists to provide a certainty at hefty price, by taking advantage of the certainty effects.
 
+### Denominator neglect
+
+The idea of denominator nelect helps explain why different ways of communication risks vary so much in their effects. You read that "a vaccine that protects children from a fatal disease carrries a 0.001% risk of permanent disability." The risk appears small. Noe consider another description of the same risk: "One of 100,000 vaccinated children will be permanently disabled." THe second statement does something to your mind that the first does not: it calls up the image of and individual child who is permanently disabled by a vaccine; the 99,999 safely vaccinated children have faded into the background.
+
+As predicted by denominator neglect, low-probability events are much more heavily weighted when decribed in terms of relative frequencies (how many) than when stated in more abstract terms of "chances," "risk," or "probability" (how likely).
 
 ### Endownment Effect pg. 292
 
 Suppose you hold a ticket to a sold-out concert by a popular band, which you bought at the regular price of $200. You are an avid fan and would have been willing to pay up to $500 for the ticket. Now you have have your ticket and you learn on the Internet that richer or more desperate fans are offering $3,000. Would you sell?
 
 If you resemble most of the audience at sold-out events you do not sell. Your lowest selling price is above $3,000 and your maximum buying price is $500. This is an example of an endownment effect.
+
+### Gambler's fallacy
+
+People expect that the essential charcteristics of the process will be represented, not only globally in the entire sequence, but also locally in each of its parts. In considering tosses of a coin for heads or tails, for example, people regard the sequence H-T-H-T-T-H to be more likely than the sequence H-H-H-T-T-T which does not appear random, also more likely than the sequence H-H-H-H-T-H, which does not represent fairness of coin.
+
+After observing a long run of red on the roulette wheel, for exaple, most people erroneously believe that black is noe due, presumably because the occurence of black will  result in more representative sequence than the occurence of an additional red.
 
 ### Halo Effect pg. 199
 
@@ -124,6 +143,7 @@ He uses the terminology from Isaiah Berlin's essay on Tolstoy, "The Hedgehog and
 A major industry appears to be built largely on an *illusion of skill*. The diagnostic for the existence of any skill is the consistency of individual differences in achievement. The logic is simple: if individual differences in any one year are due entirely to luck, the ranking of investors and funds will vary erratically and the year-to-year correalation will be zero. When there is skill, however, the rankings will be more stable. The persistence of individual difference is the measure by which we confirm the existence of skill among golfers, car salespeople, orthodontists, or speedy toll collectors on the turnpike.
 
 #### Illusion of validity
+
 
 
 
