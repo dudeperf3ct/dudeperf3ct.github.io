@@ -94,8 +94,11 @@ If you resemble most of the audience at sold-out events you do not sell. Your lo
 
 ### Epistemic Arrogance
 
-Epistemic Arrogance refers to our hubris concerning limitation of our knowledge. Epistēmē is a Greek word that refers to knowledge. True, our knowledge does grow, but it is threatened by greater increases in confidence, which make our increase in knowledge at the same time an increase in confusion, ignorance, and conceit.
+Epistemic Arrogance refers to our hubris concerning limitation of our knowledge. Epistēmē is a Greek word that refers to knowledge. True, our knowledge does grow, but it is threatened by greater increases in confidence, which make our increase in knowledge at the same time an increase in confusion, ignorance, and conceit. Epistemic Arrogance measures the difference between what someone actually knows and how much he thinks he knows.
 
+### Future blindness
+ 
+Austistic people cannot put themselves in the shoes of others, cannot view the world from their standpoint. They cannot perform simple mental operations as "he knows that I don't know that I know," and it is this inability that impedes their social skills. Just as autism is called "mind blindness", this inability to think dynamically, to position oneself with respect to a future observer, we call it "Future blindness."
 
 ### Gambler's fallacy
 
