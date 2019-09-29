@@ -33,6 +33,13 @@ Eliezer Yudkowsky explains in [What Do We Mean By "Rationality"?](https://www.le
 
 > This is why there is a whole site called “Less Wrong,” rather than a single page that simply states the formal axioms and calls it a day. There’s a whole further art to finding the truth and accomplishing value from inside a human mind: we have to learn our own flaws, overcome our biases, prevent ourselves from self-deceiving, get ourselves into good emotional shape to confront the truth and do what needs doing, et cetera, et cetera.
 
+Charlie Munger in "The Psychology of Human Misjudgement" states, 
+
+> Man is often fooled, either by the cleverly thought out manipulation of man, by circumstances occuring by accident, or by very effective manipulation practices that man has stumbled into during "practice evolution" and kept in place because they work so well.
+
+One such outcome is caused by a quantum effect in human perception. If stimulus is kept below a certain level, it does not get through. And, for this reason, a magician was able to make the Statue of Liberty disappear after a certain amount of magician lingo expressed in the dark. The audience was not aware that it was sitting on a platform that was rotating so slowly, below man's sensory threshold, that no one could feel the acceleration implicit in the considerable rotation. When a surrounding cutrain was then opened in the place on the platform where the Statue had earlier appeared, it seemed to have disappeared.
+
+
 ### Anchoring Effect
 
 It occurs when people consider a particular value for an unknown quantity before estimating that quantity. In many situayions, people make estimates by starting from an initial value that is adjusted to yield the final answer. Different starting points yield different estimates, which are biased toward the initial values. This phenomenon is called anchoring.
@@ -49,7 +56,7 @@ In a famous study, spouses were asked, "How large was your personal contribution
 
 A professor in UCLA found an ingenious way to exploit the availability bias. He asked different groups of students to list ways to improve the course, and he varied the required number of improvements. As expected, the students who listed more ways to improve the class rated it higher.
 
-### Availiablity cascade pg 323
+### Availablity cascade pg 323
 
 An availability cascade is a slef-sustaining chain of events, which may start from media reports of a relatively minor event and lead up to public panic and large-scale government action.
 
@@ -137,11 +144,13 @@ The gorilla study illustrates two important facts about our minds: we can be bli
 
 ### Incentive-caused bias
 
+Charlie advices that we should heed the general lesson implicit in the injuction of Ben Franklin in *Poor Richard's Almanack:* "If you would persuade, appeal to interest and not to reason." This maxim is a wise guide to a great and simple precaution in life: Never, ever think about something else when you should be thinking about the power of incentives. Charlie once saw a very smart house counsel for a major investment bank lose his job, with no moral fault, because he ignored the lesson in this maxim of Franklin. This counsel failed to persuade his client because he told him his moral duty, as correctly conceived by the counsel, without also telling the client in vivid terms that he was very likely to be clobbered to smithereens if he didn't behave as his counsel recommended. As a result, both client and counsel lost their careers.
+
 How much sugar is in a Coca- Cola supersize cup? In the video below, BBC Newsnight's Jeremy Paxman asks the same question to James Quincey, president of Coca Cola Europe.
 
 ![video](https://youtu.be/ugFock3p2xE)
 
-Whose bread I eat, his song I sing.
+Whose bread I eat, his song I sing. The inevitable ubiquity of incentive-caused bias has vast, generalized consequences. For instance, a sales force living only on commissions will be much harder to keep moral than one under less pressure from the compensation arrangement. On the other hand, a purely commissioned sales force may well be more efficient per dollar spent. Therefore, difficult decisions involving trade-offs are common in creating compensation arrangements in the sales function.
 
 
 ### Intensity Matching
