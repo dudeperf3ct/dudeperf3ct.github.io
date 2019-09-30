@@ -12,9 +12,8 @@ published : false
 
 In this post, we will stop and ponder over the question, "What is that makes us human, supposedly a complete being?". Puzzling limitation of our mind: our excessive confidence in what we believe we know, and our apparent inability to acknowledge the full extent of our ignorance and the uncertainty of the world we live in.
 
-
 <p align="center">
-<img src='/images/kryptonite/sups_meme.jpg' width="80%"/> 
+<img src='/images/kryptonite/sups_meme.jpg' width="50%"/> 
 </p>
 
 
