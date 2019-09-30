@@ -1,11 +1,13 @@
 ---
 layout:     post
-title:      Kyrptonite for humans
-date:       2019-06-01 12:00:00
-summary:    In this post, we will stop and ponder over the question, "What is that makes us human, supposedly a complete being?" Puzzling limitation of our mind: our excessive confidence in what we believe we know, and our apparent inability to acknowledge the full extent of our ignorance and the uncertainty of the world we live in.
-categories: biases
+title:      Fun in Deep Learning Project
+date:       2019-05-17 12:00:00
+summary:    This post will provide a journey of creating a deep learning project. In this post, we will create a deep learning project, all famous OCR aka Text Recognizer. We will also look at many lessons and process that needs to be adopted to go from planning to final deployed product and also present a case study of Creating modern OCR pipeline using Computer Vision and Deep Learning done at Dropbox.
+categories: project
 published : true
 ---
+
+
 
 # Kryptonite for humans
 
