@@ -69,7 +69,7 @@ A professor in UCLA found an ingenious way to exploit the availability bias. He 
 ### Availability cascade
 
 <p align="center">
-<img src='/images/kryptonite/availability-cascade.png.png' width="60%"/> 
+<img src='/images/kryptonite/availability-cascade.png' width="60%"/> 
 </p>
 
 An availability cascade is a slef-sustaining chain of events, which may start from media reports of a relatively minor event and lead up to public panic and large-scale government action.
@@ -304,6 +304,10 @@ We are prone to blame decision makers for good decisions that worked out badly a
 
 ### Planning fallacy
 
+<p align="center">
+<img src='/images/kryptonite/planning.jpg' width="50%"/> 
+</p>
+
 Overly optimistic forecasts of the outcome of projects are found everywhere. Examples of planning fallacy abound in the experiences of individuals, governments, and businesses. The list of horror stories is endless. 
 
 In July 1997, the proposed new Scottish Parliament building in Edinburgh was estimated to cost up to ￡40 million. By June 1999, budget for building was ￡109 million. In April 2000, legislators imposed a ￡195 million "caps on costs." By November 2001, they demanded an estimate of "final cost," which was set at ￡241 million. That estimated finak cost rose twice in 2002, ending the year at ￡294.6 million. It rose three times more in 2003, reaching ￡375.8 million by June. The building was finally completed in 2004 at an ultimate cost of roughly ￡431 million.
@@ -368,6 +372,10 @@ Substituting one question for another can be a good strategy for solving difficu
 
 ### Sunk-cost fallacy
 
+<p align="center">
+<img src='/images/kryptonite/sunk_cost.jpg' width="50%"/> 
+</p>
+
 The decision to invest additional resources in a losing account, when better investments are available, is known as sunk-cost fallacy, a costly mistake that is observed in decisions large and small. Driving into the blizzard because one paid for tickets is a sunk-cost error. The sunk-cost fallacy keeps people for too long in poor jobs, unhappy marriages, and unpromising research projects.
 
 Imagine a company that has already spent $50 million on a project. The project is now behind schedule and the forecasts of it ultimate returns are less favorable than at the initial plaaning stage. An additional investmentof $60 million is required to give the project a chance. An alternative proposal is to invest the same amount in a new project that currently looks likely to bring higher returns. What will company do? All too often a company afflicted by sunk costs drives into the blizzard, throwing good money after bad rather than accepting the humiliation of closing the account of a costly failure.
@@ -377,6 +385,10 @@ Imagine a company that has already spent $50 million on a project. The project i
 Once you have accepted a theory and used it as a tool in your thinking, it is extraordinarily difficult to notice its flaws. If you come upon an observation that does not seem to fit the model, you assume that there must be a perfectly good explaination that you are somehow missing. You give theory the benefit of the doubt, trusting the community of experts who have accepted it.
 
 ### Turkey Problem or Riddle of Induction
+
+<p align="center">
+<img src='/images/kryptonite/turkey.png' width="50%"/> 
+</p>
 
 Consider a turkey that is fed every day. Every single feeding will firm up the bird's belief that it is the general rule of life to be fed every day by friendly members of the human race. On the afternoon of the Wednesday before Thanksgiving, something *unexpected* will happen to the turkey, It will incur a revision of belief.
 
