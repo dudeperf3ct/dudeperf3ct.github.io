@@ -50,30 +50,42 @@ In an experiment Kahneman and Tversky had their subjects spin a wheel of fortune
 
 People let their likes and dislikes determine their beliefs about the world. People make judgements and decisions consulting their emotions. If you like current health policy, you believe its benefits are substantial and its costs are more manageable than the costs of alternatives.
 
-### Availiablity bias
+### Authority-Misinfluence Tendency
 
-In a famous study, spouses were asked, "How large was your personal contribution to keeping the place tidy, in percentages?" They also answered similar questions about "taking out garbages," "initiating social engagements", etc. Would the self-estimated contributions add up to 100%, or more, or less? As expected, the self-assessed contributions added up to more than 100%. The explaination is a simple availability bias: both spouses remember their own individual efforts and contributions much more clearly than those of the other,and the difference in availability leads to difference in judged frequency. The same bias contributes to common observation that many members of a collaborative team feel they have done more than their share and also feel that the others are not adequately grateful for their individual contributions.
+Man was born mostly to follow leaders, with only a few people doing the leading. And so, human society is formally organized into dominance hierarchies, with their culture augmenting the natural follow-the-leader tendency of man. Man is often destined to suffer greatly when the leader is wrong or when his leader's ideas don't get through properly in the bustle of life and are misunderstood. And so, we find much miscognition from man's Authority-Misinfluence Tendency.
+
+Other versions of confused instructions from authority figures are tragic. In World War II, a new pilot for a general, who sat beside hum in the copilot's seat, was so anxious to please his boss that he misterpreted some minor shift in the general's position as a direction to do some foolish thing. The pilot crashed the plane and became a paraplegic. Stanely Milgram decided to do an experiment to determine exactly how far authority figures could lead ordinary prople into gross misbehavior. In this experiment, a man posing as an authority figure, namely a professor govering a respectable experiment, was able to trick a great many ordinary people into giving what they had every reason to believe were massive electric shocks that inflicted heavy torture on innocent fellow citizens. This experiment did demonstrate a terrible result contributed to by Authority-Misinfluence Tendency, but it also demonstrated extreme ignorance in the pyschology professoriate right after World War II.
+
+A pyschology Ph.D. once became a CEO of a major company and went wild, creating an expensive headquarters, with a great wine cellar, at an isolated site. At some point, his underlings remonstrated that money was running short. "Take money out of the depreciation reserves," said the CEO. Not too easy because a depreciation reserve is a liability account. 
+
+So strong is undue respect for authority that this CEO, and many even worse examples, have actually been allowed to remain in control of important business institutions for long periods after it was clear they should be removed. The obvious implication: be careful whom you appoint to power because a dominant authority figure will often be hard to remove, aided as he will be by Authority-Misinfluence Tendency .
+
+
+### Availiablity bias or Availability-Misweighing Tendency
+
+In a famous study, spouses were asked, "How large was your personal contribution to keeping the place tidy, in percentages?" They also answered similar questions about "taking out garbages," "initiating social engagements", etc. Would the self-estimated contributions add up to 100%, or more, or less? As expected, the self-assessed contributions added up to more than 100%. The explaination is a simple availability bias: both spouses remember their own individual efforts and contributions much more clearly than those of the other,and the difference in availability leads to difference in judged frequency. The same bias contributes to common observation that many members of a collaborative team feel they have done more than their share and also feel that the others are not adequately grateful for their individual contributions. Man's imperfect, limited-capacity brain easily drifts into working with what's easily available to it.
 
 A professor in UCLA found an ingenious way to exploit the availability bias. He asked different groups of students to list ways to improve the course, and he varied the required number of improvements. As expected, the students who listed more ways to improve the class rated it higher.
 
-### Availablity cascade pg 323
+### Availablity cascade
 
 An availability cascade is a slef-sustaining chain of events, which may start from media reports of a relatively minor event and lead up to public panic and large-scale government action.
 
 In today's world, terrorists are the most significant practitioners of the art of inducing availability cascades. With a few horrible exceptions such as 9/11, the number of casualties from terror attacks is very small relative to other causes of death. Even in countries that have been targets of intensive terror campaings, such as Israel, the weekly number of casualties almost never come close to the number of traffic deaths. The difference is in availability of the two risks, the ease and the frequency with which they come to mind. Gruesome images, endlessly repeated in the media, cause everyone to be on edge.
 
-
 ### Cognitive Dissonance
+
+
 
 ### Confirmatory bias 
 
 Cognitive scientists have studied our natural tendency to look only for corroboration; they call this vulnerability to the corroboration error the confirmation bias. Once your mind is inhabited with a certain view of the world, you will tend to only consider instances proving you to be right.
 
-### Conjuction fallacy pg. 158
+### Conjuction fallacy
 
 The word *fallacy* is used, in general, when people fail to apply a logical rule that is obviously relevant. Conjuction fallacy which people commit when they judge a conjuction of two events to be more probable than one of the events in a direct comparison. For example, Which alternative is more probable? a) Linda is a bank teller. b) Linda is a bank teller and is active in the feminist movement. Here bank teller and feminist is more probable than one of the events bank teller in direct comparison.
 
-### Certainty Effect pg. 311
+### Certainty Effect
 
 In the four examples below, your chances of receiving $1 million improve by 5%. Is the news equally good in each case?
 A. From 0 to 5%
@@ -84,6 +96,14 @@ D. From 95 to 100%
 The improvement from 95% to 100% is qualitative change that has a large impact, the certainty effect. Outcomes that are almost certain are given less weight than their probability justifies. 
 
 Imagine that you inherited $1 million, but your greedy stepsister has contested the will in court. The decision is expected tomorrow. Your lawyer assures you that you have a strong case and that you have a 95% chance to win, but he takes pains to remind you that judicial decisions are never perfectly predictable. Now you are approached by a risk-adjustment company, which offers to buy your case for $910,000 outright -take it or leave it. The offer is lower (by $40,000) than the expected value for waiting for the judgement ($950,000), but are you quite sure you would want to reject it? If such an event actually happens in your life, you should know that a large industry of "structured settlements" exists to provide a certainty at hefty price, by taking advantage of the certainty effects.
+
+### Contrast-Misreaction Tendency
+
+Because the nervous system of man does not naturally measure in absolute scientific units, it must instead rely on something simpler. The eyes have a solution that limits their programming needs: the contrast in what is seen in registered. And as in sight, so does it go, largely, in the other senses. Morever, as perception goes, so goes cognition. The result is man's Contrast-Misreaction Tendency.
+
+A bridge-playing pal of Charlie once told him that a frog tossed into very hot water would jump out, but that same frog would end up dying if placed in room temperature water that was later treated at a very slow rate. Many businesses die in just the manner claimed by pal for the frog. Cognition, misled by tiny changes involving low contrast, will often miss a trend that is destiny.
+
+One of the Ben Franklin's best-remembered and most useful aphorisms is "A small leak will sink great ship." The utility of the aphorism is large precisely because the brain so often misses the funcitonal equivalent of a small leak in great ship.
 
 ### Curiosity Tendency
 
@@ -97,7 +117,7 @@ The idea of denominator nelect helps explain why different ways of communication
 
 As predicted by denominator neglect, low-probability events are much more heavily weighted when decribed in terms of relative frequencies (how many) than when stated in more abstract terms of "chances," "risk," or "probability" (how likely).
 
-### Endowment Effect pg. 292
+### Endowment Effect
 
 Endowment effect is used to describe the relunctance of people to part from assets that belong to their endowment. People tend to overvalue what belongs to them relative to the value they would place on the same possession if it belonged to someone else.
 
@@ -153,12 +173,11 @@ You met a woman named Joan at a party and find her personable and easy to talk t
 
 The hedonic treadmill, also known as hedonic adaptation, is the observed tendency of humans to quickly return to a relatively stable level of happiness despite major positive or negative events or life changes. According to this theory, as a person makes more money, expectations and desires rise in tandem, which results in no permanent gain in happiness.
 
-### Hindsight bias pg. 204
+### Hindsight bias
 
 Also know as "I-knew-it-all-along" effect. 
 
 The worse the consequence, the greater the hindsight bias. In the case of a catastrophe, such  as 9/11, we are especially ready to believe that the officials who failed to anticipate it were negligent or blind. On July 10, 2001, CIA obtained information that al-Qaeda might be planning a major attack against US. When the facts later emerged, Ben Bradlee, legendary executive of The Washington Post, declared, "It seems to me elementary that if you've got the story that's going to dominate history you might as well go right to the president." But on July 10, no one knew - or could have known 0 that this tidbit of intelligence would turn out to dominate history.
-
 
 ### Inattention Blindness Bias
 
@@ -202,8 +221,7 @@ The results were devastating. The experts performed worse than they would have i
 
 He uses the terminology from Isaiah Berlin's essay on Tolstoy, "The Hedgehog and the Fox". Hedgehogs "know one big thing" and have a theory about the world; they account for particular events within a coherent framework, bristle with impatience toward those who don't see things their way and are confident in their forecasts. Foxes, by contrast, are complex thinkers. They don't believe that one big thing drives the march of history. Instead the foxes recognize that reality emerges from the interactions of many different agents and forces, including blind luck, often producing large and unpredictable outcomes.
 
-
-### Illusion of Skill pg. 217
+### Illusion of Skill
 
 A major industry appears to be built largely on an *illusion of skill*. The diagnostic for the existence of any skill is the consistency of individual differences in achievement. The logic is simple: if individual differences in any one year are due entirely to luck, the ranking of investors and funds will vary erratically and the year-to-year correalation will be zero. When there is skill, however, the rankings will be more stable. The persistence of individual difference is the measure by which we confirm the existence of skill among golfers, car salespeople, orthodontists, or speedy toll collectors on the turnpike.
 
@@ -226,7 +244,7 @@ A well known example of this is the supposed ‘Mozart effect’. A study sugges
 
 Liking or loving, interwined with admiration in a feedback mode, often has vast practical consequences in areas far removed from sexual attachments. Fot instance, a man who is so constructed that he loves admirable persons and ideas with a special intensity has a huge advantage in life. This blessing came to both Buffett and Charlie in large measure, sometimes from the same persons and ideas.
 
-### Linda Problem pg. 156
+### Linda Problem
 
 Which alternative is more probable? 
 
@@ -240,7 +258,6 @@ Lets consider the judgements of likelihood of two scenarios. Think in terms of V
 ### Ludic fallacy
 
 Ludic comes from *ludus*, Latin for games. The attributes of the uncertainty we face in real life have little connection to the sterilized ones we encounter in exames and games.
-
 
 ### Naïve empiricism
 
@@ -321,6 +338,11 @@ In social proof, it is not only action by others that misleads but also their in
 
 > If only one lesson is to be chosen from a package of lesson involving Social-Proof Tendency, and used in self improvement, Charlie's favorite would be: Learn how to ignore the examples from others when they are wrong, because few skills are more worth having.
 
+### Stress-Influence Tendency
+
+Everyone recognizes that sudden stress, for instance from a threat, will cause a rush of adrenaline in the human body, prompting faster and more extreme reaction. And everyone who has taken Psych 101 knows that stress makes Social-Proof Tendency more powerful.
+
+In a phenomenon less well recognized, but still widely known, light stress can slightly improve performance -say, in examinations -whereas heavy stress causes dysfunction.
 
 ### Substitution
 
