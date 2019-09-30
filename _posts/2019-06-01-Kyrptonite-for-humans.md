@@ -2,7 +2,7 @@
 layout:     post
 title:      Kyrptonite for humans
 date:       2019-06-01 12:00:00
-summary:    This post will 
+summary:    In this post, we will stop and ponder over the question, "What is that makes us human, supposedly a complete being?". Puzzling limitation of our mind: our excessive confidence in what we believe we know, and our apparent inability to acknowledge the full extent of our ignorance and the uncertainty of the world we live in.
 categories: human biases cognitive biases
 published : false
 ---
@@ -14,7 +14,7 @@ In this post, we will stop and ponder over the question, "What is that makes us 
 
 
 <p align="center">
-<img src='/images/rnn/rnn_meme.jpg' width="50%"/> 
+<img src='/images/kryptonite/sups_meme.jpg' width="80%"/> 
 </p>
 
 
@@ -31,11 +31,11 @@ This post will be a collection of thoughts *shamelessly stolen* from Daniel Kahn
 
 Eliezer Yudkowsky explains in [What Do We Mean By "Rationality"?](https://www.lesswrong.com/s/5g5TkQTe9rmPS5vvM/p/RcZCwxFiZzE6X7nsv) the rational behind the all-famous site "[Less Wrong](https://www.lesswrong.com/)",
 
-> This is why there is a whole site called “Less Wrong,” rather than a single page that simply states the formal axioms and calls it a day. There’s a whole further art to finding the truth and accomplishing value from inside a human mind: we have to learn our own flaws, overcome our biases, prevent ourselves from self-deceiving, get ourselves into good emotional shape to confront the truth and do what needs doing, et cetera, et cetera.
+> <span class='purple'>This is why there is a whole site called “Less Wrong,” rather than a single page that simply states the formal axioms and calls it a day. There’s a whole further art to finding the truth and accomplishing value from inside a human mind: we have to learn our own flaws, overcome our biases, prevent ourselves from self-deceiving, get ourselves into good emotional shape to confront the truth and do what needs doing, et cetera, et cetera.</span>
 
 Charlie Munger in "The Psychology of Human Misjudgement" states, 
 
-> Man is often fooled, either by the cleverly thought out manipulation of man, by circumstances occuring by accident, or by very effective manipulation practices that man has stumbled into during "practice evolution" and kept in place because they work so well.
+> <span class='purple'>Man is often fooled, either by the cleverly thought out manipulation of man, by circumstances occuring by accident, or by very effective manipulation practices that man has stumbled into during "practice evolution" and kept in place because they work so well.</span>
 
 One such outcome is caused by a quantum effect in human perception. If stimulus is kept below a certain level, it does not get through. And, for this reason, a magician was able to make the Statue of Liberty disappear after a certain amount of magician lingo expressed in the dark. The audience was not aware that it was sitting on a platform that was rotating so slowly, below man's sensory threshold, that no one could feel the acceleration implicit in the considerable rotation. When a surrounding cutrain was then opened in the place on the platform where the Statue had earlier appeared, it seemed to have disappeared.
 
@@ -67,15 +67,15 @@ In a famous study, spouses were asked, "How large was your personal contribution
 
 A professor in UCLA found an ingenious way to exploit the availability bias. He asked different groups of students to list ways to improve the course, and he varied the required number of improvements. As expected, the students who listed more ways to improve the class rated it higher.
 
-### Availablity cascade
+### Availability cascade
+
+<p align="center">
+<img src='/images/kryptonite/availability-cascade.png.png' width="60%"/> 
+</p>
 
 An availability cascade is a slef-sustaining chain of events, which may start from media reports of a relatively minor event and lead up to public panic and large-scale government action.
 
 In today's world, terrorists are the most significant practitioners of the art of inducing availability cascades. With a few horrible exceptions such as 9/11, the number of casualties from terror attacks is very small relative to other causes of death. Even in countries that have been targets of intensive terror campaings, such as Israel, the weekly number of casualties almost never come close to the number of traffic deaths. The difference is in availability of the two risks, the ease and the frequency with which they come to mind. Gruesome images, endlessly repeated in the media, cause everyone to be on edge.
-
-### Cognitive Dissonance
-
-
 
 ### Confirmatory bias 
 
@@ -109,15 +109,19 @@ One of the Ben Franklin's best-remembered and most useful aphorisms is "A small 
 
 There is a lot of innate curiosity in mammals, but its nonhuman version is highest among apes and monkeys. In advanced human civilization, culture greatly increases the effectiveness of curiosity in advancing knowledge. For instance, Athens developed much math and science out of pure curiosity while Romans made almost no contribution to either math or science. They instead concentrated their attention on the "practical" engineering of mines, roads, aqueducts, etc.
 
-The curious are also provided with much fun and wisdom long after formal education has ended.
+<span class='orange'>The curious are also provided with much fun and wisdom long after formal education has ended.</span>
 
 ### Denominator neglect
 
-The idea of denominator nelect helps explain why different ways of communication risks vary so much in their effects. You read that "a vaccine that protects children from a fatal disease carrries a 0.001% risk of permanent disability." The risk appears small. Noe consider another description of the same risk: "One of 100,000 vaccinated children will be permanently disabled." THe second statement does something to your mind that the first does not: it calls up the image of and individual child who is permanently disabled by a vaccine; the 99,999 safely vaccinated children have faded into the background.
+The idea of denominator nelect helps explain why different ways of communication risks vary so much in their effects. You read that "a vaccine that protects children from a fatal disease carrries a 0.001% risk of permanent disability." The risk appears small. Now consider another description of the same risk: "One of 100,000 vaccinated children will be permanently disabled." The second statement does something to your mind that the first does not: it calls up the image of and individual child who is permanently disabled by a vaccine; the 99,999 safely vaccinated children have faded into the background.
 
 As predicted by denominator neglect, low-probability events are much more heavily weighted when decribed in terms of relative frequencies (how many) than when stated in more abstract terms of "chances," "risk," or "probability" (how likely).
 
 ### Endowment Effect
+
+<p align="center">
+<img src='/images/kryptonite/endowment.jpg' width="60%"/> 
+</p>
 
 Endowment effect is used to describe the relunctance of people to part from assets that belong to their endowment. People tend to overvalue what belongs to them relative to the value they would place on the same possession if it belonged to someone else.
 
@@ -134,6 +138,19 @@ Envy/Jealousy is so extreme in modern life. For instance, university communities
 ### Epistemic Arrogance
 
 Epistemic Arrogance refers to our hubris concerning limitation of our knowledge. Epistēmē is a Greek word that refers to knowledge. True, our knowledge does grow, but it is threatened by greater increases in confidence, which make our increase in knowledge at the same time an increase in confusion, ignorance, and conceit. Epistemic Arrogance measures the difference between what someone actually knows and how much he thinks he knows.
+
+### Excessive Self-Regard Tendency
+
+We all commonly observe the excessive self-regard of man. He mostly misappraises himself on the high side, like the 99% of Swedish drivers that judge themselves to be above average. Such misappraisals also apply to a person's major "possessions." One spouse usually overappraises the other spouse. And a man's children are like wise appraised higher by him than they are likely to be in a more objective view. <span class='saddlebrown'>Man's excess of self-reggard typically makes him strongly prefer people like himself.</span>
+
+There is a famous passage somewhere in Tolstoy that illuminates the power of Excessive Self-Regard Tendency. According to Tolstoy, the worst criminals don't appraise themselves as all that bad. They come to believe either (1) that they didn't commit their crimes or (2) that, considering the pressures and disadvantages of their lives, it is understandable and forgivable that they behaved as they did and became what they became.
+
+### Deprival Superreaction Tendency / Loss Aversion
+
+The quantity of man's pleasure from a ten dollar gain does not exactly match the quantity of his displeasure from a ten-dollar loss. That is, loss seems to hurt more than the gain seems to help. Morever, if a man almost gets something he greatly wants and has it jerked away from him at the last moment, he will react much as if he had long owned the reward and had it jerked away. This loss of possessed reward and the loss of almost-possessed reward is called Deprival Superreaction Tendency.
+
+A man ordinarily reacts with irrational intensity to even a small loss, or threatened loss, of property, love, friendship, dominated territory, opportunity: status, or any other value thing. As a natural result, bureaucratic infighting over the threatened loss of dominated territory often causes  immense damage to an institution as a whole. Deprival Superreaction Tendency is also a huge contributor to ruin from compulsion to gamble. First, it causes the gambler to have a passion to get even once he has suffered loss, and the passion grows with the loss. Second, the most addivtive forms of gambling provide a lot of near missed and each one triggers Deprival Superreaction Tendency.
+
 
 ### Disliking/Hating Tendency
 
@@ -163,13 +180,17 @@ People expect that the essential charcteristics of the process will be represent
 
 After observing a long run of red on the roulette wheel, for exaple, most people erroneously believe that black is noe due, presumably because the occurence of black will  result in more representative sequence than the occurence of an additional red.
 
-### Halo Effect pg. 199
+### Halo Effect
 
 The tendency to like (or dislike) everything about a person including things you have not observed is known as the halo effect.
 
 You met a woman named Joan at a party and find her personable and easy to talk to. Now her name comes up as someone who could be asked to contribute to a charity. What do you know about Joan's generosity? *The correct answer is that you know virtually nothing*, because there is little reason to believe that people who are agreeable in social situations are also generous contributors to charities. But you like Joan and you will retrieve the feeling of liking her when you think of her. You also like generous people and generosity. By association, you are predisposed to believe that Joan is generous. And now that you believe she is generous, you probably like Joan even better than you did earlier, becaise you have added generosity to her pleasant attributes. Real evidence of generosity is missing in the story of Joan, and the gap is filled by a guess that fits one's emotional response to her.
 
 ### Hedonic Treadmill
+
+<p align="center">
+<img src='/images/kryptonite/hedonic.png' width="60%"/> 
+</p>
 
 The hedonic treadmill, also known as hedonic adaptation, is the observed tendency of humans to quickly return to a relatively stable level of happiness despite major positive or negative events or life changes. According to this theory, as a person makes more money, expectations and desires rise in tandem, which results in no permanent gain in happiness.
 
@@ -185,11 +206,11 @@ Intense focusing on a task can make people effectively blind, even to the stimul
 
 The following video demonstration was offered by Christopher Chabris and Daniel Simons. They constructed a short film of two teams passing basketballs, one team wearing white shirts, the other wearing black. The viewers of the film are instructed to count the number of passes made by the white team, ignoring the black players. This task is difficult and completely absorbing. 
 
-![video](https://youtu.be/vJG698U2Mvo)
+[![Video](https://img.youtube.com/vi/vJG698U2Mvo/0.jpg)](https://www.youtube.com/watch?v=vJG698U2Mvo)
 
 Halfway through the video, a woman wearing a gorilla suit appears, crosses the court, thumps her chest, and moves on. The gorilla is in view for 9 seconds. Many thousands of people have seen the video, and about half of them do not notice anything unusual. It is the counting task - and especially the instruction to ignore one of the teams - that casuses the blindness.
 
-The gorilla study illustrates two important facts about our minds: we can be blind to the obvious, and we are also blind to our blindness.
+<span class='green'>The gorilla study illustrates two important facts about our minds: we can be blind to the obvious, and we are also blind to our blindness.</span>
 
 ### Incentive-caused bias
 
@@ -197,15 +218,22 @@ Charlie advices that we should heed the general lesson implicit in the injuction
 
 How much sugar is in a Coca- Cola supersize cup? In the video below, BBC Newsnight's Jeremy Paxman asks the same question to James Quincey, president of Coca Cola Europe.
 
-![video](https://youtu.be/ugFock3p2xE)
+[![Video](https://img.youtube.com/vi/ugFock3p2xE/0.jpg)](https://www.youtube.com/watch?v=ugFock3p2xE)
 
-Whose bread I eat, his song I sing. The inevitable ubiquity of incentive-caused bias has vast, generalized consequences. For instance, a sales force living only on commissions will be much harder to keep moral than one under less pressure from the compensation arrangement. On the other hand, a purely commissioned sales force may well be more efficient per dollar spent. Therefore, difficult decisions involving trade-offs are common in creating compensation arrangements in the sales function.
+<span class='red'>Whose bread I eat, his song I sing.</span> The inevitable ubiquity of incentive-caused bias has vast, generalized consequences. For instance, a sales force living only on commissions will be much harder to keep moral than one under less pressure from the compensation arrangement. On the other hand, a purely commissioned sales force may well be more efficient per dollar spent. Therefore, difficult decisions involving trade-offs are common in creating compensation arrangements in the sales function.
 
 ### Inconsistency-Avoidance Tendency
 
 The brain of man conserves programming space by being reluctant to change, which is a form of inconsistency avoidance. We see this in all human habits, constructive and destructive. Few people can list a lot of bad habits that they have eliminated, and some people cannot identify even one of these. Instead, practically everyone has a great many bad habits he has long maintained despite their being known as bad.
 
 So great is the bad-decision problem caused by Inconsistency-Avoidance Tendency that our courts have adopted important strategies against it. For instance, before making decisions, judges and juries are required to hear long and skillful presentation of evidence and argument from the side they will not naturally favor, given their ideas in place. And this helps prevent considerable bad thinking from "first conclusion bias." Similarly, other modern decision makers will often force groups to consider skillful counterarguments before making decisions.
+
+### Influence-from-Mere Association
+
+Consider the case of many men who have been trained by their previous experience in life to believe that when several similar items are presented for purchase the one with the highest price will have the highest quality. Knowing this, some seller of an industrial product will often change his product's trade dress and raise its price significantly hoping that quality-seeking buyers will be tricked into becoming purchasers by mere association of his product and its high price.
+
+Even association that appears to be trivial, if carefully planned, can have extreme and peculiar effects on purchasers of the product. Adcertisers know about the power of mere association. You won't see Coke advertised alongside some account of the death of a child. Instead, Coke ads picture life as happier than reality. A common bad effect from the mere association of a person and a hated outcome is dispayed in "Persian Messenger Syndrome." Ancient Persians actually killed some messengers whose sole fault was that they brought home truthful bad news, say, of a battle lost. It was actually safer for the messenger to run away and hide, instead of doing his job as a wiser boss would have wanted it done.
+
 
 ### Intensity Matching
 
@@ -224,11 +252,6 @@ He uses the terminology from Isaiah Berlin's essay on Tolstoy, "The Hedgehog and
 ### Illusion of Skill
 
 A major industry appears to be built largely on an *illusion of skill*. The diagnostic for the existence of any skill is the consistency of individual differences in achievement. The logic is simple: if individual differences in any one year are due entirely to luck, the ranking of investors and funds will vary erratically and the year-to-year correalation will be zero. When there is skill, however, the rankings will be more stable. The persistence of individual difference is the measure by which we confirm the existence of skill among golfers, car salespeople, orthodontists, or speedy toll collectors on the turnpike.
-
-### Illusion of validity
-
-
-
 
 ### Law of Small Numbers
 
@@ -270,10 +293,6 @@ Naravtive fallacy are used to describe how flawed stories of the past shape our 
 ### Omission neglect
 
 When we fail to think about what we do not know, we underestimate the importance of missing information, and this leads us to form strong opinions even when the available evidence is weak. This can lead to bad decisions that we later regret.
-
-### Optimistic bias pg 252
-
-Optimistic bias can be both a blessing and a risk, you should be both happy and wary if you are temperamentally optimistic.
 
 
 ### Overoptimism Tendency
@@ -342,7 +361,7 @@ In social proof, it is not only action by others that misleads but also their in
 
 Everyone recognizes that sudden stress, for instance from a threat, will cause a rush of adrenaline in the human body, prompting faster and more extreme reaction. And everyone who has taken Psych 101 knows that stress makes Social-Proof Tendency more powerful.
 
-In a phenomenon less well recognized, but still widely known, light stress can slightly improve performance -say, in examinations -whereas heavy stress causes dysfunction.
+In a phenomenon less well recognized, but still widely known, light stress can slightly improve performance -- say, in examinations -whereas heavy stress causes dysfunction.
 
 ### Substitution
 
@@ -362,7 +381,7 @@ Once you have accepted a theory and used it as a tool in your thinking, it is ex
 
 Consider a turkey that is fed every day. Every single feeding will firm up the bird's belief that it is the general rule of life to be fed every day by friendly members of the human race. On the afternoon of the Wednesday before Thanksgiving, something *unexpected* will happen to the turkey, It will incur a revision of belief.
 
-Something that has worked in the past, until -well, it unexpectedly no longer does, and what we have learned from the past turns out to be at best irrelevant or false, at worst viciously misleading. You subsequently derive *solely from past data* a few conclusions concerning the properties of pattern with projections for the next thousand, even five thousand, days, On the one thousand and first day -boom!
+Something that has worked in the past, until -well, it unexpectedly no longer does, and what we have learned from the past turns out to be at best irrelevant or false, at worst viciously misleading. You subsequently derive *solely from past data* a few conclusions concerning the properties of pattern with projections for the next thousand, even five thousand, days, On the one thousand and first day -- boom!
 
 ### WYSIATI
 
@@ -374,23 +393,14 @@ Consider the following : "Will Mindik be a good leader? She is intelligent and s
 
 That's a lot to digest. What should I do with all this? Use it to enhance your vocabulary (if you want others to think you are smart or any other motive) or just try to catch one of these and become a better human by avoiding it. It's not an easy game, but a fun way for self improvement.
 
-Do you want to see how Charlie applies this to a real world example. The example involves McDonnell Doglas airliner evacuation test.
+Do you want to see how Charlie applies this to a real world example? The example involves McDonnell Doglas airliner evacuation test.
 
 Before a new airliner can be sold, the government requires that it pass an evacuation test, during which a full load of passengers must get out in some short period of time. The government directs that the test be realistic. So you can't pass by evacuating only twenty-year-old athletes. So McDonnell Douglas scheduled such a test in a darkened hangar using a lot of old people as evacuees. The passenger cabin was, say, twenty feet above concrete floor of the hangar and was to be evacuated through moderately flimsy rubber chutes. The first test was made in the morning. There were about twenty very serious injuries, and the evacuation took so long it flunked the time test. So what did McDonnell Douglas next do? It repeated the test in the afternoon, and this time there was another failure, with about twenty more serious injuries, including one case of permanent paralysis.
 
-What pyschological tendencies contributed to these terrible results? Charlie using his checklist of tendencies, comes up with following explaination. Reward-Superresponse Tendency drove McDonnell Douglas to act fast. It couldn't sell its airliner until it passed the test. Also pusing the company was Dobut-Avoidance Tendency with its natural drive to arrive at a decision and run with it. The the government's direction that test be realistic drove Authority-Misinfluence Tendency into the mischief of causing McDonnell Douglas to overreact by using what was obviusly too dangerous a test method. By now the course of action had been decided, so Inconsistency-Avoidance Tendency helped preserve the near idiotic plan. When all the old people got to the dark hangar, with its high airline cabin and concrete floor, the situation must have made McDonnell Douglas employees and supervisors not objecting. Social-Proof Tendency, therefore, swamped the queasiness. And this allowed continued action as planned, a continuation that was aided by more Authority-Overinfluence Tendency. Then cam the disaster of the morning test with its failure, plus serious injuries. McDonnell Douglas ignored the strong disconfirming evidence from the failure of first test because confirmation bias, aided by the trigeering of strong Deprival Superreaction Tendency favored maintaining the original plan. McDonnell Douglas' Deprival Superreaction Tendency was now like that which causes a gambler, bent on getting even after a huge loss, to make his final big bet. After all McDonnell Douglas was going to lose a lot if it didn't pass its test as scheduled.
+What pyschological tendencies contributed to these terrible results? Charlie using his checklist of tendencies, comes up with following explaination. <span class='purple'>Reward-Superresponse Tendency</span> drove McDonnell Douglas to act fast. It couldn't sell its airliner until it passed the test. Also pusing the company was <span class='purple'>Dobut-Avoidance Tendency</span> with its natural drive to arrive at a decision and run with it. The the government's direction that test be realistic drove <span class='purple'>Authority-Misinfluence Tendency</span> into the mischief of causing McDonnell Douglas to overreact by using what was obviusly too dangerous a test method. By now the course of action had been decided, so <span class='purple'>Inconsistency-Avoidance Tendency</span> helped preserve the near idiotic plan. When all the old people got to the dark hangar, with its high airline cabin and concrete floor, the situation must have made McDonnell Douglas employees and supervisors not objecting. <span class='purple'>Social-Proof Tendency</span>, therefore, swamped the queasiness. And this allowed continued action as planned, a continuation that was aided by more <span class='purple'>Authority-Overinfluence Tendency</span>. Then cam the disaster of the morning test with its failure, plus serious injuries. McDonnell Douglas ignored the strong disconfirming evidence from the failure of first test because confirmation bias, aided by the trigeering of strong <span class='purple'>Deprival Superreaction Tendency</span> favored maintaining the original plan. McDonnell Douglas' <span class='purple'>Deprival Superreaction Tendency</span> was now like that which causes a gambler, bent on getting even after a huge loss, to make his final big bet. After all McDonnell Douglas was going to lose a lot if it didn't pass its test as scheduled.
 
 
 <span class='orange'>Happy Learning!</span>
-
-
----
-
-# Further Reading
-
----
-
-# Footnotes and Credits
 
 
 ---
