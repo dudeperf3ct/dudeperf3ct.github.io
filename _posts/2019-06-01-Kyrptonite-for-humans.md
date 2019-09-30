@@ -4,7 +4,7 @@ title:      Kyrptonite for humans
 date:       2019-06-01 12:00:00
 summary:    In this post, we will stop and ponder over the question, "What is that makes us human, supposedly a complete being?". Puzzling limitation of our mind: our excessive confidence in what we believe we know, and our apparent inability to acknowledge the full extent of our ignorance and the uncertainty of the world we live in.
 categories: human biases cognitive biases
-published : false
+published : true
 ---
 
 
@@ -22,7 +22,7 @@ Everyday we hear left and right about "how AI will suprass human intelligence, A
 To be a good diagnostician, a physician needs to acquire a large set of labels for diseases, each of which binds an idea of the illness and its symptoms, possible antecedents and causes, possible developments and consequences, and possible interventions to cure or mitigate the illness. Learning medicine consists in part of learning the language of medicine. A deeper understanding of human minds, their judgements and choices also requires a richer vocabulary than is available in everyday language. Much of this post aims to improve the ability to identify and understand errors of judgement and choice, in others and eventually in ourselves, by providing a richer and more precise language to discuss them.
 
 
-> <span color='purple'>We have came so far but when it comes to understanding ourselves we know so little about ourselves and others.</span>
+> <span class='purple'>We have came so far but when it comes to understanding ourselves we know so little about ourselves and others.</span>
 
 
 This post will be a collection of thoughts *shamelessly stolen* from Daniel Kahneman's [Thinking Fast and Slow](https://www.worldcat.org/title/thinking-fast-and-slow/oclc/917473664&referer=brief_results), Eliezer Yudkowsky's [Rationality : A-Z](https://www.lesswrong.com/rationality)(*free read*), Nassim Taleb's [Black Swan](https://www.worldcat.org/title/black-swan-the-impact-of-the-highly-improbable/oclc/1079759045&referer=brief_results), Charlie Munger's [The Psychology of Human Misjudgment](http://web.archive.org/web/20151004200748/http://law.indiana.edu/instruction/profession/doc/16_1.pdf)(*free read*) and Sanjay Bakshi's classes on [Behavioral Finance and Business Valuation](https://www.sanjaybakshi.net/bfbv-v14/)(*free to read*).
@@ -102,7 +102,7 @@ Because the nervous system of man does not naturally measure in absolute scienti
 
 A bridge-playing pal of Charlie once told him that a frog tossed into very hot water would jump out, but that same frog would end up dying if placed in room temperature water that was later treated at a very slow rate. Many businesses die in just the manner claimed by pal for the frog. Cognition, misled by tiny changes involving low contrast, will often miss a trend that is destiny.
 
-One of the Ben Franklin's best-remembered and most useful aphorisms is "A small leak will sink great ship." The utility of the aphorism is large precisely because the brain so often misses the funcitonal equivalent of a small leak in great ship.
+<span class='saddlebrown'>One of the Ben Franklin's best-remembered and most useful aphorisms is "A small leak will sink great ship." The utility of the aphorism is large precisely because the brain so often misses the funcitonal equivalent of a small leak in great ship.</span>
 
 ### Curiosity Tendency
 
