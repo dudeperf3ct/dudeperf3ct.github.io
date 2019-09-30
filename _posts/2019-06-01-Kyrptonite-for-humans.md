@@ -330,7 +330,7 @@ When a loved one is wheeled into surgery, a 5% risk that an amputation will be n
 
 The automatic tendency of humans to reciprocate both favors and disfavors, has long been noticed as it is in apes, monkeys, dogs and many less cognitively gifted animals. We see extreme power of tendency to reciprocate disfavors in some wars, wherein it increases hatred to a level causing very brutal conduct. For long stretches in many wars, no prisoners were taken; the only acceptable enemy is a dead one. And sometimes that was not enough, as in the case of Genghis Khan, who was not satisfied with corpses. He insisted on their being hacked to pieces.
 
-And the very best part of human life probably lies in relationships of affection wherein parties are more interested in pleasing tha being pleased -a not uncommon outcome in display to reciprocate favor tendency.
+And the very best part of human life probably lies in relationships of affection wherein parties are more interested in pleasing tha being pleased -- a not uncommon outcome in display to reciprocate favor tendency.
 
 ### Regression to the mean
 
@@ -402,7 +402,7 @@ Consider the following : "Will Mindik be a good leader? She is intelligent and s
 
 ---
 
-That's a lot to digest. What should I do with all this? Use it to enhance your vocabulary (if you want others to think you are smart or any other motive) or just try to catch one of these and become a better human by avoiding it. It's not an easy game, but a fun way for self improvement.
+That's a lot to digest. What should I do with all this? Use it to enhance your vocabulary or just try to catch one of these and become a better human by avoiding it. It's not an easy game, but a fun way for self improvement.
 
 Do you want to see how Charlie applies this to a real world example? The example involves McDonnell Doglas airliner evacuation test.
 
