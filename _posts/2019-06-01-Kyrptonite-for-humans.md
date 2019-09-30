@@ -57,7 +57,7 @@ Other versions of confused instructions from authority figures are tragic. In Wo
 
 A pyschology Ph.D. once became a CEO of a major company and went wild, creating an expensive headquarters, with a great wine cellar, at an isolated site. At some point, his underlings remonstrated that money was running short. "Take money out of the depreciation reserves," said the CEO. Not too easy because a depreciation reserve is a liability account. 
 
-So strong is undue respect for authority that this CEO, and many even worse examples, have actually been allowed to remain in control of important business institutions for long periods after it was clear they should be removed. The obvious implication: be careful whom you appoint to power because a dominant authority figure will often be hard to remove, aided as he will be by Authority-Misinfluence Tendency .
+So strong is undue respect for authority that this CEO, and many even worse examples, have actually been allowed to remain in control of important business institutions for long periods after it was clear they should be removed. The obvious implication: be careful whom you appoint to power because a dominant authority figure will often be hard to remove, aided as he will be by Authority-Misinfluence Tendency.
 
 
 ### Availiablity bias or Availability-Misweighing Tendency
@@ -114,7 +114,7 @@ There is a lot of innate curiosity in mammals, but its nonhuman version is highe
 
 The idea of denominator nelect helps explain why different ways of communication risks vary so much in their effects. You read that "a vaccine that protects children from a fatal disease carrries a 0.001% risk of permanent disability." The risk appears small. Now consider another description of the same risk: "One of 100,000 vaccinated children will be permanently disabled." The second statement does something to your mind that the first does not: it calls up the image of and individual child who is permanently disabled by a vaccine; the 99,999 safely vaccinated children have faded into the background.
 
-As predicted by denominator neglect, low-probability events are much more heavily weighted when decribed in terms of relative frequencies (how many) than when stated in more abstract terms of "chances," "risk," or "probability" (how likely).
+As predicted by denominator neglect, low-probability events are much more heavily weighted when described in terms of relative frequencies (how many) than when stated in more abstract terms of "chances," "risk," or "probability" (how likely).
 
 ### Endowment Effect
 
@@ -130,7 +130,7 @@ If you resemble most of the audience at sold-out events you do not sell. Your lo
 
 ### Envy/Jealousy Tendency
 
-A memeber of species designed through evolutionary process to want often-scarce food is going to be driven strongly toward getting food when it first sees food. And this is going to occur often and tend to create some conflict when the food is seen in possession of anothe member of the same species. This is probably the evolutionary origin of the Envy/Jealousy Tendency that lies so deep in human nature.
+A memeber of species designed through evolutionary process to want often-scarce food is going to be driven strongly toward getting food when it first sees food. And this is going to occur often and tend to create some conflict when the food is seen in possession of another member of the same species. This is probably the evolutionary origin of the Envy/Jealousy Tendency that lies so deep in human nature.
 
 Envy/Jealousy is so extreme in modern life. For instance, university communities often go bananas when some university employee in money management, or some professor in surgery, gets annual compensation in multiples of the standard professorial salary. And in modern investment banks, law firsm, etc, the envy/jealousy effects are usually more extreme than they are in university faculties. Many big law firms, fearing disorder from envy/jealousy, have long treated all senior partners alike in compensation, no matter how different their contributions to firm welfare. To this Charlie often quotes, "It is not greed that drives the world, but envy."
 
