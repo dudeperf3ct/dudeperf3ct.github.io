@@ -413,6 +413,21 @@ What pyschological tendencies contributed to these terrible results? Charlie usi
 
 <span class='orange'>Happy Learning!</span>
 
+---
+
+# Credits
+
+[Superman meme](https://www.pinterest.com/pin/365847169702423786/)
+
+[Endowment effect](https://www.interaction-design.org/literature/article/endowment-effect-the-economics-of-design)
+
+[Hedonic Treadmill](https://procrastination.com/blog/15/hedonic-adaptation-lukas)
+
+[Planning fallacy](https://everydaypsych.com/planning-fallacy/)
+
+[Sunk-cost fallacy](https://www.standoutbooks.com/sunk-cost-fallacy/)
+
+[Turkey problem](https://seekingalpha.com/article/3694906-turkeys-can-teach-us-risk-management)
 
 ---
 
