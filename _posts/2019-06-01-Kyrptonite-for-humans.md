@@ -2,11 +2,10 @@
 layout:     post
 title:      Kyrptonite for humans
 date:       2019-06-01 12:00:00
-summary:    In this post, we will stop and ponder over the question, What is that makes us human, supposedly a complete being?. Puzzling limitation of our mind: our excessive confidence in what we believe we know, and our apparent inability to acknowledge the full extent of our ignorance and the uncertainty of the world we live in.
-categories: human biases
+summary:    In this post, we will stop and ponder over the question, "What is that makes us human, supposedly a complete being?" Puzzling limitation of our mind: our excessive confidence in what we believe we know, and our apparent inability to acknowledge the full extent of our ignorance and the uncertainty of the world we live in.
+categories: biases
 published : true
 ---
-
 
 # Kryptonite for humans
 
