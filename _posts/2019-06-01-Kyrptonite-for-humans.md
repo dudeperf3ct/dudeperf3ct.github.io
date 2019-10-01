@@ -79,6 +79,10 @@ In today's world, terrorists are the most significant practitioners of the art o
 
 ### Confirmatory bias 
 
+<p align="center">
+<img src='/images/kryptonite/confirm.jpg' width="50%"/> 
+</p>
+
 Cognitive scientists have studied our natural tendency to look only for corroboration; they call this vulnerability to the corroboration error the confirmation bias. Once your mind is inhabited with a certain view of the world, you will tend to only consider instances proving you to be right.
 
 ### Conjuction fallacy
