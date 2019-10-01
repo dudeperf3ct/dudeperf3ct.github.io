@@ -424,6 +424,8 @@ What pyschological tendencies contributed to these terrible results? Charlie usi
 
 [Superman meme](https://www.pinterest.com/pin/365847169702423786/)
 
+[Confirmation bias](https://www.persuasivelitigator.com/2017/08/fight-confirmation-bias.html)
+
 [Endowment effect](https://www.interaction-design.org/literature/article/endowment-effect-the-economics-of-design)
 
 [Hedonic Treadmill](https://procrastination.com/blog/15/hedonic-adaptation-lukas)
