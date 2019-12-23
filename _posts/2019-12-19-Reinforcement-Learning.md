@@ -2,31 +2,34 @@
 layout:     post
 title:      Series on Reinforcement Learning
 date:       2019-12-19 12:00:00
-summary:    
+summary:    This post will provide an introduction to reinforcement learning and will outline the topics we will cover in subsequent post.
 categories: rl
 published : false
 ---
 
 
-# Reinforcement Learning
+# Series on Reinforcement Learning
 
-
-
-> All the codes implemented in Jupyter notebook in []()
-
-> *All codes can be run on Google Colab (link provided in notebook).*
 
 Hey yo, but how?
 
 Well sit tight and buckle up. I will go through everything in-detail.
 
 
+<p align="center">
+<img src='/images/series_rl/rl_meme.jpg' width="50%"/> 
+</p>
+
 
 Feel free to jump anywhere,
 
-
+- [Reinforcement Learning](reinforcement-learning)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
+
+
+# Reinforcement Learning
+
 
 
 
@@ -39,7 +42,7 @@ Feel free to jump anywhere,
 
 # Footnotes and Credits
 
-
+[Rewards Meme](https://himanshusahni.github.io/2018/02/23/reinforcement-learning-never-worked.html)
 
 
 ---
