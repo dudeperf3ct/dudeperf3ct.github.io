@@ -477,7 +477,6 @@ Do you see the whole picture coming together? No?
 
 Now that we have full end-to-end model, we can run the same model on a web server or create an android app.
 
-Stay tuned for more updates as the project progresses!
 
 <span class='orange'>Happy Learning!</span>
 
