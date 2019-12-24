@@ -32,10 +32,13 @@ Feel free to jump anywhere,
 
 Max Tegmark in Life 3.0 explains how the origin of goal-oriented behaviour can be traced all the way back to laws of physics, which appear to endow particles with the goal of arranging themselves so as to extract energy from their environment as efficiently as possible. In a way, that is how life evolved, particular arrangement of particles getting so good at copying itself.
 
+> <span color='purple'>Sutton and Barto define reinforcement learning as a computational approach to understanding and automating goal-directed learning and decision making.</span>
 
+In a reinforcement learning system, agent interacts with the environment. At a time step t, agent in a particular state s takes action a. The environment takes in s and a. The environment gives the agent a reward r and a new state $$s^{'}$$. And the cycle repeats.
 
-Sutton and Barto define reinforcement learning as a computational approach to understanding and automating goal-directed learning and decision making.
-
+<p align="center">
+<img src='/images/series_rl/agent.png' width="50%"/> 
+</p>
 
 There are 4 main subelements of a reinforcement learning system:
 
@@ -49,10 +52,18 @@ A reward signal defines the goal of a reinforcement learning problem. Agents can
 
 - Value Function
 
-The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state. It tells the agent how good it is to be in a particular state. Based on this value functions, agents decides which actions should be preferred. The difference between rewards and value function is rewards are given directly by environment but value function is estimated and re-estimated from the sequences of observation an agent makes over its entire lifetime. It is represented by symbol $$v_{\pi}(s)$$, value of state s under policy $$\pi$$.
+The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state. It tells the agent how good it is to be in a particular state i.e. used to evaluate the goodness/badness of states. Based on this value functions, agents decides which actions should be selected. The difference between rewards and value function is rewards are given directly by environment but value function is estimated and re-estimated from the sequences of observation an agent makes over its entire lifetime. It is represented by symbol $$v_{\pi}(s)$$, value of state s under policy $$\pi$$.
 
+- Model
 
+A model is agent's representation of the environment. A model predicts what the environment will do next. For example, given a state and action, the model might predict the resultant next state and next reward. Models are used for planning, i.e. deciding on a course of action by considering possible future situations before they are actually experienced. There are also model-free methods, where agents learns by trial-and-error as oppposed to model-based methods where an approximate model of environment is used for considering future situations.
 
+In subsequent post, we will consider two types of methods and dive in-depth in each of them.
+
+- [Tabular Solution Methods]
+- [Approximate Solution Methods]
+
+We will also use various environment like [OpenAI Gym](https://gym.openai.com/envs/#classic_control), PyGame Learning Environment 
 
 <span class='orange'>Happy Learning!</span>
 
@@ -67,6 +78,7 @@ Reinforcement Learning An Introduction 2nd edition [Chapter 1]()
 
 [Rewards Meme](https://himanshusahni.github.io/2018/02/23/reinforcement-learning-never-worked.html)
 
+[Agent Environment](https://medium.com/@jannik.zuern/reinforcement-learning-to-survive-in-a-hostile-environment-3658624a5d83)
 
 
 ---
