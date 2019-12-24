@@ -58,10 +58,10 @@ The value of a state is the total amount of reward an agent can expect to accumu
 
 A model is agent's representation of the environment. A model predicts what the environment will do next. For example, given a state and action, the model might predict the resultant next state and next reward. Models are used for planning, i.e. deciding on a course of action by considering possible future situations before they are actually experienced. There are also model-free methods, where agents learns by trial-and-error as oppposed to model-based methods where an approximate model of environment is used for considering future situations.
 
-In subsequent post, we will consider two types of methods for solving reinforcement learning systems and dive in-depth in each of them.
+In subsequent post, we will consider two types of methods for solving reinforcement learning systems and dive in-depth.
 
-- [Tabular Solution Methods]
-- [Approximate Solution Methods]
+- Tabular Solution Methods
+- Approximate Solution Methods
 
 We will also use various environment like [OpenAI Gym](https://gym.openai.com/envs/#classic_control), [PyGame Learning Environment](https://pygame-learning-environment.readthedocs.io/en/latest/) and [VizDoom](https://github.com/mwydmuch/ViZDoom). We will also implement RL algorithms in [Deepdrive simulator](https://github.com/deepdrive/deepdrive) and maybe [DuckieTown](https://www.duckietown.org/research/AI-Driving-olympics) or any other.
 
@@ -70,7 +70,11 @@ We will also use various environment like [OpenAI Gym](https://gym.openai.com/en
 
 # Further Reading
 
-Reinforcement Learning An Introduction 2nd edition [Chapter 1]()
+Reinforcement Learning An Introduction 2nd edition : [Chapter 1](http://incompleteideas.net/sutton/book/RLbook2018.pdf)
+
+RL Course by David Silver : [Lecture 1](https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ&index=1)
+
+Wildml [Learning Reinforcement Learning](http://www.wildml.com/2016/10/learning-reinforcement-learning/)
 
 ---
 
