@@ -58,12 +58,12 @@ The value of a state is the total amount of reward an agent can expect to accumu
 
 A model is agent's representation of the environment. A model predicts what the environment will do next. For example, given a state and action, the model might predict the resultant next state and next reward. Models are used for planning, i.e. deciding on a course of action by considering possible future situations before they are actually experienced. There are also model-free methods, where agents learns by trial-and-error as oppposed to model-based methods where an approximate model of environment is used for considering future situations.
 
-In subsequent post, we will consider two types of methods and dive in-depth in each of them.
+In subsequent post, we will consider two types of methods for solving reinforcement learning systems and dive in-depth in each of them.
 
 - [Tabular Solution Methods]
 - [Approximate Solution Methods]
 
-We will also use various environment like [OpenAI Gym](https://gym.openai.com/envs/#classic_control), PyGame Learning Environment 
+We will also use various environment like [OpenAI Gym](https://gym.openai.com/envs/#classic_control), [PyGame Learning Environment](https://pygame-learning-environment.readthedocs.io/en/latest/) and [VizDoom](https://github.com/mwydmuch/ViZDoom). We will also implement RL algorithms in [Deepdrive simulator](https://github.com/deepdrive/deepdrive) and maybe [DuckieTown](https://www.duckietown.org/research/AI-Driving-olympics) or any other.
 
 <span class='orange'>Happy Learning!</span>
 
