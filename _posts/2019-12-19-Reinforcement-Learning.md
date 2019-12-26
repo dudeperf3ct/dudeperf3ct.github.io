@@ -34,6 +34,8 @@ Max Tegmark in Life 3.0 explains how the origin of goal-oriented behaviour can b
 
 > <span color='purple'>Sutton and Barto define reinforcement learning as a computational approach to understanding and automating goal-directed learning and decision making.</span>
 
+So how does reinforcement learning differ from supervised learning? 
+
 In a reinforcement learning system, agent interacts with the environment. At a time step t, agent in a particular state s takes action a. The environment takes in s and a. The environment gives the agent a reward r and a new state $$s^{'}$$. And the cycle repeats.
 
 <p align="center">
@@ -63,7 +65,7 @@ In subsequent post, we will consider two types of methods for solving reinforcem
 - Tabular Solution Methods
 - Approximate Solution Methods
 
-We will also use various environment like [OpenAI Gym](https://gym.openai.com/envs/#classic_control), [PyGame Learning Environment](https://pygame-learning-environment.readthedocs.io/en/latest/) and [VizDoom](https://github.com/mwydmuch/ViZDoom). We will also implement RL algorithms in [Deepdrive simulator](https://github.com/deepdrive/deepdrive) and maybe [DuckieTown](https://www.duckietown.org/research/AI-Driving-olympics) or any other.
+We will also use various environment like [OpenAI Gym](https://gym.openai.com/envs/#classic_control), [PyGame Learning Environment](https://pygame-learning-environment.readthedocs.io/en/latest/) and [VizDoom](https://github.com/mwydmuch/ViZDoom). We will also implement RL algorithms in [Deepdrive simulator](https://github.com/deepdrive/deepdrive), Atari games and maybe [DuckieTown](https://www.duckietown.org/research/AI-Driving-olympics) or any other.
 
 <span class='orange'>Happy Learning!</span>
 
