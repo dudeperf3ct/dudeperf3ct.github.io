@@ -34,7 +34,7 @@ Max Tegmark in Life 3.0 explains how the origin of goal-oriented behaviour can b
 
 > <span color='purple'>Sutton and Barto define reinforcement learning as a computational approach to understanding and automating goal-directed learning and decision making.</span>
 
-So how does reinforcement learning differ from supervised learning? 
+So how does reinforcement learning differ from supervised learning? In supervised learning, there will be a supervisor acting as a oracle judging whether you’re getting the right answer. In this type of learning, we are already presented with a data and it's corresponding true label(ground truth). In reinforcement learning, there is no oracle dictating the actions an agent should take. The agent interacts with the environment, taking various actions and obtaining various rewards. The overall aim is to predict the best next step to take to earn the biggest final reward. After repeating this cycle of taking action and obtaining reward, we get a rough estimate of which state is good and bad.
 
 In a reinforcement learning system, agent interacts with the environment. At a time step t, agent in a particular state s takes action a. The environment takes in s and a. The environment gives the agent a reward r and a new state $$s^{'}$$. And the cycle repeats.
 
