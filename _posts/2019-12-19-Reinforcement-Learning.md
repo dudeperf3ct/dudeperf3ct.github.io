@@ -19,7 +19,7 @@ published : true
 
 Feel free to jump anywhere,
 
-- [Reinforcement Learning](reinforcement-learning)
+- [Reinforcement Learning](#reinforcement-learning)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
