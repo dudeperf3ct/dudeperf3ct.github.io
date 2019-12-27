@@ -11,11 +11,6 @@ published : false
 # Series on Reinforcement Learning
 
 
-Hey yo, but how?
-
-Well sit tight and buckle up. I will go through everything in-detail.
-
-
 <p align="center">
 <img src='/images/series_rl/rl_meme.jpg' width="50%"/> 
 </p>
@@ -36,7 +31,7 @@ In Life 3.0, Max Tegmark explains how the origin of goal-oriented behaviour can 
 
 So how does reinforcement learning differ from supervised learning? In supervised learning, there will be a supervisor acting as a oracle judging whether you’re getting the right answer. In this type of learning, we are already presented with a data and it's corresponding true label(ground truth). In reinforcement learning, there is no oracle dictating the actions an agent should take. The agent interacts with the environment, taking various actions and obtaining various rewards. The overall aim is to predict the best next step to take to earn the biggest final reward. After repeating this cycle of taking action and obtaining reward, we get a rough estimate of which state is good and bad. Both the supervised and reinforcement learning paradigms seem to require enormously more samples or trials than humans and animals to learn a new task. 
 
-In a reinforcement learning system, agent interacts with the environment. At a time step t, agent in a particular state s takes action a. The environment takes in s and a. The environment gives the agent a reward r and a new state $$s^{'}$$. And the cycle repeats.
+In reinforcement learning system, agent interacts with the environment. At a time step t, agent in a particular state s takes action a. The environment takes in s and a. The environment gives the agent a reward r and a new state $$s^{'}$$. And the cycle repeats.
 
 <p align="center">
 <img src='/images/series_rl/agent.png' width="50%"/> 
@@ -60,12 +55,14 @@ The value of a state is the total amount of reward an agent can expect to accumu
 
 A model is agent's representation of the environment. A model predicts what the environment will do next. For example, given a state and action, the model might predict the resultant next state and next reward. Models are used for planning, i.e. deciding on a course of action by considering possible future situations before they are actually experienced. There are also model-free methods, where agents learns by trial-and-error as oppposed to model-based methods where an approximate model of environment is used for considering future situations.
 
+Reinforcement Learning has its root in many fields such as pyschology, neuroscience, economics, mathematics, engineering and computer science. One such example is, suppose the goal of the agent(human in this case) is to be happy. Agent will look for different way, taking different actions from his current state(policy) so as to change his mood to be happy. On changing state, the agent may recieve a reward(release of the neurotransmitter dopamine). How happy a agent is will be determined by the reward.
+
 In subsequent post, we will consider two types of methods for solving reinforcement learning systems and dive in-depth.
 
 - Tabular Solution Methods
 - Approximate Solution Methods
 
-We will also use various environment like [OpenAI Gym](https://gym.openai.com/envs/#classic_control), [PyGame Learning Environment](https://pygame-learning-environment.readthedocs.io/en/latest/) and [VizDoom](https://github.com/mwydmuch/ViZDoom). We will also implement RL algorithms in [Deepdrive simulator](https://github.com/deepdrive/deepdrive), Atari games and maybe [DuckieTown](https://www.duckietown.org/research/AI-Driving-olympics) or any other.
+We will also use various environment like [OpenAI Gym](https://gym.openai.com/envs/#classic_control), [PyGame Learning Environment](https://pygame-learning-environment.readthedocs.io/en/latest/) and [VizDoom](https://github.com/mwydmuch/ViZDoom). We will also implement RL algorithms in [Deepdrive simulator](https://github.com/deepdrive/deepdrive), [Atari games](https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf) and maybe [DuckieTown](https://www.duckietown.org/research/AI-Driving-olympics) or any other.
 
 <span class='orange'>Happy Learning!</span>
 
@@ -74,9 +71,15 @@ We will also use various environment like [OpenAI Gym](https://gym.openai.com/en
 
 Reinforcement Learning An Introduction 2nd edition : [Chapter 1](http://incompleteideas.net/sutton/book/RLbook2018.pdf)
 
-RL Course by David Silver : [Lecture 1](https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ&index=1)
+UCL RL Course by David Silver : [Lecture 1](https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ&index=1)
 
 Wildml [Learning Reinforcement Learning](http://www.wildml.com/2016/10/learning-reinforcement-learning/)
+
+[Machine Learning for Humans, Part 5: Reinforcement Learning](https://medium.com/machine-learning-for-humans/reinforcement-learning-6eacf258b265)
+
+[A Brief Survey of Deep Reinforcement Learning](https://arxiv.org/pdf/1708.05866.pdf)
+
+UC Berkeley: CS285 [Deep Reinforcement Learning](https://www.youtube.com/watch?v=SinprXg2hUA&list=PLkFD6_40KJIwhWJpGazJ9VSj9CFMkb79A&index=2&t=0s)
 
 ---
 
@@ -85,7 +88,6 @@ Wildml [Learning Reinforcement Learning](http://www.wildml.com/2016/10/learning-
 [Rewards Meme](https://himanshusahni.github.io/2018/02/23/reinforcement-learning-never-worked.html)
 
 [Agent Environment](https://medium.com/@jannik.zuern/reinforcement-learning-to-survive-in-a-hostile-environment-3658624a5d83)
-
 
 ---
 
