@@ -5,6 +5,7 @@ date:       2019-12-19 12:00:00
 summary:    This post will provide an introduction to reinforcement learning and will outline the topics we will cover in subsequent post.
 categories: rl
 published : false
+
 ---
 
 
@@ -37,15 +38,15 @@ In reinforcement learning system, agent interacts with the environment. At a tim
 <img src='/images/series_rl/agent.png' width="50%"/> 
 </p>
 
-There are 4 main subelements of a reinforcement learning system:
+There are 4 main sub elements of a reinforcement learning system:
 
 - Policy
 
-A policy is a mapping from perceived states of the environment to actions to be taken when in those states. It acts like a lookup table for a agent, directing it to take a particular action when in an particular state. Policies may be stochastic, i.e. specifying probabilities for each action. The policy is the core of a reinforcement learning agent in the sense that it alone is sufficient to determine behavior. It is represented by symbol $$\pi$$.
+A policy is a mapping from perceived states of the environment to actions to be taken when in those states. It acts like a lookup table for a agent, directing it to take a particular action when in an particular state. Policies may be stochastic, i.e. specifying probabilities for each action. The policy is the core of a reinforcement learning agent in the sense that it alone is sufficient to determine behaviour. It is represented by symbol $$\pi$$.
 
 - Rewards
 
-A reward signal defines the goal of a reinforcement learning problem. Agents can recieve rewards either be recieved at the end of the episode or after taking each step. For example, a chess game will end in reward of +1(win), 0(draw) and -1(lose). Rewards acts as a feedback for agent and thus defines what are the good and bad events for the agent. Reward signals may be stochastic functions of the state of the environment and the actions taken. The agent’s sole objective is to maximize the total reward it receives over the long run. It is represented by symbol $$\mathcal{R}$$.
+A reward signal defines the goal of a reinforcement learning problem. Agents can receive rewards either be received at the end of the episode or after taking each step. For example, a chess game will end in reward of +1(win), 0(draw) and -1(lose). Rewards acts as a feedback for agent and thus defines what are the good and bad events for the agent. Reward signals may be stochastic functions of the state of the environment and the actions taken. The agent’s sole objective is to maximise the total reward it receives over the long run. It is represented by symbol $$\mathcal{R}$$.
 
 - Value Function
 
@@ -53,9 +54,9 @@ The value of a state is the total amount of reward an agent can expect to accumu
 
 - Model
 
-A model is agent's representation of the environment. A model predicts what the environment will do next. For example, given a state and action, the model might predict the resultant next state and next reward. Models are used for planning, i.e. deciding on a course of action by considering possible future situations before they are actually experienced. There are also model-free methods, where agents learns by trial-and-error as oppposed to model-based methods where an approximate model of environment is used for considering future situations.
+A model is agent's representation of the environment. A model predicts what the environment will do next. For example, given a state and action, the model might predict the resultant next state and next reward. Models are used for planning, i.e. deciding on a course of action by considering possible future situations before they are actually experienced. There are also model-free methods, where agents learns by trial-and-error as opposed to model-based methods where an approximate model of environment is used for considering future situations.
 
-Reinforcement Learning has its root in many fields such as pyschology, neuroscience, economics, mathematics, engineering and computer science. One such example is, suppose the goal of the agent(human in this case) is to be happy. Agent will look for different way, taking different actions from his current state(policy) so as to change his mood to be happy. On changing state, the agent may recieve a reward(release of the neurotransmitter dopamine). How happy a agent is will be determined by the reward.
+Reinforcement Learning has its root in many fields such as psychology, neuroscience, economics, mathematics, engineering and computer science. One such example is, suppose the goal of the agent(human in this case) is to be happy. Agent will look for different way, taking different actions from his current state(policy) so as to change his mood to be happy. On changing state, the agent may receive a reward(release of the neurotransmitter dopamine). How happy a agent is will be determined by the reward.
 
 In subsequent post, we will consider two types of methods for solving reinforcement learning systems and dive in-depth.
 
@@ -95,6 +96,4 @@ UC Berkeley: CS285 [Deep Reinforcement Learning](https://www.youtube.com/watch?v
 
 Questions, comments, other feedback? E-mail [the author](mailto:imdudeperf3ct@gmail.com)
 
-
 ---
-
