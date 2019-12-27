@@ -2,9 +2,9 @@
 layout:     post
 title:      Series on Reinforcement Learning
 date:       2019-12-19 12:00:00
-summary:    This post will provide an introduction to reinforcement learning and will outline the topics we will cover in subsequent post.
+summary:    This post will provide an introduction to reinforcement learning and outline various topics to be covered in subsequent posts.
 categories: rl
-published : false
+published : true
 
 ---
 
