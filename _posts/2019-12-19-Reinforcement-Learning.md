@@ -46,7 +46,7 @@ There are 4 main sub-elements of a reinforcement learning system:
 
 - Rewards
 
-<span class='red'>A reward signal defines the goal of a reinforcement learning problem.</span> Agents can receive rewards either be received at the end of the episode or after taking each step. For example, a chess game will end in reward of +1(win), 0(draw) and -1(lose). Rewards acts as a feedback for agent and thus defines what are the good and bad events for the agent. Reward signals may be stochastic functions of the state of the environment and the actions taken. The agents' sole objective is to maximise the total reward it receives over the long run. It is represented by symbol $$\mathcal{R}$$.
+<span class='red'>A reward signal defines the goal of a reinforcement learning problem.</span> Agents can receive rewards either be received at the end of the episode or after taking each step. For example, a chess game will end in reward of +1(win), 0(draw) and -1(lose). Rewards acts as a feedback for agent and thus defines what are the good and bad events for the agent. Reward signals may be stochastic functions of the state of the environment and the actions taken. The agents sole objective is to maximise the total reward it receives over the long run. It is represented by symbol $$\mathcal{R}$$.
 
 - Value Function
 
