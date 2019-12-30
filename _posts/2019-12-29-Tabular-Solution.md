@@ -29,7 +29,7 @@ Feel free to jump anywhere,
 
 ### Markov Process
 
-The states with Markov property are memoryless. For e.g we can predict the next move on chess board i.e. all that matter to predict the next move is the current state. It doesn't matter how we got there. The current state is a sufficient statistic of the future.
+In Markov processes, the states captures all relevant information from the past agent–environment interaction. Theses states are said to have Markov property. The states with Markov property are memoryless. For e.g we can predict the next move on chess board given any configuration of the board i.e. all that matter to predict the next move is the current state. It doesn't matter how we got there. The current state is a sufficient statistic of the future.
 
 > The future is independent of the past given the present.
 
