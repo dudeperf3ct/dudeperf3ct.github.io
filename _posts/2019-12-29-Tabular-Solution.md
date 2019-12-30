@@ -26,9 +26,9 @@ Feel free to jump anywhere,
   - [Bellman Equation](#bellman-equation)
   - [Bellman Optimality Equation](#bellman-optimiality-equation)  
 - [Tabular Solution Methods](#tabular-solution-methods)
-  -[Dynamic Programming](#dynamic-programming)
-  -[Monte-Carlo](#monte-carlo)
-  -[TD Learning](#td-learning)
+  - [Dynamic Programming](#dynamic-programming)
+  - [Monte-Carlo](#monte-carlo)
+  - [TD Learning](#td-learning)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
 
