@@ -19,17 +19,25 @@ published : false
 
 Feel free to jump anywhere,
 
+- [Terminologies](#terminologies)
+  - [Markov Process](#markov-process)
+  - [Markov Reward Process](#markov-reward-process)
+  - [Markov Decision Process](#markov-decision-process)
+  - [Bellman Equation](#bellman-equation)
+  - [Bellman Optimality Equation](#bellman-optimiality-equation)  
 - [Tabular Solution Methods](#tabular-solution-methods)
+  -[Dynamic Programming](#dynamic-programming)
+  -[Monte-Carlo](#monte-carlo)
+  -[TD Learning](#td-learning)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
-
 
 # Terminologies
 
 
 ### Markov Process
 
-In Markov processes, the states captures all relevant information from the past agent–environment interaction. Theses states are said to have Markov property. The states with Markov property are memoryless. For e.g we can predict the next move on chess board given any configuration of the board i.e. all that matter to predict the next move is the current state. It doesn't matter how we got there. The current state is a sufficient statistic of the future.
+In Markov processes, the states captures all relevant information from the past agent–environment interaction. These states are said to have Markov property. The states with Markov property are memoryless. For e.g we can predict the next move on chess board given any configuration of the board i.e. all that matter to predict the next move is the current state. It doesn't matter how we got there. The current state is a sufficient statistic of the future.
 
 > The future is independent of the past given the present.
 
@@ -46,14 +54,31 @@ $$
 
 Markov decision processes(MDP) are used to describe an environment in reinforcement learning. Almost all RL problems can be formalised as MDPs.
 
-### Value function
+### Belman Equation
+
+- Return
+
+- Value Functions
 
 
+### Belman Optimality Equation
+
+- Optimal Value Function
+
+- Optimal Policy
 
 
 # Tabular Solution Methods
 
 Tabular Solutions are preferred method for solving RL problems when state and action space is small. The state functions and action-state functions are represented as tables. For such problems, exact optimal policy and optimal value functions can be found. 
+
+
+### Dynamic Programming
+
+
+### Monte-Carlo 
+
+### TD-Learning
 
 
 <span class='orange'>Happy Learning!</span>
