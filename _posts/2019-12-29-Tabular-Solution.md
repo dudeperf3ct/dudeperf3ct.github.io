@@ -24,7 +24,36 @@ Feel free to jump anywhere,
 - [Footnotes and Credits](#footnotes-and-credits)
 
 
+# Terminologies
+
+
+### Markov Process
+
+The states with Markov property are memoryless. For e.g we can predict the next move on chess board i.e. all that matter to predict the next move is the current state. It doesn't matter how we got there. The current state is a sufficient statistic of the future.
+
+> The future is independent of the past given the present.
+
+$$
+P(S_{t} \vert S_{1}, S_{2}, ..., S_{t-1}) = P(S_{t} \vert S_{t-1})
+$$
+
+
+### Markov Reward Process
+
+
+
+### Markov Decision Process
+
+Markov decision processes(MDP) are used to describe an environment in reinforcement learning. Almost all RL problems can be formalised as MDPs.
+
+### Value function
+
+
+
+
 # Tabular Solution Methods
+
+Tabular Solutions are preferred method for solving RL problems when state and action space is small. The state functions and action-state functions are represented as tables. For such problems, exact optimal policy and optimal value functions can be found. 
 
 
 <span class='orange'>Happy Learning!</span>
