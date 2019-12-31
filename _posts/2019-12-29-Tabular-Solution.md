@@ -77,15 +77,24 @@ Markov Decision Process is a tuple ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathca
 
 - Return
 
-The return $$G_{t}$$ is the total discounted reward from time-step $$t$$.
+In RL, we seek to maximise the expected return where the return $$G_{t}$$ is the total discounted reward from time-step $$t$$. For episodic tasks, $$G_{t} = R_{t+1} + R_{t+2} ... + R_{T}$$, where T is the terminal state. For continuous tasks, $$G_{t} = R_{t+1} + \gamma * R_{t+2} ... + \gamma^{2} * R{t+3} = \sum_{k=0}^{\inf} \gamma^{k} R_{t+k+1} $$, where $$\gamma$$ is the discount rate. 
+
 
 
 - Value Functions
 
 
+State-value function
+
+
+Action-value function
+
+
 ### Belman Optimality Equation
 
+
 - Optimal Value Function
+
 
 - Optimal Policy
 
