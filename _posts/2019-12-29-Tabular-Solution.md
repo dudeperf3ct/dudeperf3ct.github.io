@@ -23,7 +23,7 @@ Feel free to jump anywhere,
   - [Markov Process](#markov-process)
   - [Markov Reward Process](#markov-reward-process)
   - [Markov Decision Process](#markov-decision-process)
-  - [Bellman Equation](#bellman-equation)
+  - [Bellman Expectation Equation](#bellman-expectation-equation)
   - [Bellman Optimality Equation](#bellman-optimiality-equation)  
 - [Tabular Solution Methods](#tabular-solution-methods)
   - [Dynamic Programming](#dynamic-programming)
@@ -73,30 +73,70 @@ Markov Decision Process is a tuple ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathca
 - $$\mathcal{R}$$ is a reward function, $$\mathcal{R}_{s}$$ = $$\mathbb{E}[\mathcal{R}^{a}_{t+1} \vert S_{t} = s, A_{t} = a]$$
 - $$\gamma$$ is a discount factor, $$\gamma$$ $$\in$$ [0, 1]
 
-### Belman Equation
+### Bellman Expectation Equation
 
 - Return
 
 In RL, we seek to maximise the expected return where the return $$G_{t}$$ is the total discounted reward from time-step $$t$$. For episodic tasks, $$G_{t} = R_{t+1} + R_{t+2} ... + R_{T}$$, where T is the terminal state. For continuous tasks, $$G_{t} = R_{t+1} + \gamma * R_{t+2} ... + \gamma^{2} * R{t+3} = \sum_{k=0}^{\inf} \gamma^{k} R_{t+k+1} $$, where $$\gamma$$ is the discount rate. 
 
+The recursive equation of relating return at current time step $$t$$ to next time step $$t+1$$ is given by,
+
+$$
+\begin{aligned}
+G_{t} = R_{t+1} + \gamma * G_{t+1}
+\end{aligned}
+$$
 
 
 - Value Functions
 
+Almost all reinforcement learning algorithms involve estimating value functions. Value functions determine how good is it to be in a particular state (state-value function) or how good is to take a particular action in given state (action-value function). The state-value and action-value are related by the following equation, 
+
+$$
+\begin{aligned}
+v_{\pi}(s) &= \sum_{a}\pi(a \vert s)q_{\pi}(s, a)
+\end{aligned}
+$$
 
 State-value function
 
+The state-value function of an MDP is expected return starting from state $$s$$, and then following policy $$\pi$$,
+
+$$
+\begin{aligned}
+v_{\pi}(s) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s]
+&= \mathbb{E}_{\pi}[R_{t+1} + \gamma * v_{\pi}(S_{t+1}) \vert S_{t} = s]
+&= \sum_{a}\pi(a \vert s)\sum_{s^{'}, r}p(s^{'}, r \vert s, a)[r + \gamma * v_{\pi}(s^{'})]
+\end{aligned}
+$$
+
+This equation is Bellman equation for $$v_{\pi}$$. I When in state $$s$$, an agent takes an action $$a$$ based on its policy $$\pi$$. The environment could respond with one of several next states $$s^{'}$$, along with immediate reward $$r$$. Bellman equation averages over all the possibilities, weighting each by its probability of occurring. It expresses a relationship between the value of a state and the values of its successor states.
 
 Action-value function
 
+The action-value function of an MDP is expected return starting from state $$s$$, taking action $$a$$ and then following policy $$\pi$$,
 
-### Belman Optimality Equation
+$$
+\begin{aligned}
+q_{\pi}(s, a) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s, A_{t} = a]
+&= \mathbb{E}_{\pi}[R_{t+1} + \gamma * q_{\pi}(S_{t+1}, A_{t+1}) \vert S_{t} = s, A_{t} = a]
+&= \sum_{s^{'}, r}p(s^{'}, r \vert s, a)[r + \gamma * q_{\pi}(s^{'}, a^{'})]
+\end{aligned}
+$$
+
+This equation is Bellman equation for $$q_{\pi}$$. I When in state $$s$$ and taking an action $$a$$ based on its policy $$\pi$$. The environment could respond with one of several next states $$s^{'}$$, along with immediate reward $$r$$. 
+
+### Bellman Optimality Equation
 
 
 - Optimal Value Function
 
 
 - Optimal Policy
+
+
+### Backup Diagrams
+
 
 
 # Tabular Solution Methods
