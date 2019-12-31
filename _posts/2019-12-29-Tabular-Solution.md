@@ -96,7 +96,7 @@ Almost all reinforcement learning algorithms involve estimating value functions.
 
 $$
 \begin{aligned}
-v_{\pi}(s) &= \sum_{a}\pi(a \vert s)q_{\pi}(s, a)
+v_{\pi}(s) &= \sum_{a \in A}\pi(a \vert s)q_{\pi}(s, a)
 \end{aligned}
 $$
 
@@ -106,9 +106,9 @@ The state-value function of an MDP is expected return starting from state $$s$$,
 
 $$
 \begin{aligned}
-v_{\pi}(s) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s]
-&= \mathbb{E}_{\pi}[R_{t+1} + \gamma * v_{\pi}(S_{t+1}) \vert S_{t} = s]
-&= \sum_{a}\pi(a \vert s)\sum_{s^{'}, r}p(s^{'}, r \vert s, a)[r + \gamma * v_{\pi}(s^{'})]
+v_{\pi}(s) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s]\\
+&= \mathbb{E}_{\pi}[R_{t+1} + \gamma v_{\pi}(S_{t+1}) \vert S_{t} = s]\\
+&= \sum_{a \in A}\pi(a \vert s)\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}v_{\pi}(s^{'})
 \end{aligned}
 $$
 
@@ -120,9 +120,9 @@ The action-value function of an MDP is expected return starting from state $$s$$
 
 $$
 \begin{aligned}
-q_{\pi}(s, a) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s, A_{t} = a]
-&= \mathbb{E}_{\pi}[R_{t+1} + \gamma * q_{\pi}(S_{t+1}, A_{t+1}) \vert S_{t} = s, A_{t} = a]
-&= \sum_{s^{'}, r}p(s^{'}, r \vert s, a)[r + \gamma * \sum_{a}\pi(a^{'} \vert s^{'}) * q_{\pi}(s^{'}, a^{'})]
+q_{\pi}(s, a) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s, A_{t} = a]\\
+&= \mathbb{E}_{\pi}[R_{t+1} + \gamma q_{\pi}(S_{t+1}, A_{t+1}) \vert S_{t} = s, A_{t} = a]\\
+&= \mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}\sum_{a^{'} \in A}\pi(a^{'} \vert s{'})q_{\pi}(s^{'}, a^{'})
 \end{aligned}
 $$
 
@@ -134,12 +134,45 @@ This equation is Bellman equation for $$q_{\pi}$$. I When in state $$s$$ and tak
 
 - Optimal Value Function
 
+The optimal state-value function $$v_{*}(s)$$ is the maximum state-value function over all policies.
+
+$$
+\begin{aligned}
+v_{*}(s) &= max_{\pi}v_{\pi}(s)\\
+&= max_{a}\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}v_{\pi}(s^{'})
+\end{aligned}
+$$
+
+The optimal action-value function $$q_{*}(s, a)$$ is the maximum action-value function over all policies.
+
+$$
+\begin{aligned}
+q_{*}(s, a) &= max_{\pi}q_{\pi}(s, a)\\
+&= \mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}max_{a^{'}}q_{\pi}(s^{'}, a^{'})
+\end{aligned}
+$$
+
 
 - Optimal Policy
+
+A policy is defined to be better than or equal to a policy $$\pi^{'}$$ if its expected return is greater than or equal to than of $$\pi^{'}$$ for all states. There is always at least one policy ($$\pi_{*}$$) that is better than or equal to all other policies ($$\pi_{*} \ge \pi}\forall \pi$$). This is an optimal policy. There can be more than one optimal policies. All optimal policies achieve optimal state-value function ($$v_{\pi_{*}}(s) = v_{*}(s)$$) and action-value function ($$q_{\pi_{*}}(s, a) = q_{*}(s, a)$$).
+
+We can obtain optimal policy directly if we have $$q_{*}(s, a)$$.
+
+$$
+\begin{aligned}
+\pi_{*}(a \vert s) = 
+\begin{cases} 
+1 &\mbox{if } a = argmax_{a \in A}q_{*}(s, a)\\
+0 & otherwise 
+\end{cases}
+\end{aligned}
+$$
 
 
 ### Backup Diagrams
 
+Backup diagrams are used to present the transformation of states graphically.
 
 
 # Tabular Solution Methods
