@@ -75,6 +75,8 @@ Markov Decision Process is a tuple ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathca
 
 ### Bellman Expectation Equation
 
+We use bellman equation to show how current state is related to successive state for both value functions. We can apply this recusrive equation for each sequence in each episode of an episodic task.
+
 - Return
 
 In RL, we seek to maximise the expected return where the return $$G_{t}$$ is the total discounted reward from time-step $$t$$. For episodic tasks, $$G_{t} = R_{t+1} + R_{t+2} ... + R_{T}$$, where T is the terminal state. For continuous tasks, $$G_{t} = R_{t+1} + \gamma * R_{t+2} ... + \gamma^{2} * R{t+3} = \sum_{k=0}^{\inf} \gamma^{k} R_{t+k+1} $$, where $$\gamma$$ is the discount rate. 
@@ -120,11 +122,12 @@ $$
 \begin{aligned}
 q_{\pi}(s, a) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s, A_{t} = a]
 &= \mathbb{E}_{\pi}[R_{t+1} + \gamma * q_{\pi}(S_{t+1}, A_{t+1}) \vert S_{t} = s, A_{t} = a]
-&= \sum_{s^{'}, r}p(s^{'}, r \vert s, a)[r + \gamma * q_{\pi}(s^{'}, a^{'})]
+&= \sum_{s^{'}, r}p(s^{'}, r \vert s, a)[r + \gamma * \sum_{a}\pi(a^{'} \vert s^{'}) * q_{\pi}(s^{'}, a^{'})]
 \end{aligned}
 $$
 
 This equation is Bellman equation for $$q_{\pi}$$. I When in state $$s$$ and taking an action $$a$$ based on its policy $$\pi$$. The environment could respond with one of several next states $$s^{'}$$, along with immediate reward $$r$$. 
+
 
 ### Bellman Optimality Equation
 
