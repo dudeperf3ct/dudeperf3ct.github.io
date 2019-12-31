@@ -42,21 +42,44 @@ In Markov processes, the states captures all relevant information from the past 
 > The future is independent of the past given the present.
 
 $$
+\begin{aligned}
 P(S_{t} \vert S_{1}, S_{2}, ..., S_{t-1}) = P(S_{t} \vert S_{t-1})
+\end{aligned}
 $$
+
+Markov Process(or Markov Chain) is a tuple ($$\mathcal{S}$$, $$\mathcal{P}$$),
+- $$\mathcal{S}$$ is a (finte) set of states
+- $$\mathcal{P}$$ is a state transition probability matrix, $$\mathcal{P}_{ss^{'}}$$ = $$\mathbb{P}[S_{t+1} = s^{'} \vert S_{t} = s]$$
 
 
 ### Markov Reward Process
 
+A Markov reward process is a Markov chain with values. In Markov reward processes, each transition is associated with a reward. The agent-environment interaction can be episodic i.e. broken into episodes, terminating after ending up in a terminal state or continuous, in which the interaction does not naturally break into episodes but continues without limit. That is why we introduce a discounted delayed reward. If $$\gamma$$ = 0, we get a myopic agent concerned only with maximizing immediate rewards and $$\gamma$$ = 1, we get a far-sighted agent which takes future rewards into account more strongly.
 
+Markov Reward Process is a tuple ($$\mathcal{S}$$, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$),
+- $$\mathcal{S}$$ is a (finte) set of states
+- $$\mathcal{P}$$ is a state transition probability matrix, $$\mathcal{P}_{ss^{'}}$$ = $$\mathbb{P}[S_{t+1} = s^{'} \vert S_{t} = s]$$
+- $$\mathcal{R}$$ is a reward function, $$\mathcal{R}_{s}$$ = $$\mathbb{E}[\mathcal{R}_{t+1} \vert S_{t} = s]$$
+- $$\gamma$$ is a discount factor, $$\gamma$$ $$\in$$ [0, 1]
 
 ### Markov Decision Process
 
-Markov decision processes(MDP) are used to describe an environment in reinforcement learning. Almost all RL problems can be formalised as MDPs.
+A Markov decision process (MDP) is a Markov reward process with decisions. Markov decision processes(MDP) are used to describe an environment in reinforcement learning. In MDPs, we are  
+Almost all RL problems can be formalised as MDPs.
+Markov Decision Process is a tuple ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$),
+- $$\mathcal{S}$$ is a (finte) set of states
+- $$\mathcal{A}$$ is a (finte) set of actions
+- $$\mathcal{P}$$ is a state transition probability matrix, $$\mathcal{P}^{a}_{ss^{'}}$$ = $$\mathbb{P}[S_{t+1} = s^{'} \vert S_{t} = s, A_{t} = a]$$
+- $$\mathcal{R}$$ is a reward function, $$\mathcal{R}_{s}$$ = $$\mathbb{E}[\mathcal{R}^{a}_{t+1} \vert S_{t} = s, A_{t} = a]$$
+- $$\gamma$$ is a discount factor, $$\gamma$$ $$\in$$ [0, 1]
+
 
 ### Belman Equation
 
 - Return
+
+The return $$G_{t}$$ is the total discounted reward from time-step $$t$$.
+
 
 - Value Functions
 
