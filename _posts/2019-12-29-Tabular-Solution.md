@@ -172,7 +172,7 @@ $$
 
 ### Backup Diagrams
 
-Backup diagrams are used to present the transformation of states graphically.
+Backup diagrams are used to present the transitions of states and actions for an agent graphically. We call such diagrams backup diagrams because 
 
 
 # Tabular Solution Methods
