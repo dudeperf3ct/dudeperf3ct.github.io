@@ -92,7 +92,7 @@ $$
 
 - Value Functions
 
-Almost all reinforcement learning algorithms involve estimating value functions. Value functions determine how good is it to be in a particular state (state-value function) or how good is to take a particular action in given state (action-value function). The state-value and action-value are related by the following equation, 
+Almost all reinforcement learning algorithms involve estimating value functions. Value functions determine how good is it to be in a particular state (state-value function) or how good is to take a particular action in given state (action-value function). The state-value function and action-value function are related by the following equation, 
 
 $$
 \begin{aligned}
@@ -100,7 +100,7 @@ v_{\pi}(s) &= \sum_{a \in A}\pi(a \vert s)q_{\pi}(s, a)
 \end{aligned}
 $$
 
-State-value function
+**State-value function**
 
 The state-value function of an MDP is expected return starting from state $$s$$, and then following policy $$\pi$$,
 
@@ -114,7 +114,7 @@ $$
 
 This equation is Bellman equation for $$v_{\pi}$$. I When in state $$s$$, an agent takes an action $$a$$ based on its policy $$\pi$$. The environment could respond with one of several next states $$s^{'}$$, along with immediate reward $$r$$. Bellman equation averages over all the possibilities, weighting each by its probability of occurring. It expresses a relationship between the value of a state and the values of its successor states.
 
-Action-value function
+**Action-value function**
 
 The action-value function of an MDP is expected return starting from state $$s$$, taking action $$a$$ and then following policy $$\pi$$,
 
@@ -130,6 +130,7 @@ This equation is Bellman equation for $$q_{\pi}$$. I When in state $$s$$ and tak
 
 
 ### Bellman Optimality Equation
+
 
 
 - Optimal Value Function
@@ -172,7 +173,12 @@ $$
 
 ### Backup Diagrams
 
-Backup diagrams are used to present the transitions of states and actions for an agent graphically. We call such diagrams backup diagrams because 
+Backup diagrams are used to present the transitions of states and actions for an agent graphically. We call such diagrams backup diagrams because we are updating the state(or action) values for current state using the next state(or action). It's like we are sending the information backwards from next state to current.
+
+We can represent bellman expectation equation using backup diagram shown below and they provide a simple picture as to what the equation means.
+
+
+The backup diagrams use to represent bellman optimality equation are shown below.
 
 
 # Tabular Solution Methods
