@@ -75,6 +75,8 @@ Markov Decision Process is a tuple ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathca
 
 ### Bellman Expectation Equation
 
+
+
 We use bellman equation to show how current state is related to successive state for both value functions. We can apply this recusrive equation for each sequence in each episode of an episodic task.
 
 - Return
@@ -173,7 +175,7 @@ $$
 
 ### Backup Diagrams
 
-Backup diagrams are used to present the transitions of states and actions for an agent graphically. We call such diagrams backup diagrams because we are updating the state(or action) values for current state using the next state(or action). It's like we are sending the information backwards from next state to current.
+Backup diagrams are used to present the transitions of states and actions for an agent graphically. We call such diagrams backup diagrams because we are updating the state(or action) values for current state using the next state(or action). It's like we are updating the information backwards from next state to current state.
 
 We can represent bellman expectation equation using backup diagram shown below and they provide a simple picture as to what the equation means.
 
@@ -185,15 +187,15 @@ The backup diagrams use to represent bellman optimality equation are shown below
 
 Tabular Solutions are preferred method for solving RL problems when state and action space is small. The state functions and action-state functions are represented as tables. For such problems, exact optimal policy and optimal value functions can be found. 
 
-There are two ways of solving RL problem, i.e using model-based method or model-free method. Model-based methods require a full knowledge of MDP, we are given an MDP ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$). On other hand, model-free methods do not require full knowledge of MDP, given a policy $$\pi$$ and series of episodes, we use the experience to solve RL prediction and control problem.
+There are two ways of solving RL problem either using model-based method or model-free method. Model-based methods require a full knowledge of MDP, we are given an MDP ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$). On other hand, model-free methods do not require full knowledge of MDP, given a policy $$\pi$$ and series of episodes, we use the experience to solve RL prediction and control problem.
 
 ## Model-based methods
 
-The goal in model-based learning methods, is given an MDP and policy, either evaluate the given policy (prediction), expected returns from each state or find an optimal policy for given MDP (control).
+The goal in model-based learning methods is given an MDP and policy, either evaluate a given policy (prediction), finding expected returns for the states or finding an optimal policy for given MDP (control).
 
 ### Dynamic Programming
 
-The prediction problem involves evaluating a policy. 
+The prediction problem involves evaluating a policy. We use policy evaluation method to evaluate any given policy. The control problem involves solving an MDP, finding an optimal policy. We use either policy iteration or value iteration methods to find an optimal policy.
 
 - Policy Evaluation
 
