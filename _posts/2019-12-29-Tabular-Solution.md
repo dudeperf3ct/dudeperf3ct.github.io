@@ -195,9 +195,14 @@ The goal in model-based learning methods is given an MDP and policy, either eval
 
 ### Dynamic Programming
 
+In DP, we are given given a perfect model of the environment as a MDP.
+
 The prediction problem involves evaluating a policy. We use policy evaluation method to evaluate any given policy. The control problem involves solving an MDP, finding an optimal policy. We use either policy iteration or value iteration methods to find an optimal policy.
 
 - Policy Evaluation
+
+  
+
 
 - Policy Iteration
 
