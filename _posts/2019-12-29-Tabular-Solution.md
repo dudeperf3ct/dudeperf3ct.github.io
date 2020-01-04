@@ -185,13 +185,31 @@ The backup diagrams use to represent bellman optimality equation are shown below
 
 Tabular Solutions are preferred method for solving RL problems when state and action space is small. The state functions and action-state functions are represented as tables. For such problems, exact optimal policy and optimal value functions can be found. 
 
+There are two ways of solving RL problem, i.e using model-based method or model-free method. Model-based methods require a full knowledge of MDP, we are given an MDP ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$). On other hand, model-free methods do not require full knowledge of MDP, given a policy $$\pi$$ and series of episodes, we use the experience to solve RL prediction and control problem.
+
+## Model-based methods
+
+The goal in model-based learning methods, is given an MDP and policy, either evaluate the given policy (prediction), expected returns from each state or find an optimal policy for given MDP (control).
 
 ### Dynamic Programming
+
+The prediction problem involves evaluating a policy. 
+
+- Policy Evaluation
+
+- Policy Iteration
+
+- Value Iteration
+
+
+## Model-free methods
 
 
 ### Monte-Carlo 
 
+
 ### TD-Learning
+
 
 
 <span class='orange'>Happy Learning!</span>
