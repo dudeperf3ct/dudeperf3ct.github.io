@@ -218,7 +218,7 @@ where E denotes policy evaluation and I denotes policy improvement. This method 
 
 - Value Iteration
 
-In policy iteration we first evaluate a policy for some iterations and then move on to policy improvement step. The idea in value iteration is to update policy after every iteration in policy evaluation.
+In policy iteration we first evaluate a policy for some iterations and then move on to policy improvement step. 
 
 
 
