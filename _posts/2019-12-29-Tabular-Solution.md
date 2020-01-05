@@ -195,11 +195,11 @@ The goal in model-based learning methods is given an MDP and policy, either eval
 
 ### Dynamic Programming
 
-Dynamic programming is about breaking the overall goal into sub-goal and solving sub-goal optimally. In DP, we are given given a perfect model of the environment as a MDP. The prediction problem involves evaluating a policy for a given MDP and a policy. We use policy evaluation method to evaluate given policy. The control problem involves solving an MDP, finding an optimal policy. We use either policy iteration or value iteration methods to find an optimal policy (or optimal value function).
+Dynamic programming is about breaking the overall goal into sub-goal and solving sub-goal optimally. In DP, we are given given a perfect model of the environment as a MDP. The prediction problem involves evaluating a policy for a given MDP and a policy. (How good is this policy?) We use policy evaluation method to evaluate given policy. The control problem involves solving an MDP, finding an optimal policy. (What is the best policy for given MDP?) We use either policy iteration or value iteration methods to find an optimal policy (or optimal value function).
 
 - Policy Evaluation
 
-  In policy evaluation, given a MDP and policy we evaluate a policy by updating value function of states iteratively until convergence i.e, we apply Bellman expectation equation for state-value function iteratively. We initialize $$v_{1}$$ to be 0 and update value functions $$v_{1},v_{2},...,v_{k}$$ for certain iterations k, such that $$\vert v_{k}-v_{k-1} \vert$$ does not exceed some predefined threshold. 
+In policy evaluation, given a MDP and policy we evaluate a policy by updating value function of states iteratively until convergence i.e, we apply Bellman expectation equation for state-value function iteratively. We initialize $$v_{1}$$ to be 0 and update value functions $$v_{1},v_{2},...,v_{k}$$ for certain iterations k, such that $$\vert v_{k}-v_{k-1} \vert$$ does not exceed some predefined threshold. 
 
 $$
 \begin{aligned}
@@ -209,10 +209,16 @@ $$
 
 - Policy Iteration
 
+Policy iteration consits of 2 steps. Given a policy, we evaluate given policy using policy evaluation from above and we act greedy with respect to value function obtained in policy evaluation step to get a improved policy. This step is called policy improvement step. We repeat these 2 steps till policy converges i.e there is no change in old and new improved policy.
+
+Figure
+
+where E denotes policy evaluation and I denotes policy improvement. This method converges to optimal value function ($$v_{*}$$) and optimal policy ($$\pi_{*}$$) in a finite number of iterations for a finite MDP. At convergence, we statisfy Bellman optimality equation for both policy and value function.
 
 
 - Value Iteration
 
+In policy iteration we first evaluate a policy for some iterations and then move on to policy improvement step. The idea in value iteration is to update policy after every iteration in policy evaluation.
 
 
 
