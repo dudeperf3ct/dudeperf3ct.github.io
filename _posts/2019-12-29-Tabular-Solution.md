@@ -110,7 +110,7 @@ $$
 \begin{aligned}
 v_{\pi}(s) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s]\\
 &= \mathbb{E}_{\pi}[R_{t+1} + \gamma v_{\pi}(S_{t+1}) \vert S_{t} = s]\\
-&= \sum_{a \in A}\pi(a \vert s)\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}v_{\pi}(s^{'})
+&= \sum_{a \in \mathcal{A}}\pi(a \vert s)\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in \mathcal{S}}\mathcal{P}_{ss^{'}}^{a}v_{\pi}(s^{'})
 \end{aligned}
 $$
 
@@ -124,7 +124,7 @@ $$
 \begin{aligned}
 q_{\pi}(s, a) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s, A_{t} = a]\\
 &= \mathbb{E}_{\pi}[R_{t+1} + \gamma q_{\pi}(S_{t+1}, A_{t+1}) \vert S_{t} = s, A_{t} = a]\\
-&= \mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}\sum_{a^{'} \in A}\pi(a^{'} \vert s{'})q_{\pi}(s^{'}, a^{'})
+&= \mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in \mathcal{S}}\mathcal{P}_{ss^{'}}^{a}\sum_{a^{'} \in \mathcal{A}}\pi(a^{'} \vert s{'})q_{\pi}(s^{'}, a^{'})
 \end{aligned}
 $$
 
@@ -142,7 +142,7 @@ The optimal state-value function $$v_{*}(s)$$ is the maximum state-value functio
 $$
 \begin{aligned}
 v_{*}(s) &= max_{\pi}v_{\pi}(s)\\
-&= max_{a}\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}v_{\pi}(s^{'})
+&= max_{a}\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in \mathcal{S}}\mathcal{P}_{ss^{'}}^{a}v_{\pi}(s^{'})
 \end{aligned}
 $$
 
@@ -151,7 +151,7 @@ The optimal action-value function $$q_{*}(s, a)$$ is the maximum action-value fu
 $$
 \begin{aligned}
 q_{*}(s, a) &= max_{\pi}q_{\pi}(s, a)\\
-&= \mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}max_{a^{'}}q_{\pi}(s^{'}, a^{'})
+&= \mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in \mathcal{S}}\mathcal{P}_{ss^{'}}^{a}max_{a^{'}}q_{\pi}(s^{'}, a^{'})
 \end{aligned}
 $$
 
@@ -166,7 +166,7 @@ $$
 \begin{aligned}
 \pi_{*}(a \vert s) = 
 \begin{cases} 
-1 &\mbox{if } a = argmax_{a \in A}q_{*}(s, a)\\
+1 &\mbox{if } a = argmax_{a \in \mathcal{A}}q_{*}(s, a)\\
 0 & otherwise 
 \end{cases}
 \end{aligned}
@@ -191,22 +191,29 @@ There are two ways of solving RL problem either using model-based method or mode
 
 ## Model-based methods
 
-The goal in model-based learning methods is given an MDP and policy, either evaluate a given policy (prediction), finding expected returns for the states or finding an optimal policy for given MDP (control).
+The goal in model-based learning methods is given an MDP and policy, either evaluate a given policy (prediction problem), finding expected returns for the states or finding an optimal policy for given MDP (control problem).
 
 ### Dynamic Programming
 
-In DP, we are given given a perfect model of the environment as a MDP.
-
-The prediction problem involves evaluating a policy. We use policy evaluation method to evaluate any given policy. The control problem involves solving an MDP, finding an optimal policy. We use either policy iteration or value iteration methods to find an optimal policy.
+Dynamic programming is about breaking the overall goal into sub-goal and solving sub-goal optimally. In DP, we are given given a perfect model of the environment as a MDP. The prediction problem involves evaluating a policy for a given MDP and a policy. We use policy evaluation method to evaluate given policy. The control problem involves solving an MDP, finding an optimal policy. We use either policy iteration or value iteration methods to find an optimal policy (or optimal value function).
 
 - Policy Evaluation
 
-  
+  In policy evaluation, given a MDP and policy we evaluate a policy by updating value function of states iteratively until convergence i.e, we apply Bellman expectation equation for state-value function iteratively. We initialize $$v_{1}$$ to be 0 and update value functions $$v_{1},v_{2},...,v_{k}$$ for certain iterations k, such that $$\vert v_{k}-v_{k-1} \vert$$ does not exceed some predefined threshold. 
 
+$$
+\begin{aligned}
+v_{k+1}(s) &= \sum_{a \in \mathcal{A}}\pi(a \vert s)\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}v_{k}(s^{'})
+\end{aligned}
+$$
 
 - Policy Iteration
 
+
+
 - Value Iteration
+
+
 
 
 ## Model-free methods
