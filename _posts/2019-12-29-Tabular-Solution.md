@@ -142,7 +142,7 @@ The optimal state-value function $$v_{*}(s)$$ is the maximum state-value functio
 $$
 \begin{aligned}
 v_{*}(s) &= max_{\pi}v_{\pi}(s)\\
-&= max_{a}\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in \mathcal{S}}\mathcal{P}_{ss^{'}}^{a}v_{\pi}(s^{'})
+&= max_{a \in \mathcal{A}}[\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in \mathcal{S}}\mathcal{P}_{ss^{'}}^{a}v_{\pi}(s^{'})]
 \end{aligned}
 $$
 
@@ -209,7 +209,7 @@ $$
 
 - Policy Iteration
 
-Policy iteration consits of 2 steps. Given a policy, we evaluate given policy using policy evaluation from above and we act greedy with respect to value function obtained in policy evaluation step to get a improved policy. This step is called policy improvement step. We repeat these 2 steps till policy converges i.e there is no change in old and new improved policy.
+Policy iteration consits of 2 steps. Given a policy, we evaluate given policy using policy evaluation from above and we act greedy with respect to value function obtained in policy evaluation step to get a improved policy. This step is called policy improvement step. We repeat these 2 steps until policy converges i.e there is no change in old and new improved policy.
 
 Figure
 
@@ -218,9 +218,17 @@ where E denotes policy evaluation and I denotes policy improvement. This method 
 
 - Value Iteration
 
-In policy iteration we first evaluate a policy for some iterations and then move on to policy improvement step. 
+In policy iteration, we first evaluate a policy for some iterations and then move on to policy improvement step. What if we evaluate policy for 1 iteration? This will reduce the time we wait for value function to converge in policy evaluation step. This algorithm of policy evaluation for 1 iteration(update of each state) and policy improvement is called value iteration. We can combine the policy improvement and truncated policy evaluation steps in one equation. This equation turns Bellman optimality equation into update rule. This equation guarantees convergence to optimal value function similar to policy iteration. We keep track of policies in value iteration implicitly (choosing action that maximises expected reward).
 
+$$
+\begin{aligned}
+v_{k+1}(s) &= max_{a \in \mathcal{A}}[\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}v_{k}(s^{'})]\\
+\end{aligned}
+$$
 
+In value iteration, only a single iteration of policy evaluation is performed in between each policy improvement.
+
+There are different ways to use iterative DP algorithms such as Asynchronous DP where values of states are updated in any order whatsoever.
 
 ## Model-free methods
 
