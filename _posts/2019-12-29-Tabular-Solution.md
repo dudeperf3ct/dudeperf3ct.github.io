@@ -228,12 +228,15 @@ $$
 
 In value iteration, only a single iteration of policy evaluation is performed in between each policy improvement.
 
-There are different ways to use iterative DP algorithms such as Asynchronous DP where values of states are updated in any order whatsoever.
+There is another variant of iterative DP algorithms, Asynchronous DP where values of states are updated in any order whatsoever. DP algorithms are not practical for very large state space(or action space). The number of deterministic policies for number of actions $$k$$ and states $$n$$ are $$n^{k}$$. DP is exponentially faster than exhaustively searching each possible policy.
 
 ## Model-free methods
 
 
+
 ### Monte-Carlo 
+
+In DP, all of the estimate values for state where based on the estimates of values of successor states. In RL, this idea is called *bootstrapping*.
 
 
 ### TD-Learning
