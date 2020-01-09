@@ -228,7 +228,7 @@ $$
 
 In value iteration, only a single iteration of policy evaluation is performed in between each policy improvement.
 
-There is another variant of iterative DP algorithms, Asynchronous DP where values of states are updated in any order whatsoever. DP algorithms are not practical for very large state space(or action space). The number of deterministic policies for number of actions $$k$$ and states $$n$$ are $$n^{k}$$. DP is exponentially faster than exhaustively searching each possible policy. All the DP algorthims seen above can be summarized in the table below.
+There is another variant of iterative DP algorithms, Asynchronous DP where values of states are updated in any order whatsoever. DP algorithms are not practical for very large state space(or action space) because DP uses full-width backups. The number of deterministic policies for number of actions $$k$$ and states $$n$$ are $$n^{k}$$. DP is exponentially faster than exhaustively searching each possible policy. All the DP algorthims seen above can be summarized in the table below.
 
 
 | Problem       | Bellman Equation           | Algorithm  |
@@ -239,7 +239,7 @@ There is another variant of iterative DP algorithms, Asynchronous DP where value
 
 ## Model-free methods
 
-
+To run model-based methods, we require full knowledge of MDP transitions. 
 
 ### Monte-Carlo 
 
