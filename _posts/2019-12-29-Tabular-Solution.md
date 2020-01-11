@@ -243,11 +243,11 @@ To run model-based methods, we require full knowledge of MDP transitions. In mod
 
 ### Monte Carlo 
 
-MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*). As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*.  In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment.
+MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*). As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*.  In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
 
 - First Visit
 
-As seen in policy evaluation method, we wish to estimate $$v_{\pi}(s)$$, given a set of episodes obtained by following $$\pi$$ and passing through $$s$$. Each occurrence of state $$s$$ in an episode is called a *visit* to $$s$$. With a model, we can estimate policy from values of states (taking one step and choose action that leads to the best combination of reward and next state). In first visit method, we estimate $$v_{\pi}(s)$$ as the average of the returns following *first visits* to $$s$$.
+As seen in policy evaluation method, we wish to estimate $$v_{\pi}(s)$$, given a set of episodes obtained by following $$\pi$$ and passing through $$s$$. Each occurrence of state $$s$$ in an episode is called a *visit* to $$s$$. With a model of MDP, we can estimate policy from values of states (taking one step and choose action that leads to the best combination of reward and next state). In first visit method, we estimate $$v_{\pi}(s)$$ as the average of the returns following *first visits* to $$s$$.
 
 $$
 \begin{aligned}
@@ -257,9 +257,36 @@ $$
 
 where $$G_{t}$$ is total return from time step $$t$$ and $$N(s_{t})$$ keeps track of visits to state $$s_{t}$$.
 
-If we don't have a model, the state values are not sufficient to provide a policy. In this case, we prefer to evaluate action-value $$q_{\pi}(s, a)$$, the sample returns from taking action $$a$$ from state $$s$$ and following policy $$\pi$$ thereafter. Estimating policy from action values is just taking argmax over the action values, choosing the action with highest action value. In first visit method, we estimate $$q_{\pi}(s, a)$$ as the average of the returns following the first time in each episode that the state $$s$$ was visited and the action $$a$$ was selected.
+If we don't have a model of MDP, the state values are not sufficient to provide a policy. In this case, we prefer to evaluate action-value $$q_{\pi}(s, a)$$, the sample returns from taking action $$a$$ from state $$s$$ and following policy $$\pi$$ thereafter. Estimating policy from action values is just taking argmax over the action values, choosing the action with highest action value. In first visit method, we estimate $$q_{\pi}(s, a)$$ as the average of the returns following the first time in each episode that the state $$s$$ was visited and the action $$a$$ was selected.
 
 Another variant of first visit is *every visit*. There can be multiple times state $$s$$ can be visited in the same episode. So, instead of averaging returns of *first visits* to $$s$$, in every visit, we average the returns following all visits to state $$s$$. Both first-visit MC and every-visit MC converge to $$v_{\pi}(s)$$ as the number of visits (or first visits) to s goes to infinity.
+
+- MC Control
+
+In DP, we saw that we can find optimal policy by policy evaulation followed by policy improvement. Similarly, in MC we can use the same process for finding optimal policy. But one problem in MC control is that we don't have a model of MDP. If we use value function, policy evaluation methods from above either first visit or every visit method can be used to evaluate current policy. But when policy needs to be improved, we are expected to have transition probabilities over all actions from current state so as to choose action after taking one step from current state and ending up in next state that will provide maximum returns. This is the reason why we prefer using action-values over state-values when dynamics of environment is not known. The policy for action action values is the action with maximum action value. 
+
+$$
+\begin{aligned}
+\pi^{'}(s) &= argmax_{a \in \mathcal{A}}[R^{a}_{s} + P^{a}_{ss^{'}}V(s^{'})]\\
+\pi^{'}(s) &= argmax_{a \in \mathcal{A}}[Q(s, a)]\\
+\end{aligned}
+$$
+
+
+But there is a problem of exploration in dealing with action values. Many state–action pairs may never be visited. If our policy is deterministic policy, then in following that policy one will observe returns only for one of the actions from each state. The
+purpose of learning action values is to help in choosing among the actions available in each state. To mitigate this issue, we use a stochastic policy to ensure continual exploration. In $$\epsilon$$-greedy policy, most of the time they choose an action that has maximal estimated action value, but with probability $$\epsilon$$ they instead select an action at random.
+
+$$
+\begin{aligned}
+\pi(a \vert s) = 
+\begin{cases} 
+\frac{\epsilon}{m} + 1 - \epsilon &\mbox{if } a = argmax_{a \in \mathcal{A}}Q(s, a)\\
+\frac{\epsilon}{m} & otherwise 
+\end{cases}
+\end{aligned}
+$$
+
+where $$m$$ is all actions tried with non-zero probability. We have a $$\epsilon$$-soft policy of choosing greedy action with probability $$1-\epsilon$$ and choosing an action at random with probability $$\epsilon$$. 
 
 
 
