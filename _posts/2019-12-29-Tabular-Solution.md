@@ -195,7 +195,7 @@ The goal in model-based learning methods is given an MDP and policy, either eval
 
 ### Dynamic Programming
 
-Dynamic programming is about breaking the overall goal into sub-goal and solving sub-goal optimally. In DP, we are given given a perfect model of the environment as a MDP. The prediction problem involves evaluating a policy for a given MDP and a policy. (How good is this policy?) We use policy evaluation method to evaluate given policy. The control problem involves solving an MDP, finding an optimal policy. (What is the best policy for given MDP?) We use either policy iteration or value iteration methods to find an optimal policy (or optimal value function).
+Dynamic programming is about breaking the overall goal into sub-goal and solving sub-goal optimally. In DP, we are given given a perfect model of the environment as a MDP. We know the complete dynamics of the environment i.e. if I am in a given state, what all possible actions I can take? After taking an action, environment sends us to one possible state of all next states (depending on transition probability). The prediction problem involves evaluating a policy for a given MDP and a policy. (How good is this policy?) We use policy evaluation method to evaluate given policy. The control problem involves solving an MDP, finding an optimal policy. (What is the best policy for given MDP?) We use either policy iteration or value iteration methods to find an optimal policy (or optimal value function).
 
 - Policy Evaluation
 
@@ -239,16 +239,18 @@ There is another variant of iterative DP algorithms, Asynchronous DP where value
 
 ## Model-free methods
 
-To run model-based methods, we require full knowledge of MDP transitions. 
+To run model-based methods, we require full knowledge of MDP transitions. In model-free methods, we don't know the dynamics of the environment. Hence, we interact with the environment to generate episodes of experience. In model-free methods, the model generates only sample transitions, not complete probability distribution of all possible transitions that is required for DP.
 
 ### Monte-Carlo 
 
-In DP, all of the estimate values for state where based on the estimates of values of successor states. In RL, this idea is called *bootstrapping*.
+MC uses *experiences*, sample of sequences of states, actions and rewards to estimate the average sample returns. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*.  In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment.
+
+
 
 
 ### TD-Learning
 
-
+In DP, all of the estimate values for state where based on the estimates of values of successor states. In RL, this idea is called *bootstrapping*.
 
 <span class='orange'>Happy Learning!</span>
 
