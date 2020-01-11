@@ -218,7 +218,7 @@ where E denotes policy evaluation and I denotes policy improvement. This method 
 
 - Value Iteration
 
-In policy iteration, we first evaluate a policy for some iterations and then move on to policy improvement step. What if we evaluate policy for 1 iteration? This will reduce the time we wait for value function to converge in policy evaluation step. This algorithm of policy evaluation for 1 iteration(update of each state) and policy improvement is called value iteration. We can combine the policy improvement and truncated policy evaluation steps in one equation. This equation turns Bellman optimality equation into update rule. This equation guarantees convergence to optimal value function similar to policy iteration. We keep track of policies in value iteration implicitly (choosing action that maximises expected reward).
+In policy iteration, we first evaluate a policy for some iterations and then move on to policy improvement step. What if we evaluate policy for 1 iteration? This will reduce the time we wait for value function to converge in policy evaluation step. This algorithm of policy evaluation for 1 iteration(update of each state) and policy improvement is called value iteration. We can combine the policy improvement and truncated policy evaluation steps in one equation. This equation turns Bellman optimality equation into update rule. This equation guarantees convergence to optimal value function similar to policy iteration. We keep track of policies in value iteration implicitly (take one step and choosing action that maximises expected reward).
 
 $$
 \begin{aligned}
@@ -239,12 +239,27 @@ There is another variant of iterative DP algorithms, Asynchronous DP where value
 
 ## Model-free methods
 
-To run model-based methods, we require full knowledge of MDP transitions. In model-free methods, we don't know the dynamics of the environment. Hence, we interact with the environment to generate episodes of experience. In model-free methods, the model generates only sample transitions, not complete probability distribution of all possible transitions that is required for DP.
+To run model-based methods, we require full knowledge of MDP transitions. In model-free methods, we don't have the complete dynamics of the environment. Hence, we interact with the environment to generate episodes of experience. In model-free methods, the model generates only sample transitions, not complete probability distribution of all possible transitions that is required for DP.
 
-### Monte-Carlo 
+### Monte Carlo 
 
-MC uses *experiences*, sample of sequences of states, actions and rewards to estimate the average sample returns. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*.  In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment.
+MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*). As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*.  In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment.
 
+- First Visit
+
+As seen in policy evaluation method, we wish to estimate $$v_{\pi}(s)$$, given a set of episodes obtained by following $$\pi$$ and passing through $$s$$. Each occurrence of state $$s$$ in an episode is called a *visit* to $$s$$. With a model, we can estimate policy from values of states (taking one step and choose action that leads to the best combination of reward and next state). In first visit method, we estimate $$v_{\pi}(s)$$ as the average of the returns following *first visits* to $$s$$.
+
+$$
+\begin{aligned}
+v_{s_{t}} &= v_{s_{t}} + \frac{1}{N(s_{t})}(G_{t} - v_{s_{t}})\\
+\end{aligned}
+$$
+
+where $$G_{t}$$ is total return from time step $$t$$ and $$N(s_{t})$$ keeps track of visits to state $$s_{t}$$.
+
+If we don't have a model, the state values are not sufficient to provide a policy. In this case, we prefer to evaluate action-value $$q_{\pi}(s, a)$$, the sample returns from taking action $$a$$ from state $$s$$ and following policy $$\pi$$ thereafter. Estimating policy from action values is just taking argmax over the action values, choosing the action with highest action value. In first visit method, we estimate $$q_{\pi}(s, a)$$ as the average of the returns following the first time in each episode that the state $$s$$ was visited and the action $$a$$ was selected.
+
+Another variant of first visit is *every visit*. There can be multiple times state $$s$$ can be visited in the same episode. So, instead of averaging returns of *first visits* to $$s$$, in every visit, we average the returns following all visits to state $$s$$. Both first-visit MC and every-visit MC converge to $$v_{\pi}(s)$$ as the number of visits (or first visits) to s goes to infinity.
 
 
 
