@@ -243,7 +243,7 @@ To run model-based methods, we require full knowledge of MDP transitions. In mod
 
 ### Monte Carlo 
 
-MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*). As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*.  In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
+MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*). As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*. In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
 
 - First Visit
 
@@ -251,7 +251,7 @@ As seen in policy evaluation method, we wish to estimate $$v_{\pi}(s)$$, given a
 
 $$
 \begin{aligned}
-v_{s_{t}} &= v_{s_{t}} + \frac{1}{N(s_{t})}(G_{t} - v_{s_{t}})\\
+v(s_{t}) &= v(s_{t}) + \frac{1}{N(s_{t})}(G_{t} - v(s_{t}))\\
 \end{aligned}
 $$
 
@@ -290,9 +290,24 @@ where $$m$$ is all actions tried with non-zero probability. We have a $$\epsilon
 
 
 
-### TD-Learning
-
 In DP, all of the estimate values for state where based on the estimates of values of successor states. In RL, this idea is called *bootstrapping*.
+
+### TD Learning
+
+TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses one-step look-ahead updates (bootstrapping) and like MC, TD methods can directly learn from experiences without the model of environment's dynamics. Similar to above trend, we will solve two problem of *prediction* and *control* using TD methods. In TD prediction, given a policy we estimate state-value function or action-value function. In TD control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
+
+- TD Prediction
+
+Similar to MC, we use experiences to solve prediction problem. MC methods uses return to estimate the value of state and wait until the episode terminates to update the state value. TD on other hand updates its value towards one-step estimated return ($$R_{t+1} + \gammav(s_{t+1})$$). This is called TD target.
+
+$$
+\begin{aligned}
+v(s_{t}) &= v(s_{t}) + \alpha[R_{t+1} + \gammav(s_{t+1}) - v(s_{t})]\\
+\end{aligned}
+$$
+
+- TD Control
+
 
 <span class='orange'>Happy Learning!</span>
 
