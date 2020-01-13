@@ -206,7 +206,7 @@ For more on Differential Privacy, [here](https://arxiv.org/pdf/1607.00133.pdf) i
 
 # Code
 
-What all talk no code?
+All talk, no code?
 
 We implemented federated learning using two frameworks [Tensorflow](https://www.tensorflow.org) and [PyTorch](https://pytorch.org/) with [PySyft library](https://github.com/OpenMined/PySyft/).
 
