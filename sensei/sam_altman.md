@@ -54,6 +54,8 @@ I think willing to go, take a risk and make some amount of sacrifice to be able 
 
 <span class='blue'>The point that I always try to make is that it’s important to do very small amounts of that. Less is more.</span>If you look at the most successful founders, they’re not the ones that are on the circuit.
 
+The main question I ask myself when I meet a founder is if I’d work for that person. The second question I ask myself is if I can imagine them taking over their industry. My second biggest chronic mistake has been chasing investments primarily because other investors like them.
+
 <span class='red'>"Love is better than like."</span> Well, I think there’s a few different reasons for that. One is it objectively seems to be true. If you look at the companies that have gone to become super important and valuable, and shaped the world in a big way, they tend to have fairly fanatical early users. If you think about how you first came across Facebook or Google, it’s very likely because a friend told you how great it was. <span class='red'>Focus on love, not likes.</span>
 
 <span class='blue'>The role of the CEO is basically to figure out and decide what the company should do and then make sure it does that. Many CEOs try to outsource those things.</span>
@@ -64,9 +66,20 @@ Almost every venture capital firm gives advice they never follow themselves. The
 
 I think one thing that is a really important thing to strive for is being internally driven, being driven to compete with yourself, not with other people. If you compete with other people, you end up in this mimetic trap, and you sort of play this tournament, and if you win, you lose.
 
+I don’t know why most investors are so obsessed with the current size of a market instead of how big they think it will be in ten years, but it’s an opportunity for you.
+
 The most expensive investing mistake in the world to make is to be a pessimist, and it’s a common one. I think that’s actually the most common mistake to make in life.
 
 If you look at most successful founders, they are pretty smart, upper-middle-class people. They are very rarely the children of super successful people. They are very rarely born in real poverty. They are very rarely the absolute smartest people who otherwise would win a Fields Medal. They are never dumb, but upper-middle-class, pretty smart people that have grit and drive and creativity and vision and edge and a different way of thinking about the world. That is what I think I’m good at spotting, and that is what I think are good founders.
+
+To do well as an investor, you need to do three things: get access to good investment opportunities, make good decisions about what to invest in, and get the companies you want to invest in to choose you as an investor. That’s it!
+
+The better the investment opportunity is (i.e., expected value relative to valuation), the harder it usually is to get the company to choose you as an investor.
+
+The most important way to help founders is to get them to be more ambitious—to think bigger and to have more self-belief. Help them set ambitious but achievable goals. The second most important thing to do is to give them specific, tactical advice (instead of general strategy) about how to achieve their goals.
+
+I’ve found that most of the time when founders call asking for vague help, what they are really asking for is emotional support from a friend. Invite them over to your house, make them tea or pour them a drink, and start listening to their struggles.
+
 
 Quotes
 ===========================
