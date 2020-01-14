@@ -245,7 +245,7 @@ To run model-based methods, we require full knowledge of MDP transitions. In mod
 
 MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*). As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*. In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
 
-There are two ways to solve MC control problem either *on-policy* or *off-policy*.
+There are two ways to solve MC control problem either *on-policy* or *off-policy*. For on-policy method, we estimate s$$v_{\pi}$$ (or $$q_{\pi}$$) for the current behaviour policy $$\pi$$. For off-policy method, given two polices $$\pi$$ and $$b$$ we estimate $$v_{\pi}$$ (or $$q_{\pi}$$) but all we have are episodes following from policy $$b$$. The policy being learned about $$pi$$ is called *target policy*. The policy used to generate behaviour $$b$$ is called *behaviour policy*.
 
 - First Visit
 
@@ -253,7 +253,7 @@ As seen in policy evaluation method, we wish to estimate $$v_{\pi}(s)$$, given a
 
 $$
 \begin{aligned}
-v(s_{t}) &= v(s_{t}) + \frac{1}{N(s_{t})}(G_{t} - v(s_{t}))\\
+V(s_{t}) &= V(s_{t}) + \frac{1}{N(s_{t})}(G_{t} - V(s_{t}))\\
 \end{aligned}
 $$
 
@@ -263,7 +263,7 @@ If we don't have a model of MDP, the state values are not sufficient to provide 
 
 Another variant of first visit is *every visit*. There can be multiple times state $$s$$ can be visited in the same episode. So, instead of averaging returns of *first visits* to $$s$$, in every visit, we average the returns following all visits to state $$s$$. Both first-visit MC and every-visit MC converge to $$v_{\pi}(s)$$ as the number of visits (or first visits) to s goes to infinity.
 
-- MC Control
+- On-policy MC Control
 
 In DP, we saw that we can find optimal policy by policy evaulation followed by policy improvement. Similarly, in MC we can use the same process for finding optimal policy. But one problem in MC control is that we don't have a model of MDP. If we use value function, policy evaluation methods from above either first visit or every visit method can be used to evaluate current policy. But when policy needs to be improved, we are expected to have transition probabilities over all actions from current state so as to choose action after taking one step from current state and ending up in next state that will provide maximum returns. This is the reason why we prefer using action-values over state-values when dynamics of environment is not known. The policy for action action values is the action with maximum action value. 
 
@@ -288,8 +288,11 @@ $$
 \end{aligned}
 $$
 
-where $$m$$ is all actions tried with non-zero probability. We have a $$\epsilon$$-soft policy of choosing greedy action with probability $$1-\epsilon$$ and choosing an action at random with probability $$\epsilon$$. 
+where $$m$$ is all actions tried with non-zero probability. We have a $$\epsilon$$-soft policy of choosing greedy action with probability $$1-\epsilon$$ and choosing an action at random with probability $$\epsilon$$. In on-policy, we continually estimate $$q_{\pi}$$ for current behaviour policy $$\pi$$ and at the same time make the policy $$\pi$$ greedy with respect to $$q_{\pi}$$.
 
+- Off-policy MC Control
+
+As observed in MC control, there is a trade-off between exploration and exploitation. The on-policy MC solves the problem of exploration by using $$\epsilon$$-greedy policy. In off-policy, we use two policies. One policy that is learn about and becomes optimal policy called target policy. One that is more exploratory and is used to generate behaviour called behaviour policy.
 
 
 In DP, all of the estimate values for state where based on the estimates of values of successor states. In RL, this idea is called *bootstrapping*.
@@ -300,15 +303,29 @@ TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses 
 
 - TD Prediction
 
-Similar to MC, we use experiences to solve prediction problem. MC methods uses return to estimate the value of state and wait until the episode terminates to update the state value. TD on other hand updates its value towards one-step estimated return ($$R_{t+1} + \gamma v(s_{t+1})$$). This is called TD target. And $$R_{t+1} + \gamma v(s_{t+1}) - v(s_{t})$$ is called TD error as it measures the difference between the estimated value of $$s_{t}$$ and the better estimate $$R_{t+1} + \gamma v(s_{t+1})$$. This learning a guess from a guess is known as bootstrapping.
+Similar to MC, we use experiences to solve prediction problem. MC methods uses return to estimate the value of state and wait until the episode terminates to update the state value. TD on other hand updates its value towards one-step estimated return ($$R_{t+1} + \gamma V(s_{t+1})$$). This is called TD target. $$R_{t+1} + \gamma V(s_{t+1}) - V(s_{t})$$ is called TD error as it measures the difference between the estimated value of $$s_{t}$$ ($$V(s_{t})$$) and the better estimate $$R_{t+1} + \gamma V(s_{t+1})$$. This learning a guess from a guess is known as bootstrapping. TD combines boostrapping of DP with sampling of MC. For any fixed policy, $$V$$ converges to $$v_{\pi}$$.
 
 $$
 \begin{aligned}
-v(s_{t}) &= v(s_{t}) + \alpha[R_{t+1} + \gamma v(s_{t+1}) - v(s_{t})]\\
+V(s_{t}) &= V(s_{t}) + \alpha[R_{t+1} + \gamma V(s_{t+1}) - V(s_{t})]\\
 \end{aligned}
 $$
 
-- On-policy TD Control
+
+- SARSA : On-policy TD Control
+
+Without a given model, the goal is find optimal policy by learning state-action values. We consider transitions from state–action pair to state–action pair. An episode consists sequence of state-action pair ($$(S, A)$$), immediate reward($$R$$), next state($$S^{'}$$) and next action($$A^{'}$$), hence the name SARSA. This seems a lot similar to on-policy MC Control, where we wait until the episode terminates to estimate the return but the only difference here is we instead use one-step estimated return. 
+
+$$
+\begin{aligned}
+Q(s_{t}, a_{t}) &= Q(s_{t}, a_{t}) + \alpha[R_{t+1} + \gamma Q(s_{t+1}, a_{t+1}) - Q(s_{t}, a_{t}))]\\
+\end{aligned}
+$$
+
+
+- Q-Learning : Off-policy TD Control
+
+
 
 
 <span class='orange'>Happy Learning!</span>
@@ -316,11 +333,11 @@ $$
 
 # Further Reading
 
-Reinforcement Learning An Introduction 2nd edition : [Chapter 1](http://incompleteideas.net/sutton/book/RLbook2018.pdf)
+Reinforcement Learning An Introduction 2nd edition : [Chapter 3, 4, 5, 6](http://incompleteideas.net/sutton/book/RLbook2018.pdf)
 
-UCL RL Course by David Silver : [Lecture 1](https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ&index=1)
+UCL RL Course by David Silver : [Lecture 4]() and [Lecture 5]()
 
-UC Berkeley CS285 Deep Reinforcement Learning : [Lecture 1](https://www.youtube.com/watch?v=SinprXg2hUA&list=PLkFD6_40KJIwhWJpGazJ9VSj9CFMkb79A&index=2&t=0s)
+
 
 ---
 
