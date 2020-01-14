@@ -299,7 +299,7 @@ In DP, all of the estimate values for state where based on the estimates of valu
 
 ### TD Learning
 
-TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses one-step look-ahead updates (bootstrapping) and like MC, TD methods can directly learn from experiences without the model of environment's dynamics. Similar to above trend, we will solve two problem of *prediction* and *control* using TD methods. In TD prediction, given a policy we estimate state-value function or action-value function. In TD control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment. And similar to MC, TD control can be solved using two methods, on-policy or off-policy,
+TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses one-step look-ahead updates (bootstrapping) and like MC, TD methods can directly learn from experiences without the model of environment's dynamics. TD methods are preferred over MC in environments where episodes do not terminate. Similar to above trend, we will solve two problem of *prediction* and *control* using TD methods. In TD prediction, given a policy we estimate state-value function or action-value function. In TD control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment. And similar to MC, TD control can be solved using two methods, on-policy or off-policy,
 
 - TD Prediction
 
@@ -326,8 +326,16 @@ $$
 
 - Q-Learning : Off-policy TD Control
 
+Q-learning is one of the most popular RL algorithms. In off-policy, we evaluate $$v_{\pi}$$ (or $$q_{\pi}$$) for $$\pi$$ while following episodes generated from another policy.
 
 
+$$
+\begin{aligned}
+Q(s_{t}, a_{t}) &= Q(s_{t}, a_{t}) + \alpha [R_{t+1} + \gamma Q(s_{t+1}, A^{'}) - Q(s_{t}, a_{t}))]\\
+\end{aligned}
+$$
+
+Q-learning converges to optimal action-value function.
 
 <span class='orange'>Happy Learning!</span>
 
