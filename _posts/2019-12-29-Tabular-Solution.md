@@ -245,6 +245,8 @@ To run model-based methods, we require full knowledge of MDP transitions. In mod
 
 MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*). As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*. In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
 
+There are two ways to solve MC control problem either *on-policy* or *off-policy*.
+
 - First Visit
 
 As seen in policy evaluation method, we wish to estimate $$v_{\pi}(s)$$, given a set of episodes obtained by following $$\pi$$ and passing through $$s$$. Each occurrence of state $$s$$ in an episode is called a *visit* to $$s$$. With a model of MDP, we can estimate policy from values of states (taking one step and choose action that leads to the best combination of reward and next state). In first visit method, we estimate $$v_{\pi}(s)$$ as the average of the returns following *first visits* to $$s$$.
@@ -294,19 +296,19 @@ In DP, all of the estimate values for state where based on the estimates of valu
 
 ### TD Learning
 
-TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses one-step look-ahead updates (bootstrapping) and like MC, TD methods can directly learn from experiences without the model of environment's dynamics. Similar to above trend, we will solve two problem of *prediction* and *control* using TD methods. In TD prediction, given a policy we estimate state-value function or action-value function. In TD control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
+TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses one-step look-ahead updates (bootstrapping) and like MC, TD methods can directly learn from experiences without the model of environment's dynamics. Similar to above trend, we will solve two problem of *prediction* and *control* using TD methods. In TD prediction, given a policy we estimate state-value function or action-value function. In TD control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment. And similar to MC, TD control can be solved using two methods, on-policy or off-policy,
 
 - TD Prediction
 
-Similar to MC, we use experiences to solve prediction problem. MC methods uses return to estimate the value of state and wait until the episode terminates to update the state value. TD on other hand updates its value towards one-step estimated return ($$R_{t+1} + \gammav(s_{t+1})$$). This is called TD target.
+Similar to MC, we use experiences to solve prediction problem. MC methods uses return to estimate the value of state and wait until the episode terminates to update the state value. TD on other hand updates its value towards one-step estimated return ($$R_{t+1} + \gamma v(s_{t+1})$$). This is called TD target. And $$R_{t+1} + \gamma v(s_{t+1}) - v(s_{t})$$ is called TD error as it measures the difference between the estimated value of $$s_{t}$$ and the better estimate $$R_{t+1} + \gamma v(s_{t+1})$$. This learning a guess from a guess is known as bootstrapping.
 
 $$
 \begin{aligned}
-v(s_{t}) &= v(s_{t}) + \alpha[R_{t+1} + \gammav(s_{t+1}) - v(s_{t})]\\
+v(s_{t}) &= v(s_{t}) + \alpha[R_{t+1} + \gamma v(s_{t+1}) - v(s_{t})]\\
 \end{aligned}
 $$
 
-- TD Control
+- On-policy TD Control
 
 
 <span class='orange'>Happy Learning!</span>
