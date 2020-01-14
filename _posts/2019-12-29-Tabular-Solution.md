@@ -307,18 +307,19 @@ Similar to MC, we use experiences to solve prediction problem. MC methods uses r
 
 $$
 \begin{aligned}
-V(s_{t}) &= V(s_{t}) + \alpha[R_{t+1} + \gamma V(s_{t+1}) - V(s_{t})]\\
+V(s_{t}) &= V(s_{t}) + \alpha [R_{t+1} + \gamma V(s_{t+1}) - V(s_{t})]\\
 \end{aligned}
 $$
 
+TD methods are more biased towards next estimate than MC methods. They are more sensitive to initial values. There is less noise (variance) as compared to MC methods, where we take into consideration all the rewards until the episode terminates.
 
 - SARSA : On-policy TD Control
 
-Without a given model, the goal is find optimal policy by learning state-action values. We consider transitions from state–action pair to state–action pair. An episode consists sequence of state-action pair ($$(S, A)$$), immediate reward($$R$$), next state($$S^{'}$$) and next action($$A^{'}$$), hence the name SARSA. This seems a lot similar to on-policy MC Control, where we wait until the episode terminates to estimate the return but the only difference here is we instead use one-step estimated return. 
+Without a given model, the goal is find optimal policy by learning state-action values. We consider transitions from state–action pair to state–action pair. An episode consists sequence of state-action pair ($$(S, A)$$), immediate reward($$R$$), next state($$S^{'}$$) and next action($$A^{'}$$), hence the name SARSA. This seems a lot similar to on-policy MC Control where we wait until the episode terminates to estimate the return but the only difference here is we instead use one-step estimated return. SARA converges $$Q(s, a)$$ to $$q_{*}(s, a)$$.
 
 $$
 \begin{aligned}
-Q(s_{t}, a_{t}) &= Q(s_{t}, a_{t}) + \alpha[R_{t+1} + \gamma Q(s_{t+1}, a_{t+1}) - Q(s_{t}, a_{t}))]\\
+Q(s_{t}, a_{t}) &= Q(s_{t}, a_{t}) + \alpha [R_{t+1} + \gamma Q(s_{t+1}, a_{t+1}) - Q(s_{t}, a_{t}))]\\
 \end{aligned}
 $$
 
