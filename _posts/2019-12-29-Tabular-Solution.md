@@ -286,7 +286,7 @@ $$
 
 
 But there is a problem of exploration in dealing with action values. Many state–action pairs may never be visited. If our policy is deterministic policy, then in following that policy one will observe returns only for one of the actions from each state. The
-purpose of learning action values is to help in choosing among the actions available in each state. To mitigate this issue, we use a stochastic policy to ensure continual exploration. In $$\epsilon$$-greedy policy, most of the time they choose an action that has maximal estimated action value, but with probability $$\epsilon$$ they instead select an action at random.
+purpose of learning action values is to help in choosing among the actions available in each state. To mitigate this issue, we use a stochastic policy to ensure continual exploration. In $$\epsilon$$-greedy policy, most of the time they choose an action that has maximum estimated action value, but with probability $$\epsilon$$ they instead select an action at random.
 
 $$
 \begin{aligned}
@@ -338,16 +338,15 @@ $$
 
 - Q-Learning : Off-policy TD Control
 
-Q-learning is one of the most popular RL algorithms. In off-policy, we evaluate $$v_{\pi}$$ (or $$q_{\pi}$$) for $$\pi$$ while following episodes generated from another policy. 
-
+Q-learning is one of the most popular RL algorithms. In off-policy, we evaluate $$v_{\pi}$$ (or $$q_{\pi}$$) for target policy $$\pi$$ while following episodes generated from behaviour policy $$\mu$$. In case of TD(0), the target policy will be greedy with respect to action-values and behaviour policy will be $$\epsilon$$-greedy with respect to action-values. We are balancing the greedy and exploration behaviour which we often observe in RL algorithms by using two policies.
 
 $$
 \begin{aligned}
-Q(s_{t}, a_{t}) &= Q(s_{t}, a_{t}) + \alpha [R_{t+1} + \gamma Q(s_{t+1}, A^{'}) - Q(s_{t}, a_{t}))]\\
+Q(s_{t}, a_{t}) &= Q(s_{t}, a_{t}) + \alpha [R_{t+1} + \gamma max_{a^{'}} Q(s_{t+1}, a^{'}) - Q(s_{t}, a_{t}))]\\
 \end{aligned}
 $$
 
-Q-learning converges to optimal action-value function.
+This equation seems a lot familiar to Bellman optimality equations we seen above. Here, the alternate action $$a^{'}$$ is chosen by the target policy and $$a_{t}$$ is chosen according to behaviour policy. The next action to be updated is also chosen according to behaviour policy. We are updating the action values towards the best possible one-step action values. Q-learning converges to optimal action-value function.
 
 <span class='orange'>Happy Learning!</span>
 
