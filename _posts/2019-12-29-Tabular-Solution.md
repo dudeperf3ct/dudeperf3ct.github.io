@@ -348,14 +348,25 @@ $$
 
 This equation seems a lot familiar to Bellman optimality equations we seen above. Here, the alternate action $$a^{'}$$ is chosen by the target policy and $$a_{t}$$ is chosen according to behaviour policy. The next action to be updated is also chosen according to behaviour policy. We are updating the action values towards the best possible one-step action values. Q-learning converges to optimal action-value function.
 
+
+
+### Story so far
+
+All of these equations might seem overwhelming. But all these algorithms sort of tell a story. We start with DP, where we are presented with two problems to solve, prediction and control. In DP, we know everything about the environment. We know what actions can be taken from current state with exact probabilties of taking particular action and the next possible states that we can end up in. We use this knowledge of transitions to solve prediction problem by evaluating a given policy by assigning a value(state or action) to a state(or action) equal to expected returns we can get from that state(or action) by following that policy. In control problem, we want to find the optimal policy i.e. what is the best action to take when in a state? We solve the control problem, by evaluating a policy like above and then improving the policy by making the policy greedy with respect to value function obtained in evaluating the policy. We continue this process of evaluation and improvement until policy no longer improves.
+
+Next, we wonder that some environments are not so kind to provide us their inner working instead they provide us only the samples of sequences in form of episodes where each episode eventually terminates. Now instead of full known transitions, we work with samples of experience. In MC, we are required to solve prediction and control problem. In prediction problem, we evaluate a given policy by finding value estimates same as we did in DP. But we use first-visit or every-visit method. Nothing fancy, just we keep track of first visit and update the estimated returns until episode terminates or update the estimated returns from every visit of particular state. But when we move in solving control problem. We follow the same process of evaluating a policy and improving the policy to find optimal policy. To evaluate a given policy, instead of choosing to work with state-value functions for any of methods above (first-visit or every visit) we prefer using action-value function as the model is unknown i.e. if we want to obtain a policy from state-value functions, we need to do one-step look ahead over all states that can be visited from all actions that can be taken and choosing the action with maximum return. On contrary devising a policy from action-values is just choosing action with maximum action-value. But there is another problem with action-values, not all pairs of (state, action) will be visited. So, to solve that we use $$\epsilon$$-greedy policy instead of greedy policy to encourage exploration. Now armed with these two modifications, we solve the control problem.
+
+When we combine DP and MC, learning from boostrapping and experience, we get TD. This is just like MC but instead of estimating returns until the episode terminates, we use one-step return estimate as done in DP. We learn online as we go. 
+
+
 <span class='orange'>Happy Learning!</span>
 
 
 # Further Reading
 
-Reinforcement Learning An Introduction 2nd edition : [Chapter 3, 4, 5, 6](http://incompleteideas.net/sutton/book/RLbook2018.pdf)
+Reinforcement Learning An Introduction 2nd edition : [Chapters 3, 4, 5, 6 and 7](http://incompleteideas.net/sutton/book/RLbook2018.pdf)
 
-UCL RL Course by David Silver : [Lecture 4]() and [Lecture 5]()
+UCL RL Course by David Silver : [Lecture 4](https://www.youtube.com/watch?v=PnHCvfgC_ZA&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ&index=4) and [Lecture 5](https://www.youtube.com/watch?v=0g4j2k_Ggc4&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ&index=5)
 
 
 
