@@ -215,6 +215,13 @@ Figure
 
 where E denotes policy evaluation and I denotes policy improvement. This method converges to optimal value function ($$v_{*}$$) and optimal policy ($$\pi_{*}$$) in a finite number of iterations for a finite MDP. At convergence, we statisfy Bellman optimality equation for both policy and value function.
 
+- Generalized Policy Iteration
+
+
+
+
+Figure
+
 
 - Value Iteration
 
@@ -247,6 +254,7 @@ MC uses *experiences*, sample of sequences of states, actions, and rewards to es
 
 There are two ways to solve MC control problem either *on-policy* or *off-policy*. For on-policy method, we estimate s$$v_{\pi}$$ (or $$q_{\pi}$$) for the current behaviour policy $$\pi$$. For off-policy method, given two polices $$\pi$$ and $$b$$ we estimate $$v_{\pi}$$ (or $$q_{\pi}$$) but all we have are episodes following from policy $$b$$. The policy being learned about $$pi$$ is called *target policy*. The policy used to generate behaviour $$b$$ is called *behaviour policy*.
 
+
 - First Visit
 
 As seen in policy evaluation method, we wish to estimate $$v_{\pi}(s)$$, given a set of episodes obtained by following $$\pi$$ and passing through $$s$$. Each occurrence of state $$s$$ in an episode is called a *visit* to $$s$$. With a model of MDP, we can estimate policy from values of states (taking one step and choose action that leads to the best combination of reward and next state). In first visit method, we estimate $$v_{\pi}(s)$$ as the average of the returns following *first visits* to $$s$$.
@@ -264,6 +272,8 @@ If we don't have a model of MDP, the state values are not sufficient to provide 
 Another variant of first visit is *every visit*. There can be multiple times state $$s$$ can be visited in the same episode. So, instead of averaging returns of *first visits* to $$s$$, in every visit, we average the returns following all visits to state $$s$$. Both first-visit MC and every-visit MC converge to $$v_{\pi}(s)$$ as the number of visits (or first visits) to s goes to infinity.
 
 - On-policy MC Control
+
+> On-policy learning is like "learning on the job".
 
 In DP, we saw that we can find optimal policy by policy evaulation followed by policy improvement. Similarly, in MC we can use the same process for finding optimal policy. But one problem in MC control is that we don't have a model of MDP. If we use value function, policy evaluation methods from above either first visit or every visit method can be used to evaluate current policy. But when policy needs to be improved, we are expected to have transition probabilities over all actions from current state so as to choose action after taking one step from current state and ending up in next state that will provide maximum returns. This is the reason why we prefer using action-values over state-values when dynamics of environment is not known. The policy for action action values is the action with maximum action value. 
 
@@ -291,6 +301,8 @@ $$
 where $$m$$ is all actions tried with non-zero probability. We have a $$\epsilon$$-soft policy of choosing greedy action with probability $$1-\epsilon$$ and choosing an action at random with probability $$\epsilon$$. In on-policy, we continually estimate $$q_{\pi}$$ for current behaviour policy $$\pi$$ and at the same time make the policy $$\pi$$ greedy with respect to $$q_{\pi}$$.
 
 - Off-policy MC Control
+
+>  Off-policy learning is like "learning from looking over someone's shoulder".
 
 As observed in MC control, there is a trade-off between exploration and exploitation. The on-policy MC solves the problem of exploration by using $$\epsilon$$-greedy policy. In off-policy, we use two policies. One policy that is learn about and becomes optimal policy called target policy. One that is more exploratory and is used to generate behaviour called behaviour policy.
 
@@ -326,7 +338,7 @@ $$
 
 - Q-Learning : Off-policy TD Control
 
-Q-learning is one of the most popular RL algorithms. In off-policy, we evaluate $$v_{\pi}$$ (or $$q_{\pi}$$) for $$\pi$$ while following episodes generated from another policy.
+Q-learning is one of the most popular RL algorithms. In off-policy, we evaluate $$v_{\pi}$$ (or $$q_{\pi}$$) for $$\pi$$ while following episodes generated from another policy. 
 
 
 $$
