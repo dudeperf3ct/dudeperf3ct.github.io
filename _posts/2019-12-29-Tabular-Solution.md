@@ -315,7 +315,7 @@ TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses 
 
 - TD Prediction
 
-Similar to MC, we use experiences to solve prediction problem. MC methods uses return to estimate the value of state and wait until the episode terminates to update the state value. TD on other hand updates its value towards one-step estimated return ($$R_{t+1} + \gamma V(s_{t+1})$$). This is called TD target. $$R_{t+1} + \gamma V(s_{t+1}) - V(s_{t})$$ is called TD error as it measures the difference between the estimated value of $$s_{t}$$ ($$V(s_{t})$$) and the better estimate $$R_{t+1} + \gamma V(s_{t+1})$$. This learning a guess from a guess is known as bootstrapping. TD combines boostrapping of DP with sampling of MC. For any fixed policy, $$V$$ converges to $$v_{\pi}$$.
+Similar to MC, we use experiences to solve prediction problem. MC methods uses return to estimate the value of state and wait until the episode terminates to update the state value. TD on other hand updates its value towards one-step estimated return ($$R_{t+1} + \gamma V(s_{t+1})$$). This is called TD target. $$R_{t+1} + \gamma V(s_{t+1}) - V(s_{t})$$ is called TD error as it measures the difference between the estimated value of $$s_{t}$$ ($$V(s_{t})$$) and the better estimate $$R_{t+1} + \gamma V(s_{t+1})$$. This learning a guess from a guess is known as bootstrapping. TD combines boostrapping of DP with sampling of MC. For any fixed policy, $$V$$ converges to $$v_{\pi}$$. 
 
 $$
 \begin{aligned}
@@ -323,7 +323,7 @@ V(s_{t}) &= V(s_{t}) + \alpha [R_{t+1} + \gamma V(s_{t+1}) - V(s_{t})]\\
 \end{aligned}
 $$
 
-TD methods are more biased towards next estimate than MC methods. They are more sensitive to initial values. There is less noise (variance) as compared to MC methods, where we take into consideration all the rewards until the episode terminates.
+This method is also called TD(0), a special case of TD(\lambda), where instead of one-step returns, we use $$(\lambda+1)$$-step returns to estimate the state-value function. TD methods are more biased towards next estimate than MC methods. They are more sensitive to initial values. There is less noise (variance) as compared to MC methods, where we take into consideration all the rewards until the episode terminates.
 
 - SARSA : On-policy TD Control
 
