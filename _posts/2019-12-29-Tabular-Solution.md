@@ -181,8 +181,8 @@ We can represent bellman expectation equation using backup diagram shown below a
 
 
 <p align="center">
-<img src='/images/tabular_files/s_value.png' width="25%"/> 
-<img src='/images/tabular_files/a_value.png' width="20%"/> 
+<img src='/images/tabular_files/s_value.png' width="20%" hspace="20"/> 
+<img src='/images/tabular_files/a_value.png' width="18%"/> 
 </p>
 
 The backup diagrams use to represent bellman optimality equation are shown below.
@@ -231,8 +231,8 @@ where E denotes policy evaluation and I denotes policy improvement. This method 
 Policy Iteration consists of two process, policy evaluation making value function consistent with current policy and policy improvement making policy greedy with respect to the current value function. In generalized policy iteration, we perform continuous iterations of each policy evaluation and policy iteration alternatively. The value function is altered to more closely approximate the value function for the current policy, and the policy is repeatedly improved with respect to the current value function. Eventually both approximate value function and policy converges to optimal value function and optimal policy. 
 
 <p align="center">
-<img src='/images/tabular_files/gpi.png' width="50%"/> 
-<img src='/images/tabular_files/gpi_1.png' width="50%"/> 
+<img src='/images/tabular_files/gpi.png' width="20%"/> 
+<img src='/images/tabular_files/gpi_1.png' width="20%"/> 
 </p>
 
 It's sort of like [tug-of-war](https://en.wikipedia.org/wiki/Tug_of_war), evaluation and improvement pull in opposing directions. If we make policy greedy with respect to current value function. In policy evaluation step, the value function will be incorrect for the changed policy. If we make value function consistent with the current policy, the current policy will no longer be greedy. This sort of war goes on between value function and policy trying to outsmart each other and eventually they stabilize to reach optimality.
@@ -344,7 +344,7 @@ This method is also called TD(0), a special case of TD(\lambda), where instead o
 Without a given model, the goal is find optimal policy by learning state-action values. We consider transitions from state–action pair to state–action pair. An episode consists sequence of state-action pair ($$(S, A)$$), immediate reward($$R$$), next state($$S^{'}$$) and next action($$A^{'}$$), hence the name SARSA. 
 
 <p align="center">
-<img src='/images/tabular_files/sarsa_1.png' width="50%"/>
+<img src='/images/tabular_files/sarsa_1.png' width="20%"/>
 </p>
 
 This seems a lot similar to on-policy MC Control where we wait until the episode terminates to estimate the return but the only difference here is we instead use one-step estimated return. SARA converges $$Q(s, a)$$ to $$q_{*}(s, a)$$.
@@ -369,7 +369,7 @@ $$
 This equation seems a lot familiar to Bellman optimality equations we seen above. Here, the alternate action $$a^{'}$$ is chosen by the target policy and $$a_{t}$$ is chosen according to behaviour policy. The next action to be updated is also chosen according to behaviour policy. We are updating the action values towards the best possible one-step action values. Q-learning converges to optimal action-value function.
 
 <p align="center">
-<img src='/images/tabular_files/q_learning.png' width="50%"/>
+<img src='/images/tabular_files/q_learning.png' width="20%"/>
 </p>
 
 ### Story so far
