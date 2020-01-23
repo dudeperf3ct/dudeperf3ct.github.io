@@ -181,8 +181,8 @@ We can represent bellman expectation equation using backup diagram shown below a
 
 
 <p align="center">
-<img src='/images/tabular_files/s_value.png' width="50%"/> 
-<img src='/images/tabular_files/a_value.png' width="50%"/> 
+<img src='/images/tabular_files/s_value.png' width="25%"/> 
+<img src='/images/tabular_files/a_value.png' width="20%"/> 
 </p>
 
 The backup diagrams use to represent bellman optimality equation are shown below.
