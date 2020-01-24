@@ -370,6 +370,12 @@ This equation seems a lot familiar to Bellman optimality equations we seen above
 <img src='/images/tabular_files/q_learning.png' width="15%"/>
 </p>
 
+The backup diagrams of DP, MC and TD are compared in the table below.
+
+| DP Backup      | MC Backup           | TD Backup  |
+|:------------- |:-------------:| :-----:|
+| <img src='/images/tabular_files/dp_backup.png' width="80%"/>      | <img src='/images/tabular_files/mc_backup.png' width="80%"/> | <img src='/images/tabular_files/td_backup.png' width="80%"/> |
+
 ### Story so far
 
 All of these equations might seem overwhelming. But all these algorithms sort of tell a story. We start with DP, where we are presented with two problems to solve, prediction and control. In DP, we know everything about the environment. We know what actions can be taken from current state with exact probabilties of taking particular action and the next possible states that we can end up in. We use this knowledge of transitions to solve prediction problem by evaluating a given policy by assigning a value(state or action) to a state(or action) equal to expected returns we can get from that state(or action) by following that policy. In control problem, we want to find the optimal policy i.e. what is the best action to take when in a state? We solve the control problem, by evaluating a policy like above and then improving the policy by making the policy greedy with respect to value function obtained in evaluating the policy. We continue this process of evaluation and improvement until policy no longer improves.
