@@ -151,7 +151,7 @@ The optimal action-value function $$q_{*}(s, a)$$ is the maximum action-value fu
 $$
 \begin{aligned}
 q_{*}(s, a) &= max_{\pi}q_{\pi}(s, a)\\
-&= \mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in \mathcal{S}}\mathcal{P}_{ss^{'}}^{a}max_{a^{'}}q_{\pi}(s^{'}, a^{'})
+&= \mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in \mathcal{S}}\mathcal{P}_{ss^{'}}^{a}max_{a^{'} \in \mathcal{A}}q_{\pi}(s^{'}, a^{'})
 \end{aligned}
 $$
 
@@ -212,7 +212,7 @@ In policy evaluation, given a MDP and policy we evaluate a policy by updating va
 
 $$
 \begin{aligned}
-v_{k+1}(s) &= \sum_{a \in \mathcal{A}}\pi(a \vert s)\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}v_{k}(s^{'})
+v_{k+1}(s) &= \sum_{a \in \mathcal{A}}\pi(a \vert s)[\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}v_{k}(s^{'})]\\
 \end{aligned}
 $$
 
@@ -231,15 +231,15 @@ where E denotes policy evaluation and I denotes policy improvement. This method 
 Policy Iteration consists of two process, policy evaluation making value function consistent with current policy and policy improvement making policy greedy with respect to the current value function. In generalized policy iteration, we perform continuous iterations of each policy evaluation and policy iteration alternatively. The value function is altered to more closely approximate the value function for the current policy, and the policy is repeatedly improved with respect to the current value function. Eventually both approximate value function and policy converges to optimal value function and optimal policy. 
 
 <p align="center">
-<img src='/images/tabular_files/gpi.png' width="20%"/> 
-<img src='/images/tabular_files/gpi_1.png' width="20%"/> 
+<img src='/images/tabular_files/gpi.png' width="20%" hspace=50/> 
+<img src='/images/tabular_files/gpi_1.png' width="40%"/> 
 </p>
 
 It's sort of like [tug-of-war](https://en.wikipedia.org/wiki/Tug_of_war), evaluation and improvement pull in opposing directions. If we make policy greedy with respect to current value function. In policy evaluation step, the value function will be incorrect for the changed policy. If we make value function consistent with the current policy, the current policy will no longer be greedy. This sort of war goes on between value function and policy trying to outsmart each other and eventually they stabilize to reach optimality.
 
 - Value Iteration
 
-In policy iteration, we first evaluate a policy for some iterations and then move on to policy improvement step. What if we evaluate policy for 1 iteration? This will reduce the time we wait for value function to converge in policy evaluation step. This algorithm of policy evaluation for 1 iteration(update of each state) and policy improvement is called value iteration. We can combine the policy improvement and truncated policy evaluation steps in one equation. This equation turns Bellman optimality equation into update rule. This equation guarantees convergence to optimal value function similar to policy iteration. We keep track of policies in value iteration implicitly (take one step and choosing action that maximises expected reward).
+In policy iteration, we first evaluate a policy for some iterations and then move on to policy improvement step. What if we evaluate policy for 1 iteration? This will reduce the time we wait for value function to converge in policy evaluation step. This algorithm of policy evaluation for 1 iteration(update of each state) and policy improvement is called value iteration. We can combine the policy improvement and truncated policy evaluation steps in one equation. This equation turns Bellman optimality equation into update rule. This equation guarantees convergence to optimal value function similar to policy iteration. We keep track of policies in value iteration implicitly (take one step and choosing action that maximises expected reward). In value iteration, only a single iteration of policy evaluation is performed in between each policy improvement.
 
 $$
 \begin{aligned}
@@ -247,14 +247,13 @@ v_{k+1}(s) &= max_{a \in \mathcal{A}}[\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \
 \end{aligned}
 $$
 
-In value iteration, only a single iteration of policy evaluation is performed in between each policy improvement.
 
 There is another variant of iterative DP algorithms, Asynchronous DP where values of states are updated in any order whatsoever. DP algorithms are not practical for very large state space(or action space) because DP uses full-width backups. The number of deterministic policies for number of actions $$k$$ and states $$n$$ are $$n^{k}$$. DP is exponentially faster than exhaustively searching each possible policy. All the DP algorthims seen above can be summarized in the table below.
 
 
 | Problem       | Bellman Equation           | Algorithm  |
 | ------------- |:-------------:| :-----:|
-| Prediction      | Bellman Expectation Equation | IterativePolicy Evaluation |
+| Prediction      | Bellman Expectation Equation | Iterative Policy Evaluation |
 | Control      | Bellman Expectation Equation + Greedy Policy Improvement     |  Policy Iteration |
 | Control | Bellman Optimality Equation      |    Value Iteration |
 
@@ -299,8 +298,7 @@ $$
 $$
 
 
-But there is a problem of exploration in dealing with action values. Many state–action pairs may never be visited. If our policy is deterministic policy, then in following that policy one will observe returns only for one of the actions from each state. The
-purpose of learning action values is to help in choosing among the actions available in each state. To mitigate this issue, we use a stochastic policy to ensure continual exploration. In $$\epsilon$$-greedy policy, most of the time they choose an action that has maximum estimated action value, but with probability $$\epsilon$$ they instead select an action at random.
+But there is a problem of exploration in dealing with action values. Many state–action pairs may never be visited. If our policy is deterministic policy, then in following that policy one will observe returns only for one of the actions from each state. The purpose of learning action values is to help in choosing among the actions available in each state. To mitigate this issue, we use a stochastic policy to ensure continual exploration. In $$\epsilon$$-greedy policy, most of the time they choose an action that has maximum estimated action value, but with probability $$\epsilon$$ they instead select an action at random.
 
 $$
 \begin{aligned}
@@ -344,7 +342,7 @@ This method is also called TD(0), a special case of TD(\lambda), where instead o
 Without a given model, the goal is find optimal policy by learning state-action values. We consider transitions from state–action pair to state–action pair. An episode consists sequence of state-action pair ($$(S, A)$$), immediate reward($$R$$), next state($$S^{'}$$) and next action($$A^{'}$$), hence the name SARSA. 
 
 <p align="center">
-<img src='/images/tabular_files/sarsa_1.png' width="20%"/>
+<img src='/images/tabular_files/sarsa_1.png' width="50%"/>
 </p>
 
 This seems a lot similar to on-policy MC Control where we wait until the episode terminates to estimate the return but the only difference here is we instead use one-step estimated return. SARA converges $$Q(s, a)$$ to $$q_{*}(s, a)$$.
@@ -369,7 +367,7 @@ $$
 This equation seems a lot familiar to Bellman optimality equations we seen above. Here, the alternate action $$a^{'}$$ is chosen by the target policy and $$a_{t}$$ is chosen according to behaviour policy. The next action to be updated is also chosen according to behaviour policy. We are updating the action values towards the best possible one-step action values. Q-learning converges to optimal action-value function.
 
 <p align="center">
-<img src='/images/tabular_files/q_learning.png' width="20%"/>
+<img src='/images/tabular_files/q_learning.png' width="15%"/>
 </p>
 
 ### Story so far
@@ -379,6 +377,11 @@ All of these equations might seem overwhelming. But all these algorithms sort of
 Next, we wonder that some environments are not so kind to provide us their inner working instead they provide us only the samples of sequences in form of episodes where each episode eventually terminates. Now instead of full known transitions, we work with samples of experience. In MC, we are required to solve prediction and control problem. In prediction problem, we evaluate a given policy by finding value estimates same as we did in DP. But we use first-visit or every-visit method. Nothing fancy, just we keep track of first visit and update the estimated returns until episode terminates or update the estimated returns from every visit of particular state. This shows that updates have more variance, a lot of noise. But when we move in solving control problem. We follow the same process of evaluating a policy and improving the policy to find optimal policy. To evaluate a given policy, instead of choosing to work with state-value functions for any of methods above (first-visit or every visit) we prefer using action-value function as the model is unknown i.e. if we want to obtain a policy from state-value functions, we need to do one-step look ahead over all states that can be visited from all actions that can be taken and choosing the action with maximum return. On contrary, devising a policy from action-values is just choosing action with maximum action-value. But there is another problem with action-values, not all pairs of (state, action) will be visited. So, to solve that we use $$\epsilon$$-greedy policy instead of greedy policy to encourage exploration. Now armed with these two modifications, we solve the control problem.
 
 When we combine DP and MC, learning from boostrapping and experience, we get TD. This is just like MC but instead of estimating returns until the episode terminates, we use one-step return estimate as done in DP. We learn online as we go. Similar to DP and MC, we solve prediction and control problem. In prediction problem, we use estimated returns from one-step instead of waiting till episode terminates as in case of MC. But the updates are more biased and low variance in case of TD, sensitive to initial values. The control problem can be solved in two ways either by on-policy or off-policy methods. In on-policy method, similar to MC control we use action-value updates and $$\epsilon$$-greedy policy but only difference being instead of returns from waiting until episode completes as in MC, we update the estimate based on returns from one-step estimated action-values. In off-policy, we use two policies (target and behaviour) to balance the exploration and exploitation. We make the current action values (chosen from behaviour policy) greedy with respect to maximum return from one-step estimated action values. This action value is chosen from target policy.
+
+We sum up verything we have visited using both the equations and backup diagrams in 3 tables shown below.
+
+
+
 
 
 In next post, we will look into some of ways we can avoid keep large tables of action-values and state-values for solving the prediction and control problems of various RL algorithms.
