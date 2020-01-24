@@ -373,8 +373,8 @@ This equation seems a lot familiar to Bellman optimality equations we seen above
 The backup diagrams of DP, MC and TD are compared in the table below.
 
 | DP Backup      | MC Backup           | TD Backup  |
-|:------------- |:-------------:| :-----:|
-| <img src='/images/tabular_files/dp_backup.png' width="80%"/>      | <img src='/images/tabular_files/mc_backup.png' width="80%"/> | <img src='/images/tabular_files/td_backup.png' width="80%"/> |
+|:-------------: |:-------------:| :-----:|
+| <img src='/images/tabular_files/dp_backup.png' width="100%"/>      | <img src='/images/tabular_files/mc_backup.png' width="100%"/> | <img src='/images/tabular_files/td_backup.png' width="100%"/> |
 
 ### Story so far
 
