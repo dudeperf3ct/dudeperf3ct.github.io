@@ -323,7 +323,7 @@ In DP, all of the estimate values for state where based on the estimates of valu
 
 ### TD Learning
 
-TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses one-step look-ahead updates (bootstrapping) and like MC, TD methods can directly learn from experiences without the model of environment's dynamics. TD methods are preferred over MC in environments where episodes do not terminate. Similar to above trend, we will solve two problem of *prediction* and *control* using TD methods. In TD prediction, given a policy we estimate state-value function or action-value function. In TD control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment. And similar to MC, TD control can be solved using two methods, on-policy or off-policy,
+TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses one-step look-ahead updates (bootstrapping) and like MC, TD methods can directly learn from experiences without the model of environment's dynamics. TD methods are preferred over MC in environments where episodes do not terminate. Similar to above trend, we will solve two problem of *prediction* and *control* using TD methods. In TD prediction, given a policy we estimate state-value function or action-value function. In TD control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment. And similar to MC, TD control can be solved using two methods, on-policy and off-policy.
 
 - TD Prediction
 
@@ -342,7 +342,7 @@ This method is also called TD(0), a special case of TD(\lambda), where instead o
 Without a given model, the goal is find optimal policy by learning state-action values. We consider transitions from state–action pair to state–action pair. An episode consists sequence of state-action pair ($$(S, A)$$), immediate reward($$R$$), next state($$S^{'}$$) and next action($$A^{'}$$), hence the name SARSA. 
 
 <p align="center">
-<img src='/images/tabular_files/sarsa_1.png' width="50%"/>
+<img src='/images/tabular_files/sarsa_1.png' width="60%"/>
 </p>
 
 This seems a lot similar to on-policy MC Control where we wait until the episode terminates to estimate the return but the only difference here is we instead use one-step estimated return. SARA converges $$Q(s, a)$$ to $$q_{*}(s, a)$$.
@@ -374,12 +374,23 @@ This equation seems a lot familiar to Bellman optimality equations we seen above
 
 All of these equations might seem overwhelming. But all these algorithms sort of tell a story. We start with DP, where we are presented with two problems to solve, prediction and control. In DP, we know everything about the environment. We know what actions can be taken from current state with exact probabilties of taking particular action and the next possible states that we can end up in. We use this knowledge of transitions to solve prediction problem by evaluating a given policy by assigning a value(state or action) to a state(or action) equal to expected returns we can get from that state(or action) by following that policy. In control problem, we want to find the optimal policy i.e. what is the best action to take when in a state? We solve the control problem, by evaluating a policy like above and then improving the policy by making the policy greedy with respect to value function obtained in evaluating the policy. We continue this process of evaluation and improvement until policy no longer improves.
 
-Next, we wonder that some environments are not so kind to provide us their inner working instead they provide us only the samples of sequences in form of episodes where each episode eventually terminates. Now instead of full known transitions, we work with samples of experience. In MC, we are required to solve prediction and control problem. In prediction problem, we evaluate a given policy by finding value estimates same as we did in DP. But we use first-visit or every-visit method. Nothing fancy, just we keep track of first visit and update the estimated returns until episode terminates or update the estimated returns from every visit of particular state. This shows that updates have more variance, a lot of noise. But when we move in solving control problem. We follow the same process of evaluating a policy and improving the policy to find optimal policy. To evaluate a given policy, instead of choosing to work with state-value functions for any of methods above (first-visit or every visit) we prefer using action-value function as the model is unknown i.e. if we want to obtain a policy from state-value functions, we need to do one-step look ahead over all states that can be visited from all actions that can be taken and choosing the action with maximum return. On contrary, devising a policy from action-values is just choosing action with maximum action-value. But there is another problem with action-values, not all pairs of (state, action) will be visited. So, to solve that we use $$\epsilon$$-greedy policy instead of greedy policy to encourage exploration. Now armed with these two modifications, we solve the control problem.
+Next, we wonder what to do in case some environments are not so kind to provide us their inner working instead they provide us only the samples of sequences in form of episodes where each episode eventually terminates. Now instead of full known transitions, we work with samples of experience. In MC, we are required to solve prediction and control problem. In prediction problem, we evaluate a given policy by finding value estimates same as we did in DP. But we use first-visit or every-visit method. Nothing fancy, just we keep track of first visit and update the estimated returns until episode terminates or update the estimated returns from every visit of particular state. This shows that updates have more variance, a lot of noise. But when we move in solving control problem. We follow the same process of evaluating a policy and improving the policy to find optimal policy. To evaluate a given policy, instead of choosing to work with state-value functions for any of methods above (first-visit or every visit) we prefer using action-value function as the model is unknown i.e. if we want to obtain a policy from state-value functions, we need to do one-step look ahead over all states that can be visited from all actions that can be taken and choosing the action with maximum return. On contrary, devising a policy from action-values is just choosing action with maximum action-value. But there is another problem with action-values, not all pairs of (state, action) will be visited. So, to solve that we use $$\epsilon$$-greedy policy instead of greedy policy to encourage exploration. Now armed with these two modifications, we solve the control problem.
 
 When we combine DP and MC, learning from boostrapping and experience, we get TD. This is just like MC but instead of estimating returns until the episode terminates, we use one-step return estimate as done in DP. We learn online as we go. Similar to DP and MC, we solve prediction and control problem. In prediction problem, we use estimated returns from one-step instead of waiting till episode terminates as in case of MC. But the updates are more biased and low variance in case of TD, sensitive to initial values. The control problem can be solved in two ways either by on-policy or off-policy methods. In on-policy method, similar to MC control we use action-value updates and $$\epsilon$$-greedy policy but only difference being instead of returns from waiting until episode completes as in MC, we update the estimate based on returns from one-step estimated action-values. In off-policy, we use two policies (target and behaviour) to balance the exploration and exploitation. We make the current action values (chosen from behaviour policy) greedy with respect to maximum return from one-step estimated action values. This action value is chosen from target policy.
 
-We sum up verything we have visited using both the equations and backup diagrams in 3 tables shown below.
+We sum up everything we have visited using both the equations and backup diagrams in 3 tables shown below.
 
+<p align="center">
+<img src='/images/tabular_files/dp.png' width="80%"/>
+</p>
+
+<p align="center">
+<img src='/images/tabular_files/monte_carlo.png' width="80%"/>
+</p>
+
+<p align="center">
+<img src='/images/tabular_files/td_learning.png' width="80%"/>
+</p>
 
 
 
