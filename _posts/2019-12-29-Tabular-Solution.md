@@ -370,11 +370,16 @@ This equation seems a lot familiar to Bellman optimality equations we seen above
 <img src='/images/tabular_files/q_learning.png' width="15%"/>
 </p>
 
+### Backup Diagrams of DP, MC and TD
+
 The backup diagrams of DP, MC and TD are compared in the table below.
 
 | DP Backup      | MC Backup           | TD Backup  |
 |:-------------: |:-------------:| :-----:|
 | <img src='/images/tabular_files/dp_backup.png' width="100%"/>      | <img src='/images/tabular_files/mc_backup.png' width="100%"/> | <img src='/images/tabular_files/td_backup.png' width="100%"/> |
+
+If we compare the backup diagrams of all 3 algorithms, we can easily spot the difference. DP does a full-width shallow backup, MC does a sample deep backups and TD does a sample shallow backups.
+
 
 ### Story so far
 
