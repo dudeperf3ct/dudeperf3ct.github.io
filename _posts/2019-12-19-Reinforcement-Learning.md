@@ -60,7 +60,7 @@ Reinforcement Learning has its root in many fields such as psychology, neuroscie
 
 In subsequent posts, we will study in-depth two types of methods for solving reinforcement learning systems.
 
-- Tabular Solution Methods
+- [Tabular Solution Methods](https://dudeperf3ct.github.io/rl/2019/12/29/Tabular-Solution/)
 - Approximate Solution Methods
 
 We will also use various environment like [OpenAI Gym](https://gym.openai.com/envs/#classic_control), [PyGame Learning Environment](https://pygame-learning-environment.readthedocs.io/en/latest/) and [VizDoom](https://github.com/mwydmuch/ViZDoom). We will also implement RL algorithms in [Deepdrive simulator](https://github.com/deepdrive/deepdrive), [Atari games](https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf) and maybe [DuckieTown](https://www.duckietown.org/research/AI-Driving-olympics) or any other.
