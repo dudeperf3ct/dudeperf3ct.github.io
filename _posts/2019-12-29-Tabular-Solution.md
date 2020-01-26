@@ -85,12 +85,14 @@ Markov Decision Process is a tuple ($$\mathcal{S}$$, $$\mathcal{A}$$, $$\mathcal
 
 ### Bellman Expectation Equation
 
-A Bellman equations, named after Richard E. Bellman are the most fundamental equations in RL to solve the MDPs. Bellman equation deals with two types of problem, prediction and control providing dividing into Bellman expectation equation and Bellman optimality equation. Bellman expectation equation deal with evaluating given policy while Bellman optimality are tasked with finding optimal policy and thus solving the MDP. We use bellman equation to show how current state is related to successive state for both value functions. We can apply this recursive equation for each sequence in each episode of an episodic task.
+A Bellman equations, named after Richard E. Bellman are the most fundamental equations in RL to solve the MDPs. Bellman equation deals with two types of problem, prediction and control solved using Bellman expectation equation and Bellman optimality equation. Bellman expectation equation deal with evaluating given policy while Bellman optimality are tasked with finding optimal policy and thus solving the MDP. We use bellman equation to show how current state is related to successive state for both value functions. We can apply this recursive equation for each sequence in each episode of an episodic task.
 
 - **Returns**
 
 <span class="blue">In RL, we seek to maximise the expected return where the return $$G_{t}$$ is the total discounted reward from time-step $$t$$</span>. 
+
 For episodic tasks, $$G_{t} = R_{t+1} + R_{t+2} ... + R_{T}$$, where T is the terminal state. 
+
 For continuous tasks, $$G_{t} = R_{t+1} + \gamma * R_{t+2} ... + \gamma^{2} * R_{t+3} = \sum_{k=0}^{\infty} \gamma^{k} R_{t+k+1}$$, where $$\gamma$$ is the discount rate. 
 
 The recursive equation of relating return at current time step $$t$$ to next time step $$t+1$$ is given by,
@@ -170,7 +172,7 @@ $$
 
 - **Optimal Policy**
 
-A policy is defined to be better than or equal to a policy $$\pi^{'}$$ if its expected return is greater than or equal to than of $$\pi^{'}$$ for all states. There is always at least one policy ($$\pi_{*}$$) that is better than or equal to all other policies ($$\pi_{*} \geq \pi}\forall \pi$$). This is an optimal policy. There can be more than one optimal policies. All optimal policies achieve optimal state-value function ($$v_{\pi_{*}}(s) = v_{*}(s)$$) and action-value function ($$q_{\pi_{*}}(s, a) = q_{*}(s, a)$$).
+A policy is defined to be better than or equal to a policy $$\pi^{'}$$ if its expected return is greater than or equal to than of $$\pi^{'}$$ for all states. There is always at least one policy ($$\pi_{*}$$) that is better than or equal to all other policies. This is an optimal policy. There can be more than one optimal policies. All optimal policies achieve optimal state-value function ($$v_{\pi_{*}}(s) = v_{*}(s)$$) and action-value function ($$q_{\pi_{*}}(s, a) = q_{*}(s, a)$$).
 
 We can obtain optimal policy directly if we have $$q_{*}(s, a)$$.
 
@@ -208,7 +210,7 @@ The backup diagrams use to represent bellman optimality equation are shown below
 
 <span class="red">Tabular Solutions are preferred method for solving RL problems when state and action space is small. The state functions and action-state functions are represented as tables. For such problems, exact optimal policy and optimal value functions can be found.</span>
 
-There are two ways of solving RL problem either using model-based method or model-free method. Model-based methods require a full knowledge of MDP, we are given an MDP ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$). On other hand, model-free methods do not require full knowledge of MDP, given a policy $$\pi$$ and series of episodes, we use the experience to solve RL prediction and control problem.
+There are two ways of solving RL problem either using model-based method or model-free method. Model-based methods require a full knowledge of MDP, we are given an MDP ($$\mathcal{S}$$, $$\mathcal{A}$$, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$). On other hand, model-free methods do not require full knowledge of MDP, given a policy $$\pi$$ and series of episodes, we use the experience to solve RL prediction and control problem.
 
 ## Model-based methods
 
@@ -243,7 +245,7 @@ where E denotes policy evaluation step and I denotes policy improvement step. Th
 Policy Iteration consists of two process, policy evaluation making value function consistent with current policy and policy improvement making policy greedy with respect to the current value function. <span class='red'>In generalized policy iteration(GPI), we perform continuous iterations of each policy evaluation and policy iteration alternatively.</span> The value function is altered to more closely approximate the value function for the current policy, and the policy is repeatedly improved with respect to the current value function. Eventually both approximate value function and policy converges to optimal value function and optimal policy. 
 
 <p align="center">
-<img src='/images/tabular_files/gpi.png' width="20%" hspace="20"/> 
+<img src='/images/tabular_files/gpi.png' width="20%" hspace="50"/> 
 <img src='/images/tabular_files/gpi_1.png' width="40%"/> 
 </p>
 
@@ -274,13 +276,13 @@ There is another variant of iterative DP algorithms, Asynchronous DP where value
 
 ## Model-free methods
 
-To run model-based methods, we require full knowledge of MDP transitions. But sometimes environment can be unkind, keeping secrets from us. That's when we turn to model-free methods. In model-free methods, we don't have the complete dynamics of the environment. Hence, we interact with the environment to generate episodes of experience. In these methods, the model generates only sample transitions and not complete probability distribution of all possible transitions that is required for DP.
+To run model-based methods, we require full knowledge of MDP transitions. But sometimes environment can be unkind, keeping secrets from us. That's when we turn to model-free methods. <span class="blue">In model-free methods, we don't have the complete dynamics of the environment. Hence, we interact with the environment to generate episodes of experience.</span> In these methods, the model generates only sample transitions and not complete probability distribution of all possible transitions that is required for DP.
 
 ### Monte Carlo 
 
 <span class="red">MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*).</span> As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*. In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
 
-There are two ways to solve MC control problem either *on-policy* or *off-policy*. For on-policy method, we estimate $$v_{\pi}$$ (or $$q_{\pi}$$) for the current behaviour policy $$\pi$$. For off-policy method, given two polices $$\pi$$ and $$b$$ we estimate $$v_{\pi}$$ (or $$q_{\pi}$$) but all we have are episodes following from policy $$b$$. The policy being learned about $$pi$$ is called *target policy*. The policy used to generate behaviour $$b$$ is called *behaviour policy*.
+There are two ways to solve MC control problem either *on-policy* or *off-policy*. For on-policy method, we estimate $$v_{\pi}$$ (or $$q_{\pi}$$) for the current behaviour policy $$\pi$$. For off-policy method, given two polices $$\pi$$ and $$b$$ we estimate $$v_{\pi}$$ (or $$q_{\pi}$$) but all we have are episodes following from policy $$b$$. The policy being learned about $$\pi$$ is called *target policy*. The policy used to generate behaviour $$b$$ is called *behaviour policy*.
 
 - **First Visit**
 
@@ -312,6 +314,7 @@ $$
 $$
 
 <span class="blue">But there is a problem of exploration in dealing with action values. Many state–action pairs may never be visited.</span> If our policy is deterministic policy, then in following that policy one will observe returns only for one of the actions from each state. The purpose of learning action values is to help in choosing among the actions available in each state. To solve this issue, we use a stochastic policy to ensure continual exploration. In $$\epsilon$$-greedy policy, most of the time they choose an action that has maximum estimated action value, but with probability $$\epsilon$$ they instead select an action at random.
+
 $$
 \begin{aligned}
 \pi(a \vert s) = 
@@ -322,7 +325,9 @@ $$
 \end{aligned}
 $$
 
-where $$m$$ is all actions tried with non-zero probability. We have a $$\epsilon$$-soft policy of choosing greedy action with probability $$1-\epsilon$$ and choosing an action at random with probability $$\epsilon$$. In on-policy, we continually estimate $$q_{\pi}$$ for current behaviour policy $$\pi$$ and at the same time make the policy $$\pi$$ greedy with respect to $$q_{\pi}$$.
+where $$m$$ is all actions tried with non-zero probability. 
+
+We have a $$\epsilon$$-soft policy of choosing greedy action with probability $$1-\epsilon$$ and choosing an action at random with probability $$\epsilon$$. In on-policy, we continually estimate $$q_{\pi}$$ for current behaviour policy $$\pi$$ and at the same time make the policy $$\pi$$ greedy with respect to $$q_{\pi}$$.
 
 - **Off-policy MC Control**
 
