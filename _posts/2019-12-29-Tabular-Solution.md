@@ -12,7 +12,7 @@ published : true
 # Tabular Solution Methods
 
 
-> All the codes implemented in Jupyter notebook in [DP](), [MC]() and [TD]().
+> All the codes implemented in Jupyter notebook [DP](), [MC]() and [TD]().
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
