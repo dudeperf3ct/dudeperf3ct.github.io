@@ -4,7 +4,7 @@ title:      Tabular Solution Methods
 date:       2019-12-29 12:00:00
 summary:    In this part 1 of series on RL post, we will look into different ways we can solve RL problem using tabular methods.
 categories: rl
-published : false
+published : true
 
 ---
 
@@ -44,9 +44,9 @@ Before diving deep into Tabular RL methods used to solve RL problems, we will vi
 
 ### Markov Process
 
-<span color="blue">In Markov processes, the states captures all relevant information from the past agent–environment interaction.</span> These states are said to have Markov property. The states with Markov property are memoryless. For e.g we can predict the next move on chess board given any configuration of the board i.e. all that matter to predict the next move is the current state. It doesn't matter how we got there. The current state is a sufficient statistic of the future.
+<span class="blue">In Markov processes, the states captures all relevant information from the past agent–environment interaction.</span> These states are said to have Markov property. The states with Markov property are memoryless. For e.g we can predict the next move on chess board given any configuration of the board i.e. all that matter to predict the next move is the current state. It doesn't matter how we got there. The current state is a sufficient statistic of the future.
 
-> The future is independent of the past given the present.
+> <span class="purple">The future is independent of the past given the present.</span>
 
 $$
 \begin{aligned}
@@ -62,7 +62,7 @@ Markov Process(or Markov Chain) is a tuple ($$\mathcal{S}$$, $$\mathcal{P}$$),
 
 ### Markov Reward Process
 
-<span color="blue">A Markov reward process is a Markov chain with values.</span> In Markov reward processes, each transition is associated with a reward. The agent-environment interaction can be episodic i.e. broken into episodes, terminating after ending up in a terminal state or continuous, in which the interaction does not naturally break into episodes but continues without limit. That is why we introduce a discounted delayed reward. If $$\gamma$$ = 0, we get a myopic agent concerned only with maximising immediate rewards and $$\gamma$$ = 1, we get a far-sighted agent which takes future rewards into account more strongly.
+<span class="blue">A Markov reward process is a Markov chain with values.</span> In Markov reward processes, each transition is associated with a reward. The agent-environment interaction can be episodic i.e. broken into episodes, terminating after ending up in a terminal state or continuous in which the interaction does not naturally break into episodes but continues without limit. That is why we, introduce a discounted delayed reward. If $$\gamma$$ = 0, we get a myopic agent concerned only with maximising immediate rewards and $$\gamma$$ = 1, we get a far-sighted agent which takes future rewards into account more strongly.
 
 Markov Reward Process is a tuple ($$\mathcal{S}$$, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$),
 
@@ -73,9 +73,9 @@ Markov Reward Process is a tuple ($$\mathcal{S}$$, $$\mathcal{P}$$, $$\mathcal{R
 
 ### Markov Decision Process
 
-<span color="blue">A Markov decision process (MDP) is a Markov reward process with decisions.</span> Markov decision process(MDP) is used to describe an environment in reinforcement learning. In MDPs, we are concerned with selecting different action associated with every state. The environment responds with a new state and reward for choosing a particular action when in a given particular state. Almost all RL problems can be formalised as MDPs.
+<span class="blue">A Markov decision process (MDP) is a Markov reward process with decisions.</span> Markov decision process(MDP) is used to describe an environment in reinforcement learning. In MDPs, we are concerned with selecting different action associated with every state. The environment responds with a new state and reward for choosing a particular action when in a given particular state. Almost all RL problems can be formalised as MDPs.
 
-Markov Decision Process is a tuple ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$),
+Markov Decision Process is a tuple ($$\mathcal{S}$$, $$\mathcal{A}$$, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$),
 
 - $$\mathcal{S}$$ is a (finite) set of states
 - $$\mathcal{A}$$ is a (finite) set of actions
@@ -89,7 +89,9 @@ A Bellman equations, named after Richard E. Bellman are the most fundamental equ
 
 - **Returns**
 
-<span color="blue">In RL, we seek to maximise the expected return where the return $$G_{t}$$ is the total discounted reward from time-step $$t$$</span>. For episodic tasks, $$G_{t} = R_{t+1} + R_{t+2} ... + R_{T}$$, where T is the terminal state. For continuous tasks, $$G_{t} = R_{t+1} + \gamma * R_{t+2} ... + \gamma^{2} * R{t+3} = \sum_{k=0}^{\inf} \gamma^{k} R_{t+k+1}$$, where $$\gamma$$ is the discount rate. 
+<span class="blue">In RL, we seek to maximise the expected return where the return $$G_{t}$$ is the total discounted reward from time-step $$t$$</span>. 
+For episodic tasks, $$G_{t} = R_{t+1} + R_{t+2} ... + R_{T}$$, where T is the terminal state. 
+For continuous tasks, $$G_{t} = R_{t+1} + \gamma * R_{t+2} ... + \gamma^{2} * R_{t+3} = \sum_{k=0}^{\infty} \gamma^{k} R_{t+k+1}$$, where $$\gamma$$ is the discount rate. 
 
 The recursive equation of relating return at current time step $$t$$ to next time step $$t+1$$ is given by,
 
@@ -102,7 +104,7 @@ $$
 
 - **Value Functions**
 
-Almost all reinforcement learning algorithms involve estimating value functions. <span color="blue">Value functions determine how good is it to be in a particular state (state-value function) or how good is to take a particular action in given state (action-value function).</span> The state-value function and action-value function are related by the following equation, 
+Almost all reinforcement learning algorithms involve estimating value functions. <span class="blue">Value functions determine how good is it to be in a particular state (state-value function) or how good is to take a particular action in given state (action-value function).</span> The state-value function and action-value function are related by the following equation, 
 
 $$
 \begin{aligned}
@@ -112,7 +114,8 @@ $$
 
 **State-value function**
 
-<span color="blue">The state-value function of an MDP is expected return starting from state $s$, and then following policy $\pi$.</span>
+<span class="blue">The state-value function of an MDP is expected return starting from state $$s$$, and then following policy $$\pi$$.</span>
+
 $$
 \begin{aligned}
 v_{\pi}(s) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s]\\
@@ -121,11 +124,14 @@ v_{\pi}(s) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s]\\
 \end{aligned}
 $$
 
-This equation is Bellman equation for $$v_{\pi}$$. When in state $$s$$, an agent takes an action $$a$$ based on its policy $$\pi$$. The environment could respond with one of several next states $$s^{'}$$, along with immediate reward $$r$$. Bellman equation averages over all the possibilities, weighting each by its probability of occurring. It expresses a relationship between the value of a state and the values of its successor states.
+This equation is Bellman equation for $$v_{\pi}$$. When in state $$s$$, an agent takes an action $$a$$ based on its policy $$\pi$$. The environment responds with one of several next states $$s^{'}$$ along with immediate reward $$r$$. 
+
+Bellman equation averages over all the possibilities, weighting each by its probability of occurring. It expresses a relationship between the value of a state and the values of its successor states.
 
 **Action-value function**
 
-<span color="blue">The action-value function of an MDP is expected return starting from state $s$, taking action $a$ and then following policy $\pi$.</span>
+<span class="blue">The action-value function of an MDP is expected return starting from state $$s$$, taking action $$a$$ and then following policy $$\pi$$.</span>
+
 $$
 \begin{aligned}
 q_{\pi}(s, a) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s, A_{t} = a]\\
@@ -134,16 +140,16 @@ q_{\pi}(s, a) &= \mathbb{E}_{\pi}[G_{t} \vert S_{t} = s, A_{t} = a]\\
 \end{aligned}
 $$
 
-This equation is Bellman equation for $$q_{\pi}$$. When in state $$s$$ and taking an action $$a$$ based on its policy $$\pi$$. The environment could respond by sending agent to one of the several next states $$s^{'}$$ that an agent can end up in, along with immediate reward $$r$$. 
-
+This equation is Bellman equation for $$q_{\pi}$$. When in state $$s$$ and taking an action $$a$$ based on its policy $$\pi$$. The environment responds by sending agent to one of the several next states $$s^{'}$$ that an agent can end up in, along with immediate reward $$r$$. 
 
 ### Bellman Optimality Equation
 
-Bellman Optimality Equation is based on the principal of optimality where an optimal policy has the property that whatever the initial state and initial decision are, the remaining decision must constitute an optimal policy with regard to the state resulting from the fist decision. Using bellman optimality equations, we find optimal way to solve any given MDP environment.
+Bellman Optimality Equation is based on the principle of optimality where an optimal policy has the property that whatever the initial state and initial decision are, the remaining decision must constitute an optimal policy with regard to the state resulting from the fist decision. Using bellman optimality equations, we find optimal way to solve any given MDP environment.
 
 - **Optimal State-value Function**
 
-<span color="blue">The optimal state-value function $v_{*}(s)$ is the maximum state-value function over all policies.</span>
+<span class="blue">The optimal state-value function $$v_{*}(s)$$ is the maximum state-value function over all policies.</span>
+
 $$
 \begin{aligned}
 v_{*}(s) &= max_{\pi}v_{\pi}(s)\\
@@ -153,7 +159,8 @@ $$
 
 - **Optimal Action-value Function**
 
-<span color="blue">The optimal action-value function $q_{*}(s, a)$ is the maximum action-value function over all policies.</span>
+<span class="blue">The optimal action-value function $$q_{*}(s, a)$$ is the maximum action-value function over all policies.</span>
+
 $$
 \begin{aligned}
 q_{*}(s, a) &= max_{\pi}q_{\pi}(s, a)\\
@@ -163,7 +170,7 @@ $$
 
 - **Optimal Policy**
 
-A policy is defined to be better than or equal to a policy $$\pi^{'}$$ if its expected return is greater than or equal to than of $$\pi^{'}$$ for all states. There is always at least one policy ($$\pi_{*}$$) that is better than or equal to all other policies ($$\pi_{*} \ge \pi}\forall \pi$$). This is an optimal policy. There can be more than one optimal policies. All optimal policies achieve optimal state-value function ($$v_{\pi_{*}}(s) = v_{*}(s)$$) and action-value function ($$q_{\pi_{*}}(s, a) = q_{*}(s, a)$$).
+A policy is defined to be better than or equal to a policy $$\pi^{'}$$ if its expected return is greater than or equal to than of $$\pi^{'}$$ for all states. There is always at least one policy ($$\pi_{*}$$) that is better than or equal to all other policies ($$\pi_{*} \geq \pi}\forall \pi$$). This is an optimal policy. There can be more than one optimal policies. All optimal policies achieve optimal state-value function ($$v_{\pi_{*}}(s) = v_{*}(s)$$) and action-value function ($$q_{\pi_{*}}(s, a) = q_{*}(s, a)$$).
 
 We can obtain optimal policy directly if we have $$q_{*}(s, a)$$.
 
@@ -180,7 +187,7 @@ $$
 
 ### Backup Diagrams
 
-Backup diagrams are used to present the transitions of states and actions for an agent graphically. We call such diagrams backup diagrams because we are updating the state(or action) values for current state using the next state(or action). It's as if we are updating the information backwards from next state to current state.
+<span class="blue">Backup diagrams are used to present the transitions of states and actions for an agent graphically. We call such diagrams backup diagrams because we are updating the state(or action) values for current state using the next state(or action). It's as if we are updating the information backwards from next state to current state.</span>
 
 We can represent bellman expectation equation using backup diagram shown below and they provide a simple picture as to what the equation means.
 
@@ -199,7 +206,7 @@ The backup diagrams use to represent bellman optimality equation are shown below
 
 # Tabular Solution Methods
 
-<span color="red">Tabular Solutions are preferred method for solving RL problems when state and action space is small. The state functions and action-state functions are represented as tables. For such problems, exact optimal policy and optimal value functions can be found.</span>
+<span class="red">Tabular Solutions are preferred method for solving RL problems when state and action space is small. The state functions and action-state functions are represented as tables. For such problems, exact optimal policy and optimal value functions can be found.</span>
 
 There are two ways of solving RL problem either using model-based method or model-free method. Model-based methods require a full knowledge of MDP, we are given an MDP ($$\mathcal{S}$$, $$\mathcal{A}$$,, $$\mathcal{P}$$, $$\mathcal{R}$$, $$\gamma$$). On other hand, model-free methods do not require full knowledge of MDP, given a policy $$\pi$$ and series of episodes, we use the experience to solve RL prediction and control problem.
 
@@ -213,7 +220,8 @@ Dynamic programming is about breaking the overall goal into sub-goal and solving
 
 - **Policy Evaluation**
 
-<span color='red'>In policy evaluation, given a MDP and policy we evaluate a policy by updating value function of states iteratively until convergence</span> i.e, we apply Bellman expectation equation for state-value function iteratively. We initialise $$v_{1}$$ to be 0 and update value functions $$v_{1},v_{2},...,v_{k}$$ for certain iterations k, such that $$\vert v_{k}-v_{k-1} \vert$$ does not exceed some predefined threshold. 
+<span class='red'>In policy evaluation, given a MDP and policy we evaluate a policy by updating value function of states iteratively until convergence</span> i.e, we apply Bellman expectation equation for state-value function iteratively. We initialise $$v_{1}$$ to be 0 and update value functions $$v_{1},v_{2},...,v_{k}$$ for certain iterations k, such that $$\vert v_{k}-v_{k-1} \vert$$ does not exceed some predefined threshold. 
+
 $$
 \begin{aligned}
 v_{k+1}(s) &= \sum_{a \in \mathcal{A}}\pi(a \vert s)[\mathcal{R}_{s}^{a} + \gamma \sum_{s^{'} \in S}\mathcal{P}_{ss^{'}}^{a}v_{k}(s^{'})]\\
@@ -222,20 +230,20 @@ $$
 
 - **Policy Iteration**
 
-<span color='red'>Policy iteration consists of 2 steps. Given a policy, we evaluate given policy using policy evaluation from above and we act greedy with respect to value function obtained in policy evaluation step to get a improved policy. This step is called policy improvement step.</span> We repeat these 2 steps until policy converges i.e there is no change in old and new improved policy.
+<span class='red'>Policy iteration consists of 2 steps. Given a policy, we evaluate given policy using policy evaluation from above and we act greedy with respect to value function obtained in policy evaluation step to get a improved policy. This step is called policy improvement step.</span> We repeat these 2 steps until policy converges i.e there is no change in old and new improved policy.
 
 <p align="center">
-<img src='/images/tabular_files/p_improve.png' width="50%"/> 
+<img src='/images/tabular_files/p_improve.png' width="70%"/> 
 </p>
 
 where E denotes policy evaluation step and I denotes policy improvement step. This method converges to optimal value function ($$v_{*}$$) and optimal policy ($$\pi_{*}$$) in a finite number of iterations for a finite MDP. At convergence, we satisfy Bellman optimality equation for both policy and value function.
 
 - **Generalized Policy Iteration**
 
-Policy Iteration consists of two process, policy evaluation making value function consistent with current policy and policy improvement making policy greedy with respect to the current value function. <span color='red'>In generalized policy iteration(GPI), we perform continuous iterations of each policy evaluation and policy iteration alternatively.</span> The value function is altered to more closely approximate the value function for the current policy, and the policy is repeatedly improved with respect to the current value function. Eventually both approximate value function and policy converges to optimal value function and optimal policy. 
+Policy Iteration consists of two process, policy evaluation making value function consistent with current policy and policy improvement making policy greedy with respect to the current value function. <span class='red'>In generalized policy iteration(GPI), we perform continuous iterations of each policy evaluation and policy iteration alternatively.</span> The value function is altered to more closely approximate the value function for the current policy, and the policy is repeatedly improved with respect to the current value function. Eventually both approximate value function and policy converges to optimal value function and optimal policy. 
 
 <p align="center">
-<img src='/images/tabular_files/gpi.png' width="20%" hspace=50/> 
+<img src='/images/tabular_files/gpi.png' width="20%" hspace="20"/> 
 <img src='/images/tabular_files/gpi_1.png' width="40%"/> 
 </p>
 
@@ -261,8 +269,7 @@ There is another variant of iterative DP algorithms, Asynchronous DP where value
 | Control    | Bellman Expectation Equation + Greedy Policy Improvement |      Policy Iteration       |
 | Control    |               Bellman Optimality Equation                |       Value Iteration       |
 
-<span color="red">In DP, all of the estimate values for state where based on the estimates of values of successor states. In RL, this idea is called *bootstrapping*.</span>
-
+<span class="red">In DP, all of the estimate values for state where based on the estimates of values of successor states. In RL, this idea is called *bootstrapping*.</span>
 
 
 ## Model-free methods
@@ -271,7 +278,7 @@ To run model-based methods, we require full knowledge of MDP transitions. But so
 
 ### Monte Carlo 
 
-<span color="red">MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*).</span> As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*. In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
+<span class="red">MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*).</span> As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*. In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
 
 There are two ways to solve MC control problem either *on-policy* or *off-policy*. For on-policy method, we estimate $$v_{\pi}$$ (or $$q_{\pi}$$) for the current behaviour policy $$\pi$$. For off-policy method, given two polices $$\pi$$ and $$b$$ we estimate $$v_{\pi}$$ (or $$q_{\pi}$$) but all we have are episodes following from policy $$b$$. The policy being learned about $$pi$$ is called *target policy*. The policy used to generate behaviour $$b$$ is called *behaviour policy*.
 
@@ -295,7 +302,7 @@ Another variant of first visit is *every visit*. There can be multiple times sta
 
 > On-policy learning is like "learning on the job".
 
-In DP, we saw that we can find optimal policy by using GPI. Similarly in MC, we use the same process for finding optimal policy. But one problem in MC control is that we don't have a model of MDP. For value function policy evaluation methods from above either first visit or every visit method can be used to evaluate current policy. But when policy needs to be improved, we are expected to have transition probabilities over all actions from current state in choosing best action such that after taking one step using that action from current state and ending up in next state that will provide maximum returns. <span color='blue'>This is the reason why we prefer using action-values over state-values when dynamics of environment is not known.</span> The policy for action action values is taking the action with maximum action value. 
+In DP, we saw that we can find optimal policy by using GPI. Similarly in MC, we use the same process for finding optimal policy. But one problem in MC control is that we don't have a model of MDP. For value function policy evaluation methods from above either first visit or every visit method can be used to evaluate current policy. But when policy needs to be improved, we are expected to have transition probabilities over all actions from current state in choosing best action such that after taking one step using that action from current state and ending up in next state that will provide maximum returns. <span class='blue'>This is the reason why we prefer using action-values over state-values when dynamics of environment is not known.</span> The policy for action action values is taking the action with maximum action value. 
 
 $$
 \begin{aligned}
@@ -304,7 +311,7 @@ $$
 \end{aligned}
 $$
 
-<span color="blue">But there is a problem of exploration in dealing with action values. Many state–action pairs may never be visited.</span> If our policy is deterministic policy, then in following that policy one will observe returns only for one of the actions from each state. The purpose of learning action values is to help in choosing among the actions available in each state. To solve this issue, we use a stochastic policy to ensure continual exploration. In $$\epsilon$$-greedy policy, most of the time they choose an action that has maximum estimated action value, but with probability $$\epsilon$$ they instead select an action at random.
+<span class="blue">But there is a problem of exploration in dealing with action values. Many state–action pairs may never be visited.</span> If our policy is deterministic policy, then in following that policy one will observe returns only for one of the actions from each state. The purpose of learning action values is to help in choosing among the actions available in each state. To solve this issue, we use a stochastic policy to ensure continual exploration. In $$\epsilon$$-greedy policy, most of the time they choose an action that has maximum estimated action value, but with probability $$\epsilon$$ they instead select an action at random.
 $$
 \begin{aligned}
 \pi(a \vert s) = 
@@ -325,7 +332,7 @@ As observed in MC control, there is a trade-off between exploration and exploita
 
 ### TD Learning
 
-<span color="saddlebrown">TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses one-step look-ahead updates (bootstrapping) and like MC, TD methods can directly learn from experiences without the model of environment's dynamics.</span> TD methods are preferred over MC in environments where episodes do not terminate. Similar to above trend, we will solve two problem of *prediction* and *control* using TD methods. In TD prediction, given a policy we estimate state-value function or action-value function. In TD control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment. And similar to MC, TD control can be solved using two methods, on-policy and off-policy.
+<span class="saddlebrown">TD Learning is a combination of ideas from DP and MC. Like DP, TD learning uses one-step look-ahead updates (bootstrapping) and like MC, TD methods can directly learn from experiences without the model of environment's dynamics.</span> TD methods are preferred over MC in environments where episodes do not terminate. Similar to above trend, we will solve two problem of *prediction* and *control* using TD methods. In TD prediction, given a policy we estimate state-value function or action-value function. In TD control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment. And similar to MC, TD control can be solved using two methods, on-policy and off-policy.
 
 - **TD Prediction**
 
@@ -337,7 +344,7 @@ V(s_{t}) &= V(s_{t}) + \alpha [R_{t+1} + \gamma V(s_{t+1}) - V(s_{t})]\\
 \end{aligned}
 $$
 
-This method is also called TD(0), a special case of TD(\lambda), where instead of one-step returns, we use $$(\lambda+1)$$-step returns to estimate the state-value function. <span color="blue">TD methods are more biased towards next estimate than MC methods. They are more sensitive to initial values. There is less noise (variance) as compared to MC methods, where we take into consideration all the rewards until the episode terminates.</span>
+This method is also called TD(0), a special case of TD($$\lambda$$), where instead of one-step returns, we use $$(\lambda+1)$$-step returns to estimate the state-value function. <span class="blue">TD methods are more biased towards next estimate than MC methods. They are more sensitive to initial values. There is less noise (variance) as compared to MC methods, where we take into consideration all the rewards until the episode terminates.</span>
 
 - **SARSA : On-policy TD Control**
 
@@ -380,7 +387,7 @@ The backup diagrams of DP, MC and TD are compared in the table below.
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img src='/images/tabular_files/dp_backup.png' width="100%"/> | <img src='/images/tabular_files/mc_backup.png' width="100%"/> | <img src='/images/tabular_files/td_backup.png' width="100%"/> |
 
-If we compare the backup diagrams of all 3 algorithms, we can easily spot the difference. <span color="orange">DP does a full-width shallow backup, MC does a sample deep backups and TD does a sample shallow backups.</span>
+If we compare the backup diagrams of all 3 algorithms, we can easily spot the difference. <span class="orange">DP does a full-width shallow backup, MC does a sample deep backups and TD does a sample shallow backups.</span>
 
 
 ### Story so far
