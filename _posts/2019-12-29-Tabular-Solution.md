@@ -286,7 +286,7 @@ There are two ways to solve MC control problem either *on-policy* or *off-policy
 
 - **First Visit**
 
-As seen in policy evaluation method, we wish to estimate $$v_{\pi}(s)$$, given a set of episodes obtained by following $$\pi$$ and passing through $$s$$. Each occurrence of state $$s$$ in an episode is called a *visit* to $$s$$. With a model of MDP, we can estimate policy from values of states (taking one step and choose action that leads to the best combination of reward and next state). In first visit method, we estimate $$v_{\pi}(s)$$ as the average of the returns following *first visits* to $$s$$.
+As seen in policy evaluation method, we wish to estimate $$v_{\pi}(s)$$, given a set of episodes obtained by following $$\pi$$ and passing through $$s$$. <span class="blue">Each occurrence of state $$s$$ in an episode is called a *visit* to $$s$$.</span> With a model of MDP, we can estimate policy from values of states (taking one step and choose action that leads to the best combination of reward and next state). In first visit method, we estimate $$v_{\pi}(s)$$ as the average of the returns following *first visits* to $$s$$.
 
 $$
 \begin{aligned}
@@ -302,9 +302,9 @@ Another variant of first visit is *every visit*. There can be multiple times sta
 
 - **On-policy MC Control**
 
-> On-policy learning is like "learning on the job".
+> <span class="purple">On-policy learning is like "learning on the job".</span>
 
-In DP, we saw that we can find optimal policy by using GPI. Similarly in MC, we use the same process for finding optimal policy. But one problem in MC control is that we don't have a model of MDP. For value function policy evaluation methods from above either first visit or every visit method can be used to evaluate current policy. But when policy needs to be improved, we are expected to have transition probabilities over all actions from current state in choosing best action such that after taking one step using that action from current state and ending up in next state that will provide maximum returns. <span class='blue'>This is the reason why we prefer using action-values over state-values when dynamics of environment is not known.</span> The policy for action action values is taking the action with maximum action value. 
+In DP we saw that we can find optimal policy by using GPI. Similarly in MC, we use the same process for finding optimal policy. <span class="red">But one problem in MC control is that we don't have a model of MDP.</span> For value function policy evaluation methods from above either first visit or every visit method can be used to evaluate current policy. But when policy needs to be improved, we are expected to have transition probabilities over all actions from current state in choosing best action such that after taking one step using that action from current state and ending up in next state that will provide maximum returns. <span class='blue'>This is the reason why we prefer using action-values over state-values when dynamics of environment is not known.</span> The policy for action action values is taking the action with maximum action value. 
 
 $$
 \begin{aligned}
@@ -331,7 +331,7 @@ We have a $$\epsilon$$-soft policy of choosing greedy action with probability $$
 
 - **Off-policy MC Control**
 
->  Off-policy learning is like "learning from looking over someone's shoulder".
+> <span class="purple">Off-policy learning is like "learning from looking over someone's shoulder".</span>
 
 As observed in MC control, there is a trade-off between exploration and exploitation. The on-policy MC solves the problem of exploration by using $$\epsilon$$-greedy policy. In off-policy, we use two policies. One policy that is learn about and becomes optimal policy called target policy. One that is more exploratory and is used to generate behaviour called behaviour policy. MC uses importance sampling which we will explore in Extras blog (*yet to be written*).
 
@@ -341,7 +341,7 @@ As observed in MC control, there is a trade-off between exploration and exploita
 
 - **TD Prediction**
 
-Similar to MC, we use experiences to solve prediction problem. MC methods uses return to estimate the value of state and wait until the episode terminates to update the state value. TD on other hand updates its value towards one-step estimated return ($$R_{t+1} + \gamma V(s_{t+1})$$). This is called TD target. $$R_{t+1} + \gamma V(s_{t+1}) - V(s_{t})$$ is called TD error as it measures the difference between the estimated value of $$s_{t}$$ ($$V(s_{t})$$) and the better estimate $$R_{t+1} + \gamma V(s_{t+1})$$. This learning a guess from a guess is known as bootstrapping. TD combines bootstrapping of DP with sampling of MC. For any fixed policy, $$V$$ converges to $$v_{\pi}$$. 
+Similar to MC, we use experiences to solve prediction problem. MC methods uses return to estimate the value of state and wait until the episode terminates to update the state value. TD on other hand updates its value towards one-step estimated return ($$R_{t+1} + \gamma V(s_{t+1})$$). This is called <span class="blue">TD target</span>. $$R_{t+1} + \gamma V(s_{t+1}) - V(s_{t})$$ is called <span class="blue">TD error</span> as it measures the difference between the estimated value of $$s_{t}$$ ($$V(s_{t})$$) and the better estimate $$R_{t+1} + \gamma V(s_{t+1})$$. <span class="blue">This learning a guess from a guess is known as bootstrapping. TD combines bootstrapping of DP with sampling of MC.</span> For any fixed policy, $$V$$ converges to $$v_{\pi}$$. 
 
 $$
 \begin{aligned}
@@ -359,7 +359,7 @@ Without a given model, the goal is find optimal policy by learning state-action 
 <img src='/images/tabular_files/sarsa_1.png' width="60%"/>
 </p>
 
-This seems a lot similar to on-policy MC Control where we wait until the episode terminates to estimate the return but the only difference here is we instead use one-step estimated return. SARA converges $$Q(s, a)$$ to $$q_{*}(s, a)$$.
+This seems a lot similar to on-policy MC Control where we wait until the episode terminates to estimate the return. But the only difference here is that we instead bootstrap to one-step estimated return. SARA converges $$Q(s, a)$$ to $$q_{*}(s, a)$$.
 
 $$
 \begin{aligned}
