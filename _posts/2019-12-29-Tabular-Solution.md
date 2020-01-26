@@ -25,7 +25,8 @@ Feel free to jump anywhere,
   - [Markov Reward Process](#markov-reward-process)
   - [Markov Decision Process](#markov-decision-process)
   - [Bellman Expectation Equation](#bellman-expectation-equation)
-  - [Bellman Optimality Equation](#bellman-optimiality-equation)  
+  - [Bellman Optimality Equation](#bellman-optimiality-equation)
+  - [Backup Diagrams](#backup-diagrams)
 - [Tabular Solution Methods](#tabular-solution-methods)
   - [Dynamic Programming](#dynamic-programming)
   - [Monte-Carlo](#monte-carlo)
@@ -262,14 +263,13 @@ There is another variant of iterative DP algorithms, Asynchronous DP where value
 
 ## Model-free methods
 
-To run model-based methods, we require full knowledge of MDP transitions. But sometimes environment can be unkind, keeping secrets from us. That's when we turn to model-free methods. In model-free methods, we don't have the complete dynamics of the environment. Hence, we interact with the environment to generate episodes of experience. In these methods, the model generates only sample transitions, not complete probability distribution of all possible transitions that is required for DP.
+To run model-based methods, we require full knowledge of MDP transitions. But sometimes environment can be unkind, keeping secrets from us. That's when we turn to model-free methods. In model-free methods, we don't have the complete dynamics of the environment. Hence, we interact with the environment to generate episodes of experience. In these methods, the model generates only sample transitions and not complete probability distribution of all possible transitions that is required for DP.
 
 ### Monte Carlo 
 
 <span color="red">MC uses *experiences*, sample of sequences of states, actions, and rewards to estimate the average sample returns (*not expected returns as seen in DP*).</span> As more returns are observed, the average should converge to the expected value. MC methods works only for episodic tasks. Each episode contains experiences and each episode eventually terminates. Only on the completion of an episode are value estimates and policies changed. This shows that MC methods are incremental learning methods, episode-by-episode sense but not in a step-by-step (online) sense. In MC like DP, we solve two problems of *prediction* and *control*. In MC prediction, given a policy we estimate state-value function or action-value function. In MC control, the goal is to find approximate optimal policy for an unknown MDP environment or a very large MDP environment.
 
 There are two ways to solve MC control problem either *on-policy* or *off-policy*. For on-policy method, we estimate $$v_{\pi}$$ (or $$q_{\pi}$$) for the current behaviour policy $$\pi$$. For off-policy method, given two polices $$\pi$$ and $$b$$ we estimate $$v_{\pi}$$ (or $$q_{\pi}$$) but all we have are episodes following from policy $$b$$. The policy being learned about $$pi$$ is called *target policy*. The policy used to generate behaviour $$b$$ is called *behaviour policy*.
-
 
 - **First Visit**
 
@@ -294,7 +294,10 @@ Another variant of first visit is *every visit*. There can be multiple times sta
 In DP, we saw that we can find optimal policy by using GPI. Similarly in MC, we use the same process for finding optimal policy. But one problem in MC control is that we don't have a model of MDP. For value function policy evaluation methods from above either first visit or every visit method can be used to evaluate current policy. But when policy needs to be improved, we are expected to have transition probabilities over all actions from current state in choosing best action such that after taking one step using that action from current state and ending up in next state that will provide maximum returns. <span color='blue'>This is the reason why we prefer using action-values over state-values when dynamics of environment is not known.</span> The policy for action action values is taking the action with maximum action value. 
 
 $$
-\begin{aligned}\pi^{'}(s) &= argmax_{a \in \mathcal{A}}[R^{a}_{s} + P^{a}_{ss^{'}}V(s^{'})]\\&= argmax_{a \in \mathcal{A}}[Q(s, a)]\\\end{aligned}
+\begin{aligned}
+\pi^{'}(s) &= argmax_{a \in \mathcal{A}}[R^{a}_{s} + P^{a}_{ss^{'}}V(s^{'})]\\
+&= argmax_{a \in \mathcal{A}}[Q(s, a)]\\
+\end{aligned}
 $$
 
 <span color="blue">But there is a problem of exploration in dealing with action values. Many state–action pairs may never be visited.</span> If our policy is deterministic policy, then in following that policy one will observe returns only for one of the actions from each state. The purpose of learning action values is to help in choosing among the actions available in each state. To solve this issue, we use a stochastic policy to ensure continual exploration. In $$\epsilon$$-greedy policy, most of the time they choose an action that has maximum estimated action value, but with probability $$\epsilon$$ they instead select an action at random.
@@ -384,6 +387,8 @@ Next, we wonder what to do in case some environments are not so kind to provide 
 
 When we combine DP and MC, learning from bootstrapping and experience, we get TD. This is just like MC but instead of estimating returns until the episode terminates, we use one-step return estimate as done in DP. We learn online as we go. Similar to DP and MC, we solve prediction and control problem. In prediction problem, we use estimated returns from one-step instead of waiting till episode terminates as in case of MC. But the updates are more biased and low variance in case of TD, sensitive to initial values. The control problem can be solved in two ways either by on-policy or off-policy methods. In on-policy method, similar to MC control we use action-value updates and $$\epsilon$$-greedy policy but only difference being instead of returns from waiting until episode completes as in MC, we update the estimate based on returns from one-step estimated action-values. In off-policy, we use two policies (target and behaviour) to balance the exploration and exploitation. We make the current action values (chosen from behaviour policy) greedy with respect to maximum return from one-step estimated action values. This action value is chosen from target policy.
 
+Another line of thought is, is there any way to get best of both worlds (MC and TD)? This is where n-step TD methods where we unify both TD and MC methods. But that's a subject to be discussed in future Extras post(*yet to be written*).
+
 We sum up everything we have visited using both the equations and backup diagrams in 3 tables shown below.
 
 <p align="center">
@@ -399,9 +404,7 @@ We sum up everything we have visited using both the equations and backup diagram
 </p>
 
 
-
-
-In next post, we will look into some of ways we can avoid keep large tables of action-values and state-values for solving the prediction and control problems of various RL algorithms.
+In next post, we will look into some of the ways we can avoid keeping large tables of action-values and state-values for solving the prediction and control problems of various RL algorithms.
 
 <span class='orange'>Happy Learning!</span>
 
@@ -420,8 +423,6 @@ Prediction Problem : how good is this given policy
 Control problem : what is the best policy from all the possible policies
 
 
-
-
 # Further Reading
 
 Reinforcement Learning An Introduction 2nd edition : [Chapters 3, 4, 5, 6 and 7](http://incompleteideas.net/sutton/book/RLbook2018.pdf)
@@ -431,12 +432,13 @@ Reinforcement Learning An Introduction 2nd edition : [Chapters 3, 4, 5, 6 and 7]
 UCL RL Course by David Silver : [Lecture 4](https://www.youtube.com/watch?v=PnHCvfgC_ZA&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ&index=4) and [Lecture 5](https://www.youtube.com/watch?v=0g4j2k_Ggc4&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ&index=5)
 
 
-
 ---
 
 # Footnotes and Credits
 
 
+
+[Almost all figures are from RL book](http://incompleteideas.net/sutton/book/RLbook2018.pdf)
 
 ---
 
