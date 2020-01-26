@@ -4,7 +4,7 @@ title:      Tabular Solution Methods
 date:       2019-12-29 12:00:00
 summary:    In this part 1 of series on RL post, we will look into different ways we can solve RL problem using tabular methods.
 categories: rl
-published : true
+published : false
 
 ---
 
