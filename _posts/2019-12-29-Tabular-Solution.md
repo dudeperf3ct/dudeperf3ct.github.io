@@ -33,7 +33,7 @@ Feel free to jump anywhere,
   - [Backup Diagrams](#backup-diagrams)
 - [Tabular Solution Methods](#tabular-solution-methods)
   - [Dynamic Programming](#dynamic-programming)
-  - [Monte-Carlo](#monte-carlo)
+  - [Monte Carlo](#monte-carlo)
   - [TD Learning](#td-learning)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
