@@ -2,10 +2,9 @@
 layout:     post
 title:      Tabular Solution Methods
 date:       2019-12-29 12:00:00
-summary:    
+summary:    In this part 1 of series on RL post, we will look into different ways we can solve RL problem using tabular methods.
 categories: rl
 published : false
-
 
 ---
 
@@ -14,7 +13,7 @@ published : false
 
 
 <p align="center">
-<img src='/images/series_rl/rl_meme.jpg' width="50%"/> 
+<img src='/images/tabular/rl_meme.jpg' width="50%"/> 
 </p>
 
 
@@ -436,7 +435,7 @@ UCL RL Course by David Silver : [Lecture 4](https://www.youtube.com/watch?v=PnHC
 
 # Footnotes and Credits
 
-
+[RL Meme](https://meme-generator.com/mememe/idk-whats-better-negative-reinforcement-or-positive-punishment/)
 
 [Almost all figures are from RL book](http://incompleteideas.net/sutton/book/RLbook2018.pdf)
 
