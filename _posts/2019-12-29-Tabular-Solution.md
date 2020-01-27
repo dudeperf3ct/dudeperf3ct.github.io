@@ -12,7 +12,7 @@ published : true
 # Tabular Solution Methods
 
 
-> All the codes implemented in Jupyter notebook [DP](https://github.com/dudeperf3ct/RL_Notebooks/blob/master/DP/Dynamic_Programming_Grid_World.ipynb), [MC](https://github.com/dudeperf3ct/RL_Notebooks/blob/master/MC/Monte_Carlo_Blackjack.ipynb) and [TD]().
+> All the codes implemented in Jupyter notebook [DP](https://github.com/dudeperf3ct/RL_Notebooks/blob/master/DP/Dynamic_Programming_Grid_World.ipynb), [MC](https://github.com/dudeperf3ct/RL_Notebooks/blob/master/MC/Monte_Carlo_Blackjack.ipynb) and [TD](https://github.com/dudeperf3ct/RL_Notebooks/blob/master/TD/TD_CliffWalking.ipynb).
 
 > *All codes can be run on Google Colab (link provided in notebook).*
 
