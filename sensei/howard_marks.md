@@ -111,6 +111,14 @@ I think I’ve been the luckiest person on the planet. And I think it was to tha
 
 Every investment approach, even if skillfully applied, will run into environments for which it is ill suited. By and hold. Growth stocks. Value stocks. Small stocks. Large stocks. Foreign. Domestic. And that means that even the best of investors will have periods of poor performance. Nobody performs great all the time. Buffett was considered over with. Now, even if you are correct in identifying a divergence of popular opinion from eventual reality, that varying perception that I mentioned, it can take a long time for the price to converge with value and it can require something that acts as the catalyst. Underpriced does not mean “Going up tomorrow.”. Overpriced does not mean “Going down tomorrow.”. And we, everybody has to know that. And in order to be able to stick with an approach or decision until it proves out, which can be a long time, investors have to be able to weather periods when the results are embarrassing. This can be very difficult.
 
+<span class='purple'>Success in gambling doesn’t go to those who pick winners, but to those with the ability to identify superior propositions.The goal is to find situations where the odds are generous to one side or the other, whether favorite or underdog. In other words, a mispricing.</span> It’s exactly the same in investing.  People often say to me, "XYZ is a great company with a bright future, so I bought the stock." They’re picking a favorite but ignoring the proposition. The former alone isn’t enough; they should consider the latter as well.
+
+It’s importantto have discipline when risking your capital,so that you can survive unfavorable periods and still be around when the winners show up. You have to avoid the risk of ruin, and this requires solid discipline (you must “never forget the six-foot-tall man who drowned crossing the river that was five feet deep on average”).To that end, good play isn’t just a function of relying on the expected value of your holdings and pure math,but also of thinking broadly about risk.
+
+Everyone will have both winners and losers. Various factors will determine the ratio. But the ability to assess propositions can enable you to win more on your winners than you lose on your losers. The size of your bet should take into account both the probability you are correct about who’s going to win and the asymmetry of the potential payout. "Getting your money in" when you have a great hand is one of the most important keys to winning at poker. You don’t get many great hands, so when you do, you have to be sure to take maximum advantage. 
+
+It’s not just how good your hand is. There’s much more. How good does youropponent think your hand is? How good do youthink your opponent’s hand is?  How good does he think you think his is? How is that motivating his actions? The consistent winner has to be able to think at a higher, more complex level than the rest.
+
 
 Quotes
 ===========================
@@ -158,6 +166,8 @@ It’s not what you buy. It’s what you pay.
 For that which a man wishes that he will believe. ~ Demosthenes to Charlie Munger to Howard Marks
 
 Now, just remember, none of investing is meant to be easy. Anybody who thinks it’s easy is stupid. ~ Charlie Munger to Howard Marks
+
+The wise ones bet heavily when the world offers them that opportunity. They bet big when they have the odds. And the rest of the time, they don’t. It’s just that simple. ~ Charlie Munger
 
 The less prudence which others conduct their affairs, the greater the prudence with which we must conduct our own affairs. ~ Warren Buffet 
 
