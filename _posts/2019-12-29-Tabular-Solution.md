@@ -456,6 +456,8 @@ UCL RL Course by David Silver : [Lecture 4](https://www.youtube.com/watch?v=PnHC
 
 [Almost all figures are from RL book](http://incompleteideas.net/sutton/book/RLbook2018.pdf)
 
+[Dopamine and temporal difference learning: A fruitful relationship between neuroscience and AI](https://deepmind.com/blog/article/Dopamine-and-temporal-difference-learning-A-fruitful-relationship-between-neuroscience-and-AI)
+
 ---
 
 **NOTE**
