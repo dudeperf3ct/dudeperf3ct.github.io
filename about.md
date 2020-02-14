@@ -49,7 +49,7 @@ Okay enough talk, I tried to declutter various sources and arrange it in such a 
 |[MIT 6.868J: The Society of Mind, Fall 2011](https://www.youtube.com/playlist?list=PLUl4u3cNGP61E-vNcDV0w5xpsIBYNJDkU)|[MIT 6.034: Artificial Intelligence, Fall 2010](https://www.youtube.com/playlist?list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi)| [MIT 18.065: Matrix Methods in Data Analysis, Signal Processing, and Machine Learning, Spring 2018](https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k)|
 |[MIT 9.11: The Human Brain](https://www.youtube.com/playlist?list=PLyGKBDfnk-iAQx4Kw9JeVqspbg77sfAK0)|[Full Stack Deep Learning Bootcamp](https://fullstackdeeplearning.com/march2019) |[Project Tuva: Richard Feynman’s Messenger Lecture Series](https://www.microsoft.com/en-us/research/project/tuva-richard-feynman/)| 
 |[Principal wise-ass](https://fs.blog/charlie-munger/)|[Paul Graham Essays](http://www.paulgraham.com/articles.html) |[The Pmarca Blog](https://pmarchive.com/)| 
-|[Human Behavioral Biology](https://www.youtube.com/playlist?list=PL848F2368C90DDC3D)||| 
+|[Human Behavioral Biology](https://www.youtube.com/playlist?list=PL848F2368C90DDC3D)| Every video by [3Blue1Brown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw/videos), [ben eater](https://www.youtube.com/user/eaterbc/videos) || 
 
 <span class='saddlebrown'>And what about any recommendation for books📚 ?</span>
 
