@@ -355,6 +355,13 @@ Here is an example : you see a person reading *The New York Times* on the New Yo
 
 The most representative outcomes combine with the personality description to produce the most coherent stories. The most coherent stories are not necessarily the most probable, but they are plausible, and the notions of *coherence*, *plausibility*, and *probability* are easily confused by the unwary.
 
+### Selection Bias
+
+In [Littlewood’s Law and the Global Media](https://www.gwern.net/Littlewood), Gwern Branwen explains that selection effects in media become increasingly strong as populations and media increase, meaning that rare datapoints driven by unusual processes such as the mentally ill or hoaxers are increasingly unreliable as evidence of anything at all and must be ignored. At scale, anything that can happen will happen a small but nonzero times.
+
+> Describing the news or media as having a “selection bias problem” is a bit odd, and like describing bombs as having a mortality problem; arguably, the sole function of the news is to be a giant global selection bias.
+
+
 ### Social-Proof Tendency
 
 The otherwise complex behavior of man is much simplified when he automatically thinks and does what he observes to be thought and done around him. And such followership often works fine. For instance, what simpler way could there be to find out how to walk a big football game in a strange city than by following the flow of the crowd. For some such reason, man's evolution left him with Social-Proof Tendency. 
