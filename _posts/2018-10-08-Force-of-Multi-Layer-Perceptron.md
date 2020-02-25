@@ -229,7 +229,7 @@ Now, <span class='green'>I-know-nothing</span> being too lazy to find which numb
 
 <span class='green'>I-know-nothing:</span> What if network outputs does not match our desired result?
 
-<span class='red'>I-know-everything:</span> That means, our network is stupid (for now). But it learns, it learns from its mistakes. The process by which it learns is backpropogation. So, in <span class='saddlebrown'>jar jar backpropogation</span>, in our example desired result was [1, 0, 0, 0, 0, 0, 0, 0, 0, 0] and network outputs [0.24, 0.542, 0.121, 0.32, 0.56, 0.67, 0.213, 0.45, 0.312, 0.98] which in this case is 9 (highest value). So, now network tells its previous layer (process also known as <span class='yellow'>backward pass</span>), hidden layer hey look you gave me wrong answer 9, see here the right answer was 0 which is called as <span class='orange'>loss</span>. Make necessary changes with help of chain rule to your weights so that when next time you see 0, you will improve the prediction in such a way that output will be correct label 0.
+<span class='red'>I-know-everything:</span> That means, our network is stupid (for now). But it learns, it learns from its mistakes. The process by which it learns is backpropagation. So, in <span class='saddlebrown'>jar jar backpropagation</span>, in our example desired result was [1, 0, 0, 0, 0, 0, 0, 0, 0, 0] and network outputs [0.24, 0.542, 0.121, 0.32, 0.56, 0.67, 0.213, 0.45, 0.312, 0.98] which in this case is 9 (highest value). So, now network tells its previous layer (process also known as <span class='yellow'>backward pass</span>), hidden layer hey look you gave me wrong answer 9, see here the right answer was 0 which is called as <span class='orange'>loss</span>. Make necessary changes with help of chain rule to your weights so that when next time you see 0, you will improve the prediction in such a way that output will be correct label 0.
 
 <p align="center">
 <img src='/images/mnist_mlp_files/forward_and_backprop.png' />
@@ -344,7 +344,7 @@ This Error (E) is the backpropogated from output layer through hidden layer to i
 
 <span class='red'>I-know-everything:</span> I am sure you got lot of questions now. So, shoot.
 
-<span class='green'>I-know-nothing:</span> Wow! That's mouthful! What is $$\mathbf{w\rm\normalsize i_{0}}$$ and $$\mathbf{w\rm\normalsize o_{0}}$$? What is the function $$f(\mathbf{h})$$ ? What are we doing in backpropogation? Is backpropogation only the way to propogate calculate error?
+<span class='green'>I-know-nothing:</span> Wow! That's mouthful! What is $$\mathbf{w\rm\normalsize i_{0}}$$ and $$\mathbf{w\rm\normalsize o_{0}}$$? What is the function $$f(\mathbf{h})$$ ? What are we doing in backpropagation? Is backpropagation only the way to propogate calculate error?
 
 <span class='red'>I-know-everything:</span> Wooh slow down! Okay let's answer it one by one.
 
@@ -402,7 +402,7 @@ And this is behind the scenes (BTS) of how a <span class='purple'>Force of Neura
 
 <span class='green'>I-know-nothing:</span> Thank you Master, I follow.
 
-<span class='red'>I-know-everything:</span> Now you are in for a treat. As you have learn about what different terms and functions are used to train a neural network. We will dive-in implementation using <span class='yellow'>Keras</span>. Here backpropogation is already implemented i.e. you only need to design forward pass and loss(or error) function, the framework does the heavy lifting to calculate backward pass and propogate it to all layers. 
+<span class='red'>I-know-everything:</span> Now you are in for a treat. As you have learn about what different terms and functions are used to train a neural network. We will dive-in implementation using <span class='yellow'>Keras</span>. Here backpropagation is already implemented i.e. you only need to design forward pass and loss(or error) function, the framework does the heavy lifting to calculate backward pass and propogate it to all layers. 
 
 ### Recap
 
@@ -1390,7 +1390,7 @@ Force of MLP - MLP
 
 neuron - unit
 
-jar jar backpropogation - backpropogation
+jar jar backpropagation - backpropagation
 
 non-linearity - activity function
 
@@ -1402,9 +1402,11 @@ Force of CNN - CNN
 
 # Further Reading
 
-[Chris Olah's blog on backpropogation](http://colah.github.io/posts/2015-08-Backprop/)
+[Chris Olah's blog on backpropagation](http://colah.github.io/posts/2015-08-Backprop/)
 
 Adam Geitgey's Machine Learning is Fun! [Part 1](https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471) and [Part 2](https://medium.com/@ageitgey/machine-learning-is-fun-part-2-a26a10b68df3)
+
+Q.V. Le A Tutorial on Deep Learning [Part 1: Nonlinear Classifiers and The Backpropagation Algorithm](https://cs.stanford.edu/~quocle/tutorial1.pdf) and [Part 2: Autoencoders, Convolutional Neural Networks and Recurrent Neural Networks](https://cs.stanford.edu/~quocle/tutorial2.pdf)
 
 [CS231n: Backpropagation, Intuitions](http://cs231n.github.io/optimization-2/)
 
