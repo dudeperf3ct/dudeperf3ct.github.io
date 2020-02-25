@@ -340,7 +340,7 @@ Here we get our predicted output y_ which is compared with correct y through Los
 
 Error (E) = Loss_Function(y, y_)
 
-This Error (E) is the backpropogated from output layer through hidden layer to input layer.
+This Error (E) is the backpropagated from output layer through hidden layer to input layer.
 
 <span class='red'>I-know-everything:</span> I am sure you got lot of questions now. So, shoot.
 
