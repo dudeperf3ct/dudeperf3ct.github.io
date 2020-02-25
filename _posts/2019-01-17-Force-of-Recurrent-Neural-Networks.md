@@ -28,7 +28,7 @@ Well sit tight and buckle up. I will go through everything in-detail.
 Feel free to jump anywhere,
 
 - [Introduction to Recurrent Neural Networks](#introduction-to-recurrent-neural-networks)
-  - [Backpropogation through time](#bptt)
+  - [Backpropagation through time](#bptt)
   - [Character-Level Language Models](#character-level-language-models)
 - [Further Reading](#further-reading)
 - [Footnotes and Credits](#footnotes-and-credits)
@@ -124,15 +124,15 @@ $$\mathbf{o}_{t}$$ is output state. We can apply softmax to get the probability 
 
 Here, we also note that the same parameters U, V, W are shared across all RNN layers(*for all steps*). This reduces a large number of parameters.
 
-<span class='green'>I-know-nothing:</span> Yes Master, I concur (*Dr.Frank Conners from Catch Me If You Can*). But how is RNN trained and how does backpropogation work? Is the same as we looked in MLP?
+<span class='green'>I-know-nothing:</span> Yes Master, I concur (*Dr.Frank Conners from Catch Me If You Can*). But how is RNN trained and how does backpropagation work? Is the same as we looked in MLP?
 
-<span class='red'>I-know-everything:</span> Now, onto the training and learning part of neural networks. We have seen in CNNs and MLPs, the usual process is to pass input, calculate the loss using predicted output and target output, backpropogate the error so as to adjust the weights to reduce the error, and perform these steps for millions of example (inputs, targets) pairs.
+<span class='red'>I-know-everything:</span> Now, onto the training and learning part of neural networks. We have seen in CNNs and MLPs, the usual process is to pass input, calculate the loss using predicted output and target output, backpropagate the error so as to adjust the weights to reduce the error, and perform these steps for millions of example (inputs, targets) pairs.
 
 Training in RNNs is very similar to above. Also, the [loss functions](https://dudeperf3ct.github.io/object/detection/2019/01/07/Mystery-of-Object-Detection/#loss-functions) which we mentioned are the very ones used depending on different applications.
 
 #### BPTT
 
-Now, the backpropogation becomes BPTT i.e. <span class='saddlebrown'>jar jar backpropogation</span> meets long time lost sibling <span class='saddlebrown'> jar jar backpropogation through time</span>.
+Now, the backpropagation becomes BPTT i.e. <span class='saddlebrown'>jar jar backpropagation</span> meets long time lost sibling <span class='saddlebrown'> jar jar backpropagation through time</span>.
 
 What BPTT means is that the error is propagated through recurrent connections back in time for a specific number of time steps. Within BPTT the error is back-propagated from the last to the first timestep, while unrolling all the timesteps. This allows calculating the error for each timestep, which allows updating the weights. *BPTT can be computationally expensive when you have a high number of timesteps.*
 
@@ -410,11 +410,11 @@ Force of RNN - Recurrent Neural Networks
 
 loss function - cost, error or objective function
 
-jar jar backpropogation - backpropogation
+jar jar backpropagation - backpropagation
 
 jar jar bptt - BPTT
 
-BPTT - backpropogation through time
+BPTT - backpropagation through time
 
 ---
 
