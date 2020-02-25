@@ -489,7 +489,7 @@ Now, having looked at embeddings, we will move into new architectures which we w
 
 ## Exploding and Vanishing Gradients
 
-With conventational Back-Propogation through time(BPTT) which we looked in context of RNN in our [last post](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/#bptt), <span class='red'>error signals(or gradients) "flowing backwards in time" tend to blow up(explode) or vanish.</span> We can understand exploding and vanishing effects through two examples, one from compounding where the amount keeps multiplying and turn out to be very large amount and similarly if a gambler loses 3 cents for every dollar, the amount keeps multiplying and becomes less and less, eventually making gambler bankrupt. Similarly, large gradients keep multiplying through backpropogation through time backwards result in very large number and vice-versa. 
+With conventational Back-Propogation through time(BPTT) which we looked in context of RNN in our [last post](https://dudeperf3ct.github.io/rnn/2019/01/19/Force-of-Recurrent-Neural-Networks/#bptt), <span class='red'>error signals(or gradients) "flowing backwards in time" tend to blow up(explode) or vanish.</span> We can understand exploding and vanishing effects through two examples, one from compounding where the amount keeps multiplying and turn out to be very large amount and similarly if a gambler loses 3 cents for every dollar, the amount keeps multiplying and becomes less and less, eventually making gambler bankrupt. Similarly, large gradients keep multiplying through backpropagation through time backwards result in very large number and vice-versa. 
 
 Long-term dependency example of is, "I studied Spainish in my class. So, the other day I visited Spain. It was an amazing experience. We enjoyed a lot. We ran up and down the road. We played football and put many such sentences in between. But the coming from English background, we had difficulty conversing fluently in ...." If we ask RNN to fill in the blank with appropriate word, the word should be "Spanish" but as the relation between studying and conversing is far away, RNN will not be able to predict the correct word.
 
@@ -645,11 +645,11 @@ Force of RNN - Recurrent Neural Networks
 
 loss function - cost, error or objective function
 
-jar jar backpropogation - backpropogation
+jar jar backpropagation - backpropagation
 
 jar jar bptt - BPTT
 
-BPTT - backpropogation through time
+BPTT - backpropagation through time
 
 LSTM - Long Short Term Memory
 
