@@ -324,7 +324,7 @@ This is drawn from the same distribution as the dev set. (E.g., mobile images.)
 <img src='/images/transfer_learning_files/tesla_cnn.png' width="60%"/>
 </p>
 
-We saw how the training a [CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/) is similar to [MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/). It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropogate the error in classification and also looked at different architectures and role they played in Imagenet competition. *The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans.* <span class='saddlebrown'>What is going on insides these layers to make them such better classifiers?</span>
+We saw how the training a [CNN](https://dudeperf3ct.github.io/cnn/mnist/2018/10/17/Force-of-Convolutional-Neural-Networks/) is similar to [MLP](https://dudeperf3ct.github.io/mlp/mnist/2018/10/08/Force-of-Multi-Layer-Perceptron/). It consists of forward pass followed by backward pass where the kernels adjust the weights so as to backpropagate the error in classification and also looked at different architectures and role they played in Imagenet competition. *The only thing we did not discuss is that what these CNN are learning that makes them able to classify 1.2 million images in 1000 categories with 2.25% top5 error rate better than humans.* <span class='saddlebrown'>What is going on insides these layers to make them such better classifiers?</span>
 
 <p align="center">
 <img src='/images/transfer_learning_files/visualize_cnn.png' width="60%"/>
