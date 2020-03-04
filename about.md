@@ -59,7 +59,7 @@ Okay enough talk, I tried to declutter various sources and arrange it in such a 
 | [Deep Learning with Python (Keras)](http://amzn.to/2oBWcYV) | [Reinforcement Learning: An Introduction (2nd Edition)](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)	|  [Artificial Intelligence: A Modern Approach](http://aima.cs.berkeley.edu/) |
 | [Deep Learning for Computer Vision with Python](https://www.pyimagesearch.com/deep-learning-computer-vision-python-book/) | [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/)	|  [Speech and Language Processing](http://www.cs.colorado.edu/~martin/slp2.html) |
 | [Pattern Recognition and Machine Learning](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) | [Grokking Deep Learning](https://github.com/iamtrask/Grokking-Deep-Learning)	|  [Python Machine Learning Sebastian Raschka](https://github.com/rasbt/python-machine-learning-book) |
-
+| [Dive into Deep Learning](https://d2l.ai/index.html) | Draft: [Deep Learning for Coders with Fastai and Pytorch: AI Applications Without a PhD](https://github.com/fastai/book_nbs) | |
 
 
 
