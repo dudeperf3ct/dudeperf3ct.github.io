@@ -286,6 +286,10 @@ Lets consider the judgements of likelihood of two scenarios. Think in terms of V
 
 Ludic comes from *ludus*, Latin for games. The attributes of the uncertainty we face in real life have little connection to the sterilized ones we encounter in exames and games.
 
+### Mental Model Fallacy
+
+Using the example from [this blog](https://commoncog.com/blog/the-mental-model-fallacy/) on mental model fallacy, suppose one day you decide that you want to be MMA champion. So, off you spending all time listening to MMA commentators as they describe the secrets of how MMA superstars win. But where only listening commentators and MMA fighters is not good enough if you don't practice. If you lack practice, then you will lack the necessary mental architecture to understand the knowledge they possess. As concluded in the blog, "Therefore, without practice, and without ascending the skill tree that these MMA champions inhabit, you are unlikely to understand the insights that they have to offer. And worse, if you are listening to non-practitioners parroting what they’ve heard from the fighters themselves, you are adding a layer of indirection over something that is already difficult to communicate."
+
 ### Naïve empiricism
 
 We have a natural tendency to look for instances that confirm our story and our vision of the world -these instances are always easy to find. Alas, with tools, and fools, anything can be be easy to find.
@@ -442,6 +446,8 @@ What pyschological tendencies contributed to these terrible results? Charlie usi
 [Sunk-cost fallacy](https://www.standoutbooks.com/sunk-cost-fallacy/)
 
 [Turkey problem](https://seekingalpha.com/article/3694906-turkeys-can-teach-us-risk-management)
+
+[Mental Model Fallacy](https://commoncog.com/blog/the-mental-model-fallacy/)
 
 ---
 
