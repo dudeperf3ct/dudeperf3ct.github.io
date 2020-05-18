@@ -217,6 +217,8 @@ The future you shall know when it has come; before then forget it. ~ Aeschylus
 
 Forecasts usually tell us more of the forecaster than of the future. ~ Warren Buffett
 
+Doubt is not a pleasant condition, but certainty is absurd. ~ Voltaire
+
 
 Stories
 ===========================
