@@ -137,6 +137,8 @@ Quotes
 
 History does not repeat itself but it does rhymes. ~ Mark Twain
 
+We have two classes of forecasters: Those who don’t know –and those who don’t know they don’t know. ~ John Kenneth Galbraith
+
 What a wise man does in the beginning, the fool does it in the end.
 
 Being too far ahead of your time is indistinguishable from being wrong.
@@ -200,6 +202,20 @@ Future is not ours to know but ut helps but it helps to know that being wrong is
 Thankful heart is not only the greatest of all the virtues but it the parent of all the other virtues. ~ Marcus Cicero 
 
 We all have a lot to be thankful for and if we are not thankful for it then we are stupid.
+
+No amount of sophistication is going to allay the fact that all of your knowledge is about the past and all your decisions are about the future. ~ Ian E. Wilson (former Chairman of GE)
+
+Those who have knowledge don’t predict; those who predict don’t have knowledge. ~ Lao Tzu
+
+People can foresee the future only when it coincides with their own wishes, and the most grossly obvious facts can be ignored when they are unwelcome. ~ George Orwell
+
+Forecasts create the mirage that the future is knowable. ~ Peter Bernstein
+
+I never think of the future –it comes soon enough. ~ Albert Einstein
+
+The future you shall know when it has come; before then forget it. ~ Aeschylus
+
+Forecasts usually tell us more of the forecaster than of the future. ~ Warren Buffett
 
 
 Stories
