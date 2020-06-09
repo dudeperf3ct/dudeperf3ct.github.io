@@ -116,7 +116,7 @@ $$
 
 - **Mean Squared Error(MSE)**
 
-<span class='red'>These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. It’s only concerned with the average magnitude of error irrespective of their direction.</span> However, due to squaring, predictions which are far away from actual values are penalized heavily in comparison to less deviated predictions. This error is also known as L1 loss. Suppose, $$\mathbf{\hat{y}}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For M training example, mse loss can be forumlated as, 
+<span class='red'>These error functions are easy to define. As the name suggests, we are taking square of error and then mean of these sqaured error functions. It’s only concerned with the average magnitude of error irrespective of their direction.</span> However, due to squaring, predictions which are far away from actual values are penalized heavily in comparison to less deviated predictions. This error is also known as L1 loss. Suppose, $$\mathbf{\hat{y}}$$ is our predicted output by the model and $$\mathbf{y}$$ is target(actual or expected) value. For M training example, mse loss can be formulated as, 
 
 $$
 \begin{aligned}
