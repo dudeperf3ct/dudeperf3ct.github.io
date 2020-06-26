@@ -830,6 +830,8 @@ R-CNN - Region CNN
 
 [Different Loss Functions](https://heartbeat.fritz.ai/5-regression-loss-functions-all-machine-learners-should-know-4fb140e9d4b0)
 
+Chris Olah: [Visual Information Theory](https://colah.github.io/posts/2015-09-Visual-Information/) Visualizing entropy and different probability distributions
+
 [CS231n Winter 2017 Lecture 11](https://www.youtube.com/watch?v=nDPWywWRIRo&list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq&index=11)
 
 Fastai 2018 part 2 lesson [8](https://www.youtube.com/watch?v=Z0ssNAbe81M&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia) and [9](https://www.youtube.com/watch?v=0frKXR-2PBY&list=PLfYUBJiXbdtTttBGq-u2zeY1OTjs5e-Ia&index=2)
