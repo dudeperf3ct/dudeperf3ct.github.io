@@ -447,6 +447,8 @@ Reinforcement Learning An Introduction 2nd edition : [Chapters 3, 4, 5, 6 and 7]
 
 UCL RL Course by David Silver : [Lecture 4](https://www.youtube.com/watch?v=PnHCvfgC_ZA&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ&index=4) and [Lecture 5](https://www.youtube.com/watch?v=0g4j2k_Ggc4&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ&index=5)
 
+Stanford CS229: Machine Learning [MDPs & Value/Policy Iteration](https://www.youtube.com/watch?v=d5gaWTo6kDM)
+
 
 ---
 
