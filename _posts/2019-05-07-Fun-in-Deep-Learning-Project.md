@@ -492,6 +492,8 @@ Now that we have full end-to-end model, we can run the same model on a web serve
 
 [Sequence Modeling With CTC](https://distill.pub/2017/ctc/)
 
+[What's so hard about PDF text extraction?](https://filingdb.com/b/pdf-text-extraction)
+
 ---
 
 # Footnotes and Credits
