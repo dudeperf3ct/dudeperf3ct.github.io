@@ -24,7 +24,7 @@ Okay enough talk, I tried to declutter various sources and arrange it in such a 
 
 > <span class='purple'>See that bird? It’s a brown-throated thrush, but in Germany it’s called a halzenfugel, and in Chinese they call it a chung ling and even if you know all those names for it, you still know nothing about the bird. You only know something about people; what they call the bird. Now that thrush sings, and teaches its young to fly, and flies so many miles away during the summer across the country, and nobody knows how it finds its way.</span>
 
-[Knowing the name of something doesn’t mean you understand it.](https://www.youtube.com/watch?v=NM-zWTU7X-k) The first and foremost is to understand the [difference between](https://blogs.nvidia.com/blog/2016/07/29/whats-difference-artificial-intelligence-machine-learning-deep-learning-ai/) [DL, ML](https://skymind.ai/wiki/ai-vs-machine-learning-vs-deep-learning) and [AI](https://medium.com/@mijordan3/artificial-intelligence-the-revolution-hasnt-happened-yet-5e1d5812e1e7). 
+[Knowing the name of something doesn’t mean you understand it.](https://www.youtube.com/watch?v=NM-zWTU7X-k) The first and foremost is to understand the [difference between](https://sebastianraschka.com/faq/docs/ai-and-ml.html/) [DL, ML](https://skymind.ai/wiki/ai-vs-machine-learning-vs-deep-learning) and [AI](https://medium.com/@mijordan3/artificial-intelligence-the-revolution-hasnt-happened-yet-5e1d5812e1e7). 
 
 <span class='saddlebrown'>Here I present to you the list of courses that I would recommend with increasing level of difficulty. I will keep updating the table with latest courses as they come.</span>
 
@@ -59,7 +59,7 @@ Okay enough talk, I tried to declutter various sources and arrange it in such a 
 | [Deep Learning with Python (Keras)](http://amzn.to/2oBWcYV) | [Reinforcement Learning: An Introduction (2nd Edition)](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)	|  [Artificial Intelligence: A Modern Approach](http://aima.cs.berkeley.edu/) |
 | [Deep Learning for Computer Vision with Python](https://www.pyimagesearch.com/deep-learning-computer-vision-python-book/) | [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/)	|  [Speech and Language Processing](http://www.cs.colorado.edu/~martin/slp2.html) |
 | [Pattern Recognition and Machine Learning](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) | [Grokking Deep Learning](https://github.com/iamtrask/Grokking-Deep-Learning)	|  [Python Machine Learning Sebastian Raschka](https://github.com/rasbt/python-machine-learning-book) |
-| [Dive into Deep Learning](https://d2l.ai/index.html) | Draft: [Deep Learning for Coders with Fastai and Pytorch: AI Applications Without a PhD](https://github.com/fastai/book_nbs) | |
+| [Dive into Deep Learning](https://d2l.ai/index.html) | Draft: [Deep Learning for Coders with Fastai and Pytorch: AI Applications Without a PhD](https://github.com/fastai/book_nbs) | [Deep Learninh with PyTorch](https://pytorch.org/deep-learning-with-pytorch)|
 
 
 
