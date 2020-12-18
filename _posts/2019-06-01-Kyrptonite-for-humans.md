@@ -11,6 +11,8 @@ published : true
 
 # Kryptonite for humans
 
+Edit: Conjuction fallacy to Conjunction fallacy (Thanks Ben!)
+
 In this post, we will stop and ponder over the question, "What is that makes us human, supposedly a complete being?". Puzzling limitation of our mind: our excessive confidence in what we believe we know, and our apparent inability to acknowledge the full extent of our ignorance and the uncertainty of the world we live in.
 
 <p align="center">
@@ -85,9 +87,9 @@ In today's world, terrorists are the most significant practitioners of the art o
 
 Cognitive scientists have studied our natural tendency to look only for corroboration; they call this vulnerability to the corroboration error the confirmation bias. Once your mind is inhabited with a certain view of the world, you will tend to only consider instances proving you to be right.
 
-### Conjuction fallacy
+### Conjunction fallacy
 
-The word *fallacy* is used, in general, when people fail to apply a logical rule that is obviously relevant. Conjuction fallacy which people commit when they judge a conjuction of two events to be more probable than one of the events in a direct comparison. For example, Which alternative is more probable? a) Linda is a bank teller. b) Linda is a bank teller and is active in the feminist movement. Here bank teller and feminist is more probable than one of the events bank teller in direct comparison.
+The word *fallacy* is used, in general, when people fail to apply a logical rule that is obviously relevant. Conjunction fallacy which people commit when they judge a conjunction of two events to be more probable than one of the events in a direct comparison. For example, which alternative is more probable? a) Linda is a bank teller. b) Linda is a bank teller and is active in the feminist movement. Here bank teller and feminist is less probable than probability of her being a bank teller. When you specify a possible event in greater detail you can only lower it's probability. This is an classic example of when logic is competing against representativeness, the respesentativeness wins. More people confuse the probability of two events occuring (bank teller and feminist) to be more probable than one of the events (bank teller).
 
 ### Certainty Effect
 
