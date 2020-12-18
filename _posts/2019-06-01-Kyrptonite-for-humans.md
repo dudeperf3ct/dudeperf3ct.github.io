@@ -11,7 +11,7 @@ published : true
 
 # Kryptonite for humans
 
-Edit: Conjuction fallacy to Conjunction fallacy (Thanks Ben!)
+Edit: Conjuction fallacy to Conjunction fallacy (Thanks Barry!)
 
 In this post, we will stop and ponder over the question, "What is that makes us human, supposedly a complete being?". Puzzling limitation of our mind: our excessive confidence in what we believe we know, and our apparent inability to acknowledge the full extent of our ignorance and the uncertainty of the world we live in.
 
