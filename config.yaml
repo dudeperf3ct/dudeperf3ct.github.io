@@ -1,0 +1,81 @@
+baseURL: https://dudeperf3ct.github.io/
+languageCode: en-us
+title: Blog
+theme: ["PaperMod"]
+copyright: "© [dudeperf3ct](https://github.com/dudeperf3ct/)"
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+
+minify:
+  disableXML: true
+
+pagination:
+  disableAliases: false
+  pagerSize: 5
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    taxonomies:
+      category: categories
+      tag: tags
+      series: series
+    menu:
+      main:
+        - name: Archive
+          url: archives
+          weight: 5
+        - name: Search
+          url: search/
+          weight: 10
+        - name: Tags
+          url: tags/
+          weight: 10
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "Blog"
+  author: dudeperf3ct
+  # author: ["Me", "You"] # multiple authors
+
+  defaultTheme: auto
+  # disableThemeToggle: true
+  ShowShareButtons: false
+  ShowReadingTime: true
+  # disableSpecial1stPost: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  # comments: false
+  # images: ["images/papermod-cover.png"]
+
+  profileMode:
+    enabled: false
+    title: Blog
+    imageUrl: "#"
+    imageTitle: my image
+    # imageWidth: 120
+    # imageHeight: 120
+    buttons:
+      - name: Archives
+        url: archives
+      - name: Tags
+        url: tags
