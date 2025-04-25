@@ -47,15 +47,19 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
       - name: Get Theme
         run: git submodule update --init --recursive
+
       - name: Update theme to Latest commit
         run: git submodule update --remote --merge
+
       - name: Build with Hugo
         run: |
           hugo \
             --buildDrafts --gc \
             --baseURL ${{ steps.pages.outputs.base_url }}
+            
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

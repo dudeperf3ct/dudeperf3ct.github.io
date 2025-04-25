@@ -57,14 +57,19 @@ params:
   # disableSpecial1stPost: true
   displayFullLangName: true
   ShowPostNavLinks: true
+  ShowWordCount: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
-  ShowRssButtonInSectionTermList: true
+  ShowRssButtonInSectionTermList: false
   ShowAllPagesInArchive: true
   ShowPageNums: true
   ShowToc: true
-  # comments: false
-  # images: ["images/papermod-cover.png"]
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
 
   profileMode:
     enabled: false
@@ -78,3 +83,13 @@ params:
         url: archives
       - name: Tags
         url: tags
+
+  homeInfoParams:
+    Title: "Hi there :wave:"
+    Content: >
+      Welcome to my blog!
+
+  socialIcons:
+    - name: github
+      title: Github social
+      url: "https://github.com/dudeperf3ct"
