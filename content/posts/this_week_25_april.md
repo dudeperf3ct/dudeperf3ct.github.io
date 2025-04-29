@@ -9,7 +9,7 @@ ShowToc: false
 ShowBreadCrumbs: false
 ---
 
-I listen to the [Everything is Everything](https://music.youtube.com/podcast/YwC6QmEsBbA) podcast by two cool dudes giving out lessons in general about life, education, politics, chess, poker, governments, you-name-it. In the latest podcast, they talk about globalization - 101, it's history, and some myths around tariffs.
+I listen to the [Everything is Everything](https://music.youtube.com/podcast/YwC6QmEsBbA) podcast by two enlightened dudes giving out lessons in general about life, education, politics, chess, poker, governments, you-name-it. In the latest podcast, they talk about globalization - 101, it's history, and some myths around tariffs.
 
 * [Double 'Thank You' movement](https://abcnews.go.com/2020/story?id=3231572): Trade is a positive same game where both participating the parties benefit from the a particular transcation.
 

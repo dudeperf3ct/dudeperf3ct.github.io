@@ -48,7 +48,6 @@ params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Blog"
   author: dudeperf3ct
-  # author: ["Me", "You"] # multiple authors
 
   defaultTheme: auto
   # disableThemeToggle: true
@@ -93,3 +92,10 @@ params:
     - name: github
       title: Github social
       url: "https://github.com/dudeperf3ct"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
