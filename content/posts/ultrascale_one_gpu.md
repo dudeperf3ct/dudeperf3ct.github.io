@@ -10,7 +10,7 @@ ShowToc: false
 ShowBreadCrumbs: false
 ---
 
-HuggingFace released an awesome [open-source book](https://huggingface.co/spaces/nanotron/ultrascale-playbook) on training LLMs upto 12k GPUs.
+HuggingFace released an awesome [open-source book](https://huggingface.co/spaces/nanotron/ultrascale-playbook) on training LLMs up to 12k GPUs.
 
 Let's take a step back and understand what it takes to train an LLM on a single GPU. A training loop for LLMs - any deep neural network - consists of 3 steps
 
