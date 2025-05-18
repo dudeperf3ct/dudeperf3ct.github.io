@@ -31,6 +31,9 @@ languages:
         - name: Archive
           url: archives
           weight: 5
+        - name: Books
+          url: books
+          weight: 5
         - name: Search
           url: search/
           weight: 10
