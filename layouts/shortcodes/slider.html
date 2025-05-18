@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" />
+<div class="glider-contain">
+    <div class="glider">
+        {{ range .Params }}
+        <div>
+            <img src="{{ . }}" style="max-width:100%;height:auto;" />
+        </div>
+        {{ end }}
+    </div>
+    <button aria-label="Previous" class="glider-prev">«</button>
+    <button aria-label="Next" class="glider-next">»</button>
+    <div role="tablist" class="dots"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Glider(document.querySelector('.glider'), {
+            slidesToShow: 1,
+            dots: '.dots',
+            arrows: {
+                prev: '.glider-prev',
+                next: '.glider-next'
+            }
+        });
+    });
+</script>
