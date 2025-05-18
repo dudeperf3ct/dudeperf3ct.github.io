@@ -1,16 +1,14 @@
 ---
 title: "The Power Broker: Robert Moses and the Fall of New York"
 tags: ["robert-caro", "power-broker", "biography"]
+ShowToc: false
 ---
-
 
 "The Power Broker: Robert Moses and the Fall of New York by Robert Caro".
 
 I picked this up on recommendation from Mr. Incredible [Ajay Shah](https://xkdr.org/author/ajay-shah), a card carrying economist.
 
-The author of this book is so meticulous in his research (most of his books takes between 10 to 30 years from him to write), one of the book series he wrote "The Years of Lyndon Johnson", he has written 4 books and onto the final book on this series. He has been working on the book longer than the time spent by President in his entire politics.
-
-That's such a beautiful dedication and purpose to life. Another story I heard on how he investigates stories on the [Tim Ferris Show hosting Morgan Housel](https://tim.blog/2023/11/02/morgan-housel-transcript/).
+The author of this book is so meticulous in his research (most of his books takes between 10 to 30 years from him to write), one of the book series he wrote "The Years of Lyndon Johnson", he has written 4 books and now working on the final book on this series. He has been working on the book longer than the time spent by President in his entire politics. That's such a beautiful dedication and purpose to life. Another story I heard on how he investigates stories on the [Tim Ferris Show hosting Morgan Housel](https://tim.blog/2023/11/02/morgan-housel-transcript/).
 
 > There was one scene from the book where he’s interviewing Lyndon Johnson’s chauffeur who was with him for his entire career as a politician. Lyndon Johnson did the same driver. And so the driver saw everything. And Robert Caro says, “Tell me when Lyndon Johnson was in the backseat of the car when he was campaigning, what was he doing?”
 

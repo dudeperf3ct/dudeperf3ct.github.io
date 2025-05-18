@@ -33,13 +33,16 @@ languages:
           weight: 5
         - name: Books
           url: books
-          weight: 5
+          weight: 10
+        - name: Hiking
+          url: hiking
+          weight: 15
         - name: Search
           url: search/
-          weight: 10
+          weight: 20
         - name: Tags
           url: tags/
-          weight: 10
+          weight: 25
 
 outputs:
   home:
