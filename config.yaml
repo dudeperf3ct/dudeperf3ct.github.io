@@ -36,13 +36,13 @@ languages:
           weight: 10
         - name: Hiking
           url: hiking
-          weight: 15
+          weight: 20
         - name: Search
           url: search/
           weight: 20
         - name: Tags
           url: tags/
-          weight: 25
+          weight: 20
 
 outputs:
   home:
