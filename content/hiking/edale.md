@@ -6,7 +6,7 @@ ShowToc: false
 
 This was my first hike after moving to Manchester.
 
-{{< figure align=center src="/images/edale_0.jpg" >}}
+{{< figure align=center src="/images/edale/edale_0.jpg" >}}
 
 ## Directions
 
