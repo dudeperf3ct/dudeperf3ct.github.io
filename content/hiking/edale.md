@@ -23,11 +23,11 @@ On reaching there, I found out that the mobile network was very poor. Thankfully
 ## Photos
 
 {{< slider
-  "/images/edale_1.jpg"
-  "/images/edale_2.jpg"
-  "/images/edale_3.jpg"
-  "/images/edale_4.jpg"
-  "/images/edale_5.jpg"
+  "/images/edale/edale_1.jpg"
+  "/images/edale/edale_2.jpg"
+  "/images/edale/edale_3.jpg"
+  "/images/edale/edale_4.jpg"
+  "/images/edale/edale_5.jpg"
 >}}
 
 ## Music Recommendation
