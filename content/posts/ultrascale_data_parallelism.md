@@ -11,7 +11,7 @@ ShowBreadCrumbs: false
 draft: false
 ---
 
-HuggingFace released an awesome [open-source book](https://huggingface.co/spaces/nanotron/ultrascale-playbook) on training LLMs using up to 12k GPUs.
+Hugging Face released a fantastic [open-source book](https://huggingface.co/spaces/nanotron/ultrascale-playbook) for training LLMs on up to 12,000 GPUs.
 
 In the [previous post](https://dudeperf3ct.github.io/posts/ultrascale_one_gpu/) in the ultra-scale series, we looked at what are the different challenges one encounters when training an LLM on a single GPU. There are 4 items that consume memory:
 
@@ -76,7 +76,11 @@ PyTorch [DDP module](https://github.com/pytorch/pytorch/blob/8568dbce1d7775d37c3
 
 ## Limitations
 
-As we scale the DDP setup to larger GPUs, the benefits offered by DDP being to break down. The overhead of communication between all the devices becomes significant as we add more GPUs.
+As we scale the DDP setup to larger GPUs, the benefits offered by DDP being to break down. The overhead of communication between all the devices becomes significant as we add more GPUs. This limit is reached mainly because of how data parallelism approach works
+
+1. Every GPU holds a full copy of the model: Each GPU device has its own replica of model states - all model parameters, it's own optimizer states, and during the forward/backward pass it computes gradients for exactly the same set of parameters.
+
+2. Gradients must be syncronised every iteration: After calculating the gradients for each microbatch, the "local" gradients must be synced across all GPU devices. This is usually done using "all-reduce" distributed operation. Once all gradients are synced, we update the model parameters.
 
 {{< figure align=center src="/images/ddp_scale.png" attr="HuggingFace [blog](https://huggingface.co/spaces/nanotron/ultrascale-playbook?section=our_journey_up_to_now)">}}
 

@@ -10,7 +10,7 @@ ShowToc: false
 ShowBreadCrumbs: false
 ---
 
-HuggingFace released an awesome [open-source book](https://huggingface.co/spaces/nanotron/ultrascale-playbook) on training LLMs up to 12k GPUs.
+Hugging Face released a fantastic [open-source book](https://huggingface.co/spaces/nanotron/ultrascale-playbook) for training LLMs on up to 12,000 GPUs.
 
 Let's take a step back and understand what it takes to train an LLM on a single GPU. A training loop for LLMs - any deep neural network - consists of 3 steps
 
@@ -38,6 +38,7 @@ def train_one_epoch(epoch_index: int):
         loss.backward()
 
         # Adjust learning weights - optimizer step
+        # Updates both - model parameters and optimizer states
         optimizer.step()
         ...
 ```
