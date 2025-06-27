@@ -96,7 +96,7 @@ With additional communication overhead, ZeRO-3 offers significant memory reducti
 
 Both Deepspeed library and PyTorch library support various ZeRO stage implementations.
 
-PyTorch refers to ZeRO-3 stage as FullyShardedDataParallel [FSDP](https://docs.pytorch.org/docs/stable/notes/fsdp.html#fsdp-notes). PyTorch provides two FSDP implementations : [FSDP1](https://docs.pytorch.org/docs/stable/fsdp.html) and [FSDP2](https://docs.pytorch.org/docs/stable/distributed.fsdp.fully_shard.html).
+PyTorch refers to ZeRO-3 stage as FullyShardedDataParallel [FSDP](https://docs.pytorch.org/docs/stable/notes/fsdp.html#fsdp-notes). It provides a different approach compared to ZeRO-3 in DeepSpeed. PyTorch provides two FSDP implementations : [FSDP1](https://docs.pytorch.org/docs/stable/fsdp.html) and [FSDP2](https://docs.pytorch.org/docs/stable/distributed.fsdp.fully_shard.html).
 
 There are advanced optimization strategies such as [ZeRO Infinity](https://www.deepspeed.ai/tutorials/zero/#training-trillion-scale-models-with-zero-infinity) and [ZeRO++](https://www.deepspeed.ai/tutorials/zeropp/) as part of Deepspeed library.
 
