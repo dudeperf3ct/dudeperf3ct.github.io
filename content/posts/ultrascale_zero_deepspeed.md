@@ -38,7 +38,7 @@ Instead of each GPU holding an entire copy of optimizer state, in ZeRO-1, the op
 4. **Optimizer step (sharded)**: Each GPU updates only its shard of the optimizer state and corresponding parameter slice using its gradient shard.
 5. **Model parameter synchronization (parameter all-gather)**: Each GPU holds only a slice of updated parameters, so it performs an all-gather to reconstruct the full BF16 model locally
 
-ZeRO-1 offers reduced optimizer-state memory by a factor of N (where N = number of data-parallel GPUs) at the cost of an extra parameter all-gather. Both ZeRO-1 and vanilla DP use the same communication volume.
+ZeRO-1 offers reduced optimizer-state memory by a factor of N (where N = number of data-parallel GPUs). Both ZeRO-1 and vanilla DP use the same communication volume (a combination of reduce-scatter and all-gather applied in different places).
 
 ## Stage 2
 
