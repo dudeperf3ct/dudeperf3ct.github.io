@@ -49,7 +49,7 @@ I created an [Ansible playbook](https://gist.github.com/dudeperf3ct/088197ad94ec
 
 To test, I provisioned a 4×H100 instance on [Lambda Labs](https://lambda.ai/). The benchmarking run cost approximately $5. Here is the `nvidia-smi` output,
 
-```
+```shell
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 570.148.08             Driver Version: 570.148.08     CUDA Version: 12.8     |
 |-----------------------------------------+------------------------+----------------------+
@@ -79,7 +79,7 @@ Sure enough there are 4xH100 GPUs each with 80GB memory :money_bag: :money_bag: 
 
 Next, the output of `nvidia-smi topo -m` command shows how the GPUs are inter-linked with each other and how data travels between GPUs.
 
-```
+```shell
        GPU0    GPU1    GPU2    GPU3    NIC0    CPU Affinity    NUMA Affinity   GPU NUMA ID
 GPU0     X      NV18    NV18    NV18    PHB     0-103   0               N/A
 GPU1    NV18     X      NV18    NV18    PHB     0-103   0               N/A
@@ -108,7 +108,7 @@ The playbook then benchmarks common collective operations like all-reduce and re
 
 All-reduce benchmarking was run via:
 
-```
+```shell
 NCCL_DEBUG=INFO mpirun -np 1 ./build/all_reduce_perf -b 8 -e 1G -f 2 -g 4
 ```
 
@@ -116,7 +116,7 @@ In this setup, all_reduce benchmarking is performed using various payload sizes 
 
 The `NCCL_DEBUG=INFO` flag enables verbose logging, which provides additional insight into communicator initialization, topology detection, and performance results.
 
-```
+```shell
 # Collective test starting: all_reduce_perf
 # nThread 1 nGpus 4 minBytes 8 maxBytes 1073741824 step: 2(factor) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0
 #
@@ -144,7 +144,7 @@ This shows 4xH100 GPUs on a single node are used for benchmarking. NCCL is able 
 
 NCCL sets up ring and tree topologies for efficient communication. For intra-node, it uses peer-to-peer memory (P2P) via NVLink/PCIe. `Channel 00/0 : 2[2] -> 3[3]` means GPU 2 sends to GPU 3 over direct memory. NCCL splits data into 512KB chunks for P2P communication.
 
-```
+```shell
 #                                                              out-of-place                       in-place
 #       size         count      type   redop    root     time   algbw   busbw #wrong     time   algbw   busbw #wrong
 #        (B)    (elements)                               (us)  (GB/s)  (GB/s)            (us)  (GB/s)  (GB/s)
@@ -189,7 +189,7 @@ A couple of observations,
 
 Here is a smaller benchmark from the ml-engineering scripts:
 
-```
+```shell
 Environment:
 - software: torch=2.7.0, cuda=12.8, nccl=(2, 26, 2)
 - hardware: _CudaDeviceProperties(name='NVIDIA H100 80GB HBM3', major=9, minor=0, total_memory=81089MB, multi_processor_count=132, uuid=4dbfbb99-983a-79af-8527-ca9f0c139426, L2_cache_size=50MB)
