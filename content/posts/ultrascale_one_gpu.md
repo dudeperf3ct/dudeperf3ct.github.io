@@ -1,13 +1,13 @@
 ---
 author: [""]
-title: "Ultra-scale Playbook - Train on a single GPU" 
+title: "Ultra-scale Playbook - Train on a single GPU"
 date: "2025-04-27"
 tags: ["llm", "llm-training"]
 series: ["Ultra-scale Playbook"]
 description: ""
 summary: "Notes on Ultra-scale Playbook - training LLM on a single GPU"
-ShowToc: false
-ShowBreadCrumbs: false
+ShowToc: true
+ShowBreadCrumbs: true
 ---
 
 Hugging Face released a fantastic [open-source book](https://huggingface.co/spaces/nanotron/ultrascale-playbook) for training LLMs on up to 12,000 GPUs.

@@ -6,8 +6,8 @@ summary: "Introduction to distributed communication for GPUs."
 description: ""
 tags: ["distributed-operations", "llm-training"]
 series: ["Ultra-scale Playbook"]
-ShowToc: false
-ShowBreadCrumbs: false
+ShowToc: true
+ShowBreadCrumbs: true
 ---
 
 Training LLMs on multiple GPUs involves both computation and communication. A previous blog on [sharding](https://dudeperf3ct.github.io/posts/ultrascale_zero_deepspeed/) looked at various ZeRO stage techniques that partition model states across multiple GPUs. Computation and communication must be distributed across multiple GPUs or even multiple nodes. In this setting, communication overhead can easily become a bottleneck: synchronizing parameters, exchanging gradients, or gathering outputs across GPUs can dominate training time if not managed carefully.

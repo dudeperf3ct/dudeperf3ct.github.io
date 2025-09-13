@@ -5,11 +5,11 @@ date: "2025-08-16"
 description: "Different ways to allow EKS workloads to securely access AWS services"
 tags: ["k8s", "eks", "aws"]
 summary: "How to authenticate EKS workloads with AWS services?"
-ShowToc: false
-ShowBreadCrumbs: false
+ShowToc: true
+ShowBreadCrumbs: true
 ---
 
-If you are using AWS SDK or AWS CLI to make API requests to AWS services from your application, it relies on a **credential chain** to determine whether you have sufficient permissions.  
+If you are using AWS SDK or AWS CLI to make API requests to AWS services from your application, it relies on a **credential chain** to determine whether you have sufficient permissions.
 
 The [default credential chain](https://docs.aws.amazon.com/sdkref/latest/guide/standardized-credentials.html#credentialProviderChain) uses the exported AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` or `AWS_REGION`) environment variables or checks for these values under `$HOME/.aws/credentials` file.
 

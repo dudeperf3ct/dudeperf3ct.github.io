@@ -6,8 +6,8 @@ summary: "Introduction to collective communication operations used for distribut
 description: ""
 tags: ["distributed-operations", "llm-training"]
 series: ["Ultra-scale Playbook"]
-ShowToc: false
-ShowBreadCrumbs: false
+ShowToc: true
+ShowBreadCrumbs: true
 ---
 
 The [previous post](https://dudeperf3ct.github.io/posts/distributed_communication_part1/) introduced the nuances related to communication between GPUs. This post will look into common communication operations used when training on multiple GPUs.

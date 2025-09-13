@@ -1,14 +1,13 @@
 ---
 author: [""]
-title: "Choosing a batch size and provider for LLM training" 
+title: "Choosing a batch size and provider for LLM training"
 date: "2025-06-27"
 tags: ["llm", "llm-training"]
 series: ["Ultra-scale Playbook"]
 description: ""
 summary: "Notes on choosing appropriate batch size and compute for training LLMs"
-ShowToc: false
-ShowBreadCrumbs: false
-draft: false
+ShowToc: true
+ShowBreadCrumbs: true
 math: true
 ---
 

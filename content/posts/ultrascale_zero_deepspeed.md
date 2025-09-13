@@ -1,14 +1,13 @@
 ---
 author: [""]
-title: "Ultra-scale Playbook - Deepspeed ZeRO" 
+title: "Ultra-scale Playbook - Deepspeed ZeRO"
 date: "2025-06-21"
 tags: ["llm", "llm-training", "sharding", "zero"]
 series: ["Ultra-scale Playbook"]
 description: ""
 summary: "Notes on training LLMs using sharding strategies"
-ShowToc: false
-ShowBreadCrumbs: false
-draft: false
+ShowToc: true
+ShowBreadCrumbs: true
 math: true
 ---
 

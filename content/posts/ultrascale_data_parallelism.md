@@ -1,14 +1,13 @@
 ---
 author: [""]
-title: "Ultra-scale Playbook - Data Parallelism" 
+title: "Ultra-scale Playbook - Data Parallelism"
 date: "2025-05-17"
 tags: ["llm", "llm-training", "data-parallelism"]
 series: ["Ultra-scale Playbook"]
 description: ""
 summary: "Notes on training LLMs using data parallelism strategy"
-ShowToc: false
-ShowBreadCrumbs: false
-draft: false
+ShowToc: true
+ShowBreadCrumbs: true
 ---
 
 Hugging Face released a fantastic [open-source book](https://huggingface.co/spaces/nanotron/ultrascale-playbook) for training LLMs on up to 12,000 GPUs.
@@ -72,7 +71,7 @@ To disable the sync on the backward pass that don't need reduction, PyTorch prov
 
 The data parallelism technique is implemented in the [Distributed Data Parallelism](https://docs.pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html#torch.nn.parallel.DistributedDataParallel) module for PyTorch.
 
-PyTorch [DDP module](https://github.com/pytorch/pytorch/blob/8568dbce1d7775d37c3f2dcc4073d3f44968fc43/torch/nn/parallel/distributed.py#L326) takes care of bucketing and synchronizing the gradients. The [internal design documentation](https://docs.pytorch.org/docs/main/notes/ddp.html#internal-design) provides further insights on the exact mechanics take during construction, forward pass, backward pass and optimizer step.  
+PyTorch [DDP module](https://github.com/pytorch/pytorch/blob/8568dbce1d7775d37c3f2dcc4073d3f44968fc43/torch/nn/parallel/distributed.py#L326) takes care of bucketing and synchronizing the gradients. The [internal design documentation](https://docs.pytorch.org/docs/main/notes/ddp.html#internal-design) provides further insights on the exact mechanics take during construction, forward pass, backward pass and optimizer step.
 
 ## Limitations
 
