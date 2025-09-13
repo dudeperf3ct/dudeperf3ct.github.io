@@ -228,6 +228,6 @@ There are few knobs in form of [environment variables](https://docs.nvidia.com/d
 
 The gap between intra-node and inter-node throughput is narrowing with recent hardware and software improvements.
 
-Stas Bekman's ML Engineering book, particularly the chapter on [networking](https://github.com/stas00/ml-engineering/tree/master/network) provides detailed insights into hardware differences across vendors. I highly recommend curious readers to give it read.
+Stas Bekman's ML Engineering book, particularly the chapter on [networking](https://github.com/stas00/ml-engineering/tree/master/network) provides detailed insights into hardware differences across vendors. I highly recommend curious readers to give it read. Also recommend the [talk](https://www.nvidia.com/en-us/on-demand/session/gtc24-s62129/)) and the [paper](https://arxiv.org/pdf/2507.04786v1) on NCCL.
 
 In the next post we will introduce common communication patterns used in distributed training (ring all-reduce, tree reductions, reduce-scatter + all-gather) and explain when to use each pattern.
