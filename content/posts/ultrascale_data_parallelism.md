@@ -37,6 +37,9 @@ This synchronization relies on an distributed communication primitive called all
 
 > HuggingFace playbook contains a [parallel computing](https://nanotron-ultrascale-playbook.static.hf.space/dist/index.html#a0:_parallel_programming_crash_course) crash course. It introduces the collective operations such as Broadcast, AllReduce, Scatter and many more required in distrubted computing scenarios.
 
+
+{{< figure align=center src="/images/dp.png" attr="Data parallelism across 2 GPUs">}}
+
 One way to implement the gradient synchronization would be to wait until all micro-batches have completed the forward-and-backward pass, then trigger all-reduce operation across all GPUs, to sync these gradients. This means some of the GPUs will stay idle until the synchronization takes place. This approach wastes the resources.
 
 {{< figure align=center src="/images/dp_overlap1.png" attr="HuggingFace [blog](https://huggingface.co/spaces/nanotron/ultrascale-playbook?section=first_optimization:_overlap_gradient_synchronization_with_backward_pass)">}}

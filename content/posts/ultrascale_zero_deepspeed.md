@@ -1,6 +1,6 @@
 ---
 author: [""]
-title: "Ultra-scale Playbook - Deepspeed ZeRO"
+title: "Ultra-scale Playbook - ZeRO Sharding"
 date: "2025-06-21"
 tags: ["llm", "llm-training", "sharding", "zero"]
 series: ["Ultra-scale Playbook"]
@@ -10,8 +10,6 @@ ShowToc: true
 ShowBreadCrumbs: true
 math: true
 ---
-
-Hugging Face released a fantastic [open-source book](https://huggingface.co/spaces/nanotron/ultrascale-playbook) for training LLMs on up to 12,000 GPUs.
 
 In the [previous post](https://dudeperf3ct.github.io/posts/ultrascale_data_parallelism/) of this series, we looked at how data parallelism lets us distribute LLM training across many GPUs. Data parallelism (DP) is memory-inefficient because model states - model parameters, gradients and optimizer states are redundantly stored on every GPU. This memory consumption can be significantly reduced using sharding techniques such as Zero Redundancy Optimizer (ZeRO). The various ZeRO strategies help reduce the memory consumption by partitioning the model states - the model parameters, gradients and optimizer states across GPUs.
 
@@ -55,7 +53,9 @@ Here's how it looks like
 
 {{< figure align=center src="/images/zero2.png" attr="HuggingFace [blog](https://huggingface.co/spaces/nanotron/ultrascale-playbook?section=zero-2:_adding_gradient_partitioning)">}}
 
-There is no communication overhead in ZeRO-2 compared to ZeRO-1 and vanilla data parallelism, as all approaches use the same reduce-scatter and all-reduce operations just applied differently.
+There is no communication overhead in ZeRO-2 compared to ZeRO-1 and vanilla data parallelism, as all approaches use the same reduce-scatter and all-reduce operations just applied differently. 
+
+> The [distributed communication blog](https://dudeperf3ct.github.io/posts/distributed_communication_part2/) introduces these operations in detail.
 
 ## Stage 3
 
@@ -82,6 +82,8 @@ Each GPU is assigned a layer’s parameters and owns the optimizer states and gr
 During the backward pass, the process is reversed. Starting from Layer 3, each GPU gathers Layer 3 parameters from GPU 3, recomputes any intermediate results if needed (unless stored), and computes the gradient using the stored activation. This gradient is then reduce-scattered to the owning GPU (in this case, GPU 3), which keeps only the shard relevant to its layer. This process continues backward through all layers. Each GPU accumulates gradients only for the layer it owns.
 
 Once backward pass is complete, each GPU updates only its shard of the optimizer state and its own layer's parameters, using the gradients it owns. Since gradients and optimizer states are sharded, this update step is done entirely locally and no communication is required.
+
+{{< figure align=center src="/images/zero3_example.png" attr="ZeRO stage-3 example">}}
 
 Stas Bekman's [guide](https://github.com/stas00/ml-engineering/blob/master/training/model-parallelism/README.md#zero-data-parallelism) on ZeRO-DP strategies provides an alternate example demonstrating ZeRO-3 optimization. It splits the layers at tensor level where a single layer’s weights might be split across multiple GPUs.
 
