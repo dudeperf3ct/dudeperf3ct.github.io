@@ -86,6 +86,8 @@ There are two types of strategies
 
 2. **Selective**: In the [Reducing activation memory in Large Language Models](https://arxiv.org/pdf/2205.05198) paper, the authors propose to checkpoint only those parts that take up a significant amount of memory but are cheap to compute for each transformer layer. Attention operations have large memory footprint for larger input sizes and can be recomputed efficiently. Using selective recomputation, GPT-3 (175B) model reduces the memory usage by up to 70% while adding only a 2.7% computation time overhead.
 
+{{< figure align=center src="/images/recomputation.png" attr="Full and selective activation">}}
+
 > There is nice [interactivate plot](https://huggingface.co/spaces/nanotron/ultrascale-playbook?section=activation_recomputation) in the Activation recompuation section of the playbook. It shows differences in the memory usage for `None`, `Full` and `Selective` activation recomputation strategies for various model sizes.
 
 This memory-compute trade-off is especially advantageous on GPU-accelerated hardware, where memory access is slower than raw computation speed (FLOPS). It makes sense to recompute rather than store in many cases.
