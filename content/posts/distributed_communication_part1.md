@@ -75,7 +75,7 @@ To test, I provisioned a 4×H100 instance on [Lambda Labs](https://lambda.ai/). 
 +-----------------------------------------+------------------------+----------------------+
 ```
 
-Sure enough there are 4xH100 GPUs each with 80GB memory :money_bag: :money_bag: .
+Sure enough there are 4xH100 GPUs each with 80GB memory 💰💰 .
 
 Next, the output of `nvidia-smi topo -m` command shows how the GPUs are inter-linked with each other and how data travels between GPUs.
 
