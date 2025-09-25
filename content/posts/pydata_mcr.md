@@ -9,11 +9,11 @@ ShowToc: false
 ShowBreadCrumbs: true
 ---
 
-I will be giving a talk at [Pydata MCR](https://www.linkedin.com/company/pydatamcr/) on How to train your LLMs?.
+I ~will be giving~ gave a talk at [Pydata MCR](https://www.linkedin.com/company/pydatamcr/) on How to train your LLMs?.
 
-The talk will cover parallelism strategies and memory optimization techniques for scaling the training of large language models. Here's a short summary of the key topics,
+The talk ~will cover~ covered parallelism strategies and memory optimization techniques for scaling the training of large language models. Here's a short summary of the key topics,
 
-* [Training on single GPU](https://dudeperf3ct.github.io/posts/ultrascale_one_gpu/) : This showed a breakdown of memory consumption of components such as parameters, gradients, optimiser states and activation memory. These are stored during training.
+* [Training on single GPU](https://dudeperf3ct.github.io/posts/ultrascale_one_gpu/) : This shows a breakdown of memory consumption of components such as parameters, gradients, optimiser states and activation memory. These are stored during training.
 * [Activation Recomputation](https://dudeperf3ct.github.io/posts/ultrascale_one_gpu/#activation-recomputation): A memory optimisation technique for activation memory.
 * [Gradient Accumulation](https://dudeperf3ct.github.io/posts/ultrascale_one_gpu/#gradient-accumulation): Gradient accumulation helps train on larger batches without using extra memory.
 * [Data parallelism](https://dudeperf3ct.github.io/posts/ultrascale_data_parallelism/): First and simplest degree of parallelism strategy. It speeds up training throughput by using multiple GPUs for training but does not reduce per-GPU memory requirements.
