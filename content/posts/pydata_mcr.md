@@ -9,7 +9,7 @@ ShowToc: false
 ShowBreadCrumbs: true
 ---
 
-I ~will be giving~ gave a talk at [Pydata MCR](https://www.linkedin.com/company/pydatamcr/) on How to train your LLMs?.
+I ~will be giving~ gave a (my first) talk at [Pydata MCR](https://www.linkedin.com/company/pydatamcr/) on How to train your LLMs?.
 
 The talk ~will cover~ covered parallelism strategies and memory optimization techniques for scaling the training of large language models. Here's a short summary of the key topics,
 
