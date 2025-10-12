@@ -29,6 +29,6 @@ The start was a bit frustrating, with several dead ends and signs warning to sta
 
 ## Podcast Recommendation
 
-Instead of a music, I would like to recommend one of my favorite podcast.
+Instead of a music, I would like to recommend one of my favorite podcast (Multiverse Employee Handbook) playlist.
 
 {{< youtubepl PLCK79HTuWuA409l7x6iRN_icn0xZFzamp >}}
