@@ -139,7 +139,7 @@ This splits the model into 4 interleaved chunks.
 
 Looping introduced in [Megatron-LM](https://www.arxiv.org/pdf/2104.04473) paper improves interleaving and reduces bubble time. Comparing the figures for 1F1B and interleaving 1F1B, the same 8 micro-batches complete faster in interleaving 1F1B compared to only 1F1B. Why is that? How does looping help?
 
-{{< figure align=center src="/images/interleaved_1f1b.png" attr="HuggingFace [blog](https://huggingface.co/spaces/nanotron/ultrascale-playbook?section=interleaving_stages)">}}
+{{< figure align=center src="/images/interleaved_1f1b.png" attr="HuggingFace [blog](https://huggingface.co/spaces/nanotron/ultrascale-playbook?section=interleaving_stages) A bug in this diagram where backward first layers should be swapped with last layers.">}}
 
 Compared to standard 1F1B, the same 8 micro-batches finish faster because each GPU computes only a small chunk at a time and immediately forwards it to the next GPU. The backward pass works similarly in reverse.
 
