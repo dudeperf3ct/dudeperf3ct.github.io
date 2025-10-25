@@ -109,8 +109,16 @@ So far, we’ve explored three ZeRO stages for data-parallel training, each trad
 
 {{< figure align=center src="/images/zero_summary.png" attr="Arxiv [paper](https://arxiv.org/pdf/1910.02054)">}}
 
-The figure from the [paper](https://arxiv.org/pdf/1910.02054) compares per-device memory consumption using the 3 ZeRO-DP optimization stages. For a 7.5 billion parameter model and a 64 degree data parallelism (number of GPUs used), vanilla data parallelism strategy requires 120 GB memory. Comparing the various ZeRO strategies, \\(P_{os}\\) refers to optimizer state partitioning, ZeRO-1 stage requires 31.4 GB of memory ~ 4x reduction. ZeRO-2 stage, \\(P_{os+g}\\) refers to optimizer state and gradient partitioning reduces the memory footprint further down to only 16.6GB of memory ~ 8x reduction. Lastly, ZeRO-3 stage, \\(P_{os+g+p}\\) refers to parameter, optimizer stage and gradient partitioning takes only 1.9 GB of model-state memory ~ 64x reduction.
+The figure from the [paper](https://arxiv.org/pdf/1910.02054) compares per-device memory consumption using the 3 ZeRO-DP optimization stages. For a 7.5 billion parameter model and a 64 degree data parallelism (number of GPUs used), vanilla data parallelism strategy requires 120 GB memory. Comparing the various ZeRO strategies, \\(P_{os}\\) refers to optimizer state partitioning, ZeRO-1 stage requires 31.4 GB of memory ~ 4x reduction. ZeRO-2 stage, \\(P_{os+g}\\) refers to optimizer state and gradient partitioning reduces the memory footprint further down to only 16.6GB of memory ~ 8x reduction. Lastly, ZeRO-3 stage, \\(P_{os+g+p}\\) refers to parameter, optimizer state and gradient partitioning takes only 1.9 GB of model-state memory ~ 64x reduction.
+
+**Key Takeaways**
+
+> The model parameters and gradients are replicated in stages ZeRO-1 and optimizer sharded. 
+
+> Likewise for ZeRO-2 stage, model parameters are replicated but gradients and optimizer states are shared.
+
+> All model states are sharded in ZeRO stage.
 
 Using the ZeRO and DP techniques, we can train larger models on multiple GPUs where models cannot even fit on a single GPU. We can scale the training using the combination of ZeRO and DP approach by adding more replicas. This works only assuming we can fit a single layer on a single GPU. Recall in the [first part](https://dudeperf3ct.github.io/posts/ultrascale_one_gpu/) of the series, we looked at how activation memory becomes a memory bottleneck for larger sequence size and batch size. This is where other axis of parallelism helps where we also partition activation memory.
 
-We will look into different parallelism approaches such as tensor, context, sequence and expert parallelism on next in the series.
+We will look into different parallelism approaches such as model, tensor, context, sequence and expert parallelism on next in the series.

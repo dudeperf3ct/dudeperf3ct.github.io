@@ -34,6 +34,9 @@ languages:
         - name: Books
           url: books
           weight: 10
+        - name: Projects
+          url: projects
+          weight: 10
         - name: Hiking
           url: hiking
           weight: 20
@@ -89,16 +92,23 @@ params:
       - name: Tags
         url: tags
 
-  mainSections: ["posts"]
+  mainSections: ["posts"] 
   homeInfoParams:
     Title: "Hi there :wave:"
-    Content: >
-      Welcome to my blog!
+    Content: |
+      Welcome to my small corner of the internet where I share things I'm learning, building, and exploring.
+  
+      - I work as MLOps Engineer at [Fuzzy Labs](https://www.fuzzylabs.ai/)
+      - You can find me on the following socials.
 
   socialIcons:
     - name: github
       title: Github social
       url: "https://github.com/dudeperf3ct"
+    - name: linkedin
+      title: LinkedIn social
+      url: "https://linkedin.com/in/dudeperf3ct"
+
 
 markup:
   goldmark:
