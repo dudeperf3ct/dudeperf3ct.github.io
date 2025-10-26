@@ -38,6 +38,8 @@ Below, I will add some interesting lines I encountered in the book
 
 There's a question that Peter Thiel (famous VC) like to ask: What important truth do *very* few people agree with you on? I have been thinking a lot about this question and reading this confirmed by belief. My answer to this question would be democracy cannot solve problems of climate change. It has to someone/few people so determined to get things done not just on local or national level but on global level. This is next to impossible task and there's no such a global powerful position that has such power or influence. It is through power and forcing people to do things. we might get to avoid the catastrophe or as I see pushing humanity off the cliff. Very few people if any would see it this way. I don't know if it is right or wrong. Also, having such greater power will almost definitely corrupt that person/institution. The aftermath if these people avoid destruction of humanity through their power is also scary.
 
+There's is no right or wrong, black and white in this world, just shades of gray.
+
 I will end with Lord Acton's powerful quote
 
 > Power tends to corrupt and absolute power corrupts absolutely. Great men are almost always bad men, even when they exercise influence and not authority; still more when you superadd the tendency of the certainty of corruption by authority.

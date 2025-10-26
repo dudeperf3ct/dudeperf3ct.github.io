@@ -12,6 +12,8 @@ Perfect excuse to learn Rust - Create a similar extension for Zed.
 
 ---
 
+> Project code: https://github.com/dudeperf3ct/zed-camouflage
+
 After looking around, I found out that slash command approach should be used to implement this. The idea being adding `/mask` slash command, the contents of `.env` file would be masked.
 
 The assitant panel in Zed is not intutive. I had to click aimlessly to find "Assitant panel" where slash commands can be inserted.
