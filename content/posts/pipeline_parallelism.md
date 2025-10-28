@@ -10,7 +10,7 @@ ShowBreadCrumbs: true
 math: true
 ---
 
-The previous blogs in the series introduced the first and simplest degree of parallelism - data parallelism. Along with optimization from sharding techniques such as ZeRO, LLMs could be trained on large number of GPUs. But what if LLMs are so large (70B+ parameters) that they cannot fit within the memory of single node or even multiple GPUs. This is where pipeline parallelism becomes essential.
+The previous blogs in [the series](https://dudeperf3ct.github.io/tags/llm-training/) introduced the first and simplest degree of parallelism - [data parallelism](https://dudeperf3ct.github.io/posts/ultrascale_data_parallelism/). Along with optimization from sharding techniques such as [ZeRO](https://dudeperf3ct.github.io/posts/ultrascale_zero_deepspeed/), LLMs could be trained on a large number of GPUs. But what if LLMs are so large (70B+ parameters) that they cannot fit within the memory of single GPU or even multiple GPUs. This is where pipeline parallelism becomes essential.
 
 The core idea is simple: split the model's sequential layers across multiple GPUs. For a 24-layer model and 4 GPUs, you might assign:
 * GPU 1: Layers 1-6
@@ -18,9 +18,7 @@ The core idea is simple: split the model's sequential layers across multiple GPU
 * GPU 3: Layers 13-18
 * GPU 4: Layers 19-24
 
-Each GPU is now a "stage" in the pipeline, responsible for storing and computing only its assigned layers. During the forward pass, activations flow from one stage to the next. During the backward pass, gradients flow in reverse.
-
-However, this introduces communication overhead between GPUs. The key challenge in distributed training is to minimize this communication cost or overlap communication with computation.
+Each GPU is now a "stage" in the pipeline, responsible for storing and computing only its assigned layers. During the forward pass, activations flow from one stage to the next. During the backward pass, gradients flow in the reverse. However this introduces communication overhead between GPUs to send and recieve activations and gradients. The key challenge in distributed training is to minimize this communication cost or overlap communication with computation.
 
 
 ## Naive model parallelism
@@ -335,12 +333,12 @@ By running two synchronized pipelines in opposite directions, DualPipe achieves:
 
 This post introduced a series of pipeline parallelism strategies, each addressing different bottlenecks:
 
-* Naive model parallelism: basic layer-splitting, high idle time.
-* GPipe: reduced bubbles via micro-batching.
-* 1F1B: reduced activation memory with alternating passes.
-* Interleaved 1F1B: finer scheduling, fewer bubbles.
-* Zero Bubble: filled idle slots using gradient independence.
-* DualPipe: full overlap with bidirectional scheduling.
+* **Naive model parallelism**: basic layer-splitting, high idle time.
+* **GPipe**: reduced bubbles via micro-batching.
+* **1F1B**: reduced activation memory with alternating passes.
+* **Interleaved 1F1B**: finer scheduling, fewer bubbles.
+* **Zero Bubble**: filled idle slots using gradient independence.
+* **DualPipe**: full overlap with bidirectional scheduling.
 
 In practice, pipeline parallelism is almost always combined with data and/or tensor parallelism to achieve truly massive scale. While this post focused on training, pipeline parallelism is also highly effective for inference. Without the need for a backward pass, the scheduling becomes much simpler, allowing for efficient execution of large models across multiple devices.
 
