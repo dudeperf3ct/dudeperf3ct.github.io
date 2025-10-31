@@ -44,28 +44,24 @@ There are several inefficiencies with this naive approach
 
 {{< collapse summary="**Measuring bubble time**" >}}
 
-{{< math.inline >}}
-<p>
 Let \(t_f\) and \(t_b\) be the time to execute forward and backward pass for a single minibatch. The number of micro-batches is \(m\) (for naive case \(m = 1\))), the number of pipeline stages (number of devices used for pipeline parallelism or degree of pipeline parallelism) is denoted as \(p\).
-</p>
-<p>
+
 The ideal time per iteration is \(t_{id}\). In the case of naive parallelism, the pipeline bubble consists of \(p-1\) forward passes at the start of a batch and \(p-1\) backward passes at the end. The total amount of time spent in the pipeline bubble is 
 $$
 t_{pb} = (p-1) * (t_f + t_b) 
 $$
-</p>
-<p>
+
 The ideal processing time for all the samples in the batch is the following. Here, the number of micro-batches \(m = 1\). 
 $$
 t_{id} = m * (t_f + t_b) = (t_f + t_b), \text{as m=1}
 $$
 Therefore, the fraction of ideal computation time spent in the pipeline bubble is
 $$
-\text{Pipeline bubble size} = \frac{(p-1) * (t_f + t_b)}{(t_f + t_b)} = p-1
+\text{Pipeline bubble size} = \frac{t_{pb}}{t_{id}} = \frac{(p-1) * (t_f + t_b)}{(t_f + t_b)} = p-1
 $$
-</p>
+
 So as we increase the number of GPUs \(p\), idle time grows linearly.
-{{</ math.inline >}}
+
 {{</ collapse >}}
 
 ## GPipe
@@ -83,29 +79,24 @@ By keeping the pipeline full of multiple micro-batches, GPipe dramatically impro
 
 {{< collapse summary="**Measuring bubble time**" >}}
 
-{{< math.inline >}}
-<p>
 Let \(t_f\) and \(t_b\) be the time to execute forward and backward pass for a single minibatch. The number of micro-batches is \(m\), the number of pipeline stages (number of devices used for pipeline parallelism or degree of pipeline parallelism) is denoted as \(p\).
-</p>
-<p>
+
 The ideal time per iteration is \(t_{id}\). The total amount of time spent in the pipeline bubble is 
 $$
 t_{pb} = (p-1) * (t_f + t_b) 
 $$
-</p>
-<p>
+
 The ideal processing time for the \(m\) micro-batches is the following
 $$
 t_{id} = m * (t_f + t_b)
 $$
+
 Therefore, the fraction of ideal computation time spent in the pipeline bubble is
 $$
-\text{Pipeline bubble size} = \frac{(p-1) * (t_f + t_b)}{m * (t_f + t_b)} = \frac{p-1}{m}
+\text{Pipeline bubble size} = \frac{t_{pb}}{t_{id}} = \frac{(p-1) * (t_f + t_b)}{m * (t_f + t_b)} = \frac{p-1}{m}
 $$
-Thus, increasing the number of micro-batches \(m\) reduces bubble size proportionally. However, a larger \(m\) also increases memory usage because all microbatch activations must be stored.
-</p>
 
-{{</ math.inline >}}
+Thus, increasing the number of micro-batches \(m\) reduces bubble size proportionally. However, a larger \(m\) also increases memory usage because all microbatch activations must be stored.
 {{</ collapse >}}
  
     
@@ -143,78 +134,62 @@ Compared to standard 1F1B, the same 8 micro-batches finish faster because each G
 
 {{< collapse summary="**Napkin calculation when interleaved 1F1B is faster compared to 1F1B**" >}}
 
-{{< math.inline >}}
-<p><br>
 Consider the following:
-</p>
-<p>
+
 - \(K\) = number of pipeline stages (GPUs),
-</p>
-<p>
 - \(T_{chunk}\) = time to compute one contiguous chunk in vanilla 1F1B,
-</p>
-<p>
 - \(v\) = number of sub-chunks you split each chunk into,
-</p>
-<p>
 - \(T_{sub}\) = \(\frac{T_{chunk}}{v}\) = time per sub-chunk,
-</p>
-<p>
 - \(C_{comm}\) = extra communication/overhead introduced by interleaving
-</p>
-<p>
+
 Rough bubble estimates for 1F1B and interleaved 1F1B:
 $$
 \text{1F1B} = (K - 1) * T_{chunk}
 $$
+
 $$
 \text{Interleaved 1F1B} = (K - 1) * T_{sub} + C_{comm} = (K - 1) * \frac{T_{chunk}}{v} + C_{comm}
 $$
-</p>
-<p>
+
 So interleaving reduces the bubble by roughly (old time minus new time)
 $$
 \Delta_{bubble} = (K - 1) * T_{chunk} * (1 - \frac{1}{v}) - C_{comm}
 $$
+
 Interleaving wins if \(\Delta_{bubble} > 0\) i.e.
 $$
 C_{comm} < (K - 1) * T_{chunk} * (1 - \frac{1}{v})
 $$
+
 Plugging some toy numbers in the above equation,
 \(K = 4\), \(T_{chunk} = 100 ms\), \(v = 4\) gives RHS = 3 * 100 * (1 − 1/4) = 225 ms.
 So if the extra comm/overhead per iteration is \(<\) 225 ms, interleaving should reduce the bubble and improve throughput. If \(C_{comm}\) is larger (e.g., due to very high message latency or many tiny messages), interleaving can lose.
-</p>
 
-{{</ math.inline >}}
 {{</ collapse >}}
 
 The training loop is getting more complicated and now model placement requires careful consideration, since layers are no longer sequential. Interleaved 1F1B keeps GPUs busy more consistently, cutting idle time and improving throughput, while still maintaining low activation memory like 1F1B.
 
 {{< collapse summary="**Measuring bubble time**" >}}
 
-{{< math.inline >}}
-<p>
+
 The number of micro-batches is \(m\), the number of pipeline stages (number of devices used for pipeline parallelism or degree of pipeline parallelism) is denoted as \(p\). The number of interleaved stages per GPU is \(v\). Each GPU now executes \(v\) smaller stages, so per-stage compute time becomes \(\frac{t_f}{v}\) and \(\frac{t_b}{v}\).
-</p>
-<p>
+
 The ideal time per iteration is \(t_{id}\). The total amount of time spent in the pipeline bubble is 
 $$
 t_{pb} = \frac{(p-1) * (t_f + t_b)}{v}
 $$
-</p>
-<p>
+
 The ideal processing time for the \(m\) micro-batches is the following
 $$
 t_{id} = \frac{m * (t_f + t_b)}{v}
 $$
+
 Therefore, the fraction of ideal computation time spent in the pipeline bubble is
 $$
 \text{Pipeline bubble size} = \frac{(p-1) * (t_f + t_b)}{v * m * (t_f + t_b)} = \frac{p-1}{m * v}
 $$
 Thus, interleaving reduces bubble size by an additional factor of \(v\), at the cost of increased communication.
-</p>
 
-{{</ math.inline >}}
 {{</ collapse >}}
 
 [Breadth-First Pipeline Parallelism](https://arxiv.org/pdf/2211.05953) paper introduces two schedule breadth-first pipeline (BFS) and depth-first pipeline (DFS) -- similar to the above interleaved 1F1B. Extracting following excerpt from paper on performance of different schedules
@@ -234,45 +209,35 @@ In naive parallelism, we hinted at how backward pass takes roughly about twice a
 The Zero Bubble schedule exploits the fact that weight gradients are not sequentially dependent and can therefore be computed whenever idle compute resources are available. By filling these idle slots with weight-gradient computation, Zero Bubble keeps all GPUs busy and eliminates the pipeline “bubbles.”
 
 {{< collapse summary="**Forward and backward computation**" >}}
-{{< math.inline >}}
-<p>
+
 Let's consider two consecutive linear layers
 $$
 A_{L} = W_{L}X_{L}
 $$
-</p>
-<p>
+
 $$
 A_{L+1} = W_{L+1}A_{L}
 $$
-</p>
-<p>
-Here
-<p>
+
+Here,
 - \(X_{L}\) - input activations to layer \(L\)
-</p>
-<p>
 - \(A_{L}\) - output activations of layer \(L\)
-</p>
-<p>
 - \(W_{L}\) - weight matrix of layer \(L\)
-</p>
-<p>
+
 Let's denote \(G_{L+1}\) as upstream gradient from the next layer 
 $$
 G_{L+1} = \frac{\delta{L}}{\delta{A_{L+1}}}
 $$
-</p>
-<p>
+
 Backward for layer \(L+1\) consists of two gradients: inputs (B) and weights (W)
 $$
 \text{Input-grad (B)} = dA_{L} = \frac{\delta{L}}{\delta{A_{L}}} = W^{T}_{L+1}G_{L+1}
 $$
+
 $$
 \text{Weights-grad (W)} = dW_{L+1} = \frac{\delta{L}}{\delta{W_{L+1}}} = G_{L+1}A^{T}_{L}
 $$
-</p>
-<p>
+
 Backward for layer \(L\) consists of two gradients: inputs (B) and weights (W)
 $$
 \text{Input-grad (B)} = dX_{L} = \frac{\delta{L}}{\delta{X_{L}}} = W^{T}_{L}dA_{L}
@@ -280,19 +245,16 @@ $$
 $$
 \text{Weights-grad (W)} = dW_{L} = \frac{\delta{L}}{\delta{W_{L}}} = dA_{L}X^{T}_{L}
 $$
-</p>
-<p>
+
 To compute \(\delta{X_{L}}\) i.e \(B_{L}\), we first need \(dA_{L}\), and to get \(dA_{L}\), we need \(G_{L+1}\). This creates a strict sequential dependency chain \(G_{L+1} -> dA_{L} -> dX_{L} ...\) where Bs depend on the next layer's B.
-</p>
-<p>
+
 However, \(dW_{L+1}\) needs only (\(G_{L+1}, A_{L}\)) and \(dW_{L}\) needs only (\(dA_{L}, X_{L}\)). These weights gradients are not required to produce any \(dA\) or \(X\) for earlier layers, so they are off the critical path of the backward chain, and can be scheduled later (any time after their inputs are ready and before optimizer step) to fill the bubbles.
-</p>
-{{</ math.inline >}}
+
 {{</ collapse >}}
 
 {{< figure align=center src="/images/zero_bubble1.png" attr="[Zero bubble paper](https://www.arxiv.org/pdf/2401.10241) Figure 2">}}
 
-The figure above shows 1F1B scheduling where there are lot of idle times (white squares). The figure below shows Zero Bubble schedule where nearly all the idle time is eliminated. 
+The figure above shows 1F1B scheduling where there are lot of idle times (white squares). The figure below shows Zero Bubble schedule where nearly all the idle time is eliminated. There's a complexity here in how these schedules are designed heuristically and synchronizing the gradients for the optimizer step.
 
 {{< figure align=center src="/images/zero_bubble2.png" attr="[Zero bubble paper](https://www.arxiv.org/pdf/2401.10241) Figure 3 Zero Bubble Schedule">}}
 

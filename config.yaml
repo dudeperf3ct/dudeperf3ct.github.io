@@ -92,12 +92,12 @@ params:
       - name: Tags
         url: tags
 
-  mainSections: ["posts"] 
+  mainSections: ["posts"]
   homeInfoParams:
     Title: "Hi there :wave:"
     Content: |
       Welcome to my small corner of the internet where I share things I'm learning, building, and exploring.
-  
+
       - I work as MLOps Engineer at [Fuzzy Labs](https://www.fuzzylabs.ai/)
       - You can find me on the following socials.
 
@@ -109,10 +109,21 @@ params:
       title: LinkedIn social
       url: "https://linkedin.com/in/dudeperf3ct"
 
-
 markup:
   goldmark:
-    renderer:
-      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          inline:
+            - - \(
+              - \)
+            - - $
+              - $
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
   highlight:
     noClasses: false
