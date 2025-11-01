@@ -4,21 +4,23 @@ tags: ["zed", "rust"]
 ShowToc: false
 ---
 
-I am using [Zed editor](https://zed.dev/) especially the [Vim mode](https://zed.dev/docs/vim) for quite some time. VSCode editor my previous thing. The experience on VSCode was laggy and slow using [VSCodeVim](https://github.com/VSCodeVim/Vim). I'll blame my machine for that, rather than my not-so-great Vim skills.
+I am using [Zed editor](https://zed.dev/) especially the [Vim mode](https://zed.dev/docs/vim) for quite some time. VSCode editor was my previous editor. The experience on VSCode was laggy and slow using [VSCodeVim](https://github.com/VSCodeVim/Vim). I'll blame my machine for that, rather than my not-so-great Vim skills.
 
 I quite like the [Camouflage](https://marketplace.visualstudio.com/items?itemName=zeybek.camouflage) VSCode extension by [zeybek](https://marketplace.visualstudio.com/publishers/zeybek). This extension hides the sensitive environment variables in the `.env` file by hiding their values. No more "oops" moment.
 
-Perfect excuse to learn Rust - Create a similar extension for Zed.
+This seems like a perfect opportunity to learn Rust - Create a similar extension for Zed editor.
 
 ---
 
 > Project code: https://github.com/dudeperf3ct/zed-camouflage
 
-After looking around, I found out that slash command approach should be used to implement this. The idea being adding `/mask` slash command, the contents of `.env` file would be masked.
+After looking around, I found out that [slash command](https://zed.dev/docs/extensions/slash-commands) approach should be used to implement this. The idea being adding `/mask` slash command, the contents of `.env` file would be masked.
 
-The assitant panel in Zed is not intutive. I had to click aimlessly to find "Assitant panel" where slash commands can be inserted.
+> The assistant panel in Zed is not intuitive. I had to click aimlessly to find "Assistant panel" where slash commands can be inserted.
 
-Attempt 1: Slash command `run_slash_command`
+> The assistant panel is located at the bottom right (or shortcut `Ctrl + ?`). In there click on the `+` followed by "New Text Thread" (or shortcut `ctrl + alt + n`).
+
+**Attempt 1**: Slash command `run_slash_command`
 
 The steps would be
 
@@ -41,7 +43,7 @@ The problem with above is
 1. `Worktree` do not contain the files of current working directory.
 2. `SlashCommandOutput` returns output as a text field in the panel itself.
 
-Attempt 2: Abandon `Worktree` and pass the contents of `.env` as arguments to slash command and then perform masking
+**Attempt 2**: Abandon `Worktree` and pass the contents of `.env` as arguments to slash command and then perform masking
 
 ```rust
 impl zed::Extension for CamouflageExtension {
@@ -64,7 +66,7 @@ impl CamouflageExtension {
 }
 ```
 
-This worked but that's not what I wanted. You have to navigate to "Assitant panel" and type `/mask` command with contents of `.env`, lol.
+This worked but that's not what I wanted. You have to navigate to "Assistant panel" and type `/mask` command with contents of `.env`, lol.
 
 ```bash
 /mask API_KEY=secret123
