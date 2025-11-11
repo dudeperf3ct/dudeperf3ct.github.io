@@ -44,7 +44,7 @@ There are several inefficiencies with this naive approach
 
 {{< collapse summary="**Measuring bubble time**" >}}
 
-Let \(t_f\) and \(t_b\) be the time to execute forward and backward pass for a single minibatch. The number of micro-batches is \(m\) (for naive case \(m = 1\))), the number of pipeline stages (number of devices used for pipeline parallelism or degree of pipeline parallelism) is denoted as \(p\).
+Let \(t_f\) and \(t_b\) be the time to execute forward and backward pass for a single minibatch. The number of micro-batches is \(m\) (for naive case \(m = 1\)), the number of pipeline stages (number of devices used for pipeline parallelism or degree of pipeline parallelism) is denoted as \(p\).
 
 The ideal time per iteration is \(t_{id}\). In the case of naive parallelism, the pipeline bubble consists of \(p-1\) forward passes at the start of a batch and \(p-1\) backward passes at the end. The total amount of time spent in the pipeline bubble is 
 $$
