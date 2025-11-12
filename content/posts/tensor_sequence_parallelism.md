@@ -121,7 +121,7 @@ As model size increases, frequent switches between computation and communication
 
 ### PyTorch AsyncTP
 
-PyTorch AsyncTP decomposes large matmuls into finer sub-matmuls so you can start computing on parts of the input while other parts are still arriving. That enables overlap of communication and compute and prevents communication from blocking GPU compute.
+PyTorch AsyncTP decomposes large matmuls into finer sub-matmuls so you can start computing on parts of the input while other parts are still arriving. That enables overlap of communication and compute and prevents communication from blocking GPU compute. This approach achieves 8% speedup for training Llama 7B and 70B LLMs.
 
 > Detailed walkthrough on the implementation of AsyncTP in PyTorch and `torchtitan` library: https://discuss.pytorch.org/t/distributed-w-torchtitan-introducing-async-tensor-parallelism-in-pytorch/209487
 
@@ -156,13 +156,17 @@ In the diagram above,
 * While it’s running, start fetching A1 in stream 1.
 * When A0 reaches its final partial wave, stream 1 can already start computing the first blocks of \(A1 @ B\).
 
-This alternating streams approach overlaps the computation and computation for the partial waves. The approach also relies on CUDA P2P mechanisms to avoid copying through host memory explained in the writeup.
+This alternating streams approach overlaps the computation and computation for the partial waves. The approach also relies on CUDA P2P mechanisms to avoid copying through host memory explained in the writeup. I have few questions that I haven't found a good explanation for
+
+* Does above approach work only for All-gather followed by matmul setups?
+* There is a question around the diagram which compares original matmul with naive implementation: why there is Send A0 in Stream 1 at all places?
+* In the alternating stream approach what is Post A0 and why are there barrier for synchronization in Stream 1 for A3 when the computation is happening on the same stream (Stream 1)? For example, there's no such barrier in between Fetch A1 and it's computation.
 
 ### DeepSpeed AsyncTP
 
 The [Domino paper](https://www.arxiv.org/abs/2409.15241) by the folks behind the DeepSpeed library uses a different approach to hide the communication latency. While PyTorch AsyncTP focuses on decomposing individual matmuls, Domino redesigns the entire tensor parallelism strategy through multi-dimensional tensor slicing.
 
-It uses combination of row-wise splitting on input and column-wise splitting on weights to overlap computation and communication.
+It uses combination of row-wise splitting on input and column-wise splitting on weights to overlap computation and communication. This approach achieves 1.3x speedup for a Megatron-LLM training on DGX-H100 GPU.
 
 {{< figure align=center src="/images/domino_asynctp.png" attr="Domino [paper](https://www.arxiv.org/abs/2409.15241)">}}
 
