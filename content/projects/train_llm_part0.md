@@ -23,7 +23,7 @@ The section 2 in the paper outlines the various datasources used. I will start w
 
 The authors use the code repositories from various sources 
 * [Software Heritage](https://docs.softwareheritage.org/devel/api-reference.html). They use 2023-09-06 version of the SH graph dataset as the primary source. 
-* Issues, and pull requests from the [GHArchive]()
+* Issues, and pull requests from the [GHArchive](https://www.gharchive.org/)
 * Kaggle and Jupyter Notebooks
 * Scraping the documentation for various packages
 * Lots of small high-quality datasets mentioned in Section 2.7 of the paper such as GSM8K, Deepmind Mathematics, Rosetta Code and Code Contest
@@ -77,13 +77,13 @@ Luckily there's a [schema](https://docs.softwareheritage.org/devel/swh-storage/d
 2. Traverse the directories and sub-directories to get the git SHA stored for each content inside the `content` table.
 3. The output will be a file that contains mapping for `repo_url`, `sha1_git` and extra information regarding the code `path` and `name`.
 
-> The code for this logic is implemented by the [`SWHDatasetParser`]() class.
+> The code for this logic is implemented by the [`SWHDatasetParser`](https://github.com/dudeperf3ct/minicode-llm/blob/main/codellm_data/dataset/parser.py#L14) class.
 
 To parallelize this processing, [Ray](https://docs.ray.io/en/latest/index.html) is used. A Ray Actor class is created that parallelizes the parsing for batches of data.
 
 Once all the repositories are traversed, next task is to download the content for all the files. Herein lies the problem. To get the content, the request in form of `https://archive.softwareheritage.org/api/1/content/[ (hash_type) :] (hash) /` must be sent to the Software Heritage API. The API is [rate-limited](https://archive.softwareheritage.org/api/#rate-limiting) providing 120 requests per hour for anonymous users and 1200 for the authenticated users.
 
-> The code for this logic is implemented by the [`SWHContentDownloader`]() class.
+> The code for this logic is implemented by the [`SWHContentDownloader`](https://github.com/dudeperf3ct/minicode-llm/blob/main/codellm_data/content/downloader.py#L27) class.
 
 The trick here is to create a schedule that sends requests without hammering the API.
 
