@@ -88,6 +88,10 @@ W_i^V \in R^{d_{model} × d_v} \\
 W^O \in R^{hd_v × d_{model}} 
 $$
 
+{{< figure align=center src="/images/attention_explained.png" attr="[Tensor Parallelism and Sequence Parallelism: Detailed Analysis](https://insujang.github.io/2024-01-11/tensor-parallelism-and-sequence-parallelism-detailed-analysis/)">}}
+
+The diagram above shows the detailed computation of multi-head attention. The input hidden states are projected into Q, K, and V using linear layers. The Q, K, and V matrices are then split into multiple heads. Each head computes attention scores using the scaled dot-product attention mechanism. The outputs from all heads are concatenated and passed through a final linear layer to produce the final output of the multi-head attention block.
+
 {{< /collapse >}}
 
 
@@ -181,7 +185,8 @@ CP does not take into consideration the problem of exploding activation memory f
 
 Next, it extends the [DeepSpeed-Ulysses](#ulysses-attention) to support modern attention approaches such as Grouped-query attention (GQA) and Multi-query attention (MQA) in addition to Multi-head attention (MHA).
 
-Using these techniques along with various PyTorch optimisations such as activation checkpointing, fused kernels, ALST demonstrates training of models with multi-million sequence lengths.
+Using these techniques along with various PyTorch optimisations such as activation checkpointing, fused kernels, ALST demonstrates training of models with multi-million sequence lengths. [ArcticTraining](https://github.com/snowflakedb/ArcticTraining) framework and [DeepSpeed](https://www.deepspeed.ai/tutorials/ulysses-alst-sequence-parallelism/)) library implement these optimizations to enable training of LLMs with extremely long context lengths.
+
 
 ## Wrap Up
 

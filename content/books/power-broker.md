@@ -1,6 +1,6 @@
 ---
 title: "The Power Broker: Robert Moses and the Fall of New York"
-tags: ["robert-caro", "power-broker", "biography"]
+tags: ["robert-caro", "power-broker", "biography", "books"]
 ShowToc: false
 ---
 
@@ -14,7 +14,7 @@ The author of this book is so meticulous in his research (most of his books take
 
 > And the chauffeur’s like, “I don’t know. I wasn’t paying attention.” But he just kept asking, “No, no, tell me more. What was he doing? What was he talking about? What’d he do?” And he kept getting the answer, “I don’t know. I wasn’t paying attention.” And finally, after weeks of asking the same question, the chauffeur says, “You know what? After campaign rallies, Lyndon Johnson would talk to himself in the backseat of the car, and he would say to himself, mumbling to himself, ‘This worked, this didn’t, I need to get better at this. I need to double down on this.'” That’s fascinating that he would talk to him himself. And it took Robert Caro weeks of asking the same question before.
 
-Bottom Line: Probably the greatest biographer of all time and certainly the most thorough biographer of all time.
+As Morgan Housel puts it, "Bottom Line, probably the greatest biographer of all time and certainly the most thorough biographer of all time".
 
 Back to the Power Broker book, the title sounds intriguing, the broker with unlimited power -- spoiler: he was --. The book is about the Robert Moses, the man who changed and shaped the landscape of New York State. I will most definitely not do justice by summarising a 1200 page book but I will try to show all interesting things I came across and finally to the important section on how it relates to climate change.
 
@@ -38,7 +38,7 @@ Below, I will add some interesting lines I encountered in the book
 
 There's a question that Peter Thiel (famous VC) like to ask: What important truth do *very* few people agree with you on? I have been thinking a lot about this question and reading this confirmed by belief. My answer to this question would be democracy cannot solve problems of climate change. It has to someone/few people so determined to get things done not just on local or national level but on global level. This is next to impossible task and there's no such a global powerful position that has such power or influence. It is through power and forcing people to do things. we might get to avoid the catastrophe or as I see pushing humanity off the cliff. Very few people if any would see it this way. I don't know if it is right or wrong. Also, having such greater power will almost definitely corrupt that person/institution. The aftermath if these people avoid destruction of humanity through their power is also scary.
 
-There's is no right or wrong, black and white in this world, just shades of gray.
+There's is no right or wrong, black and white in this world (and politics), just shades of gray.
 
 I will end with Lord Acton's powerful quote
 
