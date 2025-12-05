@@ -4,7 +4,8 @@ tags: ["aging", "death", "books"]
 ShowToc: false
 ---
 
-**Strong disclaimer**: My knowledge on biology is very limited. What I write below is based on my understanding from reading the book and I may have misunderstood or misinterpreted some concepts. All mistakes are mine
+> ![CAUTION]
+> **Strong disclaimer**: My knowledge on biology is very limited. What I write below is based on my understanding from reading the book and I may have misunderstood or misinterpreted some concepts. All mistakes are mine
 
 I learned lots of new things reading this book.
 
@@ -20,9 +21,13 @@ I learned lots of new things reading this book.
 * Caloric restriction (CR) - Reducing calorie intake without malnutrition has been shown to extend lifespan in various organisms. This is discussed in chapter 7 "Less is more". This chapter introduces TOR and how it's connected to CR and how inhibiting TOR can enhance health. TOR is helpful in early life for growth but it is unable to switch itself off when growth becomes excessive leading to cell deterioration and aging-related diseases.
 * Chapter 8 discusses the IGF-1 pathway and NAD and their role in aging. IGF-1 pathway and TOR pathway are connected in complex way. Inhibiting IGF-1 pathway has been shown to extend lifespan in various organisms. Metaformin, a diabetes treatment drug is thought to work by inhibiting IGF-1 pathway. How this drug works in not entirely clear. NAD is a molecule that is involved in energy metabolism and DNA repair. NAD levels decline with age, and boosting NAD levels has been shown to improve health and extend lifespan in various organisms.
 * Mitochondria: Gaia hypothesis. The powerhouse of the cell. I like the parallels drawn between how electricity is produced and exchanged in modern world through different ways. Mitochondria works similarly where it takes versatile forms of energy and converts them into universal energy currency of the cell, ATP. When cells need energy, it breaks the ATP bonds and use the energy released for any particular process in the cell. Mitochondria have their own DNA and can replicate independently of the cell. Mitochondrial dysfunction is thought to contribute to aging and age-related diseases. 
+
 > [!QUOTE] When we digest the food, especially carbohydrates, we are effectively burning the sugar that we obtain by breaking down the carbohydrates ... Sugar combines with oxygen and releases carbon dioxide and water and releases energy in the process. That is exactly what we do when we breathe in and out. The energy released during respiration is used by the mitochondria to produce ATP.
+
 > [!QUOTE] We inherit our mitochondria exclusively from our mothers... diseases due to defects in the mitochondrial genome are inherited entirely from the mother.
+
 > [!QUOTE] As we age our mitochondria still work but they have accumulated the defects. Not only do they produce energy less effectively, but they have becomes creakier and less effective at their myriad other tasks.
+
 * Senescent cells are produce in response to injury to promote healing and tissue regeneration. The same secretions signal to immune system to clear the senescent cells after healing is done. As we age, senescent cells accumulate in tissues and contribute to aging-related diseases. Senolytics are drugs that target and destroy senescent cells. This is discussed in chapter 10 "Aches, Pain and Vampire Blood".
 * Human body replaces itself every seven years. Stem cells are responsible for regenerating tissues and organs. As we age, the number and function of stem cells decline leading to reduced tissue regeneration. Stem cell therapies are being developed to rejuvenate tissues and organs.
 * Fundamental problem with aging research is how to tell if their treatments is working. Standard practice would be to carry out randomized clinical trials. But aging is a slow process and it would take decades to see if a treatment is effective. Researchers are trying to identify biomarkers of aging that can be used to measure the effectiveness of treatments in shorter time frames.
@@ -83,3 +88,5 @@ Some of the interesting quotes and lines from the book:
 > [!QUOTE] ... not a shred of credible evidence that human cryogenics will ever work.
 
 > [!QUOTE] (Talking about tech billionaires) When they were young, they wanted to be rich, and now that they are rich, they want to be young. 
+
+I enj
