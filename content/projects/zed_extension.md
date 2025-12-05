@@ -12,12 +12,15 @@ This seems like a perfect opportunity to learn Rust - Create a similar extension
 
 ---
 
+> [!INFO]
 > Project code: https://github.com/dudeperf3ct/zed-camouflage
 
 After looking around, I found out that [slash command](https://zed.dev/docs/extensions/slash-commands) approach should be used to implement this. The idea being adding `/mask` slash command, the contents of `.env` file would be masked.
 
+> [!NOTE]
 > The assistant panel in Zed is not intuitive. I had to click aimlessly to find "Assistant panel" where slash commands can be inserted.
 
+> [!TIP]
 > The assistant panel is located at the bottom right (or shortcut `Ctrl + ?`). In there click on the `+` followed by "New Text Thread" (or shortcut `ctrl + alt + n`).
 
 **Attempt 1**: Slash command `run_slash_command`
@@ -82,4 +85,5 @@ API_KEY=***MASKED***
 
 Looks like there's a similar open issue asking for the same: [How to read file contents in a custom slash command? #17714](https://github.com/zed-industries/zed/discussions/17714).
 
+> [!CAUTION]
 > Extensions run inside of the Wasm sandbox and can currently only perform arbitrary file I/O within the extension working directory.

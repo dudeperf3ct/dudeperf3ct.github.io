@@ -1,6 +1,6 @@
 baseURL: "https://dudeperf3ct.github.io/"
 title: Blog
-theme: ["PaperMod"]
+theme: ["hugo-admonitions", "PaperMod"]
 copyright: "© [dudeperf3ct](https://github.com/dudeperf3ct/)"
 
 enableInlineShortcodes: true

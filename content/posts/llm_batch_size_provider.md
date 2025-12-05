@@ -54,6 +54,7 @@ $$
 
 With the estimated time and the provider’s cost per second (or per hour), we can then approximate the total training cost.
 
+> [!INFO]
 > Some (most?) vendors publish unrealistic peak performance TFLOPS - they aren’t possible to achieve.
 
 However, as Stas Bekman notes in his [ML eningeering book](https://github.com/stas00/ml-engineering), many vendors report optimistic peak TFLOPS values that are rarely achieved in practice. Instead, Model FLOPS Utilization (MFU) should be used to capture how efficiently the hardware is actually being used:

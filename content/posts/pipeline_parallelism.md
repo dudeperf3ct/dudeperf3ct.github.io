@@ -27,7 +27,8 @@ The naive approach to model parallelism would be to distribute the layers across
 
 {{< figure align=center src="/images/naive_pp.png" attr="HuggingFace [blog](https://huggingface.co/spaces/nanotron/ultrascale-playbook?section=splitting_layers_on_various_nodes_-_all_forward,_all_backward). Here the numbers indicate the layers processed for a single batch.">}}
 
-> Side note: The backward pass (pink boxes) is typically about 2× longer than the forward pass (teal boxes).
+> [!INFO] Side note
+> The backward pass (pink boxes) is typically about 2× longer than the forward pass (teal boxes).
 > This is because the backward pass involves two matrix multiplications — one to compute gradients w.r.t. activations, and another for gradients w.r.t. weights whereas the forward pass requires only one.
 
 The way it works is
@@ -194,11 +195,13 @@ Thus, interleaving reduces bubble size by an additional factor of \(v\), at the 
 
 [Breadth-First Pipeline Parallelism](https://arxiv.org/pdf/2211.05953) paper introduces two schedule breadth-first pipeline (BFS) and depth-first pipeline (DFS) -- similar to the above interleaved 1F1B. Extracting following excerpt from paper on performance of different schedules
 
+> [!QUOTE] Paper excerpt
 > For smaller batches, the breadth-first schedule is by far the most efficient, minimizing both the bubble and network overheads. The depth-first schedule also reduces the pipeline bubble, but its high network overhead makes the performance worse than than the non-looped configurations in most cases. For larger batches, the pipeline bubble is small in all cases, and 1F1B is the fastest because of its lower pipeline-parallel network overhead and memory usage."
 
 [Llama 3.1](https://www.arxiv.org/pdf/2407.21783) paper provides insights on how they combine DFS and BFS schedule to optimize the memory and communication efficiently. They also balance the pipeline by reducing transformers layers from first and last stages. First layer is responsible for embedding lookup which increases memory and last layer is used to calculate output and loss which increases the latency.
 
-> TODO: I don't understand DFS and BFS schedule clearly. I will revist those and rewrite for clarity.
+> [!TASK] TODO
+> I don't understand DFS and BFS schedule clearly. I will revisit those and rewrite for clarity.
 
 ## Zero Bubble Pipeline Schedule
 
@@ -289,7 +292,8 @@ By running two synchronized pipelines in opposite directions, DualPipe achieves:
 * Near-zero pipeline bubbles and higher hardware utilization
 * Better scaling across many GPUs, especially when combined with expert and tensor parallelism
 
-> Note: I would like to explore DeepSeek v3 in depth as part of separate post.
+> [!IDEA] DeepSeek blog
+> I would like to explore DeepSeek v3 in depth as part of separate post.
 
 ## Wrap up
 

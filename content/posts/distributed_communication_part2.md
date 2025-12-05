@@ -129,6 +129,7 @@ PyTorch provides out of box implementations for communication collectives that a
 * [Operators](https://pytorch.org/docs/stable/distributed.html#torch.distributed.ReduceOp) such as sum, max, prod, min
 * [Backends](https://docs.pytorch.org/docs/stable/distributed.html#backends) such as `gloo` and `nccl` along with the supported collectives for each backend
 
+> [!TIP]
 > I highly recommend interested readers to read a detailed [paper](https://arxiv.org/pdf/2507.04786v1) on NCCL that shades a mega flash light on the internals on NCCL workings and implementation of the collective operations.
 
 

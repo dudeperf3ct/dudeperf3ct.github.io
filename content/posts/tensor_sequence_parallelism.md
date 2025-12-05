@@ -123,6 +123,7 @@ As model size increases, frequent switches between computation and communication
 
 PyTorch AsyncTP decomposes large matmuls into finer sub-matmuls so you can start computing on parts of the input while other parts are still arriving. That enables overlap of communication and compute and prevents communication from blocking GPU compute. This approach achieves 8% speedup for training Llama 7B and 70B LLMs.
 
+> [!TIP]
 > Detailed walkthrough on the implementation of AsyncTP in PyTorch and `torchtitan` library: https://discuss.pytorch.org/t/distributed-w-torchtitan-introducing-async-tensor-parallelism-in-pytorch/209487
 
 {{< figure align=center src="/images/naive_asynctp.png" attr="Pytorch [forum](https://discuss.pytorch.org/t/distributed-w-torchtitan-introducing-async-tensor-parallelism-in-pytorch/209487 )">}}
@@ -185,6 +186,7 @@ By grouping operations across micro-batches (like layerNorm, residual, dropout),
 
 Tensor parallelism split the computation in the MLP and MHA blocks across the GPUs. The layers that are typically not split are normalization and dropout; although these layers are not compute-heavy, they require considerable activation memory. Sequence parallelism parallelizes those layers along the sequence dimension to reduce activation memory usage.
 
+> [!INFO]
 > There is sometimes confusion in literature (also noted in the HuggingFace playbook) where sequence parallelism techniques enables the training longer sequences. To make terminology explicit, we'll call those techniques context parallelism, a topic for the next post.
 
 {{< figure align=center src="/images/sequence_parallelism.png" attr="Adapted from Reducing Activation Recomputation in Large Transformer Models [paper](https://www.arxiv.org/abs/2205.05198)">}}

@@ -17,6 +17,7 @@ There are many libraries for implementing observability, depending on your prefe
 
 We will explore 3 examples of using Logfire in the Python application. Starting with a simple Python application followed by a FastAPI + database application and finally an advanced LLM based application.
 
+> [!INFO]
 > The code for all the 3 application: https://github.com/dudeperf3ct/logfire-examples 
 
 ## Python Application

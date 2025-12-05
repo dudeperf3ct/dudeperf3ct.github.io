@@ -64,6 +64,7 @@ We use PyTorch profiler to understand memory utilization during training. A typi
 * In later epochs, optimizer states are updated in-place, so their memory footprint remains constant.
 * Gradient memory is freed when `zero_grad()` is called.
 
+> [!CODE]
 > Code to inspect memory utilization: [Readme](https://github.com/dudeperf3ct/ultra-scale-experiments/blob/main/single_gpu/README.md)
 
 The memory taken by activation seems insignificant for our example 360M parameter model above. Once we scale the size of the model and increase the the sequence length, activation memory becomes the memory bottleneck.
@@ -88,6 +89,7 @@ There are two types of strategies
 
 {{< figure align=center src="/images/recomputation.png" attr="Full and selective activation">}}
 
+> [!TIP]
 > There is nice [interactivate plot](https://huggingface.co/spaces/nanotron/ultrascale-playbook?section=activation_recomputation) in the Activation recompuation section of the playbook. It shows differences in the memory usage for `None`, `Full` and `Selective` activation recomputation strategies for various model sizes.
 
 This memory-compute trade-off is especially advantageous on GPU-accelerated hardware, where memory access is slower than raw computation speed (FLOPS). It makes sense to recompute rather than store in many cases.

@@ -55,6 +55,7 @@ Here's how it looks like
 
 There is no communication overhead in ZeRO-2 compared to ZeRO-1 and vanilla data parallelism, as all approaches use the same reduce-scatter and all-reduce operations just applied differently. 
 
+> [!INFO]
 > The [distributed communication blog](https://dudeperf3ct.github.io/posts/distributed_communication_part2/) introduces these operations in detail.
 
 ## Stage 3
@@ -113,10 +114,13 @@ The figure from the [paper](https://arxiv.org/pdf/1910.02054) compares per-devic
 
 **Key Takeaways**
 
+> [!NOTE]
 > The model parameters and gradients are replicated in stages ZeRO-1 and optimizer sharded. 
 
+> [!NOTE]
 > Likewise for ZeRO-2 stage, model parameters are replicated but gradients and optimizer states are shared.
 
+> [!NOTE]
 > All model states are sharded in ZeRO stage.
 
 Using the ZeRO and DP techniques, we can train larger models on multiple GPUs where models cannot even fit on a single GPU. We can scale the training using the combination of ZeRO and DP approach by adding more replicas. This works only assuming we can fit a single layer on a single GPU. Recall in the [first part](https://dudeperf3ct.github.io/posts/ultrascale_one_gpu/) of the series, we looked at how activation memory becomes a memory bottleneck for larger sequence size and batch size. This is where other axis of parallelism helps where we also partition activation memory.

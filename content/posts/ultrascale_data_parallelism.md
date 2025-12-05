@@ -35,7 +35,8 @@ To ensure consistent model updates across all GPUs, the gradients computed on ea
 
 This synchronization relies on an distributed communication primitive called all-reduce, which performs both the averaging and broadcasting of the gradients across all GPUs in a single step.
 
-> HuggingFace playbook contains a [parallel computing](https://nanotron-ultrascale-playbook.static.hf.space/dist/index.html#a0:_parallel_programming_crash_course) crash course. It introduces the collective operations such as Broadcast, AllReduce, Scatter and many more required in distrubted computing scenarios.
+> [!TIP]
+> HuggingFace playbook contains a [parallel computing](https://nanotron-ultrascale-playbook.static.hf.space/dist/index.html#a0:_parallel_programming_crash_course) crash course. It introduces the collective operations such as Broadcast, AllReduce, Scatter and many more required in distributed computing scenarios.
 
 
 {{< figure align=center src="/images/dp.png" attr="Data parallelism across 2 GPUs">}}

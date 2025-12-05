@@ -220,6 +220,7 @@ The average bandwidth of all_reduce over 4 ranks (5 warmups / 20 trials):
 |   16GiB | 366.99GBps | 244.66GBps |
 ```
 
+> [!WARNING]
 > The network throughput observed will never be same as the advertised theoretical throughput. One should expect in best case to expect about 80%-90% of advertised value.
 
 There are few knobs in form of [environment variables](https://docs.nvidia.com/deeplearning/nccl/archives/nccl_2283/user-guide/docs/env.html) that can be tuned to maximise the utilization.
