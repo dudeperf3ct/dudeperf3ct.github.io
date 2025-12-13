@@ -4,7 +4,7 @@ tags: ["aging", "death", "books"]
 ShowToc: false
 ---
 
-> ![CAUTION]
+> [!CAUTION]
 > **Strong disclaimer**: My knowledge on biology is very limited. What I write below is based on my understanding from reading the book and I may have misunderstood or misinterpreted some concepts. All mistakes are mine
 
 I learned lots of new things reading this book.
@@ -89,4 +89,4 @@ Some of the interesting quotes and lines from the book:
 
 > [!QUOTE] (Talking about tech billionaires) When they were young, they wanted to be rich, and now that they are rich, they want to be young. 
 
-I enj
+I enjoyed reading the book and learnt lots of things related to human biology. The language and concepts were explained really well - breaking down the complex topics.
