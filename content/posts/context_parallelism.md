@@ -5,6 +5,7 @@ date: 2025-11-22
 summary: "Notes on training LLMs using context parallelism"
 description: ""
 tags: ["llm", "llm-training", "context-parallelism"]
+series: ["Ultra-scale Playbook"]
 ShowToc: true
 ShowBreadCrumbs: true
 math: true

@@ -5,6 +5,7 @@ date: 2025-10-25
 summary: "Notes on training LLMs using pipeline parallelism"
 description: ""
 tags: ["llm", "llm-training", "pipeline-parallelism"]
+series: ["Ultra-scale Playbook"]
 ShowToc: true
 ShowBreadCrumbs: true
 math: true

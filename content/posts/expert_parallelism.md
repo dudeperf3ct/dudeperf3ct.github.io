@@ -5,6 +5,7 @@ date: 2025-12-13
 summary: "Notes on training LLMs using expert parallelism"
 description: ""
 tags: ["llm", "llm-training", "expert-parallelism"]
+series: ["Ultra-scale Playbook"]
 ShowToc: true
 ShowBreadCrumbs: true
 math: true
@@ -66,7 +67,7 @@ Let's take a look at what a forward pass for MoE looks like. Consider, for examp
 
 Because each GPU hosts different experts, every GPU must send the tokens assigned to those experts to the corresponding GPU. This creates a dense communication pattern between all GPUs. A MoE layer under expert parallelism performs two all-to-all communication rounds: one for dispatch and one for combine.
 
-{{< figure align=center src="/images/expert_parallelism.png" attr="[A Visual Guide to Mixture of Experts (MoE)](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-mixture-of-experts)">}}
+{{< figure align=center src="/images/expert_parallelism.png" attr="Expert parallelism communication">}}
 
 Expert parallelism (EP) is often used in conjunction with other parallelism techniques. EP with data parallelism (DP) allows training to scale across many GPUs by replicating the model while distributing experts within each replica. This keeps the non-MoE layers replicated as usual while the experts remain sharded across GPUs inside each data parallel group.
 

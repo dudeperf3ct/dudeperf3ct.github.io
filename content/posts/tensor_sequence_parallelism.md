@@ -5,6 +5,7 @@ date: 2025-11-11
 summary: "Notes on training LLMs using tensor and sequence parallelism"
 description: ""
 tags: ["llm", "llm-training", "tensor-parallelism", "sequence-parallelism"]
+series: ["Ultra-scale Playbook"]
 ShowToc: true
 ShowBreadCrumbs: true
 math: true
@@ -68,13 +69,13 @@ A natural question is: when should each strategy be used? The choice depends on 
 
 The original transformer block consists of two main components relevant for TP: the MLP block and Multi-head Attention (MHA).
 
-{{< figure align=center src="/images/transformer_arch.png" >}}
+{{< figure align=center src="/images/transformer_arch.png" attr="Example of transformer layer">}}
 
 ### Multi-layer perceptron {#multi-layer-perceptron}
 
 The MLP block is a feed-forward network with two linear layers and a non-linear activation between them. The first linear layer expands the hidden dimension (up-projection going from h to 4h). The activation function, usually ReLU or GeLU, is applied. The second linear layer projects the data back down to its original dimensionality (down-projection going from 4h to h).
 
-{{< figure align=center src="/images/mlp_block.png">}}
+{{< figure align=center src="/images/mlp_block.png" attr="Tensor parallelism for MLP layer">}}
 
 Because the first linear layer expands the output size, the preferred sharding differs between the two linear layers:
 
@@ -84,13 +85,13 @@ In tensor-parallel MLP:
 * Activation: applied locally on each GPU (no communication needed).
 * Second linear layer (down-projection): row-wise sharding; partial outputs are combined via a single All-Reduce to produce the final output.
 
-{{< figure align=center src="/images/mlp_tp.png">}}
+{{< figure align=center src="/images/mlp_tp.png" attr="An example of tensor parallelism for a MLP layer">}}
 
  This column-then-row ordering avoids an All-Gather between the two linear layers. Overall, only one collective communication (an All-Reduce) is required to produce the final output. If you instead used row-then-column, you would need an extra synchronization before the activation because activation functions are not additive.
  
 ### Multi-Head Attention
 
-{{< figure align=center src="/images/attention_block.png">}}
+{{< figure align=center src="/images/attention_block.png" attr="Tensor parallelism for MHA layer">}}
 
 Attention computes query (Q), key (K), and value (V) projections followed by scaled dot-product attention. In multi-head attention, the input features are projected into multiple heads. Each head attends independently and the outputs of all heads are concatenated back to the original feature size, followed by a final linear projection.
 

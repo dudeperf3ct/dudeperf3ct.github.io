@@ -23,7 +23,7 @@ Activations scale linearly with the batch size and quadratically with the sequen
 
 Instead of saving all the activations in the memory during the forward pass, gradient checkpointing reduces the memory footprint by recomputing some of the activations during backward pass. This helps save the activation memory for a single batch size.
 
-Gradient accumulation controls the effective batch size by accumulating gradients over multiple smaller micro-batches before performing a weight update. This technique allows training with larger batch sizes and also highlights a key optimization opportunity -- each micro-batch can be processed independently, hence need for using multiple GPUs to parallelize and accelerate training.
+Gradient accumulation controls the effective batch size by accumulating gradients over multiple smaller micro-batches before performing a weight update. This technique allows training with larger batch sizes and highlights a key optimization opportunity -- each micro-batch can be processed independently, hence need for using multiple GPUs to parallelize and accelerate training.
 
 The first parallelization strategy that we will be looking at is **Data Parallelism**.
 
@@ -33,7 +33,7 @@ The idea behind data parallelism (DP) strategy is to create replicas of the same
 
 To ensure consistent model updates across all GPUs, the gradients computed on each GPU must be averaged and synchronized. This is done using a process called gradient synchronization, where gradients are gathered from all GPUs, averaged, and then redistributed so that all model replicas are updated identically.
 
-This synchronization relies on an distributed communication primitive called all-reduce, which performs both the averaging and broadcasting of the gradients across all GPUs in a single step.
+This synchronization relies on distributed communication primitive called all-reduce, which performs both the averaging and broadcasting of the gradients across all GPUs in a single step.
 
 > [!TIP]
 > HuggingFace playbook contains a [parallel computing](https://nanotron-ultrascale-playbook.static.hf.space/dist/index.html#a0:_parallel_programming_crash_course) crash course. It introduces the collective operations such as Broadcast, AllReduce, Scatter and many more required in distributed computing scenarios.
