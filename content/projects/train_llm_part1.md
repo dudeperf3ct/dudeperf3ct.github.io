@@ -474,6 +474,11 @@ Looking at the vocab, the tokenizer has picked up quite a lot of things related 
 * Infra/dev: `kafka`, `uvicorn`, `Docker`, `CELERY`
 * Code syntax patterns: `"=\"\"\""`, `"=[("`, `"//"`, `"####"`
 
+The code repository also contains helper function to visualize the tokenizer output for the code. Here's an example output for a Python code:
+
+{{< figure align=center src="/images/example_viz.png">}}
+
+Each colored segment represents a single token. The visualization shows that the tokenizer segments Python code into meaningful subword units while preserving syntax, whitespace, and formatting losslessly.
 
 > [!NOTE]
 > Hugging Face hub link to the tokenizer: https://huggingface.co/dudeperf3ct/codellm-tokenizer
