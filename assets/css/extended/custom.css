@@ -1,3 +1,19 @@
 .post-tags {
     text-transform: lowercase;
 }
+
+/* Plotly plot container styling */
+.plotly-container {
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow-x: auto; /* allow wide plots to scroll instead of clipping */
+    overflow-y: visible;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure plots are responsive */
+.plotly-container .plotly-graph-div {
+    width: 100% !important; /* override the inline 1300px width from the export */
+    max-width: 100%;
+    margin: 0 auto;
+}

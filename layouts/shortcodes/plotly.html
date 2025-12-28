@@ -1,0 +1,12 @@
+{{ $file := .Get "file" }}
+{{ $data := resources.Get $file }}
+{{ if not $data }}
+  {{ $data = readFile $file }}
+{{ end }}
+{{ if $data }}
+  <div class="plotly-container">
+    {{ $data | safeHTML }}
+  </div>
+{{ else }}
+  <p style="color: red;">Error: Could not find plot file: {{ $file }}</p>
+{{ end }}
