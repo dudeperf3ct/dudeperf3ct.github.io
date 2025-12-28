@@ -173,6 +173,9 @@ if __name__ == "__main__":
 
 {{< /collapse >}}
 
+> [!NOTE]
+> Each experiment produces a trace file for each rank that can be viewed at [perfetto UI](https://ui.perfetto.dev/). This provides detailed breakdown of CUDA streams and CPU threads. It shows the compute time for all the operations taking place on GPU and CPU.
+
 
 ## Simple DDP
 
