@@ -1,7 +1,7 @@
 ---
 author: [""]
 title: "Python in practice - Config driven design"
-date: 2025-01-11
+date: 2026-01-11
 summary: "Patterns in python code design"
 description: ""
 tags: ["python", "best-practices"]
