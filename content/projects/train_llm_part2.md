@@ -27,6 +27,12 @@ To get started on pretraining on our dataset, two main components are required: 
 >[!NOTE]
 > I have written a blog on config driven design in Python [here](https://dudeperf3ct.github.io/posts/python_in_practice/). TorchTitan uses a similar approach to configure the training components.
 
+These are the components that I am using for pretraining
+
+* Custom tokenizer: https://dudeperf3ct.github.io/projects/train_llm_part1/
+* Dataset: [`tokyotech-llm/swallow-code-v2`](https://huggingface.co/datasets/tokyotech-llm/swallow-code-v2)
+* Model Architecture: Llama 3.2 1B (1 billion parameter)
+
 ## Data
 
 For this experiment, I am using [`tokyotech-llm/swallow-code-v2`](https://huggingface.co/datasets/tokyotech-llm/swallow-code-v2) dataset. The pretraining task will be a Fill-in-the-middle (FIM) task where a random span of code is masked and the model is trained to predict the missing span given the surrounding context. This enables model to perform code infilling tasks.
