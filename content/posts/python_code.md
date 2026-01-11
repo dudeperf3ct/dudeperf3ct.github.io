@@ -1,6 +1,6 @@
 ---
 author: [""]
-title: "Python in practice"
+title: "Python in practice - Abstraction design"
 date: 2025-10-10
 summary: "Learnings from reading the python code for semlib library"
 description: ""
