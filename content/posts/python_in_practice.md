@@ -5,7 +5,7 @@ date: 2026-01-11
 summary: "Patterns in python code design"
 description: ""
 tags: ["python", "best-practices"]
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: true
 ---
 
