@@ -309,7 +309,7 @@ I used 2 x H100 for smoke testing as I planned to perform full run on same hardw
 
 ## Full Run
 
-Once smoke test is complete and we get rough idea about what to expect from full run.
+Once smoke test is complete we get rough idea about what to expect from full run.
 
 >[!IMPORTANT]
 > I performed full testing on 4 x H100 instance (80 GB) on Lambda Labs. This run costed me about $150. The cost of each H100 was $3.09/GPU/hr on January 9 ($12.36/hr) :money_with_wings::money_with_wings: .
@@ -479,7 +479,7 @@ Everything was not a walk in the park. Below I describe the errors I encountered
 
 ## Next Steps
 
-What's next? I am not sure. I half expected throwing $150 (lol) would be enough to get at least a basic autocomplete model. I don't have any good ideas on how to improve these so may be explore or research on these (continual learning, mid-training). I also wanted to explore SFT and RL training if base model is decent.
+What's next? I am not sure. I half expected throwing $150 (lol) would be enough to get at least a basic autocomplete model. I don't have any good ideas (other than throwing more money and running the pretraining for entire 50B tokens further) on how to improve these so may be explore or research on these (continual learning, mid-training). I also wanted to explore SFT and RL training if base model is decent.
 
 * [Nvidia's NeMo 2.0](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/index.html) framework looks interesting. I wonder how easy is it to get started and kick of a smoke test with it compared to torchtitan.
 * Gather insights from community on the results of this experiment.
