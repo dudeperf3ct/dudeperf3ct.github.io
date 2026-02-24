@@ -11,7 +11,8 @@ ShowBreadCrumbs: true
 
 We have looked at data parallelism - one of the simplest parallelism techniques - previously. It enables scaling the training on LLMs across multiple GPUs by distributing data.
 
-In this post, we look at implementing different techniques for training an LLM across multiple GPUs using PyTorch.
+In this post, we look at implementing different data parallelism techniques for training an LLM across multiple GPUs using PyTorch.
+
 * Simple DDP
 * Simple DDP with gradient accumulation
 * Using backward hooks to overlap gradient synchronization
@@ -42,7 +43,7 @@ The [data pipeline](https://github.com/dudeperf3ct/llm-parallelism-pytorch/blob/
 
 1. Download the yelp review dataset from Hugging Face hub.
 2. Select a small subset of the dataset for quick experiments.
-3. Tokenize the dataset using the tokenizer from SmolLM2-360M-Instruct model.
+3. Tokenize the dataset using the tokenizer from `SmolLM2-360M-Instruct` model.
 4. Split the dataset into training and evaluation sets.
 5. Create data loaders with `DistributedSampler` for distributed training.
 
@@ -99,7 +100,7 @@ def prepare_data(batch_size: int, rank: int, world_size: int):
 
 {{< /collapse >}}
 
-Next, once the data pipeline is ready, we set up the model and optimizer. We load the pre-trained SmolLM2-360M-Instruct model and move it to the appropriate device. AdamW optimizer with fixed learning rate is used for training.
+Next, once the data pipeline is ready, we set up the model and optimizer. We load the pre-trained `SmolLM2-360M-Instruct` model and move it to the appropriate device. AdamW optimizer with fixed learning rate is used for training.
 
 {{< collapse summary="**Training loop**" >}}
 
@@ -183,9 +184,9 @@ A custom wrapper around the PyTorch model is created. This custom wrapper implem
 
 1. `sync_parameters`: A function that ensures all ranks (or GPUs) are initialized with same parameter values
 2. `forward`: This shows how the forward pass using this custom wrapper looks like. Nothing fancy, we call the model as is.
-3. `sync_gradients`: This function implements how to calculate the gradients across all GPUs
+3. `sync_gradients`: This function implements how to calculate and synchronize the gradients across all GPUs
 
-The steps for synchronizing gradients are 
+The steps are
 
 1. Iterate through the gradients of all the model parameters on each GPU
 2. Invoke a distributed communication `all_reduce` to sum all the gradients across all GPUs

@@ -79,7 +79,7 @@ $$
 So the MFU is:
 
 $$
-\text{MFU} = \frac{156}{312} = 0.50 \quad (50\\% \text{ utilization})
+\text{MFU} = \frac{156}{312} = 0.50 \quad (50\% \text{ utilization})
 $$
 
 In other words, only half the advertised performance is being used. We can then adjust our time and cost estimates by dividing the ideal time by the MFU (or equivalently multiplying the cost by 1/MFU) to reflect realistic estimate of training time and expense.

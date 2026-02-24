@@ -37,7 +37,7 @@ Instead of each GPU holding an entire copy of optimizer state, in ZeRO-1, the op
 
 ZeRO-1 offers reduced optimizer-state memory by a factor of N (where N = number of data-parallel GPUs). Both ZeRO-1 and vanilla DP use the same communication volume (a combination of reduce-scatter and all-gather applied in different places).
 
-## Stage 2
+### Stage 2
 
 In Stage 2, sharding goes one step further: alongside optimizer states, gradients are also partitioned. For each micro-batch, a particular GPU maintains gradients only for a subset of model parameters. Each GPU therefore holds only a subset of gradients, cutting memory use compared to Stage 1’s full replication.
 
@@ -58,7 +58,7 @@ There is no communication overhead in ZeRO-2 compared to ZeRO-1 and vanilla data
 > [!INFO]
 > The [distributed communication blog](https://dudeperf3ct.github.io/posts/distributed_communication_part2/) introduces these operations in detail.
 
-## Stage 3
+### Stage 3
 
 Both ZeRO-1 and ZeRO-2 provide substantial memory savings by sharding optimizer states and gradients, but they assume that the full model parameters can still fit on each GPU. This assumption breaks down for ultra-large models of size hundreds of billions of parameters where even a single forward or backward pass exceeds the GPU memory capacity.
 
@@ -96,11 +96,12 @@ With additional communication overhead, ZeRO-3 offers significant memory reducti
 
 ## Implementation
 
+> [!CODE] PyTorch implementation
+> I have implemented various ZeRO sharding approaches in PyTorch and compared it with PyTorch native-FSDP2 implementation in a [blog](https://dudeperf3ct.github.io/posts/implement_data_parallelism/) and related [code](https://github.com/dudeperf3ct/llm-parallelism-pytorch).
+
 Both Deepspeed library and PyTorch library support various ZeRO stage implementations.
 
-PyTorch refers to ZeRO-3 stage as FullyShardedDataParallel [FSDP](https://docs.pytorch.org/docs/stable/notes/fsdp.html#fsdp-notes). It provides a different approach compared to ZeRO-3 implementation in DeepSpeed. PyTorch provides two FSDP implementations: [FSDP1](https://docs.pytorch.org/docs/stable/fsdp.html) and [FSDP2](https://docs.pytorch.org/docs/stable/distributed.fsdp.fully_shard.html).
-
-There are advanced optimization strategies such as [ZeRO Infinity](https://www.deepspeed.ai/tutorials/zero/#training-trillion-scale-models-with-zero-infinity) and [ZeRO++](https://www.deepspeed.ai/tutorials/zeropp/) as part of Deepspeed library.
+PyTorch refers to ZeRO-3 stage as FullyShardedDataParallel [FSDP](https://docs.pytorch.org/docs/stable/notes/fsdp.html#fsdp-notes). It takes a different implementation approach compared to ZeRO-3 implementation in DeepSpeed. PyTorch provides two FSDP implementations: [FSDP1](https://docs.pytorch.org/docs/stable/fsdp.html) and [FSDP2](https://docs.pytorch.org/docs/stable/distributed.fsdp.fully_shard.html). There are advanced optimization strategies such as [ZeRO Infinity](https://www.deepspeed.ai/tutorials/zero/#training-trillion-scale-models-with-zero-infinity) and [ZeRO++](https://www.deepspeed.ai/tutorials/zeropp/) as part of Deepspeed library.
 
 The implementation frameworks hide the effective communication overhead optimally by overlapping the computations and communications.
 
@@ -114,14 +115,9 @@ The figure from the [paper](https://arxiv.org/pdf/1910.02054) compares per-devic
 
 **Key Takeaways**
 
-> [!NOTE]
-> The model parameters and gradients are replicated in stages ZeRO-1 and optimizer sharded. 
-
-> [!NOTE]
-> Likewise for ZeRO-2 stage, model parameters are replicated but gradients and optimizer states are shared.
-
-> [!NOTE]
-> All model states are sharded in ZeRO stage.
+* The model parameters and gradients are replicated in stages ZeRO-1 and optimizer sharded. 
+* Likewise for ZeRO-2 stage, model parameters are replicated but gradients and optimizer states are shared.
+* All model states are sharded in ZeRO-3 stage.
 
 Using the ZeRO and DP techniques, we can train larger models on multiple GPUs where models cannot even fit on a single GPU. We can scale the training using the combination of ZeRO and DP approach by adding more replicas. This works only assuming we can fit a single layer on a single GPU. Recall in the [first part](https://dudeperf3ct.github.io/posts/ultrascale_one_gpu/) of the series, we looked at how activation memory becomes a memory bottleneck for larger sequence size and batch size. This is where other axis of parallelism helps where we also partition activation memory.
 

@@ -73,6 +73,9 @@ To disable the sync on the backward pass that don't need reduction, PyTorch prov
 
 ## Implementation
 
+> [!CODE] PyTorch implementation
+> I have implemented various DDP approaches in PyTorch and compared it with PyTorch native-DDP implementation in a [blog](https://dudeperf3ct.github.io/posts/implement_data_parallelism/) and related [code](https://github.com/dudeperf3ct/llm-parallelism-pytorch).
+
 The data parallelism technique is implemented in the [Distributed Data Parallelism](https://docs.pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html#torch.nn.parallel.DistributedDataParallel) module for PyTorch.
 
 PyTorch [DDP module](https://github.com/pytorch/pytorch/blob/8568dbce1d7775d37c3f2dcc4073d3f44968fc43/torch/nn/parallel/distributed.py#L326) takes care of bucketing and synchronizing the gradients. The [internal design documentation](https://docs.pytorch.org/docs/main/notes/ddp.html#internal-design) provides further insights on the exact mechanics take during construction, forward pass, backward pass and optimizer step.
