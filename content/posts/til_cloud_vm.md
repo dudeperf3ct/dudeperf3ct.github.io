@@ -122,4 +122,6 @@ On the far right, full virtualization (KVM/QEMU) pushes most OS functionality in
 * MicroVMs are still VMs, just optimized to be small and fast (minimal device model).
 * Unikernels are an alternative style of guest image: application + library OS components instead of a general-purpose OS.
 
-All these virtualization provide isolation but with a cost on performance.
+All these virtualization provide strong isolation but with a cost on performance.
+
+Next steps for me would be creating some exciting projects using these technologies, get more hands on experience using and building cool projects.
