@@ -101,7 +101,7 @@ A hypervisor is the core virtualization layer that runs and isolates guest CPUs/
 
 A microVM is a normal VM (guest kernel + root file system), but optimized to be lightweight: minimal device model, fast startup, low overhead, and a smaller attack surface.
 
-[Firecracker](https://firecracker-microvm.github.io/) is a user-space VMM that uses Linux KVM to create and manage these microVMs. Its design intentionally excludes lots of legacy devices/guest functionality present in traditional VMs to reduce footprint and improve isolation properties. Firecracker is used by AWS in production for serverless workloads like AWS Lambda and AWS Fargate.
+[Firecracker](https://firecracker-microvm.github.io/) written in Rust is a user-space VMM that uses Linux KVM to create and manage these microVMs. Its design intentionally excludes lots of legacy devices/guest functionality present in traditional VMs to reduce footprint and improve isolation properties. Firecracker is used by AWS in production for serverless workloads like AWS Lambda and AWS Fargate.
 
 {{< figure align=center src="/images/virtualization.png" attr="Blending Containers and Virtual Machines: A Study of Firecracker and gVisor [paper](https://research.cs.wisc.edu/multifacet/papers/vee20_blending.pdf)">}}
 
@@ -109,7 +109,7 @@ One way to compare isolation platforms is: where does operating system functiona
 
 On the left, native Linux and containers rely heavily on the host kernel.
 
-gVisor sits in the middle by inserting a user-space "application kernel" called the Sentry between the container and the host kernel. Instead of letting container syscalls hit the host kernel directly, gVisor intercepts many of them and re-implements large parts of the Linux syscall API inside the Sentry, so the host kernel sees a smaller/controlled interface. This can reduce the kernel attack surface for multi-tenant workloads (with some performance overhead).
+gVisor sits in the middle by inserting a user-space "application kernel" called the Sentry between the container and the host kernel. Instead of letting container syscalls hit the host kernel directly, gVisor intercepts many of them and re-implements large parts of the Linux syscall API inside the Sentry in Go language, so the host kernel sees a smaller/controlled interface. This can reduce the kernel attack surface for multi-tenant workloads (with some performance overhead).
 
 Firecracker moves further toward the "VM end" of the spectrum because each workload runs with its own guest kernel, but it stays lightweight by emulating only a small set of modern virtual devices (instead of a full "PC" worth of legacy hardware like QEMU). 
 
