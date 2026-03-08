@@ -103,8 +103,7 @@ A microVM is a normal VM (guest kernel + root file system), but optimized to be 
 
 [Firecracker](https://firecracker-microvm.github.io/) is a user-space VMM that uses Linux KVM to create and manage these microVMs. Its design intentionally excludes lots of legacy devices/guest functionality present in traditional VMs to reduce footprint and improve isolation properties. Firecracker is used by AWS in production for serverless workloads like AWS Lambda and AWS Fargate.
 
-{{< figure align=center src="/images/virtualization.png" attr="[Blending Containers and Virtual Machines:
-A Study of Firecracker and gVisor](https://research.cs.wisc.edu/multifacet/papers/vee20_blending.pdf)">}}
+{{< figure align=center src="/images/virtualization.png" attr="Blending Containers and Virtual Machines: A Study of Firecracker and gVisor [paper](https://research.cs.wisc.edu/multifacet/papers/vee20_blending.pdf)">}}
 
 One way to compare isolation platforms is: where does operating system functionality live? 
 
