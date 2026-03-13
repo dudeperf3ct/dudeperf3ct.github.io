@@ -210,7 +210,7 @@ Thus, interleaving reduces bubble size by an additional factor of \(v\), at the 
 
 In naive parallelism, we hinted at how backward pass takes roughly about twice as long as the forward pass. This is because the backward pass involves two matrix multiplications — one to compute gradients w.r.t. activations, and another for gradients w.r.t. weights whereas the forward pass requires only one.
 
-The Zero Bubble schedule exploits the fact that weight gradients are not sequentially dependent and can therefore be computed whenever idle compute resources are available. By filling these idle slots with weight-gradient computation, Zero Bubble keeps all GPUs busy and eliminates the pipeline “bubbles.”
+The Zero Bubble schedule exploits the fact that weight gradients are not sequentially dependent and can therefore be computed whenever idle compute resources are available. By filling these idle slots with weight-gradient computation, Zero Bubble keeps all GPUs busy and eliminates the pipeline bubbles.
 
 {{< collapse summary="**Forward and backward computation**" >}}
 
@@ -280,8 +280,8 @@ The schedule is meticulously crafted so that when one microbatch is in its forwa
 This efficiency gain comes at the cost of maintaining two copies of certain model parameters. These duplicate copies are strategically used to facilitate the efficient computation of gradients during the backward pass and enable further overlapping of operations. Why 2x parameters are required?
 
 To run two independent forward passes simultaneously in opposite directions, each device needs to hold two sets of weights for its layer chunks:
-* One set for the "forward" pipeline (left-to-right).
-* One set for the "reverse" pipeline (right-to-left).
+* One set for the "forward" pipeline (left-to-right)
+* One set for the "reverse" pipeline (right-to-left)
 
 These two sets of parameters are synchronized (their gradients are combined during the backward pass), but they exist as separate copies in memory to allow for the simultaneous, bidirectional computation that defines DualPipe. This memory overhead is the trade-off for the significantly reduced pipeline bubbles and higher training throughput.
 
