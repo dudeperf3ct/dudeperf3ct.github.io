@@ -21,6 +21,8 @@ The core idea is simple: split the model's sequential layers across multiple GPU
 
 Each GPU is now a "stage" in the pipeline, responsible for storing and computing only its assigned layers. During the forward pass, activations flow from one stage to the next. During the backward pass, gradients flow in the reverse. However this introduces communication overhead between GPUs to send and recieve activations and gradients. The key challenge in distributed training is to minimize this communication cost or overlap communication with computation.
 
+> [!CODE] PyTorch implementation
+> I have implemented various pipeline parallelism approaches in PyTorch and compared it with PyTorch's pipeline implementation in a [blog](https://dudeperf3ct.github.io/posts/implement_pipeline_parallelism/) and related [code](https://github.com/dudeperf3ct/llm-parallelism-pytorch).
 
 ## Naive model parallelism
 

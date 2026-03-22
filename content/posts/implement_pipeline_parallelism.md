@@ -78,6 +78,10 @@ The backward pass flows in the reverse direction:
 
 Because each stage owns a disjoint subset of the parameters, each stage can apply its optimizer step independently after the backward pass completes.
 
+{{< figure align=center src="/images/forward_backward_pp.png">}} 
+
+Here is what the flow for forward and backward pass looks like for splitting 6 layers across 3 GPUs. It saves activations across the pipeline stages which are reused for calculating backward gradients.
+
 ## Hypothesis
 
 Before implementing and profiling the schedules, it is useful to write down the patterns we expect to see.
