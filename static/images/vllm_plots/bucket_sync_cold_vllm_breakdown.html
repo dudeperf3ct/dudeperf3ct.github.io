@@ -1,0 +1,101 @@
+<div class="chartjs-wrap" style="position:relative; min-width:760px; height:490px;">
+  <canvas id="bucket-sync-cold-vllm"></canvas>
+</div>
+<script>
+(() => {
+  const chartId = "bucket-sync-cold-vllm";
+  const labels = ["Cold Baseline", "Bucket Sync To PVC Cold"];
+  const datasets = [
+    {
+      label: "Engine Bootstrap",
+      data: [46.503, 45.336],
+      backgroundColor: "#8b5cf6",
+      stack: "vllm"
+    },
+    {
+      label: "Remote Model Download",
+      data: [53.567, 0.000],
+      backgroundColor: "#2563eb",
+      stack: "vllm"
+    },
+    {
+      label: "Local Weight Load",
+      data: [8.670, 45.090],
+      backgroundColor: "#0ea5e9",
+      stack: "vllm"
+    },
+    {
+      label: "Torch Compile",
+      data: [26.910, 25.720],
+      backgroundColor: "#f59e0b",
+      stack: "vllm"
+    },
+    {
+      label: "CUDA Graph Capture",
+      data: [11.000, 11.000],
+      backgroundColor: "#22c55e",
+      stack: "vllm"
+    },
+    {
+      label: "Remaining vLLM Bring-Up",
+      data: [21.504, 20.921],
+      backgroundColor: "#f43f5e",
+      stack: "vllm"
+    }
+  ];
+  const visibleDatasets = datasets.filter((ds) => ds.data.some((v) => Number(v) !== 0));
+
+  function render() {
+    const textColor = getComputedStyle(document.body).color || "#1f2937";
+    new Chart(document.getElementById(chartId), {
+      type: "bar",
+      data: { labels, datasets: visibleDatasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          title: {
+            display: true,
+            text: "Bucket Sync: Cold vLLM Ready-Up Breakdown",
+            color: textColor
+          },
+          subtitle: {
+            display: true,
+            text: "Bucket sync removes remote model download from the vLLM path, but its sync cost is paid earlier during startup prep.",
+            color: textColor
+          },
+          legend: {
+            display: visibleDatasets.length > 1,
+            position: "bottom",
+            labels: { color: textColor }
+          }
+        },
+        scales: {
+          x: {
+            stacked: true,
+            ticks: { color: textColor },
+            title: { display: true, text: "Cold Model Acquisition Path", color: textColor },
+            grid: { display: false }
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            ticks: { color: textColor },
+            title: { display: true, text: "Seconds", color: textColor }
+          }
+        }
+      }
+    });
+  }
+
+  if (window.Chart) {
+    render();
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js";
+  script.onload = render;
+  document.head.appendChild(script);
+})();
+</script>

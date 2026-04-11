@@ -1,0 +1,115 @@
+<div class="chartjs-wrap" style="position:relative; min-width:760px; height:450px;">
+  <canvas id="bucket-sync-cold-model-acquisition"></canvas>
+</div>
+<script>
+(() => {
+  const chartId = "bucket-sync-cold-model-acquisition";
+  const labels = ["Cold Baseline", "Bucket Sync To PVC Cold"];
+  const datasets = [
+    {
+      label: "Remote Model Download",
+      data: [53.567, 0.000],
+      backgroundColor: "#2563eb",
+      stack: "acquisition"
+    },
+    {
+      label: "Bucket Sync To PVC",
+      data: [0.000, 66.025],
+      backgroundColor: "#ec4899",
+      stack: "acquisition"
+    },
+    {
+      label: "Local Weight Loading",
+      data: [8.670, 45.090],
+      backgroundColor: "#14b8a6",
+      stack: "acquisition"
+    },
+    {
+      label: "Other Model-Load Overhead",
+      data: [1.798, 1.136],
+      backgroundColor: "#94a3b8",
+      stack: "acquisition"
+    }
+  ];
+  const visibleDatasets = datasets.filter((ds) => ds.data.some((v) => Number(v) !== 0));
+
+  const totalValueLabels = {
+    id: "totalValueLabels",
+    afterDatasetsDraw(chart) {
+      const { ctx } = chart;
+      const sums = chart.data.labels.map((_, i) =>
+        chart.data.datasets.reduce((acc, ds) => acc + (Number(ds.data[i]) || 0), 0)
+      );
+      const topMeta = chart.getDatasetMeta(chart.data.datasets.length - 1);
+      ctx.save();
+      ctx.fillStyle = getComputedStyle(document.body).color || "#1f2937";
+      ctx.font = "600 12px sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "bottom";
+      sums.forEach((sum, i) => {
+        const pt = topMeta.data[i];
+        if (pt) ctx.fillText(`${sum.toFixed(3)}s`, pt.x, pt.y - 6);
+      });
+      ctx.restore();
+    }
+  };
+
+  function render() {
+    const textColor = getComputedStyle(document.body).color || "#1f2937";
+    new Chart(document.getElementById(chartId), {
+      type: "bar",
+      data: { labels, datasets: visibleDatasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          title: {
+            display: true,
+            text: "Bucket Sync: Cold Model Acquisition Breakdown",
+            color: textColor
+          },
+          subtitle: {
+            display: true,
+            text: "This isolates model acquisition rather than runtime image pull.",
+            color: textColor
+          },
+          legend: {
+            display: visibleDatasets.length > 1,
+            position: "bottom",
+            labels: { color: textColor }
+          }
+        },
+        scales: {
+          x: {
+            stacked: true,
+            ticks: { color: textColor },
+            title: { display: true, text: "Cold Model Acquisition Path", color: textColor },
+            grid: { display: false }
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            grace: "15%",
+            ticks: { color: textColor },
+            title: { display: true, text: "Seconds", color: textColor }
+          }
+        },
+        layout: {
+          padding: { top: 8 }
+        }
+      },
+      plugins: [totalValueLabels]
+    });
+  }
+
+  if (window.Chart) {
+    render();
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js";
+  script.onload = render;
+  document.head.appendChild(script);
+})();
+</script>

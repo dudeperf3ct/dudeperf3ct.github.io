@@ -1,0 +1,83 @@
+<div class="chartjs-wrap" style="position:relative; min-width:760px; height:430px;">
+  <canvas id="baseline-cold-vs-warm-startup"></canvas>
+</div>
+<script>
+(() => {
+  const chartId = "baseline-cold-vs-warm-startup";
+  const labels = ["Cold First Deploy", "Warm Restart On Same Node"];
+  const datasets = [
+    {
+      label: "vLLM Runtime Image Pull",
+      data: [236.141, 0.000],
+      backgroundColor: "#6366f1",
+      stack: "startup"
+    },
+    {
+      label: "Init Sync To Model Store",
+      data: [0.000, 0.000],
+      backgroundColor: "#10b981",
+      stack: "startup"
+    },
+    {
+      label: "Other Startup Overhead",
+      data: [2.031, 2.103],
+      backgroundColor: "#94a3b8",
+      stack: "startup"
+    }
+  ];
+  const visibleDatasets = datasets.filter((ds) => ds.data.some((v) => Number(v) !== 0));
+
+  function render() {
+    const textColor = getComputedStyle(document.body).color || "#1f2937";
+    new Chart(document.getElementById(chartId), {
+      type: "bar",
+      data: { labels, datasets: visibleDatasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          title: {
+            display: true,
+            text: "Baseline: Startup Prep Breakdown",
+            color: textColor
+          },
+          subtitle: {
+            display: true,
+            text: "Cold startup spends most of its time pulling the 28 GB vLLM runtime image.",
+            color: textColor
+          },
+          legend: {
+            display: visibleDatasets.length > 1,
+            position: "bottom",
+            labels: { color: textColor }
+          }
+        },
+        scales: {
+          x: {
+            stacked: true,
+            ticks: { color: textColor },
+            title: { display: true, text: "Baseline Condition", color: textColor },
+            grid: { display: false }
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            ticks: { color: textColor },
+            title: { display: true, text: "Seconds", color: textColor }
+          }
+        }
+      }
+    });
+  }
+
+  if (window.Chart) {
+    render();
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js";
+  script.onload = render;
+  document.head.appendChild(script);
+})();
+</script>

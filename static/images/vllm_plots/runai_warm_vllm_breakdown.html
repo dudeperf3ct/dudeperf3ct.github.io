@@ -1,0 +1,95 @@
+<div class="chartjs-wrap" style="position:relative; min-width:760px; height:470px;">
+  <canvas id="runai-warm-vllm"></canvas>
+</div>
+<script>
+(() => {
+  const chartId = "runai-warm-vllm";
+  const labels = ["Warm Baseline", "Run:ai Streamer Warm"];
+  const datasets = [
+    {
+      label: "Engine Bootstrap",
+      data: [45.109, 49.400],
+      backgroundColor: "#8b5cf6",
+      stack: "vllm"
+    },
+    {
+      label: "Model Loading",
+      data: [68.003, 18.929],
+      backgroundColor: "#0ea5e9",
+      stack: "vllm"
+    },
+    {
+      label: "Torch Compile",
+      data: [25.830, 27.200],
+      backgroundColor: "#f59e0b",
+      stack: "vllm"
+    },
+    {
+      label: "CUDA Graph Capture",
+      data: [11.000, 11.000],
+      backgroundColor: "#22c55e",
+      stack: "vllm"
+    },
+    {
+      label: "Remaining Warmup To Health",
+      data: [18.911, 21.501],
+      backgroundColor: "#f43f5e",
+      stack: "vllm"
+    }
+  ];
+  const visibleDatasets = datasets.filter((ds) => ds.data.some((v) => Number(v) !== 0));
+
+  function render() {
+    const textColor = getComputedStyle(document.body).color || "#1f2937";
+    new Chart(document.getElementById(chartId), {
+      type: "bar",
+      data: { labels, datasets: visibleDatasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          title: {
+            display: true,
+            text: "Run:ai Streamer: Warm vLLM Ready-Up Breakdown",
+            color: textColor
+          },
+          subtitle: {
+            display: true,
+            text: "The main gain comes from the model-loading stage; torch.compile and CUDA graph capture remain broadly similar.",
+            color: textColor
+          },
+          legend: {
+            display: visibleDatasets.length > 1,
+            position: "bottom",
+            labels: { color: textColor }
+          }
+        },
+        scales: {
+          x: {
+            stacked: true,
+            ticks: { color: textColor },
+            title: { display: true, text: "Warm Model Loading Path", color: textColor },
+            grid: { display: false }
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            ticks: { color: textColor },
+            title: { display: true, text: "Seconds", color: textColor }
+          }
+        }
+      }
+    });
+  }
+
+  if (window.Chart) {
+    render();
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js";
+  script.onload = render;
+  document.head.appendChild(script);
+})();
+</script>

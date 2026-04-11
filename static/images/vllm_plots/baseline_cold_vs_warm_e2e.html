@@ -1,0 +1,117 @@
+<div class="chartjs-wrap" style="position:relative; min-width:760px; height:430px;">
+  <canvas id="baseline-cold-vs-warm-e2e"></canvas>
+</div>
+<script>
+(() => {
+  const chartId = "baseline-cold-vs-warm-e2e";
+  const labels = ["Cold First Deploy", "Warm Restart On Same Node"];
+  const datasets = [
+    {
+      label: "Startup Prep",
+      data: [238.172, 2.103],
+      backgroundColor: "#ec4899",
+      stack: "total"
+    },
+    {
+      label: "vLLM Ready-Up",
+      data: [198.131, 171.257],
+      backgroundColor: "#6366f1",
+      stack: "total"
+    },
+    {
+      label: "Ready For First Request",
+      data: [0.059, 0.069],
+      backgroundColor: "#22c55e",
+      stack: "total"
+    }
+  ];
+  const visibleDatasets = datasets.filter((ds) => ds.data.some((v) => Number(v) !== 0));
+
+  const totalValueLabels = {
+    id: "totalValueLabels",
+    afterDatasetsDraw(chart) {
+      const { ctx } = chart;
+      const sums = chart.data.labels.map((_, i) =>
+        chart.data.datasets.reduce((acc, ds) => acc + (Number(ds.data[i]) || 0), 0)
+      );
+      const topMeta = chart.getDatasetMeta(chart.data.datasets.length - 1);
+      ctx.save();
+      ctx.fillStyle = getComputedStyle(document.body).color || "#1f2937";
+      ctx.font = "600 12px sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "bottom";
+      sums.forEach((sum, i) => {
+        const pt = topMeta.data[i];
+        if (pt) ctx.fillText(`${sum.toFixed(3)}s`, pt.x, pt.y - 6);
+      });
+      ctx.restore();
+    }
+  };
+
+  function render() {
+    const textColor = getComputedStyle(document.body).color || "#1f2937";
+    new Chart(document.getElementById(chartId), {
+      type: "bar",
+      data: { labels, datasets: visibleDatasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          title: {
+            display: true,
+            text: "Baseline: Cold vs Warm Time To First Request",
+            color: textColor
+          },
+          subtitle: {
+            display: true,
+            text: "Warm startup is faster because the vLLM runtime image is already cached on the node.",
+            color: textColor
+          },
+          legend: {
+            display: visibleDatasets.length > 1,
+            position: "bottom",
+            labels: { color: textColor }
+          },
+          tooltip: {
+            callbacks: {
+              footer(items) {
+                const total = items.reduce((acc, item) => acc + item.parsed.y, 0);
+                return `Total: ${total.toFixed(3)}s`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            stacked: true,
+            ticks: { color: textColor },
+            title: { display: true, text: "Baseline Condition", color: textColor },
+            grid: { display: false }
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            grace: "15%",
+            ticks: { color: textColor },
+            title: { display: true, text: "Seconds", color: textColor }
+          }
+        },
+        layout: {
+          padding: { top: 8 }
+        }
+      },
+      plugins: [totalValueLabels]
+    });
+  }
+
+  if (window.Chart) {
+    render();
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js";
+  script.onload = render;
+  document.head.appendChild(script);
+})();
+</script>
