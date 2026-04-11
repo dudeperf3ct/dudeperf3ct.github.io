@@ -1,9 +1,9 @@
 ---
 author: [""]
-title: "TIL - Cloud VMs, Unikernels and hypervisors"
+title: "TIL - Cloud VMs, microVM, Unikernels and hypervisors"
 date: "2026-03-08"
 description: ""
-tags: ["vm", "cloud", "til"]
+tags: ["vm", "cloud", "til", "microvm"]
 summary: "Anatomy of different layers of abstractions for a cloud compute"
 ShowToc: true
 ShowBreadCrumbs: true

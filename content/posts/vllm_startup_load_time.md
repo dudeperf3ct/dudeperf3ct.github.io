@@ -27,7 +27,7 @@ Google Kubernetes Engine (GKE) is our environment for deploying LLM-backed appli
 [Mistral 7B Instruct v0.3](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3) LLM is used to serve requests using the [vLLM](https://vllm.ai/) engine. For all experiments, I pin vLLM to version `0.18` using the [vllm/vllm-openai:v0.18.0](https://hub.docker.com/layers/vllm/vllm-openai/v0.18.0/images/sha256-96c7e88811a07030f27bc44cd71b9007258a15f130cfec2bb4ab057512238b05) image.
 
 > [!CODE]
-> The code repository walks you through all the steps required to get started, provisioning the infrastructure and reproducing the experiments.
+> The code repository walks you through all the steps required to get started, provisioning the infrastructure and reproducing the experiments.<br>
 > Repository: https://github.com/dudeperf3ct/benchmark-vllm-startup
 
 ## Baseline
