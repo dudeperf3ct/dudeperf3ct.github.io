@@ -161,6 +161,8 @@ py-example:slim    e951a068da9d       26.1MB
 
 ### Lazy pull
 
+When a docker image is pulled from registry, all the layers has to be fetched from the network (defaults to 3 layers of an image at a time), decompress each layer (`gzip` decompression is inefficient), extracts the tar archive (disk I/O bound task), mount the filesystem (overlayfs) and then a container is started. Each of the steps have different bottlenecks that can be optimized but the largest of them is decompressing each layer (`zstd` could be an alternative to `gzip`). The idea behind lazy pulling is what if we don't pull all the layers up front but optimize the compressed image such that we can fetch and extract the files on demand as the process touches them. This way we can start the container much faster and fetch the rest of the image in the background while the application is running.
+
 [Stargz Snapshotter](https://github.com/containerd/stargz-snapshotter) is one such project that optimizes time to start the container. It uses a [Stargz](https://github.com/google/crfs) archive format which is a seekable tar.gz that can seek the archive and extract the file entries selectively. The way it works is instead of pulling and extracting every image layer before the container starts, the runtime fetches file data on demand as the process touches it. It can also profile file access and rearrange frequently accessed files in eStargz format so they are fetched earlier during startup. Here is a [blog](https://medium.com/nttlabs/startup-containers-in-lightning-speed-with-lazy-image-distribution-on-containerd-243d94522361) for further details on these formats.
 
 This matters most for very large images where startup touches only a subset of files. In those cases, time to first request can improve even if the full image would still take a long time to download in the background.
@@ -218,3 +220,5 @@ The main gain comes from the model loading stage which drops from `68s` to `19s`
 ## Wrap up
 
 In this setup, the largest cold-start bottleneck was the container image pull, not the first request itself. Bucket synchronization did not improve end-to-end startup time, while Run:ai significantly reduced warm model-loading time. Image streaming still looks promising, but likely requires an image layout optimized for streaming.
+
+Here is a [case study](https://www.union.ai/blog-post/we-cut-container-cold-boot-from-minutes-to-seconds-heres-how) by Union.ai where they optimized the container cold start by 94%.
