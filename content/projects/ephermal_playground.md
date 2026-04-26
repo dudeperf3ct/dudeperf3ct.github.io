@@ -410,3 +410,6 @@ curl https://example.com  # routing + DNS both work
 ```
 
 To stop the firecracker and exit the microVM, run `just stop-firecracker` command in the second terminal.
+
+> [!EXAMPLE]
+> I came across the blog [The invisible engineering behind Lambda’s network](https://www.allthingsdistributed.com/2026/04/the-invisible-engineering-behind-lambdas-network.html) that talks about different challenges of using microVM for AWS Lambda at scale. The difficulties with snapshotting, networking bottlenecks detailing all the invisible engineering that takes place to make Lambda functions start faster and run efficiently.
