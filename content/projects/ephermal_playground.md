@@ -108,7 +108,7 @@ ID_LIKE=debian
 
 Both the rootfs and kernel are using `Ubuntu 24.04.3 LTS` with Linux kernel version `6.1`. Firecracker docs also provide guide on [creating custom rootfs and kernel images](https://github.com/firecracker-microvm/firecracker/blob/main/docs/rootfs-and-kernel-setup.md).
 
-#### Start the microVM
+### Start the microVM
 
 Now we are all set to boot our first VM. Let's walk through set by step on what is required to start the microVM starting with fixing few variables for the artifacts and sockets configured in the previous step.
 
@@ -211,7 +211,7 @@ Swap:              0           0           0
 > [!NOTE]
 > There are several other approaches supported in addition to sending API request such as using a configuration file or SDKs in different programming languages. The API approach is used here for demonstration purposes and to have more control over the steps involved in provisioning the microVM.
 
-#### Terminate microVM
+### Terminate microVM
 
 To terminate the microVM, run the `reboot` command in the shell.
 
