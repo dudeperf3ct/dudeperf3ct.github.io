@@ -153,7 +153,7 @@ Instruction pointer (also known as program counter) is a register that holds the
 
 **Toy Model**
 
-All the components discussed above work together 
+All the components discussed above work together to run the following code.
 
 ```c
 void function(int a, int b, int c) {
