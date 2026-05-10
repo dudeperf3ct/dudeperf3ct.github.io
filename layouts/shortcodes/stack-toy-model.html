@@ -1,0 +1,335 @@
+{{ $id := printf "stack-toy-model-%d" .Ordinal }}
+
+<section id="{{ $id }}" class="stack-toy-model" aria-labelledby="{{ $id }}-title">
+  <div class="stack-toy-model__header">
+    <div>
+      <div id="{{ $id }}-title" class="stack-toy-model__title">Interactive stack-frame toy model</div>
+      <p>This follows the Phrack article’s 32-bit x86/Linux model, not the native x86-64 ABI.</p>
+    </div>
+  </div>
+
+  <div class="stack-toy-model__assumptions">
+    <span><strong>ESP</strong><small>stack top</small></span>
+    <span><strong>EBP</strong><small>frame anchor</small></span>
+    <span><strong>EIP</strong><small>next instruction</small></span>
+    <span><strong>word</strong><small>4 bytes</small></span>
+    <span><strong>args</strong><small>pushed right-to-left</small></span>
+    <span><strong>cdecl</strong><small>caller removes args</small></span>
+  </div>
+
+  <div class="stack-toy-model__controls" aria-label="Stack frame steps"></div>
+  <div class="stack-toy-model__step-nav">
+    <button type="button" data-step-prev>Previous</button>
+    <span data-step-status>Step 1</span>
+    <button type="button" data-step-next>Next</button>
+  </div>
+
+  <div class="stack-toy-model__grid">
+    <div class="stack-toy-model__panel">
+      <div class="stack-toy-model__subtitle">Current instruction</div>
+      <pre class="stack-toy-model__code"><code data-code-lines></code></pre>
+
+      <div class="stack-toy-model__subtitle">Current CPU state</div>
+      <dl class="stack-toy-model__registers">
+        <div>
+          <dt>ESP</dt>
+          <dd data-register="esp">—</dd>
+        </div>
+        <div>
+          <dt>EBP</dt>
+          <dd data-register="ebp">—</dd>
+        </div>
+        <div>
+          <dt>EIP</dt>
+          <dd data-register="eip">—</dd>
+        </div>
+      </dl>
+
+      <div class="stack-toy-model__subtitle">What changed?</div>
+      <div class="stack-toy-model__note" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="stack-toy-model__stack" aria-label="Stack memory layout">
+      <div class="stack-toy-model__stack-header">
+        <div>
+          <div class="stack-toy-model__subtitle">Stack memory</div>
+          <p>Higher addresses are at the top. Each push moves <code>ESP</code> downward.</p>
+        </div>
+        <div class="stack-toy-model__legend" aria-label="Diagram legend">
+          <span><i class="stack-toy-model__legend-esp"></i>ESP points here</span>
+          <span><i class="stack-toy-model__legend-ebp"></i>EBP points here</span>
+        </div>
+      </div>
+
+      <div class="stack-toy-model__direction">higher addresses</div>
+      <div class="stack-toy-model__slots"></div>
+      <div class="stack-toy-model__direction">lower addresses · stack grows downward ↓</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById("{{ $id }}");
+  if (!root) return;
+
+  const codeLines = [
+    "main:",
+    "  pushl $3          ; push c",
+    "  pushl $2          ; push b",
+    "  pushl $1          ; push a",
+    "  call  function    ; push return address, jump",
+    "function:",
+    "  pushl %ebp        ; save caller EBP",
+    "  movl  %esp, %ebp  ; create callee frame",
+    "  subl  $20, %esp   ; reserve locals",
+    "  ... function body ...",
+    "  movl  %ebp, %esp  ; discard locals",
+    "  popl  %ebp        ; restore caller EBP",
+    "  ret               ; jump to return address",
+    "main after call:",
+    "  addl  $12, %esp   ; caller removes args"
+  ];
+
+  const steps = [
+    {
+      label: "start in main",
+      activeLine: 0,
+      esp: "main frame",
+      ebp: "main frame",
+      eip: "main",
+      espSlot: null,
+      ebpSlot: null,
+      note: "Execution starts in main. The stack frame for function does not exist yet."
+    },
+    {
+      label: "push c",
+      activeLine: 1,
+      esp: "argument c",
+      ebp: "main frame",
+      eip: "main",
+      espSlot: "c",
+      ebpSlot: null,
+      note: "main pushes the third argument first. c = 3 is now at the top of the stack."
+    },
+    {
+      label: "push b",
+      activeLine: 2,
+      esp: "argument b",
+      ebp: "main frame",
+      eip: "main",
+      espSlot: "b",
+      ebpSlot: null,
+      note: "main pushes b = 2 next. The stack grows downward, so b appears below c."
+    },
+    {
+      label: "push a",
+      activeLine: 3,
+      esp: "argument a",
+      ebp: "main frame",
+      eip: "main",
+      espSlot: "a",
+      ebpSlot: null,
+      note: "main pushes a = 1 last. This puts the first argument closest to the future return address."
+    },
+    {
+      label: "call",
+      activeLine: 4,
+      esp: "return address",
+      ebp: "main frame",
+      eip: "function",
+      espSlot: "return-address",
+      ebpSlot: null,
+      note: "call saves the return address, then starts executing function."
+    },
+    {
+      label: "save EBP",
+      activeLine: 6,
+      esp: "saved EBP",
+      ebp: "main frame",
+      eip: "function prologue",
+      espSlot: "saved-ebp",
+      ebpSlot: null,
+      note: "function saves main’s frame pointer so it can restore it before returning."
+    },
+    {
+      label: "set EBP",
+      activeLine: 7,
+      esp: "saved EBP",
+      ebp: "saved EBP",
+      eip: "function prologue",
+      espSlot: "saved-ebp",
+      ebpSlot: "saved-ebp",
+      note: "EBP now anchors function’s frame. Arguments are at positive offsets from EBP."
+    },
+    {
+      label: "reserve locals",
+      activeLine: 8,
+      esp: "buffer2",
+      ebp: "saved EBP",
+      eip: "function body",
+      espSlot: "buffer2",
+      ebpSlot: "saved-ebp",
+      note: "Subtracting 20 from ESP reserves space for buffer2 and buffer1 in the Phrack model."
+    },
+    {
+      label: "function body",
+      activeLine: 9,
+      esp: "buffer2",
+      ebp: "saved EBP",
+      eip: "function body",
+      espSlot: "buffer2",
+      ebpSlot: "saved-ebp",
+      note: "The function can access locals below EBP and arguments above EBP using fixed offsets."
+    },
+    {
+      label: "discard locals",
+      activeLine: 10,
+      esp: "saved EBP",
+      ebp: "saved EBP",
+      eip: "function epilogue",
+      espSlot: "saved-ebp",
+      ebpSlot: "saved-ebp",
+      note: "movl %ebp, %esp resets ESP back to the saved-EBP slot, discarding local storage."
+    },
+    {
+      label: "restore EBP",
+      activeLine: 11,
+      esp: "return address",
+      ebp: "main frame",
+      eip: "function epilogue",
+      espSlot: "return-address",
+      ebpSlot: null,
+      note: "popl %ebp restores main’s frame pointer and moves ESP to the return address."
+    },
+    {
+      label: "ret to main",
+      activeLine: 12,
+      esp: "argument a",
+      ebp: "main frame",
+      eip: "main after call",
+      espSlot: "a",
+      ebpSlot: null,
+      note: "ret pops the saved return address into EIP. ESP now points at the first argument still left on the stack."
+    },
+    {
+      label: "caller cleanup",
+      activeLine: 14,
+      esp: "after arguments",
+      ebp: "main frame",
+      eip: "main after call",
+      espSlot: null,
+      ebpSlot: null,
+      note: "cdecl uses caller cleanup. main adds 12 to ESP to remove the three 4-byte arguments."
+    }
+  ];
+
+  const slots = [
+    { id: "c", label: "argument c", detail: "value 3 · EBP + 16 · 4 bytes", at: 1, until: 12 },
+    { id: "b", label: "argument b", detail: "value 2 · EBP + 12 · 4 bytes", at: 2, until: 12 },
+    { id: "a", label: "argument a", detail: "value 1 · EBP + 8 · 4 bytes", at: 3, until: 12 },
+    { id: "return-address", label: "return address", detail: "where main resumes · EBP + 4 · 4 bytes", at: 4, until: 10 },
+    { id: "saved-ebp", label: "saved EBP", detail: "main’s frame pointer · EBP + 0 · 4 bytes", at: 5, until: 9 },
+    { id: "buffer1", label: "buffer1", detail: "5 bytes rounded to 8 · EBP - 8", at: 7, until: 8 },
+    { id: "buffer2", label: "buffer2", detail: "10 bytes rounded to 12 · EBP - 20", at: 7, until: 8 }
+  ];
+
+  const controls = root.querySelector(".stack-toy-model__controls");
+  const previousButton = root.querySelector("[data-step-prev]");
+  const nextButton = root.querySelector("[data-step-next]");
+  const stepStatus = root.querySelector("[data-step-status]");
+  const slotsContainer = root.querySelector(".stack-toy-model__slots");
+  const note = root.querySelector(".stack-toy-model__note");
+  const codeContainer = root.querySelector("[data-code-lines]");
+  const registers = {
+    esp: root.querySelector("[data-register=esp]"),
+    ebp: root.querySelector("[data-register=ebp]"),
+    eip: root.querySelector("[data-register=eip]")
+  };
+
+  let currentStep = 0;
+
+  steps.forEach((step, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = `${index + 1}. ${step.label}`;
+    button.addEventListener("click", () => {
+      currentStep = index;
+      render();
+    });
+    controls.appendChild(button);
+  });
+
+  previousButton.addEventListener("click", () => {
+    currentStep = Math.max(0, currentStep - 1);
+    render();
+  });
+
+  nextButton.addEventListener("click", () => {
+    currentStep = Math.min(steps.length - 1, currentStep + 1);
+    render();
+  });
+
+  function render() {
+    const step = steps[currentStep];
+
+    registers.esp.textContent = step.esp;
+    registers.ebp.textContent = step.ebp;
+    registers.eip.textContent = step.eip;
+    note.textContent = step.note;
+    previousButton.disabled = currentStep === 0;
+    nextButton.disabled = currentStep === steps.length - 1;
+    stepStatus.textContent = `Step ${currentStep + 1} of ${steps.length}: ${step.label}`;
+
+    codeContainer.innerHTML = "";
+    codeLines.forEach((line, index) => {
+      const codeLine = document.createElement("span");
+      codeLine.textContent = line;
+      codeLine.className = "stack-toy-model__code-line";
+      codeLine.classList.toggle("is-active", index === step.activeLine);
+      codeLine.setAttribute("data-line", String(index + 1).padStart(2, "0"));
+      codeContainer.appendChild(codeLine);
+    });
+
+    controls.querySelectorAll("button").forEach((button, index) => {
+      button.classList.toggle("is-active", index === currentStep);
+      button.setAttribute("aria-pressed", String(index === currentStep));
+    });
+
+    slotsContainer.innerHTML = "";
+
+    const visibleSlots = slots.filter((slot) => slot.at <= currentStep && currentStep <= slot.until);
+    if (visibleSlots.length === 0) {
+      const empty = document.createElement("div");
+      empty.className = "stack-toy-model__empty";
+      empty.textContent = currentStep === 0
+        ? "function’s stack frame has not been allocated yet"
+        : "function has returned; main continues after the call";
+      slotsContainer.appendChild(empty);
+      return;
+    }
+
+    visibleSlots.forEach((slot) => {
+      const row = document.createElement("div");
+      row.className = "stack-toy-model__slot";
+      row.classList.toggle("is-esp", step.espSlot === slot.id);
+      row.classList.toggle("is-ebp", step.ebpSlot === slot.id);
+
+      const markers = [];
+      if (step.espSlot === slot.id) markers.push("ESP");
+      if (step.ebpSlot === slot.id) markers.push("EBP");
+
+      row.innerHTML = `
+        <div class="stack-toy-model__slot-main">
+          <strong>${slot.label}</strong>
+          <span>${slot.detail}</span>
+        </div>
+        <div class="stack-toy-model__markers">${markers.join(" / ")}</div>
+      `;
+      slotsContainer.appendChild(row);
+    });
+  }
+
+  render();
+})();
+</script>
