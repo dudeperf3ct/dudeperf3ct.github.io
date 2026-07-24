@@ -8,7 +8,7 @@ In previous posts, I explored how to pretrain a language model. The setup for pr
 
 The mistake here was using narrow code-only corpus as pretraining dataset. A more practical pipeline would be to begin with a broadly pretrained base model, optionally continue pretraining it on high-quality code, and then apply SFT using verified prompt–response demonstrations. Pretraining task are used to learn language representation across various tasks.
 
-The story so far has been (if pretrained correctly) our base model acts as a reliable completion model. The next transition would be to create a instruction-following model. This is where post-training stage is helpful. Modern post-training consists of multiple stages of supervised finetuning (SFT) and RL training using [favorite policy optimisation (PO) algorithm](https://xcancel.com/agarwl_/status/1981518825007853891). A good analogy I think of different stages is
+The story so far has been (if pretrained correctly) our base model acts as a reliable completion model. The next transition would be to create a instruction-following model. This is where post-training stage is helpful. Modern post-training consists of multiple stages of supervised finetuning (SFT) and RL training using [favorite policy optimisation (PO) algorithm](https://x.com/agarwl_/status/1981518825007853891). A good analogy I think of different stages is
 
 * Pretraining: Learning language, knowledge and task representations through next-token prediction.
 * SFT: Adapting a pretrained model to imitate desired responses, follow instructions and produce task-specific output formats.
