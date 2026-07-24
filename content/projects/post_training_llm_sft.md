@@ -24,16 +24,7 @@ The SFT stage (aka Instruction Finetuning [IFT]) may begin from a pretrained bas
 
 | id | prompt | messages | constraints |
 | -------- | ------- | -------- | ------- |
-|  personas_IF_m3burbc7lf7ttw3mzthb6xpo| List some popular JavaScript libraries or frameworks for front-end development that have been widely used in the last five years. Provide a short answer, not exceeding 75 words. | 	[
-  {
-    "content": "List some popular JavaScript libraries or frameworks for front-end development that have been widely used in the last five years. Provide a short answer, not exceeding 75 words.",
-    "role": "user"
-  },
-  {
-    "content": "Some popular JavaScript libraries and frameworks for front-end development in the last five years include React, Angular, Vue.js, Svelte, and jQuery. These tools have been widely adopted for building dynamic user interfaces and web applications, each offering unique features and benefits to developers.",
-    "role": "assistant"
-  }
-] | [ "length constraints:number of words"] |
+| `personas_IF_m3burbc7lf7ttw3mzthb6xpo` | List some popular JavaScript libraries or frameworks for front-end development that have been widely used in the last five years. Provide a short answer, not exceeding 75 words. | **User:** List some popular JavaScript libraries or frameworks for front-end development that have been widely used in the last five years. Provide a short answer, not exceeding 75 words.<br><br>**Assistant:** Some popular JavaScript libraries and frameworks for front-end development in the last five years include React, Angular, Vue.js, Svelte, and jQuery. These tools have been widely adopted for building dynamic user interfaces and web applications, each offering unique features and benefits to developers. | `length constraints:number of words` |
 
 
 ## Setup
@@ -116,8 +107,8 @@ All results are reported as percentages. HumanEval, HumanEval+, MBPP and MBPP+ u
 
 | Experiments | HumanEval | HumanEval+ | MBPP | MBPP+ | LiveCodeBench Easy | LiveCodeBench Medium | LiveCodeBench Hard |
 | -------- | ------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| `Qwen3.5-4B-Base` base model before SFT | 75.00% | 68.29% | 67.46% | 56.88% | 74.91% | 35.35% | 8.15% |
-| `Qwen3.5-4B`, post-trained model non-thinking | 82.32% | 75.00% | 75.40% | 61.64% | 55.56% | 27.19% | 4.81% |
+| `Qwen3.5-4B-Base` base model before SFT | 75.00% | 68.29% | 67.46% | 56.88% | **74.91%** | **35.35%** | **8.15%** |
+| `Qwen3.5-4B`, post-trained model non-thinking | **82.32%** | **75.00%** | **75.40%** | **61.64%** | 55.56% | 27.19% | 4.81% |
 
 These baselines show how Qwen's pretrained and post-trained checkpoints perform for the benchmark datasets.
 
