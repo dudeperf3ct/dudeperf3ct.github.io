@@ -34,6 +34,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      DART_SASS_VERSION: "1.101.0"
       HUGO_VERSION: ${{ github.event.inputs.hugoVersion || '0.164.0' }}
     steps:
       - name: Install Hugo
@@ -41,6 +42,18 @@ jobs:
         with:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
+
+      # hugo-admonitions v0.12.2 requires Dart Sass in CI:
+      # https://github.com/KKKZOZ/hugo-admonitions/pull/36
+      # https://github.com/gohugoio/hugo/issues/12366
+      - name: Install Dart Sass
+        run: |
+          mkdir -p "${HOME}/.local"
+          curl -sfL --output-dir "${RUNNER_TEMP}" -O \
+            "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          tar -C "${HOME}/.local" -xf \
+            "${RUNNER_TEMP}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          echo "${HOME}/.local/dart-sass" >> "${GITHUB_PATH}"
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -51,9 +64,6 @@ jobs:
 
       - name: Get Theme
         run: git submodule update --init --recursive
-
-      - name: Update theme to Latest commit
-        run: git submodule update --remote --merge
 
       - name: Build with Hugo
         run: |
