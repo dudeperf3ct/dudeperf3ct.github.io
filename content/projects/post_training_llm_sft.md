@@ -100,6 +100,17 @@ The implementation plan to perform SFT using `Qwen3.5-4B-Base` base model experi
 4. Full finetuning: Once LoRA finetuning is complete, a text-only full-finetuning is performed on the same 10k samples.
 5. Evaluation: Both checkpoints from LoRA and FT are used to perform evaluation on the benchmark.
 
+### Training Results
+
+The completed direct-SFT runs used 10,000 training samples for two epochs on two H100 GPUs with a global batch size of 16. The held-out pass rate measures how many of the 500 private KodCode test problems produced code that passed all tests.
+
+| Model | Method | Train loss | Validation loss | Held-out pass rate | Training time |
+| -------- | -------- | --------: | --------: | --------: | --------: |
+| `Qwen3.5-4B-Base` | No SFT | — | — | 44.60% | — |
+| Direct SFT | LoRA | 0.1303 | 0.1781 | 56.60% | 2h 28m 23s |
+| Direct SFT | Full fine-tuning | 0.1334 | 0.1730 | **59.80%** | **2h 24m 29s** |
+| `Qwen3.5-4B` | Post-trained, non-thinking | — | — | 56.00% | — |
+| `Qwen3.5-4B` | Post-trained, thinking | — | — | 56.20% | — |
 
 ## Eval Results
 
@@ -108,7 +119,8 @@ All results are reported as percentages. HumanEval, HumanEval+, MBPP and MBPP+ u
 | Experiments | HumanEval | HumanEval+ | MBPP | MBPP+ | LiveCodeBench Easy | LiveCodeBench Medium | LiveCodeBench Hard |
 | -------- | ------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | `Qwen3.5-4B-Base` base model before SFT | 75.00% | 68.29% | 67.46% | 56.88% | **74.91%** | **35.35%** | **8.15%** |
-| `Qwen3.5-4B`, post-trained model non-thinking | **82.32%** | **75.00%** | **75.40%** | **61.64%** | 55.56% | 27.19% | 4.81% |
+| `Qwen3.5-4B`, post-trained model non-thinking | 84.76% | 79.27% | 80.69% | 66.14% | 55.56% | 27.19% | 4.81% |
+| `Qwen3.5-4B`, post-trained model thinking | **94.51%** | **88.41%** | **85.19%** | **70.63%** | — | — | — |
 
 These baselines show how Qwen's pretrained and post-trained checkpoints perform for the benchmark datasets.
 
@@ -116,9 +128,11 @@ SFT models
 
 | Experiments | HumanEval | HumanEval+ | MBPP | MBPP+ | LiveCodeBench Easy | LiveCodeBench Medium | LiveCodeBench Hard |
 | -------- | ------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| Base → direct SFT (LoRA) | | | | | | | |
-| Base → direct SFT (FT) | | | | | | | |
-| Base → reasoning SFT (LoRA) | | | | | | | |
-| Base → reasoning SFT (FT) | | | | | | | |
+| Base → direct SFT (LoRA) | 75.00% | 70.12% | 63.76% | 54.76% | — | — | — |
+| Base → direct SFT (FT) | **82.32%** | **77.44%** | **65.34%** | **56.88%** | — | — | — |
+| Base → reasoning SFT (LoRA) | — | — | — | — | — | — | — |
+| Base → reasoning SFT (FT) | — | — | — | — | — | — | — |
+
+An em dash indicates that no completed result artifact was available. At the time of writing, the reasoning-SFT and SFT LiveCodeBench evaluations had not been completed.
 
 In the next project, we will look into RL post training.
