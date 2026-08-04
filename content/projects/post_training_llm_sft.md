@@ -75,6 +75,9 @@ There are [many frameworks](https://huggingface.co/spaces/HuggingFaceTB/smol-tra
 > [!CODE]
 > The code for SFT: https://github.com/dudeperf3ct/minicode-llm/tree/main/codellm_sft/sft/README.md
 
+> [!INFO]
+> HuggingFace dataset: https://huggingface.co/datasets/dudeperf3ct/qwen35-kodcode-sft-data
+
 To further branch on different approaches, there are multiple options to perform finetuning.
 
 1. Parameter Efficient Finetuning (PEFT): LoRA and QLoRA like approaches that add small trainable weight/parameters alongside base model weights. The base model weights are frozen and only the small newly added weights are trained. 
@@ -101,6 +104,12 @@ The implementation plan to perform SFT using `Qwen3.5-4B-Base` base model experi
 5. Evaluation: Both checkpoints from LoRA and FT are used to perform evaluation on the benchmark.
 
 ### Training Results
+
+> [!INFO]
+> Weights and Biases experiment: https://wandb.ai/dudeperf3ct/qwen35-4b-kodcode-sft
+
+> [!INFO]
+> HuggingFace models: https://huggingface.co/dudeperf3ct/qwen35-4b-kodcode-sft-10k
 
 The completed direct-SFT runs used 10,000 training samples for two epochs on two H100 GPUs with a global batch size of 16. The held-out pass rate measures how many of the 500 private KodCode test problems produced code that passed all tests.
 
@@ -132,7 +141,5 @@ SFT models
 | Base → direct SFT (FT) | **82.32%** | **77.44%** | **65.34%** | **56.88%** | — | — | — |
 | Base → reasoning SFT (LoRA) | — | — | — | — | — | — | — |
 | Base → reasoning SFT (FT) | — | — | — | — | — | — | — |
-
-An em dash indicates that no completed result artifact was available. At the time of writing, the reasoning-SFT and SFT LiveCodeBench evaluations had not been completed.
 
 In the next project, we will look into RL post training.
