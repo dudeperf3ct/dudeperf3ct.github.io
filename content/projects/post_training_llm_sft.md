@@ -111,13 +111,15 @@ The implementation plan to perform SFT using `Qwen3.5-4B-Base` base model experi
 > [!INFO]
 > HuggingFace models: https://huggingface.co/dudeperf3ct/qwen35-4b-kodcode-sft-10k
 
-The completed direct-SFT runs used 10,000 training samples for two epochs on two H100 GPUs with a global batch size of 16. The held-out pass rate measures how many of the 500 private KodCode test problems produced code that passed all tests.
+The completed SFT runs used 10,000 training samples for two epochs on two H100 GPUs with a global batch size of 16. The held-out pass rate measures how many of the 500 private KodCode test problems produced code that passed all tests.
 
 | Model | Method | Train loss | Validation loss | Held-out pass rate | Training time |
 | -------- | -------- | --------: | --------: | --------: | --------: |
 | `Qwen3.5-4B-Base` | No SFT | — | — | 44.60% | — |
 | Direct SFT | LoRA | 0.1303 | 0.1781 | 56.60% | 2h 28m 23s |
 | Direct SFT | Full fine-tuning | 0.1334 | 0.1730 | **59.80%** | **2h 24m 29s** |
+| Reasoning SFT | LoRA | 0.6441 | 0.6553 | 48.00% | ~9h 10m |
+| Reasoning SFT | Full fine-tuning | 0.6518 | 0.6597 | 49.00% | ~9h 15m |
 | `Qwen3.5-4B` | Post-trained, non-thinking | — | — | 56.00% | — |
 | `Qwen3.5-4B` | Post-trained, thinking | — | — | 56.20% | — |
 
@@ -127,19 +129,22 @@ All results are reported as percentages. HumanEval, HumanEval+, MBPP and MBPP+ u
 
 | Experiments | HumanEval | HumanEval+ | MBPP | MBPP+ | LiveCodeBench Easy | LiveCodeBench Medium | LiveCodeBench Hard |
 | -------- | ------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| `Qwen3.5-4B-Base` base model before SFT | 75.00% | 68.29% | 67.46% | 56.88% | **74.91%** | **35.35%** | **8.15%** |
-| `Qwen3.5-4B`, post-trained model non-thinking | 84.76% | 79.27% | 80.69% | 66.14% | 55.56% | 27.19% | 4.81% |
-| `Qwen3.5-4B`, post-trained model thinking | **94.51%** | **88.41%** | **85.19%** | **70.63%** | — | — | — |
+| `Qwen3.5-4B-Base` base model before SFT | 75.00% | 68.29% | 67.46% | 56.88% | 74.91% | 35.35% | 8.15% |
+| `Qwen3.5-4B`, post-trained model non-thinking | 84.76% | 79.27% | 80.69% | 66.14% | **78.85%** | **43.81%** | **12.22%** |
+| `Qwen3.5-4B`, post-trained model thinking | **94.51%** | **88.41%** | **85.19%** | **70.63%** | 72.76% | 31.12% | 9.26% |
 
 These baselines show how Qwen's pretrained and post-trained checkpoints perform for the benchmark datasets.
 
 SFT models
 
+Direct SFT models use non-thinking greedy decoding, while reasoning SFT models use thinking mode with temperature `0.6` and one sample per problem.
+
 | Experiments | HumanEval | HumanEval+ | MBPP | MBPP+ | LiveCodeBench Easy | LiveCodeBench Medium | LiveCodeBench Hard |
 | -------- | ------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| Base → direct SFT (LoRA) | 75.00% | 70.12% | 63.76% | 54.76% | — | — | — |
-| Base → direct SFT (FT) | **82.32%** | **77.44%** | **65.34%** | **56.88%** | — | — | — |
-| Base → reasoning SFT (LoRA) | — | — | — | — | — | — | — |
-| Base → reasoning SFT (FT) | — | — | — | — | — | — | — |
+| Base → direct SFT (LoRA) | 75.00% | 70.12% | 63.76% | 54.76% | 64.87% | 15.11% | 3.33% |
+| Base → direct SFT (FT) | 82.32% | 77.44% | 65.34% | 56.88% | 63.44% | 19.03% | 1.85% |
+| Base → reasoning SFT (LoRA) | **85.98%** | 76.83% | **82.54%** | **70.90%** | **80.65%** | 34.44% | 6.30% |
+| Base → reasoning SFT (FT) | 84.76% | **78.66%** | 80.42% | 67.20% | 78.49% | **36.86%** | **7.04%** |
+
 
 In the next project, we will look into RL post training.
