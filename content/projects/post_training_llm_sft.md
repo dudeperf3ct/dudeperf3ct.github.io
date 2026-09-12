@@ -1,6 +1,6 @@
 ---
 title: "Post training - Supervised Finetuning"
-tags: ["llm", "sft"]
+tags: ["llm", "sft", "post-training"]
 ShowToc: true
 ---
 
@@ -98,7 +98,7 @@ The playbook covers excellent ablation studies on [which hyperparameters matter]
 The implementation plan to perform SFT using `Qwen3.5-4B-Base` base model experiment proceeds in the following steps,
 
 1. Prepare dataset: This will use KodCode R1 dataset to create a sample of 10K training, 500 validation and 500 test samples. Further, 1k and 32 subsets are created from 10k training samples. A stratification is performed using `(gpt_difficulty, subset, style)` tuple.
-2. Decontaminate dataset: To avoid benchmaxxing, a decontamination is performed using [Open-R1 decontamination](https://github.com/huggingface/open-r1/blob/main/scripts/decontaminate.py) strategy. It remove any code that shares n-gram (8-gram) overlap with benchmark datasets.
+2. Decontaminate dataset: To avoid benchmaxxing, a decontamination is performed using [Open-R1 decontamination](https://github.com/huggingface/open-r1/blob/main/scripts/decontaminate.py) strategy. It removes any code that shares n-gram (8-gram) overlap with benchmark datasets.
 3. Incremental baselines: Test the models incrementally first with 32 samples overfitting to check if chat templates and data is parsed as expected, 1k samples as pilot to review syntax and 10k sample experiment as final LoRA once both the previous experiments work fine. The samples can be increased from 10k to 50k-100k on verification.
 4. Full finetuning: Once LoRA finetuning is complete, a text-only full-finetuning is performed on the same 10k samples.
 5. Evaluation: Both checkpoints from LoRA and FT are used to perform evaluation on the benchmark.
@@ -146,5 +146,31 @@ Direct SFT models use non-thinking greedy decoding, while reasoning SFT models u
 | Base → reasoning SFT (LoRA) | **85.98%** | 76.83% | **82.54%** | **70.90%** | **80.65%** | 34.44% | 6.30% |
 | Base → reasoning SFT (FT) | 84.76% | **78.66%** | 80.42% | 67.20% | 78.49% | **36.86%** | **7.04%** |
 
+### Output Length Distribution
 
-In the next project, we will look into RL post training.
+The empirical cumulative distribution (ECDF) below compares the full generated response length for each model. At any token length, the y-axis shows the share of responses at or below that length; curves further left indicate shorter answers. Use the dropdown to switch between the private KodCode held-out set, HumanEval, MBPP and the three LiveCodeBench difficulty levels. The log scale makes concise direct responses and long reasoning traces visible together. KodCode and LiveCodeBench use the recorded completion-token counts. EvalPlus responses are retokenized with the pinned `Qwen3.5-4B-Base` tokenizer.
+
+{{< plotly file="static/images/sft_output_length_distribution.html" >}}
+
+
+## Learnings
+
+We looked at two experiments for finetuning: Direct and Reasoning. Direct approach took input a coding problem and output was Python code. Reasoning task was trained on reasoning thoughts (extracted from DeepSeek-R1) for a given coding problem. We should expect the reasoning model to have a longer output length. This is evident in the graph of the previous section.
+
+We trained both the direct and reasoning tasks using two finetuning approaches: LoRA and full-finetuning (FT). The performance shown in the table of [Eval Results](<post_training_llm_sft#Eval Results>) section does not provide a clear winner. It's hard to draw a conclusion using a single seed. Thinking Models published a [blog](https://thinkingmachines.ai/blog/lora/), "LoRA without regret" where they show LoRA can match the performance of FT on certain tasks.
+
+Comparing the finetuned models to `Qwen3.5-4B-Base` base model, reasoning models outperform base models results. The finetuning for direct task saw a slight improvement on some benchmarks and degradation on others.
+
+Reasoning models performed better on evaluation datasets compared to direct models. The `Qwen3.5-4B` post trained model (both thinking and non-thinking) outcompeted our fine-tuned models. The [Qwen 3 technical report](https://www.arxiv.org/abs/2505.09388) post-training approach consists of 4-stage pipeline
+
+1. Long CoT Cold Start: This is a SFT stage trained on dataset containing difficult problems, long chain-of-thought reasoning, and verified answers to teach initial reasoning patterns.
+2. Reasoning RL: GRPO RL training is used to improve reasoning for verifiable tasks.
+3. Thinking Mode Fusion: Another SFT stage to teach model to follow thinking and non-thinking controls in chat templates.
+4. General RL: This stage uses a verifiable RL (veRL) using reward for more than 20 distinct tasks such as instruction following, tool use, preference alignment.
+
+Further more, the above 4-stage pipeline is used to train only the flagship models - larger models 22B variant. The smaller variants 14B, 1.7B and 0.6B uses strong to weak distillation approach from the final post-trained flaship models. The distillatio process consists of two stage process: on-policy and off-policy.
+
+> [!NOTE]
+> Compared to the Qwen3 series, the post-training performance gains in Qwen3.5 primarily stem from our extensive scaling of virtually all RL tasks and environments we could conceive. Source: [Qwen 3.5 blog](https://qwen.ai/blog?id=qwen3.5)
+
+There are various stages in-addition to SFT we covered for post-training LLMs. In the next project, we will look into RL post training.

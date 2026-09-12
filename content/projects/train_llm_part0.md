@@ -1,5 +1,5 @@
 ---
-title: "Mini StarCoder2 - Data"
+title: "Pretraining - Data"
 tags: ["llm", "data"]
 ShowToc: true
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Mini StarCoder2 - Pretraining (TorchTitan)"
+title: "Pretraining - LLM"
 tags: ["llm", "pretraining", "torchtitan"]
 ShowToc: true
 ---
@@ -484,4 +484,3 @@ What's next? I am not sure. I half expected throwing $150 (lol) would be enough 
 * [Nvidia's NeMo 2.0](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/index.html) framework looks interesting. I wonder how easy is it to get started and kick of a smoke test with it compared to torchtitan.
 * Gather insights from community on the results of this experiment.
 * RL or SFT training
-

@@ -1,5 +1,5 @@
 ---
-title: "Mini StarCoder2 - Tokenizer"
+title: "Pretraining - Tokenizer"
 tags: ["llm", "tokenizer"]
 ShowToc: false
 ---
