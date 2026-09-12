@@ -357,3 +357,69 @@
         text-align: left;
     }
 }
+
+.sft-length-plot {
+    min-width: 0;
+    padding: 1rem 1rem 0.35rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--entry);
+}
+
+.sft-length-plot__toolbar {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 0.25rem 0.5rem;
+}
+
+.sft-length-plot__heading strong,
+.sft-length-plot__heading span {
+    display: block;
+}
+
+.sft-length-plot__heading strong {
+    color: var(--primary);
+    font-size: 1.05rem;
+}
+
+.sft-length-plot__heading span {
+    color: var(--secondary);
+    font-size: 0.82rem;
+}
+
+.sft-length-plot__control {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 12rem;
+    color: var(--secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.sft-length-plot__control select {
+    width: 100%;
+    padding: 0.48rem 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--theme);
+    color: var(--primary);
+    font: inherit;
+    font-size: 0.86rem;
+}
+
+@media (max-width: 640px) {
+    .sft-length-plot {
+        padding: 0.8rem 0.35rem 0.2rem;
+    }
+
+    .sft-length-plot__toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .sft-length-plot__control {
+        min-width: 0;
+    }
+}
