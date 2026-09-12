@@ -4,7 +4,7 @@ tags: ["llm", "sft", "post-training"]
 ShowToc: true
 ---
 
-In previous posts, I explored how to pretrain a language model. The setup for pretraining used Llama 3.2 1B base model trained on [`tokyotech-llm/swallow-code-v2`](https://huggingface.co/datasets/tokyotech-llm/swallow-code-v2) dataset for Fill-in-Middle (FIM) task. 
+In [previous posts](https://dudeperf3ct.github.io/projects/train_llm_part2/), I explored how to pretrain a language model. The setup for pretraining used Llama 3.2 1B base model trained on [`tokyotech-llm/swallow-code-v2`](https://huggingface.co/datasets/tokyotech-llm/swallow-code-v2) dataset for Fill-in-Middle (FIM) task. 
 
 The mistake here was using narrow code-only corpus as pretraining dataset. A more practical pipeline would be to begin with a broadly pretrained base model, optionally continue pretraining it on high-quality code, and then apply SFT using verified prompt–response demonstrations. Pretraining task are used to learn language representation across various tasks.
 
