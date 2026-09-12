@@ -5,7 +5,7 @@ ShowToc: true
 math: true
 ---
 
-The previous post on post-training covered SFT and performed 4 finetuning experiments on direct and reasoning tasks using LoRA and full-finetuning approaches. This post covers different reinforcement learning (RL) approaches used in post-training.
+The post on [post-training SFT](https://dudeperf3ct.github.io/projects/post_training_llm_sft/) covered four finetuning experiments on direct and reasoning tasks using LoRA and full-finetuning approaches. This post covers different reinforcement learning (RL) approaches used in post-training.
 
 SFT teaches a model by giving it examples to imitate. The training data contains target responses, and the model learns to generate tokens from the target distribution.
 
