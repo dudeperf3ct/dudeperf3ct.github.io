@@ -2,11 +2,12 @@
 title: "Post training - Reinforcement Learning"
 tags: ["llm", "rlhf", "rl", "rlvr", "post-training"]
 ShowToc: true
+math: true
 ---
 
 The previous post on post-training covered SFT and performed 4 finetuning experiments on direct and reasoning tasks using LoRA and full-finetuning approaches. This post covers different reinforcement learning (RL) approaches used in post-training.
 
-SFT teaches a model by giving it examples to imitate. The training data consists of target response, and the model learns to generate tokens from the target distribution.
+SFT teaches a model by giving it examples to imitate. The training data contains target responses, and the model learns to generate tokens from the target distribution.
 
 RL takes a different approach. Instead of showing the model exactly *how* to solve a problem, we let it generate solutions, evaluate how good those solutions are, and update the model so that successful behaviour becomes more likely.
 
@@ -33,7 +34,7 @@ At each timestep, the agent observes the current state, samples an action from i
 
 {{< figure align=center src="/images/rl.jpg" attr="[Reinforcement Learning: An Introduction, Richard Sutton and Andrew G. Barto](http://incompleteideas.net/book/RLbook2020.pdf)">}}
 
-Policy can be a stochastic like a deep learning network learned function or deterministic returning same action for a given state.
+A policy can be a stochastic like a deep learning network learned function or deterministic returning same action for a given state.
 
 A classic example for deterministic policy would be navigating a grid. A fixed policy would be like if state == bottom_left_of_grid, always move right. For a given state, the policy always chooses the same action.
 
@@ -43,7 +44,7 @@ Language models naturally fit the stochastic formulation because, given some tex
 
 ### RL for Language Models
 
-Language models do not have external environments as in the standard RL setup. There are two useful ways to think about it
+In many LLM post-training setups, there is no external environment in the classical sense. There are two useful ways to map the RL formulation onto language generation.
 
 **Response level** : At response level, the model receives a prompt sampled from the training dataset, generates a completion and receives a reward upon completion. RL components are
 
@@ -75,13 +76,13 @@ Reinforcement Learning from Human Feedback (RLHF) adapts the standard RL setup f
 
 RLHF training is a two-step process:
 
-1. Reward Model (RM): Train a reward model using human preference data. The model generates multiple candidate reponses. And the responses are ranked (or compared) by human annotators. These comparisons are used to train a RM. The reward model learns to predict a scalar value (reward) for a given text on how likely would human prefer the output. A higher value should correspond to a response humans are more likely to prefer.
+1. Reward Model (RM): Train a reward model using human preference data. The model generates multiple candidate responses. And the responses are ranked (or compared) by human annotators. These comparisons are used to train a RM. The reward model learns to predict a scalar value (reward) for a given text on how likely would human prefer the output. A higher value should correspond to a response humans are more likely to prefer.
 
 {{< figure align=center src="/images/reward-model.png" attr="[Illustrating Reinforcement Learning from Human Feedback (RLHF)](https://huggingface.co/blog/rlhf)">}}
 
 2. Optimising with RL: In this second step, RL is used to optimise the LLM using reward model. The setup consists of initial LLM frozen from SFT stage as reference model. Trainable copy of same model is referred as the policy model. The policy generates responses, the reward model scores them, and policy weights are updated to make high-reward response more likely.
 
-A Kullback–Leibler (KL) divergence term is applied to penalize policy model if it moves aways from reference model. Without such a constraint, the policy may exploit weaknesses in the learned reward model rather than genuinely producing better responses.
+A Kullback–Leibler (KL) divergence term is applied to penalize policy model if it moves away from reference model. Without such a constraint, the policy may exploit weaknesses in the learned reward model rather than genuinely producing better responses.
 
 {{< figure align=center src="/images/rlhf.png" attr="[Illustrating Reinforcement Learning from Human Feedback (RLHF)](https://huggingface.co/blog/rlhf)">}}
 
@@ -95,14 +96,20 @@ The general idea behind policy gradient to update LLM weights is
 
 1. Generate output using the current policy
 2. Calculate reward
-3. Esimate an advantage
+3. Estimate an advantage
 4. Increase probability of good actions or decrease probability of bad actions
 
  The advantage measures how much better or worse a sampled action or trajectory performed compared with some baseline. Different RL algorithms differ in how this baseline is estimated and how aggressively the policy is allowed to change.
 
 PPO model uses critic/value model to estimate the expected future reward. This estimate is then used as a baseline when calculating the advantage. Traditional PPO-based RLHF involves four conceptual model roles: a trainable policy, a trainable value/critic model, a frozen reward model, and a frozen reference policy. The reward model is trained beforehand and the RL stage updates the policy and critic.
 
-Group Relative Policy Optimisation (GRPO) introduced by DeepSeekMath work simplifies by removing the need to train a critic model. Instead of training a value model, GRPO generates a group of responses for the same prompt. Each completion can then be evaluated relative to other completions in the same group.
+Group Relative Policy Optimisation (GRPO), introduced in the DeepSeekMath work, simplifies by removing the need to train a critic model. Instead of training a value model, GRPO generates a group of responses for the same prompt. Each completion can then be evaluated relative to other completions in the same group.
+
+$$
+A_i = \frac{r_i - \mu_r}{\sigma_r},
+\qquad
+\mu_r = \frac{1}{G}\sum_{j=1}^{G} r_j
+$$
 
 A completion that performs better than the group average receives a positive advantage, while one that performs worse receives a negative advantage. The policy is then updated to make higher-advantage trajectories more likely.
 
@@ -197,7 +204,7 @@ else:
 For code, the verifier could instead execute the generated program against unit tests:
 
 ```python
-if all_unit_tests_passed == true:  
+if all_unit_tests_passed == True:
   reward = 1
 else:
   reward = 0
@@ -255,7 +262,7 @@ A useful analogy is:
 
 ## Experiment
 
-For this experiment, I start from the corresponding full-finetuned SFT checkpoints from the previous experiment. Rather than training another model from scratch, I start with the best SFT checkpoint from the previous experiment and ask a narrower question:
+For this experiment, I start from the corresponding full-finetuned SFT checkpoints from the previous experiment and ask a narrower question:
 
 > Can RLVR improve code correctness beyond SFT?
 
@@ -287,8 +294,7 @@ The RL dataset is based on KodCode-Light-RL-10K. The dataset is filtered using s
 I use Axolotl to train the RLVR models. For each prompt, the policy generates eight completions. Generated Python is then executed against the problem's public tests inside isolated [Modal Sandboxes](https://modal.com/docs/guide/sandboxes). The code reward is binary 
 
 ```python
-all_tests_pass = 1
-otherwise = 0
+reward = 1 if all_tests_pass else 0
 ```
 
 The two experiments start from the matching full-finetuned SFT checkpoints. The names `direct-fft` and `reasoning-fft` refer to those starting checkpoints; the RL update itself uses LoRA with rank 32. Both runs use the same 1,000 training prompts, seed 42, one epoch and eight rollouts per prompt. One H100 serves rollouts with vLLM, while a second H100 performs training. Generated code is evaluated in isolated Modal Sandboxes.
@@ -344,7 +350,7 @@ The percentage-point changes below compare each RLVR checkpoint only with its ma
 ## Learnings
 
 * [Reported and patched](https://github.com/axolotl-ai-cloud/axolotl/issues?q=is%3Aissue%20state%3Aopen%20author%3Adudeperf3ct) few bugs in axolotl library `0.18.0`. 
-* The Async GRPO approach in axolotl library was broken so I had to stick with synchronous RL training approach. I had to manually maintain patches as part of this experient.
+* The Async GRPO approach in axolotl library was broken so I had to stick with synchronous RL training approach. I had to manually maintain patches as part of this experiment.
 * Neither checkpoint shows a broad correctness improvement over its SFT starting point. 
 * The direct checkpoint improves MBPP and LiveCodeBench Easy slightly, but regresses on HumanEval, HumanEval+, MBPP+ and LiveCodeBench Medium. 
 * The reasoning checkpoint improves MBPP+, LiveCodeBench Easy and LiveCodeBench Hard, holds MBPP flat, and regresses on both HumanEval variants and LiveCodeBench Medium.
