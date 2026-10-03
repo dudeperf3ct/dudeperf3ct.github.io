@@ -34,7 +34,7 @@ At each timestep, the agent observes the current state, samples an action from i
 
 {{< figure align=center src="/images/rl.jpg" attr="[Reinforcement Learning: An Introduction, Richard Sutton and Andrew G. Barto](http://incompleteideas.net/book/RLbook2020.pdf)">}}
 
-A policy can be a stochastic like a deep learning network learned function or deterministic returning same action for a given state.
+A policy can be stochastic like a deep learning network learned function or deterministic returning same action for a given state.
 
 A classic example for deterministic policy would be navigating a grid. A fixed policy would be like if state == bottom_left_of_grid, always move right. For a given state, the policy always chooses the same action.
 
@@ -99,7 +99,7 @@ The general idea behind policy gradient to update LLM weights is
 3. Estimate an advantage
 4. Increase probability of good actions or decrease probability of bad actions
 
- The advantage measures how much better or worse a sampled action or trajectory performed compared with some baseline. Different RL algorithms differ in how this baseline is estimated and how aggressively the policy is allowed to change.
+The advantage measures how much better or worse a sampled action or trajectory performed compared with some baseline. Different RL algorithms differ in how this baseline is estimated and how aggressively the policy is allowed to change.
 
 PPO model uses critic/value model to estimate the expected future reward. This estimate is then used as a baseline when calculating the advantage. Traditional PPO-based RLHF involves four conceptual model roles: a trainable policy, a trainable value/critic model, a frozen reward model, and a frozen reference policy. The reward model is trained beforehand and the RL stage updates the policy and critic.
 
