@@ -1,11 +1,11 @@
 ---
 author: [""]
-title: "LLM Post training"
+title: "LLM Post Training"
 date: 2026-10-03
 summary: ""
 description: "An overview of post-training approaches used in LLM training"
 tags: ["llm", "post-training", "sft", "rlvr", "rl"]
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: true
 ---
 
@@ -16,8 +16,10 @@ ShowBreadCrumbs: true
  A good analogy I think of different stages is
 
 * **Pretraining**: Learning language, knowledge and task representations through next-token prediction.
-* **SFT**: Adapting a pretrained model to imitate desired responses, follow instructions and produce task-specific output formats.
+* **SFT**: Adapting a pretrained model to imitate desired responses, follow instructions and produce task-specific output formats.A
+* **Preference optimisation**: Learn which responses should be preferred over others.
 * **RL** or **verifiable RL**: It takes one step further, optimizing model behaviour using rewards, preferences or verifiable outcomes rather than only imitating reference responses.
+* **Distillation**: Learn from the behaviour of a stronger teacher model, rather than only from fixed target responses or scalar rewards.
 
 {{< figure align=center src="/images/post-training-adventure.png" attr="[The Smol Training Playbook](https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook#beyond-base-modelspost-training-in-2025)">}}
 
