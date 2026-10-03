@@ -7,6 +7,7 @@ description: "An overview of post-training approaches used in LLM training"
 tags: ["llm", "post-training", "sft", "rlvr", "rl"]
 ShowToc: true
 ShowBreadCrumbs: true
+math: true
 ---
 
  Modern post-training can involve supervised finetuning (SFT), preference optimisation, RL training using [various policy optimisation algorithms](https://x.com/agarwl_/status/1981518825007853891) and distillation. 
@@ -179,7 +180,7 @@ A completion that performs better than the group average receives a positive adv
 > [!TIP]
 > For a more detailed comparison of policy-gradient algorithms and their advantage estimators, I recommend the [policy gradient chapter](https://rlhfbook.com/c/06-policy-gradients) of Nathan Lambert's book.
 
-### Reinforcement Learning with verifiable rewards (RLVR): RL with an objective verifier
+### Reinforcement Learning with verifiable rewards (RLVR)
 
 RLHF is useful when evaluating an answer is subjective. RLVR provides another way to scale RL using verifiable rewards for certain reasoning tasks. The verifiable rewards are functions. For code these functions are unit tests. For maths, these functions are the final expected answer. Instead of learning a reward model from human preferences, RLVR uses a programmatic verifier. 
 
@@ -289,4 +290,4 @@ A useful analogy is:
 **On-policy distillation**: Solve the problem yourself while an expert watches each step and tells you how they would act from the exact state you reached.
 
 > [!NOTE]
-> Inspired by Will Brown's [post](https://x.com/willcb/status/2050038277454143918) on comparing SFT, RL and OPD. 
+> Inspired by Will Brown's [post](https://x.com/willcb/status/2050038277454143918) on comparing SFT, RL and OPD and Thinking Machine's blog on [On-Policy Distilattion](https://thinkingmachines.ai/blog/on-policy-distillation/). 
