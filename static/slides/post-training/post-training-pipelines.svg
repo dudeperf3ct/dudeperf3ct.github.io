@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1152" height="470" viewBox="0 0 1152 470" role="img" aria-labelledby="title description">
+  <title id="title">Two eras of post-training</title>
+  <desc id="description">Classic InstructGPT uses SFT followed by PPO, with a separate reward model trained on human preferences. Modern post-training iterates model updates, synthetic data generation and filtering, using stage-dependent feedback from reward models, judges or verifiers.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#788178" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <style>
+    text { font-family: Arial, sans-serif; fill: #263b2e; }
+    .era { font-size: 18px; font-weight: 700; letter-spacing: 1px; }
+    .node { font-size: 23px; text-anchor: middle; }
+    .label { font-size: 17px; text-anchor: middle; fill: #65716b; }
+    .edge { fill: none; stroke: #788178; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+    .optional { stroke-dasharray: 6 6; }
+    .classic { fill: #eee2c5; }
+    .modern { fill: #dce8d5; }
+    .feedback { fill: #eeeee7; stroke: #d4d9cf; }
+  </style>
+
+  <text class="era" x="0" y="23">INSTRUCTGPT · CLASSIC RLHF</text>
+  <rect class="classic" x="0" y="69" width="160" height="54" rx="7"/>
+  <text class="node" x="80" y="103">Base model</text>
+  <path class="edge" d="M 172 96 H 308"/>
+  <text class="label" x="240" y="48">Human</text>
+  <text class="label" x="240" y="68">demonstrations</text>
+  <rect class="classic" x="320" y="69" width="180" height="54" rx="7"/>
+  <text class="node" x="410" y="103">SFT model</text>
+  <path class="edge" d="M 512 96 H 928"/>
+  <text class="label" x="710" y="78">PPO optimisation</text>
+  <rect class="classic" x="940" y="69" width="212" height="54" rx="7"/>
+  <text class="node" x="1046" y="103">Aligned model</text>
+  <path class="edge" d="M 410 135 V 169 Q 410 184 425 184 H 548"/>
+  <text class="label" x="470" y="210">Human preferences</text>
+  <rect class="classic" x="560" y="157" width="220" height="54" rx="7"/>
+  <text class="node" x="670" y="191">Reward model</text>
+  <path class="edge" d="M 792 184 H 815 Q 830 184 830 169 V 100"/>
+  <text class="label" x="899" y="158">Reward scores</text>
+
+  <path d="M 0 235 H 1152" stroke="#d4d9cf"/>
+  <text class="era" x="0" y="265">MODERN · ITERATIVE POST-TRAINING</text>
+  <path class="edge" d="M 850 333 V 303 Q 850 293 840 293 H 420 Q 410 293 410 303 V 333"/>
+  <text class="label" x="670" y="283">Generate new data · filter · repeat</text>
+  <rect class="modern" x="0" y="345" width="160" height="54" rx="7"/>
+  <text class="node" x="80" y="379">Base model</text>
+  <path class="edge" d="M 172 372 H 308"/>
+  <text class="label" x="240" y="319">Human + synthetic</text>
+  <text class="label" x="240" y="339">demonstrations</text>
+  <text class="label" x="240" y="404">Initial SFT</text>
+  <rect class="modern" x="320" y="345" width="180" height="54" rx="7"/>
+  <text class="node" x="410" y="379">Model N</text>
+  <path class="edge" d="M 512 372 H 748"/>
+  <text class="label" x="630" y="349">SFT · DPO · RL / RLVR</text>
+  <rect class="modern" x="760" y="345" width="180" height="54" rx="7"/>
+  <text class="node" x="850" y="379">Model N + 1</text>
+  <path class="edge" d="M 952 372 H 988"/>
+  <rect class="modern" x="1000" y="345" width="152" height="54" rx="7"/>
+  <text class="node" x="1076" y="379">Final model</text>
+  <text class="label" x="1076" y="422">Evaluate &amp; select</text>
+  <path class="edge optional" d="M 410 411 V 431 Q 410 443 422 443 H 528"/>
+  <text class="label" x="308" y="454">Model responses</text>
+  <rect class="feedback" x="540" y="417" width="240" height="52" rx="7"/>
+  <text class="label" x="660" y="439">Reward model / judge</text>
+  <text class="label" x="660" y="460">or verifier</text>
+  <path class="edge optional" d="M 792 443 H 808 Q 820 443 820 431 V 411"/>
+  <text class="label" x="909" y="453">Labels / rewards</text>
+</svg>
